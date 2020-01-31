@@ -55,8 +55,8 @@ ms.locfileid: "74280884"
 
 |Intent   | エンティティ | 発話の例   | 
 |------------------|------------------------------|------------------------------|
-| CheckWeather | { "型": "場所", "エンティティ": "シアトル" }<br>{ "型": "builtin.datetimeV2.date","エンティティ": "明日","解像度":"2018-05-23" } | `Seattle` の `tomorrow` の天気はどうですか |
-| CheckWeather | { "型": "日付の範囲", "エンティティ": "今週末" } | `this weekend` の天気予報を教えてください | 
+| CheckWeather | { "type": "location", "entity": "seattle" }<br>{ "type": "builtin.datetimeV2.date","entity": "tomorrow","resolution":"2018-05-23" } | `Seattle` の `tomorrow` の天気はどうですか |
+| CheckWeather | { "type": "date_range", "entity": "this weekend" } | `this weekend` の天気予報を教えてください | 
 ||||
 
 ## <a name="prebuilt-domain-intents"></a>事前構築済みドメインの意図
