@@ -27,7 +27,7 @@ ms.locfileid: "75448097"
 [!INCLUDE [Select authoring resource](./includes/select-authoring-resource.md)]
 
 ## <a name="create-a-new-app"></a>新しいアプリの作成
-アプリケーションは、 **[マイ アプリ]** で作成および管理できます。
+アプリケーションは、 **[マイ アプリ]\(\)** で作成および管理できます。
 
 1. LUIS ポータルの [マイ アプリ] 一覧で、 **[+ Create] (+ 作成)** を選択します。
 
