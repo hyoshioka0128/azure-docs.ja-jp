@@ -1,18 +1,18 @@
 ---
-title: Azure Bastion で VM と NSG を使用する | Microsoft Docs
+title: Azure Bastion で VM と NSG を使用する
 description: この記事では、Azure Bastion に NSG アクセスを組み込む方法を説明します
 services: bastion
-author: ashjain
+author: charwen
 ms.service: bastion
 ms.topic: conceptual
-ms.date: 10/16/2019
-ms.author: ashishj
-ms.openlocfilehash: 8fb48b3dbe0d727f92bd2e0fec91ac2dbf33338b
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.date: 02/03/2020
+ms.author: charwen
+ms.openlocfilehash: 15abee4688a2f6aefa2b08ad2b8eee6622d56be2
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76547627"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77087275"
 ---
 # <a name="working-with-nsg-access-and-azure-bastion"></a>NSG アクセスと Azure Bastion を使用する
 

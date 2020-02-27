@@ -1,19 +1,19 @@
 ---
 title: ローカライズのサポート | Microsoft Azure Maps
-description: この記事では、Microsoft Azure Maps のサービス向けにサポートされている言語について説明します。
-author: walsehgal
-ms.author: v-musehg
+description: この記事では、Microsoft Azure Maps のサービス向けにサポートされている言語について学習します。
+author: farah-alyasari
+ms.author: v-faalya
 ms.date: 11/20/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 4926cb2bb4cb1aa15b212cc7130e0db995a24ed9
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: 5de04b4e37e79a47f89bb235aad2b0f9cab69e6a
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75910428"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77208150"
 ---
 # <a name="localization-support-in-azure-maps"></a>Azure Maps でのローカライズのサポート
 
@@ -22,10 +22,10 @@ Azure Maps は、さまざまな言語および国/地域に基づくビュー�
 
 ## <a name="azure-maps-supported-languages"></a>Azure Maps でサポートされている言語
 
-Azure Maps は、サービス全体にわたってさまざまな言語にローカライズされています。 次の表は、各サービスでサポートされている言語コードを示しています。  
+Azure Maps は、そのサービス全体にわたってさまざまな言語にローカライズされています。 次の表は、各サービスでサポートされている言語コードを示しています。  
   
 
-| id         | Name                   |  マップ | 検索 | ルーティング | Weather | トラフィック インシデント | JS マップ コントロール |
+| id         | 名前                   |  マップ | 検索 | ルーティング | Weather | トラフィック インシデント | JS マップ コントロール |
 |------------|------------------------|:-----:|:------:|:-------:|:--------:|:-----------------:|:--------------:|
 | af-ZA      | アフリカーンス語              |       |    ✓   |    ✓    |         |                   |                |
 | ar-SA      | アラビア語                 |   ✓   |    ✓   |    ✓    |    ✓      |         ✓         |        ✓       |
@@ -101,13 +101,15 @@ Azure Maps は、サービス全体にわたってさまざまな言語にロー
 ## <a name="azure-maps-supported-views"></a>Azure Maps でサポートされているビュー
 
 > [!Note]
-> Azure Maps は、2019 年 8 月 1 日に次の国/リージョンでリリースされました。
+> Azure Maps は、2019 年 8 月 1 日に次の国および地域でリリースされました。
 >  * アルゼンチン
 >  * インド
 >  * モロッコ
 >  * パキスタン
 >
-> 2019 年 8 月 1 日以降、**View** パラメーターの設定で、上記の新しい地域/国に対して返されるマップ コンテンツが定義されます。 必要に応じて、ご自分のサービスに使用されている REST API および SDK に View パラメーターを設定することをお勧めします。
+> 2019 年 8 月 1 日以降、**View** パラメーターで、上記の新しい地域および国に対して返されるマップ コンテンツが定義されます。 Azure Maps の **View** パラメーター ("ユーザーの地域のパラメーター" とも呼ばれます) は 2 文字の ISO-3166 の国番号であり、マップ上に表示される国境やラベルなど、その国/地域にとって正しいマップが Azure Maps サービスを介して表示されます。 
+
+必要に応じて、ご自分のサービスに使用されている REST API および SDK に **View** パラメーターを設定してください。
 >  
 >
 >  **Rest API:**
@@ -135,20 +137,17 @@ Azure Maps は、サービス全体にわたってさまざまな言語にロー
 >    
 >  **SDK:**
 >
->  必要に応じて View パラメーターを設定し、Web SDK と Android SDK の最新バージョンを用意します。 影響を受ける SDK:
+>  必要に応じて **View** パラメーターを設定し、Web SDK と Android SDK の最新バージョンを用意してください。 影響を受ける SDK:
 >
 >    * Azure Maps Web SDK
 >    * Azure Maps Android SDK
 
-
-Azure Maps の **View** パラメーター ("ユーザーの地域のパラメーター" とも呼ばれます) は 2 文字の ISO-3166 の国番号であり、マップ上に表示される国境やラベルなど、その国/地域にとって正しいマップが Azure Maps サービスを介して表示されます。 
-
-要求で定義していない場合でも、既定で View パラメーターは **Unified** に設定されています。 ユーザーの場所を特定し、その場所を正しく View パラメーターを設定するのはユーザーの責任です。 または、要求の IP アドレスに基づいてマップ データを返す 'View = Auto' を設定することもできます。  Azure Maps の View パラメーターは、Azure Maps へのアクセスを承認されたマップ、イメージ、およびその他のデータとサード パーティ コンテンツを表示できる国のマッピングに関する法律など、該当する法律に準拠していなければなりません。
+要求で定義していない場合でも、既定で View パラメーターは **Unified** に設定されています。 ユーザーの場所を確認します。 次に、その場所の **View** パラメーターを正しく設定します。 または、要求の IP アドレスに基づいてマップ データを返す 'View = Auto' を設定することができます。  Azure Maps の **View** パラメーターは、Azure Maps へのアクセスを承認されたマップ、イメージ、およびその他のデータとサード パーティ コンテンツを表示できる国のマッピングに関する法律など、該当する法律に準拠していなければなりません。
 
 
 次の表に、サポートされるビューを示します。
 
-| 表示         | [説明]                            |  マップ | 検索 | JS マップ コントロール |
+| 表示         | 説明                            |  マップ | 検索 | JS マップ コントロール |
 |--------------|----------------------------------------|:-----:|:------:|:--------------:|
 | AE           | アラブ首長国連邦、AE    |   ✓   |        |     ✓          |
 | AR           | アルゼンチン (アルゼンチン ビュー)           |   ✓   |    ✓   |     ✓          |

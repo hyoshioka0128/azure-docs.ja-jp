@@ -10,12 +10,12 @@ ms.author: vaidyas
 author: vaidyas
 ms.reviewer: larryfr
 ms.date: 11/22/2019
-ms.openlocfilehash: 00a62e970e27d689eb639a62938376f73410c270
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: 29c91cf14413a11804de82eeaf08d628b125d76a
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76024912"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77471943"
 ---
 # <a name="deploy-a-machine-learning-model-to-azure-functions-preview"></a>Azure Functions に機械学習モデルをデプロイする (プレビュー)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -111,14 +111,14 @@ print(blob.location)
 `show_output=True` の場合、Docker ビルド プロセスの出力が表示されます。 プロセスが完了すると、ワークスペース用の Azure Container Registry 内にイメージが作成されます。 イメージがビルドされると、Azure Container Registry 内の場所が表示されます。 返される場所は、`<acrinstance>.azurecr.io/package@sha256:<hash>` の形式です。
 
 > [!NOTE]
-> 現在、関数のパッケージ化では、HTTP トリガー、BLOB トリガー、および Service Bus トリガーがサポートされています。 トリガーの詳細については、[Azure Functions のバインド](https://docs.microsoft.com/azure/azure-functions/functions-bindings-storage-blob?tabs=csharp#trigger---blob-name-patterns)に関する記事をご覧ください。
+> 現在、関数のパッケージ化では、HTTP トリガー、BLOB トリガー、および Service Bus トリガーがサポートされています。 トリガーの詳細については、[Azure Functions のバインド](https://docs.microsoft.com/azure/azure-functions/functions-bindings-storage-blob-trigger#blob-name-patterns)に関する記事をご覧ください。
 
 > [!IMPORTANT]
 > イメージをデプロイするときに使用されるため、場所情報を保存します。
 
 ## <a name="deploy-image-as-a-web-app"></a>イメージを Web アプリとしてデプロイする
 
-1. 次のコマンドを使用して、イメージを含む Azure Container Registry のログイン資格情報を取得します。 `<acrinstance>` を、以前 `package.location` から返された値に置き換えます。 
+1. 次のコマンドを使用して、イメージを含む Azure Container Registry のログイン資格情報を取得します。 `<myacr>` を、以前 `package.location` から返された値に置き換えます。 
 
     ```azurecli-interactive
     az acr credential show --name <myacr>
@@ -177,7 +177,7 @@ print(blob.location)
 1. BLOB トリガー ストレージに使用するストレージ アカウントを作成し、その接続文字列を取得します。 `<triggerStorage>` を使用する名前に置き換えます。
 
     ```azurecli-interactive
-    az storage account create --name triggerStorage --location westeurope --resource-group myresourcegroup --sku Standard_LRS
+    az storage account create --name <triggerStorage> --location westeurope --resource-group myresourcegroup --sku Standard_LRS
     ```
     ```azurecli-interactive
     az storage account show-connection-string --resource-group myresourcegroup --name <triggerStorage> --query connectionString --output tsv

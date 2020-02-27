@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/22/2019
 ms.author: apimpm
-ms.openlocfilehash: 81daada7a62da86772d4657a1a8aaff91f27b673
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.openlocfilehash: a206ef6eb529fc396ec4ecb82d468c19f9e54b8a
+ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76045585"
+ms.lasthandoff: 02/09/2020
+ms.locfileid: "77108242"
 ---
 # <a name="azure-api-management-developer-portal-overview"></a>Azure API Management 開発者ポータルの概要
 
@@ -39,7 +39,7 @@ ms.locfileid: "76045585"
 開発者ポータルは 2 つの方法で構築できます。
 
 - **マネージド バージョン** - API Management インスタンスに組み込まれたポータルを編集およびカスタマイズします。URL `<your-api-management-instance-name>.developer.azure-api.net` からアクセスできます。 マネージド ポータルにアクセスしてカスタマイズする方法については、[こちらのドキュメント記事](api-management-howto-developer-portal-customize.md)を参照してください。
-- **セルフホステッド バージョン** - API Management インスタンスの外部にポータルをデプロイし、自らホスティングします。 このアプローチを使用すると、ポータルのコードベースを編集したり、提供されているコア機能を拡張したりできます。 また、自分でポータルを最新バージョンにアップグレードする必要もあります。 詳細および手順については、[ポータルのソース コードを含む GitHub リポジトリ][1]と[ウィジェットの実装に関するチュートリアル][4]を参照してください。 [マネージド バージョンのチュートリアル](api-management-howto-developer-portal-customize.md)では、ポータルの管理パネルについて説明します。これは、セルフホステッド バージョンでも取り上げられています。
+- **セルフホステッド バージョン** - API Management インスタンスの外部にポータルをデプロイし、自らホスティングします。 このアプローチを使用すると、ポータルのコードベースを編集したり、提供されているコア機能を拡張したりできます。 また、自分でポータルを最新バージョンにアップグレードする必要もあります。 詳細および手順については、[ポータルのソース コードを含む GitHub リポジトリ][1]と[ウィジェットの実装に関するチュートリアル][3]を参照してください。 [マネージド バージョンのチュートリアル](api-management-howto-developer-portal-customize.md)では、ポータルの管理パネルについて説明します。これは、セルフホステッド バージョンでも取り上げられています。
 
 ## <a name="portal-architectural-concepts"></a>ポータルのアーキテクチャの概念
 
@@ -104,7 +104,7 @@ ms.locfileid: "76045585"
 
 ### <a name="functionality-i-need-isnt-supported-in-the-portal"></a>必要な機能がポータルでサポートされていない
 
-セルフホステッド バージョンを使用し、[独自のウィジェットを実装します][4]。
+セルフホステッド バージョンを使用し、[独自のウィジェットを実装します][3]。
 
 ### <a name="how-can-i-automate-portal-deployments"></a>ポータルのデプロイを自動化するにはどうすればよいですか。
 
@@ -214,20 +214,30 @@ API Management サービスが VNet 内にある場合は、VNet 接続に関す
 
 カスタム ドメインに割り当てられているがブラウザーで信頼されていない SSL 証明書が原因で呼び出しが失敗する場合もあります。 軽減策として、管理エンドポイントのカスタム ドメインを削除することができます。API Management は、信頼できる証明書を使用して既定のエンドポイントにフォールバックします。
 
+### <a name="whats-the-browser-support-for-the-portal"></a>ポータルのブラウザー サポートとは何ですか？
+
+| Browser                     | サポートされています       |
+|-----------------------------|-----------------|
+| Apple Safari                | 可<sup>1</sup> |
+| Google Chrome               | 可<sup>1</sup> |
+| Microsoft Edge              | 可<sup>1</sup> |
+| Microsoft Internet Explorer | いいえ              |
+| Mozilla Firefox             | 可<sup>1</sup> |
+
+ <small><sup>1</sup> 2 つの最新の生産バージョンでサポートされています。</small>
+
 ## <a name="next-steps"></a>次のステップ
 
 新しい開発者ポータルの詳細を確認します:
 
 - [マネージド開発者ポータルへのアクセスとカスタマイズ](api-management-howto-developer-portal-customize.md)
 - [ポータルのセルフホステッド バージョンの設定][2]
-- [独自のウィジェットの実装][4]
+- [独自のウィジェットの実装][3]
 
 その他のリソースを参照します:
 
 - [ソース コードがある GitHub リポジトリ][1]
-- [プロジェクトのパブリック ロードマップ][3]
 
 [1]: https://aka.ms/apimdevportal
 [2]: https://github.com/Azure/api-management-developer-portal/wiki
-[3]: https://github.com/Azure/api-management-developer-portal/projects
-[4]: https://aka.ms/apimdevportal/extend
+[3]: https://aka.ms/apimdevportal/extend

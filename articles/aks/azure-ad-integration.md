@@ -2,17 +2,14 @@
 title: Azure Active Directory と Azure Kubernetes Service を統合する
 description: Azure Active Directory 対応の Azure Kubernetes Service (AKS) クラスターを作成する方法
 services: container-service
-author: mlearned
-ms.service: container-service
 ms.topic: article
-ms.date: 04/26/2019
-ms.author: mlearned
-ms.openlocfilehash: 26f1544cab5cf5be2edd52f97c758d46eb835514
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.date: 02/02/2019
+ms.openlocfilehash: 0476acadf5af3a3e2c470fe6c08ebbd355653e22
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71103789"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77596591"
 ---
 # <a name="integrate-azure-active-directory-with-azure-kubernetes-service"></a>Azure Active Directory と Azure Kubernetes Service を統合する
 
@@ -20,7 +17,7 @@ Azure Kubernetes Service (AKS) を、ユーザー認証に Azure Active Director
 
 クラスター管理者は、ユーザーの ID またはディレクトリ グループのメンバーシップに基づいて、Kubernetes のロールベースのアクセス制御 (RBAC) を構成できます。
 
-この記事では、次の方法について説明します。
+この記事では、以下の方法について説明します。
 
 - AKS と Azure AD の前提条件をデプロイする。
 - Azure AD 対応のクラスターをデプロイする。
@@ -117,6 +114,13 @@ AKS クラスターに対して Azure AD 認証を提供するため、2 つの 
     b. **[サポートされているアカウントの種類]** で、 **[この組織のディレクトリ内のアカウントのみ]** を選択します。
 
     c. リダイレクト URI の種類で **[Web]** を選択し、 *https://aksazureadclient* のような形式の URI 値を入力します。
+
+    >[!NOTE]
+    >コンテナー用 Azure Monitor をサポートするために新しい RBAC 対応クラスターを作成する場合は、次の 2 つのリダイレクト URL を **Web** アプリケーションの種類としてこの一覧に追加します。 最初のベース URL の値は `https://afd.hosting.portal.azure.net/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html`、2番目のベース URL の値は `https://monitoring.hosting.portal.azure.net/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html` にする必要があります。
+    >
+    >この機能を Azure 中国で使用する場合は、最初のベース URL の値を `https://afd.hosting.azureportal.chinaloudapi.cn/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html` にし、2 番目のベース URL の値を `https://monitoring.hosting.azureportal.chinaloudapi.cn/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html` にする必要があります。
+    >
+    >詳細については、コンテナー用 Azure Monitor での「[ライブ データ (プレビュー) 機能を設定する方法](../azure-monitor/insights/container-insights-livedata-setup.md)」、および「[AD 統合認証の構成](../azure-monitor/insights/container-insights-livedata-setup.md#configure-ad-integrated-authentication)」セクションに記載されている認証の構成手順を参照してください。
 
     d. 完了したら、 **[登録]** を選択します。
 
@@ -280,7 +284,7 @@ error: You must be logged in to the server (Unauthorized)
 - ユーザーが 200 を超えるグループのメンバーにはなっていない。
 - サーバーのアプリケーション登録に定義されているシークレットが、`--aad-server-app-secret` を使用して構成された値と一致する。
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
 Azure AD ユーザーとグループを使用してクラスター リソースへのアクセスを制御するには、[AKS でロールベースのアクセス制御と Azure AD の ID を使用してクラスター リソースへのアクセスを制限する][azure-ad-rbac]方法に関するページを参照してください。
 
@@ -296,7 +300,7 @@ ID とリソース管理の詳細については、「[Azure Kubernetes Service 
 [az-aks-create]: /cli/azure/aks?view=azure-cli-latest#az-aks-create
 [az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest#az-aks-get-credentials
 [az-group-create]: /cli/azure/group#az-group-create
-[open-id-connect]:../active-directory/develop/v1-protocols-openid-connect-code.md
+[open-id-connect]:../active-directory/develop/v2-protocols-oidc.md
 [az-ad-user-show]: /cli/azure/ad/user#az-ad-user-show
 [rbac-authorization]: concepts-identity.md#role-based-access-controls-rbac
 [operator-best-practices-identity]: operator-best-practices-identity.md

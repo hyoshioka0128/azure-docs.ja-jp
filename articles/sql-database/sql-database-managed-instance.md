@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab, vanto
 ms.date: 01/21/2020
-ms.openlocfilehash: fb9b665f5631e6992966679b1dc0864539fde543
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: b9fdd1b25e53e1cdc8aa76564304a61adaa8d804
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76514557"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77201596"
 ---
 # <a name="what-is-azure-sql-database-managed-instance"></a>Azure SQL Database Managed Instance とは
 
@@ -53,7 +53,7 @@ Azure SQL Database デプロイ オプションの単一データベース、プ
 
 マネージド インスタンスの主な機能を次の表に示します。
 
-|機能 | [説明]|
+|機能 | 説明|
 |---|---|
 | SQL Server のバージョン/ビルド | SQL Server Database Engine (最新の安定版) |
 | 管理される自動バックアップ | はい |
@@ -80,9 +80,6 @@ Azure SQL Database デプロイ オプションの単一データベース、プ
 - **Gen5** 論理 CPU は、Intel E5-2673 v4 (Broadwell) 2.3-GHz および Intel SP-8160 (Skylake) プロセッサ、高速 NVMe SSD、ハイパースレッド論理コア、4 - 80 コアのコンピューティング サイズに基づいています。
 
 ハードウェアの世代の違いについて詳しくは、[マネージド インスタンスのリソース制限](sql-database-managed-instance-resource-limits.md#hardware-generation-characteristics)に関する記事をご覧ください。
-
-> [!IMPORTANT]
-> 新しい Gen4 データベースは、オーストラリア東部とブラジル南部リージョンでサポートされなくなりました。
 
 ## <a name="managed-instance-service-tiers"></a>マネージド インスタンスのサービス レベル
 
@@ -147,7 +144,7 @@ Azure SQL Database には、新しいマネージド インスタンスを自動
 
 次の表は、操作と標準的な総所要時間をまとめたものです。
 
-|カテゴリ  |操作  |実行時間の長いセグメント  |推定所要時間  |
+|カテゴリ  |Operation  |実行時間の長いセグメント  |推定所要時間  |
 |---------|---------|---------|---------|
 |**デプロイ** |空のサブネットへの最初のインスタンス|仮想クラスターの作成|操作の 90% は 4 時間以内に完了|
 |デプロイ |空ではないサブネットへの別のハードウェア世代の最初のインスタンス (Gen 4 インスタンスを含んだサブネットへの初の Gen 5 インスタンスなど)|仮想クラスターの作成*|操作の 90% は 4 時間以内に完了|
@@ -188,7 +185,7 @@ Azure SQL Database Managed Instance では現在、[高速化データベース�
 
 次の表は、特定の管理操作のキャンセル機能と標準的な総所要時間をまとめたものです。
 
-カテゴリ  |操作  |キャンセル可能  |推定キャンセル時間  |
+カテゴリ  |Operation  |キャンセル可能  |推定キャンセル時間  |
 |---------|---------|---------|---------|
 |デプロイ |インスタンスの作成 |いいえ |  |
 |更新 |インスタンスのストレージのスケールアップとスケールダウン (General Purpose) |いいえ |  |
@@ -303,7 +300,7 @@ Azure Database Migration Service は、複数のデータベース ソースか�
 
 ### <a name="key-differences-between-sql-server-on-premises-and-in-a-managed-instance"></a>SQL Server オンプレミスとマネージド インスタンスとの主な相違点
 
-マネージド インスタンス デプロイ オプションでは、クラウド内で常に最新の状態が維持されることから利点が得られます。これは、オンプレミスの SQL Server の一部の機能が使用されなくなるか、削除されるか、代替機能が用意される可能性があることを意味します。 特定の機能の動作がやや異なること、または完全には制御できない環境でサービスが実行されていないことをツールで認識することが必要な特定のケースがあります。
+マネージド インスタンス デプロイ オプションでは、クラウド内で常に最新の状態が維持されることから利点が得られます。これは、オンプレミスの SQL Server の一部の機能が使用されなくなるか、削除されるか、代替機能が用意される可能性があることを意味します。 特定の機能の動作がやや異なること、または完全には制御できない環境でサービスが実行されていることをツールで認識することが必要な特定のケースがあります。
 
 - 高可用性は、[Always On 可用性グループ](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server)に似たテクノロジを使用して、組み込まれており、事前に定義されています。
 - 自動バックアップおよびポイントイン タイム リストア。 顧客は自動バックアップ チェーンに影響を及ぼさない `copy-only` バックアップを開始できます。
@@ -323,7 +320,7 @@ Azure Database Migration Service は、複数のデータベース ソースか�
 
 次の表には、Transact SQL を介してアクセスできるプロパティをいくつか示します。これらのプロパティを使用することで、目的のアプリケーションがマネージド インスタンスで動作していることを検出し、重要なプロパティを取得することができます。
 
-|プロパティ|値|解説|
+|プロパティ|Value|解説|
 |---|---|---|
 |`@@VERSION`|Microsoft SQL Azure (RTM) - 12.0.2000.8 2018-03-07 Copyright (C) 2018 Microsoft Corporation|この値は SQL Database の値と同じです。 これは、SQL エンジンのバージョン 12 (SQL Server 2014) を示しているわけでは**ありません**。 マネージド インスタンスでは、常に最新の安定した SQL エンジン バージョンが実行されます。これは、SQL Server の使用可能な最新の RTM バージョン以上です。  |
 |`SERVERPROPERTY ('Edition')`|SQL Azure|この値は SQL Database の値と同じです。|

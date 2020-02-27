@@ -4,14 +4,14 @@ description: このクイックスタートでは、Azure CLI でサンプル �
 author: bmitchell287
 ms.service: spring-cloud
 ms.topic: quickstart
-ms.date: 11/04/2019
+ms.date: 02/15/2020
 ms.author: brendm
-ms.openlocfilehash: 44b2f39cb1467e3459ee326bf81381830510d6b6
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: 1e30da0844efa48f64a5e2501c79d2167ca4be92
+ms.sourcegitcommit: dfa543fad47cb2df5a574931ba57d40d6a47daef
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76278943"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77431259"
 ---
 # <a name="quickstart-launch-a-java-spring-application-using-the-azure-cli"></a>クイック スタート:Azure CLI を使用して Java Spring アプリケーションを起動する
 
@@ -59,7 +59,7 @@ az extension add --name spring-cloud
     ```azurecli
         az login
         az account list -o table
-        az account set --subscription
+        az account set --subscription <Name or ID of subscription from the last step>
     ```
 
 2. Azure Spring Cloud サービスの名前を準備します。  名前の長さは 4 文字から 32 文字で、小文字、数字、およびハイフンのみを使用できます。  サービス名の最初の文字は英字でなければならず、最後の文字は英字または数字でなければなりません。
@@ -94,7 +94,7 @@ az extension add --name spring-cloud
 次のように、プロジェクトの git リポジトリの場所で、構成サーバーを更新します。
 
 ```git
-az spring-cloud config-server git set -n <your-service-name> --uri https://github.com/Azure-Samples/piggymetrics --label config
+az spring-cloud config-server git set -n <your-service-name> --uri https://github.com/Azure-Samples/piggymetrics-config
 ```
 
 > [!div class="nextstepaction"]
@@ -143,28 +143,34 @@ az spring-cloud app deploy -n auth-service --jar-path ./auth-service/target/auth
 
 ## <a name="assign-public-endpoint-to-gateway"></a>ゲートウェイにパブリック エンドポイントを割り当てる
 
-Web ブラウザーを介してアプリケーションにアクセスする手段が必要です。 ゲートウェイ アプリケーションには、パブリックに公開されているエンドポイントが必要です。それは、次のコマンドを使用して割り当てることができます。
+Web ブラウザーを介してアプリケーションにアクセスする手段が必要です。 ゲートウェイ アプリケーションには、パブリックに公開されているエンドポイントが必要です。
+
+1. 次のコマンドを使用してエンドポイントを割り当ててください。
 
 ```azurecli
 az spring-cloud app update -n gateway --is-public true
 ```
+2. アプリケーションが実行されていることを確認できるように、**gateway** アプリケーションに対してパブリック IP を求めるクエリを実行します。
 
-最後に、アプリケーションが実行されていることを確認できるように、**gateway** アプリケーションに対してパブリック IP を求めるクエリを実行します。
-
+Linux:
 ```azurecli
 az spring-cloud app show --name gateway | grep url
 ```
-
-前のコマンドによって提供された URL に移動し、PiggyMetrics アプリケーションを実行します。
+Windows:
+```azurecli
+az spring-cloud app show --name gateway | findstr url
+```
+3. 前のコマンドによって提供された URL に移動し、PiggyMetrics アプリケーションを実行します。
     ![PiggyMetrics が実行中のスクリーンショット](media/spring-cloud-quickstart-launch-app-cli/launch-app.png)
 
 また、Azure portal に移動して URL を検索することもできます。 
 1. サービスに移動します
-1. **[アプリ]** を選択します
-1. **[gateway]** を選択します
+2. **[アプリ]** を選択します
+3. **[gateway]** を選択します
 
     ![PiggyMetrics が実行中のスクリーンショット](media/spring-cloud-quickstart-launch-app-cli/navigate-app1.png)
-1. **gateway の概要** ページで、URL を見つけます![PiggyMetrics が実行中のスクリーンショット](media/spring-cloud-quickstart-launch-app-cli/navigate-app2-url.png)
+    
+4. **gateway の概要** ページで、URL を見つけます![PiggyMetrics が実行中のスクリーンショット](media/spring-cloud-quickstart-launch-app-cli/navigate-app2-url.png)
 
 > [!div class="nextstepaction"]
 > [問題が発生しました](https://www.research.net/r/javae2e?tutorial=asc-cli-quickstart&step=public-endpoint)

@@ -1,17 +1,17 @@
 ---
-title: Azure で HTTP によってトリガーされる Python 関数を作成する
+title: Azure Functions で HTTP 要求用のサーバーレス Python 関数を作成する
 description: Azure Functions を使用してサーバーレスの Python コードを作成し、クラウドにデプロイします。
-ms.date: 01/15/2020
+ms.date: 02/11/2020
 ms.topic: quickstart
 ms.custom: mvc
-ms.openlocfilehash: c665f807d78c699423db457bf57dca2f16109913
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 16d4d5627ea297d825092009511915f5b6e734b6
+ms.sourcegitcommit: 0eb0673e7dd9ca21525001a1cab6ad1c54f2e929
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76898568"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77212431"
 ---
-# <a name="quickstart-create-an-http-triggered-python-function-in-azure"></a>クイック スタート:Azure で HTTP によってトリガーされる Python 関数を作成する
+# <a name="quickstart-create-a-python-function-in-azure-that-responds-to-http-requests"></a>クイック スタート:HTTP 要求に応答する Python 関数を Azure で作成する
 
 この記事では、コマンドライン ツールを使用して、HTTP 要求に応答する Python 関数を作成します。 コードをローカルでテストした後、Azure Functions のサーバーレス環境にデプロイします。 このクイックスタートを完了すると、ご利用の Azure アカウントでわずかな (数セント未満の) コストが発生します。
 
@@ -36,7 +36,7 @@ ms.locfileid: "76898568"
 適切なフォルダーで次のコマンドを実行し、`.venv` という名前の仮想環境を作成してアクティブにします。 必ず、Azure Functions でサポートされている Python 3.7 を使用してください。
 
 
-# <a name="bashtabbash"></a>[bash](#tab/bash)
+# <a name="bash"></a>[bash](#tab/bash)
 
 ```bash
 python -m venv .venv
@@ -52,7 +52,7 @@ source .venv/bin/activate
 sudo apt-get install python3-venv
 ```
 
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
 ```powershell
 py -m venv .venv
@@ -62,7 +62,7 @@ py -m venv .venv
 .venv\scripts\activate
 ```
 
-# <a name="cmdtabcmd"></a>[Cmd](#tab/cmd)
+# <a name="cmd"></a>[Cmd](#tab/cmd)
 
 ```cmd
 py -m venv .venv
@@ -97,7 +97,7 @@ Azure Functions における関数プロジェクトとは、それぞれが特�
     cd LocalFunctionProj
     ```
     
-1. 次のコマンドを使用して、関数を自分のプロジェクトに追加します。ここで、`--name` 引数は関数の一意の名前で、`--template` 引数は関数のトリガーを指定するものです。 `func new` によって、関数と同じ名前のサブフォルダーが作成されます。ここには、プロジェクト用に選択した言語に適したコード ファイルと、*function.json* という名前の構成ファイルが含まれます。
+1. 次のコマンドを使用して、関数を自分のプロジェクトに追加します。ここで、`--name` 引数は関数の一意の名前 (この場合は HttpExample) を指定し、`--template` 引数は関数のトリガー (HTTP trigger) を指定します。 この `func new` コマンドによって、関数と同じ名前のサブフォルダーが作成されます。ここには、プロジェクト用に選択した言語に適したコード ファイルと、*function.json* という名前の構成ファイルが含まれます。
 
     ```
     func new --name HttpExample --template "HTTP trigger"
@@ -107,7 +107,7 @@ Azure Functions における関数プロジェクトとは、それぞれが特�
 
 先に「[関数をローカルで実行する](#run-the-function-locally)」に進み、ファイルの内容は後から確認してもかまいません。
 
-### <a name="__init__py"></a>\_\_init\_\_.py
+#### <a name="__init__py"></a>\_\_init\_\_.py
 
 *\_\_init\_\_.py* には、*function.json* 内の構成に従ってトリガーされる Python 関数 `main()` が含まれます。
 
@@ -140,7 +140,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
 
 HTTP トリガーの場合、この関数は、*function.json* に定義された変数 `req` で要求データを受け取ります。 `req` は、[azure.functions.HttpRequest クラス](/python/api/azure-functions/azure.functions.httprequest)のインスタンスです。 *function.json* に `$return` として定義されているリターン オブジェクトは、[azure.functions.HttpResponse クラス](/python/api/azure-functions/azure.functions.httpresponse)のインスタンスです。 詳細については、「[Azure Functions の HTTP トリガーとバインド](functions-bindings-http-webhook.md)」を参照してください。
 
-### <a name="functionjson"></a>function.json
+#### <a name="functionjson"></a>function.json
 
 *function.json* は、関数の入出力 `bindings` (トリガーの型を含む) を定義する構成ファイルです。 `scriptFile` を変更することで、必要に応じて異なる Python ファイルを呼び出せます。
 
@@ -167,7 +167,7 @@ HTTP トリガーの場合、この関数は、*function.json* に定義され�
 }
 ```
 
-各バインディングは、方向、型、一意の名前を必要とします。 HTTP トリガーには、[`httpTrigger`](functions-bindings-http-webhook.md#trigger) 型の入力バインディングと、[`http`](functions-bindings-http-webhook.md#output) 型の出力バインディングが与えられます。
+各バインディングは、方向、型、一意の名前を必要とします。 HTTP トリガーには、[`httpTrigger`](functions-bindings-http-webhook-trigger.md) 型の入力バインディングと、[`http`](functions-bindings-http-webhook-output.md) 型の出力バインディングが与えられます。
 
 
 ## <a name="run-the-function-locally"></a>関数をローカルで実行する
@@ -199,7 +199,7 @@ Http Functions:
 
 ## <a name="create-supporting-azure-resources-for-your-function"></a>関数用の関連 Azure リソースを作成する
 
-関数コードを Azure にデプロイするには、3 つのリソースを作成する必要があります。
+関数コードを Azure にデプロイする前に、3 つのリソースを作成する必要があります。
 
 - リソース グループ。関連リソースの論理コンテナーです。
 - Azure ストレージ アカウント。プロジェクトについての状態とその他の情報を保持します。
@@ -269,14 +269,14 @@ Functions in msdocs-azurefunctions-qs:
 
 この関数は HTTP トリガーを使用しているため、呼び出しは、その URL にブラウザーから HTTP 要求を送信するか、または curl などのツールを使用して行います。 どちらの場合も、URL パラメーターである `code` が、関数エンドポイントでの呼び出しを承認する一意の関数キーです。
 
-# <a name="browsertabbrowser"></a>[ブラウザー](#tab/browser)
+# <a name="browser"></a>[ブラウザー](#tab/browser)
 
 publish コマンドの出力に表示されている完全な **Invoke url** にクエリ パラメーター `&name=Azure` を追加して、ブラウザーのアドレス バーにコピーします。 関数をローカルで実行したときと同様の出力がブラウザーに表示されるはずです。
 
 ![Azure 上で実行された関数の出力をブラウザーで表示したところ](./media/functions-create-first-function-python/function-test-cloud-browser.png)
 
 
-# <a name="curltabcurl"></a>[curl](#tab/curl)
+# <a name="curl"></a>[curl](#tab/curl)
 
 **Invoke url** にパラメーター `&name=Azure` を追加して [curl](https://curl.haxx.se/) を実行します。 "Hello Azure" というテキストがコマンドの出力として表示されます。
 

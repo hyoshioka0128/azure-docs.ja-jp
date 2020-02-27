@@ -8,12 +8,12 @@ ms.assetid: 2fa5ee6b-51a6-4237-805f-518e6c57d11b
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: 047579550172995378d92327ecf22d63712bf407
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: afa3b0f3ed345ccc7f4c627ec485351838ab2bee
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75967132"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77649280"
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>Azure の Web Apps の構成と管理に関する FAQ
 
@@ -199,7 +199,7 @@ Azure ExpressRoute に接続されている仮想ネットワークに Azure Web
 
 現時点では、静的ルーティング (ポリシー ベース) ゲートウェイを持つ仮想ネットワークへの App Service Web アプリの接続はサポートしていません。 ターゲットの仮想ネットワークが既に存在している場合は、そのネットワークで動的ルーティング ゲートウェイによるポイント対サイト VPN が有効になっていないと、アプリに接続できません。 ゲートウェイが静的ルーティングに設定されている場合は、ポイント対サイト VPN を有効にすることはできません。 
 
-詳細については、「[アプリを Azure 仮想ネットワークに統合する](web-sites-integrate-with-vnet.md#getting-started)」を参照してください。
+詳細については、「[アプリを Azure 仮想ネットワークに統合する](web-sites-integrate-with-vnet.md)」を参照してください。
 
 ## <a name="in-my-app-service-environment-why-can-i-create-only-one-app-service-plan-even-though-i-have-two-workers-available"></a>App Service Environment で、使用できるワーカーが 2 つある場合でも、App Service プランを 1 つしか作成できないのはなぜですか?
 
@@ -314,4 +314,4 @@ Azure の自動スケールが期待どおりに Web アプリのインスタン
 
 ## <a name="how-do-i-migrate-from-an-on-premises-environment-to-app-service"></a>オンプレミス環境から App Serviceアプリ サービスへの移行方法を教えてください?
 
-サイトを Windows および Linux の Web サーバーから App Service に移行するには、Azure App Service Migration Assistant を使用できます。 移行ツールは、必要に応じて、Azure に Web アプリとデータベースを作成し、コンテンツを発行します。 詳細については、「[Azure App Service Migration Assistant](https://www.migratetoazure.net/)」を参照してください。
+サイトを Windows および Linux の Web サーバーから App Service に移行するには、Azure App Service Migration Assistant を使用できます。 移行ツールは、必要に応じて、Azure に Web アプリとデータベースを作成し、コンテンツを発行します。 詳細については、「[Azure App Service Migration Assistant](https://appmigration.microsoft.com/)」を参照してください。

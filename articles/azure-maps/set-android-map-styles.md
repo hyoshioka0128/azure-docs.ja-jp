@@ -1,19 +1,19 @@
 ---
 title: Azure Maps Android SDK を使用したマップ スタイルの設定 | Microsoft Azure Maps
 description: この記事では、Android SDK 向けの Microsoft Azure Maps スタイルに関連する機能について説明します。
-author: walsehgal
-ms.author: v-musehg
+author: farah-alyasari
+ms.author: v-faalya
 ms.date: 04/26/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: fe0aa662234166249433634ccb45d1931d176319
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: 96564a89a2b64203eef913b0d8300f0dafa332c5
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75910483"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77209581"
 ---
 # <a name="set-map-style-using-azure-maps-android-sdk"></a>Azure Maps Android SDK を使用したマップ スタイルの設定
 
@@ -59,7 +59,7 @@ ms.locfileid: "75910483"
 
 ## <a name="set-map-style-in-the-activity-class"></a>アクティビティ クラスでのマップ スタイルの設定
 
-マップ スタイルはアクティビティ クラスで設定できます。 次のコード スニペットを **onCreate()** method of your `MainActivity.java` クラスにコピーします。 これによりマップ スタイルは **satellite_road_labels** に設定されます。
+マップ スタイルはアクティビティ クラスで設定できます。 次のコード スニペットを **onCreate()** method of your `MainActivity.java` クラスにコピーします。 このコードによりマップ スタイルは **satellite_road_labels** に設定されます。
 
 ```Java
 mapControl.onReady(map -> {

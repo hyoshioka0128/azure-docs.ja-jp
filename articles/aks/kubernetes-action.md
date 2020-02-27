@@ -3,30 +3,25 @@ title: GitHub アクションを使用した Azure Kubernetes Service へのコ�
 description: GitHub アクションを使用してコンテナーを Kubernetes にデプロイする方法について説明します
 services: container-service
 author: azooinmyluggage
-ms.service: container-service
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: atulmal
-ms.openlocfilehash: cc2d6df952b2e0aa9b9f4d4e1dcb4859a5bb3790
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: 5ee8ee4d2c9e225d82e58daffeef9e5f09e43e6b
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74130533"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77595367"
 ---
 # <a name="github-actions-for-deploying-to-kubernetes-service"></a>Kubernetes Service にデプロイするための GitHub アクション
 
 [GitHub アクション](https://help.github.com/en/articles/about-github-actions)を使用すると、自動化されたソフトウェア開発ライフサイクル ワークフローを柔軟に構築できます。 Kubernetes アクション [azure/aks-set-context@v1](https://github.com/Azure/aks-set-context) は、Azure Kubernetes Service クラスターへのデプロイを支援します。 このアクションによりターゲット AKS クラスター コンテキストが設定されます。これは、[azure/k8s-deploy](https://github.com/Azure/k8s-deploy/tree/master)、[azure/k8s-create-secret](https://github.com/Azure/k8s-create-secret/tree/master) などの他のアクションで使用されたり、kubectl コマンドを実行したりすることができます。
 
-> [!IMPORTANT]
-> GitHub Actions は現在ベータ版です。 まず、ご自分の GitHub アカウントを使用し、[新規登録し、プレビューに参加](https://github.com/features/actions)する必要があります。
-> 
-
 ワークフローは、お使いのリポジトリの `/.github/workflows/` パスの YAML (.yml) ファイルに定義されます。 この定義には、ワークフローを構成するさまざまな手順とパラメーターが含まれます。
 
 AKS をターゲットとするワークフローでは、ファイルに次の 3 つのセクションがあります。
 
-|Section  |タスク  |
+|Section  |処理手順  |
 |---------|---------|
 |**認証** | プライベート コンテナー レジストリ (ACR) へのログイン |
 |**ビルド** | コンテナー イメージのビルドとプッシュ  |
@@ -134,7 +129,7 @@ jobs:
           demo-k8s-secret
 ```
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
 一連のアクションは GitHub の異なるリポジトリにあり、それぞれに、CI/CD に GitHub を使用し、ご自身のアプリを Azure にデプロイする際に役立つドキュメントとサンプルが含まれています。
 

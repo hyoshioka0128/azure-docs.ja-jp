@@ -2,20 +2,16 @@
 title: Microsoft 顧客契約の課金ロール - Azure
 description: Microsoft 顧客契約の Azure での請求先アカウントの課金ロールについて説明します。
 author: amberbhargava
-manager: amberbhargava
 ms.service: cost-management-billing
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 10/01/2019
+ms.date: 02/13/2020
 ms.author: banders
-ms.openlocfilehash: eaec828abe83164d18796cfb2e795a363353fab4
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 1003e26fa670a804328d5e34def7c9d78eced9c0
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "75984411"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77199502"
 ---
 # <a name="understand-microsoft-customer-agreement-administrative-roles-in-azure"></a>Azure での Microsoft 顧客契約の管理ロールを理解する
 
@@ -27,7 +23,7 @@ Microsoft 顧客契約の請求先アカウントを管理するには、以下�
 
 次の表では、請求先アカウント、課金プロファイル、および請求書セクションを管理するために使用する課金ロールについて説明します。
 
-|Role|[説明]|
+|Role|説明|
 |---|---|
 |請求先アカウント所有者|請求先アカウントに関するすべてを管理します|
 |請求先アカウント共同作成者|請求先アカウントのアクセス許可以外のすべてを管理します|

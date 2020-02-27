@@ -8,16 +8,16 @@ ms.topic: overview
 ms.service: iot-central
 ms.subservice: iot-central-retail
 services: iot-central
-ms.openlocfilehash: bff6731e767fccb0800c30dfe3e75a800f54c59d
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 808a17fcf303c6eb72f11f5379fa172302dc782a
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76773050"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77059856"
 ---
 # <a name="building-retail-solutions-with-azure-iot-central"></a>Azure IoT Central を使用した小売ソリューションの構築
 
-[!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
+
 
 IoT Central は、エンタープライズ レベルの IoT ソリューションの開発、管理、および保守に関連する負担とコストを削減する IoT アプリ プラットフォームです。 Azure IoT Central を使用して構築することを選択すると、複雑で絶えず進化する IoT インフラストラクチャをただ維持し、更新するだけでなく、IoT データによってビジネスを変革することに時間、予算、エネルギーを集中させる機会が得られます。
 
@@ -78,7 +78,7 @@ IoT 対応カメラを活用したソリューションでは、デジタル フ
 
 多くの小売業者にとって、店舗内の環境条件は、競合他社との重要な差別化要因になります。 小売業者は、顧客のために、店舗内を快適な状態に維持したいと考えています。  
 
-ソリューション ビルダーは、IoT Central のストア内分析条件監視アプリケーション テンプレートを使用して、エンドツーエンド ソリューションを構築できます。 このアプリケーション テンプレートを使用すると、さまざまなセンサー デバイスを使用して、小売店の環境にデジタル接続して監視できます。 これらのセンサー デバイスは、ビジネス上の分析情報に変換できるテレメトリを生成し、小売業者の運営コストの削減と顧客向けの優れたエクスペリエンスの作成を支援します。
+ソリューション ビルダーは、IoT Central のストア内分析条件監視アプリケーション テンプレートを使用して、エンドツーエンド ソリューションを構築できます。 このアプリケーション テンプレートを使用すると、さまざまな種類のセンサー デバイスを使用して、小売店の環境にデジタル接続して監視できます。 これらのセンサー デバイスは、ビジネス上の分析情報に変換できるテレメトリを生成し、小売業者の運営コストの削減と顧客向けの優れたエクスペリエンスの作成を支援します。
 
 アプリケーション テンプレートは次の目的で使用できます。
 
@@ -149,8 +149,8 @@ IoT 対応カメラを活用したソリューションでは、デジタル フ
 
 このアプリケーション テンプレートを使用すると、次のことができます。 
 
-- ロボットや条件監視センサーなどのさまざまな IoT センサーを IoT Central アプリケーション インスタンスにシームレスに接続する。
-- 環境内のセンサー ネットワークとあらゆるゲートウェイ デバイスの正常性を監視および管理する。
+- ロボットや状態監視センサーなどのさまざまな種類の IoT センサーを IoT Central アプリケーション インスタンスにシームレスに接続する。
+- 環境内のセンサー ネットワークの正常性とあらゆるゲートウェイ デバイスを監視および管理する。
 - フルフィルメント センター内の環境条件に関するカスタム ルールを作成し、適切なアラートをトリガーする。
 - フルフィルメント センター内の環境条件を、小売倉庫のチームが活用できる分析情報に変換する。
 - 販売スタッフ メンバーのために、集計された分析情報を既存または新規のビジネス アプリケーションにエクスポートする。
@@ -160,7 +160,7 @@ IoT 対応カメラを活用したソリューションでは、デジタル フ
 > [!div class="mx-imgBorder"]
 > ![マイクロフルフィルメント センター](./media/overview-iot-central-retail/MFC-Dashboard.png)
 
-詳細については、[マイクロフルフィルメント センター アプリケーション テンプレートのデプロイと説明](./tutorial-iot-central-smart-inventory-management-pnp.md)に関するページを参照してください。
+詳細については、[マイクロフルフィルメント センター アプリケーション テンプレートのデプロイと説明](./tutorial-micro-fulfillment-center-pnp.md)に関するページを参照してください。
 
 ## <a name="next-steps"></a>次のステップ
 
@@ -170,5 +170,5 @@ IoT 対応カメラを活用したソリューションでは、デジタル フ
 * [コネクテッド ロジスティクス アプリケーション テンプレートをデプロイして調べる](./tutorial-iot-central-connected-logistics-pnp.md)。
 * [デジタル流通センター アプリケーション テンプレートをデプロイして調べる](./tutorial-iot-central-digital-distribution-center-pnp.md)。
 * [スマート インベントリの管理アプリケーション テンプレートをデプロイして調べる](./tutorial-iot-central-smart-inventory-management-pnp.md)。
-* [マイクロフルフィルメント センター アプリケーション テンプレートをデプロイして調べる](./tutorial-iot-central-smart-inventory-management-pnp.md)。
+* [マイクロフルフィルメント センター アプリケーション テンプレートをデプロイして調べる](./tutorial-micro-fulfillment-center-pnp.md)。
 * [IoT Central の概要](../preview/overview-iot-central.md)に関するページで、IoT Central の詳細について確認する。

@@ -3,12 +3,12 @@ title: MABS と System Center DPM のサポート マトリックス
 description: この記事では、Microsoft Azure Backup Server (MABS) または System Center DPM を使用してオンプレミスおよび Azure VM のリソースをバックアップする場合の、Azure Backup のサポートについてまとめます。
 ms.date: 02/17/2019
 ms.topic: conceptual
-ms.openlocfilehash: f9ee31525f2ee5a19aebe0a9258dff3ecfdcbb92
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 6664f7b226b75b364fd1c83f2abc56b5a275eff9
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74841169"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77582655"
 ---
 # <a name="support-matrix-for-backup-with-microsoft-azure-backup-server-or-system-center-dpm"></a>Microsoft Azure Backup Server または System Center DPM を使用したバックアップのサポート マトリックス
 
@@ -50,7 +50,7 @@ DPM/MABS と Azure Backup を使用したバックアップは、次のように
 
 ## <a name="supported-scenarios"></a>サポートされるシナリオ
 
-**シナリオ** | **エージェント** | **Location**
+**シナリオ** | **エージェント** | **場所**
 --- | --- | ---
 **オンプレミス マシン/ワークロードのバックアップ** | DPM/MABS 保護エージェントは、バックアップするコンピューター上で実行されます。<br/><br/> DPM/MABS サーバー上の MARS エージェント。<br/> この機能を有効にするための、Microsoft Azure Recovery Services エージェントまたは Azure Backup エージェントの最小バージョンは、2.0.8719.0 です。  | DPM/MABS は、オンプレミスで実行する必要があります。
 
@@ -58,7 +58,7 @@ DPM/MABS と Azure Backup を使用したバックアップは、次のように
 
 DPM/MABS は、次の表に要約されているようにデプロイできます。
 
-**Deployment** | **サポート** | **詳細**
+**デプロイ** | **サポート** | **詳細**
 --- | --- | ---
 **オンプレミスでデプロイ** | 物理サーバー<br/><br/>Hyper-V VM<br/><br/> VMware VM | DPM/MABS は、VMware VM としてインストールされている場合、VMware VM とそれらの VM 上で実行されているワークロードのみをバックアップします。
 **Azure Stack VM としてデプロイ** | MABS のみ | DPM を使用して Azure Stack VM をバックアップすることはできません。
@@ -70,19 +70,22 @@ Azure Backup は、次のいずれかのオペレーティング システムを
 
 **シナリオ** | **DPM/MABS**
 --- | ---
-**Azure VM 上の MABS** | Windows Server 2012 R2 です。<br/><br/> Windows 2016 Datacenter。<br/><br/> Windows 2019 Datacenter。<br/><br/> マーケットプレースのイメージから始めることをお勧めします。<br/><br/> 2 つのコアと 3.5 GB の RAM を備えた最小の A2 Standard。
-**Azure VM 上の DPM** | 更新プログラム 3 以降が適用された System Center 2012 R2。<br/><br/> [System Center](https://docs.microsoft.com/system-center/dpm/prepare-environment-for-dpm?view=sc-dpm-1807#dpm-server) で必要とされる Windows オペレーティング システム。<br/><br/> マーケットプレースのイメージから始めることをお勧めします。<br/><br/> 2 つのコアと 3.5 GB の RAM を備えた最小の A2 Standard。
-**MABS オンプレミス** | サポートされている 64 ビット オペレーティング システム:<br/><br/> MABS v3 以降: Windows Server 2019 (Standard、Datacenter、Essentials)。 <br/><br/> MABS v2 以降: Windows Server 2016 (Standard、Datacenter、Essentials)。<br/><br/> MABS のすべてのバージョン:  Windows Server 2012 R2 です。<br/><br/>MABS のすべてのバージョン: Windows Storage Server 2012 R2。
+**Azure VM 上の MABS** |  Windows 2016 Datacenter。<br/><br/> Windows 2019 Datacenter。<br/><br/> マーケットプレースのイメージから始めることをお勧めします。<br/><br/> 4 つのコアと 8 GB の RAM を持つ最小の Standard_A4_v2 です。
+**Azure VM 上の DPM** | 更新プログラム 3 以降が適用された System Center 2012 R2。<br/><br/> [System Center](https://docs.microsoft.com/system-center/dpm/prepare-environment-for-dpm?view=sc-dpm-1807#dpm-server) で必要とされる Windows オペレーティング システム。<br/><br/> マーケットプレースのイメージから始めることをお勧めします。<br/><br/> 4 つのコアと 8 GB の RAM を持つ最小の Standard_A4_v2 です。
+**MABS オンプレミス** |  MABS v3 以降: Windows Server 2016 または Windows Server 2019
 **DPM オンプレミス** | 物理サーバー/Hyper-V VM: System Center 2012 SP1 以降。<br/><br/> VMware VM: 更新プログラム 5 以降が適用された System Center 2012 R2。
+
+>[!NOTE]
+>Azure Backup Server のインストールは、Windows Server Core または Microsoft Hyper-V サーバーではサポートされていません。
 
 ## <a name="management-support"></a>管理のサポート
 
-**問題** | **詳細**
+**問題点** | **詳細**
 --- | ---
 **インストール** | DPM/MABS は、単一目的のコンピューターにインストールします。<br/><br/> ドメイン コントローラー、アプリケーション サーバー ロールがインストールされているコンピューター、Microsoft Exchange Server または System Center Operations Manager を実行しているコンピューター、クラスター ノードには DPM/MABS をインストールしないでください。<br/><br/> [DPM のすべてのシステム要件を確認してください](https://docs.microsoft.com/system-center/dpm/prepare-environment-for-dpm?view=sc-dpm-1807#dpm-server)。
-**ドメイン** | DPM/MABS はドメインに参加させる必要があります。 最初に DPM/MABS をインストールし、次にこれらをドメインに参加させます。 デプロイ後に DPM/MABS を新しいドメインに移動することはサポートされていません。
+**[ドメイン]** | DPM/MABS はドメインに参加させる必要があります。 最初に DPM/MABS をインストールし、次にこれらをドメインに参加させます。 デプロイ後に DPM/MABS を新しいドメインに移動することはサポートされていません。
 **Storage** | Modern Backup Storage (MBS) は、DPM 2016/MABS v2 以降でサポートされています。 MABS v1 では使用できません。
-**MABS のアップグレード** | MABS v3 を直接インストールすることも、MABS v2 から MABS v3 にアップグレードすることもできます。 [詳細情報](backup-azure-microsoft-azure-backup.md#upgrade-mabs)。
+**MABS のアップグレード** | MABS v3 を直接インストールすることも、MABS v2 から MABS v3 にアップグレードすることもできます。 [詳細については、こちらを参照してください](backup-azure-microsoft-azure-backup.md#upgrade-mabs)。
 **MABS の移動** | MBS を使用している場合、ストレージを保持したまま MABS を新しいサーバーに移動できます。<br/><br/> このサーバーは元のサーバーと同じ名前でなければなりません。 同じ記憶域プールを保持し、同じ MABS データベースを使用してデータ復旧ポイントを格納する場合、この名前は変更できません。<br/><br/> MABS データベースを復元する必要があるため、このデータベースのバックアップが必要です。
 
 ## <a name="mabs-support-on-azure-stack"></a>Azure Stack での MABS のサポート
@@ -110,11 +113,34 @@ Azure Backup は、次のいずれかのオペレーティング システムを
 
 DPM サーバー/MABS は、次の URL にアクセスできる必要があります。
 
-- http://www.msftncsi.com/ncsi.txt
+- `http://www.msftncsi.com/ncsi.txt`
 - *.Microsoft.com
 - *.WindowsAzure.com
 - *.microsoftonline.com
 - *.windows.net
+
+### <a name="azure-expressroute-support"></a>Azure ExpressRoute のサポート
+
+パブリック ピアリング (古い回線で使用可能) と Microsoft ピアリングを使用して、Azure ExpressRoute 経由でデータをバックアップできます。 プライベート ピアリング経由のバックアップはサポートされていません。
+
+パブリック ピアリングを使用して、次のドメインまたはアドレスへのアクセスを確保します。
+
+* `http://www.msftncsi.com/ncsi.txt`
+* `microsoft.com`
+* `.WindowsAzure.com`
+* `.microsoftonline.com`
+* `.windows.net`
+
+Microsoft ピアリングを使用して、次のサービスまたはリージョン、および関連するコミュニティ値を選択してください。
+
+* Azure Active Directory (12076:5060)
+* Microsoft Azure リージョン (Recovery Services コンテナーの場所による)
+* Azure Storage (Recovery Services コンテナーの場所による)
+
+詳細については、「[ExpressRoute ルーティングの要件](https://docs.microsoft.com/azure/expressroute/expressroute-routing)」を参照してください。
+
+>[!NOTE]
+>パブリック ピアリングは、新しい回線では非推奨です。
 
 ### <a name="dpmmabs-connectivity-to-azure-backup"></a>Azure Backup への DPM/MABS 接続
 
@@ -157,7 +183,7 @@ Data Protection Manager で保護できる各種サーバーとワークロー�
 - DPM/MABS によってバックアップされるクラスター化されたワークロードは DPM/MABS と同じドメインか、または子/信頼できるドメインに存在する必要があります。
 - NTLM/証明書認証を使用して、信頼されていないドメインまたはワークグループのデータをバックアップできます。
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
 - MABS アーキテクチャーについての[詳細を確認](backup-architecture.md#architecture-back-up-to-dpmmabs)してください。
 - MARS エージェントに対して何がサポートされているか[確認](backup-support-matrix-mars-agent.md)してください。

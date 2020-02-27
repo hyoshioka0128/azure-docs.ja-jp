@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/26/2020
 ms.author: damendo
-ms.openlocfilehash: 2ae6314accf5ad9143e1e103239c2e7c884ec947
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 35d185a625a81a259c366a45999769ecf76c6a7d
+ms.sourcegitcommit: 163be411e7cd9c79da3a3b38ac3e0af48d551182
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76776176"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77538160"
 ---
 # <a name="configure-nsg-flow-logs-from-an-azure-resource-manager-template"></a>Azure Resource Manager テンプレートから NSG フロー ログを構成する
 
@@ -132,9 +132,11 @@ NSG フロー ログを設定するための完全なテンプレートの 2 つ
       "storageId": "/subscriptions/56abfbd6-ec72-4ce9-831f-bc2b6f2c5505/resourceGroups/MyCanaryFlowLog/providers/Microsoft.Storage/storageAccounts/storagev2ira",
       "enabled": true,
       "flowAnalyticsConfiguration": {
+        "networkWatcherFlowAnalyticsConfiguration": {
             "enabled": true,
-        "workspaceResourceId": "91a3d1e9-698e-4a49-96dc-f6fc585ae888",
-        "trafficAnalyticsInterval": 10
+            "workspaceResourceId": "/subscriptions/56abfbd6-ec72-4ce9-831f-bc2b6f2c5505/resourceGroups/defaultresourcegroup-wcus/providers/Microsoft.OperationalInsights/workspaces/1c4f42e5-3a02-4146-ac9b-3051d8501db0",
+            "trafficAnalyticsInterval": 10
+                }
       },
       "retentionPolicy": {
         "days": 5,
@@ -142,7 +144,7 @@ NSG フロー ログを設定するための完全なテンプレートの 2 つ
       },
       "format": {
         "type": "JSON",
-        "version": 1
+        "version": 2            
       }
     }
 

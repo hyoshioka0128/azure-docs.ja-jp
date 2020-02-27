@@ -5,12 +5,12 @@ author: jeffhollan
 ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: jehollan
-ms.openlocfilehash: b373691a6b9649a43d68c9da93b49fd20536c42b
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: cf70124f2e310dd62fd32de0e17edb40c047a318
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77024638"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77615676"
 ---
 # <a name="azure-functions-premium-plan"></a>Azure Functions の Premium プラン
 
@@ -57,7 +57,7 @@ Premium プランにデプロイされた Azure Functions では、[Web アプ�
 
 Premium プランで関数アプリにサブネットを割り当てるときは、個々の潜在的インスタンスのための十分な IP アドレスがあるサブネットが必要です。 使用可能なアドレスが 100 以上の IP ブロックが必要です。
 
-詳細については、[関数アプリと VNet の統合](functions-create-vnet.md)に関するページを参照してください。
+詳細については、[お使いの関数アプリと VNet の統合](functions-create-vnet.md)に関するページを参照してください。
 
 ### <a name="rapid-elastic-scale"></a>高速エラスティック スケール
 
@@ -94,6 +94,11 @@ az resource update -g <resource_group> -n <premium_plan_name> --set properties.m
 |EP2|2|7 GB|250 GB|
 |EP3|4|14 GB|250 GB|
 
+### <a name="memory-utilization-considerations"></a>メモリ使用率に関する注意点
+メモリの多いコンピューターでお使いの関数アプリを実行しても、利用可能なすべてのメモリを使用できるとは限りません。
+
+たとえば、JavaScript 関数アプリには、Node.js の既定のメモリ上限の制限があります。 この固定のメモリ制限を増やすには、値に `--max-old-space-size=<max memory in MB>` を使用して `languageWorkers:node:arguments` のアプリ設定を追加します。
+
 ## <a name="regions"></a>リージョン
 
 各 OS で現在サポートされているリージョンは次のとおりです。
@@ -102,28 +107,29 @@ az resource update -g <resource_group> -n <premium_plan_name> --set properties.m
 |--| -- | -- |
 |オーストラリア中部| ✔<sup>1</sup> | |
 |オーストラリア中部 2| ✔<sup>1</sup> | |
-|オーストラリア東部| ✔ | |
+|オーストラリア東部| ✔ | ✔<sup>1</sup> |
 |オーストラリア南東部 | ✔ | ✔<sup>1</sup> |
 |ブラジル南部| ✔<sup>2</sup> |  |
-|カナダ中部| ✔ |  |
+|カナダ中部| ✔ | ✔<sup>1</sup> |
 |米国中部| ✔ |  |
 |東アジア| ✔ |  |
-|East US | ✔ | ✔<sup>1</sup> |
-|米国東部 2| ✔ |  |
+|米国東部 | ✔ | ✔<sup>1</sup> |
+|米国東部 2| ✔ | ✔<sup>1</sup> |
 |フランス中部| ✔ |  |
 |ドイツ中西部| ✔ | |
 |東日本| ✔ | ✔<sup>1</sup> |
-|西日本| ✔ | |
-|韓国中部| ✔ |  |
+|西日本| ✔ | ✔<sup>1</sup> |
+|韓国中部| ✔ | ✔<sup>1</sup> |
 |米国中北部| ✔ |  |
 |北ヨーロッパ| ✔ | ✔<sup>1</sup> |
 |米国中南部| ✔ | ✔<sup>1</sup> |
 |インド南部 | ✔ | |
 |東南アジア| ✔ | ✔<sup>1</sup> |
-|英国南部| ✔ | |
+|英国南部| ✔ | ✔<sup>1</sup> |
 |英国西部| ✔ |  |
 |西ヨーロッパ| ✔ | ✔<sup>1</sup> |
 |インド西部| ✔ |  |
+|米国中西部| | ✔<sup>1</sup> |
 |米国西部| ✔ | ✔<sup>1</sup> |
 |米国西部 2| ✔ |  |
 

@@ -31,7 +31,7 @@ ms.locfileid: "76264901"
 ## <a name="microsoftaad"></a>Microsoft.AAD
 
 > [!div class="mx-tdCol2BreakAll"]
-> | アクションの種類 | 操作 | [説明] |
+> | アクションの種類 | 操作 | 説明 |
 > | --- | --- | --- |
 > | アクション | Microsoft.AAD/domainServices/delete | ドメイン サービスを削除する |
 > | アクション | Microsoft.AAD/domainServices/oucontainer/delete | Ou コンテナーを削除します |
@@ -47,7 +47,7 @@ ms.locfileid: "76264901"
 ## <a name="microsoftaadiam"></a>microsoft.aadiam
 
 > [!div class="mx-tdCol2BreakAll"]
-> | アクションの種類 | 操作 | [説明] |
+> | アクションの種類 | 操作 | 説明 |
 > | --- | --- | --- |
 > | アクション | microsoft.aadiam/diagnosticsettings/delete | 診断設定を削除します。 |
 > | アクション | microsoft.aadiam/diagnosticsettings/read | 診断設定を読み取ります。 |
@@ -59,7 +59,7 @@ ms.locfileid: "76264901"
 ## <a name="microsoftaddons"></a>Microsoft.Addons
 
 > [!div class="mx-tdCol2BreakAll"]
-> | アクションの種類 | 操作 | [説明] |
+> | アクションの種類 | 操作 | 説明 |
 > | --- | --- | --- |
 > | アクション | Microsoft.Addons/operations/read | サポートされる RP 操作を取得します。 |
 > | アクション | Microsoft.Addons/register/action | 指定したサブスクリプションを Microsoft.Addons に登録します。 |
@@ -71,7 +71,7 @@ ms.locfileid: "76264901"
 ## <a name="microsoftadhybridhealthservice"></a>Microsoft.ADHybridHealthService
 
 > [!div class="mx-tdCol2BreakAll"]
-> | アクションの種類 | 操作 | [説明] |
+> | アクションの種類 | 操作 | 説明 |
 > | --- | --- | --- |
 > | アクション | Microsoft.ADHybridHealthService/addsservices/action | テナントの新しいフォレストを作成します。 |
 > | アクション | Microsoft.ADHybridHealthService/addsservices/addomainservicemembers/read | 指定されたサービス名のすべてのサーバーを取得します。 |
@@ -145,7 +145,7 @@ ms.locfileid: "76264901"
 ## <a name="microsoftadvisor"></a>Microsoft.Advisor
 
 > [!div class="mx-tdCol2BreakAll"]
-> | アクションの種類 | 操作 | [説明] |
+> | アクションの種類 | 操作 | 説明 |
 > | --- | --- | --- |
 > | アクション | Microsoft.Advisor/configurations/read | 構成の取得 |
 > | アクション | Microsoft.Advisor/configurations/write | 構成を作成/更新します。 |
@@ -167,7 +167,7 @@ ms.locfileid: "76264901"
 ## <a name="microsoftalertsmanagement"></a>Microsoft.AlertsManagement
 
 > [!div class="mx-tdCol2BreakAll"]
-> | アクションの種類 | 操作 | [説明] |
+> | アクションの種類 | 操作 | 説明 |
 > | --- | --- | --- |
 > | アクション | Microsoft.AlertsManagement/actionRules/delete | 特定のサブスクリプション内のアクション ルールを削除します。 |
 > | アクション | Microsoft.AlertsManagement/actionRules/read | 入力フィルターのすべてのアクション ルールを取得します。 |
@@ -192,7 +192,7 @@ ms.locfileid: "76264901"
 ## <a name="microsoftanalysisservices"></a>Microsoft.AnalysisServices
 
 > [!div class="mx-tdCol2BreakAll"]
-> | アクションの種類 | 操作 | [説明] |
+> | アクションの種類 | 操作 | 説明 |
 > | --- | --- | --- |
 > | アクション | Microsoft.AnalysisServices/locations/checkNameAvailability/action | 指定された分析サーバー名が有効であり、使用されていないことを確認します。 |
 > | アクション | Microsoft.AnalysisServices/locations/operationresults/read | 指定された操作の結果の情報を取得します。 |
@@ -211,7 +211,7 @@ ms.locfileid: "76264901"
 ## <a name="microsoftapimanagement"></a>Microsoft.ApiManagement
 
 > [!div class="mx-tdCol2BreakAll"]
-> | アクションの種類 | 操作 | [説明] |
+> | アクションの種類 | 操作 | 説明 |
 > | --- | --- | --- |
 > | アクション | Microsoft.ApiManagement/checkNameAvailability/read | 指定されたサービス名を使用できるかどうかを確認します。 |
 > | アクション | Microsoft.ApiManagement/operations/read | Microsoft.ApiManagement リソースで使用可能なすべての API 操作を読み取ります。 |
@@ -428,7 +428,7 @@ ms.locfileid: "76264901"
 ## <a name="microsoftappconfiguration"></a>Microsoft.AppConfiguration
 
 > [!div class="mx-tdCol2BreakAll"]
-> | アクションの種類 | 操作 | [説明] |
+> | アクションの種類 | 操作 | 説明 |
 > | --- | --- | --- |
 > | アクション | Microsoft.AppConfiguration/checkNameAvailability/read | リソース名が使用可能かどうかを確認します。 |
 > | アクション | Microsoft.AppConfiguration/configurationStores/delete | 構成ストアを削除します。 |
@@ -460,7 +460,7 @@ ms.locfileid: "76264901"
 ## <a name="microsoftauthorization"></a>Microsoft.Authorization
 
 > [!div class="mx-tdCol2BreakAll"]
-> | アクションの種類 | 操作 | [説明] |
+> | アクションの種類 | 操作 | 説明 |
 > | --- | --- | --- |
 > | アクション | Microsoft.Authorization/classicAdministrators/delete | サブスクリプションから管理者を削除します。 |
 > | アクション | Microsoft.Authorization/classicAdministrators/operationstatuses/read | 管理者によるサブスクリプションの操作状態を取得します。 |
@@ -499,7 +499,7 @@ ms.locfileid: "76264901"
 ## <a name="microsoftautomation"></a>Microsoft.Automation
 
 > [!div class="mx-tdCol2BreakAll"]
-> | アクションの種類 | 操作 | [説明] |
+> | アクションの種類 | 操作 | 説明 |
 > | --- | --- | --- |
 > | アクション | Microsoft.Automation/automationAccounts/agentRegistrationInformation/read | Azure Automation DSC の登録情報を読み取ります。 |
 > | アクション | Microsoft.Automation/automationAccounts/agentRegistrationInformation/regenerateKey/action | Azure Automation DSC のキーを再生成する要求を書き込みます。 |
@@ -621,7 +621,7 @@ ms.locfileid: "76264901"
 ## <a name="microsoftazureactivedirectory"></a>Microsoft.AzureActiveDirectory
 
 > [!div class="mx-tdCol2BreakAll"]
-> | アクションの種類 | 操作 | [説明] |
+> | アクションの種類 | 操作 | 説明 |
 > | --- | --- | --- |
 > | アクション | Microsoft.AzureActiveDirectory/b2cDirectories/delete | B2C ディレクトリ リソースを削除します。 |
 > | アクション | Microsoft.AzureActiveDirectory/b2cDirectories/read | B2C ディレクトリ リソースを表示します。 |
@@ -633,7 +633,7 @@ ms.locfileid: "76264901"
 ## <a name="microsoftazurestack"></a>Microsoft.AzureStack
 
 > [!div class="mx-tdCol2BreakAll"]
-> | アクションの種類 | 操作 | [説明] |
+> | アクションの種類 | 操作 | 説明 |
 > | --- | --- | --- |
 > | アクション | Microsoft.AzureStack/Operations/read | リソース プロバイダーの操作のプロパティを取得します。 |
 > | アクション | Microsoft.AzureStack/register/action | Microsoft.AzureStack リソース プロバイダーにサブスクリプションを登録します。 |
@@ -654,7 +654,7 @@ ms.locfileid: "76264901"
 ## <a name="microsoftbatch"></a>Microsoft.Batch
 
 > [!div class="mx-tdCol2BreakAll"]
-> | アクションの種類 | 操作 | [説明] |
+> | アクションの種類 | 操作 | 説明 |
 > | --- | --- | --- |
 > | アクション | Microsoft.Batch/batchAccounts/applications/delete | アプリケーションを削除します。 |
 > | アクション | Microsoft.Batch/batchAccounts/applications/read | アプリケーションを一覧表示するか、アプリケーションのプロパティを取得します。 |
@@ -697,7 +697,7 @@ ms.locfileid: "76264901"
 ## <a name="microsoftbilling"></a>Microsoft.Billing
 
 > [!div class="mx-tdCol2BreakAll"]
-> | アクションの種類 | 操作 | [説明] |
+> | アクションの種類 | 操作 | 説明 |
 > | --- | --- | --- |
 > | アクション | Microsoft.Billing/billingAccounts/agreements/read |  |
 > | アクション | Microsoft.Billing/billingAccounts/billingPermissions/read |  |
@@ -737,7 +737,7 @@ ms.locfileid: "76264901"
 ## <a name="microsoftbingmaps"></a>Microsoft.BingMaps
 
 > [!div class="mx-tdCol2BreakAll"]
-> | アクションの種類 | 操作 | [説明] |
+> | アクションの種類 | 操作 | 説明 |
 > | --- | --- | --- |
 > | アクション | Microsoft.BingMaps/mapApis/Delete | 削除操作。 |
 > | アクション | Microsoft.BingMaps/mapApis/listSecrets/action | シークレットを一覧表示します。 |
@@ -750,7 +750,7 @@ ms.locfileid: "76264901"
 ## <a name="microsoftblockchain"></a>Microsoft.Blockchain
 
 > [!div class="mx-tdCol2BreakAll"]
-> | アクションの種類 | 操作 | [説明] |
+> | アクションの種類 | 操作 | 説明 |
 > | --- | --- | --- |
 > | アクション | Microsoft.Blockchain/blockchainMembers/delete | 既存のブロックチェーン メンバーを削除します。 |
 > | アクション | Microsoft.Blockchain/blockchainMembers/listApiKeys/action | 既存のブロックチェーン メンバー API キーを取得または一覧表示します。 |
@@ -772,7 +772,7 @@ ms.locfileid: "76264901"
 ## <a name="microsoftblueprint"></a>Microsoft.Blueprint
 
 > [!div class="mx-tdCol2BreakAll"]
-> | アクションの種類 | 操作 | [説明] |
+> | アクションの種類 | 操作 | 説明 |
 > | --- | --- | --- |
 > | アクション | Microsoft.Blueprint/blueprintAssignments/assignmentOperations/read | 任意のブループリント アーティファクトを読み取ります |
 > | アクション | Microsoft.Blueprint/blueprintAssignments/delete | 任意のブループリント アーティファクトを削除します |
@@ -794,7 +794,7 @@ ms.locfileid: "76264901"
 ## <a name="microsoftbotservice"></a>Microsoft.BotService
 
 > [!div class="mx-tdCol2BreakAll"]
-> | アクションの種類 | 操作 | [説明] |
+> | アクションの種類 | 操作 | 説明 |
 > | --- | --- | --- |
 > | アクション | Microsoft.BotService/botServices/channels/delete | ボット サービスを削除する |
 > | アクション | Microsoft.BotService/botServices/channels/read | ボット サービスを読み取る |
@@ -811,7 +811,7 @@ ms.locfileid: "76264901"
 ## <a name="microsoftcache"></a>Microsoft.Cache
 
 > [!div class="mx-tdCol2BreakAll"]
-> | アクションの種類 | 操作 | [説明] |
+> | アクションの種類 | 操作 | 説明 |
 > | --- | --- | --- |
 > | アクション | Microsoft.Cache/checknameavailability/action | 新しい Redis Cache で名前を使用できるかどうかを確認します。 |
 > | アクション | Microsoft.Cache/locations/operationresults/read | 前に "Location" ヘッダーがクライアントに返された、実行時間の長い操作の結果を取得します。 |
@@ -1622,7 +1622,7 @@ ms.locfileid: "76264901"
 ## <a name="microsoftconsumption"></a>Microsoft.Consumption
 
 > [!div class="mx-tdCol2BreakAll"]
-> | アクションの種類 | 操作 | [説明] |
+> | アクションの種類 | 操作 | 説明 |
 > | --- | --- | --- |
 > | アクション | Microsoft.Consumption/aggregatedcost/read | 管理グループの AggregatedCost を一覧表示します。 |
 > | アクション | Microsoft.Consumption/balances/read | 管理グループの請求期間の使用状況の概要を一覧表示します。 |
@@ -1682,7 +1682,7 @@ ms.locfileid: "76264901"
 ## <a name="microsoftcontainerregistry"></a>Microsoft.ContainerRegistry
 
 > [!div class="mx-tdCol2BreakAll"]
-> | アクションの種類 | 操作 | [説明] |
+> | アクションの種類 | 操作 | 説明 |
 > | --- | --- | --- |
 > | アクション | Microsoft.ContainerRegistry/checkNameAvailability/read | コンテナー レジストリ名が使用可能かどうかを確認します。 |
 > | アクション | Microsoft.ContainerRegistry/locations/deleteVirtualNetworkOrSubnets/action | 仮想ネットワークまたはサブネットを削除していることを Microsoft.ContainerRegistry に通知します。 |

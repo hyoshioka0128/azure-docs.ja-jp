@@ -18,7 +18,7 @@
     - name: '2. [構成]'
       items:
         - name: Azure Container Instances でのスケーリング
-          href: /azure/container-instances/container-instances-jenkins
+          href: container-instances-jenkins.md
           maintainContext: true
         - name: Azure VM エージェントでのスケーリング
           href: jenkins-azure-vm-agents.md
@@ -31,7 +31,7 @@
         - name: AKS
           items:
             - name: Kubernetes への CI/CD
-              href: /azure/aks/jenkins-continuous-deployment
+              href: jenkins-continuous-deployment.md
               maintainContext: true
             - name: 青/緑パターンを使用した AKS へのデプロイ
               href: jenkins-aks-blue-green-deployment.md
@@ -44,15 +44,15 @@
             - name: GitHub から App Service へのアプリのデプロイ
               href: tutorial-jenkins-deploy-web-app-azure-app-service.md
         - name: Azure DevOps での Jenkins の使用
-          href: /azure/virtual-machines/linux/tutorial-build-deploy-jenkins
+          href: tutorial-build-deploy-jenkins.md
           maintainContext: true
         - name: Azure Functions へのデプロイ
           href: jenkins-azure-functions-deploy.md
         - name: Azure Storage に発行する
-          href: /azure/storage/storage-java-jenkins-continuous-integration-solution
+          href: storage-java-jenkins-continuous-integration-solution.md
           maintainContext: true
         - name: Linux VM への CI/CD
-          href: /azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd
+          href: tutorial-jenkins-github-docker-cicd.md
           maintainContext: true
         - name: Service Fabric への CI/CD
           href: /azure/service-fabric/service-fabric-cicd-your-linux-applications-with-jenkins

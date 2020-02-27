@@ -2,20 +2,23 @@
 title: よく寄せられる質問 - Azure Migrate での検出、評価、および依存関係分析
 description: Azure Migrate での検出、評価、および依存関係分析に関してよく寄せられる質問への回答を取得します。
 ms.topic: conceptual
-ms.date: 12/29/2019
-ms.openlocfilehash: 0132563072ed04a52e4937da7a8df69196f1a91f
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.date: 02/17/2020
+ms.openlocfilehash: 179be4f5b39806c717e94789c9fe52842d2a07d8
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76513288"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77589234"
 ---
 # <a name="common-questions-about-discovery-assessment-and-dependency-analysis"></a>検出、評価、および依存関係分析に関してよく寄せられる質問
 
-この記事では、Azure Migrate の検出、評価、および依存関係分析に関してよく寄せられる質問に回答します。 この記事の内容についてさらに質問がある場合は、[Azure Migrate フォーラム](https://aka.ms/AzureMigrateForum)に投稿してください。 その他の質問については、次の記事を確認してください：
+この記事では、Azure Migrate の検出、評価、および依存関係分析に関してよく寄せられる質問に回答します。 その他の質問については、次の記事を確認してください。
 
 - Azure Migrate に関する[一般的な質問](resources-faq.md)。
 - Azure Migrate アプライアンスに関する[一般的な質問](common-questions-appliance.md)。
+- サーバー移行に関する[質問](common-questions-server-migration.md)
+- [Azure Migrate フォーラム](https://aka.ms/AzureMigrateForum)に質問を投稿してください。
+
 
 
 ## <a name="how-many-vms-can-i-discover-with-an-appliance"></a>1 つのアプライアンスで検出できる VM の数を教えてください？
@@ -89,7 +92,7 @@ Azure Migrate アプライアンスは、オンプレミス環境の情報を継
 
 ## <a name="can-i-use-an-existing-workspace"></a>既存のワークスペースを使用できますか?
 
-はい。既存のワークスペースを移行プロジェクトにアタッチして依存関係の視覚化に活用できます。 [詳細については、こちらを参照してください](concepts-dependency-visualization.md#how-does-it-work)。
+はい。既存のワークスペースを移行プロジェクトにアタッチして依存関係の視覚化に活用できます。 
 
 ## <a name="can-i-export-the-dependency-visualization-report"></a>依存関係の視覚化のレポートはエクスポートできますか。
 

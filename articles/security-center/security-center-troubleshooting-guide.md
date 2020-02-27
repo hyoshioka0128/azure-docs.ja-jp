@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: 68d37bfbc629062a788ba32793b95c6f1653ff42
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 55a4aa066739203f8697fb4c9083869f5a05ef4f
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75749661"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77603381"
 ---
 # <a name="azure-security-center-troubleshooting-guide"></a>Azure Security Center トラブルシューティング ガイド
 
@@ -83,7 +83,7 @@ Security Center では、Microsoft Monitoring Agent を使用して、Azure 仮�
 
 **[監視の状態]** には、自動プロビジョニングの対象として初期化された VM およびコンピューターを Security Center で正常に監視できない理由が定義されています。 次の表は、 **[監視の状態]** の値、説明、解決手順を示したものです。
 
-| 監視の状態 | [説明] | 解決手順 |
+| 監視の状態 | 説明 | 解決手順 |
 |---|---|---|
 | エージェントのインストールが保留中です | Microsoft Monitoring Agent のインストールがまだ実行されています。  インストールには最大数時間かかることがあります。 | 自動インストールの完了を待ちます。 |
 | 電源状態がオフです | VM が停止しています。  Microsoft Monitoring Agent をインストールできるのは、実行中の VM だけです。 | VM を再起動します。 |
@@ -138,7 +138,7 @@ Security Center ダッシュボードを読み込む際に問題が発生した�
 
 ![Microsoft サポート](./media/security-center-troubleshooting-guide/security-center-troubleshooting-guide-fig2.png)
 
-## <a name="see-also"></a>参照
+## <a name="see-also"></a>関連項目
 
 このドキュメントでは、Azure セキュリティ センターでのセキュリティ ポリシーの構成方法について説明しました。 Azure セキュリティ センターの詳細については、次を参照してください。
 
@@ -154,5 +154,5 @@ Security Center ダッシュボードを読み込む際に問題が発生した�
 * [Azure Security Center でのインシデントとアラートの調査](security-center-investigation.md)
 * [Azure Security Center の検出機能](security-center-detection-capabilities.md)
 * [Azure Security Center を使用したパートナー ソリューションの監視](security-center-partner-solutions.md) 」 -- パートナー ソリューションの正常性状態を監視する方法について説明しています。
-* [Azure Security Center のよく寄せられる質問 (FAQ)](security-center-faq.md) 」 -- このサービスの使用に関してよく寄せられる質問が記載されています。
+* [Azure Security Center のよく寄せられる質問 (FAQ)](faq-general.md) 」 -- このサービスの使用に関してよく寄せられる質問が記載されています。
 * [Azure セキュリティ ブログ](https://blogs.msdn.com/b/azuresecurity/) -- Azure のセキュリティとコンプライアンスについてのブログ記事を確認できます。

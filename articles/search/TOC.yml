@@ -105,10 +105,12 @@
           href: search-sku-tier.md
         - name: サービスの制限
           href: search-limits-quotas-capacity.md
-        - name: パーティションとレプリカのスケーリング
+        - name: 容量の調整
           href: search-capacity-planning.md
-        - name: デプロイ戦略とベスト プラクティス
+        - name: パフォーマンスのためのスケール
           href: search-performance-optimization.md
+        - name: リージョン間でのサービスの移動
+          href: search-howto-move-across-regions.md
         - name: マルチテナント アーキテクチャ
           href: search-modeling-multitenant-saas-applications.md
     - name: Security
@@ -271,6 +273,8 @@
               href: knowledge-store-view-storage-explorer.md
             - name: Power BI を使用した接続
               href: knowledge-store-connect-power-bi.md
+            - name: プロジェクションの例
+              href: knowledge-store-projections-examples.md
     - name: ドキュメントにクエリを実行する
       items:
         - name: クエリの種類と構成
@@ -311,14 +315,20 @@
           href: search-pagination-page-layout.md
         - name: 関連性のチューニング (スコアリング プロファイル)
           href: index-add-scoring-profiles.md
-    - name: 管理および監視
+    - name: サービスの管理
       items:
-        - name: ポータルの管理
+        - name: ポータル
           href: search-manage.md
-        - name: PowerShell の管理
+        - name: PowerShell
           href: search-manage-powershell.md
-        - name: Monitor アクティビティとログ記録
+    - name: 監視とログ記録
+      items:
+        - name: 基礎
           href: search-monitor-usage.md
+        - name: 診断ログ
+          href: search-monitor-logs.md
+        - name: クエリ アクティビティの監視
+          href: search-monitor-queries.md
         - name: 検索トラフィックの分析
           href: search-traffic-analytics.md
     - name: '[トラブルシューティング]'

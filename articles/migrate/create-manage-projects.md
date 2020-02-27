@@ -2,17 +2,17 @@
 title: Azure Migrate プロジェクトの作成と管理
 description: Azure Migrate でプロジェクトを検索、作成、管理、および削除します。
 ms.topic: how-to
-ms.date: 01/01/2020
-ms.openlocfilehash: 548e51cbd215dd9b5e69c68b9bd8fc81625240a2
-ms.sourcegitcommit: 02160a2c64a5b8cb2fb661a087db5c2b4815ec04
+ms.date: 02/17/2020
+ms.openlocfilehash: a49595f0580e71048239d5c5d8f4d1a66e24fe6d
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75722176"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77425665"
 ---
 # <a name="create-and-manage-azure-migrate-projects"></a>Azure Migrate プロジェクトの作成と管理
 
-この記事では、[Azure Migrate](migrate-services-overview.md) プロジェクトを作成、管理、および削除する方法について説明します
+この記事では、[Azure Migrate](migrate-services-overview.md) プロジェクトを作成、管理、および削除する方法について説明します。
 
 
 ## <a name="create-a-project-for-the-first-time"></a>プロジェクトを始めて作成する
@@ -68,7 +68,7 @@ Azure Migrate プロジェクトが既にあり、追加のプロジェクトを
 
 以下の点に注意してください。
 
-- 削除すると、プロジェクトと、検出されたコンピューターに関するメタデータの両方が削除されます。
+- 削除すると、プロジェクトと、検出されたマシンに関するメタデータの両方が削除されます。
 - 以前のバージョンの Azure Migrate を使用している場合は、プロジェクトが作成された Azure リソース グループを開きます。 削除する移行プロジェクトを選択します (リソースの種類は**移行プロジェクト**です)。
 - Azure Log Analytics ワークスペースで依存関係の解析を使用している場合:
     - Log Analytics ワークスペースを Server Assessment ツールに関連付けている場合、ワークスペースは自動的には削除されません。 同じ Log Analytics ワークスペースが、複数のシナリオで使用されている可能性があります。

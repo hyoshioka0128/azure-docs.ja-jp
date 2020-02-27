@@ -21,7 +21,11 @@
 - name: 概念
   items:
     - name: 場所とパートナー
-      href: virtual-wan-locations-partners.md
+      items:
+        - name: ハブの場所とパートナー
+          href: virtual-wan-locations-partners.md
+        - name: パートナー向けの自動化ガイドライン
+          href: virtual-wan-configure-automation-providers.md
     - name: IPsec ポリシー
       href: virtual-wan-ipsec.md
 - name: 操作方法ガイド
@@ -30,7 +34,7 @@
       href: connect-virtual-network-gateway-vwan.md
     - name: グローバル VNet ピアリングを構成する
       href: global-peering-vnet.md
-    - name: ExpressRoute 経由の VPN 接続を作成する
+    - name: ExpressRoute の暗号化を構成する
       href: vpn-over-expressroute.md
     - name: Virtual WAN SKU をアップグレードする
       href: upgrade-virtual-wan.md
@@ -42,12 +46,10 @@
       href: openvpn-azure-ad-tenant.md
     - name: ユーザー VPN の Multi-Factor Authentication (MFA) を有効にする
       href: openvpn-azure-ad-mfa.md
-    - name: ユーザー VPN 用に Azure AD 認証を構成する (プレビュー)
+    - name: ユーザー VPN 用に Azure AD 認証を構成する
       href: virtual-wan-point-to-site-azure-ad.md
-    - name: ユーザー VPN 用にマルチアプリケーション Azure AD 認証を構成する (プレビュー)
+    - name: ユーザー VPN 用にマルチアプリケーション Azure AD 認証を構成する
       href: openvpn-azure-ad-tenant-multi-app.md
-    - name: 自動化を構成する (Virtual WAN パートナー)
-      href: virtual-wan-configure-automation-providers.md
     - name: グローバルおよびハブベースの VPN プロファイルのダウンロード
       href: global-hub-profile.md
     - name: ルーティングを構成する

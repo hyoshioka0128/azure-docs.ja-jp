@@ -1,21 +1,19 @@
 ---
 title: チュートリアル - 推奨事項に従って Azure のコストを削減する
 description: このチュートリアルは、最適化の推奨事項に従って対処すると、Azure のコスト削減に役立ちます。
-services: cost-management
-keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 10/24/2019
+ms.date: 02/12/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
-manager: dougeby
+ms.reviewer: adwise
 ms.custom: seodec18
-ms.openlocfilehash: 37253bb4c6001afe436e22597e75e2bc869fbbc8
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 796d843461d5d622988f7992439a7c4426186761
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "75985135"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77199961"
 ---
 # <a name="tutorial-optimize-costs-from-recommendations"></a>チュートリアル:推奨事項に従ってコストを最適化する
 
@@ -79,7 +77,7 @@ VM の詳細で、仮想マシンの使用率を確認して、適切なサイ�
 
 現在の仮想マシンのサイズをメモします。 仮想マシンのサイズを変更する必要があることを確認したら、仮想マシンの詳細を閉じて仮想マシンの一覧を表示します。
 
-シャットダウンまたはサイズを変更する候補の一覧で、**[ *&lt;FromVirtualMachineSKU&gt;* to *&lt;ToVirtualMachineSKU&gt;*]\(<FromVirtualMachineSKU> から <ToVirtualMachineSKU> へのサイズ変更\)** を選択します。
+シャットダウンまたはサイズを変更する候補の一覧で、 **[Resize _&lt;FromVirtualMachineSKU&gt;_ to _&lt;ToVirtualMachineSKU&gt;_ ]\(<FromVirtualMachineSKU> から <ToVirtualMachineSKU> へのサイズ変更\)** を選択します。
 ![仮想マシンのサイズを変更するオプションを伴う推奨事項の例](./media/tutorial-acm-opt-recommendations/resize-vm.png)
 
 次に、使用できるサイズ変更オプションの一覧が表示されます。 実際にシナリオに対応するベスト プラクティスと費用対効果を実現するものを選択します。 次の例では、選択したオプションが **Standard_D8s_v3** から **Standard_D2s_v3** にサイズ変更されます。

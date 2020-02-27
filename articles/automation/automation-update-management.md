@@ -5,12 +5,12 @@ services: automation
 ms.subservice: update-management
 ms.date: 01/21/2020
 ms.topic: conceptual
-ms.openlocfilehash: 9e03ba960ab6542198372d75de7e0d34bf8d9e1b
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: e7a86f3a709566bcf18241ce3c329c0355be2743
+ms.sourcegitcommit: 163be411e7cd9c79da3a3b38ac3e0af48d551182
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76513322"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77539554"
 ---
 # <a name="update-management-solution-in-azure"></a>Azure の Update Management ソリューション
 
@@ -67,12 +67,12 @@ Linux コンピューターでは、コンプライアンス スキャンは既�
 
 ### <a name="supported-client-types"></a>サポートされているクライアントの種類
 
-次の表は、更新プログラムの評価でサポートされているオペレーティング システムの一覧です。 修正プログラムを適用するには、Hybrid Runbook Worker が必要です。 Hybrid Runbook Worker の要件の詳細については、[Windows Hybrid Runbook Worker](automation-windows-hrw-install.md#installing-the-windows-hybrid-runbook-worker) のインストールと [Linux Hybrid Runbook Worker](automation-linux-hrw-install.md#installing-a-linux-hybrid-runbook-worker) のインストールに関するインストール ガイドを参照してください。
+次の表は、更新プログラムの評価でサポートされているオペレーティング システムの一覧です。 修正プログラムを適用するには、Hybrid Runbook Worker が必要です。 Hybrid Runbook Worker の要件の詳細については、[Windows Hybrid Runbook Worker](automation-windows-hrw-install.md) のインストールと [Linux Hybrid Runbook Worker](automation-linux-hrw-install.md#installing-a-linux-hybrid-runbook-worker) のインストールに関するインストール ガイドを参照してください。
 
-|オペレーティング システム  |メモ  |
+|オペレーティング システム  |Notes  |
 |---------|---------|
 |Windows Server 2019 (Datacenter、Datacenter Core、Standard)<br><br>Windows Server 2016 (Datacenter、Datacenter Core、Standard)<br><br>Windows Server 2012 R2 (Datacenter、Standard)<br><br>Windows Server 2012 || 
-|Windows Server 2008 R2 (RTM および SP1 Standard)| Update Management は、このオペレーティング システムの評価のみをサポートしています。[Hybrid Runbook Worker](automation-windows-hrw-install.md#installing-the-windows-hybrid-runbook-worker) は Windows Server 2008 R2 ではサポートされていないため、修正プログラムの適用はサポートされていません。 |
+|Windows Server 2008 R2 (RTM および SP1 Standard)| Update Management は、このオペレーティング システムの評価のみをサポートしています。[Hybrid Runbook Worker](automation-windows-hrw-install.md) は Windows Server 2008 R2 ではサポートされていないため、修正プログラムの適用はサポートされていません。 |
 |CentOS 6 (x86/x64) および 7 (x64)      | Linux エージェントは、更新リポジトリへのアクセスが必要です。 分類に基づく修正プログラムでは、CentOS の RTM リリースには含まれていないセキュリティ データを返すための `yum` が必須です。 分類に基づく CentOS への修正プログラムの適用の詳細については、[Linux の更新プログラムの分類](automation-view-update-assessments.md#linux-2)に関する記事を参照してください。          |
 |Red Hat Enterprise 6 (x86/x64) および 7 (x64)     | Linux エージェントは、更新リポジトリへのアクセスが必要です。        |
 |SUSE Linux Enterprise Server 11 (x86/x64) および 12 (x64)     | Linux エージェントは、更新リポジトリへのアクセスが必要です。        |
@@ -86,7 +86,7 @@ Linux コンピューターでは、コンプライアンス スキャンは既�
 
 次の表は、サポートされていないオペレーティング システムの一覧です。
 
-|オペレーティング システム  |メモ  |
+|オペレーティング システム  |Notes  |
 |---------|---------|
 |Windows クライアント     | クライアント オペレーティング システム (Windows 7 や Windows 10 など) はサポートされません。        |
 |Windows Server 2016 Nano Server     | サポートされていません。       |
@@ -115,7 +115,7 @@ Linux コンピューターには、更新リポジトリへのアクセスが�
 
 Linux 用 Log Analytics エージェントをインストールして最新バージョンをダウンロードする方法の詳細については、[Linux 用 Log Analytics エージェント](https://github.com/microsoft/oms-agent-for-linux)に関するページを参照してください。 Windows 用 Log Analytics エージェントをインストールする方法については、「[Windows コンピューターを Azure Monitor に接続する](../log-analytics/log-analytics-windows-agent.md)」を参照してください。
 
-Azure Marketplace から入手できるオンデマンドの Red Hat Enterprise Linux (RHEL) イメージから作成した VM は、Azure にデプロイされた [Red Hat Update Infrastructure (RHUI)](../virtual-machines/virtual-machines-linux-update-infrastructure-redhat.md) にアクセスするよう登録されています。 その他の Linux ディストリビューションは、そのディストリビューションのサポートされている方法を使用して、ディストリビューションのオンライン ファイル リポジトリから更新する必要があります。
+Azure Marketplace から入手できるオンデマンドの Red Hat Enterprise Linux (RHEL) イメージから作成した VM は、Azure にデプロイされた [Red Hat Update Infrastructure (RHUI)](../virtual-machines/workloads/redhat/redhat-rhui.md) にアクセスするよう登録されています。 その他の Linux ディストリビューションは、そのディストリビューションのサポートされている方法を使用して、ディストリビューションのオンライン ファイル リポジトリから更新する必要があります。
 
 ## <a name="permissions"></a>アクセス許可
 
@@ -155,7 +155,7 @@ System Center Operations Manager 管理グループが Log Analytics ワーク�
 
 次の表では、このソリューションでサポートされている接続先ソースについて説明します。
 
-| 接続先ソース | サポートされています | [説明] |
+| 接続先ソース | サポートされています | 説明 |
 | --- | --- | --- |
 | Windows エージェント |はい |ソリューションは、Windows エージェントからシステムの更新プログラムに関する情報を収集し、必要な更新プログラムのインストールを開始します。 |
 | Linux エージェント |はい |ソリューションは、Linux エージェントからシステムの更新プログラムに関する情報を収集し、サポート対象のディストリビューションに対して必要な更新プログラムのインストールを開始します。 |
@@ -184,7 +184,7 @@ Update Management には次のアドレスが明示的に必要です。 この�
 
 Windows マシンでは、Windows Update で必要なすべてのエンドポイントへのトラフィックも許可する必要があります。 必要なエンドポイントの更新された一覧は、「[HTTP またはプロキシに関連する問題](/windows/deployment/update/windows-update-troubleshooting#issues-related-to-httpproxy)」で確認できます。 ローカル環境に [Windows Update サーバー](/windows-server/administration/windows-server-update-services/plan/plan-your-wsus-deployment)がある場合は、[WSUS キー](/windows/deployment/update/waas-wu-settings#configuring-automatic-updates-by-editing-the-registry)で指定されているサーバーへのトラフィックも許可する必要があります。
 
-Red Hat Linux マシンで必要なエンドポイントについては、「[RHUI コンテンツ配信サーバーの IP アドレス](../virtual-machines/linux/update-infrastructure-redhat.md#the-ips-for-the-rhui-content-delivery-servers)」をご覧ください。 他の Linux ディストリビューションについては、プロバイダーのドキュメントをご覧ください。
+Red Hat Linux マシンで必要なエンドポイントについては、「[RHUI コンテンツ配信サーバーの IP アドレス](../virtual-machines/workloads/redhat/redhat-rhui.md#the-ips-for-the-rhui-content-delivery-servers)」をご覧ください。 他の Linux ディストリビューションについては、プロバイダーのドキュメントをご覧ください。
 
 Hybrid Runbook Worker で必要なポートの詳細については、[ハイブリッド worker ロールのポート](automation-hybrid-runbook-worker.md#hybrid-worker-role)に関するページをご覧ください。
 
@@ -214,7 +214,7 @@ Automation アカウントで **[Update Management]** をクリックすると�
 
 ### <a name="windows"></a>Windows
 
-|分類  |[説明]  |
+|分類  |説明  |
 |---------|---------|
 |緊急更新プログラム     | セキュリティに関連しない重大なバグを修正する、特定の問題に対する更新プログラムです。        |
 |セキュリティ更新プログラム     | 製品固有のセキュリティに関連する問題に対する更新プログラムです。        |
@@ -227,7 +227,7 @@ Automation アカウントで **[Update Management]** をクリックすると�
 
 ### <a name="linux-2"></a>Linux
 
-|分類  |[説明]  |
+|分類  |説明  |
 |---------|---------|
 |緊急更新プログラムとセキュリティ更新プログラム     | 特定の問題または製品固有のセキュリティに関連する問題に対する更新プログラムです。         |
 |他の更新プログラム     | 本質的に重要ではない、またはセキュリティ更新プログラムではない、他のすべての更新プログラムです。        |

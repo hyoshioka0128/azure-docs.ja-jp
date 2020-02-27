@@ -1,19 +1,19 @@
 ---
 title: 天気の対象範囲 | Microsoft Azure Maps
 description: この記事では、Microsoft Azure Maps の天気の対象範囲について説明します。
-author: walsehgal
-ms.author: v-musehg
+author: farah-alyasari
+ms.author: v-faalya
 ms.date: 11/20/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 630a018c25ac8663fd369c1256e376b8039182c9
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: fdae00a07b364252ae6d297a6df5eb242beac262
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75910798"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77207946"
 ---
 # <a name="azure-maps-weather-coverage"></a>Azure Maps の天気の対象範囲
 
@@ -179,7 +179,6 @@ Azure Maps の情報と精度は、すべての国と地域に対して同じレ
 | アフガニスタン                       | ✓ |   |  ✓| 
 | アメリカ領サモア                    | ✓ |   |  ✓| 
 | オーストラリア                         | ✓ | ✓ |  ✓| 
-| アゼルバイジャン                        | ✓ |   |  ✓| 
 | バングラデシュ                        | ✓ |   |  ✓| 
 | ブータン                            | ✓ |   |  ✓| 
 | イギリス領インド洋地域    | ✓ |   |  ✓| 
@@ -247,7 +246,8 @@ Azure Maps の情報と精度は、すべての国と地域に対して同じレ
 | アルバニア                | ✓ |   |  ✓| 
 | アンドラ                | ✓ |   |  ✓| 
 | アルメニア                | ✓ |   |  ✓| 
-| オーストリア                | ✓ | ✓ |  ✓| 
+| オーストリア                | ✓ | ✓ |  ✓|
+| アゼルバイジャン             | ✓ |   |  ✓| 
 | ベラルーシ                | ✓ |   |  ✓| 
 | ベルギー                | ✓ | ✓ |  ✓| 
 | ボスニア・ヘルツェゴビナ | ✓ | ✓ |  ✓| 

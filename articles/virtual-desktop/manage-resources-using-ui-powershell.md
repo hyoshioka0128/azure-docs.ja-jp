@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 01/10/2020
 ms.author: helohr
-ms.openlocfilehash: e3ea11f4faad204756f9e1296b5190e1f81a5cc0
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: e55641457e1ed27928e6bf380701b646b672cae8
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76772792"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77368833"
 ---
 # <a name="deploy-a-management-tool-with-powershell"></a>PowerShell で管理ツールをデプロイする
 
@@ -36,7 +36,7 @@ Azure Active Directory (Azure AD) テナントの各サブスクリプション�
 管理ツールをデプロイする前に、アプリの登録を作成して管理 UI をデプロイする Azure Active Directory (Azure AD) ユーザーが必要です。 このユーザーには、次の要件があります。
 
 - ご使用の Azure サブスクリプション内にリソースを作成するためのアクセス許可を持っている
-- Azure AD アプリケーションを作成するためのアクセス許可を持っている 次のステップに従い、あなたのユーザーが[「必要なアクセス許可」](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#required-permissions)の指示に従って必要なアクセス許可を保持しているかどうかを確認します。
+- Azure AD アプリケーションを作成するためのアクセス許可を持っている 次のステップに従い、あなたのユーザーが[「必要なアクセス許可」](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions)の指示に従って必要なアクセス許可を保持しているかどうかを確認します。
 
 管理ツールを正常にデプロイして構成するには、まず、[RDS-Templates GitHub リポジトリ](https://github.com/Azure/RDS-Templates/tree/master/wvd-templates/wvd-management-ux/deploy/scripts) から次の PowerShell スクリプトをダウンロードし、ローカルマシン上の同じフォルダーに保存する必要があります。
 
@@ -109,7 +109,7 @@ Web アプリの作成後に、Azure AD アプリケーションにリダイレ�
 ```powershell
 $webApp = Get-AzWebApp -ResourceGroupName $resourceGroupName -Name $appName
 $redirectUri = "https://" + $webApp.DefaultHostName + "/"
-Get-AzureADApplication | where { $_.AppId -match $servicePrincipalCredentials.UserName } | Set-AzureADApplication -ReplyUrls $redirectUri  
+Get-AzureADApplication -All $true | where { $_.AppId -match $servicePrincipalCredentials.UserName } | Set-AzureADApplication -ReplyUrls $redirectUri  
 ```
 
 これでリダイレクト URI が追加できました。次に、管理ツールが API バックエンドサービスとインタラクトできるように API URL を更新する必要があります。

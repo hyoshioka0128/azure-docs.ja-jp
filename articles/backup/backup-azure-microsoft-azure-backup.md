@@ -3,12 +3,12 @@ title: Azure Backup Server を使用してワークロードをバックアッ�
 description: この記事では、Microsoft Azure Backup Server (MABS) を使用してワークロードを保護およびバックアップするように環境を準備する方法について説明します。
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.openlocfilehash: db2bac3464939edc5dec2ee2947faf7a05ad6812
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: efa54eac2e3e134fb285d38242ca1b59727c2c86
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75979885"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77425189"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>Azure Backup Server のインストールとアップグレード
 
@@ -66,6 +66,8 @@ Windows Server の重複除去を使用して DPM ストレージの重複を除
 > * System Center Operations Manager 管理サーバーであるコンピューター
 > * Exchange Server が実行されているコンピューター
 > * クラスターのノードであるコンピューター
+>
+> Azure Backup Server のインストールは、Windows Server Core または Microsoft Hyper-V サーバーではサポートされていません。
 
 Azure Backup Server は、常にドメインに参加させる必要があります。 サーバーを別のドメインに移動する予定がある場合は、まず Azure Backup Server をインストールし、次にそのサーバーを新しいドメインに参加させます。 デプロイ後の、新しいドメインへの既存の Azure Backup Server マシンの移動は *サポートされていません*。
 
@@ -90,7 +92,7 @@ Azure Backup Server は、常にドメインに参加させる必要がありま
 
 ### <a name="downloading-the-software-package"></a>ソフトウェア パッケージのダウンロード
 
-1. [Azure portal](https://portal.azure.com/) にサインインする
+1. [Azure portal](https://portal.azure.com/) にサインインします。
 2. 既に Recovery Services コンテナーが開かれている場合は、手順 3. に進みます。 Recovery Services コンテナーが開かれていないが、Azure Portal 内にいる場合は、メイン メニューの **[参照]** をクリックします。
 
    * リソース ボックスに「 **Recovery Services**」と入力します。
@@ -161,14 +163,15 @@ Azure Backup Server は、常にドメインに参加させる必要がありま
 2. ようこそ画面で、 **[次へ]** をクリックします。 *[前提条件の確認]* セクションが表示されます。 この画面で **[確認]** をクリックして、Azure Backup Server のハードウェアとソフトウェアの前提条件が満たされているかどうかを確認します。 前提条件がすべて正常に満たされている場合は、マシンが要件を満たしていることを示すメッセージが表示されます。 **[次へ]** をクリックします。
 
     ![Azure Backup Server - Welcome and Prerequisites check](./media/backup-azure-microsoft-azure-backup/prereq/prereq-screen2.png)
-3. Microsoft Azure Backup Server には、SQL Server Enterprise が必要です。 また、Azure Backup Server のインストール パッケージには、独自の SQL を使用しない場合に必要となる適切な SQL Server バイナリがバンドルされています。 新しい Azure Backup Server のインストールを開始するには、 **[Install new Instance of SQL Server with this Setup (このセットアップを使用して、SQL Server の新しいインスタンスをインストールします)]** をオンにし、 **[確認してインストール]** をクリックします。 前提条件が正常にインストールされたら、 **[次へ]** をクリックします。
+3. Azure Backup Server のインストール パッケージには、必要となる適切な SQL Server バイナリがバンドルされています。 新しい Azure Backup Server のインストールを開始する場合は、 **[このセットアップを使用して、SQL Server の新しいインスタンスをインストールします]** オプションを選択し、 **[確認してインストール]** ボタンをクリックします。 前提条件が正常にインストールされたら、 **[次へ]** をクリックします。
+
+    >[!NOTE]
+    >独自の SQL Server を使用する場合、サポートされる SQL Server のバージョンは SQL Server 2014 SP1 以降、2016 および 2017 となります。  すべての SQL Server のバージョンが、Standard または Enterprise 64 ビットである必要があります。
+    >Azure Backup Server は、リモートの SQL Server インスタンスでは動作しません。 Azure Backup Server に使用されるインスタンスは、ローカルに存在する必要があります。 既存の SQL Server を MABS で使用している場合、MABS のセットアップでは、SQL Server の "*名前付きインスタンス*" の使用のみがサポートされます。
 
     ![Azure Backup Server - SQL check](./media/backup-azure-microsoft-azure-backup/sql/01.png)
 
     エラーが発生し、コンピューターの再起動を推奨された場合は、コンピューターを再起動して **[再確認]** をクリックします。 SQL の構成に問題がある場合は、SQL のガイドラインに従って SQL を構成し、既存の SQL インスタンスを使用して MABS のインストールまたはアップグレードを再試行します。
-
-   > [!NOTE]
-   > Azure Backup Server は、リモートの SQL Server インスタンスでは動作しません。 Azure Backup Server に使用されるインスタンスは、ローカルに存在する必要があります。 既存の SQL Server を MABS で使用している場合、MABS のセットアップでサポートされるのは SQL Server の*名前付きインスタンス*のみです。
 
    **手動で構成**
 

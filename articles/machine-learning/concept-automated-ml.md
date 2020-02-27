@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 author: cartacioS
 ms.author: sacartac
 ms.date: 11/04/2019
-ms.openlocfilehash: 778b369e08ff6b0c6e4075c5a8d3d2a234bde70e
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 2ef3cbc83cd67647709a53fee2c32b444c5d86f4
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75894897"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77526129"
 ---
 # <a name="what-is-automated-machine-learning"></a>自動化された機械学習とは
 
@@ -83,7 +83,7 @@ ms.locfileid: "75894897"
 
 自動化されたすべての機械学習実験において、アルゴリズムが十分に実行されるよう、自動的にデータの規模が調整され、正規化されます。  モデル トレーニングの間、次のいずれかのスケーリング手法または正規化手法が各モデルに適用されます。
 
-|スケーリング&nbsp;&&nbsp;正規化| [説明] |
+|スケーリング&nbsp;&&nbsp;正規化| 説明 |
 | ------------- | ------------- |
 | [StandardScaleWrapper](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.StandardScaler.html)  | 中間を取り除き、単位差異に合わせてスケールを変更することで特徴を正規化します  |
 | [MinMaxScalar](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.MinMaxScaler.html)  | その列の最小と最大で各特徴のスケールを変更することで特徴を変換します  |
@@ -95,11 +95,11 @@ ms.locfileid: "75894897"
 
 ### <a name="advanced-preprocessing-optional-featurization"></a>高度な前処理: 任意の特徴付け
 
-データ ガードレール、エンコード、変換など、高度な前処理と特徴付けも追加で利用できます。 含まれる特徴付けに関する詳細は[こちら](how-to-create-portal-experiments.md#preprocess)から参照してください。 この設定は次の方法で有効にできます。
+データ ガードレール、エンコード、変換など、高度な前処理と特徴付けも追加で利用できます。 含まれる特徴付けに関する詳細は[こちら](how-to-create-portal-experiments.md#featurization)から参照してください。 この設定は次の方法で有効にできます。
 
-+ Azure Machine Learning Studio:[これらの手順](how-to-create-portal-experiments.md)に従って、 **[Configuration Run]\(構成の実行\)** セクションの **[View featurization settings]\(特徴付け設定の確認\)** を選択します。
++ Azure Machine Learning Studio:[これらの手順に従って](how-to-create-portal-experiments.md#create-and-run-experiment)、 **[View additional configuration]\(追加構成の表示\)** セクションで **[Automatic featurization]\(自動特性付け\)** を有効にします。
 
-+ Python SDK:[`AutoMLConfig` クラス](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig) に `"feauturization": auto' / 'off' / FeaturizationConfig` を指定します。
++ Python SDK:[`AutoMLConfig` クラス](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig) に `"feauturization": 'auto' / 'off' / 'FeaturizationConfig'` を指定します。 
 
 ## <a name="prevent-over-fitting"></a>オーバーフィットを防ぐ
 
@@ -193,7 +193,7 @@ ms.locfileid: "75894897"
 
 さらに、自動 ML を実行すると、次のグラフが自動的に生成されます。これは、モデルの分類の正確性を把握し、偏ったデータの影響を受ける可能性のあるモデルを特定するのに役立ちます。
 
-グラフ| [説明]
+グラフ| 説明
 ---|---
 [混同行列](how-to-understand-automated-ml.md#confusion-matrix)| 適切に分類されたラベルをデータの実際のラベルと比較して評価します。 
 [精度/再現率](how-to-understand-automated-ml.md#precision-recall-chart)| 適切なラベルの比率を、検出されたデータのラベル インスタンスの比率と比較して評価します 
@@ -211,22 +211,71 @@ ms.locfileid: "75894897"
 
 Azure Machine Learning では、自動化された ML を使用して Python モデルを構築し、それを ONNX 形式に変換できます。 ONNX は C# に対応しています。そのため、コードを書き直す必要がなく、また、REST エンドポイントで発生するネットワークの遅延なく、C# アプリで自動的に構築されたモデルを使用できます。 [この Jupyter ノートブックで](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing-all-features/auto-ml-classification-bank-marketing-all-features.ipynb)このフローのサンプルをお試しください。
 
-## <a name="automated-ml-across-microsoft"></a>Microsoft ソリューション全体で自動化された ML
+## <a name="automated-ml-in-azure-machine-learning"></a>Azure Machine Learning の自動 ML
 
-自動化された ML は次のような他の Microsoft ソリューションでも利用できます。
+Azure Machine Learning には、自動 ML を使用するための 2 つのエクスペリエンスが用意されています。
 
-|統合|[説明]|
-|------------|-----------|
-|[ML.NET](https://docs.microsoft.com/dotnet/machine-learning/automl-overview)|Visual Studio および Visual Studio Code と ML.NET 自動 ML を使用した .NET アプリでの自動モデル選択およびトレーニング (プレビュー)。|
-|[HDInsight](../hdinsight/spark/apache-spark-run-machine-learning-automl.md)|並列にしてある HDInsight クラスターの Spark で自動化された ML トレーニング ジョブをスケールアウトします。|
-|[Power BI](https://docs.microsoft.com/power-bi/service-machine-learning-automated)|Power BI での機械学習モデルの直接呼び出し (プレビュー)。|
-|[SQL Server](https://cloudblogs.microsoft.com/sqlserver/2019/01/09/how-to-automate-machine-learning-on-sql-server-2019-big-data-clusters/)|SQL Server 2019 ビッグ データ クラスターのデータに対して新しい機械学習モデルを作成します。|
+* コードの経験がある場合は、[Azure Machine Learning Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) に関する記事を参照してください 
+
+* コードの経験があまりない、またはない場合は、Azure Machine Learning Studio ([https://ml.azure.com](https://ml.azure.com/)) に関する記事を参照してください。  
+
+各経験レベルでサポートされる高レベルの自動 ML 機能を以下にまとめます。
+
+<a name="parity"></a>
+
+### <a name="experiment-settings"></a>実験の設定 
+
+次の設定を使用して、自動 ML の実験を構成できます。 
+
+| | Python SDK| studio
+----|:----:|:----:
+データをトレーニングおよび検証セットに分割する| ✓|✓
+ML タスクのサポート: 分類、回帰、予測| ✓| ✓
+プライマリ メトリックに基づいて最適化する| ✓| ✓
+AML コンピューティングをコンピューティング ターゲットとしてサポートする | ✓|✓
+予測期間、ターゲットのラグ、ローリング期間を構成する|✓|✓
+終了条件を設定する |✓|✓ 
+コンカレント イテレーションを設定する| ✓|✓
+列の削除| ✓|✓
+ブロック アルゴリズム|✓|✓
+クロス検証 |✓|✓
+Azure Databricks クラスターでのトレーニングをサポートする| ✓|
+エンジニアリング機能の名前を表示する|✓|
+特徴付けの概要| ✓|
+休日の特徴付け|✓|
+ログ ファイルの詳細レベル| ✓|
+
+### <a name="model-settings"></a>モデルの設定
+
+これらの設定は、自動 ML 実験の結果として最適なモデルに適用できます。
+
+||Python SDK|studio
+----|:----:|:----:
+最適なモデルの登録| ✓|✓
+最適なモデル デプロイ| ✓| ✓
+最適なモデル説明| ✓|✓
+投票アンサンブルとスタック アンサンブル モデルを有効にする| ✓|✓
+プライマリ メトリック以外に基づいて最適なモデルを表示する|✓|ONNX モデルの互換性を有効または無効にする|✓|
+モデルのテスト | ✓| |
+
+### <a name="run-control-settings"></a>コントロール設定を実行する
+
+これらの設定を使用すると、実験の実行とその子の実行を確認し、制御することができます。 
+
+||Python SDK| studio
+----|:----:|:----:
+実行の概要テーブル| ✓|✓
+実行の取り消し| ✓|✓
+子の実行の取り消し| ✓| ✓
+ガードレールを取得する| ✓|✓
+実行を一時停止する| ✓| 
+実行を再開する| ✓| 
 
 ## <a name="next-steps"></a>次のステップ
 
 例を参照して、自動化された機械学習を使用してモデルを構築する方法を学習してください。
 
-+ 次のチュートリアルを修了してください。[チュートリアル:Azure Automated Machine Learning で回帰モデルを自動的にトレーニングする](tutorial-auto-train-models.md)
++ 次のチュートリアルを修了してください。[チュートリアル:Azure Machine Learning で回帰モデルを自動的にトレーニングする](tutorial-auto-train-models.md)
 
 + 自動トレーニング実験の設定を構成してください。
   + Azure Machine Learning Studio で、[こちらの手順](how-to-create-portal-experiments.md)を使用します。
@@ -235,3 +284,5 @@ Azure Machine Learning では、自動化された ML を使用して Python モ
 + [こちらの手順](how-to-auto-train-forecast.md)を使用し、時系列データを使用して自動トレーニングする方法について学習してください。
 
 + [自動化された機械学習の Jupyter Notebook のサンプル](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/)をお試しください。
+
+* 自動 ML は、[ML.NET](https://docs.microsoft.com/dotnet/machine-learning/automl-overview)、[HDInsight](../hdinsight/spark/apache-spark-run-machine-learning-automl.md)、[Power BI](https://docs.microsoft.com/power-bi/service-machine-learning-automated)、[SQL Server](https://cloudblogs.microsoft.com/sqlserver/2019/01/09/how-to-automate-machine-learning-on-sql-server-2019-big-data-clusters/) などの他の Microsoft ソリューションでも使用できます

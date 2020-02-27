@@ -1,21 +1,20 @@
 ---
 title: Azure Cost Management のデータへのアクセス許可を割り当てる
 description: この記事では、Azure Cost Management のデータに対するアクセス許可をさまざまなアクセス スコープで割り当てる方法を説明します。
-services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/27/2020
+ms.date: 02/11/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
-manager: vitavor
+ms.reviewer: adwise
 ms.custom: secdec18
-ms.openlocfilehash: 8cb803c78b8bb5acd7880f79a19b5e3f0a978bd8
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 84637f74408724fec300a2a5cb49cd9f460ed395
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76773964"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77201086"
 ---
 # <a name="assign-access-to-cost-management-data"></a>Cost Management のデータへのアクセス許可を割り当てる
 

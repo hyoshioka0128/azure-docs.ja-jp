@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 84d5d7fc6490420857032ead964f5bccea8f397a
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: 7821b0b76fb9be1b62aaf334b3c07aaff1d0021a
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75910662"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77209547"
 ---
 # <a name="azure-maps-render-coverage"></a>Azure Maps のレンダリング範囲
 
-Azure Maps は、ラスター タイルとベクター タイルの両方を使用してマップを作成します。 最低解像度では、世界全体が 1 つのタイルに収まります。 最高解像度では、1 つのタイルは 38 平方メートルを表します。 そのため、マップを拡大するにつれて、大陸、地域、都市、個々の通りの詳細が見えるようになります。 詳細については、「[Zoom levels and tile grid](zoom-levels-and-tile-grid.md)」(ズーム レベルとタイル グリッド) を参照してください。
+Azure Maps は、ラスター タイルとベクター タイルの両方を使用してマップを作成します。 最低解像度では、世界全体が 1 つのタイルに収まります。 最高解像度では、1 つのタイルは 38 平方メートルを表します。 マップを拡大すると、大陸、地域、都市、個々の道路に関する詳細が表示されます。 タイルの詳細については、「[ズーム レベルとタイル グリッド](zoom-levels-and-tile-grid.md)」を参照してください。
 
-ただし、Maps は、すべての地域に対して同じレベルの情報と精度を備えているわけではありません。 次の表は、各地域で期待できるレンダリングの詳細レベルに関する情報をまとめたものです。
+しかし、Maps は、すべての地域に対して同じレベルの情報と精度を備えているわけではありません。 次の表は、各リージョンに表示できる情報のレベルを示しています。
 
 ## <a name="legend"></a>凡例
 

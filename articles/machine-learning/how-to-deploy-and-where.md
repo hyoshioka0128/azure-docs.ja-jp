@@ -11,12 +11,12 @@ author: jpe316
 ms.reviewer: larryfr
 ms.date: 12/27/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: fbfe120484f7a5fdfb847448a4bba2309f3fedc6
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: fa73cb690fafb67f75abafab1b0dd27ffa0b8e32
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76543564"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77210501"
 ---
 # <a name="deploy-models-with-azure-machine-learning"></a>Azure Machine Learning を使用してモデルをデプロイする
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -172,22 +172,22 @@ Azure ML は、1つのエンドポイントの背後に シングルまたはマ
 
 1つのコンテナー化されたエンドポイントの背後にある複数モデルの使用方法を示す E2E の例としては、[こちらの例](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/deployment/deploy-multi-model)を参照してください。
 
-## <a name="prepare-to-deploy"></a>デプロイを準備する
+## <a name="prepare-deployment-artifacts"></a>デプロイの成果物を準備する
 
-モデルをデプロイするには、次のものが必要です。
+モデルをデプロイするには、以下が必要です。
 
-* **エントリ スクリプト**。 このスクリプトは、要求を受け入れ、モデルを使用してその要求にスコアを付け、その結果を返します。
+* **エントリ スクリプトとソース コードの依存関係**。 このスクリプトは、要求を受け入れ、モデルを使用してその要求にスコアを付け、その結果を返します。
 
     > [!IMPORTANT]
     > * エントリ スクリプトは、モデルに固有のものです。 このスクリプトでは、受信要求データの形式、モデルで想定されるデータの形式、およびクライアントに返されるデータの形式が認識されている必要があります。
     >
     >   要求データがモデルで使用できない形式である場合、スクリプトで受け入れ可能な形式に変換できます。 また、応答をクライアントに返す前に変換することもできます。
     >
-    > * Azure Machine Learning SDK には、データストアまたはデータセットにアクセスするための Web サービスまたは IoT Edge のデプロイの手段は用意されていません。 デプロイしたモデルが、デプロイの外部に格納されているデータ (Azure Storage アカウントのデータなど) にアクセスする必要がある場合、関連する SDK を使用してカスタム コード ソリューションを開発する必要があります。 たとえば、[Azure Storage SDK for Python](https://github.com/Azure/azure-storage-python) です。
+    > * Web サービスと IoT Edge のデプロイは、ワークスペースのデータストアおよびデータ セットにアクセスできません。 デプロイしたサービスが、デプロイの外部に格納されているデータ (Azure Storage アカウントのデータなど) にアクセスする必要がある場合、関連する SDK を使用してカスタム コード ソリューションを開発する必要があります。 たとえば、[Azure Storage SDK for Python](https://github.com/Azure/azure-storage-python) です。
     >
     >   シナリオに適したもう 1 つの方法として[バッチ予測](how-to-use-parallel-run-step.md)があります。これにより、スコアリング時にデータストアにアクセスできます。
 
-* **依存関係**。エントリ スクリプトまたはモデルを実行するために必要なヘルパー スクリプトや Python/Conda パッケージなど。
+* **推論環境**。 そのモデルを実行するために必要とされるインストール済みパッケージの依存関係を含む基本イメージ。
 
 * デプロイされたモデルをホストするコンピューティング先の**デプロイ構成**。 この構成には、モデルの実行に必要なメモリと CPU の要件などが記述されます。
 
@@ -220,17 +220,23 @@ AZUREML_MODEL_DIR は、サービスのデプロイ中に作成される環境�
 | 単一モデル | モデルを含むフォルダーへのパス。 |
 | 複数のモデル | すべてのモデルを含むフォルダーへのパス。 モデルは、このフォルダー (`$MODEL_NAME/$VERSION`) で名前とバージョンによって検索されます |
 
-モデル内のファイルへのパスを取得するには、環境変数を探しているファイル名と組み合わせます。
-モデル ファイルのファイル名は、登録時とデプロイ時に保持されます。 
+モデルの登録とデプロイ中、モデルは AZUREML_MODEL_DIR パスに配置され、元のファイル名が保持されます。
+
+エントリ スクリプト内のモデル ファイルへのパスを取得するには、環境変数と探しているファイル名を組み合わせます。
 
 **単一モデルの例**
 ```python
+# Example when the model is a file
 model_path = os.path.join(os.getenv('AZUREML_MODEL_DIR'), 'sklearn_regression_model.pkl')
+
+# Example when the model is a folder containing a file
+file_path = os.path.join(os.getenv('AZUREML_MODEL_DIR'), 'my_model_folder', 'sklearn_regression_model.pkl')
 ```
 
 **複数のモデルの例**
 ```python
-model_path = os.path.join(os.getenv('AZUREML_MODEL_DIR'), 'sklearn_model/1/sklearn_regression_model.pkl')
+# Example when the model is a file, and the deployment contains multiple models
+model_path = os.path.join(os.getenv('AZUREML_MODEL_DIR'), 'sklearn_model', '1', 'sklearn_regression_model.pkl')
 ```
 
 ##### <a name="get_model_path"></a>get_model_path
@@ -479,7 +485,7 @@ def run(request):
 > pip install azureml-contrib-services
 > ```
 
-### <a name="2-define-your-inferenceconfig"></a>2.InferenceConfig を定義する
+### <a name="2-define-your-inference-environment"></a>2.推論環境を定義する
 
 推論構成では、予測するモデルを構成する方法が説明されます。 この構成は、エントリ スクリプトの一部ではありません。 これは、エントリ スクリプトを参照し、デプロイに必要なすべてのリソースを検索するために使用されます。 これは後でモデルをデプロイするときに使用されます。
 
@@ -542,41 +548,6 @@ az ml model deploy -n myservice -m mymodel:1 --ic inferenceconfig.json
 from azureml.core.webservice import AciWebservice, AksWebservice, LocalWebservice
 ```
 
-#### <a name="profiling"></a>プロファイリング
-
-モデルをサービスとしてデプロイする前に、最適な CPU とメモリの要件を判断するためにプロファイリングを実行できます。 SDK または CLI を使用して、ご自分のモデルをプロファイリングできます。 次の例に、SDK を使用してモデルをプロファイリングする方法を示します。
-
-> [!IMPORTANT]
-> プロファイリングを使用する場合、指定した推論構成で Azure Machine Learning 環境を参照することはできません。 代わりに、`InferenceConfig` オブジェクトの `conda_file` パラメーターを使用して、ソフトウェアの依存関係を定義します。
-
-```python
-import json
-test_data = json.dumps({'data': [
-    [1,2,3,4,5,6,7,8,9,10]
-]})
-
-profile = Model.profile(ws, "profilemymodel", [model], inference_config, test_data)
-profile.wait_for_profiling(True)
-profiling_results = profile.get_results()
-print(profiling_results)
-```
-
-このコードでは、次の出力のような結果が表示されます。
-
-```python
-{'cpu': 1.0, 'memoryInGB': 0.5}
-```
-
-モデルのプロファイル結果は、`Run` オブジェクトとして出力されます。
-
-CLI からプロファイリングを使用する方法については、「[az ml モデル プロファイル](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/model?view=azure-cli-latest#ext-azure-cli-ml-az-ml-model-profile)」を参照してください。
-
-詳細については、次のドキュメントをご覧ください。
-
-* [ModelProfile](https://docs.microsoft.com/python/api/azureml-core/azureml.core.profile.modelprofile?view=azure-ml-py)
-* [profile()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#profile-workspace--profile-name--models--inference-config--input-data-)
-* [推論構成ファイル スキーマ](reference-azure-machine-learning-cli.md#inference-configuration-schema)
-
 ## <a name="deploy-to-target"></a>ターゲットにデプロイする
 
 デプロイでは、推論構成のデプロイ構成を使用して、モデルをデプロイします。 デプロイ プロセスは、コンピューティング ターゲットに関係なく類似しています。 AKS へのデプロイは、AKS クラスターへの参照を指定する必要があるため、少し異なります。
@@ -613,6 +584,20 @@ az ml model deploy -m mymodel:1 --ic inferenceconfig.json --dc deploymentconfig.
 [!INCLUDE [aml-local-deploy-config](../../includes/machine-learning-service-local-deploy-config.md)]
 
 詳細については、[az ml model deploy](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/model?view=azure-cli-latest#ext-azure-cli-ml-az-ml-model-deploy) のドキュメントを参照してください。
+
+### <a name="understanding-service-state"></a>サービスの状態について
+
+モデルのデプロイ中に、完全にデプロイされるまでの間に、サービスの状態が変化することがあります。
+
+次の表で、サービスの各状態について説明します。
+
+| Web サービスの状態 | 説明 | 最終的な状態
+| ----- | ----- | ----- |
+| 移行中 | サービスはデプロイ処理中です。 | いいえ |
+| 異常 | サービスはデプロイされましたが、現在アクセスできません。  | いいえ |
+| スケジュール不可 | リソースが不足しているため、現時点ではサービスをデプロイできません。 | いいえ |
+| 失敗 | エラーまたはクラッシュが発生したため、サービスをデプロイできませんでした。 | はい |
+| Healthy | サービスは正常であり、エンドポイントを使用できます。 | はい |
 
 ### <a id="notebookvm"></a> コンピューティング インスタンス Web サービス (開発/テスト)
 

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-custom-search
 ms.topic: quickstart
-ms.date: 12/09/2019
+ms.date: 02/12/2020
 ms.author: aahi
-ms.openlocfilehash: ca0c1174abb80452f78766c3c4f49af73c790d3e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 4f4b6bad38992a9e0146d6324bc3a3fc7632ded2
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75448679"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77201256"
 ---
 # <a name="quickstart-call-your-bing-custom-search-endpoint-using-the-python-sdk"></a>クイック スタート:Python SDK を使用して Bing Custom Search エンドポイントを呼び出す 
 
@@ -47,16 +47,17 @@ from msrest.authentication import CognitiveServicesCredentials
 
 ## <a name="create-a-search-client-and-send-a-request"></a>検索クライアントを作成して要求を送信する
 
-1. サブスクリプション キーの変数を作成します。
+1. 対象のサブスクリプション キーとエンドポイントの変数を作成します。
 
     ```python
     subscription_key = 'your-subscription-key'
+    endpoint = 'your-endpoint'
     ```
 
 2. サブスクリプション キーを使用して、`CognitiveServicesCredentials` オブジェクトを使って、`CustomSearchClient` のインスタンスを作成します。 
 
     ```python
-    client = CustomSearchClient(CognitiveServicesCredentials(subscription_key))
+    client = CustomSearchClient(endpoint=endpoint, credentials=CognitiveServicesCredentials(subscription_key))
     ```
 
 3. `client.custom_instance.search()` を含む検索要求を送信します。 検索語句を `query` パラメーターに追加し、検索インスタンスを使用するためにカスタム構成 ID に `custom_config` を設定します。 ID を [Bing Custom Search ポータル](https://www.customsearch.ai/)から取得するには、 **[運用]** タブをクリックします。

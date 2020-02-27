@@ -6,13 +6,13 @@ ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 01/24/2020
-ms.openlocfilehash: 3877632565c1ca2c9a16681e03f8931a94af0599
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.date: 01/31/2020
+ms.openlocfilehash: 883f24e529f9479f0c6ee6597c1324a0089ece7b
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76765756"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77620378"
 ---
 # <a name="azure-monitor-for-vms-generally-available-ga-frequently-asked-questions"></a>Azure Monitor for VMs の一般提供 (GA) についてよく寄せられる質問
 
@@ -24,7 +24,7 @@ ms.locfileid: "76765756"
 
 このアップグレードを使用すると、Azure Monitor for VMs のパフォーマンス データは、[コンテナーの Azure Monitor](container-insights-overview.md) と同じ *InsightsMetrics* テーブルに格納されるため、2 つのデータ セットのクエリを簡単に実行することができます。 また、以前に使用したテーブルには格納できなかったより多様なデータ セットを格納することもできます。 
 
-数週間以内に、この新しいテーブルを使用するように、パフォーマンス ビューも更新されます。
+パフォーマンス ビューでは、*InsightsMetrics* テーブルに格納しているデータが使用されています。  ワークスペースで最新の VMInsights ソリューションを使用するようにアップグレードしていない場合は、グラフに情報が表示されなくなります。  次に示すように、 **[Get Started]\(開始\)** ページからアップグレードすることができます。
 
 Microsoft では、既存のお客様にアップグレードをお願いすることで、お客様のワークフローの中断が生じることを認識しています。これが、GA の後ではなく、パブリック プレビュー中の今、アップグレードをお願いする理由です。
 
@@ -35,9 +35,13 @@ VMInsights という名前の新しいソリューションがリリースされ
 
 以前は、ワークスペースで ServiceMap ソリューションを有効にし、Log Analytics ワークスペースでパフォーマンス　カウンターを設定して、*Perf* テーブルにデータを送信していました。 この新しいソリューションでは、コンテナーの Azure Monitor によっても使用される *InsightsMetrics* という名前のテーブルにデータが送信されます。 このテーブル スキーマを使用すると、*Perf* テーブル形式と互換性のない追加のメトリックとサービス データ セットを格納できます。
 
+パフォーマンス グラフは、*InsightsMetrics* テーブルに格納されているデータを使用するように更新されました。 次に示すように、 **[Get Started]\(開始\)** ページから *InsightsMetrics* テーブルを使用するようにアップグレードできます。
+
 
 ## <a name="how-do-i-upgrade"></a>アップグレード方法を教えてください。
-アップグレードが必要な各 VM は、Azure portal の Azure Monitor for VMs の **[はじめに]** タブで確認できます。 1 つの VM をアップグレードすることも、複数選択してアップグレードすることもできます。 PowerShell を使用してアップグレードするには、次のコマンドを使用します。
+Log Analytics ワークスペースが Azure Monitor for VMs の最新バージョンにアップグレードされると、そのワークスペースに接続されている各 VM の依存関係エージェントがアップグレードされます。 アップグレードが必要な各 VM は、Azure portal の Azure Monitor for VMs の **[はじめに]** タブで確認できます。 VM のアップグレードを選択した場合、その VM 用のワークスペースと、そのワークスペースに接続されている他のすべての VM がアップグレードされます。 1 つの VM、複数の VM、リソース グループまたはサブスクリプションを選択することが可能です。 
+
+PowerShell を使用してワークスペースをアップグレードするには、次のコマンドを使用します。
 
 ```PowerShell
 Set-AzureRmOperationalInsightsIntelligencePack -ResourceGroupName <resource-group-name> -WorkspaceName <workspace-name> -IntelligencePackName "VMInsights" -Enabled $True

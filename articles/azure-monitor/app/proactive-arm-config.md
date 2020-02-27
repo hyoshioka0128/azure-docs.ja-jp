@@ -133,12 +133,12 @@ Application Insights リソース名を置換し、関連するスマート検�
 
 ```
 
-### <a name="failure-anomalies-alert-rule"></a>エラーの異常のアラート ルール
+### <a name="failure-anomalies-alert-rule"></a>失敗の異常の警告ルール
 
-この Azure Resource Manager テンプレートでは、重大度が 2 のエラーの異常のアラート ルールの構成について示しています。 この新しいバージョンのエラーの異常のアラート ルールは、新しい Azure のアラート プラットフォームの一部であり、[従来のアラートの回収プロセス](https://azure.microsoft.com/updates/classic-alerting-monitoring-retirement/)の一環として廃止される従来のバージョンに置き換わります。
+この Azure Resource Manager テンプレートでは、重大度が 2 の失敗の異常警告ルールの構成について示しています。 この新しいバージョンのエラーの異常のアラート ルールは、新しい Azure のアラート プラットフォームの一部であり、[従来のアラートの回収プロセス](https://azure.microsoft.com/updates/classic-alerting-monitoring-retirement/)の一環として廃止される従来のバージョンに置き換わります。
 
 > [!NOTE]
-> エラーの異常はグローバル サービスであるため、ルールの場所はグローバルな場所に作成されます。
+> 失敗の異常はグローバル サービスであるため、ルールはグローバルな場所に作成されます。
 
 ```json
 {
@@ -169,7 +169,7 @@ Application Insights リソース名を置換し、関連するスマート検�
 ```
 
 > [!NOTE]
-> この Azure Resource Manager テンプレートは、エラーの異常のアラート ルールに固有のものであり、この記事で説明されている他の従来のスマート検出ルールとは異なります。
+> この Azure Resource Manager テンプレートは、失敗の異常の警告ルールに固有のものであり、この記事で説明されている他の従来のスマート検出ルールとは異なります。
 
 ## <a name="smart-detection-rule-names"></a>スマート検出ルール名
 

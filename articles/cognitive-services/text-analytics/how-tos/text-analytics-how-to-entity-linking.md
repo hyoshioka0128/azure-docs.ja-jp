@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 01/27/2019
+ms.date: 02/10/2020
 ms.author: aahi
-ms.openlocfilehash: 9aa00898c6a567d495ed0c66bcf7bd475067fa0d
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 0622aca5579c64c6d840761abb151665af559eea
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76774141"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77367643"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics"></a>Text Analytics で名前付きエンティティの認識を使用する方法
 
@@ -28,7 +28,9 @@ Text Analytics API を使用すると、構造化されていないテキスト�
 
 ### <a name="named-entity-recognition-ner"></a>名前付きエンティティの認識 (NER)
 
-名前付きエンティティの認識 (NER) は、テキスト形式のさまざまなエンティティを識別して、事前に定義したクラスまたは種類に分類する機能です。 たとえば、人や場所、組織が該当します。
+名前付きエンティティの認識 (NER) とは、人、場所、イベント、製品や組織などの事前に定義されているさまざまなテキスト形式のエンティティを、クラスまたは種類に分類する機能です。  
+
+Text Analytics API のこの機能では、バージョン 3 以降、電話番号、社会保障番号、電子メール アドレス、銀行の口座番号など、個人情報や機密情報の種類も識別できるようになりました。  これらのエンティティの識別は、機密文書の分類や、個人情報の解決に役立ちます。
 
 ## <a name="named-entity-recognition-versions-and-features"></a>名前付きエンティティの認識のバージョンと機能
 
@@ -44,14 +46,42 @@ Text Analytics API の名前付きエンティティの認識には、v2 と v3 
 
 詳細については、[言語サポート](../language-support.md#sentiment-analysis-key-phrase-extraction-and-named-entity-recognition)に関するページを参照してください。
 
-#### <a name="version-2tabversion-2"></a>[Version 2](#tab/version-2)
+
+#### <a name="version-30-preview"></a>[Version 3.0-preview](#tab/version-3)
+
+### <a name="entity-types"></a>エンティティの種類
+
+名前付きエンティティの認識 v3 では、複数の種類に対応する拡張された検出が提供されます。 現在、NER v3 は次のカテゴリのエンティティを認識できます。
+
+* 全般
+* 個人情報 
+
+サポートされているエンティティと言語の詳しいリストについては、[NER v3 でサポートされるエンティティの種類](../named-entity-types.md)に関する記事を参照してください。
+
+### <a name="request-endpoints"></a>要求エンドポイント
+
+名前付きエンティティの認識 v3 では、NER とエンティティ リンク設定の要求に別個のエンドポイントを使用します。 要求に応じて、次の URL 形式を使用します。
+
+NER
+* 一般的なエンティティ- `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0-preview.1/entities/recognition/general`
+
+* 個人情報 - `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0-preview.1/entities/recognition/pii`
+
+エンティティ リンク設定
+* `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0-preview.1/entities/linking`
+
+### <a name="model-versioning"></a>モデルのバージョン管理
+
+[!INCLUDE [v3-model-versioning](../includes/model-versioning.md)]
+
+#### <a name="version-21"></a>[バージョン 2.1](#tab/version-2)
 
 ### <a name="entity-types"></a>エンティティの種類
 
 > [!NOTE]
 > 名前付きエンティティの認識 (NER) バージョン 2 では、次のエンティティのみがサポートされます。 NER v3 はパブリック プレビュー段階ですが、テキスト内で認識されるエンティティの数と深さが大幅に拡張されています。   
 
-| 種類  | SubType | 例 |
+| Type  | SubType | 例 |
 |:-----------   |:------------- |:---------|
 | Person        | 該当なし\*         | "Jeff", "Bill Gates"     |
 | Location      | 該当なし\*         | "Redmond, Washington", "Paris"  |
@@ -83,33 +113,6 @@ Text Analytics API の名前付きエンティティの認識には、v2 と v3 
 
 `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v2.1/entities`
 
-#### <a name="version-3-public-previewtabversion-3"></a>[バージョン 3 (パブリック プレビュー)](#tab/version-3)
-
-### <a name="entity-types"></a>エンティティの種類
-
-名前付きエンティティの認識 v3 では、複数の種類に対応する拡張された検出が提供されます。 現在、NER v3 は次のカテゴリのエンティティを認識できます。
-
-* 全般
-* 個人情報 
-
-サポートされているエンティティと言語の詳しいリストについては、[NER v3 でサポートされるエンティティの種類](../named-entity-types.md)に関する記事を参照してください。
-
-### <a name="request-endpoints"></a>要求エンドポイント
-
-名前付きエンティティの認識 v3 では、NER とエンティティ リンク設定の要求に別個のエンドポイントを使用します。 要求に応じて、次の URL 形式を使用します。
-
-NER
-* 一般的なエンティティ- `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0-preview.1/entities/recognition/general`
-
-* 個人情報 - `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0-preview.1/entities/recognition/pii`
-
-エンティティ リンク設定
-* `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0-preview.1/entities/linking`
-
-### <a name="model-versioning"></a>モデルのバージョン管理
-
-[!INCLUDE [v3-model-versioning](../includes/model-versioning.md)]
-
 ---
 
 ## <a name="sending-a-rest-api-request"></a>REST API 要求の送信
@@ -124,17 +127,10 @@ JSON ドキュメントは、次の形式である必要があります: ID、�
 
 POST 要求を作成します。 次のリンクにある [Postman](text-analytics-how-to-call-api.md) または **API テスト コンソール**を使用して、簡単に要求を構造化し、送信することができます。 
 
-[!INCLUDE [text-analytics-find-resource-information](../includes/find-azure-resource-info.md)]
+> [!NOTE]
+> Azure portal で Text Analytics リソースのキーとエンドポイントを確認できます。 それらは、リソースの**クイック スタート** ページの**リソース管理**の下にあります。 
 
-#### <a name="version-2tabversion-2"></a>[Version 2](#tab/version-2)
-
-[名前付きエンティティの認識 (NER) v2 リファレンス](https://eastus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634)
-
-バージョン 2 では、エンティティ リンク設定と NER の要求に次のエンドポイントが使用されます。 
-
-`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v2.1/entities`
-
-#### <a name="version-3tabversion-3"></a>[Version 3](#tab/version-3)
+#### <a name="version-30-preview"></a>[Version 3.0-preview](#tab/version-3)
 
 [名前付きエンティティの認識 v3 リファレンス](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0-Preview-1/operations/EntitiesRecognitionGeneral)
 
@@ -147,6 +143,14 @@ NER
 
 エンティティ リンク設定
 * `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0-preview.1/entities/linking`
+
+#### <a name="version-21"></a>[バージョン 2.1](#tab/version-2)
+
+[名前付きエンティティの認識 (NER) v2 リファレンス](https://eastus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634)
+
+バージョン 2 では、エンティティ リンク設定と NER の要求に次のエンドポイントが使用されます。 
+
+`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v2.1/entities`
 
 ---
 
@@ -180,44 +184,8 @@ Text Analytics API はステートレスです。 データはアカウントに
 
 出力はすぐに返されます。 結果は、JSON を受け付けるアプリケーションにストリームするか、ローカル システム上のファイルに出力を保存してから、そのファイルを、データの並べ替え、検索、および操作が可能なアプリケーションにインポートすることができます。
 
-#### <a name="version-2tabversion-2"></a>[Version 2](#tab/version-2)
 
-### <a name="example-ner-v2-response"></a>NER v2 の応答の例
-```json
-{
-  "documents": [{
-    "id": "1",
-    "entities": [{
-      "name": "Seattle",
-      "matches": [{
-        "wikipediaScore": 0.15046201222847677,
-        "entityTypeScore": 0.80624294281005859,
-        "text": "Seattle",
-        "offset": 26,
-        "length": 7
-      }],
-      "wikipediaLanguage": "en",
-      "wikipediaId": "Seattle",
-      "wikipediaUrl": "https://en.wikipedia.org/wiki/Seattle",
-      "bingId": "5fbba6b8-85e1-4d41-9444-d9055436e473",
-      "type": "Location"
-    }, {
-      "name": "last week",
-      "matches": [{
-        "entityTypeScore": 0.8,
-        "text": "last week",
-        "offset": 34,
-        "length": 9
-      }],
-      "type": "DateTime",
-      "subType": "DateRange"
-    }]
-  }],
-  "errors": []
-}
-```
-
-#### <a name="version-3-public-previewtabversion-3"></a>[バージョン 3 (パブリック プレビュー)](#tab/version-3)
+#### <a name="version-30-preview"></a>[バージョン 3.0-preview)](#tab/version-3)
 
 ### <a name="example-v3-responses"></a>v3 の応答の例
 
@@ -271,6 +239,43 @@ Text Analytics API はステートレスです。 データはアカウントに
   }],
   "errors": [],
   "modelVersion": "2019-10-01"
+}
+```
+
+#### <a name="version-21"></a>[バージョン 2.1](#tab/version-2)
+
+### <a name="example-ner-v2-response"></a>NER v2 の応答の例
+```json
+{
+  "documents": [{
+    "id": "1",
+    "entities": [{
+      "name": "Seattle",
+      "matches": [{
+        "wikipediaScore": 0.15046201222847677,
+        "entityTypeScore": 0.80624294281005859,
+        "text": "Seattle",
+        "offset": 26,
+        "length": 7
+      }],
+      "wikipediaLanguage": "en",
+      "wikipediaId": "Seattle",
+      "wikipediaUrl": "https://en.wikipedia.org/wiki/Seattle",
+      "bingId": "5fbba6b8-85e1-4d41-9444-d9055436e473",
+      "type": "Location"
+    }, {
+      "name": "last week",
+      "matches": [{
+        "entityTypeScore": 0.8,
+        "text": "last week",
+        "offset": 34,
+        "length": 9
+      }],
+      "type": "DateTime",
+      "subType": "DateRange"
+    }]
+  }],
+  "errors": []
 }
 ```
 

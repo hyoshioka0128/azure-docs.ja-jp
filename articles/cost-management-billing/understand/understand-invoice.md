@@ -1,25 +1,19 @@
 ---
 title: Azure 請求書の確認 | Microsoft Docs
 description: Azure サブスクリプションの使用状況と課金内容を確認し、理解する方法について説明します。
-services: ''
-documentationcenter: ''
 author: bandersmsft
-manager: jureid
-editor: ''
+ms.reviewer: jureid
 tags: billing
 ms.service: cost-management-billing
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 12/02/2019
+ms.date: 02/12/2020
 ms.author: banders
-ms.openlocfilehash: e6858d51eec1bbcb100f71418337d74d19d6db5b
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: a3bf55bef0f6fc25f98b362b4a22e22471a031f1
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "75986499"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77199060"
 ---
 # <a name="understand-terms-on-your-microsoft-azure-invoice"></a>Microsoft Azure の請求書の用語を確認します。
 
@@ -44,7 +38,7 @@ ms.locfileid: "75986499"
 
 ![請求書のアカウント情報セクション](./media/understand-invoice/account-information-section.png)
 
-| 期間 | [説明] |
+| 期間 | 説明 |
 | --- | --- |
 | 顧客発注番号 |追跡のために割り当てられる、省略可能な発注書番号 |
 | 請求書番号 |追跡のために使用される、Microsoft で生成した一意の請求書番号 |
@@ -65,7 +59,7 @@ ms.locfileid: "75986499"
 #### <a name="understand-the-previous-charges"></a>繰越した料金について
 請求書の繰越残高、入金額、および未払い残高のセクションでは、直近の請求書期間以降の取引が要約されています。
 
-| 期間 | [説明] |
+| 期間 | 説明 |
 | --- | --- |
 | 繰越残高 |直近の請求期間以降の合計請求額 |
 | 入金額 |直近の請求期間に適用した支払いおよびクレジットの合計金額 |
@@ -74,7 +68,7 @@ ms.locfileid: "75986499"
 #### <a name="understand-the-current-charges"></a>現在の料金について
 請求書の現在の料金セクションは、現在の請求期間の月額料金に関する詳細を示しています。
 
-| 期間 | [説明] |
+| 期間 | 説明 |
 | --- | --- |
 | 利用料金 |利用料金は、現在の請求期間のサブスクリプションに対する合計月額料金です。|
 | 割引 |現在の請求期間に適用されるサービス割引|
@@ -84,7 +78,7 @@ ms.locfileid: "75986499"
 
 次の表では、請求書の 2 ページ目に示される販売先と支払い指示について説明します。
 
-| 期間 |[説明] |
+| 期間 |説明 |
 | --- | --- |
 | 販売先 |アカウントにあるプロファイルの住所。 <br/><br/>住所を変更する必要がある場合は、「[Azure アカウントのプロファイル情報 (連絡先メール アドレス、住所、電話番号など) を変更する方法](../manage/change-azure-account-profile.md)」を参照してください。|
 | 支払い指示 |支払い方法 (クレジット カードや請求書など) に応じた支払い方法に関する指示 |
@@ -97,9 +91,9 @@ ms.locfileid: "75986499"
 
 次の表では、請求書に表示される利用料金の列のヘッダーについて説明します。
 
-| 期間 |[説明] |
+| 期間 |説明 |
 | --- | --- |
-| Name |使用状況の最上位レベルのサービスを示します |
+| 名前 |使用状況の最上位レベルのサービスを示します |
 | Type |料金に影響する Azure サービスの種類を定義します |
 | リソース |消費しているメーターの測定単位を示します |
 | リージョン |データセンターの場所に基づいて価格が設定されるサービスについて、データセンターの場所を示します |

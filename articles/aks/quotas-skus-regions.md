@@ -2,17 +2,14 @@
 title: Azure Kubernetes Service (AKS) のクォータ、SKU、およびリージョンの可用性
 description: Azure Kubernetes Service (AKS) の既定のクォータ、制限されたノード VM SKU サイズ、およびリージョンの可用性について説明します。
 services: container-service
-author: mlearned
-ms.service: container-service
 ms.topic: conceptual
 ms.date: 04/09/2019
-ms.author: mlearned
-ms.openlocfilehash: a8b561780e2e81499d211252648aeef86561cb9b
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.openlocfilehash: 03e7396932f0813ef4bd00d644dcdaddfe229e6a
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75658510"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77594551"
 ---
 # <a name="quotas-virtual-machine-size-restrictions-and-region-availability-in-azure-kubernetes-service-aks"></a>Azure Kubernetes Service (AKS) のクォータ、仮想マシンのサイズの制限、およびリージョンの可用性
 
@@ -33,7 +30,7 @@ ms.locfileid: "75658510"
 
 ## <a name="restricted-vm-sizes"></a>制限されている VM サイズ
 
-AKS クラスター内の各ノードには、vCPU やメモリなどの一定量のコンピューティング リソースが含まれています。 AKS ノード内のコンピューティング リソースが不十分な場合、ポッドが正しく実行できないことがあります。 必要な *kube システム*のポッドおよびアプリケーションのスケジュールを確実に設定するには、AKS で次の VM SKU を使用しないでください。
+AKS クラスター内の各ノードには、vCPU やメモリなどの一定量のコンピューティング リソースが含まれています。 AKS ノード内のコンピューティング リソースが不十分な場合、ポッドが正しく実行できないことがあります。 必要な *kube システム*のポッドおよびアプリケーションのスケジュールを確実に設定するには、**AKS で次の VM SKU を使用しないでください**。
 
 - Standard_A0
 - Standard_A1

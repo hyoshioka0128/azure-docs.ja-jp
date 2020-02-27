@@ -81,6 +81,9 @@
         - name: SAML サービス プロバイダーを登録する
           href: connect-with-saml-service-providers.md
           displayName: 'SP, RP, service provider, connect'
+        - name: Graph アプリケーションを登録する
+          href: microsoft-graph-get-started.md
+          displayName: 'migrate, migration, microsoft graph'
         - name: Web API アプリケーションを追加する
           href: add-web-application.md
         - name: ネイティブ クライアント アプリケーションを追加する
@@ -101,7 +104,7 @@
               href: user-flow-self-service-password-reset.md
         - name: UX のカスタマイズ
           items:
-            - name: ユーザー インターフェイスのカスタマイズ
+            - name: UI のカスタマイズ
               href: customize-ui-overview.md
             - name: JavaScript とページ レイアウト
               href: user-flow-javascript-overview.md
@@ -177,13 +180,9 @@
             - name: UI のカスタマイズ
               href: custom-policy-ui-customization.md
               displayName: 'ux, input, cors, html, css'
-            - name: UI の動的なカスタマイズ
-              href: custom-policy-ui-customization-dynamic.md
             - name: カスタム メール
               href: custom-email.md
               displayName: verification
-            - name: ページ レイアウト
-              href: page-layout.md
             - name: JavaScript を有効にする
               href: javascript-samples.md
             - name: パスワードの複雑さ
@@ -351,10 +350,14 @@
         - name: Azure Monitor
           href: azure-monitor.md
           displayName: 'log, logs, logging, usage, events'
-        - name: 使用状況レポートのエクスポート
-          href: view-usage-reports.md
         - name: アカウント管理
           href: manage-user-accounts-graph-api.md
+        - name: Azure Pipelines を使用したデプロイ
+          href: deploy-custom-policies-devops.md
+          displayName: 'azure devops, ci/cd, cicd, custom policy, policies'
+        - name: PowerShell を使用したポリシーの管理
+          href: manage-custom-policies-powershell.md
+          displayName: 'scripting, scripts, psh, custom policy'
     - name: 監査ログ
       href: view-audit-logs.md
     - name: ユーザーの管理 - Azure portal
@@ -375,22 +378,24 @@
       items:
         - name: ユーザーを移行する
           href: user-migration.md
-        - name: 外部 ID を持つユーザーの移行
-          href: migrate-social-identities.md
 - name: リファレンス
   items:
     - name: Identity Experience Framework のリリース ノート
       href: custom-policy-developer-notes.md
     - name: コード サンプル
       href: 'https://azure.microsoft.com/resources/samples/?service=active-directory-b2c'
+    - name: ページ レイアウト バージョン
+      href: page-layout.md
     - name: Cookie の定義
       href: cookie-definitions.md
       displayName: 'cookies, SameSite'
     - name: エラー コード
       href: error-codes.md
+    - name: Microsoft Graph API の操作
+      href: microsoft-graph-operations.md
     - name: 利用可能なリージョンとデータの保存場所
       href: data-residency.md
-    - name: 課金の有効化
+    - name: 課金モデル
       href: billing.md
     - name: 脅威管理
       href: threat-management.md

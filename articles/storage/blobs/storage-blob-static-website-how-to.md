@@ -7,12 +7,12 @@ ms.subservice: blobs
 ms.topic: conceptual
 ms.author: normesta
 ms.date: 05/28/2019
-ms.openlocfilehash: d5b8121c7888903f3e4552a21a6ddc175ecc5176
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 35b5a85ea6fba87e785b581a7a20d0c28f312820
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73489086"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77484147"
 ---
 # <a name="host-a-static-website-in-azure-storage"></a>Azure Storage で静的 Web サイトをホストする
 
@@ -22,9 +22,9 @@ Azure Storage GPv2 アカウントのコンテナーから静的コンテンツ 
 
 <a id="portal" />
 
-## <a name="portaltabazure-portal"></a>[ポータル](#tab/azure-portal)
+## <a name="portal"></a>[ポータル](#tab/azure-portal)
 
-ステップ バイ ステップのチュートリアルについては、「[チュートリアル: Host a static website on Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-blob-static-website-host)」 (チュートリアル: Blob Storage で静的な Web サイトをホストする) を完了します。
+詳しいチュートリアルについては、「[チュートリアル: Host a static website on Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-blob-static-website-host)」 (チュートリアル: Blob Storage で静的な Web サイトをホストする) を完了します。
 
 静的 Web サイトのホスティングを有効にした後は、Web サイトのパブリック URL を使用して、ブラウザーから自分のサイトのページを表示できます。
 
@@ -38,7 +38,7 @@ Azure Storage GPv2 アカウントのコンテナーから静的コンテンツ 
 
 <a id="cli" />
 
-## <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
+## <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 [Azure コマンド ライン インターフェイス (CLI)](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) を使用して、静的な Web サイトのホスティングを有効にすることができます。
 
@@ -72,7 +72,7 @@ Azure Storage GPv2 アカウントのコンテナーから静的コンテンツ 
    この例では、Azure Cloud Shell セッションからコマンドを実行していることを前提としています。
 
    ```azurecli-interactive
-   az storage blob upload-batch -s <source-path> -d \$web --account-name <storage-account-name>
+   az storage blob upload-batch -s <source-path> -d \$web --account-name <storage-account-name> --content-type 'text/html; charset=utf-8'
    ```
 
    * `<storage-account-name>` プレースホルダーの値は、実際のストレージ アカウントの名前に置き換えます。
@@ -102,7 +102,7 @@ az storage account show -n <storage-account-name> -g <resource-group-name> --que
 
 <a id="powershell" />
 
-## <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+## <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Azure PowerShell モジュールを使用して、静的な Web サイトのホスティングを有効にできます。
 
@@ -157,6 +157,7 @@ Azure PowerShell モジュールを使用して、静的な Web サイトのホ�
     ```powershell
     # upload a file
     set-AzStorageblobcontent -File "<path-to-file>" `
+    -Properties @{ ContentType = "text/html; charset=utf-8";} `
     -Container `$web `
     -Blob "<blob-name>" `
     -Context $ctx
@@ -219,12 +220,7 @@ Write-Output $storageAccount.PrimaryEndpoints.Web
 
    ![Azure Storage 静的 Web サイトのメトリック: GetWebContent](./media/storage-blob-static-website/storage-blob-static-website-metrics-getwebcontent.png)
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
-* [Azure Storage での静的な Web サイトのホスティング](storage-blob-static-website.md)
-* [Azure CDN を使用して HTTPS 経由でカスタム ドメイン付きの BLOB にアクセスする](storage-https-custom-domain-cdn.md)
-* [BLOB または Web エンドポイントのカスタム ドメイン名の構成](storage-custom-domain-name.md)
-* [Azure Functions](/azure/azure-functions/functions-overview)
-* [Azure App Service](/azure/app-service/overview)
-* [最初のサーバーレス Web アプリを作成する](https://docs.microsoft.com/azure/functions/tutorial-static-website-serverless-api-with-database)
-* [チュートリアル:Azure DNS でドメインをホストする](../../dns/dns-delegate-domain-azure-dns.md)
+* 静的な Web サイトでカスタム ドメインを構成する方法を学習します。 「[カスタム ドメインを Azure Blob Storage エンドポイントにマップする](storage-custom-domain-name.md)」を確認します。
+

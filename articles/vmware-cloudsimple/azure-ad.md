@@ -1,5 +1,5 @@
 ---
-title: CloudSimple による Azure VMware ソリューション - Private Cloud 上で ID ソースとして Azure AD を使用する
+title: Azure VMware Solution by CloudSimple - Private Cloud 上で ID ソースとして Azure AD を使用する
 description: CloudSimple Private Cloud 上で ID プロバイダーとして Azure AD を追加し、Azure から CloudSimple にアクセスするユーザーを認証する方法について説明します。
 author: sharaths-cs
 ms.author: b-shsury
@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 1a5871a052998e9dd32d698c5a89f57064cc7d6b
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: 674ca8bea110d60557d1e50e7b68c9c3f7a92bf2
+ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72987565"
+ms.lasthandoff: 02/23/2020
+ms.locfileid: "77564586"
 ---
 # <a name="use-azure-ad-as-an-identity-provider-for-vcenter-on-cloudsimple-private-cloud"></a>CloudSimple Private Cloud 上で vCenter の ID プロバイダーとして Azure AD を使用する
 
@@ -85,9 +85,9 @@ vCenter で ID ソースとして Azure AD を使用するには、Azure AD と 
 
     | **オプション** | **説明** |
     |------------|-----------------|
-    | **Name** | ID ソースの名前。 |
+    | **名前** | ID ソースの名前。 |
     | **Base DN for users** (ユーザーのベース DN) | ユーザーのベース識別名。  Azure AD の場合、次のように使用します。`OU=AADDC Users,DC=<domain>,DC=<domain suffix>`  例: `OU=AADDC Users,DC=cloudsimplecustomer,DC=com`。|
-    | **ドメイン名** | ドメインの FDQN (例: example.com)。 このテキスト ボックスには IP アドレスを指定しないでください。 |
+    | **ドメイン名** | ドメインの FQDN (例: example.com)。 このテキスト ボックスには IP アドレスを指定しないでください。 |
     | **Domain alias** (ドメイン エイリアス) | *(省略可能)* ドメインの NetBIOS 名。 SSPI 認証を使用している場合は、Active Directory ドメインの NetBIOS 名を ID ソースのエイリアスとして追加します。 |
     | **Base DN for groups** (グループのベース DN) | グループのベース識別名。 Azure AD の場合、次のように使用します。`OU=AADDC Users,DC=<domain>,DC=<domain suffix>`  例: `OU=AADDC Users,DC=cloudsimplecustomer,DC=com`|
     | **Primary Server URL** (プライマリ サーバーの URL) | ドメインのプライマリ ドメイン コントローラー LDAP サーバー。<br><br> `ldaps://hostname:port` の形式を使用します。 LDAPS 接続の場合、通常、このポートは 636 です。 <br><br>プライマリまたはセカンダリの LDAP URL で  `ldaps://`  を使用するときは、Active Directory サーバーの LDAPS エンドポイントに対して信頼を確立する証明書が必要です。 |
@@ -103,6 +103,6 @@ vCenter で ID ソースとして Azure AD を使用するには、Azure AD と 
 > [!CAUTION]
 > 新しいユーザーは、*Cloud-Owner-Group*、*Cloud-Global-Cluster-Admin-Group*、*Cloud-Global-Storage-Admin-Group*、*Cloud-Global-Network-Admin-Group*、または *Cloud-Global-VM-Admin-Group* にのみ追加する必要があります。  *Administrators* グループに追加されたユーザーは自動的に削除されます。  *Administrators* グループには、サービス アカウントのみを追加する必要があります。
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
 * [プライベート クラウド アクセス許可モデルの詳細](learn-private-cloud-permissions.md)

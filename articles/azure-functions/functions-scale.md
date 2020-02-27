@@ -5,12 +5,12 @@ ms.assetid: 5b63649c-ec7f-4564-b168-e0a74cb7e0f3
 ms.topic: conceptual
 ms.date: 03/27/2019
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6a07d019893e69308b35b4a941fe50d2736efe01
-ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
+ms.openlocfilehash: c4ff3ebf6239f9b62409ff0885f23115711e33cb
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75921911"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77584543"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Azure Functions のスケールとホスティング
 
@@ -26,7 +26,7 @@ Azure で関数アプリを作成するときは、アプリのホスティン�
 
 Premium プランには、Premium コンピューティング インスタンス、無期限にインスタンスをウォーム状態に保つ機能、VNet 接続などの追加機能があります。
 
-App Service プランでは、お客様が管理している専用のインフラストラクチャを利用できます。 関数アプリはイベントに基づいてスケールされません。つまり、ゼロにスケールダウンされることは決してありません ([[常時接続]](#always-on) を有効にする必要があります)。
+App Service プランでは、お客様が管理している専用のインフラストラクチャを利用できます。 関数アプリはイベントに基づいてスケーリングされません。つまり、ゼロにスケールインされることはありません。 ([[常時接続]](#always-on) を有効にする必要があります)。
 
 ## <a name="hosting-plan-support"></a>ホスティング プランのサポート
 
@@ -152,13 +152,13 @@ Azure Functions のスケールの単位は関数アプリです。 関数アプ
 
 スケーリングはさまざまな要因によって異なる可能性があり、選択したトリガーと言語に基づいて異なる方法でスケールします。 スケーリング動作には、注意が必要な複雑な作業がいくつかあります。
 
-* 1 つの関数アプリは、最大 200 インスタンスまでしかスケールアップできません。 1 つのインスタンスで一度に複数のメッセージや要求を処理できるので、同時実行の数に上限は設定されていません。
+* 1 つの関数アプリがスケールアウトされるのは、最大 200 インスタンスまでのみとなります。 1 つのインスタンスで一度に複数のメッセージや要求を処理できるので、同時実行の数に上限は設定されていません。
 * HTTP トリガーの場合、新しいインスタンスは、1 秒ごとに最大 1 回しか割り当てられません。
 * 非 HTTP トリガーの場合、新しいインスタンスは、30 秒ごとに最大 1 回しか割り当てられません。
 
 次の記事に記載されているように、トリガーごとにスケーリングの上限が異なる場合もあります。
 
-* [イベント ハブ](functions-bindings-event-hubs.md#trigger---scaling)
+* [イベント ハブ](functions-bindings-event-hubs-trigger.md#scaling)
 
 ### <a name="best-practices-and-patterns-for-scalable-apps"></a>スケーラブルなアプリのベスト プラクティスとパターン
 

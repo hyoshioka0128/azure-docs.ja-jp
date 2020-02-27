@@ -144,8 +144,8 @@ LUIS JSON アプリ ファイルに対して、分音記号または句読点の
 
 |発話|
 |--|
-|今年の夏、シアトル地区でどのような種類のカウンティー フェアが開催されますか?|
-|シアトル レビューの現在の評価は公正ですか?|
+|What kind of county fairs are happening in the Seattle area this summer?|
+|Is the current rating for the Seattle review fair?|
 
 イベント エンティティですべてのイベント データを検索する場合は、2 つ目ではなく最初の発話の単語 `fair` にラベルを付けます。
 

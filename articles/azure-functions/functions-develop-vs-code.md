@@ -3,12 +3,12 @@ title: Visual Studio Code を使用して Azure Functions を開発する
 description: Visual Studio Code 用 Azure Functions 拡張機能を使用して、Azure Functions を開発およびテストする方法を説明します。
 ms.topic: conceptual
 ms.date: 08/21/2019
-ms.openlocfilehash: 59c350b267583a2bccfdd66996aa6c1f97954218
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 41a1a64be4823769f6bf23b251fec94fd68eb0f0
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76845414"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77484776"
 ---
 # <a name="develop-azure-functions-by-using-visual-studio-code"></a>Visual Studio Code を使用して Azure Functions を開発する
 
@@ -33,7 +33,7 @@ Azure Functions 拡張機能には、次のような利点があります。
 
 この記事の例は、現在、JavaScript (Node.js) と C# クラス ライブラリの関数でのみ使用可能です。  
 
-この記事では、Azure Functions 拡張機能を使って関数を開発して Azure に発行する方法に関する詳細情報を提供します。 この記事を読む前に、[Visual Studio Code を使って最初の関数を作成](functions-create-first-function-vs-code.md)してください。
+この記事では、Azure Functions 拡張機能を使って関数を開発して Azure に発行する方法に関する詳細情報を提供します。 この記事を読む前に、[Visual Studio Code を使って最初の関数を作成](functions-create-first-function-vs-code.md) してください。
 
 > [!IMPORTANT]
 > 1 つの関数アプリにローカル開発とポータル開発を混在させないでください。 ローカル プロジェクトから関数アプリに発行すると、ポータルで開発した関数がデプロイ プロセスによって上書きされます。
@@ -71,13 +71,15 @@ Functions の拡張機能により、最初の関数と共に関数アプリ プ
 
     ![HTTP トリガー テンプレートを選択する](./media/functions-develop-vs-code/create-function-choose-template.png)
 
-1. 関数名として **HttpExample** を入力して Enter キーを選択してから、 **[関数]** の承認を選択します。 この承認レベルでは、関数エンドポイントを呼び出すときに[関数キー](functions-bindings-http-webhook.md#authorization-keys)を指定する必要があります。
+1. 関数名として **HttpExample** を入力して Enter キーを選択してから、 **[関数]** の承認を選択します。 この承認レベルでは、関数エンドポイントを呼び出すときに[関数キー](functions-bindings-http-webhook-trigger.md#authorization-keys)を指定する必要があります。
 
     ![関数の承認を選択する](./media/functions-develop-vs-code/create-function-auth.png)
 
     選択した言語と、HTTP によってトリガーされる関数のテンプレートで、関数が作成されます。
 
     ![Visual Studio Code の HTTP によってトリガーされる関数のテンプレート](./media/functions-develop-vs-code/new-function-full.png)
+
+### <a name="generated-project-files"></a>生成されたプロジェクト ファイル
 
 このプロジェクト テンプレートは、選択した言語でプロジェクトを作成し、必要な依存関係をインストールします。 どの言語の場合も、新しいプロジェクトには次のファイルが含まれます。
 
@@ -88,6 +90,30 @@ Functions の拡張機能により、最初の関数と共に関数アプリ プ
     >[!IMPORTANT]
     >local.settings.json ファイルにはシークレットを含めることができるため、それをプロジェクト ソース管理から除外する必要があります。
 
+言語に応じて、次のような他のファイルが作成されます。
+
+# <a name="c"></a>[C\#](#tab/csharp)
+
+* 関数を実装する [HttpExample.cs クラス ライブラリ ファイル](functions-dotnet-class-library.md#functions-class-library-project)。
+
+# <a name="javascript"></a>[JavaScript](#tab/nodejs)
+
+* ルート フォルダー内の package.json ファイル。
+
+* [function.json 定義ファイル](functions-reference-node.md#folder-structure)と [index.js ファイル](functions-reference-node.md#exporting-a-function) (関数コードを含む Node.js ファイル) の格納先となる HttpExample フォルダー。
+
+<!-- # [PowerShell](#tab/powershell)
+
+* An HttpExample folder that contains the [function.json definition file](functions-reference-python.md#programming-model) and the run.ps1 file, which contains the function code.
+ 
+# [Python](#tab/python)
+    
+* A project-level requirements.txt file that lists packages required by Functions.
+    
+* An HttpExample folder that contains the [function.json definition file](functions-reference-python.md#programming-model) and the \_\_init\_\_.py file, which contains the function code.
+     -->
+---
+
 この時点で、[function.json ファイルを変更する](#add-a-function-to-your-project)か、[パラメーターを C# クラス ライブラリ関数に追加する](#add-a-function-to-your-project)ことにより、関数に入出力バインドを追加できます。
 
 また、[新しい関数をプロジェクトに追加する](#add-a-function-to-your-project)こともできます。
@@ -96,7 +122,7 @@ Functions の拡張機能により、最初の関数と共に関数アプリ プ
 
 HTTP トリガーとタイマー トリガーを除き、バインドは拡張機能パッケージで実装されます。 拡張機能パッケージは、それらを必要とするトリガーおよびバインド用のものをインストールする必要があります。 バインドの拡張機能をインストールするプロセスは、プロジェクトの言語によって異なります。
 
-# <a name="ctabcsharp"></a>[C\#](#tab/csharp)
+# <a name="c"></a>[C\#](#tab/csharp)
 
 ターミナル ウィンドウで [dotnet add package](/dotnet/core/tools/dotnet-add-package) コマンドを実行して、プロジェクトに必要な拡張機能パッケージをインストールします。 次のコマンドは、Blob Storage、Queue Storage、Table Storage のバインドを実装する Azure Storage 拡張機能をインストールします。
 
@@ -104,7 +130,7 @@ HTTP トリガーとタイマー トリガーを除き、バインドは拡張�
 dotnet add package Microsoft.Azure.WebJobs.Extensions.Storage --version 3.0.4
 ```
 
-# <a name="javascripttabnodejs"></a>[JavaScript](#tab/nodejs)
+# <a name="javascript"></a>[JavaScript](#tab/nodejs)
 
 [!INCLUDE [functions-extension-bundles](../../includes/functions-extension-bundles.md)]
 
@@ -116,11 +142,11 @@ dotnet add package Microsoft.Azure.WebJobs.Extensions.Storage --version 3.0.4
 
 このアクションの結果は、お使いのプロジェクトの言語によって異なります。
 
-# <a name="ctabcsharp"></a>[C\#](#tab/csharp)
+# <a name="c"></a>[C\#](#tab/csharp)
 
 新しい C# クラス ライブラリ (.cs) ファイルがプロジェクトに追加されます。
 
-# <a name="javascripttabnodejs"></a>[JavaScript](#tab/nodejs)
+# <a name="javascript"></a>[JavaScript](#tab/nodejs)
 
 プロジェクト内に新しいフォルダーが作成されます。 そのフォルダーには、新しい function.json ファイルと新しい JavaScript コード ファイルが含まれています。
 
@@ -132,7 +158,7 @@ dotnet add package Microsoft.Azure.WebJobs.Extensions.Storage --version 3.0.4
 
 次の例では、`outqueue` という名前のストレージ キューに接続します。ここで、ストレージ アカウントの接続文字列は、local.settings.json の `MyStorageConnection` アプリケーション設定に指定されています。
 
-# <a name="ctabcsharp"></a>[C\#](#tab/csharp)
+# <a name="c"></a>[C\#](#tab/csharp)
 
 次のパラメーターを `Run` メソッド定義に追加する関数メソッドを更新します。
 
@@ -148,9 +174,9 @@ using Microsoft.Azure.WebJobs.Extensions.Storage;
 
 `msg` パラメーターは `ICollector<T>` 型です。これは、関数の完了時に出力バインドに書き込まれるメッセージのコレクションを表します。 1 つ以上のメッセージをコレクションに追加します。 これらのメッセージは、関数の完了時にキューに送信されます。
 
-詳細については、[キュー ストレージの出力バインド](functions-bindings-storage-queue.md#output)に関するドキュメントをご覧ください。
+詳細については、[キュー ストレージの出力バインド](functions-bindings-storage-queue-output.md)に関するドキュメントをご覧ください。
 
-# <a name="javascripttabnodejs"></a>[JavaScript](#tab/nodejs)
+# <a name="javascript"></a>[JavaScript](#tab/nodejs)
 
 Visual Studio Code では、便利な一連のプロンプトに従って、function.json ファイルにバインドを追加できます。 バインドを作成するには、関数フォルダー内の **function.json** ファイルを右クリック (macOS では Ctrl を押しながらクリック) して **[バインドの追加]** を選択します。
 
@@ -158,7 +184,7 @@ Visual Studio Code では、便利な一連のプロンプトに従って、func
 
 以下は、新しいストレージ出力バインドを定義するためのプロンプト例です。
 
-| Prompt | Value | [説明] |
+| Prompt | Value | 説明 |
 | -------- | ----- | ----------- |
 | **Select binding direction (バインド方向を選択する)** | `out` | バインドは出力バインドです。 |
 | **Select binding with direction (方向を使用してバインドを選択する)** | `Azure Queue Storage` | バインドは Azure Storage キュー バインドです。 |
@@ -186,7 +212,7 @@ Visual Studio Code では、便利な一連のプロンプトに従って、func
 context.bindings.msg = "Name passed to the function: " req.query.name;
 ```
 
-詳細については、[キュー ストレージの出力バインド](functions-bindings-storage-queue.md#output)の参照をご覧ください。
+詳細については、[キュー ストレージの出力バインド](functions-bindings-storage-queue-output.md)の参照をご覧ください。
 
 ---
 
@@ -218,11 +244,11 @@ Visual Studio Code から発行するときには、[ZIP デプロイ](functions
 
 1. サインしていない場合は、**Azure にサインイン**するよう求められます。 **無料の Azure アカウントを作成**することもできます。 ブラウザーからサインインしたら、Visual Studio Code に戻ります。
 
-1. 複数のサブスクリプションがある場合、関数アプリの**サブスクリプションを選択**してから、 **[+ Create New Function App in Azure... _Advanced_]\(+ Azure で新しい関数アプリを作成... 詳細\)** を選択します。 この_高度_なオプションを使用すると、Azure で作成するリソースをより細かく制御できます。 
+1. 複数のサブスクリプションがある場合、関数アプリの**サブスクリプションを選択**してから、 **[+ Create New Function App in Azure... _Advanced_]\(+ Azure で新しい関数アプリを作成... 詳細\)** を選択します。 この _高度_ なオプションを使用すると、Azure で作成するリソースをより細かく制御できます。 
 
 1. プロンプトに従って、次の情報を入力します。
 
-    | Prompt | Value | [説明] |
+    | Prompt | Value | 説明 |
     | ------ | ----- | ----------- |
     | Select function app in Azure (Azure で関数アプリを選択する) | \+ Create New Function App in Azure (+ Azure で新しい関数アプリを作成する) | 次のプロンプトで、新しい関数アプリを識別するグローバルに一意の名前を入力し、Enter キーを選択します。 関数アプリ名の有効な文字は、`a-z`、`0-9`、`-` です。 |
     | Select an OS (OS を選択する) | Windows | 関数アプリは Windows で実行されます。 |
@@ -251,7 +277,7 @@ Visual Studio Code から発行するときには、[ZIP デプロイ](functions
 
 ## <a name="get-the-url-of-the-deployed-function"></a>デプロイされた関数の URL を取得する
 
-HTTP によってトリガーされる関数を呼び出すには、関数アプリにデプロイされたときの関数の URL が必要です。 この URL には、必要なすべての[関数キー](functions-bindings-http-webhook.md#authorization-keys)が含まれています。 デプロイした関数のこれらの URL を取得するには、拡張機能を使用できます。
+HTTP によってトリガーされる関数を呼び出すには、関数アプリにデプロイされたときの関数の URL が必要です。 この URL には、必要なすべての[関数キー](functions-bindings-http-webhook-trigger.md#authorization-keys)が含まれています。 デプロイした関数のこれらの URL を取得するには、拡張機能を使用できます。
 
 1. F1 キーを選択してコマンド パレットを開き、次のコマンドを検索して実行します: **Azure Functions: Copy Function URL**。
 
@@ -387,7 +413,7 @@ Azure でアプリケーション設定を作成した場合は、次のコマ�
 
 Azure Functions 拡張機能には、Azure の関数アプリと対話するための領域に便利なグラフィカル インターフェイスが用意されています。 同じ機能が、コマンド パレット (F1) のコマンドとしても使用できます。 これらの Azure Functions コマンドを使用できます。
 
-|Azure Functions のコマンド  | [説明]  |
+|Azure Functions のコマンド  | 説明  |
 |---------|---------|
 |**Add New Settings**  |  Azure に新しいアプリケーション設定を作成します。 詳細については、「[アプリケーション設定を発行する](#publish-application-settings)」を参照してください。 また、[この設定をローカル設定にダウンロード](#download-settings-from-azure)する必要がある場合もあります。 |
 | **Configure Deployment Source** | Azure の関数アプリをローカル Git リポジトリに接続します。 詳細については、「[Azure Functions の継続的なデプロイ](functions-continuous-deployment.md)」をご覧ください。 |

@@ -2,21 +2,18 @@
 title: Azure での Microsoft 顧客契約の請求書を理解する
 description: Azure での Microsoft 顧客契約の請求書を読み取って理解する方法を説明します
 author: bandersmsft
-manager: jureid
+ms.reviewer: amberb
 tags: billing
 ms.service: cost-management-billing
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 10/01/2019
+ms.date: 02/10/2020
 ms.author: banders
-ms.openlocfilehash: 793caae31841c0ea744a80a811c86aa4af63f60a
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 4c4b105bb4b67e855de27b6a57d2080fde068421
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "75985343"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77200216"
 ---
 # <a name="terms-in-your-microsoft-customer-agreement-invoice"></a>Microsoft 顧客契約の請求書の用語
 
@@ -38,7 +35,7 @@ ms.locfileid: "75985343"
 
 ![請求書の要約セクション](./media/mca-understand-your-invoice/invoicesummary.png)
 
-| 期間 | [説明] |
+| 期間 | 説明 |
 | --- | --- |
 | 販売先 |請求先アカウントのプロパティに含まれる、法人の住所|
 | 請求先 |課金プロファイルのプロパティに含まれる、請求書を受け取る課金プロファイルの請求先住所|
@@ -54,7 +51,7 @@ ms.locfileid: "75985343"
 
 ![[課金の要約] セクション](./media/mca-understand-your-invoice/billingsummary.png)
 
-| 期間 | [説明] |
+| 期間 | 説明 |
 | --- | --- |
 | Charges|この課金プロファイルに対する前回の請求期間以降の Microsoft の料金の合計額 |
 | 謝辞 |払い戻しで受け取ったクレジット |
@@ -78,7 +75,7 @@ ms.locfileid: "75985343"
 
 ![請求書セクションごとの詳細](./media/mca-understand-your-invoice/invoicesectiondetails.png)
 
-| 期間 |[説明] |
+| 期間 |説明 |
 | --- | --- |
 | Unit price | 使用量の評価に使用される (価格設定通貨による) サービスの実効単価。 これは、製品、サービス ファミリ、測定、オファーによって異なります。 |
 | 数量 | 請求期間中に購入または使用された数量 |

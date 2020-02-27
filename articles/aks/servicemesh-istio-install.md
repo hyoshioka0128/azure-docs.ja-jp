@@ -2,17 +2,16 @@
 title: Azure Kubernetes Service (AKS) で Istio をインストールする
 description: Istio をインストールして使用し、Azure Kubernetes Service (AKS) クラスターでサービス メッシュを作成する方法について説明します
 author: paulbouwer
-ms.service: container-service
 ms.topic: article
-ms.date: 11/15/2019
+ms.date: 02/19/2020
 ms.author: pabouwer
 zone_pivot_groups: client-operating-system
-ms.openlocfilehash: 85ef34f8644d95f6cfd2c7262bfe4bbc0683547f
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.openlocfilehash: 608eaaab9fb1e24b00d2aa2d4bfe393b5f17c9a1
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75561740"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77593984"
 ---
 # <a name="install-and-use-istio-in-azure-kubernetes-service-aks"></a>Azure Kubernetes Service (AKS) で Istio をインストールして使用する
 
@@ -99,7 +98,6 @@ AKS クラスターに Grafana および Kiali シークレットを正常に作
 
 > [!CAUTION]
 > [SDS (シークレット検出サービス)][istio-feature-sds] と [Istio CNI][istio-feature-cni] の機能は現在[アルファ版][istio-feature-stages]であるため、これらを有効にする場合は事前に十分な考慮をする必要があります。 また、現在の AKS バージョンでは、[サービス アカウント トークン ボリューム プロジェクション][kubernetes-feature-sa-projected-volume] Kubernetes 機能 (SDS の要件) は有効になっていません。
-
 次のコンテンツを含む `istio.aks.yaml` という名前のファイルを作成します。 このファイルには、Istio を構成するための [Istio コントロール プレーンの仕様][istio-control-plane]に関する詳細が保持されます。
 
 ```yaml

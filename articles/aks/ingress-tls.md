@@ -2,17 +2,14 @@
 title: Azure Kubernetes Service (AKS) クラスターを使用した HTTPS イングレスの作成
 description: Azure Kubernetes Service (AKS) クラスターで、自動的に TLS 証明書を生成する Let's Encrypt を使用する NGINX イングレス コントローラーをインストールおよび構成する方法について説明します。
 services: container-service
-author: mlearned
-ms.service: container-service
 ms.topic: article
-ms.date: 01/15/2020
-ms.author: mlearned
-ms.openlocfilehash: 5df7a8a639c87f90df0d3d22f84c4e93ac81e3a2
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.date: 01/29/2020
+ms.openlocfilehash: 6b465aeb08f14e48249be9587e5fdee1f4b08ba4
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76028312"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77595537"
 ---
 # <a name="create-an-https-ingress-controller-on-azure-kubernetes-service-aks"></a>Azure Kubernetes Service (AKS) で HTTPS イングレス コントローラーを作成する
 
@@ -92,7 +89,7 @@ az network dns record-set a add-record \
 ```
 
 > [!NOTE]
-> 必要に応じて、イングレス コントローラーの IP アドレスに、カスタム ドメインではなく FQDN を構成することもできます。
+> 必要に応じて、イングレス コントローラーの IP アドレスに、カスタム ドメインではなく FQDN を構成することもできます。 このサンプルは、Bash シェル用である点に注意してください。
 > 
 > ```azurecli-interactive
 > # Public IP address of your ingress controller

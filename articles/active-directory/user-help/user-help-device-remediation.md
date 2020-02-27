@@ -2,7 +2,7 @@
 title: "\"ここからアクセスすることはできません\" というエラーに対する修正 - Azure AD"
 description: "\"ここからアクセスすることはできません\" というエラー メッセージを受け取る理由に対して可能性のある修正を探します。"
 services: active-directory
-author: eross-msft
+author: curtand
 manager: daveba
 ms.assetid: 8ad0156c-0812-4855-8563-6fbff6194174
 ms.service: active-directory
@@ -10,15 +10,15 @@ ms.subservice: user-help
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 10/10/2018
-ms.author: lizross
+ms.author: curtand
 ms.reviewer: jairoc
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: 55a6e9976706cb12a53dd5d540a2b6f2edb9e41b
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 2484de4e554d16ba049d206981a44654ede28a3f
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76704631"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77190022"
 ---
 # <a name="possible-fixes-for-the-you-cant-get-there-from-here-error-message"></a>"ここからアクセスすることはできません" というエラー メッセージに対して可能性のある修正方法
 
@@ -29,7 +29,7 @@ ms.locfileid: "76704631"
 
 ![ブラウザーのサポートに関連するエラー メッセージ](media/user-help-device-remediation/browser-version.png)
 
-この問題を解決するには、オペレーティング システムに基づいて、サポートされているブラウザーをインストールして実行する必要があります。 Windows 10 を使用している場合、サポートされているブラウザーには、Microsoft Edge、Internet Explorer、および Google Chrome が含まれます。 別のオペレーティング システムを使用している場合は、[サポートされているブラウザー](../conditional-access/technical-reference.md#supported-browsers)から完全な一覧を確認できます。
+この問題を解決するには、オペレーティング システムに基づいて、サポートされているブラウザーをインストールして実行する必要があります。 Windows 10 を使用している場合、サポートされているブラウザーには、Microsoft Edge、Internet Explorer、および Google Chrome が含まれます。 別のオペレーティング システムを使用している場合は、[サポートされているブラウザー](../conditional-access/concept-conditional-access-conditions.md#supported-browsers)から完全な一覧を確認できます。
 
 ## <a name="make-sure-youre-using-a-supported-operating-system"></a>サポートされているオペレーティング システムを使用しているかどうかを確認する
 サポートされているオペレーティング システムのバージョンを実行しているかどうかを確認します。これには以下のバージョンが含まれます。

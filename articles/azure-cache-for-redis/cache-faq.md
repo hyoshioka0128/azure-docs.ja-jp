@@ -160,7 +160,7 @@ Azure Cache for Redis の価格は[ここ](https://azure.microsoft.com/pricing/d
 | クラウド   | Redis の DNS サフィックス            |
 |---------|---------------------------------|
 | パブリック  | *.redis.cache.windows.net       |
-| 米国政府  | *. redis.cache.usgovcloudapi.net |
+| US Gov  | *. redis.cache.usgovcloudapi.net |
 | ドイツ | *.redis.cache.cloudapi.de       |
 | 中国   | *.redis.cache.chinacloudapi.cn  |
 
@@ -177,7 +177,7 @@ Azure Government Cloud、Azure China 21Vianet Cloud、Microsoft Azure Germany �
 ### <a name="what-do-the-stackexchangeredis-configuration-options-do"></a>StackExchange.Redis 構成オプションについて
 StackExchange.Redis には多くのオプションが用意されています。 ここでは、いくつかの一般的な設定について説明します。 StackExchange.Redis オプションの詳細については、 [StackExchange.Redis の構成](https://stackexchange.github.io/StackExchange.Redis/Configuration)に関するページを参照してください。
 
-| 構成オプション | [説明] | 推奨 |
+| 構成オプション | 説明 | 推奨 |
 | --- | --- | --- |
 | AbortOnConnectFail |true の場合、ネットワーク障害の後に再接続が行われません。 |StackExchange.Redis が自動的に再接続するように、false に設定します。 |
 | ConnectRetry |初期接続中に接続試行を繰り返す回数。 |次の注意事項を参考にしてください。 |

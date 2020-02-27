@@ -1,19 +1,19 @@
 ---
 title: マップに描画ツール バーを追加する | Microsoft Azure Maps
 description: Azure Maps Web SDK を使用してマップに描画ツールバーを追加する方法
-author: walsehgal
-ms.author: v-musehg
+author: farah-alyasari
+ms.author: v-faalya
 ms.date: 09/04/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 553dffd14182c93a52ed076e742830c68130551b
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: cb0f70bc42c9ac0f7026c910593950516f027a88
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75911230"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77209751"
 ---
 # <a name="add-a-drawing-tools-toolbar-to-a-map"></a>描画ツールのツールバーをマップに追加する
 
@@ -68,7 +68,7 @@ drawingManager = new atlas.drawing.DrawingManager(map, {
 
 ## <a name="change-drawing-rendering-style"></a>描画のレンダリング スタイルの変更
 
-次のコードでは、描画マネージャーからレンダリング レイヤーを取得し、それらのオプションを変更することで、描画のレンダリング スタイルを変更します。 この場合、点は青色のマーカー アイコンでレンダリングされ、線は赤色の 4 ピクセル幅になります。多角形の塗りつぶしの色は緑色に、枠線の色はオレンジ色になります。
+次のコードでは、描画マネージャーからレンダリング レイヤーを取得し、それらのオプションを変更することで、描画のレンダリング スタイルを変更します。 この場合、ポイントは青いマーカー アイコンで描画されます。 線は、赤色の 4 ピクセル幅になります。 多角形は、緑色で塗りつぶされ、枠線がオレンジ色になります。
 
 ```Javascript
 var layers = drawingManager.getLayers();

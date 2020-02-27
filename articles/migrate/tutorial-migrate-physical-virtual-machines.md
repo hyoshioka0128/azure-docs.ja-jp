@@ -1,27 +1,23 @@
 ---
-title: Azure Migrate Server Migration を使用して、オンプレミスの物理マシンまたは仮想マシンを Azure に移行する | Microsoft Docs
-description: この記事では、Azure Migrate Server Migration を使用して、オンプレミスの物理マシンまたは仮想マシンを Azure に移行する方法を説明します。
-author: rayne-wiselman
-manager: carmonm
-ms.service: azure-migrate
+title: Azure Migrate を使用してマシンを物理サーバーとして Azure に移行する
+description: この記事では、Azure Migrate を使用して、物理マシンを Azure に移行する方法について説明します。
 ms.topic: tutorial
-ms.date: 11/04/2019
-ms.author: raynew
+ms.date: 02/03/2020
 ms.custom: MVC
-ms.openlocfilehash: 4a6e33770f93c365d5ccd034803c7c7f247d528a
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: 908a5915cbb7f5aeb9f641da18024d5dbf497707
+ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76028802"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77134937"
 ---
-# <a name="migrate-physical-or-virtualized-servers-to-azure"></a>物理または仮想サーバーを Azure に移行する 
+# <a name="migrate-machines-as-physical-servers-to-azure"></a>マシンを物理サーバーとして Azure に移行する
 
-この記事では、物理または仮想サーバーを Azure に移行する方法を説明します。 Azure Migrate Server Migration ツールでは、エージェントベースのレプリケーションを使用して、物理および仮想サーバーの移行が可能です。 このツールを使用すると、さまざまなマシンを Azure に移行できます。
+この記事では、Azure Migrate Server Migration ツールを使用して、マシンを物理サーバーとして Azure に移行する方法について説明します。 マシンを物理サーバーとして扱うことによって移行することは、さまざまなシナリオで役立ちます。
 
 - オンプレミスの物理サーバーを移行する。
 - Xen、KVM などのプラットフォームで仮想化された VM を移行する。
-- Hyper-V または VMware VM を移行する。 これは、Azure Migrate Server Migration によって [Hyper-V](tutorial-migrate-hyper-v.md)、[VMware エージェントレス](tutorial-migrate-vmware.md)移行、または [VMware エージェントベース](tutorial-migrate-vmware-agent.md)移行に提供される標準の移行フローを何らかの理由によって使用できない場合に便利です。
+- Hyper-V または VMware VM を移行する (なんらかの理由で、[Hyper-V](tutorial-migrate-hyper-v.md) の標準移行プロセスや [VMware ](server-migrate-overview.md) 移行を使用できない場合)。
 - プライベート クラウドで実行されている VM を移行する。
 - アマゾン ウェブ サービス (AWS) や Google Cloud Platform (GCP) などのパブリック クラウドで実行されている VM を移行する。
 
@@ -65,9 +61,6 @@ Azure サブスクリプションをお持ちでない場合は、開始する�
 Azure Migrate Server Migration を使用して移行する前に、Azure のアクセス許可を設定します。
 
 - **プロジェクトを作成する**: ご自分の Azure アカウントには、Azure Migrate プロジェクトを作成するためのアクセス許可が必要です。 
-- **Azure Migrate レプリケーション アプライアンスを登録する**: レプリケーション アプライアンスによって、ご自分の Azure アカウントに Azure Active Directory アプリが作成され、登録されます。 これに対するアクセス許可を委任します。
-- **キー コンテナーを作成する**: マシンを移行するために、Azure Migrate によってリソース グループにキー コンテナーが作成され、ご自分のサブスクリプションのレプリケーション ストレージ アカウントへのアクセス キーが管理されます。 コンテナーを作成するには、Azure Migrate プロジェクトが存在しているリソース グループに対するロールの割り当てアクセス許可が必要です。 
-
 
 ### <a name="assign-permissions-to-create-project"></a>プロジェクトを作成するためのアクセス許可を割り当てる
 
@@ -77,43 +70,6 @@ Azure Migrate Server Migration を使用して移行する前に、Azure のア�
     - 無料の Azure アカウントを作成したばかりであれば、自分のサブスクリプションの所有者になっています。
     - サブスクリプションの所有者でない場合は、所有者と協力してロールを割り当てます。
 
-### <a name="assign-permissions-to-register-the-replication-appliance"></a>レプリケーション アプライアンスを登録するためのアクセス許可を割り当てる
-
-エージェントベースの移行の場合、ご自分のアカウントで Azure AD アプリを作成および登録するためのアクセス許可を Azure Migrate Server Migration に委任します。 次のいずれかの方法を使用して、アクセス許可を割り当てることができます。
-
-- テナントおよびグローバル管理者は、Azure AD アプリを作成および登録するためのアクセス許可を、テナント内のユーザーに付与できます。
-- テナントおよびグローバル管理者は、アプリケーション開発者ロール (アクセス許可が含まれています) をアカウントに割り当てることができます。
-
-次の点に注意してください。
-
-- アプリには、上記で説明した以外に、サブスクリプションに対するアクセス許可はありません。
-- 新しいレプリケーション アプライアンスを登録するときに必要なのは、これらのアクセス許可だけです。 アクセス許可はレプリケーション アプライアンスを設定した後で削除できます。 
-
-
-#### <a name="grant-account-permissions"></a>アカウントへのアクセス許可の付与
-
-テナントおよびグローバル管理者は、次のようにアクセス許可を付与できます
-
-1. テナント/グローバル管理者は Azure AD で **[Azure Active Directory]**  >  **[ユーザー]**  >  **[ユーザー設定]** の順に移動します。
-2. 管理者は、 **[アプリの登録]** を **[はい]** に設定する必要があります。
-
-    ![Azure AD のアクセス許可](./media/tutorial-migrate-physical-virtual-machines/aad.png)
-
-> [!NOTE]
-> これは、重要ではない既定の設定です。 [詳細については、こちらを参照してください](https://docs.microsoft.com/azure/active-directory/develop/active-directory-how-applications-are-added#who-has-permission-to-add-applications-to-my-azure-ad-instance)。
-
-#### <a name="assign-application-developer-role"></a>アプリケーション開発者ロールの割り当て 
-
-テナントおよびグローバル管理者は、アプリケーション開発者ロールをアカウントに割り当てることができます。 [詳細については、こちらを参照してください](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md)。
-
-## <a name="assign-permissions-to-create-key-vault"></a>キー コンテナーを作成するためのアクセス許可を割り当てる
-
-次のように、Azure Migrate プロジェクトが存在しているリソース グループに対してロールの割り当てアクセス許可を割り当てます。
-
-1. Azure portal で、リソース グループの **[アクセス制御 (IAM)]** を選択します。
-2. **[アクセスの確認]** で関連するアカウントを探し、それをクリックしてアクセス許可を表示します。 **所有者** (または**共同作成者**および**ユーザー アクセス管理者**) のアクセス許可が必要です。
-3. 必要なアクセス許可がない場合は、リソース グループの所有者にそれらを依頼してください。 
-
 ## <a name="prepare-for-migration"></a>移行を準備する
 
 ### <a name="check-machine-requirements-for-migration"></a>移行のためのマシン要件の確認
@@ -121,7 +77,7 @@ Azure Migrate Server Migration を使用して移行する前に、Azure のア�
 マシンが Azure に移行するための要件を満たしていることを確認します。 
 
 > [!NOTE]
-> Azure Migrate Server Migration を使用したエージェントベースの移行は、Azure Site Recovery サービスの機能に基づいています。 一部の要件は、Site Recovery のドキュメントにリンクされている場合があります。
+> Azure Migrate Server Migration を使用したエージェントベース移行には、Azure Site Recovery サービスのエージェント ベースのディザスター リカバリー機能と同じレプリケーション アーキテクチャが使用されており、そこで用いられている一部のコンポーネントは、同じコード ベースを共有しています。 一部の要件は、Site Recovery のドキュメントにリンクされている場合があります。
 
 1. 物理サーバーの要件を[確認](migrate-support-matrix-physical-migration.md#physical-server-requirements)します。
 2. VM 設定を確認します。 Azure にレプリケートするオンプレミスのマシンは、[Azure VM の要件](migrate-support-matrix-physical-migration.md#azure-vm-requirements)に準拠している必要があります。
@@ -175,7 +131,7 @@ Azure Migrate プロジェクトを設定し、それに Azure Migrate Server Mi
 
 ### <a name="download-the-replication-appliance-installer"></a>レプリケーション アプライアンス インストーラーのダウンロード
 
-1. Azure Migrate プロジェクトの **[サーバー]** の * **[Azure Migrate: Server Migration]** で、 **[検出]** をクリックします。
+1. Azure Migrate プロジェクトの **[サーバー]** で、 **[Azure Migrate: Server Migration]** で、 **[検出]** をクリックします。
 
     ![Discover VMs](./media/tutorial-migrate-physical-virtual-machines/migrate-discover.png)
 
@@ -198,7 +154,7 @@ Azure Migrate プロジェクトを設定し、それに Azure Migrate Server Mi
 
     ![登録の終了処理](./media/tutorial-migrate-physical-virtual-machines/finalize-registration.png)
 
-検出されたマシンが Azure Migrate Server Migration に表示されるまでに、登録を終了処理してから最大で 15 分かかることがあります。 VM が検出されると、 **[検出済みサーバー]** の数が増えます。
+登録の終了処理後、検出されたマシンが Azure Migrate Server Migration に表示されるまでに、いくらか時間がかかることがあります。 VM が検出されると、 **[検出済みサーバー]** の数が増えます。
 
 ![検出済みサーバー](./media/tutorial-migrate-physical-virtual-machines/discovered-servers.png)
 
@@ -266,8 +222,7 @@ Azure Migrate プロジェクトを設定し、それに Azure Migrate Server Mi
 
 2. **[レプリケート]** で、 **[ソースの設定]**  >  **[マシンは仮想化されていますか?]** で、 **[非仮想化/その他]** を選択します。
 3. **[オンプレミスのアプライアンス]** で、自分が設定した Azure Migrate アプライアンスの名前を選択します。
-4. **[vCenter Server]** で、VM を管理している vCenter サーバー、または VM がホストされている vSphere サーバーの名前を指定します。
-5. **[プロセス サーバー]** で、レプリケーション アプライアンスの名前を選択します。
+4. **[プロセス サーバー]** で、レプリケーション アプライアンスの名前を選択します。
 6. **[ゲストの資格情報]** で、モビリティ サービスのプッシュ インストールに使用される VM 管理アカウントを指定します。 このチュートリアルでは、モビリティ サービスを手動でインストールしているため、任意のダミー アカウントを追加できます。 その後、 **[次へ:仮想マシン]** をクリックします。
 
     ![VM をレプリケートする](./media/tutorial-migrate-physical-virtual-machines/source-settings.png)

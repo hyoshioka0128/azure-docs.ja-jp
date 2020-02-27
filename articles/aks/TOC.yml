@@ -143,6 +143,8 @@
           href: availability-zones.md
         - name: 複数のノード プールを使用する
           href: use-multiple-node-pools.md
+        - name: スポット ノード プールの使用 (プレビュー)
+          href: spot-node-pool.md
         - name: Terraform を使用した AKS のデプロイ
           href: ../terraform/terraform-create-k8s-cluster-with-tf-and-aks.md
           maintainContext: true
@@ -174,6 +176,8 @@
           href: internal-lb.md
         - name: Standard Load Balancer の使用
           href: load-balancer-standard.md
+        - name: ユーザー定義ルートをエグレスに使用する
+          href: egress-outboundtype.md
         - name: 静的 IP アドレスの使用
           href: static-ip.md
         - name: イングレス

@@ -1,26 +1,26 @@
 ---
 title: Event Grid を使用してマップ イベントに対応する | Microsoft Azure Maps
 description: この記事では、Event Grid を使用して Microsoft Azure Maps イベントに対応する方法について説明します。
-author: walsehgal
-ms.author: v-musehg
+author: farah-alyasari
+ms.author: v-faalya
 ms.date: 02/08/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 9a946d189706c9c789ab884670d13b0b3e7fcb0c
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: f7e5be8d4aca85c9574db18ec9df8a7f30850d06
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75911808"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77210108"
 ---
 # <a name="react-to-azure-maps-events-by-using-event-grid"></a>Event Grid を使用して Azure Maps イベントに反応する 
 
-他のサービスにイベント通知を送信して、ダウンストリームのプロセスをトリガーできるように、Azure Maps は Azure Event Grid と統合します。 この記事では、信頼性が高く、スケーラブルで、安全な方法により、重大なイベントに対応できるよう、Azure Maps のイベントをリッスンするようにビジネス アプリケーションを構成する方法を説明します。 たとえば、デバイスがジオフェンスに入るたびに、データベースの更新、チケットの作成、メール通知の配信などの複数のアクションを実行するアプリケーションを構築します。
+Azure Maps は Azure Event Grid と統合されているため、ユーザーは他のサービスにイベント通知を送信して、ダウンストリームのプロセスをトリガーすることができます。 この記事の目的は、ご利用のビジネス アプリケーションを構成して Azure Maps イベントをリッスンできるようにすることです。 これにより、ユーザーは信頼性が高く、スケーラブルで安全な方法で重要なイベントに対応することができます。 たとえば、ユーザーは、デバイスがジオフェンスに入るたびに、データベースの更新、チケットの作成、電子メール通知の配信を実行するアプリケーションを構築できます。
 
-Azure Event Grid は、パブリッシュ - サブスクライブ モデルを使用する、フル マネージドのイベント ルーティング サービスです。 Event Grid は、[Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-overview) や [Azure Logic Apps](https://docs.microsoft.com/azure/azure-functions/functions-overview) などの Azure s サービスの組み込みサポートを備えており、webhook を使って Azure 以外のサービスにイベント アラートを配信できます。 Event Grid がサポートするイベント ハンドラーの完全な一覧については、「[Azure Event Grid の概要](https://docs.microsoft.com/azure/event-grid/overview)」をご覧ください。
+Azure Event Grid は、発行 - サブスクライブ モデルを使用する、フル マネージドのイベント ルーティング サービスです。 Event Grid には、[Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-overview) や [Azure Logic Apps](https://docs.microsoft.com/azure/azure-functions/functions-overview) のような Azure サービスのサポートが組み込まれています。 また、Webhook を使用することで、Azure 以外のサービスにイベント アラートを配信することもできます。 Event Grid がサポートするイベント ハンドラーの完全な一覧については、「[Azure Event Grid の概要](https://docs.microsoft.com/azure/event-grid/overview)」をご覧ください。
 
 
 ![Azure Event Grid の機能モデル](./media/azure-maps-event-grid-integration/azure-event-grid-functional-model.png)
@@ -30,7 +30,7 @@ Azure Event Grid は、パブリッシュ - サブスクライブ モデルを�
 
 Event Grid は、[イベント サブスクリプション](https://docs.microsoft.com/azure/event-grid/concepts#event-subscriptions)を使って、イベント メッセージをサブスクライバーにルーティングします。 Azure Maps アカウントから出力されるイベントの種類は次のとおりです。 
 
-| イベントの種類 | [説明] |
+| イベントの種類 | 説明 |
 | ---------- | ----------- |
 | Microsoft.Maps.GeofenceEntered | 受信した座標が指定されたジオフェンスの外部から内部に移動したときに発生します |
 | Microsoft.Maps.GeofenceExited | 受信した座標が指定されたジオフェンスの内部から外部に移動したときに発生します |
@@ -38,7 +38,7 @@ Event Grid は、[イベント サブスクリプション](https://docs.microso
 
 ## <a name="event-schema"></a>イベント スキーマ
 
-次の例では、GeofenceResult のスキーマを示します
+次の例では、GeofenceResult のスキーマを示します。
 
 ```JSON
 {   
@@ -80,9 +80,9 @@ Event Grid は、[イベント サブスクリプション](https://docs.microso
 
 Azure Maps ジオフェンス イベントを処理するアプリケーションでは、いくつかの推奨される手法に従う必要があります。
 
-* 同じイベント ハンドラーにイベントをルーティングするように、複数のサブスクリプションを構成できます。 イベントが特定のソースからのものであると想定しないことが重要です。 常にメッセージ トピックをチェックし、予期されるソースからものであることを確認します。
-* メッセージは、順不同で、または遅延の後に、到着する場合があります。 応答ヘッダーの `X-Correlation-id` フィールドを使用して、オブジェクトに関する情報が最新かどうかを確認します。
-* モード パラメーターを `EnterAndExit` に設定して Get および POST Geofence API を呼び出すと、前回の Geofence API 呼び出しの後で状態が変化したジオフェンスのジオメトリごとに、Enter または Exit イベントが生成されます。
+* 同じイベント ハンドラーにイベントをルーティングするように、複数のサブスクリプションを構成します。 イベントが特定のソースからのものであると想定しないことが重要です。 常にメッセージ トピックをチェックして、メッセージが予期されたソースからのものであることを確認します。
+* 応答ヘッダーの `X-Correlation-id` フィールドを使用して、オブジェクトに関する情報が最新かどうかを確認します。 メッセージは、順不同で、または遅延の後に、到着する場合があります。
+* モード パラメーターを `EnterAndExit` に設定して Geofence API 内の GET または POST 要求を呼び出すと、前回の Geofence API 呼び出しから状態が変化したジオフェンス内のジオメトリごとに、Enter または Exit イベントが生成されます。
 
 ## <a name="next-steps"></a>次のステップ
 

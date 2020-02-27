@@ -3,19 +3,19 @@ title: Azure Database Migration Service とは何ですか。
 description: 多数のデータベース ソースから Azure データ プラットフォームへのシームレスな移行を提供する、Azure Database Migration Service の概要です。
 services: database-migration
 author: pochiraju
-ms.author: jtoland
+ms.author: rajpo
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.topic: article
-ms.date: 05/31/2019
-ms.openlocfilehash: 634f949daa4926f2707c0611b819800441e76610
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 02/20/2020
+ms.openlocfilehash: 8607f1a687f2979c37c67099874288c6c5ead164
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75438025"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77647499"
 ---
 # <a name="what-is-azure-database-migration-service"></a>Azure Database Migration Service とは何ですか。
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 12/13/2019
-ms.openlocfilehash: 7f7e0c3eef96970c1820783225a4ff59be8113b3
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 280851b2fea0b8100a7d0f8ec8105109a41c8c83
+ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76769113"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77252078"
 ---
 # <a name="what-is-an-azure-machine-learning-compute-instance"></a>Azure Machine Learning コンピューティング インスタンスとは
 
@@ -26,9 +26,6 @@ Azure Machine Learning コンピューティング インスタンス (プレビ
 
 通常、コンピューティング インスタンスは開発環境として使用されます。  また、開発時やテスト時におけるトレーニングや推論のコンピューティング ターゲットとして使用することもできます。  大規模なタスクの場合、マルチノード スケーリング機能を備える [Azure Machine Learning コンピューティング クラスター](how-to-set-up-training-targets.md#amlcompute)は、コンピューティング ターゲットの選択肢として適しています。
 
-> [!NOTE]
-> 現在、コンピューティング インスタンスは、**米国中北部**または**英国南部**リージョンのワークスペースでのみ使用できます。他のリージョンは近日中にサポートされる予定です。
->ワークスペースが他のリージョンにある場合は、代わりに [Notebook VM](concept-compute-instance.md#notebookvm) を引き続き作成して使用することができます。 
 
 ## <a name="why-use-a-compute-instance"></a>コンピューティング インスタンスを使用する理由
 
@@ -124,7 +121,7 @@ Azure Machine Learning Studio 内のご利用のワークスペースで、 **[�
 
 ご利用のワークスペース内のコンピューティング インスタンスごとに、次のことができます。
 
-* コンピューティング インスタンス上の Jupyter、JupyterLab、RStudio、VS Code URI にアクセスする
+* コンピューティング インスタンス上の Jupyter、JupyterLab、RStudio にアクセスする
 * コンピューティング インスタンスに SSH 接続する。 SSH アクセスは既定で無効になっていますが、コンピューティング インスタンスの作成時に有効にすることができます。 SSH アクセスは、公開/秘密キーのメカニズムを通じて実行されます。 このタブには、SSH 接続の詳細が表示されます (IP アドレス、ユーザー名、ポート番号など)。
 * 特定のコンピューティング インスタンスに関する詳細を取得する (IP アドレス、リージョンなど)。
 
@@ -144,11 +141,11 @@ Azure Machine Learning Studio 内のご利用のワークスペースで、 **[�
 
 ## <a name="notebookvm"></a>Notebook VM はどうなったのか
 
-Notebook VM は、コンピューティング インスタンスに置き換えられつつあります。  コンピューティング インスタンスがまだ利用できないリージョンでは、Notebook VM を引き続きフル機能で使用したり、新しい Notebook VM を作成することができます。
+Notebook VM は、コンピューティング インスタンスに置き換えられつつあります。  
 
 ワークスペースのファイル共有に格納されているノートブック ファイルと、ワークスペースのデータストア内にあるデータには、コンピューティング インスタンスからアクセスできます。 ただし、以前に Notebook VM にインストールしたカスタム パッケージは、コンピューティング インスタンスに再インストールする必要があります。 コンピューティング クラスターの作成に適用されるクォータ制限は、コンピューティング インスタンスの作成にも適用されます。 
 
-コンピューティング インスタンスが使用可能なリージョンでは、新しい Notebook VM を作成することはできません。 ただし、既に作成した Notebook VM には引き続きアクセスでき、フル機能で使用することができます。 コンピューティング インスタンスは、既存の Notebook VM と同じワークスペース内に作成できます。 
+新しい Notebook VM を作成できません。 ただし、既に作成した Notebook VM には引き続きアクセスでき、フル機能で使用することができます。 コンピューティング インスタンスは、既存の Notebook VM と同じワークスペース内に作成できます。 
 
 
 ## <a name="next-steps"></a>次のステップ

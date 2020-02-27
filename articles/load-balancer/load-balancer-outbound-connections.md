@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/07/2019
 ms.author: allensu
-ms.openlocfilehash: 5bdcd955919a91760f16287a62956542cfaa47c5
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: d3e4a794a948dd6bd9860c9b7e6f06ac981f86b9
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74225283"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77162499"
 ---
 # <a name="outbound-connections-in-azure"></a>Azure の Outbound connections
 
@@ -40,10 +40,10 @@ Azure は送信元ネットワーク アドレス変換 (SNAT) を使用して�
 
 [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) を使用している場合、Azure Load Balancer と関連するリソースは明示的に定義されます。  現在 Azure には、Azure Resource Manager リソースの送信接続を実現するのに 3 つの異なる方法があります。 
 
-| SKU | シナリオ | 方法 | IP プロトコル | 説明 |
+| SKU | シナリオ | Method | IP プロトコル | 説明 |
 | --- | --- | --- | --- | --- |
 | Standard、Basic | [1.パブリック IP アドレスありの VM (ロード バランサーあり、またはなし)](#ilpip) | SNAT (ポート マスカレードは不使用) | TCP、UDP、ICMP、ESP | インスタンスの NIC の IP 構成に割り当てられたパブリック IP が Azure によって使用されます。 インスタンスには、使用可能なすべてのエフェメラル ポートがあります。 Standard Load Balancer を使用する場合は、[アウトバウンド規則](load-balancer-outbound-rules-overview.md)を使って、アウトバウンド接続を明示的に定義する必要があります |
-| Standard、Basic | [2.VM に関連付けられたパブリック ロード バランサー (インスタンスにパブリック IP アドレスなし)](#lb) | ロード バランサー フロントエンドを使用したポート マスカレード (PAT) による SNAT | TCP、UDP |Azure によってパブリック ロード バランサー フロントエンドのパブリック IP アドレスが複数のプライベート IP アドレスと共有されます。 Azure では、フロントエンドのエフェメラル ポートが PAT に使用されます。 |
+| Standard、Basic | [1.インスタンス レベル パブリック IP アドレスを含む VM (ロード バランサーあり、またはなし)](#ilpip) | SNAT (ポート マスカレードは不使用) | TCP、UDP、ICMP、ESP | インスタンスの NIC の IP 構成に割り当てられたパブリック IP が Azure によって使用されます。 インスタンスには、使用可能なすべてのエフェメラル ポートがあります。 Standard Load Balancer を使用する場合、パブリック IP が仮想マシンに割り当てられている場合は、[アウトバウンド規則](load-balancer-outbound-rules-overview.md)はサポートされません |
 | なし、または Basic | [3.スタンドアロン VM (ロード バランサーなし、パブリック IP アドレスなし)](#defaultsnat) | ポート マスカレード (PAT) による SNAT | TCP、UDP | Azure によって自動的に SNAT 用のパブリック IP アドレスが指定され、このパブリック IP アドレスが可用性セットの複数のプライベート IP アドレスと共有されてから、このパブリック IP アドレスのエフェメラル ポートが使用されます。 このシナリオは、前のシナリオのフォールバックです。 可視性と制御が必要は場合は推奨されません。 |
 
 VM がパブリック IP アドレス空間で Azure の外部のエンドポイントと通信しないようにする場合、必要に応じてネットワーク セキュリティ グループ (NSG) を使用してアクセスをブロックできます。 NSG の使用の詳細については、「[送信接続の防止](#preventoutbound)」で説明します。 送信アクセスがない仮想ネットワークの設計、実装、および管理のガイダンスについては、この記事の範囲外です。
@@ -237,7 +237,7 @@ SNAT に使用される一時ポートの需要は、アプリケーションで
 
 ### <a name="idletimeout"></a>キープアライブを使用して送信アイドル タイムアウトをリセットする
 
-送信接続には、4 分間のアイドル タイムアウトが設けられています。 このタイムアウトは調整できません。 ただし、必要に応じて、転送 (TCP キープアライブなど) またはアプリケーション レイヤー キープアライブを使用して、アイドル フローを更新したりこのアイドル タイムアウトをリセットしたりできます。  
+送信接続には、4 分間のアイドル タイムアウトが設けられています。 このタイムアウトは、[送信ルール](../load-balancer/load-balancer-outbound-rules-overview.md#idletimeout)を使用して調整できます。 必要に応じて、転送 (TCP キープアライブなど) またはアプリケーション レイヤー キープアライブを使用して、アイドル フローを更新したりこのアイドル タイムアウトをリセットしたりできます。  
 
 TCP キープアライブを使用するときは、接続の一方で有効にすれば十分です。 たとえば、フローのアイドル タイマーをリセットするときは、サーバー側でのみ有効にすれば十分であり、両側が TCP キープアライブを開始する必要はありません。  データベースのクライアント/サーバー構成など、アプリケーション レイヤーにも同様の概念があります。  サーバー側で、アプリケーション固有のキープアライブのどのようなオプションが存在するかを確認します。
 
@@ -259,7 +259,7 @@ NSG が AZURE_LOADBALANCER 既定タグからのヘルス プローブ要求を�
 - DisableOutboundSnat は、ポータルで負荷分散規則を構成するときにはオプションとして使用できません。  代わりに、REST、テンプレート、またはクライアント ツールを使用してください。
 - VNet およびその他の Microsoft プラットフォーム サービスなしの Web Worker ロールにアクセスできるのは、事前 VNet サービスおよびその他のプラットフォーム サービスの動作の副作用により、内部の Standard Load Balancer が使用される場合のみです。 それぞれのサービス自体、または基になるプラットフォームは予告なく変更されることがあるため、この副作用に依存しないでください。 内部の Standard Load Balancer のみを使用する場合は、必要に応じて、明示的に送信接続を作成する必要があることを常に想定する必要があります。 この記事で説明されている[既定の SNAT](#defaultsnat) のシナリオ 3 を使用することはできません。
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
 - [Standard Load Balancer](load-balancer-standard-overview.md) の詳細を確認する。
 - Standard パブリック Load Balancer の[アウトバウンド規則](load-balancer-outbound-rules-overview.md)の詳細を確認する。

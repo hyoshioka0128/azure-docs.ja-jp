@@ -1,32 +1,32 @@
 ---
 title: 概要 | Microsoft Azure Maps
 description: Microsoft Azure Maps のサービスと機能、およびそれらをアプリケーションで使用する方法について説明します。
-author: walsehgal
-ms.author: v-musehg
+author: farah-alyasari
+ms.author: v-faalya
 ms.date: 01/15/2020
 ms.topic: overview
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 2909dbebc7531be0e45b321cc31b599b0f63ee4a
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.openlocfilehash: b375ea8fdebd876bdc7ecf157a4cebd5e614dfd0
+ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76262573"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77443725"
 ---
 # <a name="what-is-azure-maps"></a>Azure Maps とは
 
 Azure Maps は、最新のマッピング データを使用して、地理的なコンテキストを Web とモバイル アプリケーションに提供する一連の地理空間サービスです。 Azure Maps は以下を提供します。
 
-* 複数のスタイルと衛星映像でマップを表示するための REST API シリーズ。
-* 世界中の住所、場所、および目的地の検索。
-* ポイント間、マルチポイント、マルチポイント最適化、等時線、商用車、影響を受ける交通、マトリックス ルーティングなど、さまざまなタイプのルーティング。
-* 交通の流れとインシデントの表示。
-* 公共交通機関や代替移動手段 (自転車シェアリング、スクーター シェアリング、カー シェアリングなど) を要求したり、リアルタイムでルートを計画したりするためのモビリティ サービス。 
-* 位置情報によるユーザーの場所の特定、場所からタイム ゾーンへの変換。 
-* Azure 内でホストされている位置情報を使用した、ジオフェンシングとマップ データ ストレージ用のサービス。 
+* 複数のスタイルと衛星映像でマップをレンダリングするための REST API。
+* 世界中の住所、場所、および目的地を見つけるための検索サービス。
+* ポイント間、マルチポイント、マルチポイント最適化、等時線、商用車、影響を受ける交通、マトリックス ルーティングなど、さまざまなルーティングのオプション。
+* トラフィック情報を必要とするアプリケーション向けのトラフィック フロー ビューとインシデントビュー。
+* 公共の輸送ロジスティックを要求し、リアルタイムでルートを計画し、輸送の代替モードに関する情報を要求するための Mobility Service。
+* タイム ゾーンと位置情報のサービスおよび場所のタイムゾーンへの変換。
+* Azure 内でホストされている位置情報を使用した、ジオフェンシング サービスとマッピング データ ストレージ。 
 * 地理空間分析による位置情報インテリジェンス。 
 
 加えて、Azure Maps サービスは、Web SDK または Android SDK を介して使用できます。 これらのツールは、開発者が、位置情報を Azure ソリューションに統合するソリューションの開発とスケーリングを迅速に行うのに役立ちます。 
@@ -43,15 +43,15 @@ Azure Maps は、最新のマッピング データを使用して、地理的�
 
 ### <a name="web-sdk"></a>Web SDK
 
-Azure Maps Web SDK では、Web アプリケーションまたはモバイル アプリケーション用に独自のコンテンツや映像を使用して、インタラクティブ マップをカスタマイズすることができます。 このコントロールには、WebGL が利用されているため、大きなデータ セットをハイ パフォーマンスでレンダリングすることができます。 この SDK を使った開発は、JavaScript または TypeScript を使用して行います。
+Azure Maps Web SDK では、独自のコンテンツや映像を使用して、インタラクティブ マップをカスタマイズすることができます。 この対話型マップは、Web とモバイル アプリケーションの両方に使用できます。 このマップ コントロールには、WebGL が利用されているため、大きなデータ セットをハイ パフォーマンスでレンダリングすることができます。 この SDK を使った開発は、JavaScript または TypeScript を使用して行います。
 
-![人口変動のマップの例](media/about-azure-maps/Introduction_WebMapControl.png)
+![人口変動のマップの例](media/about-azure-maps/intro_web_map_control.png)
 
 ### <a name="android-sdk"></a>Android SDK
 
 Azure Maps Android SDK は、モバイル マッピング アプリケーションの作成に使用します。 
 
-![モバイル デバイス上のマップの例](media/about-azure-maps/AndroidSDK.png)
+![モバイル デバイス上のマップの例](media/about-azure-maps/android_sdk.png)
 
 ## <a name="services-in-azure-maps"></a>Azure Maps のサービス
 
@@ -63,25 +63,25 @@ Azure Maps は、Azure アプリケーションに地理的なコンテキスト
 
 ### <a name="mobility-service"></a>モビリティ サービス
 
-Azure Maps Mobility Service を使用すると、リアルタイムで旅行を計画できます。 考えられる最善のルート オプションが返され、さまざまな移動手段が提示されます。 都市圏 (都市) の場合、こうした手段には徒歩、自転車、公共交通機関があります。 路線ジオメトリや停留所のリスト、スケジュールどおりおよびリアルタイムの到着、サービス アラートなどの交通移動プランを要求できます。
+Azure Maps Mobility Service を使用すると、リアルタイムで旅行を計画できます。 考えられる最善のルート オプションが返され、さまざまな移動手段が提示されます。 都市圏 (都市) の場合、こうした手段には徒歩、自転車、公共交通機関があります。 交通移動プラン、路線ジオメトリ、停留所のリスト、予定された到着、リアルタイムの到着、サービス アラートを要求できます。
 
-このサービスでは、ある場所の周辺でシェアされている自転車、スクーター、自動車など、特定のオブジェクトの種類を検索することもできます。 ユーザーは、利用可能な自転車が一番近くのドックに何台あるかを要求したり、利用可能なライドシェア用車両を検索したりすることができます。 また、先の車両予約状況や現在の燃料レベルなどの詳細を確認することもできます。
+このサービスでは、ある場所の周辺の特定のオブジェクトの種類を検索することもできます。 ユーザーは、ある場所を中心に共有の自転車、スクーター、または自動車を検索できます。 ユーザーは、利用可能な自転車が一番近くのドックに何台あるかを要求したり、利用可能なライドシェア用車両を検索したりすることができます。 また、先の車両予約状況や現在の燃料レベルなどの詳細を確認することもできます。
 
 このサービスの詳細については、[Mobility API のドキュメント](https://docs.microsoft.com/rest/api/maps/mobility)を参照してください。
 
 ### <a name="render-service"></a>Render Service
 
-Render Service は、開発者がマッピングを中心とする Web およびモバイル アプリケーションを作成するのに役立ちます。 このサービスは、高品質のラスター グラフィックス イメージ、19 のズーム レベル、または完全にカスタマイズ可能なベクター形式のマップ イメージを使います。
+Render Service は、開発者がマッピング機能を持つ Web およびモバイル アプリケーションを作成するのに役立ちます。 このサービスは、高品質のラスター グラフィックス イメージ、19 のズーム レベル、または完全にカスタマイズ可能なベクター形式のマップ イメージを使います。
 
-![Render Service からのマップの例](media/about-azure-maps/Introduction_Map.png)
+![Render Service からのマップの例](media/about-azure-maps/intro_map.png)
 
 Render Service では現在、開発者が衛星画像を操作できるプレビュー API が提供されています。 詳細については、[Render API のドキュメント](https://docs.microsoft.com/rest/api/maps/render)を参照してください。
 
 ### <a name="route-service"></a>Route Service
 
-Route Service には、現実世界のインフラストラクチャに関する堅牢なジオメトリ計算と複数の輸送モードでの道案内が含まれています。 このサービスを使って、開発者は、自動車、トラック、自転車、徒歩などの複数の移動手段について指示を計算できます。 サービスでは、交通状況、重量制限、危険物輸送などの入力も検討できます。
+Route Service には、現実世界のインフラストラクチャに関する堅牢なジオメトリ計算と複数の輸送モードでの道案内が含まれています。 このサービスを使って、開発者は、自動車、トラック、自転車、徒歩などの複数の移動手段について指示を計算できます。 サービスでは、交通状況、重量制限、危険物輸送などの入力も検討されます。
 
-![Route Service からのマップの例](media/about-azure-maps/Introduction_Route.png)
+![Route Service からのマップの例](media/about-azure-maps/intro_route.png)
 
 Route Service では、次のような高度な機能のプレビューが提供されます。 
 
@@ -95,7 +95,7 @@ Route Service では、次のような高度な機能のプレビューが提供
 
 Search Service は、開発者が住所、場所、名前またはカテゴリ別の事業所一覧、およびその他の地理情報を検索するのに役立ちます。 Search Service では、緯度と経度に基づいて住所や交差点の[逆引き地理コード](https://en.wikipedia.org/wiki/Reverse_geocoding)を行うことができます。
 
-![マップ上での検索の例](media/about-azure-maps/Introduction_Search.png)
+![マップ上での検索の例](media/about-azure-maps/intro_search.png)
 
 Search Service では、次のような高度な機能も提供されます。
 
@@ -108,7 +108,7 @@ Search Service では、次のような高度な機能も提供されます。
 
 ### <a name="spatial-operations-service"></a>Spatial Operations Service
 
-Azure Maps Spatial Operations Service は、位置情報を取得し、すぐさまこれを分析し、その時間と空間で発生している進行中のイベントをお客様にお知らせします。 ほぼリアルタイムの分析とイベントの予測モデリングを可能にします。 
+Azure Maps の Spatial Operations サービスは、位置情報を取得します。 位置情報を素早く分析し、その時間と空間で発生している進行中のイベントをお客様にお知らせします。 ほぼリアルタイムの分析とイベントの予測モデリングを可能にします。 
 
 このサービスでは、お客様が、一般的な地理空間数学計算のライブラリを使用して、位置情報のインテリジェンスを強化できます。 一般的な計算の例としては、最接近点、大圏距離、バッファーが挙げられます。 このサービスとそのさまざまな機能の詳細については、[Spatial Operations API のドキュメント](https://docs.microsoft.com/rest/api/maps/spatial)を参照してください。
 
@@ -118,7 +118,7 @@ Time Zone Service では、現在、過去、未来のタイム ゾーン情報�
 
 * Windows タイム ゾーン ID を IANA タイム ゾーンに変換する。
 * UTC に対するタイム ゾーン オフセットをフェッチする。
-* 特定のタイム ゾーンにおける現在の時刻を取得する。 
+* 選択したタイム ゾーンにおける現在の時刻を取得する。 
 
 Time Zone Service に対するクエリの一般的な JSON 応答は、次のサンプルのようになります。
 
@@ -149,7 +149,7 @@ Traffic Service は、交通情報を必要とする Web またはモバイル �
 * トラフィック フロー:ネットワーク内のすべての主要道路で観察されたリアルタイムの速度と移動時間。
 * トラフィック インシデント:道路ネットワークでの交通渋滞およびインシデントに関する最新のビュー。
 
-![交通情報を使用したマップの例](media/about-azure-maps/Introduction_Traffic.png)
+![交通情報を使用したマップの例](media/about-azure-maps/intro_traffic.png)
 
 詳細については、[Traffic API のドキュメント](https://docs.microsoft.com/rest/api/maps/traffic)を参照してください。
 
@@ -169,7 +169,7 @@ Azure Maps は、モビリティ向けに構築されており、クロスプラ
 
 [Azure portal](https://portal.azure.com) に移動して Azure Maps アカウントを作成すると、Azure Maps サービスにアクセスできます。
 
-Azure Maps では、キーベースの認証スキームが使用されます。 ご自分のアカウントには 2 つのキーがあらかじめ自動的に生成されます。 アプリケーションへのこれらの場所機能の統合を始めるには、どちらかのキーを使用して Azure Maps サービスへの要求を行います。
+Azure Maps では、キーベースの認証スキームが使用されます。 ご自分のアカウントには 2 つのキーがあらかじめ生成されているため、いずれかのキーを使用します。 アプリケーションへのこれらの場所機能の統合を開始し、Azure Maps サービスへの要求を行ってください。
 
 ## <a name="supported-regions"></a>サポートされているリージョン
 

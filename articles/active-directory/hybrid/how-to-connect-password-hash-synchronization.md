@@ -15,12 +15,12 @@ ms.author: billmath
 search.appverid:
 - MET150
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 165bd93f2d35425965df9358c8d85f79ce557d66
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 405b2fb9d9b8ef3bce17a9370ac87592a3437026
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76833366"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77585953"
 ---
 # <a name="implement-password-hash-synchronization-with-azure-ad-connect-sync"></a>Azure AD Connect 同期を使用したパスワード ハッシュ同期の実装
 この記事では、オンプレミスの Active Directory インスタンスから、クラウドベースの Azure Active Directory (Azure AD) インスタンスへの、ユーザー パスワードの同期に必要な情報を提供します。
@@ -99,14 +99,15 @@ Azure AD 統合サービスのみを操作し、パスワードの有効期限�
 
 
 EnforceCloudPasswordPolicyForPasswordSyncedUsers 機能を有効にするには、下に示すように、MSOnline PowerShell モジュールを使用して次のコマンドを実行します。 場合によっては、下に示すように、Enable パラメーターに「yes」と入力する必要があります。
+
 ```
-`Set-MsolDirSyncFeature -Feature EnforceCloudPasswordPolicyForPasswordSyncedUsers`
-`cmdlet Set-MsolDirSyncFeature at command pipeline position 1`
-`Supply values for the following parameters:`
-`Enable: yes`
-`Confirm`
-`Continue with this operation?`
-`[Y] Yes [N] No [S] Suspend [?] Help (default is "Y"): y`
+Set-MsolDirSyncFeature -Feature EnforceCloudPasswordPolicyForPasswordSyncedUsers
+cmdlet Set-MsolDirSyncFeature at command pipeline position 1
+Supply values for the following parameters:
+Enable: yes
+Confirm
+Continue with this operation?
+[Y] Yes [N] No [S] Suspend [?] Help (default is "Y"): y
 ```
 
 有効にすると、Azure AD では、PasswordPolicies 属性から `DisablePasswordExpiration` 値を削除するために、同期済みの各ユーザーに移動することがなくなります。 代わりに、オンプレミス AD 上で次にパスワードを変更するときに、次のパスワードの同期中に、ユーザーごとに値が `None` に設定されます。  
@@ -124,7 +125,7 @@ Azure AD では、登録されたドメインごとに、個別のパスワー�
 > [!NOTE]
 > この機能は現在、パブリック プレビュー段階にあります。
 
-#### <a name="public-preview-of-synchronizing-temporary-passwords-and-force-password-reset-on-next-logon"></a>一時パスワードと "次回ログオン時にパスワード リセットを適用" を同期する (パブリック プレビュー)
+#### <a name="public-preview-of-synchronizing-temporary-passwords-and-force-password-change-on-next-logon"></a>一時パスワードと "次回ログオン時にパスワード変更を適用" を同期する (パブリック プレビュー)
 
 通常は、最初のログオン時、特に管理者によるパスワードのリセットが行われた後に、ユーザーにパスワードの変更を強制します。  一般的に "一時" パスワードの設定と呼ばれており、Active Directory (AD) では、ユーザー オブジェクト上の [ユーザーは次回ログオン時にパスワード変更が必要] フラグのチェックをオンにすることで実現できます。
   

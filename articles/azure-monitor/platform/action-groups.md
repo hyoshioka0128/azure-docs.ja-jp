@@ -3,15 +3,15 @@ title: Azure Portal でのアクション グループの作成および管理
 description: Azure Portal でアクション グループを作成および管理する方法について説明します。
 author: dkamstra
 ms.topic: conceptual
-ms.date: 8/19/2019
+ms.date: 2/18/2020
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: a954898a334ead15d8ffdf6dab6e6a309bd57089
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.openlocfilehash: 6ba48f3c40e45afa02e03a7589e968cca723118e
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75659833"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77467336"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Azure Portal でのアクション グループの作成および管理
 アクション グループは、Azure サブスクリプションの所有者によって定義された通知設定のコレクションです。 Azure Monitor および Service Health のアラートでは、アクション グループを使用して、アラートがトリガーされたことをユーザーに通知します。 ユーザーの要件に応じて、さまざまなアラートで同じアクション グループを使用することも、異なるアクション グループを使用することもあります。 1 つのサブスクリプションで最大 2,000 のアクション グループを構成できます。
@@ -62,7 +62,7 @@ Azure Resource Manager テンプレートを使用したアクション グル�
 
 ## <a name="manage-your-action-groups"></a>アクション グループの管理
 
-アクション グループを作成すると、 **[モニター]** ウィンドウの **[アクション グループ]** セクションに表示されます。 次の操作を行うために管理するアクション グループを選択します。
+アクション グループの作成後、 **[モニター]** ウィンドウの **[アラート]** ランディング ページで **[アクションの管理]** を選択すると、 **[アクション グループ]** を表示できます。 次の操作を行うために管理するアクション グループを選択します。
 
 * アクションの追加、編集、または削除。
 * アクション グループの削除。
@@ -89,12 +89,12 @@ Runbook ペイロードの制限については、[Azure サブスクリプシ�
 アクション グループには、電子メールに関する限られた数のアクションを持つことができます。 [レート制限情報](./../../azure-monitor/platform/alerts-rate-limiting.md)の記事を参照してください。
 
 ### <a name="email-azure-resource-manager-role"></a>電子メールの Azure Resource Manager のロール
-サブスクリプションのロールのメンバーに電子メールを送信します。
+サブスクリプションのロールのメンバーに電子メールを送信します。 電子メールはこのロールの **Azure AD ユーザー** メンバーにのみ送信されます。 Azure AD グループまたはサービス プリンシパルに電子メールが送信されることはありません。
 
 アクション グループには、電子メールに関する限られた数のアクションを持つことができます。 [レート制限情報](./../../azure-monitor/platform/alerts-rate-limiting.md)の記事を参照してください。
 
 ### <a name="function"></a>Function
-アクションとして構成された Function App の関数キーは Functions API から読み込まれます。これは現在、アプリ設定 "AzureWebJobsSecretStorageType" を "files" に構成するには v2 の関数アプリが必要です。 詳細については、「[Changes to Key Management in Functions V2 (Functions V2 でのキー管理の変更)]( https://aka.ms/funcsecrets)」を参照してください。
+[Azure Functions](../../azure-functions/functions-create-first-azure-function.md#create-a-function-app) で既存の HTTP トリガー エンドポイントを呼び出します。
 
 アクション グループには、限られた数の Function アクションを保持できます。
 
@@ -107,8 +107,6 @@ ITSM アクションには ITSM 接続が必要です。 [ITSM 接続](../../azu
 アクション グループには、限られた数のロジック アプリのアクションを保持できます。
 
 ### <a name="secure-webhook"></a>Secure Webhook
-**Secure Webhook 機能は現在、プレビュー段階です。**
-
 アクション グループの Webhook アクションを使用すると、Azure Active Directory を利用して、アクション グループと、保護された Web API (Webhook エンドポイント) との間の接続をセキュリティで保護することができます。 この機能を利用するための全体的なワークフローを次に示します。 Azure AD アプリケーションとサービス プリンシパルの概要については、「[Microsoft ID プラットフォーム (v2.0) の概要](https://docs.microsoft.com/azure/active-directory/develop/v2-overview)」を参照してください。
 
 1. 保護された Web API 用の Azure AD アプリケーションを作成します。 [https://docs.microsoft.com/azure/active-directory/develop/scenario-protected-web-api-overview](https://docs.microsoft.com/azure/active-directory/develop/scenario-protected-web-api-overview ) をご覧ください。

@@ -1,18 +1,18 @@
 ---
 title: Azure HDInsight での Apache Ambari のハートビートの問題
 description: Azure HDInsight での Apache Ambari のハートビートの問題のさまざまな理由のレビュー
-ms.service: hdinsight
-ms.topic: troubleshooting
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
-ms.date: 09/11/2019
-ms.openlocfilehash: ae5cfcfcd394aab644b35ac66aafa213dc49dd42
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.service: hdinsight
+ms.topic: troubleshooting
+ms.date: 02/06/2020
+ms.openlocfilehash: ab88f65d535be2aef5f0b26fa1171c03276466e8
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75895380"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77057075"
 ---
 # <a name="apache-ambari-heartbeat-issues-in-azure-hdinsight"></a>Azure HDInsight での Apache Ambari のハートビートの問題
 
@@ -22,7 +22,7 @@ ms.locfileid: "75895380"
 
 ### <a name="issue"></a>問題
 
-Ambari エージェントの CPU 使用率が高くなっています。これにより、一部のノードで Ambari エージェントのハートビートが失われたことを示すアラートが Ambari UI から出されています。 ハードビートが失われたというアラートは通常、一時的なものです。 
+Ambari エージェントの CPU 使用率が高くなっています。これにより、一部のノードで Ambari エージェントのハートビートが失われたことを示すアラートが Ambari UI から出されています。 ハードビートが失われたというアラートは通常、一時的なものです。
 
 ### <a name="cause"></a>原因
 
@@ -61,7 +61,7 @@ Ambari エージェントの CPU 使用率が高くなっています。これ�
 
 ### <a name="issue"></a>問題
 
-Ambari エージェントが開始されていません。これにより、一部のノードで Ambari エージェントのハートビートが失われたことを示すアラートが Ambari UI から出されています。
+Ambari エージェントが開始されていません。これにより、一部のノードで Ambari エージェントのハートビートが失われたことを示すアラートが Ambari UI から出ています。
 
 ### <a name="cause"></a>原因
 
@@ -82,6 +82,21 @@ Ambari エージェントが開始されていません。これにより、一�
     ```
 
     フェールオーバー コントローラー サービスが実行されていない場合は、問題によって、HDInsight エージェントがフェールオーバー コントローラーを起動できないことが原因の可能性があります。 `/var/log/hdinsight-agent/hdinsight-agent.out` ファイルから HDInsight エージェントのログを確認してください。
+
+## <a name="scenario-heartbeat-lost-for-ambari"></a>シナリオ:Ambari のハートビートが失われた
+
+### <a name="issue"></a>問題
+
+Ambari のハートビート エージェントが失われました。
+
+### <a name="cause"></a>原因
+
+OMS ログで CPU 使用率が高くなっています。
+
+### <a name="resolution"></a>解決策
+
+* [Disable-AzHDInsightMonitoring](https://docs.microsoft.com/powershell/module/az.hdinsight/disable-azhdinsightmonitoring) PowerShell コマンドレットを使用して Azure Monitor ログ記録を無効にします。
+* `mdsd.warn` ログ ファイルを削除します
 
 ---
 

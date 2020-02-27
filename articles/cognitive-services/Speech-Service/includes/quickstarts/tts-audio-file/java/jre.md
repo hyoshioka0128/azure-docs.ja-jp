@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 08/06/2019
 ms.author: erhopf
-ms.openlocfilehash: abe40898643fa2fd11952d2fb6626034fb408133
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 2de8ddbe260fbc68ecddaf00330880116edaf82d
+ms.sourcegitcommit: dfa543fad47cb2df5a574931ba57d40d6a47daef
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73505261"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77446156"
 ---
 ## <a name="prerequisites"></a>前提条件
 
@@ -46,10 +46,13 @@ ms.locfileid: "73505261"
            try {
                // Replace below with your own subscription key
                String speechSubscriptionKey = "YourSubscriptionKey";
-               // Replace below with your own service region (e.g., "westus").
+
+               // Replace below with your own region identifier from here: https://aka.ms/speech/sdkregion
                String serviceRegion = "YourServiceRegion";
+
                // Replace below with your own filename.
                String audioFileName = "helloworld.wav";
+
                // Replace below with your own filename.
                String text = "Hello world!";
 
@@ -117,7 +120,7 @@ F11 キーを押すか、 **[Run]**  >  **[Debug]** の順に選択します。
    Speech synthesized to [helloworld.wav] for text [Hello world!]
    ```
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
 [!INCLUDE [footer](./footer.md)]
 

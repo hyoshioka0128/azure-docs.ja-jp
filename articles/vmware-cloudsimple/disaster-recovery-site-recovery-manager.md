@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 151058f23bed674883da57e0b728dc1df4b698d9
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: fa8b2da683d68a337df38e13726f22c5af43540a
+ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70846150"
+ms.lasthandoff: 02/23/2020
+ms.locfileid: "77565929"
 ---
 # <a name="set-up-private-cloud-as-a-disaster-recovery-target-with-vmware-site-recovery-manager"></a>VMware Site Recovery Manager を使用して、プライベート クラウドをディザスター リカバリー ターゲットとして設定する
 
@@ -24,7 +24,7 @@ DR ソリューションは、vSphere Replication と VMware Site Recovery Manag
 CloudSimple ソリューション:
 
 * DR 専用のデータセンターを設定する必要がなくなります。
-* CloudSimple がデプロイされている Azure の場所を世界中の地理的回復性に活用できます。
+* CloudSimple がデプロイされている Azure の場所を活用して、世界規模での地理的回復性を実現できます。
 * DR を確立するためのデプロイ コストと総保有コストを削減するオプションが提供されます。
 
 CloudSimple ソリューションでは、次の操作を行う必要があります。
@@ -219,11 +219,11 @@ vSphere Replication 6.5 に対して開く必要があるポート番号の一�
 
  [配列ベースのレプリケーションと vSphere レプリケーション テクノロジの両方を同時に SRM と共に使用](https://blogs.vmware.com/virtualblocks/2017/06/22/srm-array-based-replication-vs-vsphere-replication)できます。 ただし、これらは個別の VM セットに適用する必要があります (特定の VM を配列ベースのレプリケーションまたは vSphere レプリケーションによって保護できますが、両方で保護することはできません)。 さらに、CloudSimple サイトは、複数の保護されたサイトの復旧サイトとして構成できます。 マルチサイト構成については、「[SRM マルチサイト オプション](https://blogs.vmware.com/virtualblocks/2016/07/28/srm-multisite/)」をご覧ください。
 
-## <a name="references"></a>参照
+## <a name="references"></a>References
 
 * [VMware Site Recovery Manager のドキュメント](https://docs.vmware.com/en/Site-Recovery-Manager/index.html)
 * [Site Recovery Manager 6.5 の運用上の制限](https://kb.vmware.com/s/article/2147110)
-* [vSphere Replication の帯域幅要件の計算](https://kb.vmware.com/s/article/2037268)
+* [vSphere Replication の帯域幅要件の計算](https://docs.vmware.com/en/vSphere-Replication/6.5/com.vmware.vsphere.replication-admin.doc/GUID-4A34D0C9-8CC1-46C4-96FF-3BF7583D3C4F.html)
 * [vSphere Replication 6.5 をデプロイする場合の OVF の選択](https://blogs.vmware.com/virtualblocks/2017/01/20/vr-65-ovf-choices/)
 * [VMware vSphere Replication 6.5 のインストールと構成](https://docs.vmware.com/en/vSphere-Replication/6.5/vsphere-replication-65-install.pdf)
 * [SRM 6.5 の前提条件とベスト プラクティス](https://docs.vmware.com/en/Site-Recovery-Manager/6.5/com.vmware.srm.install_config.doc/GUID-BB0C03E4-72BE-4C74-96C3-97AC6911B6B8.html)

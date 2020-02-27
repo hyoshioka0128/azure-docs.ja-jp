@@ -7,12 +7,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 01/15/2020
 ms.author: ralphe
-ms.openlocfilehash: a0bb2567a28912f3cdfed27138effe3868eb0e6e
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.openlocfilehash: 878d43bad514daa6711b0037d39521e12bc0fdbe
+ms.sourcegitcommit: dfa543fad47cb2df5a574931ba57d40d6a47daef
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76267964"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77446677"
 ---
 ## <a name="prerequisites"></a>前提条件
 
@@ -47,6 +47,8 @@ ms.locfileid: "76267964"
             {
                 // Replace these values with the details of your Cognitive Speech subscription
                 string subscriptionKey = "YourSubscriptionKey";
+
+                // Replace below with your region identifier from here: https://aka.ms/speech/sdkregion
                 string region = "YourServiceRegion";
     
                 // Sets source and target languages.

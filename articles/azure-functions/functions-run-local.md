@@ -5,12 +5,12 @@ ms.assetid: 242736be-ec66-4114-924b-31795fd18884
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.custom: 80e4ff38-5174-43
-ms.openlocfilehash: 4eafd0fbaed067a0852edea010408a1d82353392
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: dd36895a34b36bbdf8e796cf629ab031613663cd
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76277975"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77208884"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Azure Functions Core Tools の操作
 
@@ -50,7 +50,7 @@ Azure Functions Core Tools には、3 つのバージョンがあります。 �
 > [!IMPORTANT]
 > [拡張バンドル]を使用すると、.NET Core SDK をインストールするための要件をバイパスできます。
 
-# <a name="windowstabwindows"></a>[Windows](#tab/windows)
+# <a name="windows"></a>[Windows](#tab/windows)
 
 次の手順では、npm を使用して Windows 上に Core Tools をインストールします。 また、[Chocolatey](https://chocolatey.org/) を使用することもできます。 詳細については、[Core Tools の readme ](https://github.com/Azure/azure-functions-core-tools/blob/master/README.md#windows)に関するページを参照してください。
 
@@ -76,7 +76,7 @@ Azure Functions Core Tools には、3 つのバージョンがあります。 �
 
 1. [拡張バンドル]を使用しない場合、[.NET Core 2.x SDK for Windows](https://www.microsoft.com/net/download/windows) をインストールします。
 
-# <a name="macostabmacos"></a>[MacOS](#tab/macos)
+# <a name="macos"></a>[MacOS](#tab/macos)
 
 次の手順では、Homebrew を使用して macOS 上に Core Tools をインストールします。
 
@@ -100,7 +100,7 @@ Azure Functions Core Tools には、3 つのバージョンがあります。 �
     brew link --overwrite azure-functions-core-tools@3
     ```
 
-# <a name="linuxtablinux"></a>[Linux](#tab/linux)
+# <a name="linux"></a>[Linux](#tab/linux)
 
 次の手順では [APT ](https://wiki.debian.org/Apt)を使用して、Ubuntu/Debian Linux ディストリビューションに Core Tools をインストールします。 他の Linux ディストリビューションについては、[Core Tools の readme](https://github.com/Azure/azure-functions-core-tools/blob/master/README.md#linux) に関するページを参照してください。
 
@@ -190,7 +190,7 @@ Initialized empty Git repository in C:/myfunctions/myMyFunctionProj/.git/
 
 `func init` では、次のオプションがサポートされています。特に注意書きがない限り、バージョン 2.x だけが対象です。
 
-| オプション     | [説明]                            |
+| オプション     | 説明                            |
 | ------------ | -------------------------------------- |
 | **`--csharp`**<br/> **`--dotnet`** | [C# クラス ライブラリ (.cs) プロジェクト](functions-dotnet-class-library.md)を初期化します。 |
 | **`--csx`** | [C# スクリプト (.csx) プロジェクト](functions-reference-csharp.md)を初期化します。 後続のコマンドで、`--csx` を指定する必要があります。 |
@@ -291,7 +291,7 @@ Writing C:\myfunctions\myMyFunctionProj\MyQueueTrigger\function.json
 
 次の引数を使用して、コマンドでこれらのオプションを指定することもできます。
 
-| 引数     | [説明]                            |
+| 引数     | 説明                            |
 | ------------------------------------------ | -------------------------------------- |
 | **`--csx`** | (バージョン 2.x) バージョン 1.x およびポータルで使用されるものと同じ C# スクリプト (.csx) テンプレートを生成します。 |
 | **`--language`** 、 **`-l`**| テンプレート プログラミング言語。C#、F#、JavaScript など。 このオプションは、バージョン 1.x で必須です。 バージョン 2.x では、このオプションを使用しないか、または worker ランタイムと一致する言語を選択してください。 |
@@ -347,7 +347,7 @@ func host start
 
 `func start` では、次のオプションがサポートされています。
 
-| オプション     | [説明]                            |
+| オプション     | 説明                            |
 | ------------ | -------------------------------------- |
 | **`--no-build`** | 実行前に現在のプロジェクトをビルドしません。 dotnet プロジェクトの場合のみ。 既定値は false に設定されます。 Version 2.x のみ。 |
 | **`--cert`** | 秘密キーが含まれる .pfx ファイルへのパス。 `--useHttps` でのみ使用されます。 Version 2.x のみ。 |
@@ -373,7 +373,7 @@ Http Function MyHttpTrigger: http://localhost:7071/api/MyHttpTrigger
 ```
 
 >[!IMPORTANT]
->ローカルで実行される場合、HTTP エンドポイントに対して承認は適用されません。 つまり、ローカルの HTTP 要求はすべて、`authLevel = "anonymous"` として処理されます。 詳細については、[HTTP バインディング](functions-bindings-http-webhook.md#authorization-keys)に関する記事を参照してください。
+>ローカルで実行される場合、HTTP エンドポイントに対して承認は適用されません。 つまり、ローカルの HTTP 要求はすべて、`authLevel = "anonymous"` として処理されます。 詳細については、[HTTP バインディング](functions-bindings-http-webhook-trigger.md#authorization-keys)に関する記事を参照してください。
 
 ### <a name="passing-test-data-to-a-function"></a>関数へのテスト データの受け渡し
 
@@ -437,7 +437,7 @@ curl --request POST -H "Content-Type:application/json" --data '{"input":"sample 
 
 `func run` では、次のオプションがサポートされています。
 
-| オプション     | [説明]                            |
+| オプション     | 説明                            |
 | ------------ | -------------------------------------- |
 | **`--content`** 、 **`-c`** | インライン コンテンツ。 |
 | **`--debug`** 、 **`-d`** | 関数を実行する前に、デバッガーを、ホスト プロセスにアタッチします。|
@@ -473,14 +473,14 @@ func azure functionapp publish <FunctionAppName>
 
 次の発行オプションは、1.x と 2.x の両方のバージョンに適用されます。
 
-| オプション     | [説明]                            |
+| オプション     | 説明                            |
 | ------------ | -------------------------------------- |
 | **`--publish-local-settings -i`** |  local.settings.json の設定を Azure に発行し、設定が既に存在する場合は上書きを促します。 Microsoft Azure ストレージ エミュレーターを使用している場合は、まずアプリ設定を[実際のストレージ接続](#get-your-storage-connection-strings)に変更します。 |
 | **`--overwrite-settings -y`** | `--publish-local-settings -i` を使用するときに、アプリの設定を上書きするプロンプトを抑制します。|
 
 次の発行オプションは、バージョン 2.x でのみサポートされています。
 
-| オプション     | [説明]                            |
+| オプション     | 説明                            |
 | ------------ | -------------------------------------- |
 | **`--publish-settings-only`** 、 **`-o`** |  設定のみを発行し、コンテンツをスキップします。 既定値は prompt です。 |
 |**`--list-ignored-files`** | 発行時に無視されるファイルの一覧を表示します。これは、.funcignore ファイルに基づきます。 |
@@ -504,7 +504,7 @@ func deploy
 
 次のカスタム コンテナー デプロイ オプションを使用できます。
 
-| オプション     | [説明]                            |
+| オプション     | 説明                            |
 | ------------ | -------------------------------------- |
 | **`--registry`** | 現在のユーザーがサインインしている Docker レジストリの名前。 |
 | **`--platform`** | 関数アプリのホスティング プラットフォーム。 有効なオプションは `kubernetes` です。 |

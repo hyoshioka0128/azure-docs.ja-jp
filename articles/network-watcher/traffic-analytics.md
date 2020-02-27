@@ -12,12 +12,12 @@ ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: damendo
 ms.reviewer: vinigam
-ms.openlocfilehash: 6cec7c813b0723ac770da6ebd04f4d2cf26a1409
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: e53bd3deae5ccd7339c7a6d491dc4ff0da44a277
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76840589"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77426226"
 ---
 # <a name="traffic-analytics"></a>Traffic Analytics
 
@@ -61,7 +61,7 @@ NSG のトラフィック分析は、次のサポートされているどのリ�
 
 * カナダ中部
 * 米国中西部
-* East US
+* 米国東部
 * 米国東部 2
 * 米国中北部
 * 米国中南部
@@ -83,7 +83,7 @@ NSG のトラフィック分析は、次のサポートされているどのリ�
 * インド南部
 * 東日本 
 * 西日本
-* 米国政府バージニア州
+* US Gov バージニア州
 * 中国東部 2
 
 ## <a name="supported-regions-log-analytics-workspaces"></a>サポートされているリージョン:Log Analytics ワークスペース
@@ -91,7 +91,7 @@ NSG のトラフィック分析は、次のサポートされているどのリ�
 Log Analytics ワークスペースは、次のリージョンに存在する必要があります。
 * カナダ中部
 * 米国中西部
-* East US
+* 米国東部
 * 米国東部 2
 * 米国中北部
 * 米国中南部
@@ -112,7 +112,7 @@ Log Analytics ワークスペースは、次のリージョンに存在する必
 * 韓国中部
 * インド中部
 * 東日本
-* 米国政府バージニア州
+* US Gov バージニア州
 * 中国東部 2
 
 ## <a name="prerequisites"></a>前提条件
@@ -151,7 +151,7 @@ Log Analytics ワークスペースは、次のリージョンに存在する必
 
 NSG フロー ログを有効にする前に、フローをログに記録する、対象のネットワーク セキュリティ グループを選択する必要があります。 ネットワーク セキュリティ グループがない場合、作成方法については、[ネットワーク セキュリティ グループの作成](../virtual-network/manage-network-security-group.md#create-a-network-security-group)に関する記事をご覧ください。
 
-Azure Portal の左側にある **[監視]** を選択し、 **[Network Watcher]** 、 **[NSG フロー ログ]** の順に選択します。 次の図に示すように、NSG フロー ログを有効にするネットワーク セキュリティ グループを選択します。
+Azure portal で、 **[Network Watcher]** に移動して、 **[NSG フロー ログ]** を選択します。 次の図に示すように、NSG フロー ログを有効にするネットワーク セキュリティ グループを選択します。
 
 ![NSG フロー ログを有効にする必要がある NSG の選択](./media/traffic-analytics/selection-of-nsgs-that-require-enablement-of-nsg-flow-logging.png)
 
@@ -182,11 +182,8 @@ New-AzStorageAccount `
 
 1. *[状態]* で、 **[オン]** を選択します。
 2. **[フロー ログ バージョン]** で、 *[バージョン 2]* を選択します。 バージョン 2 には、フローセッションの統計 (バイトおよびパケット) が含まれます。
-3. フロー ログを保存する既存のストレージ アカウントを選択します。 データを無期限に保存する場合は、値を *0* に設定します。 ストレージ アカウントに対して Azure Storage の料金が発生します。 ストレージの [Data Lake Storage Gen2 Hierarchical Namespace Enabled]\(Data Lake Storage Gen2 の階層型名前空間の有効化\) が確実に true には設定されていないようにします。 また、NSG フロー ログは、ファイアウォールが設定されたストレージ アカウントに格納することはできません。 
+3. フロー ログを保存する既存のストレージ アカウントを選択します。 データを無期限に保存する場合は、値を *0* に設定します。 ストレージ アカウントに対して Azure Storage の料金が発生します。 ストレージの [Data Lake Storage Gen2 Hierarchical Namespace Enabled]\(Data Lake Storage Gen2 の階層型名前空間の有効化\) が確実に true には設定されていないようにします。
 4. **[リテンション期間]** を、データを保存する日数に設定します。
-> [!IMPORTANT]
-> 現在、Network Watcher の[ネットワーク セキュリティ グループ (NSG) のフロー ログ](network-watcher-nsg-flow-logging-overview.md)が保持ポリシー設定に基づいて BLOB ストレージから自動的に削除されないという問題があります。 0 以外のアイテム保持ポリシーが存在する場合は、保持期間を過ぎているストレージ BLOB を定期的に削除して、課金が発生しないようにすることをお勧めします。 NSG フロー ログ ストレージ BLOB を削除する方法の詳細については、[NSG フロー ログ ストレージ BLOB の削除](network-watcher-delete-nsg-flow-log-blobs.md)に関する記事を参照してください。
-
 5. *[Traffic Analytics Status]\(Traffic Analytics の状態\)* で、 **[オン]** を選択します。
 6. 処理間隔を選択します。 選択内容に基づいて、フロー ログがストレージ アカウントから収集され、Traffic Analytics によって処理されます。 処理間隔は、1 時間ごとまたは 10 分ごとを選択できます。 
 7. 既存の Log Analytics (OMS) ワークスペースを選択するか、 **[新しいワークスペースの作成]** を選択して新規作成します。 Log Analytics ワークスペースは、分析の生成に使用される集計済みのインデックス付きデータを格納するために、Traffic Analytics で使用されます。 既存のワークスペースを選択する場合は、[サポートされているリージョン](#supported-regions-log-analytics-workspaces)のいずれかに存在し、新しいクエリ言語にアップグレードされている必要があります。 既存のワークスペースをアップグレードするのが望ましくない場合や、サポートされているリージョンにワークスペースがない場合は、新しいワークスペースを作成します。 クエリ言語の詳細については、「[新しいログ検索への Azure Log Analytics のアップグレード](../log-analytics/log-analytics-log-search-upgrade.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)」をご覧ください。

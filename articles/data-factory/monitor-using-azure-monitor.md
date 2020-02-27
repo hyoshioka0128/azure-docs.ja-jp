@@ -112,7 +112,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 }
 ```
 
-| プロパティ | 種類 | [説明] |
+| プロパティ | 種類 | 説明 |
 | --- | --- | --- |
 | **storageAccountId** |String | 診断ログを送信するストレージ アカウントのリソース ID。 |
 | **serviceBusRuleId** |String | 診断ログのストリーミングのために Event Hubs を作成するサービス バス名前空間のサービス バス ルール ID。 ルール ID の形式は、`{service bus resource ID}/authorizationrules/{key name}` です。|
@@ -287,7 +287,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 }
 ```
 
-| プロパティ | 種類 | [説明] | 例 |
+| プロパティ | 種類 | 説明 | 例 |
 | --- | --- | --- | --- |
 | **Level** |String | 診断ログのレベル。 アクティビティ実行ログの場合は、プロパティ値を 4 に設定します。 | `4` |
 | **correlationId** |String | 特定の要求を追跡するための一意の ID。 | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
@@ -333,7 +333,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 }
 ```
 
-| プロパティ | 種類 | [説明] | 例 |
+| プロパティ | 種類 | 説明 | 例 |
 | --- | --- | --- | --- |
 | **Level** |String | 診断ログのレベル。 アクティビティ実行ログの場合は、プロパティ値を 4 に設定します。 | `4` |
 | **correlationId** |String | 特定の要求を追跡するための一意の ID。 | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
@@ -377,7 +377,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 
 ```
 
-| プロパティ | 種類 | [説明] | 例 |
+| プロパティ | 種類 | 説明 | 例 |
 | --- | --- | --- | --- |
 | **Level** |String | 診断ログのレベル。 アクティビティ実行ログの場合は、プロパティ値を 4 に設定します。 | `4` |
 | **correlationId** |String | 特定の要求を追跡するための一意の ID。 | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
@@ -471,7 +471,7 @@ Monitor と Data Factory の統合を使用して、データを Monitor にル�
 
 しばらくすると、このデータ ファクトリに対する設定の一覧に新しい設定が表示されます。 新しいイベント データが生成されるとすぐに、診断ログがそのワークスペースにストリーミングされます。 イベントが生成されてから、Log Analytics に表示されるまでに最大 15 分かかかる場合があります。
 
-* _リソース固有_モードでは、Azure Data Factory からの診断ログは、_ADFPipelineRun_、_ADFTriggerRun_、_ADFActivityRun_ テーブルに送られます
+* _リソース固有_ モードでは、Azure Data Factory からの診断ログは、_ADFPipelineRun_、_ADFTriggerRun_、_ADFActivityRun_ テーブルに送られます
 * _Azure Diagnostics_ モードでは、診断ログは _AzureDiagnostics_ テーブルに送られます
 
 > [!NOTE]
@@ -516,7 +516,7 @@ Azure Data Factory Analytics をインストールすると、既定のセット
 ![データ ファクトリによるパイプライン実行のグラフィック表示](media/data-factory-monitor-oms/monitor-oms-image8.png)
 
 > [!NOTE]
-> Azure Data Factory Analytics (プレビュー) では、診断ログが_リソース固有_の宛先テーブルに送られます。 次のテーブルに対するクエリを作成できます: _ADFPipelineRun_、_ADFTriggerRun_、_ADFActivityRun_。
+> Azure Data Factory Analytics (プレビュー) では、診断ログが _リソース固有_ の宛先テーブルに送られます。 次のテーブルに対するクエリを作成できます: _ADFPipelineRun_、_ADFTriggerRun_、_ADFActivityRun_。
 
 ## <a name="alerts"></a>警告
 

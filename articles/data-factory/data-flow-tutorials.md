@@ -5,13 +5,13 @@ author: djpmsft
 ms.author: daperlov
 ms.service: data-factory
 ms.topic: tutorial
-ms.date: 01/14/2020
-ms.openlocfilehash: dee8c919b815c6f22b171f58be9fc6a38167056a
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.date: 02/06/2020
+ms.openlocfilehash: 1449b34a9bbeb5692d25a5f84c4ee38e6c4e0a33
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76030021"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77460537"
 ---
 # <a name="mapping-data-flow-video-tutorials"></a>マッピング データ フローのビデオ チュートリアル
 
@@ -43,6 +43,8 @@ ms.locfileid: "76030021"
 
 [Join transformation (結合変換)](https://www.youtube.com/watch?v=zukwayEXRtg)
 
+[自己結合パターン](https://www.youtube.com/watch?v=Dx1kANfnvmk&feature=youtu.be&hd=1)
+
 [参照変換](https://www.youtube.com/watch?v=9U-0VPU2ZPU)
 
 [Pivot transformation (ピボット変換)](https://www.youtube.com/watch?v=Tua14ZQA3F8&t=34s)
@@ -66,6 +68,8 @@ ms.locfileid: "76030021"
 [条件分割変換](http://youtu.be/W1lQHojhKZw?hd=1)
 
 [Exists Transformation (存在変換)](http://youtu.be/GS8JVgNBMfs?hd=1)
+
+[動的な結合と動的ルックアップ](https://youtu.be/CMOPPie9bXM)
 
 ## <a name="source-and-sink"></a>ソースとシンク
 
@@ -130,3 +134,9 @@ ms.locfileid: "76030021"
 [Logical Models vs. Physical Models (論理モデルと物理モデル)](http://youtu.be/K5tgzLjEE9Q)
 
 [Detect source data changes (ソース データの変更の検出)](http://youtu.be/CaxIlI7oXfI?hd=1)
+
+## <a name="data-flow-expressions"></a>データ フローの式
+
+[日付と時刻の式](https://www.youtube.com/watch?v=uboyCZ25r_E&feature=youtu.be&hd=1)
+
+[配列の分割と Case ステートメント](https://www.youtube.com/watch?v=DHNH8ZO7YjI)

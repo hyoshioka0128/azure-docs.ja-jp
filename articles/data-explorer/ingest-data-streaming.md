@@ -7,12 +7,12 @@ ms.reviewer: tzgitlin
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 08/30/2019
-ms.openlocfilehash: 4f9804ed0e7d6c83a4f6fc732f836fcecce1c2e7
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: 49129bede62e456cf2807cc879b7fc5e1793b65b
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74548335"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77424951"
 ---
 # <a name="streaming-ingestion-preview"></a>ストリーミング インジェスト (プレビュー)
 
@@ -64,7 +64,7 @@ ms.locfileid: "74548335"
 > [!WARNING]
 > ストリーミング インジェストの無効化には数時間かかることがあります。
 
-1. 関連するすべてのテーブルとデータベースから[ストリーミング インジェスト ポリシー](/azure/kusto/concepts/streamingingestionpolicy)をドロップします。 ストリーミング インジェスト ポリシーの削除によって、初期ストレージから列ストア (エクステントまたはシャード) 内の永続的なストレージへのストリーミング インジェストのデータ移動がトリガーされます。 データ移動には、初期ストレージのデータ量とクラスターの CPU およびメモリ使用率に応じて、数秒から数時間かかります。
+1. 関連するすべてのテーブルとデータベースから[ストリーミング インジェスト ポリシー](/azure/kusto/concepts/streamingingestionpolicy)をドロップします。 ストリーミング インジェスト ポリシーの削除によって、初期ストレージから列ストア (エクステントまたはシャード) 内の永続的なストレージへのストリーミング インジェストのデータ移動がトリガーされます。 データ移動には、初期ストレージ上のデータ量とクラスターによる CPU およびメモリ使用率に応じて、数秒から数時間かかることがあります。
 1. Azure portal で、Azure Data Explorer クラスターに移動します。 **[設定]** で **[構成]** を選択します。 
 1. **[構成]** ウィンドウで、 **[オフ]** を選択して **[ストリーミング インジェスト]** を無効にします。
 1. **[保存]** を選択します。
@@ -77,7 +77,8 @@ ms.locfileid: "74548335"
 * インジェスト要求ごとのデータ サイズの制限は 4 MB です。
 * テーブルとインジェスト マッピングの作成や変更など、スキーマの更新には、ストリーミング インジェスト サービスに最大 5 分かかることがあります。
 * クラスターでストリーミング インジェストを有効にすると、データがストリーミング経由で取り込まれていない場合でも、インジェスト データをストリーミングするためにクラスター マシンのローカル SSD ディスクの一部を使用して、ホット キャッシュに使用できるストレージを減らします。
+* [extent タグ](/azure/kusto/management/extents-overview.md#extent-tagging)は、ストリーミング インジェスト データには設定できません。
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
 * [Azure Data Explorer でデータのクエリを実行する](web-query-data.md)

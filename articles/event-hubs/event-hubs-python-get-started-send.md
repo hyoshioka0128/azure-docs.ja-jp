@@ -1,54 +1,49 @@
 ---
-title: クイック スタート:Python を使用してイベントを送受信する - Azure Event Hubs
-description: クイック スタート:このチュートリアルでは、Azure Event Hubs 間でイベントを送受信する Python スクリプトを作成して実行する方法について説明します。
+title: Python を使用して Azure Event Hubs との間でイベントを送受信する (旧バージョン)
+description: このチュートリアルでは、以前の azure-eventhub バージョン 1 パッケージを使用して、Azure Event Hubs との間でイベントを送受信する Python スクリプトを作成して実行する方法について説明します。
 services: event-hubs
-author: ShubhaVijayasarathy
+author: spelluru
 manager: femila
 ms.service: event-hubs
 ms.workload: core
 ms.topic: quickstart
-ms.date: 01/08/2020
-ms.author: shvija
-ms.openlocfilehash: c4fa9e6038f4007246552610f537825f9def92a8
-ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
+ms.date: 01/15/2020
+ms.author: spelluru
+ms.openlocfilehash: 22f6b2aba36e560e9bd335baa92925fe9846c670
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75939951"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77162601"
 ---
-# <a name="quickstart-send-and-receive-events-with-event-hubs-using-python"></a>クイック スタート:Python を使用して Event Hubs 間でイベントを送受信する
+# <a name="quickstart-send-and-receive-events-with-event-hubs-using-python-azure-eventhub-version-1"></a>クイック スタート:Python を使用して Event Hubs 間でイベントを送受信する (azure-eventhub バージョン 1)
+このクイックスタートでは、**azure-eventhub バージョン 1** Python パッケージを使用して、イベント ハブとの間でイベントを送受信する方法について説明します。 
 
-Azure Event Hubs はビッグ データ ストリーミング プラットフォームであり、毎秒数百万のイベントを受け取って処理できるイベント インジェスト サービスです。 Event Hubs では、分散されたソフトウェアとデバイスからイベント、データ、またはテレメトリを処理および格納できます。 イベント ハブに送信されたデータは、任意のリアルタイム分析プロバイダーやバッチ処理/ストレージ アダプターを使用して、変換および保存できます。 Event Hubs の詳細については、[Azure Event Hubs](event-hubs-about.md) に関するページと「[Azure Event Hubs の機能と用語](event-hubs-features.md)」を参照してください。
-
-このクイックスタートでは、Python アプリケーションを作成し、イベント ハブ間でイベントを送受信する方法について説明します。 
-
-> [!IMPORTANT]
-> このクイックスタートでは、Azure Event Hubs Python SDK のバージョン 1 を使用します。 Azure Event Hubs を初めて使用する場合は、Python SDK のバージョン 5 を使用してください。 Python SDK のバージョン 5 を使用するクイックスタートについては、[こちらの記事](get-started-python-send-v2.md)を参照してください。 既存のコードをバージョン 1 からバージョン 5 に移行する場合は、[移行ガイド](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub/migration_guide.md)をご覧ください。
-
-
-> [!NOTE]
-> クイックスタートに取り組む代わりに、GitHub から[サンプル アプリ](https://github.com/Azure/azure-event-hubs-python/tree/master/examples)をダウンロードして実行することができます。 `EventHubConnectionString` と `EventHubName` の文字列を、使用するイベント ハブの値に置き換えます。 
+> [!WARNING]
+> このクイックスタートでは、以前の azure-eventhub バージョン 1 パッケージを使用します。 最新パッケージの**バージョン 5** を使用するクイックスタートについては、[azure-eventhub バージョン 5 を使用したイベントの送受信](get-started-python-send-v2.md)に関するページを参照してください。 古いパッケージではなく新しいパッケージを使用するようにアプリケーションを移行するには、[azure-eventhub バージョン 1 からバージョン 5 への移行ガイド](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub/migration_guide.md)に関するページを参照してください。
+ 
 
 ## <a name="prerequisites"></a>前提条件
+Azure Event Hubs を初めて使用する場合は、このクイックスタートを行う前に[イベント ハブの概要](event-hubs-about.md)に関するページを参照してください。 
 
 このクイック スタートを完了するには、次の前提条件を用意しておく必要があります。
 
-- Azure サブスクリプション。 お持ちでない場合は、開始する前に[無料アカウントを作成](https://azure.microsoft.com/free/)してください。
-- 次の手順に従って作成された、アクティブな Event Hubs 名前空間とイベント ハブ: 「[クイック スタート: Azure portal を使用したイベント ハブの作成](event-hubs-create.md)」。 このチュートリアルで後ほど使用するため、名前空間とイベント ハブの名前をメモしておきます。 
-- Event Hubs 名前空間の共有アクセス キー名と主キー値。 「[ポータルから接続文字列を取得する](event-hubs-get-connection-string.md#get-connection-string-from-the-portal)」の手順に従って、アクセス キーの名前と値を取得します。 既定のアクセス キー名は **RootManageSharedAccessKey** です。 このチュートリアルで後ほど使用するため、キー名と主キー値をコピーします。 
+- **Microsoft Azure サブスクリプション**。 Azure Event Hubs を含む Azure サービスを使用するには、サブスクリプションが必要です。  既存の Microsoft Azure アカウントをお持ちでない場合は、[アカウントを作成する](https://azure.microsoft.com)際に、[無料試用版](https://azure.microsoft.com/free/)にサインアップするか、MSDN サブスクライバー特典を利用できます。
 - Python 3.4 以降 (`pip` がインストールおよび更新されている)。
 - Event Hubs 用の Python パッケージ。 パッケージをインストールするには、コマンド プロンプトで Python をパス設定して、次のコマンドを実行します。 
   
   ```cmd
-  pip install azure-eventhub
+  pip install azure-eventhub==1.3.*
   ```
-  
-  > [!NOTE]
-  > このクイックスタートのコードは、Event Hubs SDK の現在の安定バージョン 1.3.1 を使用しています。 プレビュー バージョンの SDK を使用するサンプル コードについては、[https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/eventhub/azure-eventhubs/examples](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/eventhub/azure-eventhubs/examples) を参照してください。
+- **Event Hubs 名前空間とイベント ハブを作成する**。 最初の手順では、[Azure Portal](https://portal.azure.com) を使用して Event Hubs 型の名前空間を作成し、アプリケーションがイベント ハブと通信するために必要な管理資格情報を取得します。 名前空間とイベント ハブを作成するには、[こちらの記事](event-hubs-create.md)の手順に従います。 その後、次の記事の手順に従って、イベント ハブ用のアクセス キーの値を取得します。[接続文字列を取得する](event-hubs-get-connection-string.md#get-connection-string-from-the-portal)。 このクイックスタートの後半で記述するコードで、このアクセス キーを使用します。 既定のキー名は次のとおりです:**RootManageSharedAccessKey**。 
+
 
 ## <a name="send-events"></a>送信イベント
 
 イベント ハブにイベントを送信する Python アプリケーションを作成するには、次のようにします。
+
+> [!NOTE]
+> クイックスタートに取り組む代わりに、GitHub から[サンプル アプリ](https://github.com/Azure/azure-event-hubs-python/tree/master/examples)をダウンロードして実行することができます。 `EventHubConnectionString` と `EventHubName` の文字列を、使用するイベント ハブの値に置き換えます。
 
 1. [Visual Studio Code](https://code.visualstudio.com/) など、お使いの Python エディターを開きます。
 2. "*send.py*" という名前の新しいファイルを作成します。 このスクリプトでは、100 のイベントをイベント ハブに送信します。

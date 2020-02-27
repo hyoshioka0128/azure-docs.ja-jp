@@ -2,22 +2,20 @@
 title: Azure へのサインアップ時にカードが拒否される問題のトラブルシューティング
 description: Azure portal またはアカウント センターで Azure へのサインアップ時にクレジット カードが拒否される問題を解決します。
 author: v-miegge
-manager: adpick
+services: cost-management-billing
+manager: dcscontentpm
+ms.reviewer: judupont
 editor: v-jesits
-tags: billing
 ms.service: cost-management-billing
-ms.devlang: na
-ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 08/12/2019
+ms.topic: troubleshooting
+ms.date: 02/13/2020
 ms.author: banders
-ms.openlocfilehash: 432a6f22f3c1b0c323b689103cd16cbea344cab1
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 04bd8b82e301778db6c68791925f1cd668fb7859
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "75984819"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77560560"
 ---
 # <a name="troubleshoot-a-declined-card-at-azure-sign-up"></a>Azure へのサインアップ時にカードが拒否される問題のトラブルシューティング
 

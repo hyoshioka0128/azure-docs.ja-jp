@@ -53,6 +53,9 @@
             - name: 分類モデルのバッチ スコアリング
               displayName: pipelines
               href: tutorial-pipeline-batch-scoring-classification.md
+        - name: 実験から運用への移行
+          displayName: 'mlops, mlopspython, production'
+          href: tutorial-convert-ml-experiment-to-production.md
     - name: R SDK
       items:
         - name: 初めての ML 実験を作成する (R)
@@ -125,6 +128,8 @@
               href: how-to-enable-virtual-network.md
             - name: SSL を使用して Web サービスをセキュリティで保護する
               href: how-to-secure-web-service.md
+            - name: AKS デプロイで Azure AD ID を使用する
+              href: how-to-use-azure-ad-identity.md
             - name: ストレージ アクセス キーの再生成
               href: how-to-change-storage-access-key.md
         - name: 認証の設定
@@ -324,23 +329,18 @@
           href: how-to-deploy-existing-model.md
         - name: トラブルシューティングとデバッグ
           href: how-to-troubleshoot-deployment.md
-    - name: Web サービスを使用する
-      items:
-        - name: リアルタイムで使用する
+        - name: クライアントの作成
           displayName: create client consume request response synchronous
           href: how-to-consume-web-service.md
-        - name: デザイナーによるバッチ予測
-          displayName: score scoring asynchronous consume pipeline parallelrunstep inference designer
-          href: how-to-run-batch-predictions-designer.md
-    - name: モデルを監視する
-      items:
-        - name: モデルのデータを収集して評価する
-          displayName: track production
-          href: how-to-enable-data-collection.md
-        - name: データの誤差を検出する
-          href: how-to-monitor-data-drift.md
-        - name: Application Insights での監視
-          href: how-to-enable-app-insights.md
+        - name: モデルを監視する
+          items:
+            - name: モデルのデータを収集して評価する
+              displayName: track production
+              href: how-to-enable-data-collection.md
+            - name: データの誤差を検出する
+              href: how-to-monitor-data-drift.md
+            - name: Application Insights での監視
+              href: how-to-enable-app-insights.md
     - name: ML パイプラインの作成と使用
       displayName: pipelines
       items:
@@ -348,6 +348,8 @@
           href: how-to-create-your-first-pipeline.md
         - name: パイプラインのスケジュールを設定する (Python)
           href: how-to-schedule-pipelines.md
+        - name: パイプラインをトリガーする
+          href: how-to-trigger-published-pipeline.md
         - name: パイプラインのデバッグとトラブルシューティングを行う
           href: how-to-debug-pipelines.md
         - name: Application Insights でパイプラインをデバッグする
@@ -365,6 +367,9 @@
         - name: 並列実行ステップのデバッグとトラブルシューティング
           displayName: debug_batch consume pipeline parallelrunstep inference
           href: how-to-debug-parallel-run-step.md
+        - name: デザイナーによるバッチ予測
+          displayName: score scoring asynchronous consume pipeline parallelrunstep inference designer
+          href: how-to-run-batch-predictions-designer.md
     - name: リソース クォータを管理する
       displayName: limits
       href: how-to-manage-quotas.md

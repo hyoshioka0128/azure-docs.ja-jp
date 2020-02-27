@@ -6,18 +6,19 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 06/22/2018
-ms.openlocfilehash: 05d849aa0edf5892e568c4078ca619490cfcd98e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 02/10/2019
+ms.openlocfilehash: e5d707200d1e1eab9becbb30181649525f3a5a7b
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75363202"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77166476"
 ---
 # <a name="create-custom-views-by-using-view-designer-in-azure-monitor"></a>Azure Monitor のビュー デザイナーを使用してカスタム ビューを作成する
 Azure Monitor のビュー デザイナーを使用すると、Log Analytics ワークスペースでデータを視覚化するのに役立つさまざまなカスタム ビューを Azure portal で作成できます。 この記事では、ビュー デザイナーの概要と、カスタム ビューの作成と編集を行うための手順について説明します。
 
-[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
+> [!IMPORTANT]
+> Azure Monitor のビューは段階的に廃止され、追加機能を提供する[ブック](workbooks-overview.md)に置き換えられています。 既存のビューをブックに変換する方法の詳細については、「[Azure Monitor ビュー デザイナーからブックへの移行ガイド](view-designer-conversion-overview.md)」を参照してください。
 
 ビュー デザイナーの詳細については、次を参照してください。
 
@@ -32,7 +33,7 @@ Azure portal の Azure Monitor **[概要]** ページにビューが表示され
 
 ビュー デザイナーで作成するビューには、次の表で説明する要素が含まれます。
 
-| 要素 | [説明] |
+| 要素 | 説明 |
 |:--- |:--- |
 | タイル | Azure Monitor **[概要]** ページに表示されます。 各タイルには、それが表しているカスタム ビューの視覚的な概要が表示されます。 各タイルの種類では、レコードのさまざまな視覚化が提供されます。 カスタム ビューを表示するにはタイルを選択します。 |
 | カスタム ビュー | タイルを選択すると表示されます。 各ビューには、1 つまたは複数の視覚化パーツが含まれます。 |
@@ -49,7 +50,7 @@ Azure portal の Azure Monitor **[概要]** ページにビューが表示され
 
 各オプションについては次の表で説明します。
 
-| オプション | [説明] |
+| オプション | 説明 |
 |:--|:--|
 | 更新   | 最新データで表示を更新します。 | 
 | ログ      | ログ クエリを使用してデータを分析するための [Log Analytics](../log-query/portals.md) が開きます。 |
@@ -95,7 +96,7 @@ Log Analytics ワークスペースのメニューで **[ビュー デザイナ�
 
 ![[編集] メニュー](media/view-designer/edit-menu.png)
 
-| オプション | [説明] |
+| オプション | 説明 |
 |:--|:--|
 | 保存        | 変更を保存し、ビューを閉じます。 |
 | Cancel      | 変更を破棄し、ビューを閉じます。 |

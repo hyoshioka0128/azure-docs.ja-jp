@@ -15,14 +15,14 @@
           href: b2b-quickstart-invite-powershell.md
     - name: チュートリアル
       items:
-        - name: B2B ゲスト ユーザーの一括招待
+        - name: PowerShell を使用した一括招待
+          href: bulk-invite-powershell.md
+        - name: ポータルを使用した一括招待 (プレビュー)
           href: tutorial-bulk-invite.md
         - name: 多要素認証を適用する
           href: b2b-tutorial-require-mfa.md
     - name: サンプル
       items:
-        - name: セルフサービス サインアップ ポータルのサンプル
-          href: self-service-portal.md
         - name: コードと Azure PowerShell のサンプル
           href: code-samples.md
     - name: 概念
@@ -48,6 +48,8 @@
           href: conditional-access.md
         - name: ハイブリッド組織向けの B2B
           href: hybrid-organizations.md
+        - name: セルフサービス サインアップ
+          href: self-service-portal.md
         - name: 現在の制限
           href: current-limitations.md
     - name: 操作方法ガイド

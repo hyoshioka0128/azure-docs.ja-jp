@@ -2,17 +2,14 @@
 title: プレビュー - Azure Kubernetes Service (AKS) クラスター上に Windows Server コンテナーを作成する
 description: 迅速に Kubernetes クラスターを作成し、Azure CLI を使用して Azure Kubernetes Service (AKS) で Windows Server コンテナーにアプリケーションをデプロイする方法について説明します。
 services: container-service
-author: mlearned
-ms.service: container-service
 ms.topic: article
 ms.date: 01/27/2020
-ms.author: mlearned
-ms.openlocfilehash: d1d04ab3ebb96d2739b991620b05aa307d9eaf91
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 3a3374ea8e88b2494bb48c6835b4c22f1256ec84
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76767435"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77592682"
 ---
 # <a name="preview---create-a-windows-server-container-on-an-azure-kubernetes-service-aks-cluster-using-the-azure-cli"></a>プレビュー - Azure CLI を使用して Azure Kubernetes Service (AKS) クラスター上に Windows Server コンテナーを作成する
 
@@ -148,6 +145,10 @@ az aks create \
 > [!Note]
 > パスワード検証エラーが発生した場合は、別のリージョンでリソース グループを作成してください。
 > その後、新しいリソース グループを使用してクラスターを作成してください。
+
+> [!Note]
+> このリージョンでバージョンがサポートされていないために AKS クラスターを作成できない場合は、[az aks get-versions --location eastus] コマンドを使用して、このリージョンでサポートされているバージョンの一覧を確認することができます。
+
 
 数分後、コマンドが完了し、クラスターに関する情報が JSON 形式で返されます。 場合によっては、クラスターのプロビジョニングに数分以上かかることがあります。 このような場合は、最大 10 分と考えてください。 
 
@@ -288,6 +289,9 @@ sample  LoadBalancer   10.0.37.27   52.179.23.131   80:30572/TCP   2m
 サンプル アプリが動作していることを確認するには、Web ブラウザーを開いてサービスの外部 IP アドレスにアクセスします。
 
 ![ASP.NET サンプル アプリケーションを参照している画像](media/windows-container/asp-net-sample-app.png)
+
+> [!Note]
+> ページを読み込もうとしたときに接続タイムアウトが発生する場合は、次のコマンド [kubectl get pods --watch] を使用してサンプル アプリの準備ができていることを確認することをお勧めします。 外部 IP アドレスが使用可能になるまでは、Windows コンテナーが起動しない場合があります。
 
 ## <a name="delete-cluster"></a>クラスターを削除する
 

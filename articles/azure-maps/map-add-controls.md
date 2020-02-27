@@ -1,27 +1,27 @@
 ---
 title: マップにコントロールを追加する | Microsoft Azure Maps
 description: Microsoft Azure Maps でズーム コントロール、ピッチ コントロール、回転コントロール、およびスタイルの選択ツールをマップに追加する方法。
-author: walsehgal
-ms.author: v-musehg
+author: farah-alyasari
+ms.author: v-faalya
 ms.date: 07/29/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 6652ca30d9f38eb6184fce5f1ff5428d29c271a6
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: e386c136e7d0258d00c22c627dfa5047ba803169
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75911265"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77209768"
 ---
 # <a name="add-controls-to-a-map"></a>マップにコントロールを追加する
 
-この記事では、マップにコントロールを追加する方法について説明します。 すべてのコントロールと[スタイルの選択ツール](https://docs.microsoft.com/azure/azure-maps/choose-map-style)を備えたマップを作成する方法についても学習します。
+この記事では、マップにコントロールを追加する方法について説明します。 すべてのコントロールと[スタイル選択機能](https://docs.microsoft.com/azure/azure-maps/choose-map-style)を備えたマップを作成する方法についても説明します。
 
 ## <a name="add-zoom-control"></a>ズーム コントロールを追加する
 
-ズーム コントロールは、マップを拡大または縮小するためのボタンを追加します。次のコード サンプルでは、[ZoomControl](/javascript/api/azure-maps-control/atlas.control.zoomcontrol) クラスのインスタンスを作成し、マップの右下隅に追加します。
+ズーム コントロールは、マップを拡大または縮小するためのボタンを追加します。次のコード サンプルでは、[ZoomControl](/javascript/api/azure-maps-control/atlas.control.zoomcontrol) クラスのインスタンスを作成して、マップの右下隅に追加します。
 
 ```javascript
 //Construct a zoom control and add it to the map.
@@ -39,7 +39,7 @@ map.controls.add(new atlas.control.ZoomControl(), {
 
 ## <a name="add-pitch-control"></a>ピッチ コントロールを追加する
 
-ピッチ コントロールでは、水平線を基準としてマップを傾けるためのボタンを追加します。 次のコード サンプルでは、[PitchControl](/javascript/api/azure-maps-control/atlas.control.pitchcontrol) クラスのインスタンスを作成し、マップの右上隅に追加します。
+ピッチ コントロールでは、水平線を基準としてマップを傾けるためのボタンを追加します。 次のコード サンプルでは、[PitchControl](/javascript/api/azure-maps-control/atlas.control.pitchcontrol) クラスのインスタンスを作成します。 PitchControl がマップの右上隅に追加されます。
 
 ```javascript
 //Construct a pitch control and add it to the map.
@@ -94,7 +94,7 @@ map.controls.add(new atlas.control.Compass(), {
 <a href='https://codepen.io'>CodePen</a> 上の Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) による「<a href='https://codepen.io/azuremaps/pen/LwBZMx/'>Navigation control options (ナビゲーション コントロールのオプション)</a>」Pen を表示します。
 </iframe>
 
-カスタマイズされたナビゲーション コントロールを作成する場合は、`atlas.Control` クラスから拡張するクラスを作成するか、HTML 要素を作成してマップの div の上に配置します。 この UI コントロールで、マップを移動するためのマップ `setCamera` 関数を呼び出します。 
+カスタマイズされたナビゲーション コントロールを作成する場合は、`atlas.Control` クラスから拡張するクラスを作成するか、HTML 要素を作成してマップの div の上に配置します。 この UI コントロールで、マップを移動するためのマップの `setCamera` 関数を呼び出します。 
 
 ## <a name="next-steps"></a>次のステップ
 

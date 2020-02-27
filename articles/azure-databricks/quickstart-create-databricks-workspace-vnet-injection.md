@@ -8,18 +8,18 @@ ms.reviewer: jasonh
 ms.service: azure-databricks
 ms.topic: conceptual
 ms.date: 12/04/2019
-ms.openlocfilehash: 8d118170de01c7685ac9dba65c7e22cefb6d4829
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.openlocfilehash: 046b2da7cdb966192e485ff9f5510eb63c9e0008
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76263153"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77086549"
 ---
 # <a name="quickstart-create-an-azure-databricks-workspace-in-your-own-virtual-network"></a>クイック スタート:自分の仮想ネットワークに Azure Databricks ワークスペースを作成する
 
 Azure Databricks の既定のデプロイでは、Databricks によって管理される新しい仮想ネットワークが作成されます。 このクイック スタートでは、その代わりに自分の仮想ネットワーク内に Azure Databricks ワークスペースを作成する方法について説明します。 そのワークスペース内に Apache Spark クラスターも作成します。 
 
-自分の仮想ネットワーク内に Azure Databricks ワークスペースを作成することを選択する理由の詳細については、[お使いの Azure 仮想ネットワークに Azure Databricks をデプロイする (VNet インジェクション)](/databricks/administration-guide/cloud-configurations/azure/vnet-inject) を参照してください。
+自分の仮想ネットワーク内に Azure Databricks ワークスペースを作成することを選択する理由の詳細については、「[Azure Virtual Network (VNet インジェクション) で Azure Databricks をデプロイする](https://docs.microsoft.com/azure/databricks/administration-guide/cloud-configurations/azure/vnet-inject)」を参照してください。
 
 Azure サブスクリプションをお持ちでない場合は、[無料アカウント](https://azure.microsoft.com/free/databricks/)を作成してください。
 
@@ -39,7 +39,7 @@ Azure サブスクリプションをお持ちでない場合は、[無料アカ�
 
 2. **[仮想ネットワークの作成]** で、次の設定を適用します。 
 
-    |設定|推奨値|[説明]|
+    |設定|推奨値|説明|
     |-------|---------------|-----------|
     |サブスクリプション|\<該当するサブスクリプション\>|使用する Azure サブスクリプションを選択します。|
     |Resource group|databricks-quickstart|**[新規作成]** を選択し、アカウントの新しいリソース グループ名を入力します。|
@@ -50,7 +50,7 @@ Azure サブスクリプションをお持ちでない場合は、[無料アカ�
 
 3. **[Next: IP Addresses >]\(次へ: IP アドレス >\)** を選択し、次の設定を適用します。 次に、 **[Review + create]\(確認と作成\)** を選択します。
     
-    |設定|推奨値|[説明]|
+    |設定|推奨値|説明|
     |-------|---------------|-----------|
     |IPv4 アドレス空間|10.2.0.0/16|CIDR 表記の仮想ネットワークのアドレス範囲。 CIDR の範囲は /16 から /24 の間である必要があります|
     |サブネット名|既定値 (default)|仮想ネットワークの既定のサブネットの名前を選択します。|
@@ -70,7 +70,7 @@ Azure サブスクリプションをお持ちでない場合は、[無料アカ�
 
 2. **[Azure Databricks サービス]** で、次の設定を適用します。
 
-    |設定|推奨値|[説明]|
+    |設定|推奨値|説明|
     |-------|---------------|-----------|
     |ワークスペース名|databricks-quickstart|Azure Databricks ワークスペースの名前を選択します。|
     |サブスクリプション|\<該当するサブスクリプション\>|使用する Azure サブスクリプションを選択します。|
@@ -80,9 +80,9 @@ Azure サブスクリプションをお持ちでない場合は、[無料アカ�
 
     ![Azure Databricks ワークスペースの作成 (基本)](./media/quickstart-create-databricks-workspace-vnet-injection/create-databricks-workspace.png)
 
-3. **[基本]** ページで設定の入力を完了したら、 **[Next: Networking >]\(次へ: ネットワーク >\)** を選択して、次の設定を適用します。
+3. **[基本]** ページで設定の入力を完了したら、 **[次へ: ネットワーク >]** を選択し、次の設定を適用します。
 
-    |設定|推奨値|[説明]|
+    |設定|推奨値|説明|
     |-------|---------------|-----------|
     |自分の仮想ネットワーク (VNet) に Azure Databricks ワークスペースをデプロイする|はい|この設定により、仮想ネットワークに Azure Databricks ワークスペースをデプロイすることができます。|
     |Virtual Network|databricks-quickstart|前のセクションで作成した仮想ネットワークを選択します。|

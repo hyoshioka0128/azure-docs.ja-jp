@@ -2,17 +2,14 @@
 title: Azure Kubernetes Service (AKS) 内の kubeconfig へのアクセスを制限する
 description: クラスターの管理者とクラスターのユーザーを対象に Kubernetes 構成ファイル (kubeconfig) に対するアクセスを制御する方法を紹介します。
 services: container-service
-author: mlearned
-ms.service: container-service
 ms.topic: article
 ms.date: 01/28/2020
-ms.author: mlearned
-ms.openlocfilehash: d1fdd17b0f6b8ed91d4496f7e9e5a578e53556fe
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 25c710cce2855d6af985d3f46082f47573bbc101
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76845234"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77595877"
 ---
 # <a name="use-azure-role-based-access-controls-to-define-access-to-the-kubernetes-configuration-file-in-azure-kubernetes-service-aks"></a>Azure のロールベースのアクセス制御を使用して Azure Kubernetes Service (AKS) 内の Kubernetes 構成ファイルに対するアクセス権を定義する
 
@@ -63,7 +60,7 @@ AKS_CLUSTER=$(az aks show --resource-group myResourceGroup --name myAKSCluster -
 
 # Get the account credentials for the logged in user
 ACCOUNT_UPN=$(az account show --query user.name -o tsv)
-ACCOUNT_ID=$(az ad user show --upn-or-object-id $ACCOUNT_UPN --query objectId -o tsv)
+ACCOUNT_ID=$(az ad user show --id $ACCOUNT_UPN --query objectId -o tsv)
 
 # Assign the 'Cluster Admin' role to the user
 az role assignment create \

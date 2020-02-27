@@ -16,19 +16,19 @@ ms.date: 02/18/2019
 ms.author: mimart
 ms.reviewer: luleon, asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 32f3b2f45a808ebfa71f456c015de3dd59d60bd9
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 874d273e26a728afc0a1dc1a16852016797067ca
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68381376"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77367902"
 ---
 # <a name="problems-signing-in-to-a-gallery-application-configured-for-federated-single-sign-on"></a>フェデレーション シングル サインオン用に構成されたギャラリー アプリケーションへのサインインに関する問題
 
 以下のサインインに関する問題を解決するとき、次の提案に従ってより良い診断を行い、解決手順を自動化することをお勧めします。
 
 - [My Apps Secure Browser Extension](access-panel-extension-problem-installing.md) をインストールします。これをインストールすると、Azure portal でテスト体験を使用するとき、Azure Active Directory (Azure AD) からより良い診断と解決策が得られます。
-- Azure portal のアプリ構成ページにあるテスト体験を使用し、エラーを再現します。 [SAML ベースのシングル サインオン アプリケーションをデバッグする](../develop/howto-v1-debug-saml-sso-issues.md)方法に関するページを参照してください。
+- Azure portal のアプリ構成ページにあるテスト体験を使用し、エラーを再現します。 [SAML ベースのシングル サインオン アプリケーションをデバッグする](../azuread-dev/howto-v1-debug-saml-sso-issues.md)方法に関するページを参照してください。
 
 
 ## <a name="application-not-found-in-directory"></a>アプリケーションがディレクトリ内に見つからない
@@ -41,7 +41,7 @@ SAML 要求でアプリケーションから Azure AD に送信された `Issuer
 
 **解決策**
 
-SAML 要求内の `Issuer` 属性が Azure AD で構成された識別子の値に一致していることを確認します。 My Apps Secure Browser Extension を利用し、Azure portal で[テスト体験](../develop/howto-v1-debug-saml-sso-issues.md)を使用する場合、手動で次の手順を行う必要はありません。
+SAML 要求内の `Issuer` 属性が Azure AD で構成された識別子の値に一致していることを確認します。 My Apps Secure Browser Extension を利用し、Azure portal で[テスト体験](../azuread-dev/howto-v1-debug-saml-sso-issues.md)を使用する場合、手動で次の手順を行う必要はありません。
 
 1.  [**Azure Portal**](https://portal.azure.com/) を開き、**グローバル管理者**または**共同管理者**としてサインインします。
 
@@ -71,7 +71,7 @@ SAML 要求の `AssertionConsumerServiceURL` 値が、応答 URL 値または Az
 
 **解決策**
 
-SAML 要求の `AssertionConsumerServiceURL` 値が、Azure AD で構成されている応答 URL 値と一致していることを確認してください。 My Apps Secure Browser Extension を利用し、Azure portal で[テスト体験](../develop/howto-v1-debug-saml-sso-issues.md)を使用する場合、手動で次の手順を行う必要はありません。
+SAML 要求の `AssertionConsumerServiceURL` 値が、Azure AD で構成されている応答 URL 値と一致していることを確認してください。 My Apps Secure Browser Extension を利用し、Azure portal で[テスト体験](../azuread-dev/howto-v1-debug-saml-sso-issues.md)を使用する場合、手動で次の手順を行う必要はありません。
 
 1.  [**Azure Portal**](https://portal.azure.com/) を開き、**グローバル管理者**または**共同管理者**としてサインインします。
 
@@ -101,7 +101,7 @@ Azure AD で応答 URL の値を更新し、その URL 値が、アプリケー�
 
 **解決策**
 
-1 人以上のユーザーをアプリケーションに直接割り当てるには、次の手順に従います。 My Apps Secure Browser Extension を利用し、Azure portal で[テスト体験](../develop/howto-v1-debug-saml-sso-issues.md)を使用する場合、手動で次の手順を行う必要はありません。
+1 人以上のユーザーをアプリケーションに直接割り当てるには、次の手順に従います。 My Apps Secure Browser Extension を利用し、Azure portal で[テスト体験](../azuread-dev/howto-v1-debug-saml-sso-issues.md)を使用する場合、手動で次の手順を行う必要はありません。
 
 1.  [**Azure Portal**](https://portal.azure.com/) を開き、**グローバル管理者**としてサインインします。
 
@@ -150,7 +150,7 @@ Azure AD は、シングル サインオン用のアプリケーションによ�
 
 **解決策**
 
-1. SAML 要求をキャプチャします。 [Azure AD でのアプリケーションへの SAML ベースのシングル サインオンをデバッグする方法](../develop/howto-v1-debug-saml-sso-issues.md)に関するチュートリアルに従って、SAML 要求をキャプチャする方法を確認します。
+1. SAML 要求をキャプチャします。 [Azure AD でのアプリケーションへの SAML ベースのシングル サインオンをデバッグする方法](../azuread-dev/howto-v1-debug-saml-sso-issues.md)に関するチュートリアルに従って、SAML 要求をキャプチャする方法を確認します。
 
 1. アプリケーション ベンダーに連絡し、次の情報を伝えます。
 
@@ -162,7 +162,7 @@ Azure AD は、シングル サインオン用のアプリケーションによ�
 
 ## <a name="misconfigured-application"></a>アプリケーションが正しく構成されていない
 
-*エラー AADSTS650056:アプリケーションが正しく構成されていないこの場合は、次のいずれかの原因が考えられます。クライアントは、クライアントのアプリケーション登録の要求されたアクセス許可に "AAD グラフ" のアクセス許可を記載していません。あるいは、管理者がテナントで同意していません。あるいは、要求のアプリケーション識別子を見て、構成したクライアント アプリケーション識別子に一致することを確認してください。構成を修正するか、テナントの代わりに同意するように管理者に連絡してください*。
+*エラー AADSTS650056:アプリケーションが正しく構成されていないこの場合は、次のいずれかの原因が考えられます。クライアントが、クライアントのアプリケーション登録の要求されたアクセス許可にアクセス許可を記載していません。あるいは、管理者がテナントで同意していません。あるいは、要求のアプリケーション識別子を見て、構成したクライアント アプリケーション識別子に一致することを確認してください。構成を修正するか、テナントの代わりに同意するように管理者に連絡してください*。
 
 **考えられる原因**
 
@@ -170,7 +170,7 @@ SAML 要求でアプリケーションから Azure AD に送信された `Issuer
 
 **解決策**
 
-SAML 要求内の `Issuer` 属性が Azure AD で構成された識別子の値に一致していることを確認します。 My Apps Secure Browser Extension を利用し、Azure portal で[テスト体験](../develop/howto-v1-debug-saml-sso-issues.md)を使用する場合、手動で次の手順を行う必要はありません。
+SAML 要求内の `Issuer` 属性が Azure AD で構成された識別子の値に一致していることを確認します。 My Apps Secure Browser Extension を利用し、Azure portal で[テスト体験](../azuread-dev/howto-v1-debug-saml-sso-issues.md)を使用する場合、手動で次の手順を行う必要はありません。
 
 1.  [**Azure Portal**](https://portal.azure.com/) を開き、**グローバル管理者**または**共同管理者**としてサインインします。
 
@@ -269,6 +269,6 @@ Azure AD によって、HTTP 要求の URL パラメーター内から SAML 要�
 
 アプリケーションに送信される SAML 属性要求をカスタマイズする方法については、「[Azure Active Directory での要求マッピング](../develop/active-directory-claims-mapping.md)」をご覧ください。
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
-[Azure AD のアプリケーションに対する SAML に基づいたシングル サインオンをデバッグする方法](../develop/howto-v1-debug-saml-sso-issues.md)
+[Azure AD のアプリケーションに対する SAML に基づいたシングル サインオンをデバッグする方法](../azuread-dev/howto-v1-debug-saml-sso-issues.md)

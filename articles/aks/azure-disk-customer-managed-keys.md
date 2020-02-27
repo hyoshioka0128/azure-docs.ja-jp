@@ -2,17 +2,14 @@
 title: Azure Kubernetes Service (AKS) でカスタマーマネージド キーを使用して Azure ディスクを暗号化する
 description: 独自のキー (BYOK) を使用して AKS OS ディスクとデータ ディスクを暗号化します。
 services: container-service
-author: mlearned
-ms.service: container-service
 ms.topic: article
 ms.date: 01/12/2020
-ms.author: mlearned
-ms.openlocfilehash: 23a5dbf2333ca86c2d51d54bf983b00a71936eec
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: bb6ba5e6dd4ace9e33043079c0f435c10baf5cb2
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76547950"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77596506"
 ---
 # <a name="bring-your-own-keys-byok-with-azure-disks-in-azure-kubernetes-service-aks"></a>Azure Kubernetes Service (AKS) の Azure ディスクに独自のキー (BYOK) を使用する
 
@@ -105,7 +102,7 @@ az role assignment create --assignee $desIdentity --role Reader --scope $keyVaul
 
 ```azurecli-interactive
 # Retrieve the DiskEncryptionSet value and set a variable
-diskEncryptionSetId=$(az resource show -n diskEncryptionSetName -g myResourceGroup --resource-type "Microsoft.Compute/diskEncryptionSets" --query [id] -o tsv)
+diskEncryptionSetId=$(az resource show -n mydiskEncryptionSetName -g myResourceGroup --resource-type "Microsoft.Compute/diskEncryptionSets" --query [id] -o tsv)
 
 # Create a resource group for the AKS cluster
 az group create -n myResourceGroup -l myAzureRegionName

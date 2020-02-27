@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: f6e16ed6646340a5c623ecd027e8b0fe323bf7f9
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: b8b3dbf515aa3bcc9075a748b9d717cfa36b6ab0
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75910626"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77648923"
 ---
 # <a name="azure-maps-routing-coverage"></a>Azure Maps のルーティングの対象範囲
 
-この記事では、Azure Maps のルーティングの対象範囲情報を提供します。 場所 A から B への最適なルートを検索すると、Azure Maps が高度に正確な旅行時間、ライブの最新の旅行情報、ルートの指示を提示できます。 ルートでは、現在の交通量、車両の種類、避けるべき条件などの追加の検索用語が考慮されます。 Azure Maps では、リージョンごとに情報と精度のレベルが異なるため、ルートを最適化する機能はリージョンによって異なります。 次の表は、リージョンとそれらに要求できる情報の種類を示しています。
+この記事では、Azure Maps のルーティングの対象範囲情報を提供します。 Azure Maps で検索クエリを実行すると、場所 A から場所 B への最適なルートが返されます。正確な移動時間、移動に関する情報のライブ更新、ルートの指示が表示されます。 ルートでは、現在の交通量、車両の種類、避けるべき条件などの追加の検索パラメーターを追加できます。 ルートの最適化は、地域によって異なります。 Azure Maps には、さまざまな地域用のさまざまなレベルの情報と精度があるためです。 次の表は、リージョンとそれらに要求できる情報の種類を示しています。
  
 ジオコーディングの対象範囲については[**こちら**](geocoding-coverage.md)を参照してください。       
 トラフィックの対象範囲については[**こちら**](traffic-coverage.md)を参照してください。  
@@ -206,7 +206,6 @@ ms.locfileid: "75910626"
 | ルーマニア                        |        ✓       |         ✓            |     ✓      | 
 | ロシア             |        ✓       |         ✓            |     ✓      | 
 | サンマリノ                     |        ✓       |         ✓            |             |
-| \+ シント・マールテン島                  |        ✓       |                      |             |
 | セルビア                         |        ✓       |                      |     ✓      | 
 | スロバキア                       |        ✓       |         ✓            |     ✓      | 
 | スロベニア                       |        ✓       |         ✓            |     ✓      |

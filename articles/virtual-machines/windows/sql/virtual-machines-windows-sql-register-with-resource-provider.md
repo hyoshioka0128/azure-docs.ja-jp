@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 11/13/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: f16cb95a42bf201aa7d75a3393917c58f51fbb07
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.openlocfilehash: 01e683e31905281d25fdcf976bc58397c052a6c3
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76122442"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77201630"
 ---
 # <a name="register-a-sql-server-virtual-machine-in-azure-with-the-sql-vm-resource-provider"></a>Azure 内の SQL Server 仮想マシンを SQL VM リソースプロバイダーに登録する
 
@@ -35,14 +35,14 @@ Azure portal を介して SQL Server VM の Azure Marketplace イメージをデ
 
 - **簡略化されたライセンス管理**:SQL VM リソース プロバイダーに登録すると、SQL Server ライセンスの管理が簡略化されるほか、[Azure portal](virtual-machines-windows-sql-manage-portal.md)、Az CLI、または PowerShell を使用して、Azure ハイブリッド特典が有効になった SQL Server VM をすばやく識別することができます。 
 
-   # <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
+   # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
    ```azurecli-interactive
    $vms = az sql vm list | ConvertFrom-Json
    $vms | Where-Object {$_.sqlServerLicenseType -eq "AHUB"}
    ```
 
-   # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+   # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
    ```powershell-interactive
    Get-AzSqlVM | Where-Object {$_.LicenseType -eq 'AHUB'}
@@ -106,14 +106,14 @@ PowerShell を使用して、次のように SQL Server IaaS エージェント�
 
 Az CLI または PowerShell を使用して、SQL VM リソースプロバイダーを自分の Azure サブスクリプションに登録します。 
 
-# <a name="az-clitabbash"></a>[AZ CLI](#tab/bash)
+# <a name="az-cli"></a>[AZ CLI](#tab/bash)
 
 ```azurecli-interactive
 # Register the SQL VM resource provider to your subscription 
 az provider register --namespace Microsoft.SqlVirtualMachine 
 ```
 
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
 ```powershell-interactive
 # Register the SQL VM resource provider to your subscription
@@ -126,11 +126,13 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.SqlVirtualMachine
 
 ### <a name="lightweight-management-mode"></a>軽量管理モード
 
-[SQL Server IaaS Agent 拡張機能](virtual-machines-windows-sql-server-agent-extension.md)が VM にインストールされていない場合は、軽量モードで SQL VM リソース プロバイダーに登録することをお勧めします。 これにより、SQL IaaS 拡張機能は[軽量モード](#management-modes)でインストールされ、SQL Server サービスの再起動が回避されます。 その後、いつでもフル モードにアップグレードできますが、これを行うと SQL Server サービスが再起動されるので、予定メンテナンス期間まで待つことをお勧めします。 SQL Server ライセンスの種類 (使用量ごとに支払う場合は従量課金制 (`PAYG`)、独自のライセンスを使用する場合は Azure ハイブリッド特典 (`AHUB`)) を指定する必要があります。
+[SQL Server IaaS Agent 拡張機能](virtual-machines-windows-sql-server-agent-extension.md)が VM にインストールされていない場合は、軽量モードで SQL VM リソース プロバイダーに登録することをお勧めします。 これにより、SQL IaaS 拡張機能は[軽量モード](#management-modes)でインストールされ、SQL Server サービスの再起動が回避されます。 その後、いつでもフル モードにアップグレードできますが、これを行うと SQL Server サービスが再起動されるので、予定メンテナンス期間まで待つことをお勧めします。 
+
+SQL Server のライセンスの種類として、使用した分を支払う従量課金制 (`PAYG`)、独自のライセンスを使用する Azure ハイブリッド特典 (`AHUB`)、または [無料の DR レプリカ ライセンス](virtual-machines-windows-sql-high-availability-dr.md#free-dr-replica-in-azure)をアクティブ化するディザスター リカバリー (`DR`) のいずれかを指定します。
 
 フェールオーバー クラスター インスタンスとマルチインスタンス デプロイは、軽量モードでのみ SQL VM リソース プロバイダーに登録できます。 
 
-# <a name="az-clitabbash"></a>[AZ CLI](#tab/bash)
+# <a name="az-cli"></a>[AZ CLI](#tab/bash)
 
 Az CLI を使用して軽量モードで SQL Server VM を登録します。 
 
@@ -140,7 +142,7 @@ Az CLI を使用して軽量モードで SQL Server VM を登録します。
   ```
 
 
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
 PowerShell を使用して軽量モードで SQL Server VM を登録します。  
 
@@ -161,39 +163,59 @@ PowerShell を使用して軽量モードで SQL Server VM を登録します。
 
 SQL IaaS 拡張機能が既に VM に手動でインストールされている場合は、SQL Server サービスを再起動せずに、SQL Server VM をフル モードで登録できます。 **ただし、SQL IaaS 拡張機能がインストールされていない場合、フル モードで登録すると SQL IaaS 拡張機能はフル モードでインストールされ、SQL Server サービスが再起動されます。注意して進めてください。**
 
-フル モードで SQL VM リソース プロバイダーに登録するためのコード スニペットを次に示します。 フル管理モードで登録するには、次の PowerShell コマンドを使用します。
+
+SQL Server VM をフル モードで直接登録するには (さらに、場合によっては SQL Server サービスを再起動するには)、次の PowerShell コマンドを使用します。 
 
   ```powershell-interactive
   # Get the existing  Compute VM
   $vm = Get-AzVM -Name <vm_name> -ResourceGroupName <resource_group_name>
         
   # Register with SQL VM resource provider in full mode
-  Update-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -SqlManagementType Full
+  New-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -SqlManagementType Full
   ```
-
 
 ### <a name="noagent-management-mode"></a>NoAgent 管理モード 
 
-Windows Server 2008 にインストールされている SQL Server 2008 および 2008 R2 は、[NoAgent](#management-modes) モードで SQL VM リソース プロバイダーに登録できます。 このオプションにより、コンプライアンスが確保され、SQL Server VM を Azure portal の限られた機能で監視できるようになります。
+Windows Server 2008 (_R2 ではない_) にインストールされている SQL Server 2008 および 2008 R2 は、[NoAgent](#management-modes) モードで SQL VM リソース プロバイダーに登録できます。 このオプションにより、コンプライアンスが確保され、SQL Server VM を Azure portal の限られた機能で監視できるようになります。
 
-**sqlLicenseType** として `AHUB` または `PAYG`、**sqlImageOffer** として `SQL2008-WS2008` または `SQL2008R2-WS2008` を指定します。 
+**sqlLicenseType** として `AHUB`、`PAYG`、または `DR`、**sqlImageOffer** として `SQL2008-WS2008` または `SQL2008R2-WS2008` を指定します。 
 
 Windows Server 2008 インスタンス上の SQL Server 2008 または 2008 R2 インスタンスを登録するには、次の Az CLI または PowerShell のコード スニペットを使用します。 
 
 
-# <a name="az-clitabbash"></a>[AZ CLI](#tab/bash)
+# <a name="az-cli"></a>[AZ CLI](#tab/bash)
 
-Az CLI を使用して NoAgent モードで SQL Server VM を登録します。 
+Az CLI を使用して NoAgent モードで SQL Server 2008 VM を登録します。 
 
   ```azurecli-interactive
    az sql vm create -n sqlvm -g myresourcegroup -l eastus |
    --license-type PAYG --sql-mgmt-type NoAgent 
    --image-sku Enterprise --image-offer SQL2008-WS2008R2
  ```
+ 
+ 
+Az CLI を使用して NoAgent モードで SQL Server 2008 R2 VM を登録します。 
 
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+  ```azurecli-interactive
+   az sql vm create -n sqlvm -g myresourcegroup -l eastus |
+   --license-type PAYG --sql-mgmt-type NoAgent 
+   --image-sku Enterprise --image-offer SQL2008R2-WS2008R2
+ ```
 
-PowerShell を使用して NoAgent モードで SQL Server VM を登録します。 
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+PowerShell を使用して NoAgent モードで SQL Server 2008 VM を登録します。 
+
+
+  ```powershell-interactive
+  # Get the existing compute VM
+  $vm = Get-AzVM -Name <vm_name> -ResourceGroupName <resource_group_name>
+          
+  New-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $vm.Location `
+    -LicenseType PAYG -SqlManagementType NoAgent -Sku Standard -Offer SQL2008-WS2008
+  ```
+  
+  PowerShell を使用して NoAgent モードで SQL Server 2008 R2 VM を登録します。 
 
 
   ```powershell-interactive
@@ -236,7 +258,7 @@ PowerShell を使用して、次のように SQL Server IaaS エージェント�
 
 ### <a name="command-line"></a>コマンド ライン
 
-# <a name="az-clitabbash"></a>[AZ CLI](#tab/bash)
+# <a name="az-cli"></a>[AZ CLI](#tab/bash)
 
 次の Az CLI コード スニペットを実行します。
 
@@ -245,17 +267,16 @@ PowerShell を使用して、次のように SQL Server IaaS エージェント�
   az sql vm update --name <vm_name> --resource-group <resource_group_name> --sql-mgmt-type full  
   ```
 
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
 次の PowerShell コード スニペットを実行します。
 
   ```powershell-interactive
   # Get the existing  Compute VM
   $vm = Get-AzVM -Name <vm_name> -ResourceGroupName <resource_group_name>
-
-  # Update to full mode
-  New-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $vm.Location `
-     -LicenseType PAYG -SqlManagementType Full
+        
+  # Register with SQL VM resource provider in full mode
+  Update-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -SqlManagementType Full
   ```
 
 ---
@@ -276,14 +297,14 @@ PowerShell を使用して、次のように SQL Server IaaS エージェント�
 
 Az CLI または PowerShell を使用して現在の SQL Server VM の登録状態を確認します。 登録が成功していれば、`ProvisioningState` に `Succeeded` と表示されます。 
 
-# <a name="az-clitabbash"></a>[AZ CLI](#tab/bash)
+# <a name="az-cli"></a>[AZ CLI](#tab/bash)
 
 
   ```azurecli-interactive
   az sql vm show -n <vm_name> -g <resource_group>
  ```
 
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
   ```powershell-interactive
   Get-AzSqlVM -Name <vm_name> -ResourceGroupName <resource_group>
@@ -324,7 +345,7 @@ Azure portal を使用してリソース プロバイダーから SQL Server VM 
 
 ### <a name="command-line"></a>コマンド ライン
 
-# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 Azure CLI を使用してリソース プロバイダーから SQL Server 仮想マシンの登録を解除するには、[az sql vm delete](/cli/azure/sql/vm?view=azure-cli-latest#az-sql-vm-delete) コマンドを使用します。 これにより、SQL Server 仮想マシン "*リソース*" が削除されますが、仮想マシンは削除されません。 
 
 
@@ -335,7 +356,7 @@ az sql vm delete
   --yes 
 ```
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 Azure CLI を使用してリソース プロバイダーから SQL Server 仮想マシンの登録を解除するには、[New-AzSqlVM](/powershell/module/az.sqlvirtualmachine/new-azsqlvm) コマンドを使用します。 これにより、SQL Server 仮想マシン "*リソース*" が削除されますが、仮想マシンは削除されません。 
 
 ```powershell-interactive

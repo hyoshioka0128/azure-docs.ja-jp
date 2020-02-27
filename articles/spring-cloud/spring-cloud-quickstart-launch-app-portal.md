@@ -1,23 +1,23 @@
 ---
-title: クイックスタート - Azure portal を使用して Azure Spring Cloud アプリケーションを起動する
-description: このクイックスタートでは、Azure portal を使用して、サンプル アプリケーションを Azure Spring Cloud にデプロイします。
+title: クイックスタート - Azure portal を使用して既存の Azure Spring Cloud アプリケーションを起動する
+description: このクイックスタートでは、Azure portal を使用して、Spring Cloud アプリケーションを Azure Spring Cloud にデプロイします。
 author: bmitchell287
 ms.service: spring-cloud
 ms.topic: quickstart
-ms.date: 11/4/2019
+ms.date: 02/15/2020
 ms.author: brendm
-ms.openlocfilehash: f88319319b366ec8b726d5cf6cce540008497b57
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: a215fe2305b320fe27ef9d868d060f3e9cb14c1c
+ms.sourcegitcommit: dfa543fad47cb2df5a574931ba57d40d6a47daef
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76278905"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77431343"
 ---
-# <a name="quickstart-launch-an-azure-spring-cloud-application-using-the-azure-portal"></a>クイック スタート:Azure portal を使用して Azure Spring Cloud アプリケーションを起動する
+# <a name="quickstart-launch-an-existing-azure-spring-cloud-application-using-the-azure-portal"></a>クイック スタート:Azure portal を使用して既存の Azure Spring Cloud アプリケーションを起動する
 
-Azure Spring Cloud では、Spring Cloud ベースのマイクロサービス アプリケーションを Azure で簡単に実行できます。
+このクイックスタートでは、既存の Spring Cloud アプリケーションを Azure にデプロイする方法について説明します。 Azure Spring Cloud では、Spring Cloud ベースのマイクロサービス アプリケーションを Azure で簡単に実行できます。 
 
-このクイックスタートでは、既存の Spring Cloud アプリケーションを Azure にデプロイする方法について説明します。  このチュートリアルで使用するサンプル アプリケーション コードについては、[GitHub サンプル リポジトリ](https://github.com/Azure-Samples/PiggyMetrics)を参照してください。 完了すると、準備したサンプル アプリケーションにオンラインでアクセスできるようになり、Azure portal で管理できるようになります。
+このチュートリアルで使用するサンプル アプリケーション コードについては、[GitHub サンプル リポジトリ](https://github.com/Azure-Samples/PiggyMetrics)を参照してください。 完了すると、準備したサンプル アプリケーションにオンラインでアクセスできるようになり、Azure portal で管理できるようになります。
 
 このクイックスタートでは、次の方法について説明します。
 
@@ -54,17 +54,42 @@ az extension add --name spring-cloud
 
 ## <a name="provision-a-service-instance-on-the-azure-portal"></a>Azure portal でサービス インスタンスをプロビジョニングする
 
-1. Web ブラウザーで、[Azure portal の Azure Spring Cloud へのこのリンク](https://ms.portal.azure.com/#create/Microsoft.AppPlatform)を開きます。
+1. 新しいタブで、[Azure portal](https://ms.portal.azure.com/) を開きます。 
 
-1. Azure Spring Cloud の **[作成]** ページで、フォームに入力します。  次のガイドラインを考慮してください。
-    - サービス名:自分のサービス インスタンスの名前を指定します。  名前の長さは 4 文字から 32 文字で、小文字、数字、およびハイフンのみを使用できます。  サービス名の最初の文字は英字でなければならず、最後の文字は英字または数字でなければなりません。
-    - サブスクリプション:このリソースに対する課金用のサブスクリプションを選択します。  そのサブスクリプションが Microsoft 側で Azure Spring Cloud の許可リストに追加されていることを確認してください。
-    - リソース グループ: 新しいリソース用に新しいリソース グループを作成することをお勧めします。
-    - 場所:自分のサービス インスタンスの場所を選択します。 現在サポートされている場所は、米国東部、米国西部 2、西ヨーロッパ、東南アジアです。
+2. 上部の検索ボックスから **Azure Spring Cloud** を探します。
 
-1. **[確認と作成]** をクリックします。
+3. その結果から **[Azure Spring Cloud]** を選択します。
 
-1. 仕様を確認し、 **[作成]** をクリックします。
+ ![ASC アイコン](media/spring-cloud-quickstart-launch-app-portal/find-spring-cloud-start.png)
+
+4. Azure Spring Cloud ページで **[+ 追加]** をクリックします。
+
+ ![ASC アイコン](media/spring-cloud-quickstart-launch-app-portal/spring-cloud-add.png)
+
+5. Azure Spring Cloud の **[作成]** ページで、フォームに入力します。  次のガイドラインを考慮してください。
+    - **サブスクリプション**:このリソースに対する課金用のサブスクリプションを選択します。  そのサブスクリプションが Microsoft 側で Azure Spring Cloud の許可リストに追加されていることを確認してください。
+    - **[リソース グループ]** :新しいリソース用に新しいリソース グループを作成することをお勧めします。
+    - **[サービスの詳細/名前]** : 自分のサービス インスタンスの名前を指定します。  名前の長さは 4 文字から 32 文字で、小文字、数字、およびハイフンのみを使用できます。  サービス名の最初の文字は英字でなければならず、最後の文字は英字または数字でなければなりません。
+    - **[場所]** :自分のサービス インスタンスの場所を選択します。 現在サポートされている場所は、米国東部、米国西部 2、西ヨーロッパ、東南アジアです。
+
+    ![ASC ポータルの起動](media/spring-cloud-quickstart-launch-app-portal/portal-start.png)
+
+6. **[Diagnostic Setting]\(診断設定\)** タブをクリックして、次のダイアログを開きます。
+
+7. **[Enable logs]\(ログを有効にする\)** は、実際の要件に応じて *[はい]* または *[いいえ]* に設定してください。
+
+    ![ログの有効化](media/spring-cloud-quickstart-launch-app-portal/diagnostic-setting.png)
+
+8. **[トレース]** タブをクリックします。
+
+9. **[トレースを有効にする]** は、実際の要件に応じて *[はい]* または *[いいえ]* に設定してください。  **[Enable tracing]\(トレースを有効にする\)** を [はい] に設定した場合は、さらに、既存の Application Insights を選択するか、または新たに作成します。 **[Application Insights]** の指定がないと、検証エラーが発生します。
+
+
+    ![トレース](media/spring-cloud-quickstart-launch-app-portal/tracing.png)
+
+10. **[確認と作成]** をクリックします。
+
+11. 仕様を確認し、 **[作成]** をクリックします。
 
 サービスのデプロイには約 5 分かかります。  デプロイされると、サービス インスタンスの **[概要]** ページが表示されます。
 
@@ -76,11 +101,9 @@ az extension add --name spring-cloud
 
 1. サービスの **[概要]** ページに移動し、 **[Config Server]\(構成サーバー\)** を選択します。
 
-1. **[既定のリポジトリ]** セクションで **[URI]** を "https\://github.com/Azure-Samples/piggymetrics" に設定します。
+2. **[既定のリポジトリ]** セクションで **[URI]** を "https://github.com/Azure-Samples/piggymetrics-config" に設定します。
 
-1. **[ラベル]** を "構成" に設定します。
-
-1. **[適用]** を選択して変更を保存します。
+3. **[適用]** を選択して変更を保存します。
 
     ![ASC ポータルのスクリーンショット](media/spring-cloud-quickstart-launch-app-portal/portal-config.png)
 
@@ -97,27 +120,27 @@ az extension add --name spring-cloud
     git clone https://github.com/Azure-Samples/piggymetrics
     ```
 
-1. 複製されたパッケージをビルドします。
+2. 複製されたパッケージをビルドします。
 
     ```azurecli
     cd piggymetrics
     mvn clean package -DskipTests
     ```
-1. リソース グループとサービスに名前を割り当てます。 次のプレースホルダーは、このチュートリアルで前にプロビジョニングしたリソース グループ名とサービス名で置き換えます。
+3. リソース グループとサービスに名前を割り当てます。 次のプレースホルダーは、このチュートリアルで前にプロビジョニングしたリソース グループ名とサービス名で置き換えます。
 
     ```azurecli
     az configure --defaults group=<resource group name>
     az configure --defaults spring-cloud=<service instance name>
     ```
 
-1. `gateway` アプリケーションを作成し、JAR ファイルをデプロイします。
+4. `gateway` アプリケーションを作成し、JAR ファイルをデプロイします。
 
     ```azurecli
     az spring-cloud app create -n gateway
     az spring-cloud app deploy -n gateway --jar-path ./gateway/target/gateway.jar
     ```
 
-1. 同じパターンに従い、`account-service` および `auth-service` アプリケーションを作成し、JAR ファイルをデプロイします。
+5. 同じパターンに従い、`account-service` および `auth-service` アプリケーションを作成し、JAR ファイルをデプロイします。
 
     ```azurecli
     az spring-cloud app create -n account-service
@@ -126,7 +149,7 @@ az extension add --name spring-cloud
     az spring-cloud app deploy -n auth-service --jar-path ./auth-service/target/auth-service.jar
     ```
 
-1. アプリケーションのデプロイが完了するまでに数分かかります。 デプロイが完了したことを確認するには、Azure portal で **[アプリ]** ブレードに移動します。 3 つのアプリケーションのそれぞれに 1 行が表示されます。
+6. アプリケーションのデプロイが完了するまでに数分かかります。 デプロイが完了したことを確認するには、Azure portal で **[アプリ]** ブレードに移動します。 3 つのアプリケーションのそれぞれに 1 行が表示されます。
 
 > [!div class="nextstepaction"]
 > [問題が発生しました](https://www.research.net/r/javae2e?tutorial=asc-portal-quickstart&step=deploy)
@@ -135,13 +158,13 @@ az extension add --name spring-cloud
 
 1. 左側のメニューの **[アプリ]** タブをクリックします。
 
-1. `gateway` アプリケーションを選択して、 **[概要]** ページを表示します。
+2. `gateway` アプリケーションを選択して、 **[概要]** ページを表示します。
 
-1. **[Assign Domain]\(ドメインの割り当て\)** を選択して、ゲートウェイにパブリック エンドポイントを割り当てます。 これには数分かかることがあります。
+3. **[Assign Endpoint]\(エンドポイントの割り当て\)** を選択して、ゲートウェイにパブリック エンドポイントを割り当てます。 これには数分かかることがあります。
 
     ![ASC ポータルのスクリーンショット](media/spring-cloud-quickstart-launch-app-portal/portal-endpoint.png)
 
-1. 実行中のアプリケーションを表示するには、割り当てられたパブリック エンドポイント (**URL** のラベルが付いています) をブラウザーに入力します。
+4. 実行中のアプリケーションを表示するには、割り当てられたパブリック エンドポイント (**URL** のラベルが付いています) をブラウザーに入力します。
 
     ![ASC ポータルのスクリーンショット](media/spring-cloud-quickstart-launch-app-portal/sample-app.png)
 

@@ -12,23 +12,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/19/2019
 ms.author: memildin
-ms.openlocfilehash: 2d588d2707c267097e25176997e58f9573017582
-ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
+ms.openlocfilehash: 7601a5f8abefd88de0f9a3682341c5366eec3fb0
+ms.sourcegitcommit: dfa543fad47cb2df5a574931ba57d40d6a47daef
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75780047"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77431063"
 ---
 # <a name="azure-container-registry-integration-with-security-center-preview"></a>Azure Container Registry と Security Center の統合 (プレビュー)
 
 Azure Container Registry (ACR) は、Azure デプロイ用のコンテナー イメージを中央のレジストリに格納して管理する、プライベートなマネージド Docker レジストリ サービスです。 これは、オープンソースの Docker Registry 2.0 を基にしています。
 
-Azure Security Center の 標準レベルを使用している場合には、Container Registries のバンドルを追加できます。 このオプションのフィーチャーを使用すると、レジストリ内のイメージの脆弱性をより詳しく把握できます。 サブスクリプション レベルでバンドルを有効または無効にし、サブスクリプション内のすべてのレジストリをカバーします。 このフィーチャーは、[価格のページ](security-center-pricing.md)に示されているように、スキャンごとではなくイメージごとに課金されます。 
-
-Container Registries のバンドルを有効にすると、Security Center は、レジストリにプッシュされたイメージをスキャンできるようになります。 このスキャンはイメージレベルで実行されます。Security Center はレジストリをスキャンするのではなく、レジストリに格納されたイメージをスキャンしています。 
+Azure Security Center の 標準レベルを使用している場合には、Container Registries のバンドルを追加できます。 このオプションの機能を使用すると、ARM ベースのレジストリ内のイメージの脆弱性をより詳しく把握できます。 サブスクリプション レベルでバンドルを有効または無効にし、サブスクリプション内のすべてのレジストリをカバーします。 この機能は、[価格のページ](security-center-pricing.md)に示されているように、イメージごとに課金されます。 Container Registries のバンドルを有効にすると、Security Center は、レジストリにプッシュされたイメージをスキャンできるようになります。 
 
 イメージがレジストリにプッシュされるたびに、Security Center はそのイメージを自動的にスキャンします。 イメージのスキャンをトリガーするには、イメージをリポジトリにプッシュしてください。
-
 
 スキャンが完了すると (通常は約 10 分後)、次のような Security Center の推奨事項で結果が得られます。
 
@@ -36,7 +33,7 @@ Container Registries のバンドルを有効にすると、Security Center は�
 
 ## <a name="benefits-of-integration"></a>統合の利点
 
-Security Center では、サブスクリプション内の ACR レジストリが識別されて、次のものがシームレスに提供されます。
+Security Center では、サブスクリプション内の ARM ベースの ACR レジストリが識別されて、次のものがシームレスに提供されます。
 
 * プッシュされたすべての Linux イメージに対する **Azure ネイティブの脆弱性スキャン**。 Security Center では、業界をリードする脆弱性スキャン ベンダーである Qualys のスキャナーを使ってイメージのスキャンを行います。 このネイティブ ソリューションは、既定でシームレスに統合されています。
 

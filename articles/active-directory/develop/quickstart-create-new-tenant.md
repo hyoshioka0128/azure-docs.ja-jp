@@ -12,13 +12,13 @@ ms.topic: quickstart
 ms.date: 02/05/2019
 ms.author: ryanwi
 ms.reviewer: jmprieur
-ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 860577938eab0f7561e9b66d0f58c9fc0d077b26
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.custom: aaddev, identityplatformtop40, fasttrack-edit
+ms.openlocfilehash: 74747e1bc5247e2a95a180b7361eafe8ca795bc2
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76704155"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77160708"
 ---
 # <a name="quickstart-set-up-a-tenant"></a>クイック スタート:テナントを設定する
 
@@ -57,7 +57,7 @@ Azure AD テナントはそれぞれ異なり、その他の Azure AD とは分�
 
 ### <a name="create-a-new-azure-ad-tenant"></a>新しい Azure AD テナントの作成
 
-Azure AD テナントがない場合、または開発用の新しいテナントを作成したい場合は、[ディレクトリ作成エクスペリエンス](https://portal.azure.com/#create/Microsoft.AzureActiveDirectory)に従ってください。 新しいテナントを作成するには、次の情報を提供する必要があります。
+Azure AD テナントがない場合、または開発用の新しいテナントを作成する場合は、[クイックスタート](../fundamentals/active-directory-access-create-new-tenant.md)を参照するか、[ディレクトリ作成エクスペリエンス](https://portal.azure.com/#create/Microsoft.AzureActiveDirectory)に従ってください。 新しいテナントを作成するには、次の情報を提供する必要があります。
 
 - **組織名**
 - **初期ドメイン** - これは *. onmicrosoft.com の一部となります。 ドメインは後でカスタマイズできます。

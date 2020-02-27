@@ -78,6 +78,8 @@
           href: os-upgrade-hana-large-instance.md
         - name: SUSE Linux 用 SMT サーバーの設定
           href: hana-setup-smt.md
+        - name: HLI から Azure VM への移行
+          href: hana-large-instance-virtual-machine-migration.md
 - name: Azure Virtual Machines 上の SAP HANA
   items:
     - name: 単一インスタンスの SAP HANA のインストール
@@ -118,6 +120,11 @@
       href: sap-deployment-checklist.md
     - name: Azure での SAP NetWeaver の計画と実装
       href: planning-guide.md
+      items:
+        - name: Azure 仮想マシンの SAP ワークロードでサポートされるシナリオ
+          href: sap-planning-supported-configurations.md
+        - name: Azure デプロイでサポートされている SAP ソフトウェア
+          href: sap-supported-product-on-azure.md
     - name: SAP NetWeaver のデプロイ ガイド
       href: deployment-guide.md
     - name: SAP ワークロード向け DBMS デプロイ ガイド

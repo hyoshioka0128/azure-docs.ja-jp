@@ -76,8 +76,8 @@ or
 
 Azure Government Cloud でキャッシュを作成するには、次のいずれかの場所を使用します。
 
-* 米国政府バージニア州
-* 米国政府アイオワ州
+* USGov バージニア州
+* USGov アイオワ州
 
 Azure Government Cloud の詳細については、「[Microsoft Azure Government](https://azure.microsoft.com/features/gov/)」と「[Microsoft Azure Government 開発者向けガイド](../azure-government-developer-guide.md)」をご覧ください。
 
@@ -92,8 +92,8 @@ or
 
 Azure China Cloud でキャッシュを作成するには、次のいずれかの場所を使用します。
 
-* 中国 (東部)
-* 中国 (北部)
+* 中国東部
+* 中国北部
 
 Azure China Cloud の詳細については、 [中国の 21Vianet が運営している AzureChinaCloud for Azure](https://www.windowsazure.cn/)に関するページをご覧ください。
 
@@ -117,7 +117,7 @@ Microsoft Azure Germany の詳細については、「[Microsoft Azure Germany](
 ### <a name="properties-used-for-azure-cache-for-redis-powershell"></a>Azure Cache for Redis 用の PowerShell で使用されるプロパティ
 次の表は、Azure PowerShell を使用して Azure Cache for Redis インスタンスを作成し、管理するときに一般的に使用されるパラメーターのプロパティと説明を示しています。
 
-| パラメーター | [説明] | Default |
+| パラメーター | 説明 | Default |
 | --- | --- | --- |
 | Name |キャッシュの名前 | |
 | Location |キャッシュの場所 | |
@@ -134,7 +134,7 @@ Microsoft Azure Germany の詳細については、「[Microsoft Azure Germany](
 | KeyType |アクセス キーを更新するときに再生成するアクセス キーを指定します。 有効な値は次のとおりです。Primary、Secondary | |
 
 ### <a name="redisconfiguration-properties"></a>RedisConfiguration プロパティ
-| プロパティ | [説明] | 価格レベル |
+| プロパティ | 説明 | 価格レベル |
 | --- | --- | --- |
 | rdb-backup-enabled |[Redis データ永続化](cache-how-to-premium-persistence.md) が有効かどうか。 |Premium のみ |
 | rdb-storage-connection-string |[Redis データ永続化](cache-how-to-premium-persistence.md) |Premium のみ |

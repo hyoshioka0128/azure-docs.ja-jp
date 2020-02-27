@@ -2,22 +2,19 @@
 title: 組織の Azure の価格の表示とダウンロード
 description: 組織の価格について、価格を表示またはダウンロードしたりコストを見積もったりする方法について説明します。
 author: bandersmsft
-manager: jureid
+ms.reviewer: amberb
 tags: billing
 ms.service: cost-management-billing
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/30/2019
+ms.date: 02/14/2020
 ms.author: banders
 ms.custom: seodec18
-ms.openlocfilehash: 14346ceda9574d18050108e585d5ff4cdb133e31
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 1dd0dfad0c68e18ae272d5d94fedd67d24be9ae1
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "75985667"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77200780"
 ---
 # <a name="view-and-download-your-organizations-azure-pricing"></a>組織の Azure の価格の表示とダウンロード
 

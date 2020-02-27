@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/23/2020
-ms.openlocfilehash: b0ec82807857be60f30aa777ff5871334383acf7
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 33af9c8f3fbe4de57d65be432f249d4aeb5d3e27
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76715936"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77485337"
 ---
 # <a name="azure-monitor-frequently-asked-questions"></a>Azure Monitor についてよくあるご質問
 
@@ -326,6 +326,11 @@ Web クライアントの IP アドレス (IPv4 または IPv6) の検索に [Ge
 
 ### <a name="data"></a>ポータルでのデータ保持期間はどのくらいですか? セキュリティで保護されていますか?
 [データの保持とプライバシー][data]に関するページをご覧ください。
+
+### <a name="what-happens-to-application-insights-telemetry-when-a-server-or-device-loses-connection-with-azure"></a>サーバーまたはデバイスが Azure との接続を失った場合、Application insights のテレメトリはどうなりますか?
+
+Web SDK を含むすべての SDK には、"信頼できるトランスポート" または "堅牢なトランスポート" が含まれています。 サーバーまたはデバイスが Azure との接続を失った場合、テレメトリは[ローカルにファイル システム](https://docs.microsoft.com/azure/azure-monitor/app/data-retention-privacy#does-the-sdk-create-temporary-local-storage) (サーバー SDK) に、または HTML5 セッション ストレージ (Web SDK) に格納されます。 SDK は、インジェスト サービスが "古い" と見なすまで (ログの場合は 48 時間、メトリックの場合は 30 分)、このテレメトリの送信を定期的に再試行します。 古いテレメトリは削除されます。 ローカル ストレージがいっぱいになった場合など、場合によっては再試行は行われません。
+
 
 ### <a name="could-personal-data-be-sent-in-the-telemetry"></a>テレメトリで個人データが送信されることはありますか?
 
@@ -692,7 +697,10 @@ Windows VM を対象とする正常性基準のしきい値は変更できませ
 各正常性基準に対して定義されているアラート ルールは、Azure portal には表示されません。 [Workload Monitor API](https://docs.microsoft.com/rest/api/monitor/microsoft.workloadmonitor/components) でのみ、正常性アラート ルールを有効または無効にすることができます。 また、正常性アラート用の [Azure Monitor アクション グループ](platform/action-groups.md)を Azure portal 内で割り当てることはできません。 正常性アラートが発生するたびにトリガーされるアクション グループを構成するには、通知設定 API を使用する必要があります。 現在、VM に対して発生したすべての*正常性アラート*によって同じアクション グループがトリガーされるように、VM に対してアクション グループを割り当てることができます。 従来の Azure アラートとは異なり、正常性アラート ルールごとに個別のアクション グループが存在するという概念はありません。 さらに、正常性アラートがトリガーされたときに、電子メールまたは SMS 通知を提供するように構成されたアクション グループのみがサポートされます。 
 
 ### <a name="i-dont-see-some-or-any-data-in-the-performance-charts-for-my-vm"></a>パフォーマンス グラフに VM のデータが表示されません
+パフォーマンス グラフは、*InsightsMetrics* テーブルに格納されているデータを使用するように更新されました。  これらのグラフのデータを表示するには、新しい VM Insights ソリューションを使用するようにアップグレードする必要があります。  追加情報については、[一般提供についての FAQ](insights/vminsights-ga-release-faq.md) に関する記事を参照してください。
+
 ディスク テーブルまたは一部のパフォーマンス グラフにパフォーマンス データが表示されない場合、ワークスペースでパフォーマンス カウンターが構成されていない可能性があります。 これを解決するには、こちらの [PowerShell スクリプト](insights/vminsights-enable-at-scale-powershell.md#enable-with-powershell)を実行してください。
+
 
 ### <a name="how-is-azure-monitor-for-vms-map-feature-different-from-service-map"></a>Azure Monitor for VMs のマップ機能は Service Map とどのように異なるのですか?
 Azure Monitor for VMs のマップ機能は Service Map に基づいていますが、次の点が異なります。

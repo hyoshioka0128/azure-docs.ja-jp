@@ -1,5 +1,6 @@
 ---
-title: Azure Active Directory で ID インフラストラクチャをセキュリティ保護する 5 つのステップ
+title: Azure AD の ID インフラストラクチャをセキュリティ保護する
+titleSuffix: Azure Active Directory
 description: このドキュメントでは、管理者が Azure AD 機能を使って組織をセキュリティで保護するうえで実行すべき一連の重要なアクションについて概説します
 author: martincoetzer
 manager: manmeetb
@@ -8,14 +9,14 @@ ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 10/28/2019
+ms.date: 01/29/2020
 ms.author: martinco
-ms.openlocfilehash: b416b38cfac48260f3375696caa2ecabcb4d57a9
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: e0db8edfdfa380697a1d8d7e262a7a84da2fb7d2
+ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75973907"
+ms.lasthandoff: 02/23/2020
+ms.locfileid: "77565538"
 ---
 # <a name="five-steps-to-securing-your-identity-infrastructure"></a>ID インフラストラクチャをセキュリティ保護する 5 つのステップ
 
@@ -28,13 +29,13 @@ ms.locfileid: "75973907"
 * 資格情報を強化する。
 * 攻撃の対象となる領域を減らす。
 * 脅威への対応を自動化する。
-* 監査と監視の認識を高める。
-* セルフヘルプによる、より予測可能で完全なエンドユーザー セキュリティを有効にする。
+* クラウド インテリジェンスを利用します。
+* エンドユーザー セルフサービスを有効にします。
 
 このチェックリストの確認時に、どの機能と手順が完了しているかを必ず追跡しておいてください。
 
 > [!NOTE]
-> このドキュメントの推奨事項の多くは、Azure Active Directory を ID プロバイダーとして使用するよう構成されたアプリケーションにのみ適用されます。 シングル サインオンを使用するようアプリを構成すると、資格情報ポリシーや脅威の検出、監査、ログの記録などの機能がこれらのアプリケーションに追加されるという様々な利点があります。 [Azure Active Directory を通じたシングル サインオン](../../active-directory/manage-apps/configure-single-sign-on-portal.md)は、これらのすべての推奨事項の基礎となります。
+> このドキュメントの推奨事項の多くは、Azure Active Directory を ID プロバイダーとして使用するよう構成されたアプリケーションにのみ適用されます。 シングル サインオンを使用するようアプリを構成すると、資格情報ポリシーや脅威の検出、監査、ログの記録などの機能がこれらのアプリケーションに追加されるという様々な利点があります。 [Azure Active Directory を通じたシングル サインオン](../../active-directory/manage-apps/configure-single-sign-on-non-gallery-applications.md)は、これらのすべての推奨事項の基礎となります。
 
 このドキュメントの推奨事項は、Azure AD テナントの ID セキュリティ構成の自動化された評価である [ID セキュリティ スコア](../../active-directory/fundamentals/identity-secure-score.md)と一致しています。 組織は Azure AD ポータルの ID セキュリティ スコア ページを使用して、現在のセキュリティ構成におけるギャップを探し、セキュリティに関する最新の Microsoft の[ベスト プラクティス](identity-management-best-practices.md)に従っていることを確認できます。 セキュリティ スコア ページで各推奨事項を実装すると、スコアが上がり、進行状況を追跡することができ、さらに他の似た規模の組織や業界と実装を比較するのに役立ちます。
 
@@ -106,7 +107,7 @@ Azure AD による認証と会社データへのアクセスに、独自の古�
 
 1. [AD FS を使用している場合はレガシ認証](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/access-control-policies-w2k12)をブロックする。
 2. [最新の認証を使用するよう SharePoint Online と Exchange Online](../../active-directory/conditional-access/conditional-access-for-exo-and-spo.md) を設定する。
-3. Azure AD Premium がある場合は、[条件付きアクセス ポリシー](../../active-directory/conditional-access/conditions.md)を使用してレガシ認証をブロックし、それ以外の場合は、[Azure AD セキュリティの既定値](../../active-directory/fundamentals/concept-fundamentals-security-defaults.md)を使用します。
+3. Azure AD Premium がある場合は、[条件付きアクセス ポリシー](../../active-directory/conditional-access/overview.md)を使用してレガシ認証をブロックし、それ以外の場合は、[Azure AD セキュリティの既定値](../../active-directory/fundamentals/concept-fundamentals-security-defaults.md)を使用します。
 
 ### <a name="block-invalid-authentication-entry-points"></a>無効な認証エントリ ポイントをブロックする
 
@@ -116,7 +117,7 @@ Azure AD による認証と会社データへのアクセスに、独自の古�
 
 さまざまな [Azure AD アプリケーションの同意](https://docs.microsoft.com/azure/active-directory/develop/application-consent-experience)、[アクセス許可と同意の種類](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent)、それらが組織のセキュリティ方針に与える意味を理解することが重要です。 既定では、Azure AD のすべてのユーザーは、Microsoft ID プラットフォームを活用するアプリケーションに組織のデータにアクセスすることを許可できます。 ユーザーが自分で同意することを許可すると、Microsoft 365、Azure、その他のサービスと統合する便利なアプリケーションを簡単に入手できますが、慎重に使用し、監視しないとリスクが発生する可能性があります。
 
-Microsoft では、[将来のユーザーの同意動作をすべて無効にし](https://docs.microsoft.com/azure/active-directory/manage-apps/methods-for-removing-user-access#i-want-to-disable-all-future-user-consent-operations-to-any-application)、攻撃の対象となる領域を減らし、このリスクを軽減することをお勧めしています。 エンド ユーザーの同意を無効にした場合でも、以前の同意の許可は有効ですが、それより後のすべての同意操作は管理者が実行する必要があります。 管理者の同意は、統合された[管理者の同意要求ワークフロー](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-admin-consent-workflow)または独自のサポート プロセスによりユーザーが要求できます。 この機能を無効にする前に、監査ログを見直し、ユーザーが同意するアプリケーションを把握し、適宜、変更を計画することをお勧めします。 すべてのユーザーにアクセスを許可するアプリケーションについては、[すべてのユーザーの代わりに同意を与え](https://docs.microsoft.com/azure/active-directory/develop/v2-admin-consent)、個人としてまだ同意していないユーザーがアプリにアクセスできるようにすることを検討してください。 シナリオによってはアプリケーションを利用できるユーザーを限定する場合、[アプリケーション割り当て](https://docs.microsoft.com/azure/active-directory/manage-apps/methods-for-assigning-users-and-groups)と[条件付きアクセス](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)を利用し、アプリへのユーザー アクセスを制限してください。
+Microsoft では、[将来のユーザーの同意動作をすべて無効にし](https://docs.microsoft.com/azure/active-directory/manage-apps/methods-for-removing-user-access#i-want-to-disable-all-future-user-consent-operations-to-any-application)、攻撃の対象となる領域を減らし、このリスクを軽減することをお勧めしています。 エンド ユーザーの同意を無効にした場合でも、以前の同意の許可は有効ですが、それより後のすべての同意操作は管理者が実行する必要があります。 管理者の同意は、統合された[管理者の同意要求ワークフロー](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-admin-consent-workflow)または独自のサポート プロセスによりユーザーが要求できます。 エンドユーザーの同意を無効にする前に、[推奨事項](https://docs.microsoft.com/azure/active-directory/manage-apps/manage-consent-requests) を使用して、組織におけるこの変更を計画してください。 すべてのユーザーにアクセスを許可するアプリケーションについては、[すべてのユーザーの代わりに同意を与え](https://docs.microsoft.com/azure/active-directory/develop/v2-admin-consent)、個人としてまだ同意していないユーザーがアプリにアクセスできるようにすることを検討してください。 シナリオによってはアプリケーションを利用できるユーザーを限定する場合、[アプリケーション割り当て](https://docs.microsoft.com/azure/active-directory/manage-apps/methods-for-assigning-users-and-groups)と[条件付きアクセス](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)を利用し、アプリへのユーザー アクセスを制限してください。
 
 ユーザーの摩擦を減らすために、サポート量を最小限に抑えるために、また、ユーザーが Azure AD 以外の資格情報でアプリケーションに新規登録することを防ぐために、ユーザーが新しいアプリケーションに関する管理者承認を要求できるようにしてください。 同意操作を規制したら、管理者はアプリと同意済みのアクセス許可を定期的に監査します。
 
@@ -134,7 +135,7 @@ Microsoft では、[将来のユーザーの同意動作をすべて無効にし
 
 Azure AD PIM を有効にして管理者ロールが割り当てられたユーザーを表示し、それらのロールの不必要なアカウントを削除します。 残りの特権ユーザーを永続から候補に変更します。 最後に、適切な変更制御により、これらの特権ロールにアクセスできる必要がある場合に安全にアクセスできるよう、適切なポリシーを確立します。
 
-特権アカウントのプロセスを展開する一環として、自分自身をロックアウトしてしまった場合に Azure AD にアクセスできるよう、[少なくとも 2 つの緊急アカウントを作成するベスト プラクティス](../../active-directory/users-groups-roles/directory-admin-roles-secure.md)に従ってください。
+特権アカウントのプロセスをデプロイする一環として、自分自身をロックアウトしてしまった場合でも Azure AD にアクセスできるよう、[少なくとも 2 つの緊急アカウントを作成するベスト プラクティス](../../active-directory/users-groups-roles/directory-admin-roles-secure.md)に従ってください。
 
 ## <a name="step-3---automate-threat-response"></a>ステップ 3. - 脅威への対応を自動化する
 
@@ -152,7 +153,7 @@ Azure Active Directory には、検出と対応に時間差が生じないよう
 
 ![匿名の IP からのサインイン](./media/steps-secure-identity/azure-ad-sec-steps2.png)
 
-## <a name="step-4---increase-your-awareness"></a>ステップ 4. - 認識を高める
+## <a name="step-4---utilize-cloud-intelligence"></a>ステップ 4 - クラウド インテリジェンスを利用する
 
 セキュリティ関連イベントの監査とログ、および関連する警告は、効率的な保護戦略に欠かせない構成要素です。 セキュリティのログやレポートは、疑わしいアクティビティの電子記録となり、外部からネットワークへの侵入または内部からの攻撃が試みられたこと、または成功したことを示すパターンを検出するために役立ちます。 監査機能を使うと、ユーザー アクティビティの監視、規制へのコンプライアンスの文書化、フォレンジック分析の実行などが可能になります。 警告によってセキュリティ イベントが通知されます。
 
@@ -180,7 +181,7 @@ Azure AD Identity Protection で提供される 2 つの重要なレポートを
 
 だまされたユーザーが侵害された Web サイトやアプリに移動することで、それらがユーザーのプロファイル情報やメールなどのユーザー データにアクセスできるようになる可能性があります。 悪意のあるアクターは、受け取った同意されたアクセス許可を使用して、メールボックスの内容を暗号化し、メールボックス データを回復するための身代金を要求できます。 ユーザーによって与えられたアクセス許可を[管理者が見直し、監視します](https://docs.microsoft.com/office365/securitycompliance/detect-and-remediate-illicit-consent-grants)。あるいは、既定でユーザーが同意を与えられるようになっている場合、それを管理者が無効にします。
 
-ユーザーによって与えられたアクセス許可の監査に加え、プレミアム環境で利用できる機能であり、[危険で望ましくない OAuth アプリケーションを特定する](https://docs.microsoft.com/cloud-app-security/investigate-risky-oauth)こともお勧めします。
+ユーザーによって付与されたアクセス許可を監査するだけでなく、プレミアム環境で[危険または望ましくない OAuth アプリケーションを検索する](https://docs.microsoft.com/cloud-app-security/investigate-risky-oauth) こともできます。
 
 ## <a name="step-5---enable-end-user-self-service"></a>ステップ 5 - エンドユーザー セルフサービスを有効にする
 
@@ -205,7 +206,7 @@ ID インフラストラクチャのセキュリティについては多数の�
 * 資格情報を強化する。
 * 攻撃の対象となる領域を減らす。
 * 脅威への対応を自動化する。
-* 監査と監視の認識を高める。
+* クラウド インテリジェンスを利用します。
 * セルフヘルプによる、より予測可能で完全なエンドユーザー セキュリティを有効にする。
 
 Microsoft は、お客様が ID セキュリティの重要性を認識していることを理解しています。ぜひ、このドキュメントを、組織のセキュリティ体制を強化するためのロードマップとしてお役立てください。

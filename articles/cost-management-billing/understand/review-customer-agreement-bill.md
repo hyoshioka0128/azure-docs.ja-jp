@@ -2,21 +2,18 @@
 title: Microsoft 顧客契約の請求書を確認する - Azure
 description: 請求書とリソースの使用状況を確認し、Microsoft 顧客契約の請求書で料金を検証する方法について説明します。
 author: bandersmsft
-manager: jureid
+ms.reviewer: judupont
 tags: billing
 ms.service: cost-management-billing
-ms.devlang: na
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 11/22/2019
+ms.date: 02/13/2020
 ms.author: banders
-ms.openlocfilehash: 3cbc4ab4f0e2ad18c7d1d430ed5501e23b5f5f4d
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 21579c7c3acd726ac8958768238631333cf63c39
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "75983727"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77199145"
 ---
 # <a name="tutorial-review-your-microsoft-customer-agreement-invoice"></a>チュートリアル:Microsoft 顧客契約の請求書を確認する
 
@@ -41,7 +38,7 @@ Azure のサブスクリプションを開始してから 30 日以上経過し�
 
 ## <a name="sign-in-to-azure"></a>Azure へのサインイン
 
-- Azure Portal ( https://portal.azure.com ) にサインインします。
+- Azure Portal [https://portal.azure.com](https://portal.azure.com) にサインインします。
 
 ## <a name="check-access-to-a-microsoft-customer-agreement"></a>Microsoft 顧客契約にアクセスできるかどうかを確認する
 

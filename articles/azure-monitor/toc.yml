@@ -527,7 +527,7 @@
               href: platform/resource-logs-blob-format.md
         - name: Event Hubs へのデータのストリーム配信
           href: platform/stream-monitoring-data-event-hubs.md
-    - name: VM とコンピューティングの監視
+    - name: VM とゲスト OS の監視
       items:
         - name: '[エージェント]'
           items:
@@ -537,13 +537,15 @@
               href: 'faq.md#agents'
             - name: Azure Diagnostics 拡張機能
               items:
+                - name: 概要
+                  href: platform/diagnostics-extension-overview.md
                 - name: Windows
                   displayname: diagnostics extension
                   items:
-                    - name: 概要
-                      href: platform/diagnostics-extension-overview.md
                     - name: '[インストールと構成]'
                       items:
+                        - name: インストール オプション
+                          href: platform/diagnostics-extension-windows-install.md
                         - name: PowerShell
                           href: ../virtual-machines/extensions/diagnostics-windows.md?toc=/azure/azure-monitor/toc.json
                         - name: Resource Manager テンプレート
@@ -561,13 +563,11 @@
                     - name: Event Hubs への送信
                       href: platform/diagnostics-extension-stream-event-hubs.md
                     - name: ログへの送信
-                      href: platform/azure-storage-iis-table.md
-                    - name: Azure Storage への送信
-                      href: platform/diagnostics-extension-to-storage.md
+                      href: platform/diagnostics-extension-logs.md
                     - name: Application Insights への送信
                       href: platform/diagnostics-extension-to-application-insights.md
                     - name: バージョン履歴
-                      href: platform/diagnostics-extension-schema.md
+                      href: platform/diagnostics-extension-versions.md
                     - name: JSON Lines リソース ログの形式
                       href: platform/diagnostic-logs-append-blobs.md
                     - name: トラブルシューティング
@@ -588,9 +588,9 @@
                 - name: Linux エージェント
                   href: platform/agent-linux.md
                 - name: Windows 用の VM 拡張機能
-                  href: ../virtual-machines/windows/extensions-oms.md
+                  href: ../virtual-machines/windows/extensions-oms.md?toc=/azure/azure-monitor/toc.json
                 - name: Linux 用の VM 拡張機能
-                  href: ../virtual-machines/linux/extensions-oms.md
+                  href: ../virtual-machines/linux/extensions-oms.md?toc=/azure/azure-monitor/toc.json
                 - name: Log Analytics ゲートウェイ
                   href: platform/gateway.md
                 - name: エージェント管理
@@ -890,8 +890,8 @@
                   href: log-query/examples.md
                 - name: スマート分析の例
                   href: log-query/smart-analytics.md
-                - name: 効率的なクエリの記述
-                  href: log-query/log-query-performance.md
+                - name: クエリの最適化
+                  href: log-query/query-optimization.md
                 - name: テキスト データの解析
                   href: log-query/parse-text.md
         - name: Flow および Logic Apps
@@ -907,22 +907,6 @@
           href: platform/rest-api-walkthrough.md
     - name: データの視覚化
       items:
-        - name: ビュー
-          items:
-            - name: ビュー デザイナー
-              href: platform/view-designer.md
-            - name: タイルのリファレンス
-              href: platform/view-designer-tiles.md
-            - name: 視覚化パーツのリファレンス
-              href: platform/view-designer-parts.md
-            - name: フィルター
-              href: platform/view-designer-filters.md
-        - name: Power BI
-          items:
-            - name: ログ データをエクスポートする
-              href: platform/powerbi.md
-            - name: アプリケーション データをエクスポートする
-              href: app/export-power-bi.md
         - name: Workbooks
           items:
             - name: 概要
@@ -949,6 +933,36 @@
                       href: platform/workbooks-time.md
                     - name: テキスト パラメーター
                       href: platform/workbooks-text.md
+        - name: ビュー
+          items:
+            - name: ビューからブックへの変換
+              items:
+                - name: 変換の概要
+                  href: platform/view-designer-conversion-overview.md
+                - name: 変換オプション
+                  href: platform/view-designer-conversion-options.md
+                - name: 概要とアクセス
+                  href: platform/view-designer-conversion-access.md
+                - name: 一般的なタスク
+                  href: platform/view-designer-conversion-tasks.md
+                - name: タイルの変換
+                  href: platform/view-designer-conversion-tiles.md
+                - name: 例
+                  href: platform/view-designer-conversion-examples.md
+            - name: ビュー デザイナー
+              href: platform/view-designer.md
+            - name: タイルのリファレンス
+              href: platform/view-designer-tiles.md
+            - name: 視覚化パーツのリファレンス
+              href: platform/view-designer-parts.md
+            - name: フィルター
+              href: platform/view-designer-filters.md
+        - name: Power BI
+          items:
+            - name: ログ データをエクスポートする
+              href: platform/powerbi.md
+            - name: アプリケーション データをエクスポートする
+              href: app/export-power-bi.md
         - name: ダッシュボード
           items:
             - name: ログ データを使用したダッシュボード
@@ -1137,8 +1151,8 @@
       href: service-limits.md
     - name: 診断拡張機能
       items:
-        - name: スキーマ
-          href: platform/diagnostics-extension-schema-1dot3.md
+        - name: Windows の構成スキーマ
+          href: platform/diagnostics-extension-schema-windows.md
     - name: 用語の変更
       href: terminology.md
     - name: Application Insights
@@ -1221,8 +1235,6 @@
           href: platform/monitoring-classic-retirement.md
         - name: ログ アラートの API 設定の切り替え
           href: platform/alerts-log-api-switch.md
-        - name: HockeyApp データ
-          href: app/hockeyapp-bridge-app.md
         - name: Web アプリ分析ソリューション
           href: insights/azure-web-apps-analytics.md
         - name: Application Insights コネクタ

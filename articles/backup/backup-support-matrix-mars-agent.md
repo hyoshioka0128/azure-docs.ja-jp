@@ -3,12 +3,12 @@ title: MARS エージェントを使用したサポート マトリックス
 description: この記事では、Microsoft Azure Recovery Services (MARS) エージェントを実行しているコンピューターをバックアップする場合の Azure Backup のサポートを要約しています。
 ms.date: 08/30/2019
 ms.topic: conceptual
-ms.openlocfilehash: a87d778bff5a52f4251d83e401028c9949713e33
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: ef57688dd7b5ccee4e71ac0a54138ac567320aa2
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76988075"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77582638"
 ---
 # <a name="support-matrix-for-backup-with-the-microsoft-azure-recovery-services-mars-agent"></a>Microsoft Azure Recovery Services (MARS) エージェントを使用したバックアップのサポート マトリックス
 
@@ -66,6 +66,29 @@ MARS エージェントには、次の URL へのアクセス権が必要です�
 - 40.126.0.0/18
 
 上記のすべての URL と IP アドレスにアクセスするには、ポート 443 で HTTPS プロトコルを使用します。
+
+### <a name="azure-expressroute-support"></a>Azure ExpressRoute のサポート
+
+パブリック ピアリング (古い回線で使用可能) と Microsoft ピアリングを使用して、Azure ExpressRoute 経由でデータをバックアップできます。 プライベート ピアリング経由のバックアップはサポートされていません。
+
+パブリック ピアリングを使用して、次のドメインまたはアドレスへのアクセスを確保します。
+
+- `http://www.msftncsi.com/ncsi.txt`
+- `microsoft.com`
+- `.WindowsAzure.com`
+- `.microsoftonline.com`
+- `.windows.net`
+
+Microsoft ピアリングを使用して、次のサービスまたはリージョン、および関連するコミュニティ値を選択してください。
+
+- Azure Active Directory (12076:5060)
+- Microsoft Azure リージョン (Recovery Services コンテナーの場所による)
+- Azure Storage (Recovery Services コンテナーの場所による)
+
+詳細については、「[ExpressRoute ルーティングの要件](https://docs.microsoft.com/azure/expressroute/expressroute-routing)」を参照してください。
+
+>[!NOTE]
+>パブリック ピアリングは、新しい回線では非推奨です。
 
 ### <a name="throttling-support"></a>調整のサポート
 
@@ -132,6 +155,7 @@ Compressed | サポートされています。
 圧縮ストリーム| サポートされていません。 スキップされます。
 スパース ストリーム| サポートされていません。 スキップされます。
 OneDrive (同期されるファイルはスパース ストリーム)| サポートされていません。
+DFS レプリケーションが有効になっているフォルダー | サポートされていません。
 
 ## <a name="supported-drives-or-volumes-for-backup"></a>バックアップ用にサポートされるドライブまたはボリューム
 

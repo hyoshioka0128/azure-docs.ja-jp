@@ -2,13 +2,13 @@
 title: Azure Migrate アプライアンス
 description: サーバーの評価と移行に使用される Azure Migrate アプライアンスの概要について説明します。
 ms.topic: conceptual
-ms.date: 11/19/2019
-ms.openlocfilehash: efad1c48dd2c92c0fd5f268013b4a59f34b3a766
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.date: 02/17/2020
+ms.openlocfilehash: d02227747be4bc7d994e2ea84cd74e7f2fd2531f
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76028814"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77425461"
 ---
 # <a name="azure-migrate-appliance"></a>Azure Migrate アプライアンス
 
@@ -32,7 +32,7 @@ Hyper-V VM | Azure Migrate: Server Assessment | Hyper-V VM を検出する<br/><
 **ダウンロード リンク** | https://aka.ms/migrate/appliance/vmware 
 **ダウンロード サイズ** | 11.2 GB
 **License** | ダウンロードしたアプライアンス テンプレートには、180 日間有効な Windows Server 2016 評価版ライセンスが付属します。 評価期間が期限切れ間近の場合は、新しいアプライアンスをダウンロードしてデプロイするか、アプライアンス VM のオペレーティング システムのライセンスをアクティブ化することをお勧めします。
-**デプロイ** | アプライアンスは VMware VM としてデプロイします。 32 GB の RAM、8 つの vCPU、約 80 GB のディスク記憶域、外部仮想スイッチを備えた VM を割り当てるには、vCenter Server に十分なリソースが必要です。<br/><br/> アプライアンスは、直接またはプロキシを介してインターネットにアクセスできる必要があります。<br/> バージョン 5.5 以降が実行されている ESXi ホストにアプライアンス VM をデプロイする必要があります。<br/><br/> アプライアンスは、1 つの vCenter Server に接続できます。
+**デプロイ** | アプライアンスは VMware VM としてデプロイします。 32 GB の RAM、8 つの vCPU、約 80 GB のディスク記憶域、外部仮想スイッチを備えた VM を割り当てるには、vCenter Server に十分なリソースが必要です。<br/> アプライアンスは、直接またはプロキシを介してインターネットにアクセスできる必要があります。<br/> アプライアンスは、1 つの vCenter Server に接続できます。
 **ハードウェア** | 32 GB の RAM、8 つの vCPU、約 80 GB のディスク記憶域、外部仮想スイッチを備えた VM を割り当てるための、vCenter 上のリソース。 
 **ハッシュ値** | MD5: c06ac2a2c0f870d3b274a0b7a73b78b1<br/><br/> SHA256: 4ce4faa3a78189a09a26bfa5b817c7afcf5b555eb46999c2fad9d2ebc808540c
 **vCenter サーバー/ホスト** | バージョン 5.5 以降が実行されている ESXi ホストにアプライアンス VM をデプロイする必要があります。<br/><br/> 5\.5、6.0、6.5、または 6.7 を実行する vCenter Server。
@@ -55,7 +55,7 @@ Hyper-V VM | Azure Migrate: Server Assessment | Hyper-V VM を検出する<br/><
 **ハッシュ値** | MD5: 29a7531f32bcf69f32d964fa5ae950bc<br/><br/> SHA256: 37b3f27bc44f475872e355f04fcb8f38606c84534c117d1609f2d12444569b31
 **Hyper-V ホスト** | Windows Server 2012 R2 以降を実行します。
 **Azure Migrate プロジェクト** | 単一のプロジェクトにアプライアンスを関連付けることができます。 <br/> 任意の数のアプライアンスを 1 つのプロジェクトに関連付けることができます。<br/> 
-**検出** | 1 つのアプライアンスで、vCenter Server 上の VMware VM を最大 5,000 台検出できます。<br/> アプライアンスは、最大 300 個の Hyper-V ホストに接続できます。
+**検出** | アプライアンスは、最大 5000 個の Hyper-V ホストを検出できます。<br/> アプライアンスは、最大 300 個の Hyper-V ホストに接続できます。
 **アプライアンスのコンポーネント** | 管理アプリ: デプロイ時のユーザー入力用のアプライアンスの Web アプリ。<br/> 検出エージェント: マシン構成データを収集します。<br/> 評価エージェント: パフォーマンス データを収集します。<br/>  自動更新サービス: コンポーネントを更新します (24 時間ごとに実行されます)。
 
 
@@ -63,17 +63,15 @@ Hyper-V VM | Azure Migrate: Server Assessment | Hyper-V VM を検出する<br/><
 
 **要件** | **物理** 
 --- | ---
-**ダウンロード形式** | zip 形式のフォルダー (PowerShell インストーラー スクリプトを含む)
+**ダウンロード形式** | zip 形式のフォルダー (PowerShell ベースのインストーラ スクリプトを含む)
 **ダウンロード リンク** | [ダウンロード リンク](https://go.microsoft.com/fwlink/?linkid=2105112)
 **ダウンロード サイズ** | 59.7 MB
-**ハードウェア** | 専用の物理マシン、または VM。 アプライアンスを実行するマシンには、16 GB の RAM、8 つの vCPU、約 80 GB の記憶域スペース、および外部スイッチが必要です。<br/><br/> アプライアンスには、静的または動的 IP アドレス、およびインターネット アクセスが必要です。
-**ハッシュ値** | MD5: 96fd99581072c400aa605ab036a0a7c0<br/><br/> SHA256: f5454beef510c0aa38ac1c6be6346207c351d5361afa0c9cea4772d566fcdc36
-**ソフトウェア** | アプライアンス マシンでは、Windows Server 2016 を実行する必要があります。 
+**ハードウェア** | 専用の物理マシン、または仮想マシンを使用します。 アプライアンスを実行するマシンには、16 GB の RAM、8 つの vCPU、約 80 GB の記憶域スペース、および外部スイッチが必要です。<br/> アプライアンスには、静的または動的 IP アドレス、およびインターネット アクセスが必要です。
+**ハッシュ値** | MD5: 1e92ede3e87c03bd148e56a708cdd33f<br/><br/> SHA256: a3fa78edc8ff8aff9ab5ae66be1b64e66de7b9f475b6542beef114b20bfdac3c
+**オペレーティング システム** | アプライアンス マシンでは、Windows Server 2016 が実行されている必要があります。 
 **アプライアンスのデプロイ**   |  アプライアンス インストーラー スクリプトは、ポータルからダウンロードします (zip 形式のフォルダー)。 <br/> フォルダーを解凍し、PowerShell スクリプト (AzureMigrateInstaller.ps1) を実行します。
 **検出** | 1 つのアプライアンスで最大 250 台の物理サーバーを検出できます。
 **アプライアンスのコンポーネント** | 管理アプリ: デプロイ時のユーザー入力用のアプライアンスの Web アプリ。<br/> 検出エージェント: マシン構成データを収集します。<br/> 評価エージェント: パフォーマンス データを収集します。<br/>  自動更新サービス: コンポーネントを更新します (24 時間ごとに実行されます)。
-**ポート アクセス** | アプライアンスの構成後の、TCP ポート 3389 でアプライアンスへのリモート デスクトップ接続を許可するための受信接続。<br/><br/> "https://<appliance-ip-or-name>:44368" という URL を使用して、ポート 44368 でアプライアンス管理アプリにリモートでアクセスするための受信接続。<br/><br/> ポート 443、5671、5672 で、検出とパフォーマンスのメタデータを Azure Migrate に送信するための送信接続。
-
 
 
 ## <a name="url-access"></a>URL アクセス
@@ -93,9 +91,10 @@ dc.services.visualstudio.com | 内部監視に使用するアプリ ログをア
 *.vault.azure.net | Azure Key Vault でシークレットを管理します。
 aka.ms/* | aka リンクへのアクセスを許可します。 Azure Migrate アプライアンスの更新に使用されます。
 download.microsoft.com/download | Microsoft ダウンロードからのダウンロードを許可します。
-*.servicebus.windows.net | VMware のエージェントレス移行のために使用します。<br/><br/> アプライアンスと Azure Migrate サービスの間の通信。
-*.discoverysrv.windowsazure.com <br/> *.migration.windowsazure.com <br/> *.hypervrecoverymanager.windowsazure.com | VMware のエージェントレス移行のために使用します。<br/><br/> Azure Migrate サービスの URL に接続します。
-*.blob.core.windows.net |  VMware のエージェントレス移行のために使用します。<br/><br/>ストレージにデータをアップロードします。
+*.servicebus.windows.net | アプライアンスと Azure Migrate サービスの間の通信。
+*.discoverysrv.windowsazure.com <br/> *.migration.windowsazure.com | Azure Migrate サービスの URL に接続します。
+*.hypervrecoverymanager.windowsazure.com | **VMware のエージェントレス移行のために使用**<br/><br/> Azure Migrate サービスの URL に接続します。
+*.blob.core.windows.net |  **VMware のエージェントレス移行のために使用**<br/><br/>移行のためにストレージにデータをアップロードします。
 
 
 
@@ -160,7 +159,7 @@ IPv6 アドレス | vm.Guest.Net
 読み取りのスループット (MB/秒) | net.received.average
 書き込みのスループット (MB/秒) | net.transmitted.average
 **インベントリ パスの詳細** | 
-Name | container.GetType().Name
+名前 | container.GetType().Name
 子オブジェクトの型 | container.ChildType
 参照の詳細 | container.MoRef
 親の詳細 | Container.Parent
@@ -210,7 +209,7 @@ VM が使用できる最大メモリ | Msvm_MemorySettingData | 制限
 VM の電源状態 | Msvm_ComputerSystem | EnabledState
 **各ディスクの詳細** | 
 ディスク識別子 | Msvm_VirtualHardDiskSettingData | VirtualDiskId
-仮想ハード ディスクの種類 | Msvm_VirtualHardDiskSettingData | 種類
+仮想ハード ディスクの種類 | Msvm_VirtualHardDiskSettingData | Type
 仮想ハード ディスクのサイズ | Msvm_VirtualHardDiskSettingData | MaxInternalSize
 仮想ハード ディスクの親 | Msvm_VirtualHardDiskSettingData | ParentPath
 **各 NIC の詳細** | 

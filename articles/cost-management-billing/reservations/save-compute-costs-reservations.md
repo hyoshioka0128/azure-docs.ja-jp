@@ -2,17 +2,17 @@
 title: Azure の予約とは
 description: 仮想マシン、SQL データベース、Azure Cosmos DB、その他のリソースのコストを節約するための Azure の予約と価格について説明します。
 author: yashesvi
-manager: yashar
+ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 11/22/2019
+ms.date: 02/18/2020
 ms.author: banders
-ms.openlocfilehash: 10cf5b5a0ec4edda3d3c868cda34352e827604b0
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: c1cced862bee1ec4579f3e6e5145968dec7613e4
+ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76841882"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77500570"
 ---
 # <a name="what-are-azure-reservations"></a>Azure の予約とは
 
@@ -20,7 +20,7 @@ Azure の予約は、仮想マシン、Azure BLOB ストレージまたは Azure
 
 予約の支払いは、前払いとすることも、月払いとすることもできます。 前払いも月払いも予約の総コストは同じであり、月払いを選んだとしても追加料金を支払う必要はありません。 毎月の支払いは、サードパーティ製品ではなく、Azure の予約で利用できます。
 
-予約は [Azure portal](https://ms.portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=Reservations&Microsoft_Azure_Reservations=true#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade) で購入できます。
+予約は [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade) で購入できます。
 
 ## <a name="why-buy-a-reservation"></a>予約を購入する理由
 
@@ -37,11 +37,19 @@ Azure の予約は、仮想マシン、Azure BLOB ストレージまたは Azure
 - **SQL Database の予約された仮想コア** - 予約にはコンピューティング コストのみが含まれます。 ライセンスの料金は別途請求されます。
 - **SQL Data Warehouse** - 予約には cDWU の使用が含まれます。 SQL Data Warehouse の使用に関連するストレージまたはネットワークの料金は含まれません。
 - **App Service スタンプ料金** - 予約にはスタンプの使用が含まれます。 worker には適用されないので、スタンプに関連する他のすべてのリソースには別途課金されます。
-- Azure Database for MySQL
-- Azure Database for PostgreSQL
-- Azure Database for MariaDB
-- Azure Data Explorer
+- **Azure Databricks** - 予約の対象となるのは、DBU の使用のみです。 コンピューティング、ストレージ、およびネットワーキングなどの他の料金は別途適用されます。
+- **Azure Database for MySQL** - 予約にはコンピューティング コストのみが含まれます。 予約には、MySQL データベース サーバーに関連するソフトウェア、ネットワーク、またはストレージの料金は含まれません。
+- **Azure Database for PostgreSQL** - 予約にはコンピューティング コストのみが含まれます。 予約には、PostgreSQL データベース サーバーに関連するソフトウェア、ネットワーク、またはストレージの料金は含まれません。
+- **Azure Database for MariaDB** - 予約にはコンピューティング コストのみが含まれます。 予約には、MariaDB データベース サーバーに関連するソフトウェア、ネットワーク、またはストレージの料金は含まれません。
+- **Azure Data Explorer** - 予約の対象となるのは、マークアップ料金です。 クラスターに関連付けられているコンピューティング、ネットワーク、またはストレージの料金は、予約の対象になりません。
+- **Premium SSD Managed Disks** - 予約は、特定のディスク SKU に対して行います。 
 
+ソフトウェア プラン:
+
+- **SUSE Linux** - 予約の対象となるのは、ソフトウェア プランのコストです。 この割引は SUSE 測定にのみ適用され、仮想マシンの使用には適用されません。
+- **Red Hat プラン** - 予約の対象となるのは、ソフトウェア プランのコストです。 この割引は Red Hat 測定にのみ適用され、仮想マシンの使用には適用されません。
+- **Azure VMware Solution by CloudSimple** - 予約の対象となるのは、VMWare CloudSimple ノードです。 追加のソフトウェア料金は発生します。
+- **Azure Red Hat OpenShift** - 予約は Azure インフラストラクチャのコストではなく、OpenShift のコストに適用されます。
 
 Windows 仮想マシンと SQL Database については、[Azure ハイブリッド特典](https://azure.microsoft.com/pricing/hybrid-benefit/)でライセンス コストを賄うことができます。
 

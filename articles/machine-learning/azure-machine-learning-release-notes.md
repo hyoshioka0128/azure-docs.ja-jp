@@ -10,12 +10,12 @@ ms.author: jmartens
 author: j-martens
 ms.date: 01/21/2020
 ms.custom: seodec18
-ms.openlocfilehash: 07ef3858cc6a514ed60a9d25046dc4ff9566fa31
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 11b8ade765a2b1c1ee25421073983b96c34e5d15
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76546352"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77462175"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Azure Machine Learning のリリース ノート
 
@@ -23,6 +23,68 @@ ms.locfileid: "76546352"
 
 バグおよび対処法については、[既知の問題のリスト](resource-known-issues.md)を参照してください。
 
+## <a name="2020-02-18"></a>2020-02-18
+
+### <a name="azure-machine-learning-sdk-for-python-v111rc0"></a>Azure Machine Learning SDK for Python v1.1.1rc0
+
++ **バグの修正と機能強化**
+  + **azure-cli-ml**
+    + 単一インスタンスのプロファイリングが、レコメンデーションを生成するために修正され、コアの SDK で使用できるようになりました。
+  + **azureml-automl-core**
+    + エラーのログ記録が改善されました。
+  + **azureml-automl-runtime**
+    + データセットに長い時間差の短いグレインが含まれている場合の予測に関する問題を修正しました。
+    + 自動最大期間が有効になっていて、日付列に文字列形式の日付が含まれている場合の問題を修正しました。 日付への変換ができない場合の適切な変換と適切なエラーを追加しました
+    + FileCacheStore の中間データのシリアル化と逆シリアル化にネイティブの NumPy と SciPy を使用します (ローカル AutoML の実行に使用)
+    + 失敗した子の実行が実行状態のままになるバグを修正しました。
+  + **azureml-cli-common**
+    + 単一インスタンスのプロファイリングが、レコメンデーションを生成するために修正され、コアの SDK で使用できるようになりました。
+  + **azureml-core**
+    + Azure BLOB コンテナーを登録するためのデータストア CLI の追加パラメーターとして `--grant-workspace-msi-access` を追加しました。これにより、VNet の背後にある BLOB コンテナーを登録できるようになります
+    + 単一インスタンスのプロファイリングが、レコメンデーションを生成するために修正され、コアの SDK で使用できるようになりました。
+    + aks.py _deploy の問題を修正しました
+    + サイレント ストレージ障害を回避するために、アップロードされるモデルの整合性が検証されます。
+  + **azureml-interpret**
+    + azureml-interpret に azureml-style 例外を追加しました
+    + keras モデルの DeepScoringExplainer シリアル化を修正しました
+  + **azureml-pipeline-core**
+    + パイプライン バッチ スコアリング ノートブックで ParallelRunStep が使用されるようになりました
+  + **azureml-pipeline-steps**
+    + `azureml-pipeline-steps` パッケージ内の `AutoMLStep` を移動しました。 `azureml-train-automl-runtime` 内の `AutoMLStep` は非推奨になりました。
+  + **azureml-contrib-pipeline-steps**
+    + 省略可能なパラメーター side_inputs が ParallelRunStep に追加されました。 このパラメーターを使用して、コンテナーにフォルダーをマウントできます。 現在サポートされている型は、DataReference と PipelineData です。
+  + **azureml-tensorboard**
+    + azureml-tensorboard を更新して、tensorflow 2.0 をサポートしました
+  + **azureml-train-automl-client**
+    + カスタムの特性付け構成をフィルター処理する FeaturizationConfig のオーバーライドの問題を修正しました。
+  + **azureml-train-automl-runtime**
+    + `azureml-pipeline-steps` パッケージ内の `AutoMLStep` を移動しました。 `azureml-train-automl-runtime` 内の `AutoMLStep` は非推奨になりました。
+  + **azureml-train-core**
+    + PyTorch Estimator での PyTorch バージョン 1.4 のサポート
+  
+## <a name="2020-02-04"></a>2020-02-04
+
+### <a name="azure-machine-learning-sdk-for-python-v110rc0"></a>Azure Machine Learning SDK for Python v1.1.0rc0
+
++ **重大な変更**
+  + **セマンティック バージョニング 2.0.0**
+    + バージョン 1.1 以降、Azure ML Python SDK では、セマンティック バージョニング 2.0.0 が採用されています。 詳細については、[こちら](https://semver.org/)を参照してください。 以降のすべてのバージョンは、新しい番号付けスキームとセマンティック バージョニング コントラクトに従います。 
+  
++ **バグの修正と機能強化**
+  + **azureml-automl-runtime**
+    + 特性付けの速度が向上しました。
+    + スコアリング中の頻度チェックを修正しました。現在、予測タスクでは、トレーニングとテストのセット間で頻度が厳密に同一である必要はありません。
+  + **azureml-core**
+    + ユーザーは、Web サービス用のキーを再生成するときに、認証キーの値を指定できるようになりました。
+  + **azureml-interpret**
+    + azureml-interpret が interpret-community 0.5.0 に依存するように更新されました
+  + **azureml-pipeline-core**
+    + 引数リストを変更しても PythonScriptStep の結果が誤って再利用される可能性のあるバグを修正しました
+  + **azureml-pipeline-steps**
+    + PythonScriptStep 入力としてのデータセットのドキュメント例を追加しました
+  + **azureml-contrib-pipeline-steps**
+    + ParallelRunConfig で渡されたパラメーターが、パイプライン パラメーターを渡すことによって上書きできるようになりました。 サポートされる新しいパイプライン パラメーターは、aml_mini_batch_size、aml_error_threshold、aml_logging_level、aml_run_invocation_timeout (aml_node_count と aml_process_count_per_node は以前のリリースに既に含まれています) です。
+  
 ## <a name="2020-01-21"></a>2020-01-21
 
 ### <a name="azure-machine-learning-sdk-for-python-v1085"></a>Azure Machine Learning SDK for Python v1.0.85
@@ -99,8 +161,7 @@ ms.locfileid: "76546352"
     + Model および Service オブジェクトに CreatedBy 情報を追加しました。 <var>.created_by でアクセスできます。
     + Docker コンテナーの HTTP ポートを正しく設定していなかった ContainerImage.run() を修正しました。
     + `az ml dataset register` cli コマンドの `azureml-dataprep` を省略可能にします
-  + **azureml-dataprep**
-    + TabularDataset.to_pandas_dataframe が代替リーダーに誤ってフォールバックし、警告を出力するバグを修正しました。
+    + `TabularDataset.to_pandas_dataframe` が代替リーダーに誤ってフォールバックし、警告を出力するバグを修正しました。
   + **azureml-explain-model**
     + interpret-community に対する shap の依存関係を azureml-interpret から保留します
   + **azureml-pipeline-core**
@@ -236,7 +297,7 @@ ms.locfileid: "76546352"
 
 Studio から、次の Web ベースの作成ツールにアクセスします。
 
-| Web ベースのツール | [説明] | Edition |
+| Web ベースのツール | 説明 | Edition |
 |-|-|-|
 | ノートブック VM (プレビュー) | 完全に管理されたクラウドベースのワークステーション | Basic および Enterprise |
 | [自動化された機械学習](tutorial-first-experiment-automated-ml.md) (プレビュー) | 機械学習モデルの開発に向けた、コードを使用しないエクスペリエンス | Enterprise |
@@ -1236,7 +1297,7 @@ Azure Machine Learning SDK for Python v1.0.30 がリリースされました。
 
 ### <a name="azure-machine-learning-data-prep-sdk-v112"></a>Azure Machine Learning Data Prep SDK v1.1.2
 
-注:Data Prep Python SDK では、`numpy` および `pandas` パッケージがインストールされなくなります。 [更新されたインストール手順](https://aka.ms/aml-data-prep-installation)に関するページを参照してください。
+注:Data Prep Python SDK では、`numpy` および `pandas` パッケージがインストールされなくなります。 [更新されたインストール手順](https://github.com/Microsoft/AMLDataPrepDocs)に関するページを参照してください。
 
 + **新機能**
   + ピボット変換を使用できるようになりました。

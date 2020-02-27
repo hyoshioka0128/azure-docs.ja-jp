@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/02/2019
+ms.date: 02/18/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5fc68626959daaccb5ddc05ce6148c5948052d41
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.openlocfilehash: 0d6d621646aaa5c8c44a20cf327cd10fa31990b0
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75549382"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77484538"
 ---
 # <a name="understand-the-azure-ad-schema"></a>Azure AD スキーマについて
 ディレクトリなどの Azure Active Directory (Azure AD) のオブジェクトは、ユーザー、グループ、連絡先などを表す、プログラムによる高レベルのデータ構造です。 Azure AD で新しいユーザーまたは連絡先を作成すると、そのオブジェクトの新しいインスタンスが作成されます。 これらのインスタンスは、プロパティに基づいて区別できます。
@@ -67,12 +67,15 @@ Azure AD には、次の 2 種類のプロパティがあります。
 |ProxyAdress|直接|ProxyAddress|
 
 ## <a name="view-the-schema"></a>スキーマを表示する
+> [!WARNING]
+> クラウド プロビジョニング構成ではサービス プリンシパルが作成されます。 サービス プリンシパルは Azure portal に表示されます。 Azure portal のサービス プリンシパル エクスペリエンスを使用して属性マッピングを変更することはできません。  これはサポートされていません。
+
 スキーマを表示して確認するには、次の手順に従います。
 
 1.  [Graph エクスプローラー](https://developer.microsoft.com/graph/graph-explorer)に移動します。
 1.  自分の全体管理者アカウントでサインインします。
 1.  左側で、 **[アクセス許可の変更]** を選択し、**Directory.ReadWrite.All** が*同意*になっていることを確認します。
-1.  クエリ https://graph.microsoft.com/beta/serviceprincipals/ を実行します。 このクエリでサービス プリンシパルの一覧が返されます。
+1.  クエリ https://graph.microsoft.com/beta/serviceprincipals/? $filter=startswith(Displayname,'Active') を実行します。 このクエリでは、サービス プリンシパルのフィルター処理された一覧が返されます。
 1.  `"appDisplayName": "Active Directory to Azure Active Directory Provisioning"` を見つけて、`"id"` の値を書き留めます。
     ```
     "value": [

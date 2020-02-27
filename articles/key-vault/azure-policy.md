@@ -1,17 +1,17 @@
 ---
 title: Azure Key Vault と Azure Policy を統合する
-description: .NET クライアント ライブラリ (v4) を使用して Azure キー コンテナーからシークレットを作成、取得、および削除する方法について説明します
+description: Azure Key Vault と Azure Policy の統合の方法について説明します
 author: msmbaldwin
 ms.author: mbaldwin
-ms.date: 11/12/2019
+ms.date: 01/28/2020
 ms.service: key-vault
 ms.topic: quickstart
-ms.openlocfilehash: b59b367d38f95bafe7d3e1320d1365f708dc75dd
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 9bf33aae5de600d6e5b0ab836c99da1d56935db3
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74077211"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77169373"
 ---
 # <a name="integrate-azure-key-vault-with-azure-policy"></a>Azure Key Vault と Azure Policy を統合する
 
@@ -152,5 +152,4 @@ RSA 証明書を使用する場合は、証明書が持っている必要があ�
 ## <a name="next-steps"></a>次の手順
 
 - [Azure Policy サービス](../governance/policy/overview.md)の詳細を確認する
-- 次のサンプルを確認する: [仮想ネットワーク エンドポイントがない Key Vault コンテナー](../governance/policy/samples/keyvault-no-vnet-rules.md)
-
+- Key Vault のサンプルを参照する:[Key Vault の組み込みのポリシー定義](../governance/policy/samples/built-in-policies.md#key-vault)

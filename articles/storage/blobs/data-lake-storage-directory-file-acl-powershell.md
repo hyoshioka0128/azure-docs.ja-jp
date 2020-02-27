@@ -6,15 +6,15 @@ author: normesta
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
 ms.topic: conceptual
-ms.date: 11/24/2019
+ms.date: 12/13/2019
 ms.author: normesta
 ms.reviewer: prishet
-ms.openlocfilehash: 87ee0a931fd3b72a4acd36ecb600fd333aec21ab
-ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
+ms.openlocfilehash: a2f3dbf58363331cf6b1b05e759d246e68e7e7a5
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77031103"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77471212"
 ---
 # <a name="use-powershell-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2-preview"></a>PowerShell を使用して Azure Data Lake Storage Gen2 のディレクトリ、ファイル、ACL を管理する (プレビュー)
 
@@ -83,7 +83,7 @@ $ctx = New-AzStorageContext -StorageAccountName '<storage-account-name>' -UseCon
 
 ### <a name="option-2-obtain-authorization-by-using-the-storage-account-key"></a>オプション 2:ストレージ アカウント キーを使用して承認を取得する
 
-この方法では、リソースの RBAC アクセス許可または ACL アクセス許可はシステムによってチェックされません。
+この方法では、RBAC アクセス許可または ACL アクセス許可はシステムによってチェックされません。
 
 ```powershell
 $storageAccount = Get-AzStorageAccount -ResourceGroupName "<resource-group-name>" -AccountName "<storage-account-name>"
@@ -339,7 +339,7 @@ $file.ACL
 
 `Get-AzDataLakeGen2Item` コマンドレットを使用して、ディレクトリまたはファイルの ACL を取得します。 次に、`New-AzDataLakeGen2ItemAclObject` コマンドレットを使用して、新しい ACL エントリを作成します。 新しい ACL を適用するには、`Update-AzDataLakeGen2Item` コマンドレットを使用します。
 
-この例では、ディレクトリに対する書き込み権限と実行権限をユーザーに与えます。
+この例では、ディレクトリに対する書き込み権限と実行権限をグループに与えます。
 
 ```powershell
 $filesystemName = "my-file-system"
@@ -370,7 +370,7 @@ Update-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName -Path $dirna
 
 ```
 
-この例では、ファイルに対する書き込み権限と実行権限をユーザーに与えます。
+この例では、ファイルに対する書き込み権限と実行権限をグループに与えます。
 
 ```powershell
 $filesystemName = "my-file-system"
@@ -431,7 +431,7 @@ Get-AzDataLakeGen2ChildItem -Context $ctx -FileSystem $filesystemName -Recurse -
 
 
 
-## <a name="see-also"></a>参照
+## <a name="see-also"></a>関連項目
 
 * [既知の問題](data-lake-storage-known-issues.md#api-scope-data-lake-client-library)
 * [Azure Storage における Azure PowerShell の使用](../common/storage-powershell-guide-full.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)。

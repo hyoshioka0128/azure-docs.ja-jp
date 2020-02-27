@@ -4,16 +4,15 @@ description: Azure Kubernetes Service (AKS) でマネージド ID を使用す�
 services: container-service
 author: saudas
 manager: saudas
-ms.service: container-service
 ms.topic: article
 ms.date: 09/11/2019
 ms.author: saudas
-ms.openlocfilehash: 16a1f3b8f9ef036bcdc9af122243d313186f99f1
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 6d00fd72c338fc101420bf78b5608516715d44ad
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73885334"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77592970"
 ---
 # <a name="preview---use-managed-identities-in-azure-kubernetes-service"></a>プレビュー - Azure Kubernetes Service でマネージド ID を使用する
 
@@ -44,7 +43,7 @@ AKS は 2 つのマネージド ID を作成します。
 aks-preview 0.4.14 以降の拡張機能をインストールするには、次の Azure CLI コマンドを使用します。
 
 ```azurecli
-az extension update --name aks-preview
+az extension add --name aks-preview
 az extension list
 ```
 

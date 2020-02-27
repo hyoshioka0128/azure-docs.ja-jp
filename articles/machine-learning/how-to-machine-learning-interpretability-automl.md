@@ -10,12 +10,12 @@ ms.author: mesameki
 author: mesameki
 ms.reviewer: trbye
 ms.date: 10/25/2019
-ms.openlocfilehash: a0d805d6ae9b129443a2850e0741d5da87feac84
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 4ab3bc43cf8ef479cb91d187a4c177db03415b86
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75535039"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77525585"
 ---
 # <a name="model-interpretability-in-automated-machine-learning"></a>自動機械学習におけるモデルの解釈可能性
 
@@ -71,7 +71,7 @@ automl_run, fitted_model = local_run.get_output(metric='r2_score')
 `automl_explainer_setup_obj` には、上記の一覧にあるすべての構造が含まれます。
 
 ```python
-from azureml.train.automl.automl_explain_utilities import AutoMLExplainerSetupClass, automl_setup_model_explanations
+from azureml.train.automl.runtime.automl_explain_utilities import AutoMLExplainerSetupClass, automl_setup_model_explanations
 
 automl_explainer_setup_obj = automl_setup_model_explanations(fitted_model, X=X_train, 
                                                              X_test=X_test, y=y_train, 
@@ -89,12 +89,13 @@ AutoML モデルの説明を生成するには、`MimicWrapper` クラスを使�
 また、MimicWrapper は、生の説明とエンジニアリングされた説明のアップロード先となる `automl_run` オブジェクトを受け取ります。
 
 ```python
-from azureml.interpret.mimic.models.lightgbm_model import LGBMExplainableModel
-from azureml.interpret.mimic_wrapper import MimicWrapper
+from azureml.explain.model.mimic.models.lightgbm_model import LGBMExplainableModel
+from azureml.explain.model.mimic_wrapper import MimicWrapper
 
-explainer = MimicWrapper(ws, automl_explainer_setup_obj.automl_estimator, LGBMExplainableModel, 
+# Initialize the Mimic Explainer
+explainer = MimicWrapper(ws, automl_explainer_setup_obj.automl_estimator, LGBMExplainableModel,
                          init_dataset=automl_explainer_setup_obj.X_transform, run=automl_run,
-                         features=automl_explainer_setup_obj.engineered_feature_names, 
+                         features=automl_explainer_setup_obj.engineered_feature_names,
                          feature_maps=[automl_explainer_setup_obj.feature_map],
                          classes=automl_explainer_setup_obj.classes)
 ```

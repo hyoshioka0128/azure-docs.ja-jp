@@ -17,12 +17,12 @@ ms.date: 07/25/2019
 ms.author: negoe
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev
-ms.openlocfilehash: b347357bca1a7c1057a480b4afdef59d08718310
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 9d2df175fa9d1ed33eb17ae85e01a4fd7a24e728
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76703067"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77611942"
 ---
 # <a name="microsoft-identity-platform-authentication-libraries"></a>Microsoft ID プラットフォームの認証ライブラリ
 
@@ -31,7 +31,7 @@ ms.locfileid: "76703067"
 Microsoft セキュリティ開発ライフサイクル (Security Development Lifecycle: SDL) の手法を採用するプロトコル ドメインの専門家が記述したライブラリを使用することをお勧めします。 たとえば、[Microsoft が従っている][Microsoft-SDL]方法などです。 プロトコル用に手作業でコーディングする場合は、Microsoft SDL などの手法に従う必要があります。 各プロトコルの標準仕様におけるセキュリティの考慮事項に十分注意してください。
 
 > [!NOTE]
-> Azure Active Directory 認証ライブラリ (ADAL) をお探しですか。 [ADAL ライブラリ ガイド](active-directory-authentication-libraries.md)を確認してください。
+> Azure Active Directory 認証ライブラリ (ADAL) をお探しですか。 [ADAL ライブラリ ガイド](../azuread-dev/active-directory-authentication-libraries.md)を確認してください。
 
 ## <a name="types-of-libraries"></a>ライブラリの種類
 
@@ -93,7 +93,7 @@ Web アプリケーションと Web API を保護するには、ミドルウェ�
 
 | プラットフォーム | ライブラリ名 | テスト済みのバージョン | ソース コード | サンプル |
 |:---:|:---:|:---:|:---:|:---:|
-|![JavaScript](media/sample-v2-code/logo_js.png)|[Hello.js](https://adodson.com/hello.js/) | バージョン 1.13.5 |[Hello.js](https://github.com/MrSwitch/hello.js) |[SPA](https://github.com/Azure-Samples/active-directory-javascript-graphapi-web-v2) |
+|![JavaScript](media/sample-v2-code/logo_js.png)|[Hello.js](https://adodson.com/hello.js/) | バージョン 1.13.5 |[Hello.js](https://github.com/MrSwitch/hello.js) |[SPA](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2) |
 | ![Java](media/sample-v2-code/logo_java.png) | [Scribe Java](https://github.com/scribejava/scribejava) | [バージョン 3.2.0](https://github.com/scribejava/scribejava/releases/tag/scribejava-3.2.0) | [ScribeJava](https://github.com/scribejava/scribejava/) | |
 | ![Java](media/sample-v2-code/logo_java.png) | [Gluu OpenID Connect ライブラリ](https://github.com/GluuFederation/oxAuth) | [バージョン 3.0.2](https://github.com/GluuFederation/oxAuth/releases/tag/3.0.2) | [Gluu OpenID Connect ライブラリ](https://github.com/GluuFederation/oxAuth) | |
 | ![Python](media/sample-v2-code/logo_python.png) | [Requests-OAuthlib](https://github.com/requests/requests-oauthlib) | [バージョン 1.2.0](https://github.com/requests/requests-oauthlib/releases/tag/v1.2.0) | [Requests-OAuthlib](https://github.com/requests/requests-oauthlib) | |

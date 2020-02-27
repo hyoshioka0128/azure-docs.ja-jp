@@ -2,22 +2,17 @@
 title: Microsoft Partner Agreement (MPA) に Azure サブスクリプションの課金所有権を取得する
 description: 他のユーザーから Azure サブスクリプションの課金所有権を要求する方法について説明します。
 author: amberbhargava
-manager: amberb
-editor: banders
 tags: billing
 ms.service: cost-management-billing
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 10/13/2019
+ms.date: 02/13/2020
 ms.author: banders
-ms.openlocfilehash: 65b56511a3b454b192b5adb2a98fb3bb3510bb7e
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 8e272267ffc8dd2946a390470df78b179ebbdf92
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "75984491"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77199655"
 ---
 # <a name="get-billing-ownership-of-azure-subscriptions-to-your-mpa-account"></a>MPA アカウントに Azure サブスクリプションの課金所有権を取得する
 
@@ -96,7 +91,7 @@ ms.locfileid: "75984491"
    |---------|---------|
    |進行中|ユーザーは譲渡要求を承諾していません|
    |処理中|ユーザーは譲渡要求を承諾しました。 ユーザーが選択したサブスクリプションの課金が、自分のアカウントに移されています|
-   |[完了]| ユーザーが選択したサブスクリプションの課金が、自分のアカウントに移されました|
+   |完了| ユーザーが選択したサブスクリプションの課金が、自分のアカウントに移されました|
    |エラーで終了|要求が完了しましたが、ユーザーが選択した一部のサブスクリプションの課金を移せませんでした|
    |有効期限切れ|ユーザーは予定どおりには要求を受諾せず、期限切れになりました|
    |Canceled|譲渡要求へのアクセス権を持つユーザーが要求を取り消しました|
@@ -120,7 +115,7 @@ ms.locfileid: "75984491"
 - [Enterprise Dev/Test](https://azure.microsoft.com/offers/ms-azr-0148p/)\*
 - [Microsoft Enterprise Agreement](https://azure.microsoft.com/pricing/enterprise-agreement/)
 
-\* Enterprise DevTest サブスクリプションは、譲渡時の従量課金制料金で課金されます。顧客の EA を通じて Enterprise DevTest プランによって提供される割引は、CSP パートナーには適用されません。
+\* 最初に、サポート チケットを使用して、Dev/Test サブスクリプションを EA Enterprise プランに変換する必要があります。 譲渡後、Enterprise Dev/Test サブスクリプションは従量課金制料金で課金されます。 顧客の EA を通じて Enterprise Dev/Test プランによって提供される割引は、CSP パートナーには適用されません。
 
 ## <a name="additional-information"></a>関連情報
 

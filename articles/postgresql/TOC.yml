@@ -245,6 +245,8 @@
           items:
             - name: 接続エラーのトラブルシューティング
               href: howto-troubleshoot-common-connection-issues.md
+            - name: データ暗号化のトラブルシューティング
+              href: howto-data-encryption-troubleshoot.md
         - name: 高度な脅威保護
           items:
             - name: Azure portal
@@ -279,6 +281,8 @@
               href: howto-read-replicas-cli.md
     - name: Hyperscale (Citus)
       items:
+        - name: ユーザーの作成
+          href: howto-hyperscale-create-users.md
         - name: スケール
           href: howto-hyperscale-scaling.md
         - name: ファイアウォールの管理

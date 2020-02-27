@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 70d3e17a007e8cfa7eed299659d4cff114f72158
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: aa66299753ab11dcad280361cb5fb6f0c31ef242
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77023125"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77368162"
 ---
 # <a name="what-is-password-writeback"></a>パスワード ライトバックとは
 
@@ -29,7 +29,7 @@ ms.locfileid: "77023125"
 * [パススルー認証](../hybrid/how-to-connect-pta.md)
 
 > [!WARNING]
-> [Azure Access Control Service (ACS) が 2018 年 11 月 7 日に廃止される](../develop/active-directory-acs-migration.md)と、パスワード ライトバックは Azure AD Connect バージョン 1.0.8641.0 以前を使用している顧客には機能しなくなります。 Azure AD Connect バージョン 1.0.8641.0 以前では、パスワード ライトバックは ACS に依存しているため、この時点でこの機能を許可することはなくなります。
+> [Azure Access Control Service (ACS) が 2018 年 11 月 7 日に廃止される](../azuread-dev/active-directory-acs-migration.md)と、パスワード ライトバックは Azure AD Connect バージョン 1.0.8641.0 以前を使用している顧客には機能しなくなります。 Azure AD Connect バージョン 1.0.8641.0 以前では、パスワード ライトバックは ACS に依存しているため、この時点でこの機能を許可することはなくなります。
 >
 > 稼働中に中断しないように、Azure AD Connect の前のバージョンからより新しいバージョンにアップグレードします。「[Azure AD Connect: 旧バージョンから最新バージョンにアップグレードする](../hybrid/how-to-upgrade-previous-version.md)」の記事を参照してください。
 >
@@ -158,13 +158,13 @@ ms.locfileid: "77023125"
 パスワードの書き戻しは、次の状況では*実行されません*。
 
 * **サポートされないエンドユーザーの操作**
-   * PowerShell バージョン 1、バージョン 2、または Azure AD Graph API を使った、エンドユーザーによるパスワードのリセット
+   * PowerShell バージョン 1、バージョン 2、または Microsoft Graph API を使った、エンド ユーザーによるパスワードのリセット
 * **サポートされない管理者の操作**
-   * PowerShell バージョン 1、バージョン 2、または Azure AD Graph API から管理者が開始したエンド ユーザーのパスワードのリセット
+   * PowerShell バージョン 1、バージョン 2、または Microsoft Graph API から管理者が開始したエンド ユーザーのパスワードのリセット
    * [Microsoft 365 管理センター](https://admin.microsoft.com)から管理者が開始したエンドユーザーのパスワードのリセット
 
 > [!WARNING]
-> [Active Directory ユーザーとコンピューター] や [Active Directory 管理センター] などのオンプレミスの Active Directory 管理ツールでの [ユーザーは次回ログオン時にパスワードの変更が必要] チェックボックスの使用は、Azure AD Connect のプレビュー機能としてサポートされています。 詳細については、「[Azure AD Connect 同期を使用したパスワード ハッシュ同期の実装](../hybrid/how-to-connect-password-hash-synchronization.md#public-preview-of-synchronizing-temporary-passwords-and-force-password-change-on-next-logon)」の記事を参照してください。
+> [Active Directory ユーザーとコンピューター] や [Active Directory 管理センター] などのオンプレミスの Active Directory 管理ツールでの [ユーザーは次回ログオン時にパスワードの変更が必要] チェックボックスの使用は、Azure AD Connect のプレビュー機能としてサポートされています。 詳細については、「[Azure AD Connect 同期を使用したパスワード ハッシュ同期の実装](../hybrid/how-to-connect-password-hash-synchronization.md)」の記事を参照してください。
 
 ## <a name="next-steps"></a>次のステップ
 

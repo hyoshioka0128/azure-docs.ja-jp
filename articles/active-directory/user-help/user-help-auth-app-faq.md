@@ -2,22 +2,22 @@
 title: Microsoft Authenticator アプリに関する質問と回答 - Azure AD
 description: Microsoft Authentication アプリと 2 要素認証に関してよく寄せられる質問と回答 (FAQ)。
 services: active-directory
-author: eross-msft
+author: curtand
 manager: daveba
 ms.assetid: f04d5bce-e99e-4f75-82d1-ef6369be3402
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: conceptual
-ms.date: 01/16/2020
-ms.author: lizross
+ms.date: 02/18/2020
+ms.author: curtand
 ms.reviewer: olhaun
-ms.openlocfilehash: 70f4844a8c157ba7964ce1053c007db8e9301336
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: f15e92f5e98c047fc5ed481968674370cf222a16
+ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76704699"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77443620"
 ---
 # <a name="frequently-asked-questions-faqs-about-the-microsoft-authenticator-app"></a>Microsoft Authenticator アプリに関してよく寄せられる質問 (FAQ)。
 
@@ -52,6 +52,7 @@ Microsoft Authenticator アプリは、Azure Authenticator アプリに置き換
 | なぜ自分のアカウントのアクティビティに関する通知を受け取るのですか? | お客様個人の Microsoft アカウントで何が行われているかをお知らせるために、Microsoft Authenticator アプリにアクティビティの通知を送信しています。 これらの通知は、何か変更があるとすぐに表示されるため、安全性の向上に役立ちます。 以前はこれらの通知をメールと SMS で送信していましたが、アプリも含めるように拡張されました。 これらのアクティビティの通知の詳細については、「[お使いのアカウントで通常とは異なるサインインが発生した場合](https://support.microsoft.com/help/13967/microsoft-account-unusual-sign-in)」を参照してください。 通知を受け取る場所を変更するには、アカウントの [[アカウントに関する重要でない通知の設定]](https://account.live.com/SecurityNotifications/Update) ページにサインインします。 |
 | iOS に付属している既定のメール アプリを使用して職場または学校のアカウントにサインインしているときに、Microsoft Authenticator アプリからセキュリティ検証情報を入力するよう求められます。 その情報を入力して、メール アプリに戻ると、エラーが表示されます。 どうすればよいですか。 | これは、サインインとメール アプリが 2 つの異なるアプリで実行されている場合に発生する可能性が高くなります。これにより、初期のバックグラウンド サインイン プロセスが動作しなかったり失敗したりします。 この問題を解決するには、メール アプリにサインインしているときに、画面の右下にある **[Safari]** アイコンを選択することをお勧めします。 Safari に移行することで、サインイン プロセス全体が 1 つのアプリで実行されるため、アプリに正常にサインインできます。 |
 | ワンタイム パスワード (OTP) コードが機能していません。 どうすればよいですか。 | デバイスの日付と時刻が正しいことと、自動的に同期されていることを確認してください。 日付と時刻が間違っているか、同期されていない場合、コードは機能しません。 |
+| Windows 10 Mobile オペレーティングシステムは 2019年12月に非推奨となりました。 Windows Mobile オペレーティングシステムの Microsoft Authenticator も非推奨になりますか？ | 2020年2月28日以降は、すべての Windows Mobile オペレーティングシステムの Microsoft Authenticator アプリはサポートされません。 ユーザーは、前述の日付以降、アプリの新しい更新プログラムを受け取ることはできません。 2020年2月28日以降、現在、すべての Windows Mobile オペレーティングシステムで Microsoft Authenticator を使用する認証をサポートする Microsoft サービスでは、サポートの廃止が開始されます。 Microsoft サービスに対して認証するには、すべてのユーザーがこの日より前に代替認証メカニズムに切り替えることを強くお勧めします。 |
 
 ## <a name="next-steps"></a>次のステップ
 

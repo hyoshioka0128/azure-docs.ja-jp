@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 01/10/2020
 ms.author: helohr
-ms.openlocfilehash: 187c92f8e5b0148577f204f68077c58ea9ab9a3d
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 032062dd200781b6d1f5abeb2391ae75c4c43e6a
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75887361"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77367296"
 ---
 # <a name="deploy-a-management-tool-with-an-azure-resource-manager-template"></a>Azure Resource Manager テンプレートを使用して管理ツールをデプロイする
 
@@ -36,7 +36,7 @@ ms.locfileid: "75887361"
 
 - Azure Multi-Factor Authentication (MFA) が無効になっている
 - ご使用の Azure サブスクリプション内にリソースを作成するためのアクセス許可を持っている
-- Azure AD アプリケーションを作成するためのアクセス許可を持っている 次のステップに従い、あなたのユーザーが[「必要なアクセス許可」](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#required-permissions)の指示に従って必要なアクセス許可を保持しているかどうかを確認します。
+- Azure AD アプリケーションを作成するためのアクセス許可を持っている 次のステップに従い、あなたのユーザーが[「必要なアクセス許可」](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions)の指示に従って必要なアクセス許可を保持しているかどうかを確認します。
 
 管理ツールをデプロイして構成した後は、管理 UI を起動し、すべてが動作することを確認することを推奨します。 管理 UI を起動するユーザーには、Windows Virtual Desktop テナントを表示/編集できるロールの割り当てが必要です。
 
@@ -65,7 +65,7 @@ ms.locfileid: "75887361"
 
 GitHub の Azure Resource Manager テンプレートが完成すると、Azure portal 内で、1 つの App Service プランと共に 2 つのアプリ サービスがリソース グループに含まれていることを確認できます。
 
-管理ツールにサインインして使用する前に、管理ツールに関連付けられている新しい Azure AD アプリケーションに対して同意を与える必要があります。 同意を与えることにより、ツールに現在サインインしているユーザーに代わり、管理ツールが Windows Virtual Desktop の管理呼び出しを行うことができるようになります。
+管理ツールにサインインして使用する前に、管理ツールに関連付けられている新しい Azure AD アプリケーションに対して同意を与える必要があります。 同意を与えることで、管理ツールはツールに現在サインインしているユーザーに代わって Windows Virtual Desktop の管理呼び出しを行うことができるようになります。
 
 ![UI 管理ツールに同意するときに提示されるアクセス許可を示すスクリーンショット。](media/management-ui-delegated-permissions.png)
 
@@ -77,7 +77,7 @@ GitHub の Azure Resource Manager テンプレートが完成すると、Azure p
 - この値が **[いいえ]** に設定されている場合、Azure Active Directory のグローバル管理者としてサインインし、ディレクトリ内のすべてのユーザーについて管理者の同意を与える必要があります。 他のユーザーには、同意プロンプトが表示されません。
 
 
-同意を与えるのに使用するユーザーを決めたら、これらの手順に従って、このツールに同意を与えます。
+同意を与えるために使用するユーザーを決めたら、これらの手順に従って、このツールに同意を与えます。
 
 1. ご使用の Azure リソースに移動し、テンプレート内で指定した名前の Azure App Services リソース (たとえば、Apr3UX) を選択し、それに関連付けられている URL (たとえば、<https://rdmimgmtweb-210520190304.azurewebsites.net>) に移動します。
 2. 適切な Azure Active Directory ユーザー アカウントを使用してサインインします。

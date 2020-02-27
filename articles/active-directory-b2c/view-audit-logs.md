@@ -8,16 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 10/16/2019
+ms.date: 02/20/2020
 ms.author: marsma
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 5695968973c7446220d8d77b84dfebb4a23ae8c7
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 62a969519ebefaab919505d9c8faae830f55f4c6
+ms.sourcegitcommit: 934776a860e4944f1a0e5e24763bfe3855bc6b60
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76850714"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77505628"
 ---
 # <a name="accessing-azure-ad-b2c-audit-logs"></a>Azure AD B2C 監査ログへのアクセス
 
@@ -53,7 +53,7 @@ Azure Active Directory B2C (Azure AD B2C) は、B2C リソース、発行され�
 
 |Section|フィールド|説明|
 |-------|-----|-----------|
-| アクティビティ | Name | 実行されたアクティビティ。 たとえば、実際のユーザー サインインを終了する "*アプリケーションへの id_token の発行*"。 |
+| アクティビティ | 名前 | 実行されたアクティビティ。 たとえば、実際のユーザー サインインを終了する "*アプリケーションへの id_token の発行*"。 |
 | 開始者 (アクター) | ObjectId | ユーザーがサインインする B2C アプリケーションの**オブジェクト ID**。 この識別子は Azure portal には表示されませんが、Microsoft Graph API を使用してアクセスできます。 |
 | 開始者 (アクター) | Spn | ユーザーがサインインする B2C アプリケーションの**アプリケーション ID**。 |
 | ターゲット | ObjectId | サインインするユーザーの**オブジェクト ID**。 |
@@ -88,51 +88,15 @@ Azure portal は、Azure AD B2C テナントの監査ログ イベントへの�
 
 ### <a name="enable-reporting-api-access"></a>Reporting API のアクセスを有効にする
 
-Azure AD Reporting API へのスクリプトベースまたはアプリケーションベースのアクセスを許可するには、次の API アクセス許可を持つ、Azure AD B2C テナントに登録された Azure Active Directory アプリケーションが必要です。
+Azure AD Reporting API へのスクリプトベースまたはアプリケーションベースのアクセスを許可するには、次の API アクセス許可を持つ、Azure AD B2C テナントに登録されたアプリケーションが必要です。 B2C テナント内の既存のアプリケーションの登録でこれらのアクセス許可を有効にすることも、監査ログの自動化専用に新しく作成することもできます。
 
-* Microsoft Graph > アプリケーションのアクセス許可 > AuditLog.Read.All
+* Microsoft Graph > アプリケーションのアクセス許可 > AuditLog > AuditLog.Read.All
 
-B2C テナント内の既存の Azure Active Directory アプリケーションの登録でこれらのアクセス許可を有効にすることも、監査ログの自動化専用に新しく作成することもできます。
+次の記事の手順に従って、必要なアクセス許可を使用してアプリケーションを登録します。
 
-次の手順に従って、アプリケーションを登録し、必要な Microsoft Graph API のアクセス許可を付与した後、クライアント シークレットを作成します。
+[Microsoft Graph を使用して Azure AD B2C を管理する](microsoft-graph-get-started.md)
 
-### <a name="register-application-in-azure-active-directory"></a>Azure Active Directory にアプリケーションを登録する
-
-[!INCLUDE [active-directory-b2c-appreg-mgmt](../../includes/active-directory-b2c-appreg-mgmt.md)]
-
-### <a name="assign-api-access-permissions"></a>API アクセス許可を割り当てる
-
-#### <a name="applicationstabapplications"></a>[アプリケーション](#tab/applications/)
-
-1. **[登録済みのアプリ]** 概要ページで、 **[設定]** を選択します。
-1. **[API アクセス]** の下の、 **[必要なアクセス許可]** を選択します。
-1. **[追加]** を選択し、 **[API を選択します]** を選択します。
-1. **[Microsoft Graph]** を選択し、 **[選択]** を選択します。
-1. **[アプリケーションのアクセス許可]** で、 **[すべての監査ログ データの読み取り]** を選択します。
-1. **[選択]** ボタンを選択し、 **[完了]** を選択します。
-1. **[アクセス許可の付与]** を選択し、 **[はい]** を選択します。
-
-#### <a name="app-registrations-previewtabapp-reg-preview"></a>[アプリの登録 (プレビュー)](#tab/app-reg-preview/)
-
-1. **[管理]** の下にある **[API のアクセス許可]** を選択します。
-1. **[構成されたアクセス許可]** の下で **[アクセス許可の追加]** を選択します。
-1. **[Microsoft API]** タブを選択します。
-1. **[Microsoft Graph]** を選択します。
-1. **[アプリケーションのアクセス許可]** を選択します。
-1. **[AuditLog]** を展開し、 **[AuditLog.Read.All]** チェック ボックスをオンにします。
-1. **[アクセス許可の追加]** を選択します. 指示に従って、数分待ってから次の手順に進みます。
-1. **[<テナント名> に管理者の同意を与えます]** を選択します。
-1. 現在サインインしているアカウントに "*グローバル管理者*" ロールが割り当てられている場合はそれを選択し、そうでない場合は "*グローバル管理者*" ロールが割り当てられている Azure AD B2C テナントのアカウントでサインインします。
-1. **[Accept]\(承認\)** を選択します。
-1. **[最新の情報に更新]** を選択し、*AuditLog.Read.All* アクセス許可の **[状態]** に、"... に付与されました" が表示されていることを確認します。 アクセス許可が反映されるまでに数分かかる場合があります。
-
-* * *
-
-### <a name="create-client-secret"></a>クライアント シークレットを作成する
-
-[!INCLUDE [active-directory-b2c-client-secret](../../includes/active-directory-b2c-client-secret.md)]
-
-これで、必要な API アクセス、アプリケーション ID、および自動化スクリプトで使用できるキーを持つアプリケーションが作成されました。 スクリプトを使用してアクティビティ イベントを取得する方法の例については、この記事の後半の「PowerShell スクリプト」セクションを参照してください。
+適切なアクセス許可を使用してアプリケーションを登録したら、スクリプトを使用してアクティビティ イベントを取得する方法の例については、この記事の後半の「PowerShell スクリプト」セクションを参照してください。
 
 ### <a name="access-the-api"></a>API にアクセスする
 
@@ -149,13 +113,14 @@ https://graph.microsoft.com/v1.0/auditLogs/directoryAudits?$filter=loggedByServi
 このスクリプトは、[Azure Cloud Shell](overview.md) で試すことができます。 必ず、自分のアプリケーション ID、クライアント シークレット、Azure AD B2C テナントの名前で更新してください。
 
 ```powershell
-# This script requires the registration of a Web Application in Azure Active Directory:
-# https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-reporting-api
+# This script requires an application registration that's granted Microsoft Graph API permission
+# https://docs.microsoft.com/azure/active-directory-b2c/microsoft-graph-get-started
 
 # Constants
-$ClientID       = "your-client-application-id-here"       # Insert your application's client ID, a GUID (registered by Global Admin)
+$ClientID       = "your-client-application-id-here"       # Insert your application's client ID, a GUID
 $ClientSecret   = "your-client-application-secret-here"   # Insert your application's client secret
-$tenantdomain   = "your-b2c-tenant.onmicrosoft.com"       # Insert your Azure AD B2C tenant; for example, contoso.onmicrosoft.com
+$tenantdomain   = "your-b2c-tenant.onmicrosoft.com"       # Insert your Azure AD B2C tenant domain name
+
 $loginURL       = "https://login.microsoftonline.com"
 $resource       = "https://graph.microsoft.com"           # Microsoft Graph API resource URI
 $7daysago       = "{0:s}" -f (get-date).AddDays(-7) + "Z" # Use 'AddMinutes(-5)' to decrement minutes, for example
@@ -258,4 +223,4 @@ if ($oauth.access_token -ne $null) {
 
 ## <a name="next-steps"></a>次のステップ
 
-[.NET を使用したユーザーの管理](manage-user-accounts-graph-api.md)など、他の管理タスクを自動化できます。
+他の管理タスクを自動化することもできます。たとえば、[Microsoft Graph を使用して Azure AD B2C ユーザーアカウントを管理します](manage-user-accounts-graph-api.md)。

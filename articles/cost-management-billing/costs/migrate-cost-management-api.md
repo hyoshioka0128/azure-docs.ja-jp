@@ -1,21 +1,18 @@
 ---
 title: EA から Microsoft 顧客契約の API に移行する - Azure
 description: この記事では、Microsoft Enterprise Agreement (EA) から Microsoft 顧客契約への移行とその結果について説明します。
-services: cost-management
-keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/21/2020
+ms.date: 02/12/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
-manager: micflan
-ms.custom: ''
-ms.openlocfilehash: b0c30cd35efd598767d21dbdafc5100d8896380c
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.reviewer: micflan
+ms.openlocfilehash: 397e0a21b1ba11b3bdd74c2030ff358c1ce159d8
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76514716"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77201035"
 ---
 # <a name="migrate-from-enterprise-agreement-to-microsoft-customer-agreement-apis"></a>Enterprise Agreement から Microsoft 顧客契約 API に移行する
 
@@ -428,7 +425,7 @@ EA の登録スコープでは、API の応答およびプロパティは同じ�
 
 [Azure Resource Manager Price Sheet API](/rest/api/consumption/pricesheet) の以前のプロパティと新しい同じプロパティは、次の表に示されています。
 
-| 古い Azure Resource Manager Price Sheet API プロパティ  | 新しい Microsoft 顧客契約 Price Sheet API プロパティ   | [説明] |
+| 古い Azure Resource Manager Price Sheet API プロパティ  | 新しい Microsoft 顧客契約 Price Sheet API プロパティ   | 説明 |
 | --- | --- | --- |
 | 測定 ID | _meterId_ | メーターの一意の識別子。 meterID と同じです。 |
 | Meter name | meterName | メーターの名前。 メーターは、Azure サービスのデプロイ可能なリソースを表します。 |
@@ -457,7 +454,7 @@ Microsoft 顧客契約の一部である Azure 従量課金サービスの価格
 
 次のフィールドは、Microsoft 顧客契約 Price Sheet API で使用されなくなったか、同じフィールドがあります。
 
-|廃止されたフィールド| [説明]|
+|廃止されたフィールド| 説明|
 |---|---|
 | billingPeriodId | 適用不可。 MCA の InvoiceId に対応しています。 |
 | offerID | 適用不可。 MCA の productOrderName に対応しています。 |

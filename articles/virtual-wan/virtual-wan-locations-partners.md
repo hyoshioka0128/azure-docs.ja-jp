@@ -1,19 +1,19 @@
 ---
-title: Azure Virtual WAN パートナーの場所 | Microsoft Docs
+title: Azure Virtual WAN パートナーと場所 | Microsoft Docs
 description: この記事には、Azure Virtual WAN パートナーおよびハブの場所の一覧が含まれています。
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 11/11/2019
+ms.date: 02/12/2020
 ms.author: cherylmc
-Customer intent: As someone with a networking background, I want to connect find a Virtual WAN partner
-ms.openlocfilehash: 44ce62f957dbdd71a41962ae7257cbc6e048e03c
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+Customer intent: As someone with a networking background, I want to find a Virtual WAN partner
+ms.openlocfilehash: 68379fd2334e517df4011c05bb32543f7ce4a173
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73953321"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77190402"
 ---
 # <a name="virtual-wan-partners-and-virtual-hub-locations"></a>Virtual WAN パートナーと仮想ハブの場所
 
@@ -34,20 +34,20 @@ Azure Virtual WAN に接続するデバイスには、接続の自動化が組�
 * Azure 接続情報の自動ダウンロード
 * オンプレミス ブランチ デバイスの構成 
 
-接続パートナーによっては、自動化を拡張して Azure Virtual Hub VNet および VPN Gateway の作成を含める場合があります。 自動化の詳細については、[Configure Automation – WAN Partners](virtual-wan-configure-automation-providers.md)\(自動化の構成 – WAN パートナー\) を参照してください。
+接続パートナーによっては、自動化を拡張して Azure Virtual Hub VNet および VPN Gateway の作成を含める場合があります。 自動化の詳細については、[仮想 WAN パートナー向けの自動化ガイドライン](virtual-wan-configure-automation-providers.md)を参照してください。
 
 ## <a name="partners"></a>パートナー経由の接続
 
 [!INCLUDE [partners](../../includes/virtual-wan-partners-include.md)]
 
-次のパートナーが近い将来のロードマップに追加されることが予定されています。Arista、Aruba HPE、Cisco Systems、F5 Networks、Open Systems、VMware Velocloud。
+次のパートナーが近い将来のロードマップに追加されることが予定されています。Arista、Aruba HPE、Cisco Systems、F5 Networks、Open Systems、Oracle SD-WAN、SharpLink、VMWare Velocloud。
 
 ## <a name="locations"></a>場所
 
 [!INCLUDE [regions](../../includes/virtual-wan-regions-include.md)]
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
 * Virtual WAN の詳細については、[Virtual WAN FAQ](virtual-wan-faq.md) を参照してください。
 
-* Azure Virtual WAN への接続を自動化する方法については、[Virtual WAN Partners - How to automate](virtual-wan-configure-automation-providers.md)\(Virtual WAN パートナー - 自動化の方法\) を参照してください。
+* Azure Virtual WAN への接続を自動化する方法については、[仮想 WAN パートナー向けの自動化ガイドライン](virtual-wan-configure-automation-providers.md)を参照してください。

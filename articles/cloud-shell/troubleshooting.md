@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/24/2018
 ms.author: damaerte
-ms.openlocfilehash: 5af73e166f3caa4997851ae4b17d8377550bf40a
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 1d244d7b62fcfefeec6f628f473274ae982bf4d8
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73961546"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77120232"
 ---
 # <a name="troubleshooting--limitations-of-azure-cloud-shell"></a>Azure Cloud Shell のトラブルシューティングと制限事項
 
@@ -29,6 +29,11 @@ Azure Cloud Shell に関する問題のトラブルシューティングを行�
 
 ## <a name="general-troubleshooting"></a>一般的なトラブルシューティング
 
+### <a name="error-running-azuread-cmdlets-in-powershell"></a>PowerShell で AzureAD コマンドレットを実行中にエラーが発生した
+
+- **[詳細]** :Cloud Shell で `Get-AzureADUser` などの AzureAD コマンドレットを実行すると、`You must call the Connect-AzureAD cmdlet before calling any other cmdlets` のエラーが表示されることがあります。 
+- **解決方法**:`Connect-AzureAD` コマンドレットを実行します。 以前は、PowerShell の起動時にこのコマンドレットが Cloud Shell により自動的に実行されました。 起動時間を短縮するために、このコマンドレットは自動的には実行されなくなりました。 PowerShell で $PROFILE ファイルに `Connect-AzureAD` を追加して、以前の動作を復元することもできます。
+
 ### <a name="early-timeouts-in-firefox"></a>FireFox での早期タイムアウト
 
 - **[詳細]** :Cloud Shell は開いている WebSocket を使ってお使いのブラウザーに入力/出力を渡します。 FireFox には WebSocket を途中で閉じることができる事前設定されたポリシーがあり、Cloud Shell の早期タイムアウトの原因になります。
@@ -36,8 +41,8 @@ Azure Cloud Shell に関する問題のトラブルシューティングを行�
 
 ### <a name="disabling-cloud-shell-in-a-locked-down-network-environment"></a>ロック ダウンされたネットワーク環境で Cloud Shell を無効にする
 
-- **[詳細]** :管理者によっては、ユーザーが Cloud Shell にアクセスできないようにしたほうが望ましいと判断する場合があります。 Cloud Shell では、`ux.console.azure.com` ドメインへのアクセスが使用されますが、このアクセスは拒否される場合があり、その場合は、Cloud Shell のエントリ ポイントへのアクセスがすべて停止されます (portal.azure.com、shell.azure.com、Visual Studio Code Azure Account 拡張機能、docs.microsoft.com を含む)。
-- **解決方法**:環境のネットワーク設定を通じて、`ux.console.azure.com` へのアクセスを制限します。 Cloud Shell アイコンはその後も portal.azure.com に表示されますが、サービスに正常に接続することはできなくなります。
+- **[詳細]** :管理者によっては、ユーザーが Cloud Shell にアクセスできないようにしたほうが望ましいと判断する場合があります。 Cloud Shell では、`ux.console.azure.com` ドメインへのアクセスが使用されますが、このアクセスは拒否される場合があり、その場合は、Cloud Shell のエントリ ポイントへのアクセスがすべて停止されます (portal.azure.com、shell.azure.com、Visual Studio Code Azure Account 拡張機能、docs.microsoft.com を含む)。 米国政府のクラウドでは、エントリポイントは `ux.console.azure.us` であり、対応する shell.azure.us はありません。
+- **解決方法**:ご利用の環境のネットワーク設定を通じて、`ux.console.azure.com` または `ux.console.azure.us` へのアクセスを制限します。 Cloud Shell アイコンはその後も Azure portal に表示されますが、サービスに正常に接続することはできなくなります。
 
 ### <a name="storage-dialog---error-403-requestdisallowedbypolicy"></a>ストレージ ダイアログ - エラー: 403 RequestDisallowedByPolicy
 
@@ -163,7 +168,7 @@ Azure Cloud Shell は、ユーザーの個人データを慎重に取り扱い�
 
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
 
-### <a name="export"></a>エクスポート
+### <a name="export"></a>[エクスポート]
 選択されたシェル、フォント サイズ、フォントの種類など、Cloud Shell によって保存されるユーザー設定を**エクスポート**するには、次のコマンドを実行します。
 
 1. [![](https://shell.azure.com/images/launchcloudshell.png "Launch Azure Cloud Shell")](https://shell.azure.com)

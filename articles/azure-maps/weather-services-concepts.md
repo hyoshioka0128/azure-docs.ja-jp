@@ -1,19 +1,19 @@
 ---
 title: Weather Services の概念 | Microsoft Azure Maps
 description: この記事では、Microsoft Azure Maps Weather Services に適用される概念について説明します。
-author: walsehgal
-ms.author: v-musehg
+author: farah-alyasari
+ms.author: v-faalya
 ms.date: 11/20/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 4bf13477bfee39b5be39715374592811e8f8cc89
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: af7ea5c6e9d09b05b2f9271d6954162c0fd429c6
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75911022"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77208728"
 ---
 # <a name="weather-services-in-azure-maps"></a>Azure Maps の気象サービス
 
@@ -21,9 +21,9 @@ ms.locfileid: "75911022"
 
 ## <a name="unit-types"></a>単位の種類
 
-気象サービス API の中には、データをメトリックとヤード単位のどちらで返すかをユーザーが指定できるものがあります。 これらの API に対して返される応答には、単位を変換するために使用できる数値である unitType も含まれています。 これらの値を解釈するには、次の表を参照してください。
+気象サービス API の中には、データをメトリックとヤード単位のどちらで返すかをユーザーが指定できるものがあります。 これらの API で返される応答には、単位の変換に使用できる unitType (数値) が含まれます。 これらの値を解釈するには、次の表を参照してください。
 
-|unitType|[説明]         |
+|unitType|説明         |
 |--------|--------------------|
 |0       |フィート                |
 |1       |インチ              |
@@ -52,7 +52,7 @@ ms.locfileid: "75911022"
 
 ## <a name="weather-icons"></a>天気アイコン
 
-Weather サービス API の中には、アイコンを定義するために使用できる数値であるアイコン コード (iconCode) が応答内に返されるものがあります。 アプリケーションからこれらの画像に直接リンクしないでください。URL は変更される可能性があります。
+Weather Service API の中には、応答で `iconCode` が返されるものがあります。 `iconCode` は、アイコンの定義に使用される数値です。 アプリケーションからこれらの画像に直接リンクしないでください。URL が変更される可能性があります。
 
 | アイコン番号 |アイコン| 日 | 夜間 | Text |
 |-------------|:----:|-----|-------|------|

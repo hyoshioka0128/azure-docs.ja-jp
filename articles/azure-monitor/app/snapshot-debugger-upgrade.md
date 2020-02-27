@@ -22,7 +22,7 @@ ms.locfileid: "74927187"
 ## <a name="upgrading-the-site-extension"></a>サイト拡張機能のアップグレード
 
 > [!IMPORTANT]
-> 以前のバージョンの Application Insights では、_Azure App Service の Application Insights 拡張機能_と呼ばれるプライベート サイト拡張機能が使用されていました。 現在の Application Insights エクスペリエンスは、事前にインストールされたサイト拡張機能を使用するようにアプリ設定を設定することによって有効になります。
+> 以前のバージョンの Application Insights では、_Azure App Service の Application Insights 拡張機能_ と呼ばれるプライベート サイト拡張機能が使用されていました。 現在の Application Insights エクスペリエンスは、事前にインストールされたサイト拡張機能を使用するようにアプリ設定を設定することによって有効になります。
 > サイトが動作しなくなる原因となる可能性がある競合を回避するため、まずプライベート サイト拡張機能を削除することが重要です。 下記の手順 4 を参照してください。
 
 サイト拡張機能を使用してスナップショット デバッガーを有効にした場合は、次のステップを使用してアップグレードできます。

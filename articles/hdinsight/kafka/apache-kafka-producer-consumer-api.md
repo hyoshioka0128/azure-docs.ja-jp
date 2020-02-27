@@ -1,21 +1,21 @@
 ---
 title: チュートリアル:Apache Kafka Producer と Consumer API - Azure HDInsight
 description: HDInsight 上の Kafka で Apache Kafka Producer および Consumer API を使用する方法を説明します。 このチュートリアルでは、これらの API を Java アプリケーションから HDInsight 上の Kafka で使用する方法を学習します。
-author: dhgoelmsft
-ms.author: dhgoel
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 10/08/2019
-ms.openlocfilehash: ad810ac2f8751554aaf0afcd2b15e1da83f38fe1
-ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
+ms.openlocfilehash: 102523316aaa59803fb9a6957457fc7bd4f6ce4f
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73242015"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77186811"
 ---
-# <a name="tutorial-use-the-apache-kafka-producer-and-consumer-apis"></a>チュートリアル: Apache Kafka Producer および Consumer API の使用
+# <a name="tutorial-use-the-apache-kafka-producer-and-consumer-apis"></a>チュートリアル:Apache Kafka Producer および Consumer API の使用
 
 HDInsight 上の Kafka で Apache Kafka Producer および Consumer API を使用する方法を説明します。
 
@@ -33,21 +33,20 @@ API の詳細については、[Producer API](https://kafka.apache.org/documenta
 
 ## <a name="prerequisites"></a>前提条件
 
-* HDInsight 3.6 上の Apache Kafka。 HDInsight クラスターに Kafka を作成する方法については、[HDInsight での Apache Kafka の開始](apache-kafka-get-started.md)に関する記事をご覧ください。
-
+* HDInsight クラスター上の Apache Kafka。 クラスターを作成する方法については、[HDInsight での Apache Kafka の開始](apache-kafka-get-started.md)に関する記事をご覧ください。
 * [Java Developer Kit (JDK) バージョン 8](https://aka.ms/azure-jdks) または同等の JDK (OpenJDK など)。
-
 * Apache に従って適切に[インストール](https://maven.apache.org/install.html)された [Apache Maven](https://maven.apache.org/download.cgi)。  Maven は Java プロジェクトのプロジェクト ビルド システムです。
-
-* SSH クライアント 詳細については、[SSH を使用して HDInsight (Apache Hadoop) に接続する方法](../hdinsight-hadoop-linux-use-ssh-unix.md)に関するページを参照してください。
+* Putty などの SSH クライアント。 詳細については、[SSH を使用して HDInsight (Apache Hadoop) に接続する方法](../hdinsight-hadoop-linux-use-ssh-unix.md)に関するページを参照してください。
 
 ## <a name="understand-the-code"></a>コードの理解
 
-アプリケーションの例は、[https://github.com/Azure-Samples/hdinsight-kafka-java-get-started](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started) の `Producer-Consumer` サブディレクトリにあります。 アプリケーションは、主に次の 4 つのファイルで構成されます。
+アプリケーションの例は、[https://github.com/Azure-Samples/hdinsight-kafka-java-get-started](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started) の `Producer-Consumer` サブディレクトリにあります。 **Enterprise セキュリティ パッケージ (ESP)** が有効になっている Kafka クラスターを使用している場合は、`DomainJoined-Producer-Consumer` サブディレクトリにあるアプリケーションのバージョンを使用する必要があります。
 
+アプリケーションは、主に次の 4 つのファイルで構成されます。
 * `pom.xml`:このファイルは、プロジェクトの依存関係、Java バージョン、およびパッケージ化方法を定義します。
 * `Producer.java`:このファイルは、Producer API を使用して Kafka にランダムな文を送信します。
 * `Consumer.java`:このファイルは、Consumer API を使用して Kafka からデータを読み取り、それを STDOUT に出力します。
+* `AdminClientWrapper.java`:このファイルでは、管理 API を使用して Kafka トピックを作成、記述、および削除します。
 * `Run.java`:プロデューサーおよびコンシューマーのコードの実行に使用されるコマンド ライン インターフェイスです。
 
 ### <a name="pomxml"></a>Pom.xml
@@ -116,9 +115,11 @@ consumer = new KafkaConsumer<>(properties);
 
 ## <a name="build-and-deploy-the-example"></a>例を構築してデプロイする
 
+この手順をスキップする場合は、あらかじめ作成済みの jar を `Prebuilt-Jars` サブディレクトリからダウンロードできます。 kafka-producer-consumer.jar をダウンロードしてください。 クラスターで **Enterprise セキュリティ パッケージ (ESP)** が有効になっている場合は、kafka-producer-consumer-esp.jar を使用します。 jar を HDInsight クラスターにコピーするには、手順 3. を実行します。
+
 1. [https://github.com/Azure-Samples/hdinsight-kafka-java-get-started](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started) から例をダウンロードして抽出します。
 
-2. 現在のディレクトリを `hdinsight-kafka-java-get-started\Producer-Consumer` ディレクトリの場所に設定し、次のコマンドを使用します。
+2. 現在のディレクトリを `hdinsight-kafka-java-get-started\Producer-Consumer` ディレクトリの場所に設定します。 **Enterprise セキュリティ パッケージ (ESP)** が有効になっている Kafka クラスターを使用している場合は、場所を `DomainJoined-Producer-Consumer` サブディレクトリに設定する必要があります。 次のコマンドを使用して、アプリケーションをビルドします。
 
     ```cmd
     mvn clean package
@@ -140,29 +141,12 @@ consumer = new KafkaConsumer<>(properties);
     ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
     ```
 
-1. コマンド ライン JSON プロセッサの [jq](https://stedolan.github.io/jq/) をインストールします。 開いた SSH 接続から次のコマンドを入力して、`jq` をインストールします。
+1. Kafka ブローカー ホストを取得するには、次のコマンドの `<clustername>` と `<password>` に値を代入し、コマンドを実行します。 `<clustername>` には Azure portal に表示されているのと同じ大文字小文字の使い方をしてください。 `<password>` をクラスターのログイン パスワードで置き換えてから、次のコマンドを実行します。
 
     ```bash
     sudo apt -y install jq
-    ```
-
-1. パスワード変数を設定します。 `PASSWORD` をクラスターのログイン パスワードに置き換えてから、次のコマンドを入力します。
-
-    ```bash
-    export password='PASSWORD'
-    ```
-
-1. 大文字と小文字が正しく区別されたクラスター名を抽出します。 クラスターの作成方法によっては、クラスター名の実際の大文字小文字の区別が予想と異なる場合があります。 このコマンドは、実際の大文字小文字の区別を取得し、変数に格納します。 次のコマンドを入力します。
-
-    ```bash
-    export clusterName=$(curl -u admin:$password -sS -G "http://headnodehost:8080/api/v1/clusters" | jq -r '.items[].Clusters.cluster_name')
-    ```
-    > [!Note]  
-    > クラスターの外部からこのプロセスを実行している場合は、クラスター名を格納するための別の手順があります。 Azure portal からクラスター名を小文字で取得します。 その後、次のコマンドの `<clustername>` をクラスター名に置き換えて、`export clusterName='<clustername>'` を実行します。  
-
-1. Kafka ブローカー ホストを取得するには、次のコマンドを使用します。
-
-    ```bash
+    export clusterName='<clustername>'
+    export password='<password>'
     export KAFKABROKERS=$(curl -sS -u admin:$password -G https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2);
     ```
 
@@ -220,7 +204,7 @@ tmux new-session 'java -jar kafka-producer-consumer.jar consumer myTest $KAFKABR
 
 Kafka に格納されたレコードは、受信した順番でパーティション内に格納されます。 *パーティション内*のレコードの順次配信順を実現するには、コンシューマー インスタンスの数がパーティションの数と同じコンシューマー グループを作成します。 *トピック内*のレコードの順次配信を実現するには、コンシューマー インスタンスが 1 つのみのコンシューマー グループを作成します。
 
-## <a name="clean-up-resources"></a>リソースのクリーンアップ
+## <a name="clean-up-resources"></a>リソースをクリーンアップする
 
 このチュートリアルで作成したリソースをクリーンアップするために、リソース グループを削除することができます。 リソース グループを削除すると、関連付けられている HDInsight クラスター、およびリソース グループに関連付けられているその他のリソースも削除されます。
 
@@ -230,7 +214,7 @@ Azure Portal を使用してリソース グループを削除するには:
 2. 削除するリソース グループを見つけて、一覧の右側にある __[詳細]__ ボタン ([...]) を右クリックします。
 3. __[リソース グループの削除]__ を選択し、確認します。
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
 このドキュメントでは、HDInsight 上の Kafka で Apache Kafka Producer および Consumer API を使用する方法について説明しました。 次の各ドキュメントを参考に、Kafka の使用の詳細を確認してください。
 

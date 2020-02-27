@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 12/11/2019
-ms.openlocfilehash: 52bec8bba7bb3ddf545e3bd1866775f0964c6ad3
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 7096b429145a54b5a09fe38eb8099c4ff24ac452
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75893132"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77460962"
 ---
 # <a name="copy-and-transform-data-in-azure-cosmos-db-sql-api-by-using-azure-data-factory"></a>Azure Data Factory を使用して Azure Cosmos DB (SQL API) のデータをコピーおよび変換する
 
@@ -58,9 +58,9 @@ Data Factory は、Azure Cosmos DB に書き込むときに最適なパフォー
 
 Azure Cosmos DB (SQL API) のリンクされたサービスでは、次のプロパティがサポートされます。
 
-| プロパティ | [説明] | 必須 |
+| プロパティ | 説明 | Required |
 |:--- |:--- |:--- |
-| 型 | **type** プロパティは **CosmosDb** に設定する必要があります。 | はい |
+| type | **type** プロパティは **CosmosDb** に設定する必要があります。 | はい |
 | connectionString |Azure Cosmos DB データベースに接続するために必要な情報を指定します。<br />**注**:後の例で示すように、接続文字列でデータベース情報を指定する必要があります。 <br/> アカウント キーを Azure Key Vault に格納して、接続文字列から `accountKey` 構成をプルすることもできます。 詳細については、下記の例と、「[Azure Key Vault への資格情報の格納](store-credentials-in-key-vault.md)」の記事を参照してください。 |はい |
 | connectVia | データ ストアに接続するために使用される [Integration Runtime](concepts-integration-runtime.md)。 Azure Integration Runtime またはセルフホステッド統合ランタイムを使用できます (データ ストアがプライベート ネットワークにある場合)。 このプロパティを指定しないと、既定の Azure Integration Runtime が使用されます。 |いいえ |
 
@@ -114,9 +114,9 @@ Azure Cosmos DB (SQL API) のリンクされたサービスでは、次のプロ
 
 Azure Cosmos DB (SQL API) データセットでは、次のプロパティがサポートされます。 
 
-| プロパティ | [説明] | 必須 |
+| プロパティ | 説明 | Required |
 |:--- |:--- |:--- |
-| 型 | データセットの **type** プロパティは、**CosmosDbSqlApiCollection** に設定する必要があります. |はい |
+| type | データセットの **type** プロパティは、**CosmosDbSqlApiCollection** に設定する必要があります. |はい |
 | collectionName |Azure Cosmos DB ドキュメント コレクションの名前です。 |はい |
 
 "DocumentDbCollection" 型のデータセットを使用する場合、コピーおよび検索のアクティビティの下位互換性のためにそのままサポートされています。Data Flow ではサポートされていません。 今後は新しいモデルを使用することをお勧めします。
@@ -150,9 +150,9 @@ Azure Cosmos DB (SQL API) からデータをコピーするには、コピー �
 
 コピー アクティビティの **source** セクションでは、次のプロパティがサポートされます。
 
-| プロパティ | [説明] | 必須 |
+| プロパティ | 説明 | Required |
 |:--- |:--- |:--- |
-| 型 | コピー アクティビティのソースの **type** プロパティを **CosmosDbSqlApiSource** に設定する必要があります。 |はい |
+| type | コピー アクティビティのソースの **type** プロパティを **CosmosDbSqlApiSource** に設定する必要があります。 |はい |
 | query |データを読み取る Azure Cosmos DB クエリを指定します。<br/><br/>例:<br /> `SELECT c.BusinessEntityID, c.Name.First AS FirstName, c.Name.Middle AS MiddleName, c.Name.Last AS LastName, c.Suffix, c.EmailPromotion FROM c WHERE c.ModifiedDate > \"2009-01-01T00:00:00\"` |いいえ <br/><br/>指定しないと、SQL ステートメント `select <columns defined in structure> from mycollection` が実行されます |
 | preferredRegions | Cosmos DB からデータを取得するときに接続するリージョンの優先リスト。 | いいえ |
 | PageSize | クエリ結果のページあたりのドキュメント数。 既定値は "-1" で、これはサービス側の動的ページ サイズが最大 1000 まで使用されることを意味します。 | いいえ |
@@ -202,9 +202,9 @@ Azure Cosmos DB (SQL API) にデータをコピーするには、コピー ア�
 
 コピー アクティビティの **source** セクションでは、次のプロパティがサポートされます。
 
-| プロパティ | [説明] | 必須 |
+| プロパティ | 説明 | Required |
 |:--- |:--- |:--- |
-| 型 | コピー アクティビティのシンクの **type** プロパティは **CosmosDbSqlApiSink** に設定する必要があります。 |はい |
+| type | コピー アクティビティのシンクの **type** プロパティは **CosmosDbSqlApiSink** に設定する必要があります。 |はい |
 | writeBehavior |Azure Cosmos DB にデータを書き込む方法を示します。 使用可能な値は、**Insert**、**Upsert** です。<br/><br/>**upsert** の動作は、同じ ID を持つドキュメントが既に存在する場合に、そのドキュメントを置き換えることです。それ以外の場合はドキュメントを挿入します。<br /><br />**注**:元のドキュメントまたは列のマッピングで ID が指定されていない場合、Data Factory によってドキュメントの ID が自動的に生成されます。 つまり、**upsert** が期待どおりに動作するには、ドキュメントに ID があることを確認する必要があります。 |いいえ<br />(既定値は **insert** です) |
 | writeBatchSize | Data Factory では、[Azure Cosmos DB Bulk Executor ライブラリ](https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-started)を使用して Azure Cosmos DB にデータが書き込まれます。 **writeBatchSize** プロパティにより、ADF でライブラリに提供されるドキュメントのサイズが制御されます。 パフォーマンスを向上させるには **writeBatchSize** の値を大きくしてみて、ドキュメントのサイズが大きい場合は値を小さくしてみます。以下のヒントをご覧ください。 |いいえ<br />(既定値は **10,000**) |
 | disableMetricsCollection | Data Factory では、コピーのパフォーマンスの最適化と推奨のために、Cosmos DB RU などのメトリックが収集されます。 この動作に不安がある場合は、`true` を指定してオフにします。 | いいえ (既定値は `false`) |
@@ -269,6 +269,18 @@ Azure Cosmos DB に固有の設定は、ソース変換の **[Source Options]\(�
 
 **Preferred regions (優先リージョン):** このプロセスの優先読み取りリージョンを選択します。
 
+#### <a name="json-settings"></a>JSON 設定
+
+**1 つのドキュメント:** ADF でファイル全体を 1 つの JSON ドキュメントとして扱う場合は、このオプションを選択します。
+
+**引用符で囲まれていない列名:** JSON の列名が引用符で囲まれていない場合は、このオプションを選択します。
+
+**コメントあり:** JSON ドキュメントのデータにコメントが含まれている場合は、このオプションを使用します。
+
+**一重引用符付き:** ドキュメント内の列と値が一重引用符で囲まれている場合は、このオプションを選択する必要があります。
+
+**円記号によるエスケープ:** バックスラッシュを使用して JSON 内の文字をエスケープする場合は、このオプションを選択します。
+
 ### <a name="sink-transformation"></a>シンク変換
 
 Azure Cosmos DB に固有の設定は、シンク変換の **[設定]** タブにあります。
@@ -306,7 +318,7 @@ Azure Cosmos DB (SQL API) コネクタを使用して簡単に次のことがで
 
 ## <a name="migrate-from-relational-database-to-cosmos-db"></a>リレーショナル データベースから Cosmos DB への移行
 
-SQL Server などのリレーショナル データベースから Azure Cosmos DB に移行する場合、コピー アクティビティを使うと、ソースの表形式のデータを Cosmos DB のフラット化された JSON ドキュメントに簡単にマッピングできます。 場合によっては、たとえば、1 つの JSON ドキュメント内に関連するすべてのサブアイテムを埋め込むことでデータを非正規化するためなどに、データ モデルを再設計し、[Azure Cosmos DB のデータ モデリング](../cosmos-db/modeling-data.md)に従って NoSQL ユース ケースに合わせて最適化することもできます。 そのような場合は、Azure Data Factory のコピー アクティビティを使用してそれを達成する方法に関するチュートリアルを含む[こちらのブログ記事](https://medium.com/@ArsenVlad/denormalizing-via-embedding-when-copying-data-from-sql-to-cosmos-db-649a649ae0fb)を参照してください。
+SQL Server などのリレーショナル データベースから Azure Cosmos DB に移行する場合、コピー アクティビティを使うと、ソースの表形式のデータを Cosmos DB のフラット化された JSON ドキュメントに簡単にマッピングできます。 場合によっては、たとえば、1 つの JSON ドキュメント内に関連するすべてのサブアイテムを埋め込むことでデータを非正規化するためなどに、データ モデルを再設計し、[Azure Cosmos DB のデータ モデリング](../cosmos-db/modeling-data.md)に従って NoSQL ユース ケースに合わせて最適化することもできます。 そのような場合は、[こちらの記事](../cosmos-db/migrate-relational-to-cosmos-db-sql-api.md)を参照してください。Azure Data Factory のコピー操作でこれを行う方法のチュートリアルがあります。
 
 ## <a name="next-steps"></a>次のステップ
 
