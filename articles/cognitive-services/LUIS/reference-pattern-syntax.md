@@ -54,7 +54,7 @@ Entity1 が出発地 (Seattle) や到着地 (Cairo) などの役割を持つ場�
 |--|--|
 |RedWest-C|外側のグループ化エンティティと一致します|
 |Seattle|内側のグループ化エンティティの 1 つと一致します|
-|カイロ|内側のグループ化エンティティの 1 つと一致します|
+|Cairo|内側のグループ化エンティティの 1 つと一致します|
 
 ## <a name="nesting-limits-for-groups-with-optional-syntax"></a>省略可能構文でのグループに対する入れ子の制限
 
