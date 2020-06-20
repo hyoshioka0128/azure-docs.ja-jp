@@ -510,6 +510,6 @@ az group delete --name AzureFunctionsContainer-rg
 
 ## <a name="next-steps"></a>次のステップ
 
-+ [関数の監視](functions-monitoring.md)
++ unctions の監視](functions-monitoring.md)
 + [スケールとホスティングのオプション](functions-scale.md)
 + [Kubernetes ベースのサーバーレス ホスティング](functions-kubernetes-keda.md)
