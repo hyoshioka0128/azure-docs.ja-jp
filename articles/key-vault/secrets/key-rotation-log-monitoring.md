@@ -257,7 +257,7 @@ Set-AzDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Ena
 > [!NOTE]
 > Key Vault の操作を行ってから 10 分後には、ログ情報にはアクセスできます。 多くの場合、もっと早く利用できます。
 
-次は、[Azure Service Bus キューを作成](../../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md)します。 このキューは、キー コンテナーの監査ログがプッシュされる場所です。 監査ログ メッセージがキューに存在すると、ロジック アプリによってそれらが取り出されて対応されます。 次の手順で Service Bus インスタンスを作成します。
+次は、[Azure Service Bus キューを作成](../../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md)します。 このキューは、キー コンテナーの監査ログがプッシュされる場所です。 監査ログ メッセージがキューに存在すると、Logic Apps によってそれらが取り出されて対応されます。 次の手順で Service Bus インスタンスを作成します。
 
 1. Service Bus 名前空間を作成します (使用できるものが既にある場合は、手順 2 に進みます)。
 2. Azure portal で Service Bus インスタンスに移動し、その中にキューを作成する名前空間を選択します。
@@ -423,11 +423,11 @@ static string GetContainerSasUri(CloudBlockBlob blob)
 
 ### <a name="azure-logic-app"></a>Azure Logic App
 
-次に、Azure ロジック アプリを作成する必要があります。このアプリは、関数によって Service Bus キューにプッシュされるイベントを取得し、その内容を解析し、一致する条件に基づいて電子メールを送信します。
+次に、Azure Logic Apps を作成する必要があります。このアプリは、関数によって Service Bus キューにプッシュされるイベントを取得し、その内容を解析し、一致する条件に基づいて電子メールを送信します。
 
-**[リソースの作成]**  >  **[統合]**  >  **[ロジック アプリ]** を選択して、[ロジック アプリを作成](../../logic-apps/quickstart-create-first-logic-app-workflow.md)します。
+**[リソースの作成]**  >  **[統合]**  >  **[Logic Apps]** を選択して、[Logic Apps を作成](../../logic-apps/quickstart-create-first-logic-app-workflow.md)します。
 
-ロジック アプリが作成されたら、それに移動し、 **[編集]** を選択します。 ロジック アプリ エディターで、 **[Service Bus キュー]** を選択し、Service Bus 資格情報を入力して、それをキューに接続します。
+Logic Apps が作成されたら、それに移動し、 **[編集]** を選択します。 Logic Apps エディターで、 **[Service Bus キュー]** を選択し、Service Bus 資格情報を入力して、それをキューに接続します。
 
 ![Azure Logic App Service Bus](../media/keyvault-keyrotation/Azure_LogicApp_ServiceBus.png)
 
@@ -445,4 +445,4 @@ static string GetContainerSasUri(CloudBlockBlob blob)
 
 アクションで、 **[Office 365 - send email]\(Office 365 - メール送信\)** を選択します。 フィールドに入力して、定義された条件が **false** を返したときに送信する電子メールを作成します。 Office 365 がない場合は、同じ結果を実現するための他の方法を探してください。
 
-これで、1 分に 1 回、新しいキー コンテナーの監査ログを確認するエンド ツー エンドのパイプラインができました。 それは、検出した新しいログを Service Bus キューにプッシュします。 新しいメッセージがキューに届くと、ロジック アプリがトリガーされます。 イベント内の *appid* が呼び出し元アプリケーションのアプリケーション ID と一致しない場合は、電子メールが送信されます。
+これで、1 分に 1 回、新しいキー コンテナーの監査ログを確認するエンド ツー エンドのパイプラインができました。 それは、検出した新しいログを Service Bus キューにプッシュします。 新しいメッセージがキューに届くと、Logic Apps がトリガーされます。 イベント内の *appid* が呼び出し元アプリケーションのアプリケーション ID と一致しない場合は、電子メールが送信されます。
