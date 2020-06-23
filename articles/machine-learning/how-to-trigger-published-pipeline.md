@@ -39,7 +39,7 @@ ms.locfileid: "82857964"
 
 ## <a name="create-a-logic-app"></a>ロジック アプリの作成
 
-ここで [Azure ロジック アプリ](../logic-apps/logic-apps-overview.md) インスタンスを作成します。 必要に応じて、[統合サービス環境 (ISE) を使用](../logic-apps/connect-virtual-network-vnet-isolated-environment.md)して、ロジック アプリで使用するための[カスタマー マネージド キーを設定](../logic-apps/customer-managed-keys-integration-service-environment.md)します。
+ここで [Azure Logic Apps](../logic-apps/logic-apps-overview.md) インスタンスを作成します。 必要に応じて、[統合サービス環境 (ISE) を使用](../logic-apps/connect-virtual-network-vnet-isolated-environment.md)して、ロジック アプリで使用するための[カスタマー マネージド キーを設定](../logic-apps/customer-managed-keys-integration-service-environment.md)します。
 
 ロジック アプリがプロビジョニングされたら、次の手順に従って、パイプラインのトリガーを構成します。
 
