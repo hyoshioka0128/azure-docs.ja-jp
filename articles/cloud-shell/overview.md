@@ -61,7 +61,7 @@ Cloud Shell は、オープンソース Monaco Editor を基盤とする統合�
 
 ### <a name="integrated-with-docsmicrosoftcom"></a>docs.microsoft.com のツールとの統合
 
-Cloud Shell は、[docs.microsoft.com](https://docs.microsoft.com) でホストされているドキュメントから直接使用できます。 Cloud Shell は [Microsoft 学習ツール](https://docs.microsoft.com/learn/)、[Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)、[Azure CLI ドキュメント](https://docs.microsoft.com/cli/azure)で統合されています - コード スニペットで [試してみる] ボタンをクリックすると、没入型のシェル エクスペリエンスが開きます。 
+Cloud Shell は、[docs.microsoft.com](https://docs.microsoft.com) でホストされているドキュメントから直接使用できます。 Cloud Shell は [Microsoft 学習ツール](https://docs.microsoft.com/learn/)、[Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)、[Azure CLI ドキュメント](https://docs.microsoft.com/cli/azure)で統合されています - コード スニペットで [使ってみる] ボタンをクリックすると、没入型のシェル エクスペリエンスが開きます。 
 
 ### <a name="multiple-access-points"></a>複数のアクセス ポイント
 Cloud Shell は、以下から使用できる柔軟なツールです。
