@@ -34,7 +34,7 @@ ms.locfileid: "74547371"
 - まだ Azure アカウントを持っていない場合は、[無料のアカウントにサインアップ](https://azure.microsoft.com/free/)してから先に進んでください。
 - CLI スクリプトの例を実行するには、次の 3 つのオプションがあります。
     - Azure ポータルから [Azure Cloud Shell](../../cloud-shell/overview.md) を使用する (次のセクションを参照してください)。
-    - 各コード ブロックの右上隅にある「試してみる」ボタンを利用して、埋め込まれた Azure Cloud Shell シェルを使用します。
+    - 各コード ブロックの右上隅にある「使ってみる」ボタンを利用して、埋め込まれた Azure Cloud Shell シェルを使用します。
     - ローカル CLI コンソールを使用する場合は、[最新バージョンの Azure CLI をインストール](https://docs.microsoft.com/cli/azure/install-azure-cli)します。 
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
