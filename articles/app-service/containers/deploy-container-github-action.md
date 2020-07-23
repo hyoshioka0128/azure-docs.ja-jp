@@ -33,7 +33,7 @@ Azure App Service のコンテナー ワークフロー ファイルには、次
 
 ## <a name="create-a-service-principal"></a>サービス プリンシパルの作成
 
-[Azure CLI](https://docs.microsoft.com/cli/azure/) の [az ad sp create-for-rbac](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) コマンドを使用すると、[サービス プリンシパル](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals#service-principal-object)を作成できます。 このコマンドは、Azure portal の [Azure Cloud Shell](https://shell.azure.com/) を使用するか、 **[試してみる]** ボタンを選択して実行できます。
+[Azure CLI](https://docs.microsoft.com/cli/azure/) の [az ad sp create-for-rbac](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) コマンドを使用すると、[サービス プリンシパル](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals#service-principal-object)を作成できます。 このコマンドは、Azure portal の [Azure Cloud Shell](https://shell.azure.com/) を使用するか、 **[使ってみる]** ボタンを選択して実行できます。
 
 ```azurecli-interactive
 az ad sp create-for-rbac --name "myApp" --role contributor \
@@ -62,7 +62,7 @@ az ad sp create-for-rbac --name "myApp" --role contributor \
 
 次の例では、ユーザーレベルの資格情報 (デプロイのための Azure サービス プリンシパル) を使用します。 次のステップに従って、シークレットを構成します。
 
-1. [GitHub](https://github.com/) でご自分のリポジトリを参照し、 **[設定]、[シークレット]、[Add a new secret]** \(新しいシークレットの追加\) を選択します。
+1. [GitHub](https://github.com/) でご自分のリポジトリを参照し、 **Settings > Secrets > Add a new secret** を選択します。
 
 2. 下記の `az cli` コマンドの内容を、シークレット変数の値として貼り付けます。 たとえば、「 `AZURE_CREDENTIALS` 」のように入力します。
 
