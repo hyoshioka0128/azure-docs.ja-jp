@@ -52,13 +52,13 @@ ms.locfileid: "85362375"
 
        | 構成      | 推奨値     | 説明                                                      |
        | ------------------ | ----------------| ---------------------------------------------------------------------|
-       | 名前               | `OnOff`           | パラメーターのわかりやすい名前                                                                           |
+       | Name               | `OnOff`           | パラメーターのわかりやすい名前                                                                           |
        | Is Global          | チェック解除       | このパラメーターの値がアプリケーションのすべてのコマンドにグローバルで適用されるかどうかを示すチェックボックス|
-       | 必須           | チェック         | コマンドを完了する前にこのパラメーターの値を必須とするかどうかを示すチェックボックス |
-       | 必須パラメーターの応答      |Simple editor\(シンプルなエディター\) > `On or Off?`      | 理解されていないとき、このパラメーターの値を問うプロンプト |
+       | Required           | チェック         | コマンドを完了する前にこのパラメーターの値を必須とするかどうかを示すチェックボックス |
+       | Response for required parameter      |Simple editor\(シンプルなエディター\) > `On or Off?`      | 理解されていないとき、このパラメーターの値を問うプロンプト |
        | Type               | String          | Number、String、Date Time、Geography などのパラメーターの型   |
-       | 構成      | 内部カタログから事前定義済み入力値を受け取る | Strings の場合、これにより入力が一連の指定可能値に限定されます。 |
-       | 定義済み入力値     | `on`, `off`           | 一連の入力可能値とその別名         |
+       | Configuration      | 内部カタログから事前定義済み入力値を受け取る | Strings の場合、これにより入力が一連の指定可能値に限定されます。 |
+       | Predefined input values     | `on`, `off`           | 一連の入力可能値とその別名         |
        
         
    1. 定義済み入力値を追加するには、 **[Add a predefined input]\(定義済みの入力を追加\)** を選択し、 **[新しい項目]** ウィンドウで、上の表に示されているように **[名前]** を入力します。 今回の場合は別名を使用しないため、空白のままにします。 
@@ -73,14 +73,14 @@ ms.locfileid: "85362375"
 
        | 設定            | 推奨値       |
        | ------------------ | --------------------- |
-       | 名前               | `SubjectDevice`         |
+       | Name               | `SubjectDevice`         |
        | Is Global          | チェック解除             |
-       | 必須           | チェック               |
-       | 必須パラメーターの応答     | Simple editor\(シンプルなエディター\) > `Which device do you want to control?`    | 
+       | Required           | チェック               |
+       | Response for required parameter     | Simple editor\(シンプルなエディター\) > `Which device do you want to control?`    | 
        | Type               | String                |          |
-       | 構成      | 内部カタログから事前定義済み入力値を受け取る | 
-       | 定義済み入力値 | `tv`, `fan`               |
-       | 別名 (`tv`)      | `television`, `telly`     |
+       | Configuration      | 内部カタログから事前定義済み入力値を受け取る | 
+       | Predefined input values | `tv`, `fan`               |
+       | Aliase (`tv`)      | `television`, `telly`     |
 
    1. **[保存]** を選びます。
 
@@ -146,9 +146,9 @@ turn something
 
 | 構成      | 推奨値     |
 | ------------------ | ----------------|
-| 名前               | `Temperature`           |
-| 必須           | チェック         |
-| 必須パラメーターの応答      | Simple editor\(シンプルなエディター\) > `What temperature would you like?`
+| Name               | `Temperature`           |
+| Required           | チェック         |
+| Response for required parameter      | Simple editor\(シンプルなエディター\) > `What temperature would you like?`
 | Type               | Number          |
 
 
@@ -165,7 +165,7 @@ change the temperature
 
 | 構成      | 推奨値     |
 | ------------------ | ----------------|
-| 条件         | 必須のパラメーター > Temperature           |
+| Conditions         | Required parameter\(必須のパラメーター\) > Temperature           |
 | Actions           | Send speech response\(音声応答の送信\) > `Ok, setting temperature to {Temperature} degrees` |
 
 ### <a name="try-it-out"></a>試してみる
@@ -183,12 +183,12 @@ change the temperature
 
    | 設定                           | 推奨値                     | 
    | --------------------------------- | ----------------------------------------|
-   | 名前                              | `DateTime`                               |
-   | 必須                          | チェック                                 |
-   | 必須パラメーターの応答   | Simple editor\(シンプルなエディター\) > `For what time?`            | 
+   | Name                              | `DateTime`                               |
+   | Required                          | チェック                                 |
+   | Response for required parameter   | Simple editor\(シンプルなエディター\) > `For what time?`            | 
    | Type                              | DateTime                                |
-   | 日付の既定値                     | 日付が指定されていない場合、今日に設定します            |
-   | 時間の既定値                     | 時間が指定されていない場合、一日の始まりに設定します     |
+   | Date Defaults                     | 日付が指定されていない場合、今日に設定します            |
+   | Time Defaults                     | 時間が指定されていない場合、一日の始まりに設定します     |
 
 
 > [!NOTE]
