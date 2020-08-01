@@ -31,12 +31,12 @@ VHD の SAS URI を生成するときは、次の要件に従ってください�
 
 SAS アドレス (URL) の作成には、次の 2 つの一般的なツールが使用されます。
 
-* **Microsoft Storage Explorer** - Windows、macOS、Linux 向けに提供されているグラフィカル ツール。
+* **Microsoft Azure Storage Explorer** - Windows、macOS、Linux 向けに提供されているグラフィカル ツール。
 * **Microsoft Azure CLI** - Windows 以外のオペレーティング システムや自動化された環境、継続的インテグレーション環境に推奨されます。
 
-### <a name="use-microsoft-storage-explorer"></a>Microsoft ストレージ エクスプローラーを使用する
+### <a name="use-microsoft-storage-explorer"></a>Microsoft Azure Storage Explorer を使用する
 
-1. [Microsoft Azure ストレージ エクスプローラー](https://azure.microsoft.com/features/storage-explorer/)をダウンロードしてインストールします。
+1. [Microsoft Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)をダウンロードしてインストールします。
 2. エクスプローラーを開き、左側のメニューで **[アカウントの追加]** を選択します。 **[Azure Storage へ接続する]** ダイアログ ボックスが表示されます。
 3. **[Azure アカウントを追加する]** を選択し、 **[サインイン]** を選択します。 必要な手順を完了して、Azure アカウントにサインインします。
 4. 左側の **[エクスプローラー]** ペインで、 **[ストレージ アカウント]** に移動し、このノードを展開します。
