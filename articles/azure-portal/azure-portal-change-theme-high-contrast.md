@@ -1,6 +1,6 @@
 ---
-title: Azure ポータルでハイ コントラストを有効にする | Microsoft Docs
-description: Azure portal のテーマを変更して、表示される背景とフォントの色を選択します。 ハイ コントラストに設定すると、Azure portal での読み取りをさらに迅速かつ簡単に行います。
+title: Azure Portal でハイ コントラストを有効にする | Microsoft Docs
+description: Azure Portal のテーマを変更して、表示される背景とフォントの色を選択します。 ハイ コントラストに設定すると、Azure Portal での読み取りをさらに迅速かつ簡単に行います。
 services: azure-portal
 keywords: ''
 author: mgblythe
@@ -17,20 +17,20 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "84764062"
 ---
-# <a name="turn-on-high-contrast-or-change-the-theme-in-the-azure-portal"></a>Azure ポータルでハイ コントラストを有効にするかテーマを変更する
+# <a name="turn-on-high-contrast-or-change-the-theme-in-the-azure-portal"></a>Azure Portal でハイ コントラストを有効にするかテーマを変更する
 
-ハイ コントラストに設定すると、Azure portal が読みやすくなります。 ポータルの背景色を変更するテーマを選択することもできます。
+ハイ コントラストに設定すると、Azure Portal が読みやすくなります。 ポータルの背景色を変更するテーマを選択することもできます。
 
-Azure ポータルのコントラストを上げる必要があったり、カラー テーマを変更したくなったりした場合は、ポータルの設定に移動して変更を行います。
+Azure Portal のコントラストを上げる必要があったり、カラー テーマを変更したくなったりした場合は、ポータルの設定に移動して変更を行います。
 
 ## <a name="turn-on-high-contrast"></a>ハイ コントラストを有効にする
 
-1. [Azure portal](https://portal.azure.com) のヘッダーで、 **[設定]** を選択します。
+1. [Azure Portal](https://portal.azure.com) のヘッダーで、 **[設定]** を選択します。
 
-    ![Azure ポータルのポータル設定 (歯車) アイコンを示しているスクリーンショット](./media/azure-portal-change-theme-high-contrast/azure-portal-settings-icon.png)
+    ![Azure Portal のポータル設定 (歯車) アイコンを示しているスクリーンショット](./media/azure-portal-change-theme-high-contrast/azure-portal-settings-icon.png)
 1. **[白]** または **[黒]** を選択します。
 
-    ![Azure ポータルの設定のハイ コントラスト オプションを示しているスクリーンショット](./media/azure-portal-change-theme-high-contrast/azure-portal-highcontrast-options.png)
+    ![Azure Portal の設定のハイ コントラスト オプションを示しているスクリーンショット](./media/azure-portal-change-theme-high-contrast/azure-portal-highcontrast-options.png)
 1. **[適用]** を選択します。
 
 > [!NOTE]
@@ -40,17 +40,17 @@ Azure ポータルのコントラストを上げる必要があったり、カ�
 
 ## <a name="change-theme"></a>テーマを変更する
 
-1. [Azure portal](https://portal.azure.com) のヘッダーで、 **[設定]** を選択します。
+1. [Azure Portal](https://portal.azure.com) のヘッダーで、 **[設定]** を選択します。
 
-    ![Azure ポータルのポータル設定 (歯車) アイコンを示しているスクリーンショット](./media/azure-portal-change-theme-high-contrast/azure-portal-settings-icon.png)
+    ![Azure Portal のポータル設定 (歯車) アイコンを示しているスクリーンショット](./media/azure-portal-change-theme-high-contrast/azure-portal-settings-icon.png)
 
 1. テーマを選択します。
 
-    ![Azure ポータルの設定のテーマ オプションを示しているスクリーンショット](./media/azure-portal-change-theme-high-contrast/azure-portal-theme-options.png)
+    ![Azure Portal の設定のテーマ オプションを示しているスクリーンショット](./media/azure-portal-change-theme-high-contrast/azure-portal-theme-options.png)
 
 1. **[適用]** を選択します。
 
 ## <a name="next-steps"></a>次のステップ
 
-- [Azure ポータルのキーボード ショートカット](azure-portal-keyboard-shortcuts.md)
+- [Azure Portal のキーボード ショートカット](azure-portal-keyboard-shortcuts.md)
 - [サポートされているブラウザーとデバイス](../azure-preview-portal-supported-browsers-devices.md)
