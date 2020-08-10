@@ -64,7 +64,7 @@ Azure サブスクリプションを持っていない場合は、[無料試用�
 
 ## <a name="create-a-static-web-app"></a>静的 Web アプリを作成する
 
-リポジトリが作成されたので、Azure portal から静的 Web アプリを作成できます。
+リポジトリが作成されたので、Azure Portal から静的 Web アプリを作成できます。
 
 - [Azure Portal](https://portal.azure.com) に移動します
 - **[リソースの作成]** をクリックします
@@ -166,7 +166,7 @@ Static Web Apps の概要ウィンドウには、Web アプリとの対話に役
 
 このアプリケーションを引き続き使用しない場合は、次の手順を使用して Azure Static Web Apps インスタンスを削除することができます。
 
-1. [Azure portal](https://portal.azure.com) を開きます。
+1. [Azure Portal](https://portal.azure.com) を開きます。
 1. 上部の検索バーから **my-first-web-static-app** を検索します
 1. アプリ名をクリックします
 1. **[削除]** ボタンをクリックします
