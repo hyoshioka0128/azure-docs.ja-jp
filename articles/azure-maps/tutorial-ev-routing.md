@@ -27,7 +27,7 @@ Azure Maps REST API シリーズを Python や R などの言語で呼び出し�
 このチュートリアルでは、次のことについて説明します。
 
 > [!div class="checklist"]
-> * クラウドの [Azure Notebooks](https://docs.microsoft.com/azure/notebooks) 上で Jupyter ノートブックを作成して実行する。
+> * クラウドの [Azure Notebooks](https://docs.microsoft.com/azure/notebooks) 上で Jupyter Notebook を作成して実行する。
 > * Python で Azure Maps REST API シリーズを呼び出す。
 > * 電気自動車の消費モデルに基づいて到達可能範囲を調べる。
 > * 到達可能範囲 (つまり等時線) 内にある電気自動車充電スタンドを検索する。
@@ -45,9 +45,9 @@ Azure Maps アカウントのサブスクリプションを作成するには、
 
 Azure Maps での認証の詳細については、「[Azure Maps での認証の管理](./how-to-manage-authentication.md)」を参照してください。
 
-## <a name="create-an-azure-notebook"></a>Azure ノートブックを作成する
+## <a name="create-an-azure-notebook"></a>Azure notebook を作成する
 
-このチュートリアルに沿って作業を進めるには、Azure ノートブック プロジェクトを作成し、Jupyter ノートブック ファイルをダウンロードして、実行する必要があります。 ノートブック ファイルには、本チュートリアルのシナリオを実装する Python コードが含まれています。 Azure ノートブック プロジェクトを作成し、Jupyter ノートブック ドキュメントをそれにアップロードするには、次の手順に従います。
+このチュートリアルに沿って作業を進めるには、Azure Notebooks プロジェクトを作成し、Jupyter ノートブック ファイルをダウンロードして、実行する必要があります。 ノートブック ファイルには、本チュートリアルのシナリオを実装する Python コードが含まれています。 Azure Notebooks プロジェクトを作成し、Jupyter ノートブック ドキュメントをそれにアップロードするには、次の手順に従います。
 
 1. [Azure Notebooks](https://notebooks.azure.com) に移動してサインインします 詳細については、「[クイック スタート: サインインとユーザー ID の設定](https://docs.microsoft.com/azure/notebooks/quickstart-sign-in-azure-notebooks)」を参照してください。
 1. パブリック プロファイル ページの上部にある **[マイ プロジェクト]** を選択します。
