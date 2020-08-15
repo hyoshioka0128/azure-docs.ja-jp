@@ -49,7 +49,7 @@ landingContent:
     links:
     - text: .NET Web アプリで Personalizer を使用する
       url: tutorial-use-personalizer-web-app.md
-    - text: Azure ノートブックで Personalizer を使用する
+    - text: Azure Notebook で Personalizer を使用する
       url: tutorial-use-azure-notebook-generate-loop-data.md
   - linkListType: how-to-guide
     links:
