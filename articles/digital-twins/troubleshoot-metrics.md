@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 8/4/2020
 ms.topic: troubleshooting
 ms.service: digital-twins
-ms.openlocfilehash: cc270ebb12b27c6461b00a4f7042bc3c829d02ef
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: ecd402c30fee63ad594fff5e4fdc3b1610fe7e4e
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87812253"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89003883"
 ---
 # <a name="troubleshooting-azure-digital-twins-metrics"></a>Azure Digital Twins のトラブルシューティング: メトリック
 
@@ -24,7 +24,7 @@ ms.locfileid: "87812253"
 
 1. Azure Digital Twins インスタンスを作成します。 Azure Digital Twins インスタンスを設定する方法については、[*インスタンスと認証を設定する方法*](how-to-set-up-instance-scripted.md)に関するページを参照してください。
 
-2. [Azure portal](https:/portal.azure.com) で Azure Digital Twins インスタンスを見つけます (ポータルの検索バーに名前を入力して、そのページを開くことができます)。 
+2. [Azure portal](https://portal.azure.com) で Azure Digital Twins インスタンスを見つけます (ポータルの検索バーに名前を入力して、そのページを開くことができます)。 
 
     インスタンスのメニューから、 **[メトリック]** を選択します。
    
@@ -32,9 +32,14 @@ ms.locfileid: "87812253"
 
     このページには、Azure Digital Twins インスタンスのメトリックが表示されます。 また、リストから表示したいメトリックを選択して、メトリックのカスタム ビューを作成することもできます。
     
-3. メトリック データを Event Hubs エンドポイントまたは Azure Storage のアカウントに送信するように選択するには、メニューから **[診断設定]** 、 **[診断設定の追加]** の順にクリックします。
+3. メトリック データを Event Hubs エンドポイントまたは Azure Storage のアカウントに送信するように選択するには、メニューから **[診断設定]** 、 **[診断設定の追加]** の順に選択します。
 
-    :::image type="content" source="media/troubleshoot-metrics/diagnostic-settings.png" alt-text="[診断設定] ページと追加するボタンが示されているスクリーンショット":::
+    :::image type="content" source="media/troubleshoot-diagnostics/diagnostic-settings.png" alt-text="[診断設定] ページと追加するボタンが示されているスクリーンショット":::
+
+    このプロセスの詳細については、[*トラブルシューティング: 診断の設定*](troubleshoot-diagnostics.md)に関するページを参照してください。
+
+4. メニューから **[アラート]** を選択し、 **[+ 新しいアラート ルール]** を選択することで、メトリック データのアラートを設定できます。
+    :::image type="content" source="media/troubleshoot-alerts/alerts-pre.png" alt-text="[アラート] ページと追加するボタンを示すスクリーンショット":::
 
     このプロセスの詳細については、[*トラブルシューティング: 診断の設定*](troubleshoot-diagnostics.md)に関するページを参照してください。
 
@@ -83,9 +88,9 @@ API 要求に関連するメトリック:
 
 | メトリック | メトリックの表示名 | ユニット | 集計の種類| 説明 | Dimensions |
 | --- | --- | --- | --- | --- | --- |
-| MessagesRouted | Messages Routed (ルーティングされたメッセージ) (プレビュー) | Count | 合計 | Event Hub、Service Bus、Event Grid など、エンドポイントの Azure サービスにルーティングされたメッセージの数。 | 操作、 <br>結果 |
-| RoutingFailureRate | Routing Failure Rate (ルーティングの失敗率) (プレビュー) | Percent | Average | イベントが Azure Digital Twins からエンドポイントの Azure サービス (Event Hub、Service Bus、Event Grid など) にルーティングされるときにエラーが発生するイベントの割合。 | 操作、 <br>結果 |
-| RoutingLatency | Routing Latency (ルーティングの待機時間) (プレビュー) | ミリ秒 | Average | イベントが Azure Digital Twins からルーティングされてから、Event Hub、Service Bus、Event Grid などのエンドポイントの Azure サービスにポストされるまでの経過時間。 | 操作、 <br>結果 |
+| MessagesRouted | Messages Routed (ルーティングされたメッセージ) (プレビュー) | Count | 合計 | Event Hub、Service Bus、Event Grid など、エンドポイントの Azure サービスにルーティングされたメッセージの数。 | エンドポイントの種類、 <br>結果 |
+| RoutingFailureRate | Routing Failure Rate (ルーティングの失敗率) (プレビュー) | Percent | Average | イベントが Azure Digital Twins からエンドポイントの Azure サービス (Event Hub、Service Bus、Event Grid など) にルーティングされるときにエラーが発生するイベントの割合。 | エンドポイントの種類、 <br>結果 |
+| RoutingLatency | Routing Latency (ルーティングの待機時間) (プレビュー) | ミリ秒 | Average | イベントが Azure Digital Twins からルーティングされてから、Event Hub、Service Bus、Event Grid などのエンドポイントの Azure サービスにポストされるまでの経過時間。 | エンドポイントの種類、 <br>結果 |
 
 ## <a name="dimensions"></a>Dimensions
 
@@ -95,7 +100,7 @@ API 要求に関連するメトリック:
 | --- | --- |
 | 認証 | OAuth |
 | 操作 (API 要求用) | Microsoft.DigitalTwins/digitaltwins/delete、 <br>Microsoft.DigitalTwins/digitaltwins/write、 <br>Microsoft.DigitalTwins/digitaltwins/read、 <br>Microsoft.DigitalTwins/eventroutes/read、 <br>Microsoft.DigitalTwins/eventroutes/write、 <br>Microsoft.DigitalTwins/eventroutes/delete、 <br>Microsoft.DigitalTwins/models/read、 <br>Microsoft.DigitalTwins/models/write、 <br>Microsoft.DigitalTwins/models/delete、 <br>Microsoft.DigitalTwins/query/action |
-| 操作 (ルーティング用) | Event Grid、 <br>Event Hub、 <br>Service Bus |
+| エンドポイントの種類 | Event Grid、 <br>Event Hub、 <br>Service Bus |
 | Protocol | HTTPS |
 | 結果 | 成功、 <br>障害 |
 | 状態コード | 200、404、500 など。 |

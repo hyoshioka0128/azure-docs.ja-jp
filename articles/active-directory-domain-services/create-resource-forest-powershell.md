@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/27/2020
 ms.author: iainfou
-ms.openlocfilehash: eb627b8069bcd9efd1d56adab5eda45dc34a1a10
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 893085179c27ce88c3e310170715e2f83a59ddc7
+ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87921998"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88723165"
 ---
 # <a name="create-an-azure-active-directory-domain-services-resource-forest-and-outbound-forest-trust-to-an-on-premises-domain-using-azure-powershell"></a>Azure Active Directory Domain Services のリソース フォレスト、およびオンプレミス ドメインへの送信フォレストの信頼を、Azure PowerShell を使用して作成する
 
@@ -88,7 +88,7 @@ New-AzureADServicePrincipal -AppId "2565bd9d-da50-47d4-8b85-4c97f669dc36"
 
 1. まず、[New-AzResourceGroup][New-AzResourceGroup] コマンドレットを使用してリソース グループを作成します。 次の例では、リソース グループは *myResourceGroup* という名前が付けられ、*westus* リージョンに作成されます。 独自の名前と希望するリージョンを使用します。
 
-    ```azure-powershell
+    ```azurepowershell
     New-AzResourceGroup `
       -Name "myResourceGroup" `
       -Location "WestUS"
@@ -123,7 +123,7 @@ New-AzureADServicePrincipal -AppId "2565bd9d-da50-47d4-8b85-4c97f669dc36"
 
 1. 次に、`New-AzureAaaddsForest` スクリプトを使用して、マネージド ドメイン リソース フォレストを作成します。 次の例では、*addscontoso.com* という名前のフォレストを作成し、ワークロード サブネットを作成します。 独自のパラメーター名と IP アドレス範囲、または既存の仮想ネットワークを指定します。
 
-    ```azure-powershell
+    ```azurepowershell
     New-AzureAaddsForest `
         -azureSubscriptionId <subscriptionId> `
         -aaddsResourceGroupName "myResourceGroup" `
@@ -148,15 +148,15 @@ New-AzureADServicePrincipal -AppId "2565bd9d-da50-47d4-8b85-4c97f669dc36"
 
 1. Azure VPN または Azure ExpressRoute 接続を使用して、Azure へのオンプレミス ネットワークに対するハイブリッド接続を作成します。 ハイブリッド ネットワーク構成についてはこのドキュメントでは説明しませんが、現在の環境内に既に存在している可能性があります。 特定のシナリオの詳細については、次の記事を参照してください。
 
-    * [Azure サイト間 VPN](/azure/vpn-gateway/vpn-gateway-about-vpngateways) に関する記事。
-    * [Azure ExpressRoute の概要](/azure/expressroute/expressroute-introduction)に関する記事。
+    * [Azure サイト間 VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md) に関する記事。
+    * [Azure ExpressRoute の概要](../expressroute/expressroute-introduction.md)に関する記事。
 
     > [!IMPORTANT]
     > マネージド ドメインの仮想ネットワークに直接接続を作成する場合は、別のゲートウェイ サブネットを使用します。 マネージド ドメインのサブネットにはゲートウェイを作成しないでください。
 
 1. マネージド ドメインを管理するため、管理 VM を作成してマネージド ドメインに参加させ、必要な AD DS 管理ツールをインストールします。
 
-    マネージド ドメイン リソース フォレストがデプロイされている間に、[Windows Server VM を作成](https://docs.microsoft.com/azure/active-directory-domain-services/join-windows-vm)し、必要な管理ツールをインストールするため、[コア AD DS 管理ツールをインストール](https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-create-management-vm)します。 ドメインが正常にデプロイされた後、次の手順のいずれかを実行するまで待って、管理 VM をマネージド ドメインに参加させます。
+    マネージド ドメイン リソース フォレストがデプロイされている間に、[Windows Server VM を作成](./join-windows-vm.md)し、必要な管理ツールをインストールするため、[コア AD DS 管理ツールをインストール](./tutorial-create-management-vm.md)します。 ドメインが正常にデプロイされた後、次の手順のいずれかを実行するまで待って、管理 VM をマネージド ドメインに参加させます。
 
 1. オンプレミスのネットワークと Azure 仮想ネットワークの間のネットワーク接続を検証します。
 
@@ -204,7 +204,7 @@ Install-Script -Name Add-AaddsResourceForestTrust
 
 次の例では、*myAzureADDSTrust* という名前の信頼関係を *onprem.contoso.com* に対して作成します。 独自のパラメーター名とパスワードを使用してください。
 
-```azure-powershell
+```azurepowershell
 Add-AaddsResourceForestTrust `
     -ManagedDomainFqdn "aaddscontoso.com" `
     -TrustFqdn "onprem.contoso.com" `
@@ -260,7 +260,7 @@ Windows Server 仮想マシンをマネージド ドメインのリソース ド
 1. リモート デスクトップとマネージド ドメイン管理者の資格情報を使用して、マネージド ドメイン リソース フォレストに参加している Windows Server VM に接続します。 ネットワーク レベル認証 (NLA) エラーが発生した場合は、使用したユーザー アカウントがドメイン ユーザー アカウントではないことを確認します。
 
     > [!TIP]
-    > Azure AD Domain Services に参加しているご利用の VM に安全に接続するには、サポートされている Azure リージョンで [Azure Bastion ホスト サービス](https://docs.microsoft.com/azure/bastion/bastion-overview)を使用できます。
+    > Azure AD Domain Services に参加しているご利用の VM に安全に接続するには、サポートされている Azure リージョンで [Azure Bastion ホスト サービス](../bastion/bastion-overview.md)を使用できます。
 
 1. コマンド プロンプトを開き、`whoami` コマンドを使用して、現在認証されているユーザーの識別名を表示します。
 
@@ -286,7 +286,7 @@ Windows Server 仮想マシンをマネージド ドメインのリソース ド
 1. リモート デスクトップとマネージド ドメイン管理者の資格情報を使用して、マネージド ドメイン リソース フォレストに参加している Windows Server VM に接続します。 ネットワーク レベル認証 (NLA) エラーが発生した場合は、使用したユーザー アカウントがドメイン ユーザー アカウントではないことを確認します。
 
     > [!TIP]
-    > Azure AD Domain Services に参加しているご利用の VM に安全に接続するには、サポートされている Azure リージョンで [Azure Bastion ホスト サービス](https://docs.microsoft.com/azure/bastion/bastion-overview)を使用できます。
+    > Azure AD Domain Services に参加しているご利用の VM に安全に接続するには、サポートされている Azure リージョンで [Azure Bastion ホスト サービス](../bastion/bastion-overview.md)を使用できます。
 
 1. **[Windows の設定]** を開き、 **[ネットワークと共有センター]** を検索して選択します。
 1. **[共有の詳細設定の変更]** のオプションを選択します。

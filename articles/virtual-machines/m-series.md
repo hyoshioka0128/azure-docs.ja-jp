@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 03/31/2020
 ms.author: jushiman
-ms.openlocfilehash: 0039480c24e96f39ec2b464984a84e672b5bffa1
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 2dea6ea292b4ed69d89a6e5e03c58f437446561d
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87832605"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88654788"
 ---
 # <a name="m-series"></a>M シリーズ
 
@@ -30,7 +30,7 @@ Premium Storage キャッシュ:サポートされています
 
 メモリ保持更新: サポートされていません
 
-書き込みアクセラレータ:[サポートされています](./windows/how-to-enable-write-accelerator.md)
+書き込みアクセラレータ:[サポートされています](./how-to-enable-write-accelerator.md)
 
 | サイズ | vCPU | メモリ:GiB | 一時ストレージ (SSD) GiB | 最大データ ディスク数 | キャッシュが有効な場合および一時ストレージの最大スループットIOPS/MBps (キャッシュ サイズは GiB 単位) | キャッシュが無効な場合の最大ディスク スループット: IOPS/MBps | 最大 NIC 数|必要なネットワーク帯域幅 (Mbps) |
 |---|---|---|---|---|---|---|---|---|
@@ -66,7 +66,7 @@ Premium Storage キャッシュ:サポートされています
 
 料金計算ツール:[料金計算ツール](https://azure.microsoft.com/pricing/calculator/)
 
-ディスクの種類の詳細情報:[ディスクの種類](./linux/disks-types.md#ultra-disk)
+ディスクの種類の詳細情報:[ディスクの種類](./disks-types.md#ultra-disk)
 
 
 ## <a name="next-steps"></a>次のステップ

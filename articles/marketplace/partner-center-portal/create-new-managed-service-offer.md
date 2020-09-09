@@ -3,16 +3,16 @@ title: Microsoft コマーシャル マーケットプレースにマネージ�
 description: パートナー センターのコマーシャル マーケットプレース ポータルを使用して Azure Marketplace に掲載するための新しいマネージド サービス オファーを作成する方法について説明します。
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
+ms.topic: how-to
 author: Microsoft-BradleyWright
 ms.author: brwrigh
-ms.date: 07/07/2020
-ms.openlocfilehash: ae079fce02f58d6c6457d7fe6401526f4002662f
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.date: 08/07/2020
+ms.openlocfilehash: 9ff11312b6d231927f5053868b64e0b825df371e
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87798190"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88816985"
 ---
 # <a name="create-a-managed-service-offer"></a>管理サービス オファーの作成
 
@@ -29,7 +29,7 @@ ms.locfileid: "87798190"
     ![左側のナビゲーション メニューの画像。](./media/new-offer-managed-service.png)
 
 >[!NOTE]
->オファーを公開した後にパートナー センターで編集した内容は、オファーの再公開後にのみネットショップに表示されます。 変更後は必ず再公開してください。
+>オファーが公開された後、それに対してパートナー センターで行われた編集内容は、そのオファーの再公開後にのみオンライン ストアに表示されます。 変更後は必ず再公開してください。
 
 ## <a name="new-offer"></a>新しいプラン
 
@@ -130,20 +130,24 @@ Azure portal でのオファー情報の表示例を次に示します。
 
 このセクションでは、顧客にオファーを表示するときに使用されるロゴや画像を指定できます。 画像はすべて .png 形式である必要があります。
 
+[!INCLUDE [logotips](../includes/graphics-suggestions.md)]
+
 >[!NOTE]
 >ファイルのアップロードで問題が発生した場合は、パートナー センターで使用されている https://upload.xboxlive.com サービスがローカル ネットワークでブロックされていないことを確認してください。
 
 #### <a name="store-logos"></a>ストア ロゴ
 
-**大**サイズのロゴ (216 x 216 から 350 x 350 ピクセル) には PNG ファイルを指定します。 パートナー センターは、これを使用して**小** (48 x 48 ピクセル) サイズおよび**中** (90 x 90 ピクセル) サイズのロゴを作成します。 必要に応じて、別の画像に置き換えることもできます。
+**大**サイズのロゴに PNG ファイルを指定します。 パートナー センターでは、これを使用して、**小**および**中**サイズのロゴを作成します。 必要に応じて、別の画像に置き換えることもできます。
 
-リストのさまざまな場所で使用するために、3 つのロゴ サイズはすべて必須です。
+- **大** (216 x 216 から 350 x 350 px、必須)
+- **中** (90 x 90 px、省略可能)
+- **小** (48 x 48 px、省略可能)
 
-- **小** (48 x 48)
-- **中** (90 x 90)
-- **大** (216 x 216 から 350 x 350)
+これらのロゴは、リスト登録のさまざまな場所で使用されます。
 
-[!INCLUDE [Logo suggestions](./includes/graphics-suggestions.md)]
+[!INCLUDE [logos-azure-marketplace-only](../includes/logos-azure-marketplace-only.md)]
+
+[!INCLUDE [logotips](../includes/graphics-suggestions.md)]
 
 #### <a name="screenshots"></a>Screenshots (スクリーンショット)
 
@@ -172,6 +176,8 @@ Azure portal でのオファー情報の表示例を次に示します。
 ## <a name="plan-overview"></a>プランの概要
 
 各オファーには 1 つ以上のプラン (旧称 SKU) が必要です。 異なる価格で異なる機能セットをサポートする複数のプランを追加したり、特定の顧客の限られた対象ユーザーに合わせて特定のプランをカスタマイズしたりすることができます。 顧客は、親オファーに含まれている、自分が利用可能なプランを表示できます。
+
+オファーごとに最大 100 のプランを作成できます。そのうち最大 45 をプライベートにすることができます。 プライベート プランの詳細については、「[Microsoft 商業マーケットプレースでのプライベート オファー](../private-offers.md)」を参照してください。
 
 **[プランの概要]** ページで、 **[+ 新しいプランの作成]** を選択します。 次に、 **[プラン ID]** と **[プラン名]** を入力します。 これらの値はどちらも最長 50 文字で、小文字の英数字、ダッシュ、アンダースコアのみを含めることができます。 これらの値は顧客にも表示される場合があり、オファーの公開後に変更することはできません。
 

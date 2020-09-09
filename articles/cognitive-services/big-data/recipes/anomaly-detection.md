@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 07/06/2020
 ms.author: marhamil
 ms.custom: devx-track-python
-ms.openlocfilehash: b29fa17c21b2cdb2e764c905af3819142d8c341e
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 4f6fa73130e3e78b573a866dbb6524acbc88c50c
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87844067"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88691464"
 ---
 # <a name="recipe-predictive-maintenance-with-the-cognitive-services-for-big-data"></a>レシピ: ビッグ データの Cognitive Services を使用した予測メンテナンス
 
@@ -30,7 +30,7 @@ ms.locfileid: "87844067"
 
 ## <a name="prerequisites"></a>前提条件
 
-* Azure サブスクリプション - [無料アカウントを作成します](https://azure.microsoft.com/free/)
+* Azure サブスクリプション - [無料アカウントを作成します](https://azure.microsoft.com/free/cognitive-services)
 * [Spark プール](https://docs.microsoft.com/azure/synapse-analytics/quickstart-create-apache-spark-pool)で構成された [Azure Synapse ワークスペース](https://docs.microsoft.com/azure/synapse-analytics/quickstart-create-workspace)
 
 ## <a name="setup"></a>セットアップ
@@ -151,4 +151,4 @@ plt.show()
 
 ## <a name="next-steps"></a>次のステップ
 
-Azure Cognitive Services、Azure Synapse Analytics、および Azure CosmosDB を使用して大規模な予測メンテナンスを行う方法について説明します。 詳細については、[GitHub](https://github.com/Azure-Samples/cosmosdb-synapse-link-samples/tree/master/IoT) で完全なサンプルを参照してください。
+Azure Cognitive Services、Azure Synapse Analytics、および Azure CosmosDB を使用して大規模な予測メンテナンスを行う方法について説明します。 詳細については、[GitHub](https://github.com/Azure-Samples/cosmosdb-synapse-link-samples) で完全なサンプルを参照してください。

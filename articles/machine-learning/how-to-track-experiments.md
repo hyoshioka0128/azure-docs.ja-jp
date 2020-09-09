@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 07/30/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: d0c6488f9a75bbf9ba6775138edeed9c4a397abf
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: 18c7e5b3a1401540d7a94186fda647d413d562c0
+ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87552222"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88723845"
 ---
 # <a name="enable-logging-in-azure-ml-training-runs"></a>Azure ML のトレーニングの実行でログ記録を有効にする
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -42,12 +42,6 @@ Azure Machine Learning Python SDK を使用すると、既定の Python ログ �
 ## <a name="interactive-logging-session"></a>対話型のログ セッション
 
 対話型のログ セッションは、通常、ノートブック環境で使用されます。 メソッド [Experiment.start_logging()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment(class)?view=azure-ml-py#start-logging--args----kwargs-) を使用すると、対話型のログ セッションが開始されます。 セッション中にログに記録されるすべてのメトリックは、実験の実行レコードに追加されます。 メソッド [run.complete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#complete--set-status-true-) を使用すると、セッションが終了し、実行が完了としてマークされます。
-
-次のコード スニペットでは、対話型のログ セッションを使用して、トレーニング パラメーターとパフォーマンス メトリックを [run.log()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#log-name--value--description----) メソッドでログに記録します。 また、トレーニングされたモデルが指定した出力場所にアップロードされます。
-
-[!notebook-python[] (~/MachineLearningNotebooks/how-to-use-azureml/training/train-within-notebook/train-within-notebook.ipynb?name=create_experiment)]
-
-対話型のログを使用する完全なサンプル ノートブックについては、[ノートブックでモデルをトレーニングする](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-within-notebook/train-within-notebook.ipynb)方法に関するページを参照してください。
 
 ## <a name="scriptrunconfig-logs"></a>ScriptRunConfig のログ
 
@@ -76,8 +70,6 @@ run = exp.submit(src, show_output=True)
 run.wait_for_completion(show_output=True)
 ```
 
-ScriptRunConfigs ログを使用する完全なサンプル ノートブックについては、[ローカルでモデルをトレーニングする](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-on-local/train-on-local.ipynb)方法に関するページを参照してください。
-
 ## <a name="native-python-logging"></a>ネイティブの Python のログ
 
 SDK の一部のログには、ログ レベルを DEBUG に設定するよう指示するエラーが含まれる場合があります。 ログ記録のレベルを設定するには、スクリプトに次のコードを追加します。
@@ -94,8 +86,8 @@ Azure Machine Learning では、トレーニング中に、自動機械学習の
 Azure Machine Learning デザイナー (プレビュー) におけるメトリックのログ記録の詳細については、[デザイナーでメトリックをログに記録する方法 (プレビュー)](how-to-track-designer-experiments.md) に関する記事を参照してください
 
 ## <a name="example-notebooks"></a>サンプルの Notebook
+
 次の Notebook は、この記事の概念を示しています。
-* [how-to-use-azureml/training/train-within-notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-within-notebook)
 * [how-to-use-azureml/training/train-on-local](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-on-local)
 * [how-to-use-azureml/track-and-monitor-experiments/logging-api](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/track-and-monitor-experiments/logging-api)
 

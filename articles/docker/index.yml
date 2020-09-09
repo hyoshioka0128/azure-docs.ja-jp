@@ -3,19 +3,19 @@ title: Docker on Azure のドキュメント
 summary: Docker は人気のあるコンテナー管理およびイメージング プラットフォームで、Linux および Windows 上のコンテナーを簡単に操作できます。 Docker on Azure の利用方法について説明します。
 metadata:
   title: Docker on Azure のドキュメント
-  description: Docker は人気のあるコンテナー管理およびイメージング プラットフォームで、Linux および Windows 上のコンテナーを簡単に操作できます。 Docker on Azure の利用方法について説明します。
+  description: Docker は人気のあるコンテナー管理およびイメージング プラットフォームで、Linux および Windows 上のコンテナーを簡単に操作できます。
   services: multiple
   ms.service: multiple
   ms.topic: landing-page
   author: georgewallace
   ms.author: gwallace
   ms.date: 03/08/2020
-  ms.openlocfilehash: 9205a47ee0ba3e6e0b328c8f481b15fe593ec5fb
-  ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+  ms.openlocfilehash: 700c5b1e113de32b80b3d716db915836049128ec
+  ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
   ms.translationtype: HT
   ms.contentlocale: ja-JP
-  ms.lasthandoff: 08/11/2020
-  ms.locfileid: "88080387"
+  ms.lasthandoff: 09/04/2020
+  ms.locfileid: "89470121"
 landingContent:
 - title: Docker on Azure のデプロイ
   linkLists:
@@ -30,7 +30,7 @@ landingContent:
     - text: Azure App Service で PostgreSQL を使用して Python (Django) Web アプリを実行する
       url: ../app-service/tutorial-python-postgresql-app.md
     - text: Jenkins、GitHub、および Docker を使用して、Azure 内の Linux VM に開発インフラストラクチャを作成する
-      url: ../jenkins/tutorial-jenkins-github-docker-cicd.md
+      url: /azure/developer/jenkins/pipeline-with-github-and-docker
 - title: リソース
   linkLists:
   - linkListType: reference

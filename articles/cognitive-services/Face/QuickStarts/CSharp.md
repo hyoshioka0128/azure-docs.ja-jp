@@ -10,18 +10,18 @@ ms.subservice: face-api
 ms.topic: quickstart
 ms.date: 08/05/2020
 ms.author: pafarley
-ms.openlocfilehash: 050ff882e70d162749e1c4e913b523e79c81a7a2
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: fe6def8a935fcc6f093c4489409a3bcde829ac10
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87834101"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89294936"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-c"></a>クイック スタート:Face REST API と C# を使用して画像から顔を検出する
 
 このクイック スタートでは、Azure Face REST API と C# を使用して、画像から人の顔を検出します。
 
-Azure サブスクリプションをお持ちでない場合は、開始する前に [無料アカウント](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) を作成してください。
+Azure サブスクリプションをお持ちでない場合は、開始する前に [無料アカウント](https://azure.microsoft.com/free/cognitive-services/) を作成してください。
 
 ## <a name="prerequisites"></a>前提条件
 
@@ -70,7 +70,7 @@ namespace DetectFace
 
         // replace <myresourcename> with the string found in your endpoint URL
         const string uriBase =
-            "https://<myresourcename>.cognitive.microsoft.com/face/v1.0/detect";
+            "https://<myresourcename>.cognitiveservices.azure.com/face/v1.0/detect";
 ```
 
 ### <a name="receive-image-input"></a>画像の入力を受け取る

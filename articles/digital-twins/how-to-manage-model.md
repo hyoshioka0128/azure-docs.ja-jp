@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 64c7db4223fcb703272749b0bf8d5b1583fbb818
-ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
+ms.openlocfilehash: ff89b38de1ff62ddea328a49b998692e8039341f
+ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87987326"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88661556"
 ---
 # <a name="manage-azure-digital-twins-models"></a>Azure Digital Twins のモデルを管理する
 
@@ -69,7 +69,7 @@ Azure Digital Twins のモデルは DTDL で記述され、 *.json* ファイル
 
 [!INCLUDE [Azure Digital Twins: validate models info](../../includes/digital-twins-validate.md)]
 
-## <a name="manage-models-with-apis"></a>API を使用してモデルを管理する。
+## <a name="manage-models-with-apis"></a>API を使用してモデルを管理する
 
 以下のセクションでは、[Azure Digital Twins API と SDK](how-to-use-apis-sdks.md) を使用して、さまざまなモデル管理操作を完了する方法について説明します。
 
@@ -174,7 +174,7 @@ Pageable<ModelData> pmd4 = client.GetModels(new string[] { modelId }, true);
 
 これらは別の機能であり、互いに影響を与えることはありませんが、一緒に使用してモデルを段階的に削除することもできます。 
 
-### <a name="decommissioning"></a>使用停止
+#### <a name="decommissioning"></a>使用停止
 
 モデルの使用を停止するコードを次に示します。
 

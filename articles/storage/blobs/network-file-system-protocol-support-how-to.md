@@ -9,19 +9,19 @@ ms.date: 08/04/2020
 ms.author: normesta
 ms.reviewer: yzheng
 ms.custom: references_regions
-ms.openlocfilehash: 2517a0ac8edf30ac041708a57b166af6eb36440a
-ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
+ms.openlocfilehash: 09206b8189f03a37f8bd7d073238609a3f1bd3ad
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87760798"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88816101"
 ---
 # <a name="mount-blob-storage-by-using-the-network-file-system-nfs-30-protocol-preview"></a>ネットワーク ファイル システム (NFS) 3.0 プロトコル (プレビュー) を使用して Blob Storage をマウントする
 
 Windows または Linux ベースの Azure 仮想マシン (VM) か、オンプレミスで実行されている Windows または Linux システムから、NFS 3.0 プロトコルを使用して、BLOB Storage にコンテナーをマウントすることができます。 この記事では、ステップ バイ ステップ ガイダンスを提供しています。 BLOB ストレージでの NFS 3.0 プロトコルのサポートの詳細については、「[Azure Blob Storage でのネットワーク ファイル システム (NFS) 3.0 プロトコルのサポート (プレビュー)](network-file-system-protocol-support.md)」を参照してください。
 
 > [!NOTE]
-> Azure BLOB Storage での NFS 3.0 プロトコルのサポートはパブリック プレビュー段階であり、次のリージョンで利用できます。米国東部、米国中部、およびカナダ中部。
+> Azure BLOB Storage での NFS 3.0 プロトコルのサポートはパブリック プレビュー段階であり、次のリージョンで利用できます。米国東部、米国中部、米国中西部、オーストラリア南東部、北ヨーロッパ、英国西部、韓国中部、韓国南部、カナダ中部。
 
 ## <a name="step-1-register-the-nfs-30-protocol-feature-with-your-subscription"></a>手順 1:NFS 3.0 プロトコル機能をサブスクリプションに登録する
 
@@ -92,7 +92,7 @@ NFS 3.0 を使用してコンテナーをマウントするには、その機能
 
 |設定 | 値|
 |----|---|
-|場所|次のいずれかのリージョン:米国東部、米国中部、およびカナダ中部 |
+|場所|次のいずれかのリージョン:米国東部、米国中部、米国中西部、オーストラリア南東部、北ヨーロッパ、英国西部、韓国中部、韓国南部、カナダ中部 |
 |パフォーマンス|Premium|
 |アカウントの種類|BlockBlobStorage|
 |レプリケーション|ローカル冗長ストレージ (LRS)|
@@ -109,11 +109,11 @@ NFS 3.0 を使用してコンテナーをマウントするには、その機能
 
 |ツール|SDK|
 |---|---|
-|[Azure 記憶域エクスプローラー](data-lake-storage-explorer.md#create-a-container)|[.NET](data-lake-storage-directory-file-acl-dotnet.md#create-a-container)|
+|[Azure Portal](https://portal.azure.com)|[.NET](data-lake-storage-directory-file-acl-dotnet.md#create-a-container)|
 |[AzCopy](../common/storage-use-azcopy-blobs.md#create-a-container)|[Java](data-lake-storage-directory-file-acl-java.md#create-a-container)|
 |[PowerShell](data-lake-storage-directory-file-acl-powershell.md#create-a-container)|[Python](data-lake-storage-directory-file-acl-python.md#create-a-container)|
 |[Azure CLI](data-lake-storage-directory-file-acl-cli.md#create-a-container)|[JavaScript](data-lake-storage-directory-file-acl-javascript.md)|
-|[Azure Portal](https://portal.azure.com)|[REST](https://docs.microsoft.com/rest/api/storageservices/create-container)|
+||[REST](https://docs.microsoft.com/rest/api/storageservices/create-container)|
 
 ## <a name="step-7-mount-the-container"></a>手順 7:コンテナーをマウントする
 
@@ -153,6 +153,15 @@ Windows または Linux システムにディレクトリを作成してから�
    - このコマンドに表示される `<storage-account-name>` プレースホルダーをストレージ アカウントの名前に置き換えます。  
 
    - `<container-name>` プレースホルダーは、実際のコンテナーの名前に置き換えます。
+
+3. 書き込みアクセス許可が必要な場合は、Windows で共有に接続するために使用する既定の UID と GID を変更することが必要になる場合があります。 これを行うには、管理者として次の PowerShell コマンドを実行します。
+
+   ```
+   New-ItemProperty -Path HKLM:\SOFTWARE\Microsoft\ClientForNFS\CurrentVersion\Default -Name AnonymousUid -PropertyType DWord -Value 0
+   New-ItemProperty -Path HKLM:\SOFTWARE\Microsoft\ClientForNFS\CurrentVersion\Default -Name AnonymousGid -PropertyType DWord -Value 0
+   ```
+   
+   - この変更を行ってから、NFS クライアント サービスを再起動するか、サーバーを再起動してください。
 
 ---
 
