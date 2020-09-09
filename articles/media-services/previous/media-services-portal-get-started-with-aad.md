@@ -13,17 +13,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: ee04fa7120f5510d703d72e662036f4fe952cd66
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3d6c494232456b4819c9275d66fa6f7ab5de9b77
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78330670"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89260732"
 ---
 # <a name="get-started-with-azure-ad-authentication-by-using-the-azure-portal"></a>Azure Portal で Azure AD 認証を開始する
 
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
 > [!NOTE]
-> Media Services v2 には新機能は追加されません。 <br/>最新のバージョンである [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/) をご確認ください。 また、[v2 から v3 への移行ガイダンス](../latest/migrate-from-v2-to-v3.md)を参照してください。
+> Media Services v2 には新機能は追加されません。 <br/>最新のバージョンである [Media Services v3](../latest/index.yml) をご確認ください。 また、[v2 から v3 への移行ガイダンス](../latest/migrate-from-v2-to-v3.md)を参照してください。
 
 Azure Portal を使用して Azure Active Directory (Azure AD) 認証にアクセスして Azure Media Services API にアクセスする方法を説明します。
 
@@ -53,7 +55,7 @@ Azure Active Directory (Azure AD) アプリとシークレットを使用して�
 
 **[AAD アプリとシークレットの管理]** セクションでは、新しい Azure AD アプリを選択または作成し、シークレットを生成できます。 セキュリティ上の理由により、ブレードを閉じた後にシークレットを表示することはできません。 アプリケーションでは、認証にアプリケーション ID とシークレットを使用して、メディア サービスの有効なトークンを取得します。
 
-Azure AD テナントにアプリケーションを登録し、アプリケーションを Azure サブスクリプションのロールに割り当てるための十分なアクセス許可があることを確認してください。 詳細については、「[必要なアクセス許可](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#required-permissions)」を参照してください。
+Azure AD テナントにアプリケーションを登録し、アプリケーションを Azure サブスクリプションのロールに割り当てるための十分なアクセス許可があることを確認してください。 詳細については、「[必要なアクセス許可](../../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app)」を参照してください。
 
 ### <a name="connect-to-media-services-api"></a>Media Services API に接続する
 
