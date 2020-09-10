@@ -22,7 +22,7 @@ ms.locfileid: "87843965"
 # <a name="quickstart-use-python-to-query-a-database-in-azure-sql-database-or-azure-sql-managed-instance"></a>クイック スタート:Python を使用して Azure SQL Database または Azure SQL Managed Instance 内のデータベースに対してクエリを実行する
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-このクイックスタートでは、Python を使用して Azure SQL データベースまたは Azure SQL マネージド インスタンスに接続し、T-SQL ステートメントを使用してデータに対してクエリを実行します。
+このクイックスタートでは、Python を使用して Azure SQL Database または Azure SQL マネージド インスタンスに接続し、T-SQL ステートメントを使用してデータに対してクエリを実行します。
 
 ## <a name="prerequisites"></a>前提条件
 
