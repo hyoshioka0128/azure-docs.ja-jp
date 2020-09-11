@@ -19,4 +19,4 @@ Azure ストレージ アカウントを作成する最も簡単な方法は、[
 
 [Azure PowerShell](../articles/storage/common/storage-powershell-guide-full.md) または [Azure CLI](../articles/storage/common/storage-azure-cli.md) を使って、Azure Storage アカウントを作成することもできます。
 
-現時点でストレージ アカウントを作成しない場合は、Azure Storage エミュレーターを使って、ローカル環境でコードの実行とテストを行うこともできます。 詳細については、「[開発とテストのための Azure のストレージ エミュレーター使用](../articles/storage/common/storage-use-emulator.md)」を参照してください。
+現時点でストレージ アカウントを作成しない場合は、Azure Storage Emulator を使って、ローカル環境でコードの実行とテストを行うこともできます。 詳細については、「[開発とテストに Azure ストレージ エミュレーターを使用する](../articles/storage/common/storage-use-emulator.md)」を参照してください。
