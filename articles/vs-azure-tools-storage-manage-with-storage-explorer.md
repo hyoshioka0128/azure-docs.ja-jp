@@ -109,7 +109,7 @@ Storage Explorer でリソースにアタッチする方法は複数あります
 * [接続文字列を使用する](#use-a-connection-string)。 ストレージ アカウントへの接続文字列がある場合は、このオプションを使用します。 Storage Explorer では、キーと [Shared Access Signature](storage/common/storage-dotnet-shared-access-signature-part-1.md) 接続文字列の両方がサポートされています。
 * [Shared Access Signature URI を使用する](#use-a-shared-access-signature-uri)。 BLOB コンテナー、ファイル共有、キュー、またはテーブルへの [Shared Access Signature URI](storage/common/storage-dotnet-shared-access-signature-part-1.md) がある場合は、それを使用してリソースにアタッチします。 Shared Access Signature URI を取得するには、[Storage Explorer](#generate-a-sas-in-storage-explorer) または [Azure portal](https://portal.azure.com) のいずれかを使用できます。
 * [名前とキーを使用する](#use-a-name-and-key)。 ストレージ アカウントへのいずれかのアカウント キーがわかっている場合は、このオプションを使用してすばやく接続することができます。 [Azure portal](https://portal.azure.com) で、 **[設定]**  >  **[アクセス キー]** を選択して、ストレージ アカウント ページでお使いのキーを探します。
-* [ローカル エミュレーターにアタッチする](#attach-to-a-local-emulator)。 使用可能な Azure Storage エミュレーターのいずれかを使用している場合は、このオプションを使用して簡単にエミュレーターに接続することができます。
+* [ローカル エミュレーターにアタッチする](#attach-to-a-local-emulator)。 使用可能な Azure Storage Emulator のいずれかを使用している場合は、このオプションを使用して簡単にエミュレーターに接続することができます。
 * [接続文字列を使って Azure Cosmos DB アカウントに接続する](#connect-to-an-azure-cosmos-db-account-by-using-a-connection-string)。 CosmosDB インスタンスへの接続文字列がある場合は、このオプションを使用します。
 * [Azure Data Lake Store に URI で接続する](#connect-to-azure-data-lake-store-by-uri)。 Azure Data Lake Store への URI がある場合は、このオプションを使用します。
 
