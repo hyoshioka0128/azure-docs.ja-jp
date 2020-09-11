@@ -822,7 +822,7 @@ ms.locfileid: "87828780"
 * 場合によっては、Storage Explorer は Classic Storage アカウントを表示するのに失敗します。 [#323](https://github.com/Microsoft/AzureStorageExplorer/issues/323)
 
 ### <a name="known-issues"></a>既知の問題
-* Azure Storage エミュレーターや Azurite などのエミュレーターを使用している場合、エミュレーターに既定のポートでの接続をリッスンさせる必要があります。 そうしないと、Storage Explorer がそれらに接続できません。
+* Azure Storage Emulator や Azurite などのエミュレーターを使用している場合、エミュレーターに既定のポートでの接続をリッスンさせる必要があります。 そうしないと、Storage Explorer がそれらに接続できません。
 * VS for Mac を使用しており、カスタム AAD 構成を作成したことがある場合、サインインできないことがあります。 この問題を回避するには、~/.IdentityService/AadConfigurations の内容を削除します。 これを行ってもブロックが解除されない場合は、[この問題](https://github.com/Microsoft/AzureStorageExplorer/issues/97)についてコメントをお寄せください。
 * Azurite は、すべての Storage API を完全に実装しているわけではありません。 そのため、開発ストレージに Azurite を使用すると、予期しないエラーや動作が発生する可能性があります。
 * まれに、ツリーのフォーカスがクイック アクセスから移動しなくなることがあります。 フォーカスを移動できるようにするには、[すべて更新] をクリックします。
@@ -878,7 +878,7 @@ ms.locfileid: "87828780"
 * 場合によっては、Storage Explorer は Classic Storage アカウントを表示するのに失敗します。 [#323](https://github.com/Microsoft/AzureStorageExplorer/issues/323)
 
 ### <a name="known-issues"></a>既知の問題
-* Azure Storage エミュレーターや Azurite などのエミュレーターを使用している場合、エミュレーターに既定のポートでの接続をリッスンさせる必要があります。 そうしないと、Storage Explorer がそれらに接続できません。
+* Azure Storage Emulator や Azurite などのエミュレーターを使用している場合、エミュレーターに既定のポートでの接続をリッスンさせる必要があります。 そうしないと、Storage Explorer がそれらに接続できません。
 * VS for Mac を使用しており、カスタム AAD 構成を作成したことがある場合、サインインできないことがあります。 この問題を回避するには、~/.IdentityService/AadConfigurations の内容を削除します。 これを行ってもブロックが解除されない場合は、[この問題](https://github.com/Microsoft/AzureStorageExplorer/issues/97)についてコメントをお寄せください。
 * Azurite は、すべての Storage API を完全に実装しているわけではありません。 そのため、開発ストレージに Azurite を使用すると、予期しないエラーや動作が発生する可能性があります。
 * まれに、ツリーのフォーカスがクイック アクセスから移動しなくなることがあります。 フォーカスを移動できるようにするには、[すべて更新] をクリックします。
@@ -933,7 +933,7 @@ ms.locfileid: "87828780"
 * 場合によっては、Storage Explorer は Classic Storage アカウントを表示するのに失敗します。 [#323](https://github.com/Microsoft/AzureStorageExplorer/issues/323)
 
 ### <a name="known-issues"></a>既知の問題
-* Azure Storage エミュレーターや Azurite などのエミュレーターを使用している場合、エミュレーターに既定のポートでの接続をリッスンさせる必要があります。 そうしないと、Storage Explorer がそれらに接続できません。
+* Azure Storage Emulator や Azurite などのエミュレーターを使用している場合、エミュレーターに既定のポートでの接続をリッスンさせる必要があります。 そうしないと、Storage Explorer がそれらに接続できません。
 * VS for Mac を使用しており、カスタム AAD 構成を作成したことがある場合、サインインできないことがあります。 この問題を回避するには、~/.IdentityService/AadConfigurations の内容を削除します。 これを行ってもブロックが解除されない場合は、[この問題](https://github.com/Microsoft/AzureStorageExplorer/issues/97)についてコメントをお寄せください。
 * Azurite は、すべての Storage API を完全に実装しているわけではありません。 そのため、開発ストレージに Azurite を使用すると、予期しないエラーや動作が発生する可能性があります。
 * まれに、ツリーのフォーカスがクイック アクセスから移動しなくなることがあります。 フォーカスを移動できるようにするには、[すべて更新] をクリックします。
@@ -993,7 +993,7 @@ ms.locfileid: "87828780"
 * 場合によっては、Storage Explorer は Classic Storage アカウントを表示するのに失敗します。 [#323](https://github.com/Microsoft/AzureStorageExplorer/issues/323)
 
 ### <a name="known-issues"></a>既知の問題
-* Azure Storage エミュレーターや Azurite などのエミュレーターを使用している場合、エミュレーターに既定のポートでの接続をリッスンさせる必要があります。 そうしないと、Storage Explorer がそれらに接続できません。
+* Azure Storage Emulator や Azurite などのエミュレーターを使用している場合、エミュレーターに既定のポートでの接続をリッスンさせる必要があります。 そうしないと、Storage Explorer がそれらに接続できません。
 * VS for Mac を使用しており、カスタム AAD 構成を作成したことがある場合、サインインできないことがあります。 この問題を回避するには、~/.IdentityService/AadConfigurations の内容を削除します。 これを行ってもブロックが解除されない場合は、[この問題](https://github.com/Microsoft/AzureStorageExplorer/issues/97)についてコメントをお寄せください。
 * Azurite は、すべての Storage API を完全に実装しているわけではありません。 そのため、開発ストレージに Azurite を使用すると、予期しないエラーや動作が発生する可能性があります。
 * まれに、ツリーのフォーカスがクイック アクセスから移動しなくなることがあります。 フォーカスを移動できるようにするには、[すべて更新] をクリックします。
@@ -1107,7 +1107,7 @@ ms.locfileid: "87828780"
 * オプション ボタンとチェック ボックスに、フォーカス時に表示される枠線がありませんでした。 この問題は修正されています。 [#237](https://github.com/Microsoft/AzureStorageExplorer/issues/237)
 
 ### <a name="known-issues"></a>既知の問題
-* Azure Storage エミュレーターや Azurite などのエミュレーターを使用している場合、エミュレーターに既定のポートでの接続をリッスンさせる必要があります。 そうしないと、Storage Explorer がそれらに接続できません。
+* AAzure Storage Emulator や Azurite などのエミュレーターを使用している場合、エミュレーターに既定のポートでの接続をリッスンさせる必要があります。 そうしないと、Storage Explorer がそれらに接続できません。
 * VS for Mac を使用しており、カスタム AAD 構成を作成したことがある場合、サインインできないことがあります。 この問題を回避するには、~/.IdentityService/AadConfigurations の内容を削除します。 これを行ってもブロックが解除されない場合は、[この問題](https://github.com/Microsoft/AzureStorageExplorer/issues/97)についてコメントをお寄せください。
 * Azurite は、すべての Storage API を完全に実装しているわけではありません。 そのため、開発ストレージに Azurite を使用すると、予期しないエラーや動作が発生する可能性があります。
 * まれに、ツリーのフォーカスがクイック アクセスから移動しなくなることがあります。 フォーカスを移動できるようにするには、[すべて更新] をクリックします。
