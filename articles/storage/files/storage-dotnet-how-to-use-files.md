@@ -100,7 +100,7 @@ NuGet を使って両方のパッケージを取得できます。 次の手順�
 ```
 
 > [!NOTE]
-> 最新バージョンの Azure Storage エミュレーターと Azurite オープンソース エミュレーターは、Azure Files をサポートしていません。 Azure Files を操作するには、接続文字列がクラウド内の Azure ストレージ アカウントを対象とする必要があります。
+> 最新バージョンの Azure Storage Emulator と Azurite オープンソース エミュレーターは、Azure Files をサポートしていません。 Azure Files を操作するには、接続文字列がクラウド内の Azure ストレージ アカウントを対象とする必要があります。
 
 ## <a name="add-using-directives"></a>using ディレクティブを追加する
 
