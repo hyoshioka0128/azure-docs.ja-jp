@@ -327,7 +327,7 @@ Azure SDK を使用している場合は、`--oauth basic and --cert --key/--pwd
 
 ### <a name="well-known-storage-account-and-key"></a>既知のストレージ アカウントとキー
 
-Azurite は、従来の Azure Storage エミュレーターで使用されるものと同じ既知のアカウントとキーを受け入れます。
+Azurite は、従来の Azure Storage Explorer で使用されるものと同じ既知のアカウントとキーを受け入れます。
 
 - アカウント名: `devstoreaccount1`
 - アカウント キー: `Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==`
