@@ -88,7 +88,7 @@ Azure Functions プロジェクトを作成した後、プロジェクト テン
 
 ## <a name="configure-the-project-for-local-development"></a>ローカル開発用のプロジェクトを構成する
 
-Functions ランタイムでは内部的に Azure Storage アカウントを使用します。 HTTP と Webhook 以外のすべてのトリガーの種類について、`Values.AzureWebJobsStorage` キーを有効な Azure Storage アカウントの接続文字列に設定します。 関数アプリでは、プロジェクトに必要な `AzureWebJobsStorage` 接続設定に [Azure ストレージ エミュレーター](../storage/common/storage-use-emulator.md)を使用することもできます。 エミュレーターを使用するには、`AzureWebJobsStorage` の値を `UseDevelopmentStorage=true` に設定します。 この設定は、デプロイ前に実際のストレージ アカウント接続文字列に変更します。
+Functions ランタイムでは内部的に Azure Storage アカウントを使用します。 HTTP と Webhook 以外のすべてのトリガーの種類について、`Values.AzureWebJobsStorage` キーを有効な Azure Storage アカウントの接続文字列に設定します。 関数アプリでは、プロジェクトに必要な `AzureWebJobsStorage` 接続設定に [Azure Storage Emulator](../storage/common/storage-use-emulator.md)を使用することもできます。 エミュレーターを使用するには、`AzureWebJobsStorage` の値を `UseDevelopmentStorage=true` に設定します。 この設定は、デプロイ前に実際のストレージ アカウント接続文字列に変更します。
 
 ストレージ アカウントの接続文字列を設定するには、次のようにします。
 
