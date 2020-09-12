@@ -16,7 +16,7 @@ ms.lasthandoff: 08/21/2020
 ms.locfileid: "88723257"
 ---
 # <a name="store-and-view-diagnostic-data-in-azure-storage"></a>Azure Storage への診断データの保存と表示
-診断データは、Microsoft Azure ストレージ エミュレーターまたは Azure ストレージに転送しない限り、永続的に保存されません。 診断データは、いったんストレージに保存されると、用意されているいくつかのツールの 1 つを使用して確認することができます。
+診断データは、Microsoft Azure Storage Emulator または Azure ストレージに転送しない限り、永続的に保存されません。 診断データは、いったんストレージに保存されると、用意されているいくつかのツールの 1 つを使用して確認することができます。
 
 ## <a name="specify-a-storage-account"></a>ストレージ アカウントの指定
 ServiceConfiguration.cscfg ファイル内で使用するストレージ アカウントを指定します。 アカウント情報は、構成設定で接続文字列として定義されます。 次の例では、Visual Studio で新しい Cloud Service プロジェクト用に作成された既定の接続文字列を示します。
