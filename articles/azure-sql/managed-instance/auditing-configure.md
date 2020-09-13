@@ -247,6 +247,6 @@ Azure Blob Storage を監査するための `CREATE AUDIT` 構文の主な相違
 ## <a name="next-steps"></a>次のステップ
 
 - 監査ログの使い方の完全な一覧については、[Azure SQL Database 監査の使用](../../azure-sql/database/auditing-overview.md)に関するページをご覧ください。
-- 標準コンプライアンスをサポートする Azure プログラムの詳細については、[Azure セキュリティ センター](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942)をご覧ください。ここから最新のコンプライアンス証明書の一覧を入手できます。
+- 標準コンプライアンスをサポートする Azure プログラムの詳細については、[Azure Trust Center](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942)をご覧ください。ここから最新のコンプライアンス証明書の一覧を入手できます。
 
 <!--Image references-->
