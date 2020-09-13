@@ -38,7 +38,7 @@ ms.locfileid: "88932544"
 ## <a name="what-youll-learn"></a>学習内容
 * Azure SDK をインストールして、Azure 向け開発用にコンピューターを準備する方法
 * ASP.NET MVC の Web ロールと worker ロールを使用して、Visual Studio クラウド サービス プロジェクトを作成する方法
-* Azure ストレージ エミュレーターを使用してクラウド サービス プロジェクトをローカルでテストする方法
+* Azure Storage Emulator を使用してクラウド サービス プロジェクトをローカルでテストする方法
 * Azure ストレージ アカウントを使用してクラウド プロジェクトを Azure クラウド サービスに発行し、テストする方法
 * ファイルを Azure Blob service にアップロードして保存する方法
 * Azure Queue サービスを使用して階層間の通信を行う方法
