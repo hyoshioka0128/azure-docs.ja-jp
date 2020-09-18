@@ -160,7 +160,7 @@ Sink 要素と、診断データを [Application Insights](../app/cloudservices.
 ### <a name="azure-sdk-26-and-diagnostics-extension-13"></a>Azure SDK 2.6 と診断拡張 1.3
 Visual Studio のクラウド サービス プロジェクトで、次の変更が行われました (これらの変更はそれ以降のバージョンの Azure SDK にも当てはまります)。
 
-* ローカル エミュレーターで診断がサポートされるようになりました。 この変更により、Visual Studio での開発およびテスト時に診断データを収集し、開発中のアプリケーションで正しくトレースが作成されることを確認できるようになりました。 Visual Studio で Azure ストレージ エミュレーターを使ってクラウド サービス プロジェクトを実行している間に行われる診断データ収集が、接続文字列 `UseDevelopmentStorage=true` を指定すると有効になります。 すべての診断データは、(開発ストレージ) ストレージ アカウントに収集されます。
+* ローカル エミュレーターで診断がサポートされるようになりました。 この変更により、Visual Studio での開発およびテスト時に診断データを収集し、開発中のアプリケーションで正しくトレースが作成されることを確認できるようになりました。 Visual Studio で Azure Storage Emulator を使ってクラウド サービス プロジェクトを実行している間に行われる診断データ収集が、接続文字列 `UseDevelopmentStorage=true` を指定すると有効になります。 すべての診断データは、(開発ストレージ) ストレージ アカウントに収集されます。
 * 診断ストレージ アカウントの接続文字列 (Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString) の保存先が、再びサービス構成 (.cscfg) ファイルに戻されました。 Azure SDK 2.5 では、診断ストレージ アカウントが diagnostics.wadcfgx ファイルで指定されていました。
 
 Azure SDK 2.4 以前と Azure SDK 2.6 以降とで、接続文字列の働きに大きな違いがいくつかあります。
