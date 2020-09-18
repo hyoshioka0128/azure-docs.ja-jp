@@ -25,7 +25,7 @@ ms.locfileid: "87081748"
 ## <a name="prerequisites"></a>前提条件
 
 * [Microsoft.Azure.WebJobs.Extensions.DurableTask](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask) を Durable Functions プロジェクトにインストールします。
-* [Azure ストレージ エミュレーター](../../storage/common/storage-use-emulator.md) (Windows のみ) をインストールするか、既存の Azure Storage アカウントを使用します。
+* [Azure Storage Emulator](../../storage/common/storage-use-emulator.md) (Windows のみ) をインストールするか、既存の Azure Storage アカウントを使用します。
 * [Azure CLI](/cli/azure/?view=azure-cli-latest) をインストールするか、[Azure Cloud Shell](../../cloud-shell/overview.md) を使用します
 
 ## <a name="create-a-custom-event-grid-topic"></a>カスタムの Event Grid トピックの作成
