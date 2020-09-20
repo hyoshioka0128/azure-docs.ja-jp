@@ -19,9 +19,9 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "85314934"
 ---
-# <a name="tutorial-migrate-rds-sql-server-to-azure-sql-database-or-an-azure-sql-managed-instance-online-using-dms"></a>チュートリアル:DMS を使用して RDS SQL Server を Azure SQL Database または Azure SQL マネージド インスタンスにオンラインで移行する
+# <a name="tutorial-migrate-rds-sql-server-to-azure-sql-database-or-an-azure-sql-managed-instance-online-using-dms"></a>チュートリアル:DMS を使用して RDS SQL Server を Azure SQL Database または Azure SQL Managed Instance にオンラインで移行する
 
-Azure Database Migration Service を使用すれば、RDS SQL Server インスタンスから [Azure SQL Database](https://docs.microsoft.com/azure/sql-database/) または [Azure SQL マネージド インスタンス](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-index)に最小限のダウンタイムでデータベースを移行できます。 このチュートリアルでは、Azure Database Migration Service を使用して、SQL Server 2012 (以降) の RDS SQL Server インスタンスに復元された **Adventureworks2012** データベースを SQL Database または SQL マネージド インスタンスに移行します。
+Azure Database Migration Service を使用すれば、RDS SQL Server インスタンスから [Azure SQL Database](https://docs.microsoft.com/azure/sql-database/) または [Azure SQL Managed Instance](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-index) に最小限のダウンタイムでデータベースを移行できます。 このチュートリアルでは、Azure Database Migration Service を使用して、SQL Server 2012 (以降) の RDS SQL Server インスタンスに復元された **Adventureworks2012** データベースを SQL Database または SQL マネージド インスタンスに移行します。
 
 このチュートリアルでは、以下の内容を学習します。
 > [!div class="checklist"]
