@@ -36,7 +36,7 @@ SQL Server Management Studio (SSMS) を使用して、Azure Synapse 内のデー
 
 * 既存の SQL プール。 作成するには、[SQL プールの作成](create-data-warehouse-portal.md)に関する記事を参照してください。
 * SQL Server Management Studio (SSMS) をインストールしている。 [SSMS をダウンロード](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)していない場合はダウンロードします (無料)。
-* 完全修飾 SQL サーバー名。 この情報については、[SQL プールへの接続](sql-data-warehouse-connect-overview.md)に関する記事を参照してください。
+* 完全修飾 SQL Server 名。 この情報については、[SQL プールへの接続](sql-data-warehouse-connect-overview.md)に関する記事を参照してください。
 
 ## <a name="1-connect-to-your-sql-pool"></a>1.SQL プールに接続する
 
