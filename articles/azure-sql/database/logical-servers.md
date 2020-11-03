@@ -1,7 +1,7 @@
 ---
 title: Azure SQL Database と Azure Synapse Analytics のサーバーとは何ですか。
 titleSuffix: ''
-description: Azure SQL Database と Azure Synapse Analytics によって使用される論理 SQL サーバーと、それらを管理する方法について説明します。
+description: Azure SQL Database と Azure Synapse Analytics によって使用される論理 SQL Server と、それらを管理する方法について説明します。
 services: sql-database
 ms.service: sql-database
 ms.subservice: single-database
@@ -19,7 +19,7 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 07/31/2020
 ms.locfileid: "87498091"
 ---
-# <a name="what-is-a-logical-sql-server-in-azure-sql-database-and-azure-synapse"></a>Azure SQL Database と Azure Synapse の論理 SQL サーバーとは何ですか。
+# <a name="what-is-a-logical-sql-server-in-azure-sql-database-and-azure-synapse"></a>Azure SQL Database と Azure Synapse の論理 SQL Server とは何ですか。
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
 
 Azure SQL Database と Azure Synapse Analytics では、サーバーは、データベースのコレクションの中央管理ポイントとして機能する論理コンストラクトです。 サーバー レベルでは、[ログイン](logins-create-manage.md)、[ファイアウォール規則](firewall-configure.md)、[監査規則](../../azure-sql/database/auditing-overview.md)、[脅威検出ポリシー](threat-detection-configure.md)、[自動フェールオーバー グループ](auto-failover-group-overview.md)を管理できます。 サーバーは、そのリソース グループとは別のリージョンに入ることができます。 Azure SQL Database のデータベースまたは Azure Synapse Analytics のデータ ウェアハウス データベースを作成するには、サーバーが存在している必要があります。 単一のサーバーによって管理されるすべてのデータベースは、サーバーと同じリージョン内で作成されます。
@@ -49,11 +49,11 @@ SQL Database と Azure Synapse のサーバーは、以下のような特長を�
 
 ## <a name="manage-servers-databases-and-firewalls-using-the-azure-portal"></a>Azure portal を利用してサーバー、データベース、ファイアウォールを管理する
 
-サーバー自体を作成する前に、あるいは作成するときにサーバーのリソース グループを作成できます。 新しい SQL サーバーのフォームは新しい SQL サーバーか新しいデータベースを作成するときに表示されます。
+サーバー自体を作成する前に、あるいは作成するときにサーバーのリソース グループを作成できます。 新しい SQL Server のフォームは新しい SQL Server か新しいデータベースを作成するときに表示されます。
 
 ### <a name="create-a-blank-server"></a>空のサーバーを作成する
 
-[Azure portal](https://portal.azure.com) を利用して (データベース、エラスティック プール、データ ウェアハウス データベースのない) サーバーを作成するには、空の SQL サーバー (論理 SQL サーバー) フォームに移動します。
+[Azure portal](https://portal.azure.com) を利用して (データベース、エラスティック プール、データ ウェアハウス データベースのない) サーバーを作成するには、空の SQL Server (論理 SQL Server) フォームに移動します。
 
 ### <a name="create-a-blank-or-sample-database-in-azure-sql-database"></a>Azure SQL Database に空またはサンプルのデータベースを作成する
 
@@ -68,7 +68,7 @@ SQL Database と Azure Synapse のサーバーは、以下のような特長を�
 
 ### <a name="manage-an-existing-server"></a>既存のサーバーを管理する
 
-既存のサーバーを管理するには、さまざまな方法を利用してサーバーに移動します。たとえば、特定のデータベース ページ、**SQL サーバー** ページ、**すべてのリソース** ページから移動します。
+既存のサーバーを管理するには、さまざまな方法を利用してサーバーに移動します。たとえば、特定のデータベース ページ、**SQL Server** ページ、**すべてのリソース** ページから移動します。
 
 既存のデータベースを管理するには、**SQL データベース** ページに移動し、管理するデータベースをクリックします。 次のスクリーンショットでは、データベースの**概要**ページからデータベースにサーバーレベルのファイアウォールを設定する方法を確認できます。
 
