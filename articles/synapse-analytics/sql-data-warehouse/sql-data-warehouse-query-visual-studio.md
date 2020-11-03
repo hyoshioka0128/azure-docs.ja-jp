@@ -35,7 +35,7 @@ Visual Studio を使用して、わずか数分で Azure Synapse 内の SQL プ�
 
 * 既存の SQL プール。 作成するには、[SQL プールの作成](create-data-warehouse-portal.md)に関する記事を参照してください。
 * Visual Studio 用の SSDT。 Visual Studio を使用している場合は、既に Visual Studio 用の SSDT を持っている可能性があります。 インストールの手順とオプションの詳細については、 [Visual Studio と SSDT のインストール](sql-data-warehouse-install-visual-studio.md)に関するページを参照してください。
-* 完全修飾 SQL サーバー名。 この情報については、[SQL プールへの接続](../sql/connect-overview.md)に関する記事を参照してください。
+* 完全修飾 SQL Server 名。 この情報については、[SQL プールへの接続](../sql/connect-overview.md)に関する記事を参照してください。
 
 ## <a name="1-connect-to-your-sql-pool"></a>1.SQL プールに接続する
 1. Visual Studio 2019 を開きます。
