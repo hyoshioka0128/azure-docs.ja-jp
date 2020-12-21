@@ -38,7 +38,7 @@ Azure Pipelines では、仮想マシンにデプロイするための機能が�
 仮想マシンへのカナリア デプロイは、Azure portal から継続的デリバリー オプションを使用して構成することができます。 その詳細な手順は次のとおりです。
 
 1. Azure portal にサインインして仮想マシンに移動します。
-1. VM 設定の一番左のペインで、 **[Continuous delivery]\(継続的デリバリー\)** を選択します。 次に、 **[構成]** を選択します。
+1. VM 設定の一番左のペインで、 **[Continuous delivery]\(継続的デリバリー\)** を選択します。 次に、 **[Configure]\(構成\)** を選択します。
 
    ![[Continuous delivery]\(継続的デリバリー\) ペインと [構成] ボタン](media/tutorial-devops-azure-pipelines-classic/azure-devops-configure.png)
 
