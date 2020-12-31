@@ -61,7 +61,7 @@ Functions は、一括データの処理、システムの統合、モノのイ�
 
 - **Event Grid**: [サブスクリプションとフィルターを介して Azure Event Grid イベント](../event-grid/resize-images-on-storage-blob-upload-event.md)に応答します。
 
-- **イベント ハブ**: [大量の Azure Event Hubs イベント](./functions-bindings-event-hubs.md)に応答します。
+- **Event Hubs**: [大量の Azure Event Hubs イベント](./functions-bindings-event-hubs.md)に応答します。
 
 - **Service Bus キュー**: [Service Bus キュー メッセージに応答](./functions-bindings-service-bus.md)することで、別の Azure サービスやオンプレミス サービスに接続します。
 
