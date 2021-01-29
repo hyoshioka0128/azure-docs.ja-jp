@@ -17,7 +17,7 @@ ms.locfileid: "96901832"
 ---
 # <a name="copy-data-from-amazon-s3-to-azure-storage-by-using-azcopy"></a>AzCopy を使用して Amazon S3 から Azure Storage にデータをコピーする
 
-AzCopy は、ストレージ アカウント間の BLOB またはファイル コピーに利用できるコマンドライン ユーティリティです。 この記事は、AzCopy を使用して Amazon Web Services (AWS) S3 から Azure BLOB ストレージにオブジェクト、ディレクトリ、およびバケットをコピーする場合に役立ちます。
+AzCopy は、ストレージ アカウント間の BLOB またはファイル コピーに利用できるコマンドライン ユーティリティです。 この記事は、AzCopy を使用して Amazon Web Services (AWS) S3 から Azure Blob Storage にオブジェクト、ディレクトリ、およびバケットをコピーする場合に役立ちます。
 
 ## <a name="choose-how-youll-provide-authorization-credentials"></a>認証資格情報の提供方法を選択する
 
