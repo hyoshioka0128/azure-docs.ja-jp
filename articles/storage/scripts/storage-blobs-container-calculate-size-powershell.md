@@ -1,7 +1,7 @@
 ---
 title: PowerShell を使用して BLOB コンテナーのサイズを計算する
 titleSuffix: Azure Storage
-description: コンテナー内の BLOB のサイズを合計して、Azure Blob ストレージ内のコンテナーのサイズを計算します。
+description: コンテナー内の BLOB のサイズを合計して、Azure Blob Storage 内のコンテナーのサイズを計算します。
 services: storage
 author: tamram
 ms.service: storage
@@ -20,7 +20,7 @@ ms.locfileid: "89076907"
 ---
 # <a name="calculate-the-size-of-a-blob-container-with-powershell"></a>PowerShell を使用して BLOB コンテナーのサイズを計算する
 
-このスクリプトでは、コンテナー内のブロブのサイズを合計して、Azure Blob ストレージ内のコンテナーのサイズを計算します。
+このスクリプトでは、コンテナー内のブロブのサイズを合計して、Azure Blob Storage 内のコンテナーのサイズを計算します。
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh-az.md)]
 
