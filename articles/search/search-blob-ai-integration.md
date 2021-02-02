@@ -17,7 +17,7 @@ ms.locfileid: "91362799"
 ---
 # <a name="use-ai-to-understand-blob-storage-data"></a>AI を使用して BLOB ストレージ データを理解する
 
-Azure BLOB ストレージのデータは、多くの場合、画像、長いテキスト、PDF、Office ドキュメントなどのさまざまな非構造化コンテンツです。 Azure Cognitive Search の AI 機能を使用すると、さまざまな方法で BLOB から貴重な情報を抽出し、理解することができます。 AI を BLOB コンテンツに応用する例を次に示します。
+AAzure Blob Storage のデータは、多くの場合、画像、長いテキスト、PDF、Office ドキュメントなどのさまざまな非構造化コンテンツです。 Azure Cognitive Search の AI 機能を使用すると、さまざまな方法で BLOB から貴重な情報を抽出し、理解することができます。 AI を BLOB コンテンツに応用する例を次に示します。
 
 + 光学式文字認識 (OCR) を使用して画像からテキストを抽出する
 + 写真からシーンの説明またはタグを生成する
