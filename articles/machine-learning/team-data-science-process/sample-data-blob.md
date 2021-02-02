@@ -1,5 +1,5 @@
 ---
-title: Azure Blob ストレージのデータをサンプリングする - Team Data Science Process
+title: Azure Blob Storage のデータをサンプリングする - Team Data Science Process
 description: Azure Blob Storage に格納されたデータをサンプリングするには、プログラムでデータをダウンロードしてから、Python で記述されたプロシージャを使用してサンプリングします。
 services: machine-learning
 author: marktab
