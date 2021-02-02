@@ -17,7 +17,7 @@ ms.locfileid: "91403614"
 ---
 # <a name="how-to-configure-a-blob-indexer-in-azure-cognitive-search"></a>Azure Cognitive Search で BLOB インデクサーを使用して BLOB を構成する方法
 
-この記事では、Azure Cognitive Search を使用して、Azure BLOB ストレージに格納されているテキストベースのドキュメント (PDF や Microsoft Office ドキュメント、その他のよく使用されている形式など) のインデックスを作成する方法を示します。 まず、BLOB インデクサーの設定と構成の基礎を説明します。 次に、発生する可能性のある動作とシナリオについて詳しく説明します。
+この記事では、Azure Cognitive Search を使用して、Azure Blob Storage に格納されているテキストベースのドキュメント (PDF や Microsoft Office ドキュメント、その他のよく使用されている形式など) のインデックスを作成する方法を示します。 まず、BLOB インデクサーの設定と構成の基礎を説明します。 次に、発生する可能性のある動作とシナリオについて詳しく説明します。
 
 <a name="SupportedFormats"></a>
 
