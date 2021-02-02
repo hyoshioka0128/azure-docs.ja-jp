@@ -18,7 +18,7 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 11/04/2020
 ms.locfileid: "93321894"
 ---
-# <a name="sample-data-in-azure-blob-storage"></a><a name="heading"></a>Azure BLOB ストレージのデータをサンプリングする
+# <a name="sample-data-in-azure-blob-storage"></a><a name="heading"></a>Azure Blob Storage のデータをサンプリングする
 
 この記事では、Azure Blob Storage に格納されたデータのサンプリングについて説明します。プログラムからデータをダウンロードし、Python で記述されたプロシージャを使ってそのデータをサンプリングします。
 
@@ -28,7 +28,7 @@ ms.locfileid: "93321894"
 このサンプリング タスクは、 [Team Data Science Process (TDSP)](./index.yml)の 1 ステップです。
 
 ## <a name="download-and-down-sample-data"></a>データのダウンロードとダウン サンプリング
-1. 次の Python のサンプル コードから、Blob service を使用して Azure BLOB ストレージからデータをダウンロードします。 
+1. 次の Python のサンプル コードから、Blob service を使用して Azure Blob Storage からデータをダウンロードします。 
 
     ```python
     from azure.storage.blob import BlobService
