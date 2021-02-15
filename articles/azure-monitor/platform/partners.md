@@ -35,7 +35,7 @@ Alert Logic Log Manager は、セキュリティの分析と保持の目的で�
 
 ![AppDynamics のロゴ](./media/partners/appdynamics.png)
 
-AppDynamics アプリケーション パフォーマンス管理 (APM) により、アプリケーション所有者が、パフォーマンスのボトルネックのトラブルシューティングを迅速に行い、Azure 環境で実行されているアプリケーションのパフォーマンスを最適化できます。 それは、Azure Cloud Services (PaaS)、Web および worker ロール、Virtual Machines (IaaS)、リモート サービス検出 (Microsoft Azure Service Bus)、Microsoft Azure キュー Microsoft Azure リモート サービス (Azure Blob)、Azure キュー (Microsoft Service Bus)、データ ストレージ、および Azure Blob Storage を監視できます。 AppDynamics APM は、Azure Marketplace から入手できます。
+AppDynamics アプリケーション パフォーマンス管理 (APM) により、アプリケーション所有者が、パフォーマンスのボトルネックのトラブルシューティングを迅速に行い、Azure 環境で実行されているアプリケーションのパフォーマンスを最適化できます。 それは、Azure Cloud Services (PaaS)、Web および worker ロール、Virtual Machines (IaaS)、リモート サービス検出 (Microsoft Azure Service Bus)、Microsoft Azure Queue Microsoft Azure リモート サービス (Azure Blob)、Azure Queue (Microsoft Service Bus)、データ ストレージ、および Azure Blob Storage を監視できます。 AppDynamics APM は、Azure Marketplace から入手できます。
 
 [AppDynamics のドキュメント](https://www.appdynamics.com/net/azure/) 
 
