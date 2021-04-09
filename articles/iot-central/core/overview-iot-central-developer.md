@@ -4,24 +4,24 @@ description: Azure IoT Central は、IoT ソリューションの作成を簡単
 author: dominicbetts
 ms.author: dobett
 ms.date: 05/05/2020
-ms.topic: overview
+ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 ms.custom:
 - mvc
 - device-developer
-ms.openlocfilehash: e33f48c9496ffa3cca9d8b1aa71d524be9a311bb
-ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
+ms.openlocfilehash: f69bbecfc2acc24cd63b87212197342b28723a9f
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96122254"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102043101"
 ---
-# <a name="iot-central-device-development-overview"></a>IoT Central デバイスの開発の概要
+# <a name="iot-central-device-development-guide"></a>IoT Central デバイスの開発ガイド
 
 "*この記事は、デバイス開発者を対象としています。* "
 
-IoT Central アプリケーションを使用すると、数百万台ものデバイスを、そのライフ サイクル全体にわたって監視および管理することができます。 この概要は、IoT Central に接続されたデバイスで実行されるコードを実装するデバイス開発者を対象としています。
+IoT Central アプリケーションを使用すると、数百万台ものデバイスを、そのライフ サイクル全体にわたって監視および管理することができます。 このガイドは、IoT Central に接続されたデバイスで実行されるコードを実装するデバイス開発者を対象としています。
 
 デバイスは、次のプリミティブを使用して IoT Central と対話します。
 
@@ -68,7 +68,7 @@ DPS を使用すると、次のことが可能になります。
 - 独自のデバイス ID を使用して、IoT Central にデバイスを登録できます。 独自のデバイス ID を使用して、既存のバックオフィス システムとの統合を簡略化できます。
 - 1 つの一貫した方法で IoT Central にデバイスを接続できます。
 
-詳細については、「[Azure IoT Central に接続する](./concepts-get-connected.md)」を参照してください。
+詳細については、「[Azure IoT Central に接続する](./concepts-get-connected.md)」および[ベスト プラクティス](concepts-best-practices.md)に関するページを参照してください。
 
 ### <a name="security"></a>Security
 

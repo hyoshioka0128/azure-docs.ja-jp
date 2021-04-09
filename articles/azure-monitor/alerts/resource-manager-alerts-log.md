@@ -1,17 +1,16 @@
 ---
 title: ログ クエリ アラート用の Resource Manager テンプレートのサンプル
 description: Azure Monitor ログ クエリ アラートをデプロイするためのサンプルの Azure Resource Manager テンプレート。
-ms.subservice: logs
 ms.topic: sample
 author: bwren
 ms.author: bwren
 ms.date: 09/22/2020
-ms.openlocfilehash: 64bdbf1005f0283438777b3bb2ba1d3312b6e140
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 19bbeba3db7e3df5ea5120d3562f24b447848f7f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100597498"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102044036"
 ---
 # <a name="resource-manager-template-samples-for-log-alert-rules-in-azure-monitor"></a>Azure Monitor のログ アラート ルール用の Resource Manager テンプレートのサンプル
 この記事には、Azure Monitor でログ クエリ アラートを作成および構成するための [Azure Resource Manager テンプレート](../../azure-resource-manager/templates/template-syntax.md)のサンプルが含まれています。 各サンプルには、テンプレート ファイルと、テンプレートに指定するサンプル値を含むパラメーター ファイルが含まれています。
@@ -479,4 +478,4 @@ ms.locfileid: "100597498"
 ## <a name="next-steps"></a>次のステップ
 
 * [Azure Monitor の他のサンプル テンプレートを入手します](../resource-manager-samples.md)。
-* [アラート ルールの詳細情報](../platform/alerts-overview.md)。
+* [アラート ルールの詳細情報](./alerts-overview.md)。

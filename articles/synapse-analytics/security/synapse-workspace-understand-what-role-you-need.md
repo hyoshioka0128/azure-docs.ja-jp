@@ -1,19 +1,19 @@
 ---
 title: Synapse で一般的なタスクを実行するために必要なロールについて理解する
 description: この記事では、特定のタスクを実行するために必要な組み込みの Synapse RBAC ロールについて説明します
-author: billgib
+author: RonyMSFT
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: security
 ms.date: 12/1/2020
-ms.author: billgib
+ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 9735293c182e7fe67a498529425459c13a199101
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: 950a786b29a8144c4bb192fa6078e8c88d67481d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97109795"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "100384454"
 ---
 # <a name="understand-the-roles-required-to-perform-common-tasks-in-synapse"></a>Synapse で一般的なタスクを実行するために必要なロールについて理解する
 
@@ -87,7 +87,7 @@ Apache Spark アプリケーションを監視する| Synapse ユーザー|読�
 Apache Spark プールで実行中のノートブックまたは Spark ジョブをキャンセルする|Apache Spark プールに対する Synapse コンピューティング オペレーター|bigDataPools/useCompute
 ノートブックまたはジョブ定義を作成する|Synapse ユーザー、または </br>ワークスペースの Azure 所有者、共同作成者、または閲覧者</br> "*変更の実行、発行、またはコミットを行うには追加のアクセス許可が必要です*"|読み取り</br></br></br></br></br> 
 発行済みノートブックまたはジョブの定義を一覧表示し、開く (保存済み出力の確認を含む)|ワークスペースでの Synapse 成果物ユーザー、Synapse 成果物発行元、Synapse 共同作成者|artifacts/read
-ノートブックを実行し、その出力を確認する|Synapse Apache Spark 管理者、選択した Apache Spark プールに対する Synapse コンピューティング オペレーター|bigDataPools/useCompute 
+ノートブックを実行してその出力を確認するか、Spark ジョブを送信する|Synapse Apache Spark 管理者、選択した Apache Spark プールに対する Synapse コンピューティング オペレーター|bigDataPools/useCompute 
 ノートブックまたはジョブ定義 (出力を含む) を削除またはサービスに発行する|ワークスペースの成果物発行元、Synapse Apache Spark 管理者|notebooks/write、delete
 ノートブックまたはジョブ定義に対する変更を Git リポジトリにコミットする|Git アクセス許可|なし
 パイプライン、統合ランタイム、データフロー、データセット、およびトリガー|
@@ -118,7 +118,7 @@ Integration Runtime 状態を監視する|Synapse ユーザー|read、pipelines/
 >[!Note]
 >別のテナントのゲスト ユーザーは、割り当てられているロールに関係なく、ロールの割り当てを確認、追加、または変更できません。 
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
 [Synapse RBAC ロールの割り当てを確認する方法](./how-to-review-synapse-rbac-role-assignments.md)について学習する
 

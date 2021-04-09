@@ -6,20 +6,19 @@ documentationcenter: ''
 author: msjuergent
 manager: bburns
 editor: ''
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/10/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1a8d6fc6acb33af0c36978aa79dc90aeac3cf596
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 246b9398824597ec337ee9e9ea3dc24267311f60
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94966753"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "101669592"
 ---
 # <a name="how-to-monitor-sap-hana-large-instances-on-azure"></a>SAP HANA on Azure (L インスタンス) の監視方法
 
@@ -27,7 +26,7 @@ SAP HANA on Azure (L インスタンス) に、その他の IaaS デプロイと
 
 - CPU
 - メモリ
-- ネットワーク帯域幅
+- ネットワークの帯域幅
 - ディスク領域
 
 Azure Virtual Machines で、上に挙げたリソース クラスが十分であるか、不足しているかを把握する必要があります。 各クラスの詳細は次のとおりです。

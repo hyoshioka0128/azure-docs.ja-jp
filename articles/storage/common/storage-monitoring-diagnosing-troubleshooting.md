@@ -9,12 +9,12 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring, devx-track-csharp
-ms.openlocfilehash: 50d78e83bbbeb4b0252c83f9f52e94599ea6946c
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 5943a65d61dee4fcf610b8cc45139674362995cb
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98787962"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104600719"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>Microsoft Azure Storage の監視、診断、およびトラブルシューティング
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
@@ -59,8 +59,8 @@ ms.locfileid: "98787962"
   * [開発またはテストでのストレージ エミュレーターの使用に起因する問題]
   * [Azure SDK for .NET のインストールで問題が発生する]
   * [Storage サービスで別の問題が発生する]
-  * [Windows 仮想マシン上の VHD のトラブルシューティング](../../virtual-machines/troubleshooting/index.yml)   
-  * [Linux 仮想マシン上の VHD のトラブルシューティング](../../virtual-machines/troubleshooting/index.yml)
+  * [Windows 仮想マシン上の VHD のトラブルシューティング](/troubleshoot/azure/virtual-machines/welcome-virtual-machines)   
+  * [Linux 仮想マシン上の VHD のトラブルシューティング](/troubleshoot/azure/virtual-machines/welcome-virtual-machines)
   * [Windows での Azure Files に関する問題のトラブルシューティング](../files/storage-troubleshoot-windows-file-connection-problems.md)   
   * [Linux での Azure Files に関する問題のトラブルシューティング](../files/storage-troubleshoot-linux-file-connection-problems.md)
 * [付録]
@@ -94,7 +94,7 @@ ms.locfileid: "98787962"
 ## <a name="monitoring-your-storage-service"></a><a name="monitoring-your-storage-service"></a>Storage サービスの監視
 Windows のパフォーマンス監視に詳しい人は、Storage メトリックのことを Windows パフォーマンス モニターのカウンターに相当する Azure Storage の機能だと考えることができます。 Storage メトリックでは、サービス可用性、サービスに対する要求の総数、サービスに対する要求の成功率などの、包括的なメトリック (Windows パフォーマンス モニターの用語で言えばカウンター) のセットを利用できます。 使用可能なメトリックの詳細なリストについては、「 [Storage Analytics Metrics のテーブル スキーマ](/rest/api/storageservices/Storage-Analytics-Metrics-Table-Schema)」を参照してください。 Storage サービスでメトリックを収集および集計する間隔は、1 時間または 1 分を指定できます。 メトリックを有効にしてストレージ アカウントを監視する方法の詳細については、 [ストレージ メトリックの有効化とメトリック データの表示](../blobs/monitor-blob-storage.md)に関するページをご覧ください。
 
-[Azure Portal](https://portal.azure.com) に表示する時間単位のメトリックを選ぶことができます。また、時間単位メトリックが特定のしきい値を超えたときに必ず電子メールで管理者に通知するようにルールを構成することもできます。 詳しくは、「[アラート通知を受け取る](../../azure-monitor/platform/alerts-overview.md)」をご覧ください。
+[Azure Portal](https://portal.azure.com) に表示する時間単位のメトリックを選ぶことができます。また、時間単位メトリックが特定のしきい値を超えたときに必ず電子メールで管理者に通知するようにルールを構成することもできます。 詳しくは、「[アラート通知を受け取る](../../azure-monitor/alerts/alerts-overview.md)」をご覧ください。
 
 [Azure Monitor for Storage](../../azure-monitor/insights/storage-insights-overview.md) (プレビュー) を確認することをお勧めします。 これは、Azure Storage サービスのパフォーマンス、容量、可用性の統合されたビューが提供されることで、Azure Storage アカウントを包括的に監視できる Azure Monitor の機能です。 何も有効にしたり構成したりする必要はありません。これらのメトリックは、あらかじめ定義されている対話型のグラフやその他の含まれている視覚エフェクトからすぐに表示できます。
 
@@ -789,7 +789,7 @@ BLOB ストレージからダウンロードしたストレージ ログ デー�
 
 Azure Storage の分析については、次のリソースを参照してください。
 
-* [Azure Portal でのストレージ アカウントの監視](storage-monitor-storage-account.md)
+* [Azure Portal でのストレージ アカウントの監視](./manage-storage-analytics-logs.md)
 * [Storage Analytics](storage-analytics.md)
 * [Storage Analytics のメトリック](storage-analytics-metrics.md)
 * [Storage Analytics Metrics のテーブル スキーマ](/rest/api/storageservices/storage-analytics-metrics-table-schema)

@@ -1,28 +1,26 @@
 ---
 title: Azure Compute - Linux Diagnostic Extension 4.0
 description: Azure Linux Diagnostic Extension (LAD) 4.0 を構成して、Azure で実行中の Linux VM からメトリックとログ イベントを収集する方法。
-services: virtual-machines-linux
-author: axayjo
-manager: gwallace
-ms.service: virtual-machines-linux
-ms.subservice: extensions
-ms.tgt_pltfrm: vm-linux
 ms.topic: article
+ms.service: virtual-machines
+ms.subservice: extensions
+author: amjads1
+ms.author: amjads
+ms.collection: linux
 ms.date: 02/05/2021
-ms.author: akjosh
-ms.openlocfilehash: ebc4867f0ce16657c550b3d33d76fccdb41cef54
-ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
+ms.openlocfilehash: 4c4851ab28e5da74e7f1fa36f087ecfdabb1c638
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99980645"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102560125"
 ---
 # <a name="use-linux-diagnostic-extension-40-to-monitor-metrics-and-logs"></a>Linux Diagnostic Extension 4.0 を使用して、メトリックとログを監視する
 
 このドキュメントでは、Linux Diagnostic Extension のバージョン 4.0 以降について説明します。
 
 > [!IMPORTANT]
-> バージョン 3.* については、[このドキュメント](https://docs.microsoft.com/azure/virtual-machines/extensions/diagnostics-linux-v3)を参照してください。 バージョン 2.3 以前については、[このドキュメント](/previous-versions/azure/virtual-machines/linux/classic/diagnostic-extension-v2)を参照してください。
+> バージョン 3.* については、[このドキュメント](./diagnostics-linux-v3.md)を参照してください。 バージョン 2.3 以前については、[このドキュメント](/previous-versions/azure/virtual-machines/linux/classic/diagnostic-extension-v2)を参照してください。
 
 ## <a name="introduction"></a>はじめに
 
@@ -108,7 +106,7 @@ python2 実行可能ファイルに *python* という別名を付ける必要�
 これらの例でダウンロードしたサンプル構成では、一連の標準データが収集され、それらがテーブル ストレージに送信されます。 サンプル構成の URL と内容は変更される可能性があります。 ほとんどの場合、毎回その URL をダウンロードするのではなく、ポータル設定 JSON ファイルのコピーをダウンロードし、ニーズに合わせてカスタマイズし、自分で作るテンプレートやオートメーションでは独自のバージョンの構成ファイルを使用するようにします。
 
 > [!NOTE]
-> 新しい Azure Monitor シンクを有効にするには、VM で MSI 認証トークンの生成のために、システム割り当て ID が有効にされている必要があります。 これは、VM の作成中、または VM の作成後に行うことができます。 ポータル、CLI、PowerShell、およびリソース マネージャーを使用して、システム割り当て ID を有効にする手順。  の詳細については、[こちら](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm)を参照してください。 
+> 新しい Azure Monitor シンクを有効にするには、VM で MSI 認証トークンの生成のために、システム割り当て ID が有効にされている必要があります。 これは、VM の作成中、または VM の作成後に行うことができます。 ポータル、CLI、PowerShell、およびリソース マネージャーを使用して、システム割り当て ID を有効にする手順。  の詳細については、[こちら](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md)を参照してください。 
 
 #### <a name="azure-cli-sample"></a>Azure CLI のサンプル
 
@@ -490,7 +488,7 @@ minSeverity | Syslog の重大度レベル ("LOG\_ERR" や "LOG\_INFO" など)�
 この省略可能なセクションでは、ストレージ アカウントと既定のゲスト メトリック ブレードに加えて、Azure Monitor シンクへのメトリックの送信の有効化を制御します。
 
 > [!NOTE]
-> そのためには、VM または VMSS でシステム割り当て ID を有効にする必要があります。 これは、ポータル、CLI、PowerShell、およびリソース マネージャーを使用して行うことができます。 手順の詳細については、[こちら](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm)を参照してください。 これを有効にする手順は、上記の AZ CLI、PowerShell などのインストール サンプルにも記載されています。 
+> そのためには、VM または VMSS でシステム割り当て ID を有効にする必要があります。 これは、ポータル、CLI、PowerShell、およびリソース マネージャーを使用して行うことができます。 手順の詳細については、[こちら](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md)を参照してください。 これを有効にする手順は、上記の AZ CLI、PowerShell などのインストール サンプルにも記載されています。 
 
 ```json
   "sinksConfig": {
@@ -827,6 +825,6 @@ EventHubs エンドポイントに発行されたメッセージを使用する�
 
 ## <a name="next-steps"></a>次のステップ
 
-* 収集するメトリックのメトリック アラートを [Azure Monitor](../../azure-monitor/platform/alerts-classic-portal.md) で作成します。
-* メトリックの[監視グラフ](../../azure-monitor/platform/data-platform.md)を作成します。
+* 収集するメトリックのメトリック アラートを [Azure Monitor](../../azure-monitor/alerts/alerts-classic-portal.md) で作成します。
+* メトリックの[監視グラフ](../../azure-monitor/data-platform.md)を作成します。
 * メトリックを使用して[仮想マシン スケール セットを作成](../linux/tutorial-create-vmss.md)し、自動スケールを制御する方法について説明します。

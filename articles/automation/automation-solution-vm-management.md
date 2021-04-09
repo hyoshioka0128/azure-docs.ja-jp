@@ -5,16 +5,16 @@ services: automation
 ms.subservice: process-automation
 ms.date: 02/04/2020
 ms.topic: conceptual
-ms.openlocfilehash: 991ef6e7ffc26294f75ba5bd2f24c62ea6e0b421
-ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
+ms.openlocfilehash: b71e5b1a8ba5f3ee8f883c71a7221e01d4af4fb6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "100007008"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104597710"
 ---
 # <a name="startstop-vms-during-off-hours-overview"></a>Start/Stop VMs during off-hours の概要
 
-Start/Stop VMs during off-hours 機能は、有効になっている Azure VM を開始または停止するものです。 ユーザー定義のスケジュールでマシンを開始または停止し、Azure Monitor ログを介して分析情報を取得し、[アクション グループ](../azure-monitor/platform/action-groups.md)を使用してオプションのメールを送信することができます。 この機能は、ほとんどのシナリオにおいて、Azure Resource Manager とクラシック VM の両方で有効にできます。
+Start/Stop VMs during off-hours 機能は、有効になっている Azure VM を開始または停止するものです。 ユーザー定義のスケジュールでマシンを開始または停止し、Azure Monitor ログを介して分析情報を取得し、[アクション グループ](../azure-monitor/alerts/action-groups.md)を使用してオプションのメールを送信することができます。 この機能は、ほとんどのシナリオにおいて、Azure Resource Manager とクラシック VM の両方で有効にできます。
 
 この機能では、[Start-AzVm](/powershell/module/az.compute/start-azvm) コマンドレットを使用して VM を開始します。 VM を停止するためには、[Stop-AzVM](/powershell/module/az.compute/stop-azvm) を使用します。
 
@@ -35,11 +35,14 @@ Start/Stop VMs during off-hours 機能は、有効になっている Azure VM �
 - 任意のリージョンの VM が管理されますが、Azure Automation アカウントと同じサブスクリプションでのみ使用できます。
 - Log Analytics ワークスペース、Azure Automation アカウント、Alerts がサポートされているリージョンの Azure と Azure Government で利用できます。 現在、Azure Government の各リージョンでは電子メール機能はサポートされていません。
 
+> [!NOTE]
+> このバージョンをインストールする前に、現在プレビュー段階にある [次のバージョン](https://github.com/microsoft/startstopv2-deployments)について知っておいてください。  新しいバージョン (V2) では、これと同じ機能がすべて提供されますが、Azure の新しいテクノロジを活用するように設計されています。 これにより、単一の開始/停止インスタンスからの複数サブスクリプションのサポートなど、お客様からの要望が多かったいくつかの機能が追加されます。
+
 ## <a name="prerequisites"></a>前提条件
 
 - Start/Stop VMs during off hours 機能の Runbook は [Azure 実行アカウント](./automation-security-overview.md#run-as-accounts)と連動します。 認証方法としては、実行アカウントの使用をお勧めします。有効期限が切れたり頻繁に変わったりするパスワードではなく、証明書を使った認証が使用されるためです。
 
-- Runbook ジョブ ログとジョブ ストリーム結果をクエリおよび分析目的でワークスペースに格納する [Azure Monitor Log Analytics ワークスペース](../azure-monitor/platform/design-logs-deployment.md)。 Automation アカウントは新規または既存の Log Analytics ワークスペースにリンクできます。いずれのリソースも同じリソース グループに属する必要があります。
+- Runbook ジョブ ログとジョブ ストリーム結果をクエリおよび分析目的でワークスペースに格納する [Azure Monitor Log Analytics ワークスペース](../azure-monitor/logs/design-logs-deployment.md)。 Automation アカウントは新規または既存の Log Analytics ワークスペースにリンクできます。いずれのリソースも同じリソース グループに属する必要があります。
 
 Start/Stop VMs during off-hours 機能には、別の Automation アカウントを使用することをお勧めします。 多くの場合、Azure モジュールのバージョンがアップグレードされ、そのパラメーターが変更される可能性があります。 この機能は同じペースでアップグレードされないため、使用するコマンドレットの新しいバージョンでは動作しない可能性があります。 更新後のモジュールを運用 Automation アカウントにインポートする前に、テスト Automation アカウントにインポートして互換性問題がないことを確認することをお勧めします。
 
@@ -88,7 +91,8 @@ VM の Start/Stop VMs during off-hours 機能は Automation アカウントと L
 | Microsoft.Authorization/permissions/read |サブスクリプション|
 | Microsoft.Authorization/roleAssignments/read | サブスクリプション |
 | Microsoft.Authorization/roleAssignments/write | サブスクリプション |
-| Microsoft.Authorization/roleAssignments/delete | サブスクリプション || Microsoft.Automation/automationAccounts/connections/read | リソース グループ |
+| Microsoft.Authorization/roleAssignments/delete | サブスクリプション |
+| Microsoft.Automation/automationAccounts/connections/read | リソース グループ |
 | Microsoft.Automation/automationAccounts/certificates/read | リソース グループ |
 | Microsoft.Automation/automationAccounts/write | リソース グループ |
 | Microsoft.OperationalInsights/workspaces/write | リソース グループ |
@@ -164,7 +168,7 @@ Start/Stop VMs during off-hours 機能には、構成済みの Runbook、スケ�
 |Scheduled_StopVM | ユーザー定義、毎日 | `Stop` パラメーターを持つ **ScheduledStopStart_Parent** Runbook を毎日指定された時刻に実行します。  変数資産によって定義されたルールを満たす VM すべてを自動的に停止します。  関連するスケジュール (**Scheduled-StartVM**) を有効にしてください。|
 |Scheduled_StartVM | ユーザー定義、毎日 | `Start` パラメーター値を持つ **ScheduledStopStart_Parent** Runbook を毎日指定された時刻に実行します。 変数資産によって定義されたルールを満たす VM すべてを自動的に開始します。  関連するスケジュール (**Scheduled-StopVM**) を有効にしてください。|
 |Sequenced-StopVM | 午前 1 時 00 分 (UTC)、毎週金曜日 | `Stop` パラメーター値を持つ **Sequenced_StopStop_Parent** Runook を毎週金曜日の指定された時刻に実行します。  適切な変数で定義された **SequenceStop** のタグを持つ VM すべてを順番 (昇順) に停止します。 タグ値と資産である変数の詳細については、「[Runbook](#runbooks)」を参照してください。  関連するスケジュール (**Sequenced-StartVM**) を有効にしてください。|
-|Sequenced-StartVM | 午後 1 時 00 分 (UTC)、毎週月曜日 | `Start` のパラメーター値を持つ **SequencedStopStart_Parent** Runbook を毎週月曜日の指定された時刻に実行します。 適切な変数で定義された **SequenceStart** のタグを持つ VM すべてを順番 (降順)に 起動します。 タグ値と変数資産の詳細については、「[Runbook](#runbooks)」を参照してください。 関連するスケジュール (**Sequenced-StopVM**) を有効にしてください。
+|Sequenced-StartVM | 午後 1 時 00 分 (UTC)、毎週月曜日 | `Start` のパラメーター値を持つ **SequencedStopStart_Parent** Runbook を毎週月曜日の指定された時刻に実行します。 適切な変数で定義された **SequenceStart** のタグを持つ VM すべてを順番 (降順)に 起動します。 タグ値と変数資産の詳細については、「[Runbook](#runbooks)」を参照してください。 関連するスケジュール (**Sequenced-StopVM**) を有効にしてください。|
 
 ## <a name="use-the-feature-with-classic-vms"></a>クラシック VM で機能を使用する
 

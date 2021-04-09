@@ -3,14 +3,14 @@ title: Azure Automation データ セキュリティ
 description: この記事では、Azure Automation でお客様のプライバシーとデータを保護するしくみについて説明します。
 services: automation
 ms.subservice: shared-capabilities
-ms.date: 01/08/2021
+ms.date: 03/02/2021
 ms.topic: conceptual
-ms.openlocfilehash: 40405607e7f7198f190f621121022537ac3b3171
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: 2bdf25ef24f1fbf4aaf4dec154ea6af3421b915a
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98046041"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102050819"
 ---
 # <a name="management-of-azure-automation-data"></a>Azure Automation データの管理
 
@@ -28,7 +28,7 @@ Azure Automation に転送中のデータのセキュリティを確保するに
 
 以前のバージョンの TLS/SSL (Secure Sockets Layer) は脆弱であることが確認されています。現在、これらは下位互換性を維持するために使用可能ですが、**推奨されていません**。 エージェントで TLS 1.2 のみを使用するように明示的に設定することは、絶対に必要な場合を除いてお勧めしません。なぜなら、そうすることで、TLS 1.3 などのより新しいよくより安全なプロトコルを自動的に検出して利用できるようにするプラットフォーム レベルのセキュリティ機能が無効になる可能性があるためです。
 
-Windows および Linux 用の Log Analytics エージェントでの TLS 1.2 サポート (これは Hybrid Runbook Worker ロールの依存関係です) については、[Log Analytics エージェントの概要の TLS 1.2 に関する記述](..//azure-monitor/platform/log-analytics-agent.md#tls-12-protocol)を参照してください。
+Windows および Linux 用の Log Analytics エージェントでの TLS 1.2 サポート (これは Hybrid Runbook Worker ロールの依存関係です) については、[Log Analytics エージェントの概要の TLS 1.2 に関する記述](..//azure-monitor/agents/log-analytics-agent.md#tls-12-protocol)を参照してください。
 
 ### <a name="platform-specific-guidance"></a>プラットフォーム固有のガイダンス
 
@@ -41,7 +41,7 @@ Windows および Linux 用の Log Analytics エージェントでの TLS 1.2 �
 
 ## <a name="data-retention"></a>データの保持
 
-Azure Automation でリソースを削除すると、完全に削除される前に、監査目的に応じた日数だけ保持されます。 この期間にリソースを表示または使用することはできません。 このポリシーは、削除された Automation アカウントに属するリソースにも適用されます。
+Azure Automation でリソースを削除すると、完全に削除される前に、監査目的に応じた日数だけ保持されます。 この期間にリソースを表示または使用することはできません。 このポリシーは、削除された Automation アカウントに属するリソースにも適用されます。 保持ポリシーはすべてのユーザーに適用され、現在カスタマイズすることはできません。 ただし、さらに長くデータを保持する必要がある場合は、[Azure Automation ジョブのデータを Azure Monitor ログに転送する](automation-manage-send-joblogs-log-analytics.md)ことができます。
 
 次の表は、さまざまなリソースの保持ポリシーをまとめたものです。
 
@@ -54,9 +54,9 @@ Azure Automation でリソースを削除すると、完全に削除される前
 | モジュール |モジュールは、ユーザーによって削除された日から 30 日後、またはモジュールを保持するアカウントがユーザーによって削除された日から 30 日後に、完全に消去されます。 |
 | ノード構成/MOF ファイル |古いノード構成は、新しいノード構成が生成された日から 30 日後に、完全に消去されます。 |
 | ノード レポート |ノード レポートは、そのノードの新しいレポートが生成されてから 90 日後に、完全に消去されます。 |
-| Runbooks |Runbook は、ユーザーによってリソースが削除された日から 30 日後、またはリソースを保持するアカウントがユーザーによって削除された日から 30 日後に、完全に消去されます。 |
+| Runbooks |Runbook は、ユーザーによってリソースが削除された日から 30 日後、またはリソースを保持するアカウントがユーザーによって削除された日から 30 日後に、完全に消去されます<sup>1</sup>。 |
 
-保持ポリシーはすべてのユーザーに適用され、現在カスタマイズすることはできません。 ただし、さらに長くデータを保持する必要がある場合は、[Azure Automation ジョブのデータを Azure Monitor ログに転送する](automation-manage-send-joblogs-log-analytics.md)ことができます。
+<sup>1</sup>Runbook は、Microsoft Azure サポートに Azure サポート インシデントを提出することで、30 日以内に復旧できます。 [Azure サポート サイト](/support/options)にアクセスし、 **[サポート リクエストの送信]** を選択してください。
 
 ## <a name="data-backup"></a>[データ バックアップ]
 

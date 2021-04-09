@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 01/19/2021
+ms.date: 03/02/2021
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 7214a1eb41e4434818123ee26765ceb10ad551a5
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 955d3330d3f08d7e7f024ec2c36941d02244d9ba
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99094911"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101726838"
 ---
 # <a name="azure-storage-redundancy"></a>Azure Storage の冗長性
 
@@ -87,10 +87,11 @@ ZRS をサポートしているリージョンの詳細については、「[Azu
 
 Azure Storage には、セカンダリ リージョンにデータをコピーするための 2 つのオプションが用意されています。
 
-- **geo 冗長ストレージ (GRS)** は、LRS を使用して、プライマリ リージョンの 1 つの物理的な場所内で、データを同期的に 3 回コピーします。 その後、セカンダリ リージョンの 1 つの物理的な場所にデータを非同期的にコピーします。
-- **geo ゾーン冗長ストレージ (GZRS)** は、ZRS を使用して、プライマリ リージョンの 3 つの Azure 可用性ゾーン間でデータを同期的にコピーします。 その後、セカンダリ リージョンの 1 つの物理的な場所にデータを非同期的にコピーします。
+- **geo 冗長ストレージ (GRS)** は、LRS を使用して、プライマリ リージョンの 1 つの物理的な場所内で、データを同期的に 3 回コピーします。 その後、セカンダリ リージョンの 1 つの物理的な場所にデータを非同期的にコピーします。 セカンダリ リージョン内のデータは、LRS を使用して同期的に 3 回コピーされます。
+- **geo ゾーン冗長ストレージ (GZRS)** は、ZRS を使用して、プライマリ リージョンの 3 つの Azure 可用性ゾーン間でデータを同期的にコピーします。 その後、セカンダリ リージョンの 1 つの物理的な場所にデータを非同期的にコピーします。 セカンダリ リージョン内のデータは、LRS を使用して同期的に 3 回コピーされます。
 
-GRS と GZRS の主な違いは、プライマリ リージョンでのデータのレプリケート方法です。 セカンダリ リージョンでは、データは常に LRS を使用して 3 回同期的にレプリケートされます。 セカンダリ リージョンの LRS は、ハードウェア障害からデータを保護します。
+> [!NOTE]
+> GRS と GZRS の主な違いは、プライマリ リージョンでのデータのレプリケート方法です。 セカンダリ リージョンでは、データは常に LRS を使用して 3 回同期的にレプリケートされます。 セカンダリ リージョンの LRS は、ハードウェア障害からデータを保護します。
 
 GRS または GZRS では、セカンダリ リージョンへのフェールオーバーがない限り、セカンダリ リージョンのデータを読み取りまたは書き込みアクセスに利用できません。 セカンダリ リージョンへの読み取りアクセスについては、読み取りアクセス geo 冗長ストレージ (RA-GRS) または読み取りアクセス geo ゾーン冗長ストレージ (RA-GZRS) を使用するようにストレージ アカウントを構成します。 詳細については、「[セカンダリ リージョンのデータへの読み取りアクセス](#read-access-to-data-in-the-secondary-region)」を参照してください。
 
@@ -179,12 +180,20 @@ RA-GRS または RA-GZRS を有効にした後はセカンダリ リージョン
 
 | 障害のシナリオ | LRS | ZRS | GRS/RA-GRS | GZRS/RA-GZRS |
 |:-|:-|:-|:-|:-|
-| データ センター内のノードが使用できなくなる | はい | Yes | はい | はい |
+| データ センター内のノードが使用できなくなる | はい | はい | はい | はい |
 | データ センター全体 (ゾーンまたは非ゾーン) が使用できなくなる | いいえ | はい | 可<sup>1</sup> | はい |
 | プライマリ リージョンでリージョン全体の障害が発生する | いいえ | いいえ | 可<sup>1</sup> | 可<sup>1</sup> |
 | プライマリ リージョンが使用できなくなった場合、セカンダリ リージョンに対する読み取りアクセスが可能 | いいえ | いいえ | はい (RA-GRS を使用) | はい (RA-GZRS を使用) |
 
 <sup>1</sup>プライマリ リージョンが使用できなくなった場合に書き込みの可用性を復元するには、アカウントのフェールオーバーが必要です。 詳細については、「[ディザスター リカバリーとストレージ アカウントのフェールオーバー](storage-disaster-recovery-guidance.md)」を参照してください。
+
+### <a name="supported-azure-storage-services"></a>サポートされている Azure Storage サービス
+
+次の表は、Azure Storage サービスごとにサポートされる冗長性オプションを示しています。
+
+| LRS | ZRS | GRS/RA-GRS | GZRS/RA-GZRS |
+|:-|:-|:-|:-|
+| BLOB ストレージ<br />ストレージ<br />Table ストレージ<br />Azure Files<br />Azure Managed Disks | BLOB ストレージ<br />ストレージ<br />Table ストレージ<br />Azure Files | BLOB ストレージ<br />ストレージ<br />Table ストレージ<br />Azure Files<br /> | BLOB ストレージ<br />ストレージ<br />Table ストレージ<br />Azure Files<br /> |
 
 ### <a name="supported-storage-account-types"></a>サポートされるストレージ アカウントの種類
 
@@ -192,7 +201,7 @@ RA-GRS または RA-GZRS を有効にした後はセカンダリ リージョン
 
 | LRS | ZRS | GRS/RA-GRS | GZRS/RA-GZRS |
 |:-|:-|:-|:-|
-| 汎用 v2<br /> 汎用 v1<br /> ブロック BLOB ストレージ<br /> BLOB ストレージ<br /> File Storage | 汎用 v2<br /> ブロック BLOB ストレージ<br /> File Storage | 汎用 v2<br /> 汎用 v1<br /> BLOB ストレージ | 汎用 v2 |
+| 汎用 v2<br /> 汎用 v1<br /> BlockBlobStorage<br /> BlobStorage<br /> FileStorage | 汎用 v2<br /> BlockBlobStorage<br /> FileStorage | 汎用 v2<br /> 汎用 v1<br /> BlobStorage | 汎用 v2 |
 
 ストレージ アカウントの冗長オプションに従って、すべてのストレージ アカウントのすべてのデータがコピーされます。 ブロック BLOB、追加 BLOB、ページ BLOB、キュー、テーブル、ファイルなどのオブジェクトがコピーされます。 すべての層 (アーカイブ層を含む) のデータがコピーされます。 BLOB 層の詳細については、「[Azure Blob Storage: ホット、クール、アーカイブ ストレージ層](../blobs/storage-blob-storage-tiers.md)」を参照してください。
 

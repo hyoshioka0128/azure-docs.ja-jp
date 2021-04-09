@@ -1,22 +1,17 @@
 ---
 title: Azure Data Factory を使用して SharePoint Online リストからデータをコピーする
 description: Azure Data Factory パイプラインでコピー アクティビティを使用して、SharePoint Online List からサポートされているシンク データ ストアへデータをコピーする方法について説明します。
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: jingwang
-ms.openlocfilehash: 440dd561beddc9696ec703142fe82655b69fbb48
-ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
+ms.openlocfilehash: f8074b69b97a6ef96837e73a1082d2deb67084d9
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99474949"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102177863"
 ---
 # <a name="copy-data-from-sharepoint-online-list-by-using-azure-data-factory"></a>Azure Data Factory を使用して SharePoint Online リストからデータをコピーする
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -196,7 +191,7 @@ SharePoint Online リストからデータをコピーすると、SharePoint Onl
 | 複数行のテキスト                          | Edm.String                                           | String                                   |
 | 選択 (メニューから選択)                    | Edm.String                                           | String                                   |
 | 数値 (1、1.0、100)                            | Edm.Double                                           | Double                                   |
-| 通貨 ($、¥、€)                              | Edm.Double                                           | Double                                   |
+| 通貨 ($、¥、&euro;)                              | Edm.Double                                           | Double                                   |
 | 日時                                   | Edm.DateTime                                         | DateTime                                 |
 | 参照 (このサイトに既に存在する情報)       | Edm.Int32                                            | Int32                                    |
 | はい/いいえ (チェック ボックス)                              | Edm.Boolean                                          | Boolean                                  |
@@ -237,6 +232,9 @@ SharePoint Online からファイルをコピーするには、**Web アクテ�
         - **要求メソッド**:GET
         - **追加のヘッダー**: 次の式を使用します。`@{concat('Authorization: Bearer ', activity('<Web-activity-name>').output.access_token)}`。ここで、アップストリームの Web アクティビティによって生成されたベアラー トークンが authorization ヘッダーとして使用されます。 Web アクティビティ名を置き換えてください。
     - コピー アクティビティのシンクを通常どおりに構成します。
+
+> [!NOTE]
+> Azure AD アプリケーションに SharePoint Online に対する `FullControl` アクセス許可がある場合でも、IRM が有効になっているドキュメント ライブラリからファイルをコピーすることはできません。
 
 ## <a name="lookup-activity-properties"></a>Lookup アクティビティのプロパティ
 

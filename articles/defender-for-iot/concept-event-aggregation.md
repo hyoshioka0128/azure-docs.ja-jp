@@ -1,19 +1,14 @@
 ---
 title: イベントの集計 (プレビュー)
-titleSuffix: Azure Defender for IoT
 description: Defender for IoT セキュリティ エージェントにより、ローカル デバイスからデータとシステム イベントを収集し、処理と分析を行うためにこのデータを Azure クラウドに送信します。
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 1/20/2021
 ms.topic: conceptual
-ms.service: azure
-ms.openlocfilehash: 9ce24a44e48f090a0dc7d355952b3cf50dd4318c
-ms.sourcegitcommit: 4784fbba18bab59b203734b6e3a4d62d1dadf031
+ms.openlocfilehash: c0280e97549009a1e4911c072a7a8ec052684b4e
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99809676"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104779326"
 ---
 # <a name="event-aggregation-preview"></a>イベントの集計 (プレビュー)
 
@@ -43,7 +38,7 @@ Defender for IoT エージェントにより、間隔の期間または時間枠
 
 現在、ネットワーク接続イベントは Azure RTO でのみサポートされています。 
 
-ネットワーク接続イベントは、*ローカル ポート*、 *リモート ポート*、 *トランスポート プロトコル*、 *ローカル アドレス*、および *リモート アドレス* が同一である場合に同一と見なされます。 
+ネットワーク接続イベントは、*ローカル ポート*、 *リモート ポート*、 *トランスポート プロトコル*、 *ローカル アドレス*、および  *リモート アドレス* が同一である場合に同一と見なされます。 
 
 ネットワーク接続イベントの既定のバッファーは 64 です。 新しいネットワーク イベントは、次の収集サイクルまでキャッシュされません。 キャッシュ サイズを増やす際の警告がログに記録されます。
 

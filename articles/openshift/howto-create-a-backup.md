@@ -1,19 +1,19 @@
 ---
 title: Velero を使用して Azure Red Hat OpenShift 4 クラスター アプリケーションのバックアップを作成する
 description: Velero を使用して Azure Red Hat OpenShift クラスター アプリケーションのバックアップを作成する方法について説明します
-ms.service: container-service
+ms.service: azure-redhat-openshift
 ms.topic: article
 ms.date: 06/22/2020
 author: troy0820
 ms.author: b-trconn
 keywords: aro、openshift、az aro、red hat、cli
 ms.custom: mvc
-ms.openlocfilehash: 264778d2d6d1ee0119ad8622043b7cd3a1088ec1
-ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
+ms.openlocfilehash: bbfe280ed0b1b562e0f50b23a09ea159750c4a79
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93280141"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102217093"
 ---
 # <a name="create-an-azure-red-hat-openshift-4-cluster-application-backup"></a>Azure Red Hat OpenShift 4 クラスター アプリケーションのバックアップを作成する
 
@@ -23,10 +23,7 @@ ms.locfileid: "93280141"
 > * 前提条件を設定し、必要なツールをインストールする
 > * Azure Red Hat OpenShift 4 アプリケーションのバックアップを作成する
 
-> [!NOTE] 
-> Velero によって、Azure Red Hat OpenShift etcd のキーと値のストア データがバックアップされることはありません。 etcd をバックアップする必要がある場合は、「[Backing up etcd](https://docs.openshift.com/container-platform/4.5/backup_and_restore/backing-up-etcd.html)」(etcd のバックアップ) を参照してください。
-
-CLI をローカルにインストールして使用する場合、このチュートリアルでは、Azure CLI バージョン 2.6.0 以降を実行していることが要件です。 バージョンを確認するには、`az --version` を実行します。 インストールまたはアップグレードする必要がある場合は、[Azure CLI のインストール](/cli/azure/install-azure-cli?view=azure-cli-latest)に関するページを参照してください。
+CLI をローカルにインストールして使用する場合、このチュートリアルでは、Azure CLI バージョン 2.6.0 以降を実行していることが要件です。 バージョンを確認するには、`az --version` を実行します。 インストールまたはアップグレードする必要がある場合は、[Azure CLI のインストール](/cli/azure/install-azure-cli)に関するページを参照してください。
 
 ## <a name="before-you-begin"></a>開始する前に
 

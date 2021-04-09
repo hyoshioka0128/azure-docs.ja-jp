@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 01/12/2021
 ms.author: aahi
-ms.openlocfilehash: db21f1170dacbfa1e4367e7f22143ec3d0b0f6e4
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 1a107f812ceb46649126bdbefcf3b828e1938ff3
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98737338"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102612900"
 ---
 # <a name="install-and-run-the-spatial-analysis-container-preview"></a>空間分析コンテナー (プレビュー) をインストールして実行する
 
@@ -24,7 +24,7 @@ ms.locfileid: "98737338"
 ## <a name="prerequisites"></a>前提条件
 
 * Azure サブスクリプション - [無料アカウントを作成します](https://azure.microsoft.com/free/cognitive-services)
-* Azure サブスクリプションを入手したら、Azure portal で Standard S1 レベルの <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="Computer Vision リソースを作成"  target="_blank">Computer Vision リソースを作成<span class="docon docon-navigate-external x-hidden-focus"></span></a>し、キーとエンドポイントを取得します。 デプロイされたら、 **[リソースに移動]** をクリックします。
+* Azure サブスクリプションを入手したら、Azure portal で Standard S1 レベルの <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="Computer Vision リソースを作成"  target="_blank">Computer Vision リソースを作成</a>し、キーとエンドポイントを取得します。 デプロイされたら、 **[リソースに移動]** をクリックします。
     * 空間分析コンテナーを実行するには、作成したリソースのキーとエンドポイントが必要です。 後でキーとエンドポイントを使用します。
 
 
@@ -137,7 +137,7 @@ Edge デバイスで Edge コンピューティング ロールが設定され�
 3. デバイスの IP アドレスに変数を割り当てます。 
     
     ```powershell
-    $ip = "" Replace with the IP address of your device. 
+    $ip = "<device-IP-address>" 
     ```
     
 4. デバイスの IP アドレスをクライアントの信頼されたホスト一覧に追加するために、次のコマンドを使用します。 
@@ -249,22 +249,31 @@ sudo systemctl --now enable nvidia-mps.service
 
 ## <a name="configure-azure-iot-edge-on-the-host-computer"></a>ホスト コンピューター上で Azure IoT Edge を構成する
 
-ホスト コンピューターに空間分析コンテナーをデプロイするには、Standard (S1) または Free (F0) 価格レベルを使用して、[Azure IoT Hub](../../iot-hub/iot-hub-create-through-portal.md) サービスのインスタンスを作成します。 使用するホスト コンピューターが Azure Stack Edge である場合は、Azure Stack Edge リソースに使用しているのと同じサブスクリプションとリソース グループを使用します。
+ホスト コンピューターに空間分析コンテナーをデプロイするには、Standard (S1) または Free (F0) 価格レベルを使用して、[Azure IoT Hub](../../iot-hub/iot-hub-create-through-portal.md) サービスのインスタンスを作成します。 
 
 Azure CLI を使用して Azure IoT Hub のインスタンスを作成します。 必要に応じて、パラメーターを置き換えます。 または、[Azure portal](https://portal.azure.com/) 上で Azure IoT ハブを作成することもできます。
 
 ```bash
 curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
+```
+```bash
 sudo az login
-sudo az account set --subscription <name or ID of Azure Subscription>
-sudo az group create --name "test-resource-group" --location "WestUS"
-
-sudo az iot hub create --name "test-iot-hub-123" --sku S1 --resource-group "test-resource-group"
-
-sudo az iot hub device-identity create --hub-name "test-iot-hub-123" --device-id "my-edge-device" --edge-enabled
+```
+```bash
+sudo az account set --subscription "<name or ID of Azure Subscription>"
+```
+```bash
+sudo az group create --name "<resource-group-name>" --location "<your-region>"
+```
+利用可能なリージョンについては、[リージョン サポート](https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services)に関する記事を参照してください。
+```bash
+sudo az iot hub create --name "<iothub-group-name>" --sku S1 --resource-group "<resource-group-name>"
+```
+```bash
+sudo az iot hub device-identity create --hub-name "<iothub-name>" --device-id "<device-name>" --edge-enabled
 ```
 
-ホスト コンピューターが Azure Stack Edge デバイスでない場合は、[Azure IoT Edge](../../iot-edge/how-to-install-iot-edge.md) バージョン 1.0.9 をインストールする必要があります。 次の手順に従って、正しいバージョンをダウンロードします。
+[Azure IoT Edge](../../iot-edge/how-to-install-iot-edge.md) バージョン 1.0.9 のインストールが必要になります。 次の手順に従って、正しいバージョンをダウンロードします。
 
 Ubuntu Server 18.04:
 ```bash
@@ -280,6 +289,8 @@ Microsoft GPG 公開キーをインストールします。
 
 ```bash
 curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
+```
+```bash
 sudo cp ./microsoft.gpg /etc/apt/trusted.gpg.d/
 ```
 
@@ -295,7 +306,7 @@ sudo apt-get update
 sudo apt-get install iotedge=1.0.9* libiothsm-std=1.0.9*
 ```
 
-次に、[接続文字列](../../iot-edge/how-to-manual-provision-symmetric-key.md?view=iotedge-2018-06)を使用して、ホスト コンピューターを IoT Edge デバイスとして IoT Hub インスタンスに登録します。
+次に、[接続文字列](../../iot-edge/how-to-register-device.md)を使用して、ホスト コンピューターを IoT Edge デバイスとして IoT Hub インスタンスに登録します。
 
 IoT Edge デバイスを Azure IoT ハブに接続する必要があります。 先ほど作成した IoT Edge デバイスから接続文字列をコピーする必要があります。 または、Azure CLI で以下のコマンドを実行することもできます。
 
@@ -396,7 +407,84 @@ sudo apt-get install -y docker-ce nvidia-docker2
 sudo systemctl restart docker
 ```
 
-VM の設定と構成が完了したので、次の手順に従って空間分析コンテナーをデプロイします。 
+VM の設定と構成が完了したので、下の手順に従って Azure IoT Edge を構成します。 
+
+## <a name="configure-azure-iot-edge-on-the-vm"></a>VM 上で Azure IoT Edge を構成する
+
+VM に空間分析コンテナーをデプロイするには、Standard (S1) または Free (F0) 価格レベルを使用して、[Azure IoT Hub](../../iot-hub/iot-hub-create-through-portal.md) サービスのインスタンスを作成します。
+
+Azure CLI を使用して Azure IoT Hub のインスタンスを作成します。 必要に応じて、パラメーターを置き換えます。 または、[Azure portal](https://portal.azure.com/) 上で Azure IoT ハブを作成することもできます。
+
+```bash
+curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
+```
+```bash
+sudo az login
+```
+```bash
+sudo az account set --subscription "<name or ID of Azure Subscription>"
+```
+```bash
+sudo az group create --name "<resource-group-name>" --location "<your-region>"
+```
+利用可能なリージョンについては、[リージョン サポート](https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services)に関する記事を参照してください。
+```bash
+sudo az iot hub create --name "<iothub-group-name>" --sku S1 --resource-group "<resource-group-name>"
+```
+```bash
+sudo az iot hub device-identity create --hub-name "<iothub-name>" --device-id "<device-name>" --edge-enabled
+```
+
+[Azure IoT Edge](../../iot-edge/how-to-install-iot-edge.md) バージョン 1.0.9 のインストールが必要になります。 次の手順に従って、正しいバージョンをダウンロードします。
+
+Ubuntu Server 18.04:
+```bash
+curl https://packages.microsoft.com/config/ubuntu/18.04/multiarch/prod.list > ./microsoft-prod.list
+```
+
+生成された一覧をコピーします。
+```bash
+sudo cp ./microsoft-prod.list /etc/apt/sources.list.d/
+```
+
+Microsoft GPG 公開キーをインストールします。
+
+```bash
+curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
+```
+```bash
+sudo cp ./microsoft.gpg /etc/apt/trusted.gpg.d/
+```
+
+デバイスのパッケージ リストを更新します。
+
+```bash
+sudo apt-get update
+```
+
+1\.0.9 リリースをインストールします。
+
+```bash
+sudo apt-get install iotedge=1.0.9* libiothsm-std=1.0.9*
+```
+
+次に、[接続文字列](../../iot-edge/how-to-register-device.md)を使用して、VM を IoT Edge デバイスとして IoT Hub インスタンスに登録します。
+
+IoT Edge デバイスを Azure IoT ハブに接続する必要があります。 先ほど作成した IoT Edge デバイスから接続文字列をコピーする必要があります。 または、Azure CLI で以下のコマンドを実行することもできます。
+
+```bash
+sudo az iot hub device-identity show-connection-string --device-id my-edge-device --hub-name test-iot-hub-123
+```
+
+VM で `/etc/iotedge/config.yaml` を開いて編集します。 `ADD DEVICE CONNECTION STRING HERE` を接続文字列に置き換えます。 ファイルを保存して閉じます。 このコマンドを実行して、VM 上の IoT Edge サービスを再起動します。
+
+```bash
+sudo systemctl restart iotedge
+```
+
+[Azure portal](../../iot-edge/how-to-deploy-modules-portal.md) または [Azure CLI](../cognitive-services-apis-create-account-cli.md?tabs=windows) から、空間分析コンテナーを IoT モジュールとして VM にデプロイします。 ポータルを使用している場合は、イメージの URI を Azure Container Registry の場所に設定します。 
+
+Azure CLI を使用して、以下の手順に従ってコンテナーをデプロイします。
 
 ---
 
@@ -431,7 +519,7 @@ VM の設定と構成が完了したので、次の手順に従って空間分�
 ```azurecli
 sudo az login
 sudo az extension add --name azure-iot
-sudo az iot edge set-modules --hub-name "<IoT Hub name>" --device-id "<IoT Edge device name>" --content DeploymentManifest.json --subscription "<subscriptionId>"
+sudo az iot edge set-modules --hub-name "<iothub-name>" --device-id "<device-name>" --content DeploymentManifest.json --subscription "<name or ID of Azure Subscription>"
 ```
 
 |パラメーター  |説明  |

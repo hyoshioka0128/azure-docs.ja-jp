@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: terrylan
-ms.openlocfilehash: 9b9a83cf71dfa7658c34c3c98f8d12a056adad0c
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 6f073777930b4d026d826d2c3586e0886f906206
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94698786"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102503081"
 ---
 # <a name="security-best-practices-for-iaas-workloads-in-azure"></a>Azure における IaaS ワークロードのセキュリティに関するベスト プラクティス
 この記事では、VM とオペレーティング システムのセキュリティに関するベスト プラクティスについて説明します。
@@ -63,7 +63,7 @@ VM 保護の第一歩は、承認されたユーザーのみが新しい VM を�
 組織は、VM へのアクセスと設定を制御することで、VM の総合的なセキュリティを向上させることができます。
 
 ## <a name="use-multiple-vms-for-better-availability"></a>可用性を高めるために複数の VM を使用する
-高可用性を必要とする重要なアプリケーションが仮想マシンで実行されている場合は、複数の VM を使うことを強くお勧めします。 可用性を高めるには、[可用性セット](../../virtual-machines/manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy)または可用性[ゾーン](../../availability-zones/az-overview.md)を使用します。
+高可用性を必要とする重要なアプリケーションが仮想マシンで実行されている場合は、複数の VM を使うことを強くお勧めします。 可用性を高めるには、[可用性セット](../../virtual-machines/availability-set-overview.md)または可用性[ゾーン](../../availability-zones/az-overview.md)を使用します。
 
 可用性セットは、Azure で使用できる論理グループであり、グループに配置された VM リソースは、Azure データ センター内にデプロイされるときに互いに分離されます。 Azure では、可用性セット内に配置された VM は、複数の物理サーバー、コンピューティング ラック、ストレージ ユニット、およびネットワーク スイッチ間で実行されることが保証されます。 ハードウェアまたは Azure ソフトウェアの障害が発生した場合に影響を受けるのは VM のサブセットに限定され、顧客は引き続きアプリケーション全体を利用できます。 可用性セットは、信頼性の高いクラウド ソリューションを構築する際に不可欠な機能です。
 
@@ -130,17 +130,17 @@ Windows Update を使用している場合は、自動 Windows Update の設定�
 
 Security Center は脅威を積極的に監視でき、脅威のリスクはセキュリティ通知で公開されます。 関連性のある脅威は、セキュリティ インシデントと呼ばれる 1 つのビューに集約されます。
 
-Security Center では、データを [Azure Monitor ログ](../../azure-monitor/log-query/log-query-overview.md)に格納します。 Azure Monitor ログには、アプリケーションとリソースの操作に関する分析情報を提供するクエリ言語と分析エンジンがあります。 データは、[Azure Monitor](../../batch/monitoring-overview.md)、管理ソリューション、およびクラウドやオンプレミスの仮想マシンにインストールされたエージェントからも収集されます。 この共有機能は、環境の全体像を把握するうえで役に立ちます。
+Security Center では、データを [Azure Monitor ログ](../../azure-monitor/logs/log-query-overview.md)に格納します。 Azure Monitor ログには、アプリケーションとリソースの操作に関する分析情報を提供するクエリ言語と分析エンジンがあります。 データは、[Azure Monitor](../../batch/monitoring-overview.md)、管理ソリューション、およびクラウドやオンプレミスの仮想マシンにインストールされたエージェントからも収集されます。 この共有機能は、環境の全体像を把握するうえで役に立ちます。
 
 許可のないユーザーがセキュリティ制御を回避しようとする試みは、VM を強固なセキュリティで保護していなければ認識できません。
 
 ## <a name="monitor-vm-performance"></a>VM パフォーマンスの監視
 VM のプロセスが必要以上に多くのリソースを消費しているときは、リソースの酷使が問題になる可能性があります。 VM のパフォーマンスの問題はサービス中断に発展する場合があり、そうなれば可用性というセキュリティの原則を損ないます。 CPU またはメモリの使用率の高さはサービス拒否 (DoS) 攻撃を示唆していることがあるため、IIS や他の Web サーバーをホストしている VM にとって、これは特に重要です。 VM のアクセスを監視することは、問題発生時の対処としてのみならず、通常運用時に測定された基準パフォーマンスと照らして能動的に行うことが不可欠となります。
 
-[Azure Monitor](../../azure-monitor/platform/data-platform.md) を使用してリソースの正常性を把握することをお勧めします。 Azure Monitor には次の特長があります。
+[Azure Monitor](../../azure-monitor/data-platform.md) を使用してリソースの正常性を把握することをお勧めします。 Azure Monitor には次の特長があります。
 
-- [Azure 診断ログ ファイル](../../azure-monitor/platform/platform-logs-overview.md):VM のリソースを監視し、パフォーマンスと可用性を損なう可能性がある問題を特定できます。
-- [Microsoft Azure Diagnostics 拡張機能](../../azure-monitor/platform/diagnostics-extension-overview.md):Windows VM 監視と診断機能を備えています。 この拡張機能を [Azure Resource Manager テンプレート](../../virtual-machines/extensions/diagnostics-template.md)に含めることによって、これらの機能を有効にすることができます。
+- [Azure 診断ログ ファイル](../../azure-monitor/essentials/platform-logs-overview.md):VM のリソースを監視し、パフォーマンスと可用性を損なう可能性がある問題を特定できます。
+- [Microsoft Azure Diagnostics 拡張機能](../../azure-monitor/agents/diagnostics-extension-overview.md):Windows VM 監視と診断機能を備えています。 この拡張機能を [Azure Resource Manager テンプレート](../../virtual-machines/extensions/diagnostics-template.md)に含めることによって、これらの機能を有効にすることができます。
 
 VM のパフォーマンスを監視していない組織は、パフォーマンス パターンにおけるある変化が正常であるか異常であるかを判断できません。 消費しているリソースが通常よりも多い VM は、外部リソースからの攻撃を受けているか、その VM で実行されているプロセスが侵害されていることを示唆している可能性があります。
 

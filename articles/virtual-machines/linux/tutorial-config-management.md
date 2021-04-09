@@ -1,26 +1,27 @@
 ---
 title: チュートリアル - Linux 仮想マシンの構成を Azure で管理する
 description: このチュートリアルでは、Linux 仮想マシン上の変更を特定したりパッケージの更新プログラムを管理したりする方法について説明します。
-services: virtual-machines-linux
+services: virtual-machines
 documentationcenter: virtual-machines
 author: mgoedtel
 manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
+ms.collection: linux
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/27/2019
 ms.author: magoedte
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: c4dc7e4d3c19a341daaf8e75844e175451a91f03
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 979cac8fd3d2c09443d52c9142a5e7c44127713a
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100592975"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "102552531"
 ---
 # <a name="tutorial-monitor-changes-and-update-a-linux-virtual-machine-in-azure"></a>チュートリアル:Azure で変更を監視し、Linux 仮想マシンを更新する
 
@@ -201,4 +202,4 @@ VM の起動時と停止時には、イベントがアクティビティ ログ�
 次のチュートリアルに進み、VM の監視について学習してください。
 
 > [!div class="nextstepaction"]
-> [仮想マシンの監視](tutorial-monitor.md)
+> [仮想マシンの監視](/previous-versions/azure/virtual-machines/linux/tutorial-monitor)

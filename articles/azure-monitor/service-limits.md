@@ -1,17 +1,16 @@
 ---
 title: Azure Monitor サービスの制限 | Microsoft Docs
 description: Azure Monitor のさまざまな領域における制限の一覧を示します。
-ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/10/2019
-ms.openlocfilehash: 49a9c6663f0505d5104f54630b6925af98ec243f
-ms.sourcegitcommit: 5ae2f32951474ae9e46c0d46f104eda95f7c5a06
+ms.openlocfilehash: a3589aff65b24563cf21f175ccfc3a706891d699
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95318076"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104954005"
 ---
 # <a name="azure-monitor-service-limits"></a>Azure Monitor サービスの制限
 
@@ -48,5 +47,5 @@ ms.locfileid: "95318076"
 ## <a name="next-steps"></a>次の手順
 
 - [Azure Monitor の価格](https://azure.microsoft.com/pricing/details/monitor/)
-- [Azure Monitor での使用量と推定コストの監視](platform/usage-estimated-costs.md)
+- [Azure Monitor での使用量と推定コストの監視](/azure/azure-monitor/usage-estimated-costs)
 - [Application Insights の使用量とコストを管理する](app/pricing.md)

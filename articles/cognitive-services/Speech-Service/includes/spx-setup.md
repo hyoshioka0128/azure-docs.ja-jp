@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/15/2020
 ms.author: v-demjoh
-ms.openlocfilehash: d94b83dd658193069f24202b978d32389eb82ac1
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: a995a110c4f777603e5b0273b6025cd68fe55b67
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99579897"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102532700"
 ---
 ## <a name="download-and-install"></a>ダウンロードしてインストールする
 
@@ -19,11 +19,12 @@ ms.locfileid: "99579897"
 Windows に Speech CLI をインストールするには、次の手順に従います。
 
 1. Windows では、お使いのプラットフォームに対応した [Microsoft Visual Studio 2019 の Visual C++ 再頒布可能パッケージ](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads)が必要です。 これを初めてインストールする場合、再起動が必要になる場合があります。
-1. [.NET Core 3.1](/dotnet/core/install/linux) をインストールします。
+1. [.NET Core 3.1 SDK](/dotnet/core/install/windows) をインストールします。
 2. 次のコマンドを入力して、NuGet を使用して Speech CLI をインストールします。
 
-    `dotnet tool install --global Microsoft.CognitiveServices.Speech.CLI --version 1.15.0`
-
+   ```console
+   dotnet tool install --global Microsoft.CognitiveServices.Speech.CLI --version 1.15.0
+   ```
 「`spx`」と入力して、Speech CLI のヘルプを表示します。
 
 > [!NOTE]
@@ -39,9 +40,19 @@ Windows の Speech CLI では、ローカル コンピューター上のコマ�
 
 #### <a name="linux-install"></a>[Linux のインストール](#tab/linuxinstall)
 
+Speech CLI を使用する x64 アーキテクチャでは、次の Linux ディストリビューションがサポートされています。
+
+* CentOS 7/8
+* Debian 9/10 
+* Red Hat Enterprise Linux (RHEL) 7/8
+* Ubuntu 16.04/18.04/20.04
+
+> [!NOTE]
+> 追加のアーキテクチャが Speech SDK (Speech CLI ではない) によってサポートされています。 詳細については、「[Speech SDK について](../speech-sdk.md)」を参照してください。
+
 Linux の x64 CPU で Speech CLI をインストールするには、次の手順に従います。
 
-1. [.NET Core 3.1](/dotnet/core/install/linux) をインストールします。
+1. [.NET Core 3.1 SDK](/dotnet/core/install/linux) をインストールします。
 2. 次のコマンドを入力して、NuGet を使用して Speech CLI をインストールします。
 
     `dotnet tool install --global Microsoft.CognitiveServices.Speech.CLI --version 1.15.0`
@@ -49,14 +60,14 @@ Linux の x64 CPU で Speech CLI をインストールするには、次の手�
 「`spx`」と入力して、Speech CLI のヘルプを表示します。
 
 > [!NOTE]
-> NuGet の代わりに、[zip アーカイブ](https://aka.ms/speech/spx-zips.zip)でバイナリをダウンロードし、`spx-netcore-30-linux-x64` を新しい `~/spx` ディレクトリに抽出し、バイナリに `sudo chmod +r+x spx` を入力して、PATH システム変数に `~/spx` パスを追加することもできます。
+> NuGet の代わりに、[zip アーカイブ](https://aka.ms/speech/spx-zips.zip)でバイナリをダウンロードし、`spx-netcore-30-linux-x64.zip` を新しい `~/spx` ディレクトリに抽出し、バイナリに `sudo chmod +r+x spx` を入力して、PATH システム変数に `~/spx` パスを追加することもできます。
 
 
 #### <a name="docker-install-windows-linux-macos"></a>[Docker のインストール (Windows、Linux、macOS)](#tab/dockerinstall)
 
 Docker コンテナー内に Speech CLI をインストールするには、次の手順に従います。
 
-1. プラットフォームにインストールされていない場合、<a href="https://www.docker.com/get-started" target="_blank">Docker Desktop をインストール<span class="docon docon-navigate-external x-hidden-focus"></span></a>します。
+1. プラットフォームにインストールされていない場合、<a href="https://www.docker.com/get-started" target="_blank">Docker Desktop をインストール</a>します。
 2. 新しいコマンド プロンプトまたはターミナルで、次のコマンドを入力します: 
    ```console   
    docker pull msftspeech/spx

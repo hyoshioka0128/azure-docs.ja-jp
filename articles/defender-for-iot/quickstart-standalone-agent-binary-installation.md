@@ -1,19 +1,14 @@
 ---
 title: Defender for IoT マイクロ エージェントをインストールする (プレビュー)
-titleSuffix: Azure Defender for IoT
 description: Defender マイクロ エージェントをインストールして認証する方法について説明します。
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
-ms.date: 1/18/2021
+ms.date: 3/9/2021
 ms.topic: quickstart
-ms.service: azure
-ms.openlocfilehash: 0841bbd8baa524d3eea3afcbffc0aa5ead41409e
-ms.sourcegitcommit: 4784fbba18bab59b203734b6e3a4d62d1dadf031
+ms.openlocfilehash: ecde9f42acc5cf4a924a657f4f0cdc545c4a668e
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99810050"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104782726"
 ---
 # <a name="install-defender-for-iot-micro-agent-preview"></a>Defender for IoT マイクロ エージェントをインストールする (プレビュー)
 
@@ -21,11 +16,11 @@ ms.locfileid: "99810050"
 
 ## <a name="prerequisites"></a>前提条件
 
-Defender for IoT モジュールをインストールする前に、IoT Hub にモジュール ID を作成する必要があります。 モジュール ID の作成方法の詳細については、「[azureiotsecurity モジュール ツインを作成する](quickstart-create-security-twin.md)」を参照してください
+Defender for IoT モジュールをインストールする前に、IoT Hub にモジュール ID を作成する必要があります。 モジュール ID の作成方法の詳細については、[Defender for IoT マイクロ エージェントのモジュール ツインを作成する方法 (プレビュー)](quickstart-create-micro-agent-module-twin.md) に関するページを参照してください。
 
 ## <a name="install-the-package"></a>パッケージをインストールする
 
-[これらの手順](https://docs.microsoft.com/windows-server/administration/linux-package-repository-for-microsoft-software)に従って、Microsoft パッケージ リポジトリをインストールし、構成します。 
+[これらの手順](/windows-server/administration/linux-package-repository-for-microsoft-software)に従って、Microsoft パッケージ リポジトリをインストールし、構成します。 
 
 Debian 9 の場合は、追加する必要があるリポジトリが手順に含まれていません。以下のコマンドを使用して、リポジトリを追加してください。 
 
@@ -49,13 +44,37 @@ sudo apt-get install defender-iot-micro-agent
 
 Defender for IoT マイクロ エージェントを認証するために使用される 2 つのオプションは、次のとおりです。 
 
-- 接続文字列: 
+- モジュール ID の接続文字列。 
 
 - 証明書。
 
-### <a name="authenticate-using-a-connection-string"></a>接続文字列を使用して認証する
+### <a name="authenticate-using-a-module-identity-connection-string"></a>モジュール ID の接続文字列を使用した認証
 
-接続文字列を使用して認証するには、次の手順を実行します。
+この記事の「[前提条件](#prerequisites)」が満たされていることを確認し、これらの手順を開始する前にモジュール ID を作成してください。 
+
+#### <a name="get-the-module-identity-connection-string"></a>モジュール ID の接続文字列を取得する
+
+IoT Hub からモジュール ID の接続文字列を取得するには、次のようにします。 
+
+1. IoT Hub に移動し、お使いのハブを選択します。
+
+1. 左側のメニューの **[エクスプローラー]** セクションで、 **[IoT デバイス]** を選択します。
+
+   :::image type="content" source="media/quickstart-standalone-agent-binary-installation/iot-devices.png" alt-text="左側のメニューから [IoT デバイス] を選択する。":::
+
+1. デバイス ID の一覧からデバイスを選択すると、 **[デバイスの詳細]** ページが表示されます。
+
+1.  **[モジュール ID]**   タブを選択し、デバイスに関連付けられているモジュール ID の一覧から  **DefenderIotMicroAgent**  モジュールを選択します。
+
+   :::image type="content" source="media/quickstart-standalone-agent-binary-installation/module-identities.png" alt-text="[モジュール ID] タブを選択する。":::
+
+1. **[モジュール ID の詳細]** ページで、 **[コピー]** ボタンを選択して主キーをコピーします。
+
+   :::image type="content" source="media/quickstart-standalone-agent-binary-installation/copy-button.png" alt-text="[コピー] ボタンを選択して主キーをコピーする。":::
+
+#### <a name="configure-authentication-using-a-module-identity-connection-string"></a>モジュール ID の接続文字列を使用して認証を構成する
+
+モジュール ID の接続文字列を使用して認証するようにエージェントを構成するには、次のようにします。
 
 1. 次のコマンドを入力して、utf-8 でエンコードされた接続文字列を含む `connection_string.txt` という名前のファイルを defender エージェント ディレクトリの `/var/defender_iot_micro_agent` パスに配置します。
 
@@ -63,7 +82,7 @@ Defender for IoT マイクロ エージェントを認証するために使用�
     sudo bash -c 'echo "<connection string" > /var/defender_iot_micro_agent/connection_string.txt' 
     ```
 
-    これで、`connection_string.txt` は、`/var/defender_iot_micro_agent/connection_string.txt` というパスの場所にあるはずです。
+    `connection_string.txt` は、`/var/defender_iot_micro_agent/connection_string.txt` というパスの場所に配置する必要があります。
 
 1. このコマンドを使用して、サービスを再起動します。  
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 12/31/2020
 ms.author: kenwith
 ms.reviewer: arvindha, celested
-ms.openlocfilehash: d36bcbd64c1169c923c6a1decdf907a8a9d6697b
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: 9f2b5bf1195682b200b5840459194506e29bcdc6
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99255765"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "101645090"
 ---
 # <a name="plan-an-automatic-user-provisioning-deployment"></a>自動ユーザー プロビジョニングのデプロイを計画する
 
@@ -322,7 +322,7 @@ Azure AD は、監査ログとレポートによって組織のユーザーの�
 
 * [Azure AD の更新情報](https://azure.microsoft.com/updates/?product=active-directory)
 
-* [Microsoft Q&A Azure AD フォーラム](https://docs.microsoft.com/answers/topics/azure-active-directory.html)
+* [Microsoft Q&A Azure AD フォーラム](/answers/topics/azure-active-directory.html)
 
 ## <a name="next-steps"></a>次のステップ
 * [自動ユーザー プロビジョニングの構成](../app-provisioning/configure-automatic-user-provisioning-portal.md)

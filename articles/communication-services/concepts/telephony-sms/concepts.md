@@ -6,19 +6,22 @@ author: mikben
 manager: jken
 services: azure-communication-services
 ms.author: mikben
-ms.date: 09/30/2020
+ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 6f03195c801f241a79a6bf68ef9d398370b0d4c6
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: c866629677790447d0ed730ae9cc62cb37e338e9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100391815"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103495506"
 ---
 # <a name="sms-concepts"></a>SMS の概念
 
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
+
+
+[!INCLUDE [Regional Availability Notice](../../includes/regional-availability-include.md)]
 
 Azure Communication Services では、Communication Services SMS クライアント ライブラリを使用して SMS テキスト メッセージを送受信できます。 これらのクライアント ライブラリを使用して、カスタマー サービスのシナリオ、予定リマインダー、2 要素認証、その他のリアルタイム通信のニーズをサポートできます。 Communication Services SMS を使用すると、メッセージを確実に送信しながら、キャンペーンに関連する配信性と反応率の分析情報を明らかにすることができます。
 

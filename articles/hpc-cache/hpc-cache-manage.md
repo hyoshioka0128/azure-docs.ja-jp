@@ -4,14 +4,14 @@ description: Azure portal または Azure CLI を使用して Azure HPC Cache �
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 08/31/2020
+ms.date: 03/08/2021
 ms.author: v-erkel
-ms.openlocfilehash: 067b12d4dcfd5ba2b730204ef680b900d79f1b72
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: b34beb65bb8c4136887651d8365c937b17718572
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94648074"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "103471878"
 ---
 # <a name="manage-your-cache"></a>キャッシュを管理する
 
@@ -253,7 +253,21 @@ $
 
 ![サンプル キャッシュについて前述の統計情報を示している、3 つの折れ線グラフのスクリーンショット](media/hpc-cache-overview-stats.png)
 
-これらのグラフは、Azure の組み込みの監視および分析ツールの一部です。 その他のツールとアラートは、ポータルのサイドバーにある **[監視]** という見出しの下にあるページから利用できます。 詳細については、[Azure 監視のドキュメント](../azure-monitor/insights/monitor-azure-resource.md#monitoring-in-the-azure-portal)のポータルに関するセクションを参照してください。
+これらのグラフは、Azure の組み込みの監視および分析ツールの一部です。 その他のツールとアラートは、ポータルのサイドバーにある **[監視]** という見出しの下にあるページから利用できます。 詳細については、[Azure 監視のドキュメント](../azure-monitor/essentials/monitor-azure-resource.md#monitoring-in-the-azure-portal)のポータルに関するセクションを参照してください。
+
+## <a name="view-warnings"></a>警告の表示
+
+キャッシュが異常な状態になった場合は、 **[警告]** ページを確認してください。 このページに表示されるキャッシュ ソフトウェアから送られる通知は、その状態を理解するのに役立ちます。
+
+これらの通知は Azure portal によって制御されないため、アクティビティ ログには表示されません。 これらは、多くがカスタム設定に関連付けられています。
+
+ここに表示される警告の種類は、次のようなものです。
+
+* キャッシュは NTP サーバーにアクセスできません
+* キャッシュは拡張グループのユーザー名情報をダウンロードできませんでした
+* カスタム DNS 設定がストレージ ターゲットで変更されました
+
+![拡張グループのユーザー名をダウンロードできなかったことを示すメッセージが表示された [監視] > [警告] ページのスクリーンショット](media/warnings-page.png)
 
 ## <a name="next-steps"></a>次のステップ
 

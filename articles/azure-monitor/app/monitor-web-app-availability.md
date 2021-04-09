@@ -2,14 +2,14 @@
 title: Web サイトの可用性と応答性の監視 | Microsoft Docs
 description: Application Insights で Web テストを設定します。 Web サイトが使用できなくなったり、応答速度が低下したりした場合に、アラートを受け取ります。
 ms.topic: conceptual
-ms.date: 09/16/2019
+ms.date: 03/10/2021
 ms.reviewer: sdash
-ms.openlocfilehash: b0f66608c6e0f23b861e207d0dea07a546b41c2a
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: d7c610e374dcb7b97850d815ba8bb927cdebacfc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98937416"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103012566"
 ---
 # <a name="monitor-the-availability-of-any-website"></a>任意の Web サイトの可用性を監視する
 
@@ -72,7 +72,6 @@ Azure portal で、 **[リソースの作成]**  >  **[開発者ツール]**  > 
 |設定| 説明
 |----|----|----|
 |**準リアルタイム (プレビュー)** | 準リアルタイムのアラートを使用することが推奨されます。 この種類のアラートの構成は、可用性テストの作成後に実行されます。  |
-|**クラシック** | 新しい可用性テストでクラシック アラートを使用することはもう推奨されていません。|
 |**アラートの場所のしきい値**|少なくとも 3/5 の場所にすることをお勧めします。 アラートの場所のしきい値とテストの場所の数の最適な関係は、**アラートの場所のしきい値** = **テストの場所の数** - 2 です。テストの場所は、少なくとも 5 か所にします。|
 
 ### <a name="location-population-tags"></a>位置情報の作成タグ
@@ -151,7 +150,7 @@ Azure Resource Manager を使用して可用性 URL の ping テストをデプ�
 
 ![サーバー側診断](./media/monitor-web-app-availability/open-instance-4.png)
 
-生の結果に加えて、[メトリックス エクスプローラー](../platform/metrics-getting-started.md)に 2 つの重要な可用性メトリックを表示することもできます。
+生の結果に加えて、[メトリックス エクスプローラー](../essentials/metrics-getting-started.md)に 2 つの重要な可用性メトリックを表示することもできます。
 
 1. 可用性:すべてのテスト実行にわたる、成功したテストの割合 (%)。
 2. テスト期間:すべてのテスト実行にわたる平均のテスト期間。
@@ -159,7 +158,7 @@ Azure Resource Manager を使用して可用性 URL の ping テストをデプ�
 ## <a name="automation"></a>Automation
 
 * [PowerShell スクリプトを使用して、可用性テストを自動的に設定します](./powershell.md#add-an-availability-test)。
-* アラートが発生したときに呼び出される [webhook](../platform/alerts-webhooks.md) を設定する。
+* アラートが発生したときに呼び出される [webhook](../alerts/alerts-webhooks.md) を設定する。
 
 ## <a name="troubleshooting"></a>トラブルシューティング
 

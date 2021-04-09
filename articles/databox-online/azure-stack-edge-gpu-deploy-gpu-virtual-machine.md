@@ -6,16 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 12/21/2020
+ms.date: 02/22/2021
 ms.author: alkohli
-ms.openlocfilehash: 7534052412c2bee0f31e352fc577d376c11215c3
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: ff805b758dce05a66764ab1ff08e53378c946362
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98804930"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102438184"
 ---
 # <a name="gpu-vms-for-your-azure-stack-edge-pro-device"></a>Azure Stack Edge Pro デバイス用の GPU VM
+
+[!INCLUDE [applies-to-GPU-and-pro-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-sku.md)]
 
 この記事では、Azure Stack Edge Pro デバイス上の GPU 仮想マシン (VM) の概要を示します。 この記事では、GPU VM を作成し、GPU ドライバー拡張機能をインストールして適切な Nvidia ドライバーをインストールする方法について説明します。 Azure Resource Manager テンプレートを使用して GPU VM を作成し、GPU ドライバー拡張機能をインストールします。 
 
@@ -110,8 +112,8 @@ Nvidia GPU ドライバー拡張機能により、適切な Nvidia CUDA ドラ�
 1. VM が作成されたら、拡張機能テンプレートを使用して GPU 拡張機能をデプロイします。 Linux VM の場合は、[Linux 用の GPU 拡張機能のインストール](#gpu-extension-for-linux)に関するページを参照してください。Windows VM の場合は、[Windows 用の GPU 拡張機能のインストール](#gpu-extension-for-windows)に関するページを参照してください。
 
 1. GPU 拡張機能のインストールを確認するには、GPU VM に接続します。
-    1. Windows VM を使用している場合は、「[Windows VM への接続](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md#connect-to-windows-vm)」の手順に従ってください。 [インストールを確認します](#verify-windows-driver-installation)。
-    1. Linux VM を使用している場合は、「[Linux VM への接続](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md#connect-to-linux-vm)」の手順に従ってください。 [インストールを確認します](#verify-linux-driver-installation)。
+    1. Windows VM を使用している場合は、「[Windows VM への接続](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md#connect-to-a-windows-vm)」の手順に従ってください。 [インストールを確認します](#verify-windows-driver-installation)。
+    1. Linux VM を使用している場合は、「[Linux VM への接続](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md#connect-to-a-linux-vm)」の手順に従ってください。 [インストールを確認します](#verify-linux-driver-installation)。
 
 1. 必要に応じて、コンピューティング ネットワークを任意のものに切り替えることができます。 
 
@@ -545,7 +547,7 @@ PS C:\WINDOWS\system32>
 
 ドライバーのインストールを確認するには、次の手順に従います。
 
-1. GPU VM に接続します。 「[Linux VM への接続](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md#connect-to-linux-vm)」の手順に従います。 
+1. GPU VM に接続します。 「[Linux VM への接続](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md#connect-to-a-linux-vm)」の手順に従います。 
 
     出力例を次に示します。
 

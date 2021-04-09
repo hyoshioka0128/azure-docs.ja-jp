@@ -2,13 +2,13 @@
 title: NSX-T ネットワーク セグメントを追加する
 description: Azure VMware Solution 用の NSX-T ネットワーク セグメントを追加する手順。
 ms.topic: include
-ms.date: 11/09/2020
-ms.openlocfilehash: 5b97f0b280fa12eff39c9601bb73e439dba8e9fd
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.date: 03/13/2021
+ms.openlocfilehash: 14d698413d31af2dcbbdea5f37ec7f24f65199ad
+ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94335061"
+ms.lasthandoff: 03/14/2021
+ms.locfileid: "103462128"
 ---
 <!-- Used in manage-dhcp.md and tutorial-nsx-t-network-segment.md -->
 
@@ -16,9 +16,9 @@ ms.locfileid: "94335061"
 
    :::image type="content" source="../media/nsxt/nsxt-segments-overview.png" alt-text="新しいセグメントを追加する方法を示すスクリーンショット":::
 
-1. **[Add Segment]\(セグメントの追加\)** を選択し、セグメントの名前を入力します。
+1. セグメントの名前を入力します。
 
-1. **[Connected Gateway]\(接続されているゲートウェイ\)** として Tier1 ゲートウェイ (TNTxx-T1) を選択します。 **[Type]\(種類\)** は [Flexible]\(柔軟\) のままにします。
+1. **[Connected Gateway]\(接続されているゲートウェイ\)** として Tier-1 ゲートウェイ (TNTxx-T1) を選択し、 **[Type]\(タイプ\)** は [Flexible]\(柔軟\) のままにします。
 
 1. 事前構成済みのオーバーレイ **トランスポート ゾーン** (TNTxx-OVERLAY-TZ) を選択して、 **[Set Subnets]\(サブネットの設定\)** を選択します。 
 

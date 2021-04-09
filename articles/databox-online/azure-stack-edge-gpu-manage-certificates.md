@@ -6,20 +6,20 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 09/29/2020
+ms.date: 03/08/2021
 ms.author: alkohli
-ms.openlocfilehash: 5cec5eda7cf398949865bf6d3d3e8be5b2d5e840
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.openlocfilehash: 534870e6bd67b7aa5273289f3154a794a2b9bd22
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100549468"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "102519012"
 ---
 # <a name="use-certificates-with-azure-stack-edge-pro-gpu-device"></a>Azure Stack Edge Pro GPU デバイスで証明書を使用する
 
-<!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
+[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
-この記事では、Azure Stack Edge Pro デバイスにインストールできる証明書の種類について説明します。 この記事には、各証明書の種類の詳細と、証明書をインストールして、有効期限を識別する手順も記載します。 
+この記事では、Azure Stack Edge Pro デバイスにインストールできる証明書の種類について説明します。 この記事には、各証明書の種類の詳細と、証明書をインストールして、有効期限を識別する手順も記載します。  
 
 ## <a name="about-certificates"></a>証明書について
 
@@ -400,7 +400,7 @@ Windows クライアントに証明書をインポートするには、次の手
 
 ## <a name="supported-certificate-algorithms"></a>サポートされる証明書アルゴリズム
 
- Azure Stack Edge Pro デバイスでは、Rivest–Shamir–Adleman (RSA) 証明書のみサポートされています。 楕円曲線デジタル署名アルゴリズム (ECDSA) 証明書を使用する場合、デバイスの動作は不確定です。
+ Azure Stack Edge Pro デバイスでは、Rivest–Shamir–Adleman (RSA) 証明書のみサポートされています。 楕円曲線デジタル署名アルゴリズム (ECDSA) 証明書はサポートされていません。
 
  RSA 公開キーを含む証明書は、RSA 証明書と呼ばれます。 楕円曲線暗号 (ECC) 公開キーを含む証明書は、ECDSA (楕円曲線デジタル署名アルゴリズム) 証明書と呼ばれます。 
 
@@ -413,7 +413,7 @@ Windows クライアントに証明書をインポートするには、次の手
 
 Rotation of certificates is not implemented in this release. You are also not notified of the pending expiration date on your certificate. 
 
-View the certificate expiration date on the **Certificates** page in the local web UI of your device. Once the certificate expiration is approaching, create and upload new certificates as per the detailed instructions in [Create and upload certificates](azure-stack-edge-j-series-manage-certificates.md).-->
+View the certificate expiration date on the **Certificates** page in the local web UI of your device. Once the certificate expiration is approaching, create and upload new certificates as per the detailed instructions in [Create and upload certificates]().-->
 
 ## <a name="next-steps"></a>次のステップ
 

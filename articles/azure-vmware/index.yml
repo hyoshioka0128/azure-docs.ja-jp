@@ -9,12 +9,12 @@ metadata:
   author: dikamath
   ms.author: dikamath
   ms.date: 11/19/2020
-  ms.openlocfilehash: f5b22f1211076ee0d7990103586659c12eae66c9
-  ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+  ms.openlocfilehash: 9412889bef1ababa6d44d5cf3aa48c2231bed08d
+  ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
   ms.translationtype: HT
   ms.contentlocale: ja-JP
-  ms.lasthandoff: 02/10/2021
-  ms.locfileid: "100092691"
+  ms.lasthandoff: 03/07/2021
+  ms.locfileid: "102436194"
 landingContent:
 - title: Azure VMware Solution について
   linkLists:
@@ -22,6 +22,8 @@ landingContent:
     links:
     - text: Azure VMware Solution とは
       url: introduction.md
+    - text: プラットフォームの更新
+      url: azure-vmware-solution-platform-updates.md
   - linkListType: concept
     links:
     - text: プライベート クラウドとクラスター
@@ -72,7 +74,7 @@ landingContent:
   linkLists:
   - linkListType: how-to-guide
     links:
-    - text: Azure VMware Solution を有効にする
+    - text: ホスト クォータを要求し、Azure VMware Solution を有効にする
       url: enable-azure-vmware-solution.md
     - text: 予約インスタンスを使用してコストを削減する
       url: reserved-instance.md
@@ -80,6 +82,8 @@ landingContent:
       url: ../migrate/how-to-create-azure-vmware-solution-assessment.md?context=/azure/migrate/context/migrate-context.json
     - text: DHCP の管理
       url: manage-dhcp.md
+    - text: NSX ネットワーク コンポーネントの構成
+      url: configure-nsx-network-components-azure-portal.md
     - text: VM のディザスター リカバリーをデプロイする
       url: disaster-recovery-for-virtual-machines.md
     - text: コンテンツ ライブラリを介して VM をデプロイする

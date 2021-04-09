@@ -2,18 +2,18 @@
 title: 負荷の急増に対応できる B シリーズ - Azure Virtual Machines
 description: 負荷の急増に対応できる B シリーズの Azure VM のサイズについて説明します。
 services: virtual-machines
-ms.subservice: sizes
+ms.subservice: vm-sizes-general
 author: styli365
 ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: sttsinar
-ms.openlocfilehash: 833d96b8ca252cff5384cde114390aba8c2f51c3
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: c19c47ac64f1e41fa998a29d3ea0480bf0d92a63
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99097692"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102554464"
 ---
 # <a name="b-series-burstable-virtual-machine-sizes"></a>負荷の急増に対応できる B シリーズ仮想マシンのサイズ
 
@@ -109,7 +109,7 @@ B16 の特徴:
 
 **A**: **Credit** メトリックでは、VM で蓄積されたクレジットの数を確認できます。**ConsumedCredit** メトリックでは、蓄積した CPU クレジットをどれだけ消費したかを確認できます。    この 2 つのメトリックは、ポータルの [メトリック] ウィンドウのほか、プログラムを使って Azure Monitor API 経由で確認できるようにする予定です。
 
-Azure でメトリック データにアクセスする方法の詳細については、「[Microsoft Azure のメトリックの概要](../azure-monitor/platform/data-platform.md)」を参照してください。
+Azure でメトリック データにアクセスする方法の詳細については、「[Microsoft Azure のメトリックの概要](../azure-monitor/data-platform.md)」を参照してください。
 
 ### <a name="q-how-are-credits-accumulated-and-consumed"></a>Q:クレジットはどのように蓄積され、消費されますか?
 

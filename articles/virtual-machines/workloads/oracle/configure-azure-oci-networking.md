@@ -2,18 +2,18 @@
 title: Azure ExpressRoute を Oracle Cloud Infrastructure と接続する | Microsoft Docs
 description: Azure ExpressRoute を Oracle Cloud Infrastructure (OCI) FastConnect と接続して、クロスクラウド Oracle アプリケーション ソリューションを使用できるようにします
 author: dbakevlar
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines
+ms.subservice: oracle
+ms.collection: linux
 ms.topic: article
 ms.date: 03/16/2020
 ms.author: rogardle
-ms.reviewer: cynthn
-ms.openlocfilehash: 2717ba307cac82465e0c5df996ef3b668af5e7d4
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 09264f9f20411e7536eb4a1dbf12ac297e7e3ef9
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94963710"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "101675719"
 ---
 # <a name="set-up-a-direct-interconnection-between-azure-and-oracle-cloud-infrastructure"></a>Azure と Oracle Cloud Infrastructure 間の直接相互接続をセットアップする  
 
@@ -77,7 +77,7 @@ ms.locfileid: "94963710"
 
 ネットワークの構成が完了したら、Azure portal の ExpressRoute プライベート ピアリング ブレードで **[ARP レコードを取得する]** および **[ルート テーブルを取得する]** をクリックして、構成の有効性を検証できます。
 
-## <a name="automation"></a>オートメーション
+## <a name="automation"></a>Automation
 
 Microsoft では、ネットワーク相互接続の自動デプロイを有効にするために Terraform スクリプトを作成しました。 Terraform スクリプトには Azure サブスクリプションでの適切なアクセス許可が必要なため、実行する前に Azure で認証する必要があります。 認証は、[Azure Active Directory サービス プリンシパル](../../../active-directory/develop/app-objects-and-service-principals.md#service-principal-object)を使用するか、Azure CLI を使用して実行できます。 詳細については、[Terraform のドキュメント](https://www.terraform.io/docs/providers/azurerm/auth/azure_cli.html)を参照してください。
 

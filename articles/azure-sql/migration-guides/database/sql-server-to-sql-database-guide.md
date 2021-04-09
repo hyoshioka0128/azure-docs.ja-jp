@@ -9,13 +9,13 @@ ms.topic: how-to
 author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
-ms.date: 11/06/2020
-ms.openlocfilehash: a2ab63febbb4439e50ef0f7bcc0f9797dc50c62c
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.date: 03/19/2021
+ms.openlocfilehash: 9205301cb77941e4ea7ca026710d44ba82f6a937
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99260030"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103563846"
 ---
 # <a name="migration-guide-sql-server-to-sql-database"></a>移行ガイド:SQL Server から SQL Database
 [!INCLUDE[appliesto--sqldb](../../includes/appliesto-sqldb.md)]
@@ -58,6 +58,8 @@ SQL Server を Azure SQL Database に移行するには、次の前提条件が�
 検出フェーズで使用できるツールの詳細については、「[データ移行のシナリオで利用できるサービスとツール](../../../dms/dms-tools-matrix.md)」を参照してください。 
 
 ### <a name="assess"></a>アクセス 
+
+[!INCLUDE [assess-estate-with-azure-migrate](../../../../includes/azure-migrate-to-assess-sql-data-estate.md)]
 
 データ ソースが検出された後、Azure SQL Database に移行できるオンプレミスの SQL Server データベースを評価して、移行の阻害要素や互換性の問題を明らかにします。 
 
@@ -157,8 +159,8 @@ Azure SQL Database への移行を高速化するには、次の推奨事項を�
 |  | リソースの競合 | 推奨 |
 |--|--|--|
 | **ソース (通常はオンプレミス)** |ソースでの移行時の主なボトルネックは、慎重に監視する必要があるデータ ファイルのデータ I/O と待機時間です。  |データ IO とデータ ファイルの待機時間に基づき、仮想マシンと物理サーバーのどちらであるかに応じて、ストレージ管理者と連携してボトルネックを軽減するためのオプションを検討する必要があります。 |
-|**ターゲット (Azure SQL Database)**|最大の制限要因は、ログ ファイルのログ生成速度と待機時間です。 Azure SQL Database では、最大 96 MB/秒のログ生成速度を実現できます。 | 移行を高速化するには、ターゲット SQL DB を Business Critical Gen5 8 仮想コアにスケールアップして、ログの最大生成速度である 96 MB/秒を実現し、ログ ファイルの待機時間短縮を達成します。 [Hyperscale](https://docs.microsoft.com/azure/azure-sql/database/service-tier-hyperscale) サービス レベルでは、選択したサービス レベルに関係なく、100 MB/秒のログ速度が提供されます。 |
-|**Network** |必要なネットワーク帯域幅は、ログ取り込み速度の最大値 96 MB/秒 (768 Mb/秒) と同じです。 |オンプレミスのデータ センターから Azure へのネットワーク接続に応じて、ネットワーク帯域幅 (通常は [Azure ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction#bandwidth-options)) を確認し、ログの最大取り込み速度に対応します。 |
+|**ターゲット (Azure SQL Database)**|最大の制限要因は、ログ ファイルのログ生成速度と待機時間です。 Azure SQL Database では、最大 96 MB/秒のログ生成速度を実現できます。 | 移行を高速化するには、ターゲット SQL DB を Business Critical Gen5 8 仮想コアにスケールアップして、ログの最大生成速度である 96 MB/秒を実現し、ログ ファイルの待機時間短縮を達成します。 [Hyperscale](../../database/service-tier-hyperscale.md) サービス レベルでは、選択したサービス レベルに関係なく、100 MB/秒のログ速度が提供されます。 |
+|**Network** |必要なネットワーク帯域幅は、ログ取り込み速度の最大値 96 MB/秒 (768 Mb/秒) と同じです。 |オンプレミスのデータ センターから Azure へのネットワーク接続に応じて、ネットワーク帯域幅 (通常は [Azure ExpressRoute](../../../expressroute/expressroute-introduction.md#bandwidth-options)) を確認し、ログの最大取り込み速度に対応します。 |
 |**Data Migration Assistant (DMA) に使用される仮想マシン** |CPU が DMA を実行する仮想マシンにとって主なボトルネックです。 |次を使用してデータ移行を高速化するための考慮事項 </br>- Azure コンピューティング集中型 VM </br>- DMA を実行するために少なくとも F8s_v2 (8 仮想コア) VM を使用します </br>- ターゲットと同じ Azure リージョンで VM が実行されていることを確認します |
 |**Azure Database Migration Service (DMS)** |DMS のコンピューティング リソースの競合とデータベース オブジェクトの考慮事項 |Premium 4 仮想コアを使用します。 DMS は、外部キー、トリガー、制約、非クラスター化インデックスなどのデータベース オブジェクトを自動的に処理するため、手動介入は必要ありません。  |
 
@@ -181,9 +183,6 @@ Azure SQL Database への移行を高速化するには、次の推奨事項を�
 1. **テスト環境を設定する**: テスト環境には、ソース データベースとターゲット データベースのコピーが含まれている必要があります。 必ずテスト環境を分離してください。
 1. **検証テストを実行する**: ソースとターゲットに対して検証テストを実行してから、結果を分析します。
 1. **パフォーマンス テストを実行する**: ソースとターゲットに対してパフォーマンス テストを実行し、結果を分析して比較します。
-
-   > [!NOTE]
-   > 移行後の検証テストの開発と実行を支援するために、パートナーの [QuerySurge](https://www.querysurge.com/company/partners/microsoft) から入手できる Data Quality Solution を検討してください。 
 
 
 ## <a name="leverage-advanced-features"></a>高度な機能を活用する 

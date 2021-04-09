@@ -5,15 +5,15 @@ description: Azure Communication Services における通話フローのトポ�
 author: nmurav
 services: azure-communication-services
 ms.author: nmurav
-ms.date: 12/11/2020
+ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 1333bd08f8a79969817bcb21aa4580d1994d09ce
-ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.openlocfilehash: 526e3a1e4eeb6ef6a31a33498241d9a7443cca35
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99594658"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103490638"
 ---
 # <a name="call-flow-topologies"></a>通話フローのトポロジ
 この記事では、Azure Communication Services における通話フローのトポロジについて説明します。 この記事は、管理下のネットワーク内に Communication Services を統合することを検討しているエンタープライズのお客様にぜひお勧めします。 Communication Services における通話フローの概要については、[通話フローの概念に関するドキュメント](./call-flows.md)を参照してください。
@@ -26,7 +26,7 @@ ms.locfileid: "99594658"
 
 **カスタマー ネットワーク** には、貴社が管理するネットワーク セグメントが存在します。 これには、オフィス内のワイヤード (有線) ネットワークとワイヤレス ネットワークのほか、オフィスとデータ センターとインターネット サービス プロバイダーを結ぶワイヤード ネットワークおよびワイヤレス ネットワークが含まれる場合もあります。
 
-通常、カスタマー ネットワークにはいくつかのネットワーク境界が存在し、そこに組織のセキュリティ ポリシーを適用するプロキシ サーバーやファイアウォールが配置されます。 ご利用の通信ソリューションに最適なパフォーマンスと品質を確保するために、[包括的なネットワーク評価](https://docs.microsoft.com/microsoftteams/3-envision-evaluate-my-environment)を実施することをお勧めします。
+通常、カスタマー ネットワークにはいくつかのネットワーク境界が存在し、そこに組織のセキュリティ ポリシーを適用するプロキシ サーバーやファイアウォールが配置されます。 ご利用の通信ソリューションに最適なパフォーマンスと品質を確保するために、[包括的なネットワーク評価](/microsoftteams/3-envision-evaluate-my-environment)を実施することをお勧めします。
 
 **Communication Services ネットワーク** は、Azure Communication Services をサポートするネットワーク セグメントです。 このネットワークは、Microsoft によって管理されます。世界全域に分散され、ほとんどのカスタマー ネットワークに近い場所にそのエッジが配置されています。 トランスポートのリレー、グループ通話のメディア処理など、多彩なリアルタイム メディア通信をサポートするコンポーネントをこのネットワークが担っています。
 
@@ -152,7 +152,7 @@ VPN とカスタマー ネットワークとの間のシグナリングにはフ
 
 ### <a name="vpn-user-to-internal-user-direct-media"></a>VPN ユーザーから内部ユーザー (ダイレクト メディア)
 
-:::image type="content" source="./media/call-flows/vpn-to-internal-direct-media.png" alt-text="ダイレクト メディアを使用した VPN との一対一の通話フロー":::
+:::image type="content" source="./media/call-flows/vpn-to-internal-direct-media.png" alt-text="ダイレクト メディアを使用した VPN との一対一の通話フロー (内部ユーザー)":::
 
 *図 6 - VPN ユーザーから内部ユーザー (ダイレクト メディア)*
 
@@ -162,7 +162,7 @@ VPN とカスタマー ネットワークとの間のシグナリングにはフ
 
 ### <a name="vpn-user-to-external-user-direct-media"></a>VPN ユーザーから外部ユーザー (ダイレクト メディア)
 
-:::image type="content" source="./media/call-flows/vpn-user-to-external-user.png" alt-text="ダイレクト メディアを使用した VPN との一対一の通話フロー":::
+:::image type="content" source="./media/call-flows/vpn-user-to-external-user.png" alt-text="ダイレクト メディアを使用した VPN との一対一の通話フロー (外部ユーザー)":::
 
 *図 7 - VPN ユーザーから外部ユーザー (ダイレクト メディア)*
 
@@ -199,4 +199,3 @@ VBSS (音声、動画、画面共有) サービスは、Azure Communication Serv
 
 - [通話の種類](../concepts/voice-video-calling/about-call-types.md)についてさらに学習する
 - [クライアント - サーバー アーキテクチャ](./client-and-server-architecture.md)について学習する
-

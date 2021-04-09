@@ -11,17 +11,17 @@ author: danimir
 ms.author: danil
 ms.reviewer: wiassaf, sstein
 ms.date: 1/14/2021
-ms.openlocfilehash: 3b57172daeffd1766da456e56cb5e445427a4858
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 17ea6716f090144e8dfef16721bfb69dc23e9912
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98220390"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "100589321"
 ---
 # <a name="troubleshoot-azure-sql-database-and-azure-sql-managed-instance-performance-issues-with-intelligent-insights"></a>Azure SQL Database と Azure SQL Managed Instance のパフォーマンスに関する問題を Intelligent Insights でトラブルシューティングする
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-このページでは、[Intelligent Insights](intelligent-insights-overview.md) のリソース ログによって検出された、Azure SQL Database と Azure SQL Managed Instance のパフォーマンスに関する問題について説明します。 [Azure Monitor ログ](../../azure-monitor/insights/azure-sql.md)、[Azure Event Hubs](../../azure-monitor/platform/resource-logs.md#send-to-azure-event-hubs)、[Azure Storage](metrics-diagnostic-telemetry-logging-streaming-export-configure.md#stream-into-azure-storage)、または DevOps のカスタム アラートおよびレポート機能を提供するサード パーティ製ソリューションに、メトリックとリソース ログをストリーミングできます。
+このページでは、[Intelligent Insights](intelligent-insights-overview.md) のリソース ログによって検出された、Azure SQL Database と Azure SQL Managed Instance のパフォーマンスに関する問題について説明します。 [Azure Monitor ログ](../../azure-monitor/insights/azure-sql.md)、[Azure Event Hubs](../../azure-monitor/essentials/resource-logs.md#send-to-azure-event-hubs)、[Azure Storage](metrics-diagnostic-telemetry-logging-streaming-export-configure.md#stream-into-azure-storage)、または DevOps のカスタム アラートおよびレポート機能を提供するサード パーティ製ソリューションに、メトリックとリソース ログをストリーミングできます。
 
 > [!NOTE]
 > Intelligent Insights を使ったパフォーマンスのトラブルシューティングに関するクイック ガイドについては、このドキュメントの「[推奨されるトラブルシューティングのフロー](intelligent-insights-troubleshoot-performance.md#recommended-troubleshooting-flow)」のフローチャートを参照してください。
@@ -32,7 +32,7 @@ ms.locfileid: "98220390"
 
 Intelligent Insights は、クエリ実行の待機時間、エラー、またはタイムアウトに基づいて、パフォーマンスの問題を自動的に検出します。 Intelligent Insights では、検出されたパフォーマンス パターンがリソース ログに出力されます。 検出可能なパフォーマンス パターンの概要を次の表に示します。
 
-| 検出可能なパフォーマンス パターン | Azure SQL Database | Azure SQL Managed Instance |
+| 検出可能なパフォーマンス パターン | Azure SQL データベース | Azure SQL Managed Instance |
 | :------------------- | ------------------- | ------------------- |
 | [リソースの上限に到達](intelligent-insights-troubleshoot-performance.md#reaching-resource-limits) | 監視対象サブスクリプションで使用可能なリソース (DTU)、データベース ワーカー スレッド、またはデータベース ログイン セッションの消費量がそのリソースの制限に達しました。 そのことがパフォーマンスに影響を及ぼしています。 | CPU リソースの消費量がその制限に達しそうです。 これは SQL データベースのパフォーマンスに影響しています。 |
 | [ワークロードの増加](intelligent-insights-troubleshoot-performance.md#workload-increase) | データベースでのワークロードの増加またはワークロードの継続的な蓄積が検出されました。 そのことがパフォーマンスに影響を及ぼしています。 | ワークロードの増加が検出されました。 これは SQL データベースのパフォーマンスに影響しています。 |
@@ -335,4 +335,4 @@ Intelligent Insights では、パフォーマンスの問題の根本原因の�
 - [Intelligent Insights](intelligent-insights-overview.md) の概念の習得。
 - [Intelligent Insights パフォーマンス診断ログ](intelligent-insights-use-diagnostics-log.md)の使用。
 - [Azure SQL Analytics](../../azure-monitor/insights/azure-sql.md) を使用した監視。
-- [Azure リソースからのログ データの収集と使用](../../azure-monitor/platform/platform-logs-overview.md)の習得。
+- [Azure リソースからのログ データの収集と使用](../../azure-monitor/essentials/platform-logs-overview.md)の習得。

@@ -96,10 +96,12 @@
               href: assign-access-policy-powershell.md
             - name: ポータル
               href: assign-access-policy-portal.md
-        - name: キー、シークレット、証明書へのアクセスを管理するための Azure RBAC の使用 (プレビュー)
-          href: rbac-guide.md
-        - name: コンテナー アクセス ポリシーの Azure RBAC への移行ガイド
-          href: rbac-migration.md
+        - name: Azure RBAC アクセス許可モデル
+          items:
+            - name: キー、シークレット、証明書へのアクセスを管理するための Azure RBAC の使用
+              href: rbac-guide.md
+            - name: コンテナー アクセス ポリシーの Azure RBAC への移行ガイド
+              href: rbac-migration.md
         - name: アクセスに関する問題のトラブルシューティング
           href: troubleshooting-access-issues.md
     - name: 開発
@@ -161,17 +163,17 @@
     - name: Key Vault のバージョン
       href: versions.md
     - name: Azure PowerShell
-      href: /powershell/module/az.keyvault/?view=azps-1.2.0#key_vault
+      href: /powershell/module/az.keyvault/#key_vault
     - name: Azure CLI
       href: /cli/azure/keyvault
     - name: .NET
-      href: /dotnet/api/overview/azure/key-vault?view=azure-dotnet
+      href: /dotnet/api/overview/azure/key-vault
     - name: Java
-      href: /java/api/overview/azure/keyvault?view=azure-java-stable
+      href: /java/api/overview/azure/keyvault
     - name: Node.js
-      href: /javascript/api/overview/azure/key-vault-index?view=azure-node-latest
+      href: /javascript/api/overview/azure/key-vault-index
     - name: Python
-      href: /python/api/overview/azure/key-vault-index?view=azure-python
+      href: /python/api/overview/azure/key-vault-index
     - name: REST
       href: /rest/api/keyvault
     - name: Resource Manager テンプレート

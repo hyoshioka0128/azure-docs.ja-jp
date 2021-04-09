@@ -2,14 +2,14 @@
 title: Azure portal の設定を管理する
 description: 独自の基本設定を実現するために Azure portal の既定の設定を変更できます。 設定には、非アクティブ セッションのタイムアウト、既定のビュー、メニュー モード、コントラスト、テーマ、通知、言語と地域の形式が含まれます
 keywords: 設定, タイムアウト, 言語, 地域
-ms.date: 08/05/2020
+ms.date: 03/15/2021
 ms.topic: how-to
-ms.openlocfilehash: 5a108f1cd3b5af6655b592e7283192d4d54498ac
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 067b9808a91b8e5e22fb940095779b099bad0d58
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99094112"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104775089"
 ---
 # <a name="manage-azure-portal-settings-and-preferences"></a>Azure portal の設定を管理する
 
@@ -71,7 +71,7 @@ Azure portal にサインインするときに、既定で開かれるページ�
 
 ![通知が強調表示された Azure portal のグローバル ヘッダーを示すスクリーンショット](./media/set-preferences/read-notifications.png)
 
-以前のセッションからの通知を読む場合は、アクティビティ ログでイベントを検索します。 詳細については、「[アクティビティ ログを表示する](../azure-monitor/platform/activity-log.md#view-the-activity-log)」を参照してください。 
+以前のセッションからの通知を読む場合は、アクティビティ ログでイベントを検索します。 詳細については、「[アクティビティ ログを表示する](../azure-monitor/essentials/activity-log.md#view-the-activity-log)」を参照してください。 
 
 ## <a name="change-the-inactivity-timeout-setting"></a>非アクティブ タイムアウト設定を変更する
 

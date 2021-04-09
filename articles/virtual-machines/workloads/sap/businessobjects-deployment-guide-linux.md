@@ -8,19 +8,18 @@ manager: juergent
 editor: ''
 tags: azure-resource-manager
 keywords: ''
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 10/05/2020
 ms.author: depadia
-ms.openlocfilehash: a7361dafce30b07e76d971bdcda41cf4b3cd9e6e
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: b94e1f82409da3329eb6d978fa2ae0222928cd97
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98806168"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102505938"
 ---
 # <a name="sap-businessobjects-bi-platform-deployment-guide-for-linux-on-azure"></a>Azure の Linux 向け SAP BusinessObjects BI プラットフォーム デプロイ ガイド
 
@@ -604,7 +603,7 @@ BI および Web アプリケーション サーバーの場合、個別に (ま
 - 可用性セット内の VM にマネージド ディスクを使用する。
 - 各アプリケーション層に対して別々の可用性セットを構成する。
 
-詳細については、[Linux 仮想マシンの可用性の管理](../../manage-availability.md)に関するページを参照してください。
+詳細については、[Linux 仮想マシンの可用性の管理](../../availability.md)に関するページを参照してください。
 
 #### <a name="high-availability-for-cms-database"></a>CMS データベースの高可用性
 

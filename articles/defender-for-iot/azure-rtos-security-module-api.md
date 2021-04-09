@@ -1,30 +1,21 @@
 ---
-title: Azure RTOS 用のセキュリティ モジュール API
-description: Azure RTOS 用のセキュリティ モジュールのリファレンス API。
-services: defender-for-iot
-ms.service: defender-for-iot
-documentationcenter: na
-author: mlottner
-manager: rkarlin
-editor: ''
-ms.devlang: na
+title: Azure RTOS 用の Defender for IoT マイクロ エージェント API
+description: Azure RTOS 用の Defender for IoT マイクロ エージェントの API を参照します。
 ms.topic: reference
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 09/07/2020
 ms.author: mlottner
-ms.openlocfilehash: 8191d68f701a3be6a37d8623d2d900f6aa6c1851
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e7000a7e6d8ba332432f1ececa12bd9543e9e4a7
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90931467"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104779394"
 ---
-# <a name="security-module-for-azure-rtos-api-preview"></a>Azure RTOS 用のセキュリティ モジュール API (プレビュー)
+# <a name="defender-iot-micro-agent-for-azure-rtos-api-preview"></a>Azure RTOS 用の Defender for IoT マイクロ エージェント API (プレビュー)
 
-この API は、Azure RTOS のセキュリティ モジュールでのみ使用することを目的としています。 その他のリソースについては、[Azure RTOS 用の セキュリティ モジュールに関する GitHub リソース](https://github.com/azure-rtos/azure-iot-preview/releases)を参照してください。 
+この API は、Azure RTOS 用の Defender for IoT マイクロ エージェントでのみ使用することを目的としています。 その他のリソースについては、[Azure RTOS 用の Defender for IoT マイクロ エージェントに関連する GitHub リソース](https://github.com/azure-rtos/azure-iot-preview/releases)を参照してください。 
 
-## <a name="enable-security-module-for-azure-rtos"></a>Azure RTOS 用のセキュリティ モジュールを有効にする
+## <a name="enable-defender-iot-micro-agent-for-azure-rtos"></a>Azure RTOS 用の Defender for IoT マイクロ エージェントを有効にする
 
 **nx_azure_iot_security_module_enable**
 
@@ -36,7 +27,7 @@ UINT nx_azure_iot_security_module_enable(NX_AZURE_IOT *nx_azure_iot_ptr);
 
 ### <a name="description"></a>説明
 
-このルーチンでは、Azure IoT セキュリティ モジュール サブシステムを有効にします。 内部ステート マシンによってセキュリティ イベントのコレクションが管理され、それらが Azure IoT Hub に送信されます。 データ コレクションを管理するために必要なのは、1 つの NX_AZURE_IOT_SECURITY_MODULE インスタンスだけです。
+このルーチンでは、Azure IoT の Defender for IoT マイクロ エージェントのサブシステムを有効にします。 内部ステート マシンによってセキュリティ イベントのコレクションが管理され、それらが Azure IoT Hub に送信されます。 データ コレクションを管理するために必要なのは、1 つの NX_AZURE_IOT_SECURITY_MODULE インスタンスだけです。
 
 ### <a name="parameters"></a>パラメーター
 
@@ -56,7 +47,7 @@ UINT nx_azure_iot_security_module_enable(NX_AZURE_IOT *nx_azure_iot_ptr);
 
 Threads
 
-## <a name="disable-azure-iot-security-module"></a>Azure IoT セキュリティ モジュールを無効にする
+## <a name="disable-azure-iot-defender-iot-micro-agent"></a>Azure IoT の Defender for IoT マイクロ エージェントを無効にする
 
 **nx_azure_iot_security_module_disable**
 
@@ -69,7 +60,7 @@ UINT nx_azure_iot_security_module_disable(NX_AZURE_IOT *nx_azure_iot_ptr);
 
 ### <a name="description"></a>説明
 
-このルーチンでは、Azure IoT セキュリティ モジュール サブシステムを無効にします。
+このルーチンでは、Azure IoT の Defender for IoT マイクロ エージェントのサブシステムを無効にします。
 
 ### <a name="parameters"></a>パラメーター
 
@@ -92,6 +83,6 @@ Threads
 
 ## <a name="next-steps"></a>次の手順
 
-Azure RTOS セキュリティ モジュールの使用を開始する方法の詳細については、次の記事を参照してください。
+Azure RTOS の Defender for IoT マイクロ エージェントの使用を開始する方法の詳細については、次の記事を参照してください。
 
-- Defender for IoT RTOS セキュリティ モジュールの[概要](iot-security-azure-rtos.md)に関する記事を参照します。
+- Defender for IoT RTOS の Defender for IoT マイクロ エージェントの[概要](iot-security-azure-rtos.md)に関する記事を参照してください。

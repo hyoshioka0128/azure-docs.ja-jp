@@ -2,19 +2,19 @@
 title: Azure Storage ファイアウォールおよび仮想ネットワークの構成 | Microsoft Docs
 description: Azure Storage ファイアウォールと Azure Virtual Network を使用して、ストレージ アカウントの多層型ネットワーク セキュリティを構成します。
 services: storage
-author: santoshc
+author: normesta
 ms.service: storage
 ms.topic: how-to
-ms.date: 01/27/2021
+ms.date: 03/05/2021
 ms.author: normesta
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: 8172abb5e220f28061c7826af24a5d9a2043f4ad
-ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
+ms.openlocfilehash: 62f61549ffd6312b94589b9cabbc347edafd0ff2
+ms.sourcegitcommit: 27cd3e515fee7821807c03e64ce8ac2dd2dd82d2
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/31/2021
-ms.locfileid: "99219911"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103601969"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Azure Storage ファイアウォールおよび仮想ネットワークを構成する
 
@@ -136,7 +136,7 @@ VNet 内の Azure Storage に対する[サービス エンドポイント](../..
 
 ### <a name="required-permissions"></a>必要なアクセス許可
 
-ストレージ アカウントに仮想ネットワーク規則を適用するには、追加されるサブネットに対する適切なアクセス許可を持っている必要があります。 必要なアクセス許可は "*サブネットにサービスを参加させる*" であり、"*ストレージ アカウント共同作成者*" 組み込みロールに含まれます。 カスタム ロール定義に追加することもできます。
+ストレージ アカウントに仮想ネットワーク規則を適用するには、追加されるサブネットに対する適切なアクセス許可を持っている必要があります。 規則の適用は、[Storage Account Contributor](../../role-based-access-control/built-in-roles.md#storage-account-contributor)か、カスタム Azure ロール経由で `Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action` [Azure リソース プロバイダー操作](../../role-based-access-control/resource-provider-operations.md#microsoftnetwork)にアクセスする権利が与えられているユーザーが実行できます。
 
 ストレージ アカウントとアクセスを許可される仮想ネットワークは、異なる Azure AD テナントの一部であるサブスクリプションなど、異なるサブスクリプションに含まれていてもかまいません。
 
@@ -371,10 +371,12 @@ IP ネットワーク ルールでオンプレミスのネットワークから�
 
 リソース インスタンスがストレージ アカウントのデータに対して実行できる操作の種類は、リソース インスタンスの [Azure ロールの割り当て](storage-auth-aad.md#assign-azure-roles-for-access-rights)によって決まります。 リソース インスタンスは、ストレージ アカウントと同じテナントからのものである必要がありますが、テナント内のどのサブスクリプションに属していてもかまいません。
 
-サポートされている Azure サービスの一覧については、この記事の「[システム割り当てマネージド ID に基づく信頼されたアクセス](#trusted-access-system-assigned-managed-identity)」を参照してください。
+> [!NOTE]
+> この機能はパブリック プレビュー段階であり、すべてのパブリック クラウド リージョンで利用できます。
 
 > [!NOTE]
-> この機能はパブリック プレビュー段階であり、すべてのパブリック クラウド リージョンで利用できます。 
+> 現在、リソース インスタンス ルールは Azure Synapse でのみサポートされています。 この記事の「[システム割り当てマネージド ID に基づく信頼されたアクセス](#trusted-access-system-assigned-managed-identity)」セクションに掲載されている他の Azure サービスは、今後数週間以内にサポートされる予定です。
+
 
 ### <a name="portal"></a>[ポータル](#tab/azure-portal)
 
@@ -415,7 +417,7 @@ install-Module PowerShellGet –Repository PSGallery –Force
 Install-Module Az.Storage -Repository PsGallery -RequiredVersion 3.0.1-preview -AllowClobber -AllowPrerelease -Force 
 ```
 
-PowerShell モジュールのインストール方法の詳細については、「[Azure PowerShell モジュールのインストール](https://docs.microsoft.com/powershell/azure/install-az-ps)」を参照してください。
+PowerShell モジュールのインストール方法の詳細については、「[Azure PowerShell モジュールのインストール](/powershell/azure/install-az-ps)」を参照してください。
 
 #### <a name="grant-access"></a>アクセス権の付与
 
@@ -565,7 +567,7 @@ az storage account network-rule list \
 | Azure File Sync          | Microsoft.StorageSync      | オンプレミスのファイル サーバーを Azure ファイル共有のキャッシュに変換できます。 マルチサイト同期、迅速なディザスターリカバリー、クラウド側バックアップが可能となります。 [詳細情報](../files/storage-sync-files-planning.md) |
 | Azure HDInsight          | Microsoft.HDInsight        | 新しい HDInsight クラスターのための既定のファイル システムの初期コンテンツをプロビジョニングします。 [詳細については、こちらを参照してください](../../hdinsight/hdinsight-hadoop-use-blob-storage.md)。 |
 | Azure Import Export      | Microsoft.ImportExport     | Azure Storage Import/Export サービスを使用すると、Azure Storage にデータをインポートしたり、Azure Storage からデータをエクスポートしたりできます。 [詳細については、こちらを参照してください](../../import-export/storage-import-export-service.md)。  |
-| Azure Monitor            | Microsoft.Insights         | リソース ログ、Azure Active Directory サインインと監査ログ、Microsoft Intune ログなど、セキュリティで保護されたストレージ アカウントへの監視データの書き込みを許可します。 [詳細については、こちらを参照してください](../../azure-monitor/platform/roles-permissions-security.md)。 |
+| Azure Monitor            | Microsoft.Insights         | リソース ログ、Azure Active Directory サインインと監査ログ、Microsoft Intune ログなど、セキュリティで保護されたストレージ アカウントへの監視データの書き込みを許可します。 [詳細については、こちらを参照してください](../../azure-monitor/roles-permissions-security.md)。 |
 | Azure のネットワーク         | Microsoft.Network          | Network Watcher および Traffic Analytics サービスを含め、ネットワーク トラフィック ログを格納し、分析します。 [詳細については、こちらを参照してください](../../network-watcher/network-watcher-nsg-flow-logging-overview.md)。 |
 | Azure Site Recovery      | Microsoft.SiteRecovery     | ファイアウォールが有効なキャッシュ、ソース、またはターゲット ストレージ アカウントを使用している場合、Azure IaaS 仮想マシンのディザスター リカバリーのレプリケーションを有効にします。  [詳細については、こちらを参照してください](../../site-recovery/azure-to-azure-tutorial-enable-replication.md)。 |
 

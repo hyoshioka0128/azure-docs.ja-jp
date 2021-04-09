@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: storage
 ms.subservice: blobs
 ms.reviewer: sadodd
-ms.openlocfilehash: 9a439541880cc8e20457edc8d24c5600ba2747c8
-ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
+ms.openlocfilehash: 43aa86504d265927cb94e4333f86bb9cc9d2e2ea
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99979226"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "101095570"
 ---
 # <a name="change-feed-support-in-azure-blob-storage"></a>Azure Blob Storage の変更フィードのサポート
 
@@ -268,7 +268,7 @@ $blobchangefeed/idx/segments/2019/02/23/0110/meta.json                  BlockBlo
 
 - `eventType` の値が `Control` である変更イベント レコードは内部システム レコードであり、アカウント内のオブジェクトに対する変更は反映されません。 それらのレコードは無視してかまいません。
 
-- `storageDiagnonstics` プロパティ バッグの値は内部でのみ使用され、アプリケーションで使用するように設計されていません。 アプリケーションに、そのデータに対する契約上の依存関係があってはなりません。 それらのプロパティは無視してかまいません。
+- `storageDiagnostics` プロパティ バッグの値は内部でのみ使用され、アプリケーションで使用するように設計されていません。 アプリケーションに、そのデータに対する契約上の依存関係があってはなりません。 それらのプロパティは無視してかまいません。
 
 - セグメントで表される時間は、15 分の範囲の **概数** です。 したがって、指定された時間内にすべてのレコードを確実に使用するには、連続した前と次の 1 時間のセグメントを使います。
 

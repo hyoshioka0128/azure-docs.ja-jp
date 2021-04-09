@@ -1,24 +1,23 @@
 ---
 title: Azure の Network Performance Monitor ソリューション | Microsoft Docs
 description: Azure の Network Performance Monitor は、ネットワークのパフォーマンスを監視して、ネットワーク パフォーマンスのボトルネックをほぼリアルタイムで検出して特定するのに役立ちます。
-ms.subservice: logs
 ms.topic: conceptual
 author: vinynigam
 ms.author: vinigam
 ms.date: 02/20/2018
-ms.openlocfilehash: 4ae0a85c8608ff96777bc6b952554f1ccd917306
-ms.sourcegitcommit: 7ec45b7325e36debadb960bae4cf33164176bc24
+ms.openlocfilehash: dd9f35a0b7c3bb5c2c5888765e4ebac436b4cde1
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100530608"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "101711129"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Azure の Network Performance Monitor ソリューション
 
 ![ネットワーク パフォーマンス モニターのシンボル](./media/network-performance-monitor/npm-symbol.png)
 
 > [!IMPORTANT]
-> 2021 年 7 月 1 日以降、既存のワークスペースに新しいテストを追加したり、Network Performance Monitor で新しいワークスペースを有効にしたりできなくなります。 2021 年 7 月 1 日より前に作成されたテストは使い続けることができます。 現在のワークロードに対するサービスの中断を最小限に抑えるには、2024 年 2 月 29 日より前に、[Network Performance Monitor から Azure Network Watcher の新しい接続モニターにテストを移行](https://docs.microsoft.com/azure/network-watcher/migrate-to-connection-monitor-from-network-performance-monitor)します。
+> 2021 年 7 月 1 日以降、既存のワークスペースに新しいテストを追加したり、Network Performance Monitor で新しいワークスペースを有効にしたりできなくなります。 2021 年 7 月 1 日より前に作成されたテストは使い続けることができます。 現在のワークロードに対するサービスの中断を最小限に抑えるには、2024 年 2 月 29 日より前に、[Network Performance Monitor から Azure Network Watcher の新しい接続モニターにテストを移行](../../network-watcher/migrate-to-connection-monitor-from-network-performance-monitor.md)します。
 
 Network Performance Monitor は、クラウド ベースのハイブリッド ネットワーク監視ソリューションであり、ネットワーク インフラストラクチャ内のさまざまなポイント間のネットワーク パフォーマンスを監視するのに役立ちます。 また、サービスやアプリケーションのエンドポイントへのネットワーク接続の監視、および Azure ExpressRoute のパフォーマンスの監視にも利用できます。 
 
@@ -76,7 +75,7 @@ ExpressRoute モニターのサポート対象リージョンの一覧は、[こ
 
 ### <a name="install-and-configure-agents"></a>エージェントのインストールと構成 
 
-[Windows コンピューターを Azure Monitor に接続する](../platform/agent-windows.md)、[Linux コンピューターを Azure Monitor に接続する (プレビュー)](../../virtual-machines/extensions/oms-linux.md)、および [Operations Manager を Azure Monitor に接続する](../platform/om-agents.md)方法に関するページに記載に記載されている、エージェントをインストールするための基本的な手順に従ってください。
+[Windows コンピューターを Azure Monitor に接続する](../agents/agent-windows.md)、[Linux コンピューターを Azure Monitor に接続する (プレビュー)](../../virtual-machines/extensions/oms-linux.md)、および [Operations Manager を Azure Monitor に接続する](../agents/om-agents.md)方法に関するページに記載に記載されている、エージェントをインストールするための基本的な手順に従ってください。
 
 ### <a name="where-to-install-the-agents"></a>エージェントをインストールする場所 
 
@@ -266,13 +265,13 @@ Network Performance Monitor では、送信元と宛先のエンドポイント�
 
 ## <a name="log-queries-in-azure-monitor"></a>Azure Monitor でのログ クエリ
 
-すべてのデータは、Network Performance Monitor ダッシュボードで視覚的に表示されます。さらに、[ログ クエリ](../log-query/log-query-overview.md)では、ドリルダウン ページもネイティブで使用できます。 リポジトリのデータの対話型分析を実行したり、さまざまなソースからのデータを関連付けたりすることができます。 カスタム アラートを作成し、データを表示して、Excel、Power BI、または共有可能なリンクにデータをエクスポートすることもできます。 ダッシュボードの **[共通クエリ]** 領域には、独自のクエリとレポートを作成するための出発点として利用できる便利なクエリがいくつかあります。 
+すべてのデータは、Network Performance Monitor ダッシュボードで視覚的に表示されます。さらに、[ログ クエリ](../logs/log-query-overview.md)では、ドリルダウン ページもネイティブで使用できます。 リポジトリのデータの対話型分析を実行したり、さまざまなソースからのデータを関連付けたりすることができます。 カスタム アラートを作成し、データを表示して、Excel、Power BI、または共有可能なリンクにデータをエクスポートすることもできます。 ダッシュボードの **[共通クエリ]** 領域には、独自のクエリとレポートを作成するための出発点として利用できる便利なクエリがいくつかあります。 
 
 ## <a name="alerts"></a>警告
 
-Network Performance Monitor は、[Azure Monitor](../platform/alerts-overview.md) のアラート機能を使用します。
+Network Performance Monitor は、[Azure Monitor](../alerts/alerts-overview.md) のアラート機能を使用します。
 
-これは、すべての通知が[アクション グループ](../platform/action-groups.md)を使用して管理されることを意味します。  
+これは、すべての通知が[アクション グループ](../alerts/action-groups.md)を使用して管理されることを意味します。  
 
 Log Analytics を介してアラートを作成する NPM ユーザーの場合: 
 1. Azure portal にリダイレクトするリンクが表示されます。 それをクリックしてポータルにアクセスします。
@@ -282,8 +281,8 @@ Log Analytics を介してアラートを作成する NPM ユーザーの場合:
 
 Azure portal を介してアラートを作成する NPM ユーザーの場合:  
 1. 電子メール アドレスを直接入力することも、アクション グループを使用してアラートを作成することもできます。
-2. 電子メール アドレスを直接入力することを選択した場合、**NPM Email ActionGroup** という名前のアクション グループが作成され、そのアクション グループに電子メール ID が追加されます。
-3. アクション グループを使用する場合は、以前に作成したアクション グループを選択する必要があります。 アクション グループを作成する方法については、[ここ](../platform/action-groups.md#create-an-action-group-by-using-the-azure-portal)を参照してください。 
+2. 電子メール アドレスを直接入力する場合、**NPM Email ActionGroup** という名前のアクション グループが作成され、そのアクション グループに電子メール ID が追加されます。
+3. アクション グループを使用する場合は、以前に作成したアクション グループを選択する必要があります。 アクション グループを作成する方法については、[ここ](../alerts/action-groups.md#create-an-action-group-by-using-the-azure-portal)を参照してください。 
 4. アラートが正常に作成されると、[アラートの管理] リンクを使用してアラートを管理できます。 
 
 アラートを作成するたびに NPM によって Azure Monitor 上でクエリ ベースのログ アラート ルールが作成されます。 このクエリは、既定では 5 分ごとにトリガーされます。 Azure Monitor では、最初に作成された 250 件のログ アラート ルールには課金されず、250 件のログ アラート ルール制限を超えるアラート ルールは [Azure Monitor の価格ページのアラートの価格](https://azure.microsoft.com/pricing/details/monitor/)に従って課金されます。
@@ -301,4 +300,4 @@ Azure portal を介してアラートを作成する NPM ユーザーの場合:
 * **コーホートへの参加:** Microsoft が実施しているコーホートにぜひご参加ください。 その一環として、新機能にいち早く触れることができます。ネットワーク パフォーマンス モニターの機能向上にぜひご協力ください。 参加にご興味がある方は、こちらの[簡単なアンケート](https://aka.ms/npmcohort)にご回答ください。 
 
 ## <a name="next-steps"></a>次のステップ 
-[パフォーマンスの監視](network-performance-monitor-performance-monitor.md)、[サービス接続の監視](network-performance-monitor-performance-monitor.md)、および [ExpressRoute の監視](network-performance-monitor-expressroute.md)の詳細情報を確認します。 
+[パフォーマンスの監視](network-performance-monitor-performance-monitor.md)、[サービス接続の監視](network-performance-monitor-performance-monitor.md)、および [ExpressRoute の監視](network-performance-monitor-expressroute.md)の詳細情報を確認します。

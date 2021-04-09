@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 08/05/2020
 ms.author: zhshang
-ms.openlocfilehash: d71462bd30dbd4b377353c792a3c579e02949680
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 3c4d28addac0ecfc9605678582562550a1c96b8d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92151096"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103491947"
 ---
 # <a name="messages-and-connections-in-azure-signalr-service"></a>Azure SignalR Service でのメッセージと接続
 
@@ -48,9 +48,16 @@ Azure SignalR Service では、メッセージのサイズに制限はありま�
 
 Azure SignalR Service にはサーバー接続とクライアント接続があります。 既定では、各アプリケーション サーバーの初期接続はハブあたり 5 個で、各クライアントのクライアント接続は 1 個です。
 
-Azure portal に表示される接続数には、サーバー接続とクライアント接続の両方が含まれます。
-
 たとえば、2 つのアプリケーション サーバーがあり、コードで 5 つのハブを定義するとします。 サーバー接続の数は 50 になります:2 アプリ サーバー * 5 ハブ * 5 接続/ハブ。
+
+Azure portal に表示される接続数には、サーバー接続、クライアント接続、診断接続、およびライブ トレース接続が含まれます。 接続の種類は以下の一覧で定義されています。
+
+- **サーバー接続**: Azure SignalR Service とアプリ サーバーを接続します。
+- **クライアント接続**: Azure SignalR Service とクライアント アプリを接続します。
+- **診断接続**: より詳細なログを生成できる特殊なクライアント接続であり、パフォーマンスに影響する可能性があります。 この種類のクライアントは、トラブルシューティング用に設計されています。
+- **ライブ トレース接続**: ライブ トレース エンドポイントに接続し、Azure SignalR Service のライブ トレースを受信します。 
+ 
+ライブ トレース接続は、クライアント接続およびサーバー接続としてカウントされないことに注意してください。 
 
 ASP.NET SignalR では、サーバー接続数の計算方法が異なります。 ユーザーが定義するハブに加えて、1 つの既定のハブが含まれます。 既定では、各アプリケーション サーバーにさらに 5 つの初期サーバー接続が必要になります。 既定のハブの初期接続数は、他のハブと一貫しています。
 
@@ -62,7 +69,7 @@ ASP.NET SignalR では、サーバー接続数の計算方法が異なります�
 
 ## <a name="related-resources"></a>関連リソース
 
-- [Azure Monitor での集計の種類](../azure-monitor/platform/metrics-supported.md#microsoftsignalrservicesignalr )
+- [Azure Monitor での集計の種類](../azure-monitor/essentials/metrics-supported.md#microsoftsignalrservicesignalr )
 - [ASP.NET Core SignalR の構成](/aspnet/core/signalr/configuration)
 - [JSON](https://www.json.org/)
 - [MessagePack](/aspnet/core/signalr/messagepackhubprotocol)

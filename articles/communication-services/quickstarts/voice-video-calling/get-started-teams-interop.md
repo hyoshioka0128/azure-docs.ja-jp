@@ -2,25 +2,37 @@
 title: クイック スタート - Azure Communication Services での Teams の相互運用
 titleSuffix: An Azure Communication Services quickstart
 description: このクイックスタートでは、Azure Communication Calling SDK を使用して、Teams の会議に参加する方法について説明します。
-author: matthewrobertson
+author: chpalm
 ms.author: chpalm
-ms.date: 10/10/2020
+ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: 48b9e1139ecae3deed513c954bf4faa7022a88a1
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+zone_pivot_groups: acs-plat-web-ios-android
+ms.openlocfilehash: a9ef74c04c1f709348ae1d6dd97558ee6bedccf3
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97936687"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104654970"
 ---
 # <a name="quickstart-join-your-calling-app-to-a-teams-meeting"></a>クイックスタート: 通話アプリを Teams の会議に参加させる
 
-[!INCLUDE [Private Preview Notice](../../includes/private-preview-include.md)]
+> [!IMPORTANT]
+> [チームのテナント相互運用性](../../concepts/teams-interop.md)を有効または無効にするには、[このフォーム](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR21ouQM6BHtHiripswZoZsdURDQ5SUNQTElKR0VZU0VUU1hMOTBBMVhESS4u)を完成させてください。
 
 Azure Communication Services の入門として、JavaScript クライアント ライブラリを使用して通話ソリューションを Microsoft Teams に接続してみましょう。
 
-[!INCLUDE [Join Teams meetings](./includes/teams-interop-javascript.md)]
+::: zone pivot="platform-web"
+[!INCLUDE [Calling with JavaScript](./includes/teams-interop-javascript.md)]
+::: zone-end
+
+::: zone pivot="platform-android"
+[!INCLUDE [Calling with Android](./includes/teams-interop-android.md)]
+::: zone-end
+
+::: zone pivot="platform-ios"
+[!INCLUDE [Calling with iOS](./includes/teams-interop-ios.md)]
+::: zone-end
 
 ## <a name="clean-up-resources"></a>リソースをクリーンアップする
 

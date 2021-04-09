@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 12/03/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 4b8292d99bd16f9b6f98f4ae8ca82edbfc02ff76
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: aa91851787bbb0f5570a4f439f794ee352bf0625
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98725756"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104579690"
 ---
 # <a name="tutorial-create-an-azure-active-directory-b2c-tenant"></a>チュートリアル:Azure Active Directory B2C テナントの作成
 
@@ -23,6 +23,8 @@ ms.locfileid: "98725756"
 
 > [!NOTE]
 > サブスクリプションあたり最大 20 個のテナントを作成できます。 この制限は、サービス拒否攻撃などのリソースに対する脅威からの保護に役立ち、Azure portal と基盤となるテナント作成 API の両方で適用されます。 20 を超えるテナントを作成する必要がある場合は、[Microsoft サポート](support-options.md)にお問い合わせください。
+> 
+> 以前に削除しようとしたテナント名を再利用する場合に、ドメイン名を入力したときに "Already in use by another directory (既に別のディレクトリによって使用されています)" というエラーが表示された場合は、[これらの手順に従って最初にテナントを完全に削除する](./faq.md?tabs=app-reg-ga#how-do-i-delete-my-azure-ad-b2c-tenant)必要があります。 少なくともサブスクリプション管理者のロールが必要です。 テナントを削除した後、ドメイン名を再利用する前にサインアウトしてから再度サインインすることが必要になる場合もあります。
 
 この記事では、次のことについて説明します。
 
@@ -68,7 +70,7 @@ Azure サブスクリプションをお持ちでない場合は、開始する�
     ![Azure portal でのサンプル値が含まれているテナントの作成フォーム](media/tutorial-create-tenant/review-and-create-tenant.png)
 
 1. **[Review + create]\(レビュー + 作成\)** を選択します。
-1. ディレクトリの設定を確認します。 **[作成]** を選択します。 デプロイのエラーをトラブルシューティングする場合は、[こちら](https://docs.microsoft.com/azure/azure-resource-manager/templates/common-deployment-errors)を参照してください。
+1. ディレクトリの設定を確認します。 **[作成]** を選択します。 デプロイのエラーをトラブルシューティングする場合は、[こちら](../azure-resource-manager/templates/common-deployment-errors.md)を参照してください。
 
 課金のために、複数の Azure AD B2C テナントを 1 つの Azure サブスクリプションにリンクすることができます。 テナントをリンクするユーザーは、Azure AD B2C テナントの管理者であること、また、Azure サブスクリプション内で共同作成者以上のロールが割り当てられていることが必要です。 「[Azure AD B2C テナントをサブスクリプションにリンクする](billing.md#link-an-azure-ad-b2c-tenant-to-a-subscription)」を参照してください。
 

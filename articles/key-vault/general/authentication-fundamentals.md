@@ -7,18 +7,18 @@ ms.date: 09/25/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
-ms.openlocfilehash: 6de0fc52ae265a47ca7f52d46e5f44b74c1277aa
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.openlocfilehash: 25f00024fb7371fd08bf6c4ceec3177cfaca029b
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96530920"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "103572810"
 ---
 # <a name="key-vault-authentication-fundamentals"></a>Key Vault 認証の基礎
 
 Azure Key Vault を使用すると、シークレット、キー、証明書などのアプリケーションの資格情報を、中央のセキュリティ保護されたクラウド リポジトリに安全に格納して管理することができます。 Key Vault を使用すると、アプリケーションに資格情報を保存する必要がなくなります。 アプリケーションで実行時に Key Vault に対して認証を行うことで、資格情報を取得できます。
 
-管理者は、キー コンテナーにアクセスできるユーザーとアプリケーションを厳しく制御し、実行される操作を制限および監査することができます。 このドキュメントでは、Key Vault のアクセス モデルの基本的な概念について説明します。 入門レベルの知識が得られ、Key Vault に対してユーザーまたはアプリケーションの認証を行う方法が最初から最後までわかります。
+管理者は、キー コンテナーにアクセスできるユーザーとアプリケーションを厳しく制御し、実行される操作を制限および監査することができます。 このドキュメントでは、Key Vault のアクセス モデルの基本的な概念について説明します。 入門レベルの知識が得られ、キー コンテナーに対してユーザーまたはアプリケーションの認証を行う方法が最初から最後までわかります。
 
 ## <a name="required-knowledge"></a>必要な知識
 
@@ -120,7 +120,7 @@ Key Vault のロールの割り当ては、キー、シークレット、証明�
 Key Vault 用の Azure RBAC の詳細については、次のドキュメントをご覧ください。
 
 * Key Vault 用の Azure RBAC ([リンク](./secure-your-key-vault.md#management-plane-and-azure-rbac))
-* Key Vault 用の Azure RBAC のロール (プレビュー) ([リンク](../../role-based-access-control/built-in-roles.md#key-vault-administrator-preview))
+* Key Vault 用の Azure RBAC のロール ([リンク](../../role-based-access-control/built-in-roles.md#key-vault-administrator))
 
 ## <a name="configure-key-vault-firewall"></a>Key Vault ファイアウォールを構成する
 

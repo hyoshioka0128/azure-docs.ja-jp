@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.workload: media
 ms.date: 1/14/2020
 ms.author: inhenkel
-ms.openlocfilehash: 70f64813546c66c0f9e3533e09de192315f75600
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: b6d51e05598f60de0e9c8fb85472b7c14bba990e
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98955073"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104598390"
 ---
 # <a name="step-1---understand-the-benefits-of-migrating-to-media-services-api-v3"></a>ステップ 1 - Media Services API V3 に移行する利点を理解する
 
@@ -38,7 +38,7 @@ Media Services の V3 は大幅に改善されました。
 | Azure portal の更新 | Azure portal が更新され、V3 API エンティティの管理が含まれるようになりました。 これにより、お客様は portal を使用して、ライブ ストリーミングの開始、V3 変換ジョブの送信、コンテンツ保護ポリシーの管理、エンドポイントのストリーミング、API アクセスの取得、リンクされたストレージ アカウントの管理、監視タスクの実行を行うことができます。 |
 | **アカウントとストレージ** | |
 | Azure のロールベースのアクセス制御 (RBAC) | お客様は、独自のロールを定義し、Media Services ARM API 内の各エンティティへのアクセスを制御できるようになりました。 これは、AAD アカウントによるリソースへのアクセスを制御するのに役立ちます。 |
-| マネージド ID | マネージド ID を使用すると、開発者は、Azure AD で Azure リソースの ID を提供することにより、資格情報を管理する必要がなくなります。 マネージド ID の詳細については、[こちら](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)を参照してください。 |
+| マネージド ID | マネージド ID を使用すると、開発者は、Azure AD で Azure リソースの ID を提供することにより、資格情報を管理する必要がなくなります。 マネージド ID の詳細については、[こちら](../../active-directory/managed-identities-azure-resources/overview.md)を参照してください。 |
 | プライベート リンクのサポート | お客様は、VNet 上の PrivateEndpoint を介して、キー配信、LiveEvents、StreamingEndpoints の Media Services エンドポイントにアクセスします。 |
 | [カスタマー マネージド キー](concept-use-customer-managed-keys-byok.md) または Bring Your Own Key (BYOK) のサポート | お客様は、Azure Key Vault 内のキーを使用して Media Services アカウント内のデータを暗号化できます。 |
 | **アセット** | |
@@ -58,8 +58,8 @@ Media Services の V3 は大幅に改善されました。
 |**コンテンツ保護** ||
 | [コンテンツ保護](content-key-policy-concept.md) でマルチキー機能をサポート。 | お客様は、ストリーミング ロケーターで複数のコンテンツ暗号化キーを使用できるようになりました。 |
 | **Monitoring** | |
-| [Azure EventGrid](reacting-to-media-services-events.md) 通知のサポート | EventGrid 通知の機能がより充実しています。 より多くの種類の通知、独自のアプリケーションで通知を受信するためのより広範な SDK サポートがあり、イベント ハンドラーとして機能できる既存の Azure サービスも増えています。 |
-| [Azure portal での Azure Monitor のサポートと統合](monitor-events-portal-how-to.md) | これにより、お客様は、Media Services アカウントのクォータの使用率、ストリーミング エンドポイントのリアルタイム統計、ライブ イベントの取り込みとアーカイブの統計を視覚化できます。 お客様は、アラートを設定し、リアルタイムのメトリック データに基づいて必要なアクションを実行できるようになりました。 |
+| [Azure EventGrid](monitoring/reacting-to-media-services-events.md) 通知のサポート | EventGrid 通知の機能がより充実しています。 より多くの種類の通知、独自のアプリケーションで通知を受信するためのより広範な SDK サポートがあり、イベント ハンドラーとして機能できる既存の Azure サービスも増えています。 |
+| [Azure portal での Azure Monitor のサポートと統合](monitoring/monitor-events-portal-how-to.md) | これにより、お客様は、Media Services アカウントのクォータの使用率、ストリーミング エンドポイントのリアルタイム統計、ライブ イベントの取り込みとアーカイブの統計を視覚化できます。 お客様は、アラートを設定し、リアルタイムのメトリック データに基づいて必要なアクションを実行できるようになりました。 |
 
 ## <a name="next-steps"></a>次のステップ
 

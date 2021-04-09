@@ -1,40 +1,30 @@
 ---
-title: IoT Edge セキュリティ モジュールをデプロイする
+title: IoT Edge の Defender for IoT マイクロ エージェントのデプロイ
 description: IoT Edge に Defender for IoT セキュリティ エージェントをデプロイする方法について説明します。
-services: defender-for-iot
-ms.service: defender-for-iot
-documentationcenter: na
-author: mlottner
-manager: rkarlin
-editor: ''
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 1/30/2020
-ms.author: mlottner
-ms.openlocfilehash: 9ac283721526488f587fcabc68348dafac1835db
-ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
+ms.openlocfilehash: 38e2aa38ab07a4768e95d91ed0ebc866d7edf39f
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98033355"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104784222"
 ---
-# <a name="deploy-a-security-module-on-your-iot-edge-device"></a>IoT Edge デバイスにセキュリティ モジュールをデプロイする
+# <a name="deploy-a-defender-iot-micro-agent-on-your-iot-edge-device"></a>Defender for IoT マイクロ エージェントを IoT Edge デバイスにデプロイする
 
 **Defender for IoT** モジュールにより、IoT Edge デバイスの包括的なセキュリティ ソリューションが提供されます。
-セキュリティ モジュールは、オペレーティング システムおよびコンテナー システムから未加工のセキュリティ データを収集、集約して分析し、実践的なセキュリティ推奨事項とアラートに変換します。
-詳細については、[IoT Edge 用のセキュリティ モジュール](security-edge-architecture.md)に関する記事を参照してください。
+Defender for IoT マイクロ エージェントでは、オペレーティング システムおよびコンテナー システムから未加工のセキュリティ データが収集、集約、分析されて、実行可能なセキュリティ推奨事項とアラートに変換されます。
+詳細については、[IoT Edge 向けの Defender for IoT マイクロ エージェント](security-edge-architecture.md)に関する記事を参照してください。
 
-この記事では、IoT Edge デバイスにセキュリティ モジュールをデプロイする方法について説明します。
+この記事では、IoT Edge デバイスに Defender for IoT マイクロ エージェントをデプロイする方法について説明します。
 
-## <a name="deploy-security-module"></a>セキュリティ モジュールをデプロイする
+## <a name="deploy-defender-iot-micro-agent"></a>Defender for IoT マイクロ エージェントのデプロイ
 
-次の手順を使用して、IoT Edge 用の Defender for IoT セキュリティ モジュールをデプロイします。
+次の手順を使用して、IoT Edge 用の Defender for IoT の Defender for IoT マイクロ エージェントをデプロイします。
 
 ### <a name="prerequisites"></a>前提条件
 
-1. IoT Hub で、ご使用のデバイスが [IoT Edge デバイスとして登録されている](../iot-edge/how-to-manual-provision-symmetric-key.md#register-a-new-device)ことを確認してください。
+1. IoT Hub で、ご使用のデバイスが [IoT Edge デバイスとして登録されている](../iot-edge/how-to-register-device.md#register-a-new-device)ことを確認してください。
 
 1. Defender for IoT Edge モジュールでは、[AuditD フレームワーク](https://linux.die.net/man/8/auditd)が IoT Edge デバイスにインストールされている必要があります。
 
@@ -169,7 +159,7 @@ ms.locfileid: "98033355"
 
 ## <a name="diagnostic-steps"></a>診断手順
 
-問題が発生した場合に IoT Edge セキュリティ モジュール デバイスの状態を知るには、コンテナー ログを使用するのが最適です。 情報を収集するには、このセクションのコマンドとツールを使います。
+問題が発生した場合に IoT Edge の Defender for IoT マイクロ エージェント デバイスの状態を知るには、コンテナー ログを使用するのが最適です。 情報を収集するには、このセクションのコマンドとツールを使います。
 
 ### <a name="verify-the-required-containers-are-installed-and-functioning-as-expected"></a>必要なコンテナーがインストールされており、期待どおりに機能していることを確認する
 

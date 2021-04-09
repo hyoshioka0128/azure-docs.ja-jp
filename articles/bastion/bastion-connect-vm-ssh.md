@@ -5,14 +5,14 @@ services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: how-to
-ms.date: 02/24/2020
+ms.date: 02/12/2021
 ms.author: cherylmc
-ms.openlocfilehash: 2af63997f9ea74dfce184639d2fedb42d354fb39
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: a5cda5d4d447bc04f853ea4a9abd15be75e7e177
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92077577"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "100588625"
 ---
 # <a name="connect-using-ssh-to-a-linux-virtual-machine-using-azure-bastion"></a>Azure Bastion を使用して Linux 仮想マシンに SSH 接続する
 
@@ -49,38 +49,59 @@ SSH 経由で Linux VM に接続するには、お使いの VM で次のポー�
 
 1. [Azure Portal](https://portal.azure.com)を開きます。 接続先の仮想マシンに移動し、 **[接続]** をクリックし、ドロップダウンから **[Bastion]** を選択します。
 
-   ![Azure portal の仮想マシンの概要のスクリーンショット。[接続] が選択されています。](./media/bastion-connect-vm-ssh/connect.png)
-1. [Bastion] をクリックすると、RDP、SSH、Bastion の 3 つのタブがあるサイド バーが表示されます。 Bastion が仮想ネットワーク用にプロビジョニングされている場合、[Bastion] タブが既定でアクティブになっています。 Bastion を仮想ネットワーク用にプロビジョニングしていない場合は、[Bastion の構成](./tutorial-create-host-portal.md)に関する記事をご覧ください。
+   :::image type="content" source="./media/bastion-connect-vm-ssh/connect.png" alt-text="Azure portal の仮想マシンの概要のスクリーンショット。[接続] が選択されています":::
+1. [Bastion] を選択してから **[Bastion を使用する]** をクリックします。 Bastion を仮想ネットワーク用にプロビジョニングしていない場合は、[Bastion の構成](./quickstart-host-portal.md)に関する記事をご覧ください。
+1. **[Azure Bastion を使用して接続する]** ページで、 **[ユーザー名]** と **[パスワード]** を入力します。
 
-   ![[仮想マシンへの接続] ダイアログ ボックスのスクリーンショット。[BASTION] が選択されています。](./media/bastion-connect-vm-ssh/bastion.png)
-1. 仮想マシンに SSH 接続するためのユーザー名とパスワードを入力します。
-1. キーを入力したら、 **[接続]** をクリックします。
+   :::image type="content" source="./media/bastion-connect-vm-ssh/password.png" alt-text="パスワード認証":::
+1. **[接続]** を選択して VM に接続します。
 
 ## <a name="connect-manually-enter-a-private-key"></a><a name="privatekey"></a>接続: 秘密キーを手動で入力する
 
 1. [Azure Portal](https://portal.azure.com)を開きます。 接続先の仮想マシンに移動し、 **[接続]** をクリックし、ドロップダウンから **[Bastion]** を選択します。
 
-   ![Azure portal の仮想マシンの概要のスクリーンショット。[接続] が選択されています。](./media/bastion-connect-vm-ssh/connect.png)
-1. [Bastion] をクリックすると、RDP、SSH、Bastion の 3 つのタブがあるサイド バーが表示されます。 Bastion が仮想ネットワーク用にプロビジョニングされている場合、[Bastion] タブが既定でアクティブになっています。 Bastion を仮想ネットワーク用にプロビジョニングしていない場合は、[Bastion の構成](./tutorial-create-host-portal.md)に関する記事をご覧ください。
+   :::image type="content" source="./media/bastion-connect-vm-ssh/connect.png" alt-text="Azure portal の仮想マシンの概要のスクリーンショット。[接続] が選択されています":::
+1. [Bastion] を選択してから **[Bastion を使用する]** をクリックします。 Bastion を仮想ネットワーク用にプロビジョニングしていない場合は、[Bastion の構成](./quickstart-host-portal.md)に関する記事をご覧ください。
+1. **[Azure Bastion を使用して接続する]** ページで、 **[ユーザー名]** と **[SSH 秘密キー]** を入力します。
 
-   ![[仮想マシンへの接続] ダイアログ ボックスのスクリーンショット。[BASTION] が選択されています。](./media/bastion-connect-vm-ssh/bastion.png)
-1. ユーザー名を入力し、 **[SSH 秘密キー]** を選択します。
+   :::image type="content" source="./media/bastion-connect-vm-ssh/ssh-private-key.png" alt-text="SSH 秘密キーの認証":::
 1. **[SSH 秘密キー]** のテキスト領域に秘密キーを入力します (または直接貼り付けます)。
-1. キーを入力したら、 **[接続]** をクリックします。
+1. **[接続]** を選択して VM に接続します。
 
 ## <a name="connect-using-a-private-key-file"></a><a name="ssh"></a>接続: 秘密キー ファイルを使用する
 
 1. [Azure Portal](https://portal.azure.com)を開きます。 接続先の仮想マシンに移動し、 **[接続]** をクリックし、ドロップダウンから **[Bastion]** を選択します。
 
-   ![Azure portal の仮想マシンの概要のスクリーンショット。[接続] が選択されています。](./media/bastion-connect-vm-ssh/connect.png)
-1. [Bastion] をクリックすると、RDP、SSH、Bastion の 3 つのタブがあるサイド バーが表示されます。 Bastion が仮想ネットワーク用にプロビジョニングされている場合、[Bastion] タブが既定でアクティブになっています。 Bastion を仮想ネットワーク用にプロビジョニングしていない場合は、[Bastion の構成](./tutorial-create-host-portal.md)に関する記事をご覧ください。
+   :::image type="content" source="./media/bastion-connect-vm-ssh/connect.png" alt-text="Azure portal の仮想マシンの概要のスクリーンショット。[接続] が選択されています":::
+1. [Bastion] を選択してから **[Bastion を使用する]** をクリックします。 Bastion を仮想ネットワーク用にプロビジョニングしていない場合は、[Bastion の構成](./quickstart-host-portal.md)に関する記事をご覧ください。
+1. **[Azure Bastion を使用して接続する]** ページで、 **[ユーザー名]** と **[ローカル ファイルの SSH 秘密キー]** を入力します。
 
-   ![[仮想マシンへの接続] ダイアログ ボックスのスクリーンショット。[BASTION] が選択されています。](./media/bastion-connect-vm-ssh/bastion.png)
-1. ユーザー名を入力し、 **[SSH Private Key from Local File]\(ローカル ファイルの SSH 秘密キー\)** を選択します。
-1. **[参照]** (ローカル ファイルのフォルダー アイコン) をクリックします。
-1. ファイルを参照し、 **[開く]** をクリックします。
-1. **[接続]** をクリックして VM に接続します。 [接続] をクリックすると、この仮想マシンへの SSH 接続が Azure portal で直接開きます。 この接続は、仮想マシンのプライベート IP を使用して、Bastion サービスのポート 443 で HTML5 を介して行われます。
+   :::image type="content" source="./media/bastion-connect-vm-ssh/private-key-file.png" alt-text="SSH 秘密キー ファイル":::
+
+1. ファイルを参照し、 **[開く]** を選択します。
+1. **[接続]** を選択して VM に接続します。 [接続] をクリックすると、この仮想マシンへの SSH 接続が Azure portal で直接開きます。 この接続は、仮想マシンのプライベート IP を使用して、Bastion サービスのポート 443 で HTML5 を介して行われます。
+
+## <a name="connect-using-a-private-key-stored-in-azure-key-vault"></a><a name="akv"></a>接続: Azure Key Vault に格納された秘密キーの使用
+
+>[!NOTE]
+>この機能のポータルの更新は、現在リージョンにロールアウトされています。
+>
+
+1. [Azure Portal](https://portal.azure.com)を開きます。 接続先の仮想マシンに移動し、 **[接続]** をクリックし、ドロップダウンから **[Bastion]** を選択します。
+
+   :::image type="content" source="./media/bastion-connect-vm-ssh/connect.png" alt-text="Azure portal の仮想マシンの概要のスクリーンショット。[接続] が選択されています":::
+1. [Bastion] を選択してから **[Bastion を使用する]** をクリックします。 Bastion を仮想ネットワーク用にプロビジョニングしていない場合は、[Bastion の構成](./quickstart-host-portal.md)に関する記事をご覧ください。
+1. **[Azure Bastion を使用して接続する]** ページで、 **[ユーザー名]** を入力し、 **[Azure Key Vault の SSH 秘密キー]** を選択します。
+
+   :::image type="content" source="./media/bastion-connect-vm-ssh/ssh-key-vault.png" alt-text="Azure Key Vault の SSH 秘密キー":::
+1. **[Azure Key Vault]** ドロップダウンを選択し、SSH 秘密キーを保存したリソースを選択します。 Azure Key Vault リソースを設定していない場合は、[Key Vault の作成](../key-vault/general/quick-create-portal.md)に関する記事を参照し、SSH 秘密キーを新しい Key Vault シークレットの値として格納します。
+
+   :::image type="content" source="./media/bastion-connect-vm-ssh/key-vault.png" alt-text="Azure Key Vault":::
+
+   Key Vault リソースに格納されているシークレットの **一覧表示** および **取得** のアクセス権を持っていることを確認します。 Key Vault リソースのアクセス ポリシーの割り当てと変更については、[Key Vault アクセス ポリシーの割り当て](../key-vault/general/assign-access-policy-portal.md)に関する記事を参照してください。
+1. **[Azure Key Vault Secret]\(Azure Key Vault シークレット\)** ドロップダウンを選択し、SSH 秘密キーの値が含まれている Key Vault シークレットを選択します。
+1. **[接続]** を選択して VM に接続します。 **[接続]** をクリックすると、この仮想マシンへの SSH 接続が Azure portal で直接開きます。 この接続は、仮想マシンのプライベート IP を使用して、Bastion サービスのポート 443 で HTML5 を介して行われます。
 
 ## <a name="next-steps"></a>次のステップ
 
-[Bastion に関する FAQ](bastion-faq.md) を読む
+Azure Bastion の詳細については、[Bastion に関する FAQ](bastion-faq.md) をご覧ください。 

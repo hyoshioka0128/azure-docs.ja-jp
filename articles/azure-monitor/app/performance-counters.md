@@ -4,12 +4,12 @@ description: Application Insights でシステムとカスタムの .NET パフ�
 ms.topic: conceptual
 ms.date: 12/13/2018
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f772b129e20fbaaade7305d84064a713dd734199
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 423e17ef2b44286c28b464836075284929d8644c
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98937389"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102031363"
 ---
 # <a name="system-performance-counters-in-application-insights"></a>Application Insights のシステム パフォーマンス カウンター
 
@@ -21,7 +21,7 @@ Windows には、CPU 占有率や、メモリ、ディスク、ネットワー�
 
 ![Application Insights で表示されるパフォーマンス カウンター](./media/performance-counters/performance-counters.png)
 
-ASP.NET/ASP.NET Core Web アプリケーションについて収集するように構成されている現在の既定カウンターは次のとおりです。
+ASP.NET Web アプリケーションについて収集するように構成されている現在の既定カウンターは次のとおりです。
 - % Process\\Processor Time
 - % Process\\Processor Time Normalized
 - Memory\\Available Bytes
@@ -31,6 +31,14 @@ ASP.NET/ASP.NET Core Web アプリケーションについて収集するよう�
 - Process\\Private Bytes
 - Process\\IO Data Bytes/sec
 - ASP.NET Applications\\Requests In Application Queue
+- Processor(_Total)\\% Processor Time
+
+ASP.NET Core Web アプリケーションについて収集するように構成されている現在の既定カウンターは次のとおりです。
+- % Process\\Processor Time
+- % Process\\Processor Time Normalized
+- Memory\\Available Bytes
+- Process\\Private Bytes
+- Process\\IO Data Bytes/sec
 - Processor(_Total)\\% Processor Time
 
 ## <a name="add-counters"></a>カウンターを追加する
@@ -110,7 +118,7 @@ using Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector;
 ```
 
 ## <a name="performance-counters-in-analytics"></a>Analytics のパフォーマンス カウンター
-[Analytics](../log-query/log-query-overview.md) でパフォーマンス カウンター レポートを検索して表示できます。
+[Analytics](../logs/log-query-overview.md) でパフォーマンス カウンター レポートを検索して表示できます。
 
 **performanceCounters** スキーマは、各パフォーマンス カウンターの `category`、`counter` 名、および `instance` 名を表示します。  各アプリケーションのテレメトリでは、そのアプリケーションのカウンターのみが確認できます。 たとえば、使用できるカウンターを表示するには次のようにします。 
 
@@ -148,7 +156,7 @@ ASP.NET Core でのパフォーマンス カウンターのサポートは制限
 * SDK バージョン 2.8.0 以降では、Linux の CPU/メモリ カウンターがサポートされます。 Linux では、その他のカウンターはサポートされません。 Linux (およびその他の非 Windows 環境) でシステム カウンターを取得するには、[EventCounter](eventcounters.md) を使用することをお勧めします。
 
 ## <a name="alerts"></a>警告
-他のメトリックと同様に、パフォーマンス カウンターが指定した制限を超えた場合に警告する[アラートを設定](../platform/alerts-log.md)できます。 [アラート] ウィンドウを開き、[アラートの追加] をクリックします。
+他のメトリックと同様に、パフォーマンス カウンターが指定した制限を超えた場合に警告する[アラートを設定](../alerts/alerts-log.md)できます。 [アラート] ウィンドウを開き、[アラートの追加] をクリックします。
 
 ## <a name="next-steps"></a><a name="next"></a>次のステップ
 

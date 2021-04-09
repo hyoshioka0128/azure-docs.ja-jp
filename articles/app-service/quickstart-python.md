@@ -9,12 +9,12 @@ adobe-target: true
 adobe-target-activity: DocsExp–377467–A/B– Quickstarts/Python App–12.11
 adobe-target-experience: Experience B
 adobe-target-content: ./quickstart-python-1
-ms.openlocfilehash: 11e47e83da09699d60ada11539dbb2f000f075db
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 36c1b112127fadd5149c62a92ca469322db65edd
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98788674"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104592355"
 ---
 # <a name="quickstart-create-a-python-app-using-azure-app-service-on-linux"></a>クイックスタート: Azure App Service on Linux を使用して Python アプリを作成する
 
@@ -67,7 +67,7 @@ az login
 
 サインイン後は、Azure CLI を使用して Azure コマンドを実行して、サブスクリプション内のリソースを操作することができます。
 
-問題がありますか。 [お知らせください。](https://aka.ms/FlaskCLIQuickstartHelp)
+問題がある場合は、 [お知らせください。](https://aka.ms/FlaskCLIQuickstartHelp)
 
 ## <a name="clone-the-sample"></a>サンプルを複製する
 
@@ -230,7 +230,7 @@ az webapp up
 
 アプリ、およびそれを実行するコンテナー内から生成されたコンソール ログに、アクセスすることができます。 ログには、`print` ステートメントを使って生成されたすべての出力が含まれます。
 
-ログをストリーミングするには、[az webapp log tail](/cli/azure/webapp/log?view=azure-cli-latest&preserve-view=true#az_webapp_log_tail) コマンドを実行します。
+ログをストリーミングするには、[az webapp log tail](/cli/azure/webapp/log#az_webapp_log_tail) コマンドを実行します。
 
 ```azurecli
 az webapp log tail
@@ -244,7 +244,7 @@ az webapp log tail
 
 ログ ストリーミングを任意のタイミングで停止するには、ターミナルで **Ctrl** + **C** キーを押します。
 
-問題がありますか。 [お知らせください。](https://aka.ms/FlaskCLIQuickstartHelp)
+問題がありますか。 まず、[トラブルシューティング ガイド](configure-language-python.md#troubleshooting)を参照し、それでも解決しない場合は[お知らせください](https://aka.ms/FlaskCLIQuickstartHelp)。
 
 ## <a name="manage-the-azure-app"></a>Azure アプリの管理
 

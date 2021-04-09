@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 11/18/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: 0d9852659801040d64fe4143f024fd52ffec16ee
-ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
+ms.openlocfilehash: f99f9d240a0a9220d3b7f57cddd0a4f8ba6b6101
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94874085"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104595993"
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Azure Functions のタイマー トリガー
 
@@ -342,12 +342,12 @@ CRON 式とは異なり、`TimeSpan` の値は各関数呼び出しの間の時�
 |--------------|----------------|
 | "01:00:00"   | 1 時間ごと     |
 | "00:01:00"   | 1 分ごと   |
-| "24:00:00"   | 1 日ごと  |
+| "25:00:00"   | 25 日ごと  |
 | "1.00:00:00" | 毎日      |
 
 ## <a name="scale-out"></a>スケールアウト
 
-関数アプリが複数のインスタンスにスケールアウトする場合は、タイマーによってトリガーされる関数の 1 つのインスタンスだけがすべてのインスタンスで実行されます。
+関数アプリが複数のインスタンスにスケールアウトする場合は、タイマーによってトリガーされる関数の 1 つのインスタンスだけがすべてのインスタンスで実行されます。 未処理の呼び出しがまだ実行中の場合は、再度トリガーされません。
 
 ## <a name="function-apps-sharing-storage"></a>ストレージを共有する関数アプリ
 
@@ -365,6 +365,16 @@ App Service にデプロイされていない関数アプリの間でストレ�
 ## <a name="retry-behavior"></a>再試行の動作
 
 キュー トリガーとは異なり、タイマー トリガーは関数が失敗した後で再試行しません。 失敗した関数は、次のスケジュール時刻まで再び呼び出されることはありません。
+
+## <a name="manually-invoke-a-timer-trigger"></a>タイマー トリガーを手動で呼び出す
+
+Azure Functions のタイマー トリガーには、手動で関数をトリガーするために呼び出すことができる HTTP Webhook が用意されています。 これは、次のようなシナリオで非常に役立ちます。
+
+* 統合テスト
+* スモーク テストまたはウォームアップ アクティビティの一部としてのスロット スワップ
+* データベース内のキャッシュまたはルックアップ テーブルに直ちにデータを入力する関数の初期デプロイ
+
+タイマーによってトリガーされる関数を手動で呼び出す方法の詳細については、[HTTP によってトリガーされない関数を手動で実行する](./functions-manually-run-non-http.md)方法に関するページを参照してください。
 
 ## <a name="troubleshooting"></a>トラブルシューティング
 

@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/21/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: e64f8cded851427636a19e16cccd78932dd6baac
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: e8641cada03577cf22e6627bdf53b2a8a0e836ef
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99054959"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102216385"
 ---
 # <a name="azure-functions-http-trigger"></a>Azure Functions の HTTP トリガー
 
@@ -596,7 +596,7 @@ HTTP トリガーの入力バインドで省略可能な `route` プロパティ
 http://<APP_NAME>.azurewebsites.net/api/products/electronics/357
 ```
 
-この構成により、関数コードではアドレスに _category_ と _id_ の 2 つのパラメーターをサポートできます。
+この構成により、関数コードではアドレスに _category_ と _id_ の 2 つのパラメーターをサポートできます。URL でルート パラメーターをトークン化する方法の詳細については、「[ASP.NET Core のルーティング](https://docs.microsoft.com/aspnet/core/fundamentals/routing#route-constraint-reference)」を参照してください。
 
 # <a name="c"></a>[C#](#tab/csharp)
 
@@ -751,7 +751,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
 
 ルート パラメーターを使用すると、関数に対して `invoke_URL_template` が自動的に作成されます。 クライアントは、URL を使って関数を呼び出すときにその URL に渡す必要があるパラメーターについて、URL テンプレートを使用して理解することができます。 [Azure portal](https://portal.azure.com) で HTTP によってトリガーされる関数のいずれかに移動し、 **[関数の URL の取得]** を選択します。
 
-[List 関数](https://docs.microsoft.com/rest/api/appservice/webapps/listfunctions)または [Get 関数](https://docs.microsoft.com/rest/api/appservice/webapps/getfunction)に対して Azure Resource Manager API を使用して、`invoke_URL_template` にプログラムでアクセスすることができます。
+[List 関数](/rest/api/appservice/webapps/listfunctions)または [Get 関数](/rest/api/appservice/webapps/getfunction)に対して Azure Resource Manager API を使用して、`invoke_URL_template` にプログラムでアクセスすることができます。
 
 ## <a name="working-with-client-identities"></a>クライアント ID の操作
 

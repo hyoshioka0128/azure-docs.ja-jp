@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 11/18/2020
+ms.date: 02/20/2021
 ms.author: b-juche
-ms.openlocfilehash: 35fce3723e92a3a7c68aaa62b28b756432182a8c
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: a18c53d972fbb38dc0b0e557d14b2fbffbff15fa
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97629665"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102174361"
 ---
 # <a name="manage-snapshots-by-using-azure-netapp-files"></a>Azure NetApp Files を使用して、スナップショットを管理する
 
@@ -68,7 +68,7 @@ Azure NetApp Files では、オンデマンドのスナップショットの作�
     ```azurepowershell-interactive
     Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFSnapshotPolicy
     ```
-また、[Azure CLI のコマンド](/cli/azure/feature?preserve-view=true&view=azure-cli-latest) `az feature register` と `az feature show` を使用して、機能を登録し、登録状態を表示することもできます。 
+また、[Azure CLI のコマンド](/cli/azure/feature) `az feature register` と `az feature show` を使用して、機能を登録し、登録状態を表示することもできます。 
 
 ### <a name="create-a-snapshot-policy"></a>スナップショット ポリシーを作成する 
 
@@ -187,7 +187,9 @@ Azure NetApp Files では、オンデマンドのスナップショットの作�
 
 マウントされたボリュームには、クライアントからアクセス可能な `.snapshot` (NFS クライアントの場合) または`~snapshot` (SMB クライアントの場合) という名前のスナップショットディレクトリが含まれています。 スナップショット ディレクトリには、ボリュームのスナップショットに対応するサブディレクトリが含まれています。 各サブディレクトリには、スナップショットのファイルが含まれます。 ファイルを誤って削除または上書きした場合、ファイルをスナップショットのサブディレクトリから読み取り/書き込みディレクトリにコピーすることで、ファイルを親の読み取り/書き込みディレクトリに復元できます。 
 
-スナップショット ディレクトリが表示されない場合は、[スナップショット パスを非表示にする] オプションが現在有効になっているため、非表示になっている可能性があります。 [[スナップショット パスを非表示にする]](#edit-the-hide-snapshot-path-option) オプションを編集して無効にすることができます。  
+[[スナップショット パスを非表示にする] オプション](#edit-the-hide-snapshot-path-option)を使用することで、スナップショット ディレクトリへのアクセスを制御できます。 このオプションによって、ディレクトリをクライアントに対して非表示にするかどうかが制御されます。 したがって、スナップショット内のファイルとフォルダーへのアクセスも制御されます。  
+
+NFSv4.1 では `.snapshot` ディレクトリ (`ls -la`) は表示されません。 しかし、[スナップショット パスを非表示にする] オプションが設定されていないときは、クライアントのコマンド ラインから `cd <snapshot-path>` コマンドを使用して NFSv4.1 経由で `.snapshot` ディレクトリにアクセスできます。 
 
 ### <a name="restore-a-file-by-using-a-linux-nfs-client"></a>Linux NFS クライアントを使用してファイルを復元する 
 
@@ -255,6 +257,9 @@ Azure NetApp Files では、オンデマンドのスナップショットの作�
 ## <a name="delete-snapshots"></a>スナップショットの削除  
 
 保持する必要がなくなったスナップショットは削除できます。 
+
+> [!IMPORTANT]
+> スナップショットの削除操作を元に戻すことはできません。 削除されたスナップショットは復元できません。 
 
 1. ボリュームの **[スナップショット]** メニューにアクセスします。 削除するスナップショットを右クリックします。 **[削除]** を選択します。
 

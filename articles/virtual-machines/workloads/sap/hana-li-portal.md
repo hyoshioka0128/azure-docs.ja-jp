@@ -8,25 +8,24 @@ manager: bburns
 editor: ''
 tags: azure-resource-manager
 keywords: ''
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/31/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b03f3f93e8f829c6ab7dec965850117895a8b52d
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 07094e399f153f56746a931a4a100b3c0d38f92f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98882486"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104772078"
 ---
 # <a name="azure-hana-large-instances-control-through-azure-portal"></a>Azure portal を介した Azure HANA L インスタンスの制御
 
 >[!NOTE]
->リビジョン 4.2 については、「[Azure portal を使用して BareMetal インスタンスを管理する](../../../baremetal-infrastructure/workloads/sap/baremetal-infrastructure-portal.md)」トピックの手順に従ってください。
+>リビジョン 4.2 については、「[Azure portal を使用して BareMetal インスタンスを管理する](../../../baremetal-infrastructure/connect-baremetal-infrastructure.md)」トピックの手順に従ってください。
 
 このドキュメントでは、[HANA Large Instances](./hana-overview-architecture.md) が [Azure portal](https://portal.azure.com) で提供される方法、および自動的にデプロイされる HANA Large Instance ユニットについて Azure portal で実行できるアクティビティについて説明します。 Azure portal での HANA Large Instances の表示は、HANA Large Instances 用の Azure リソース プロバイダー (現在はパブリック プレビュー) によって提供されます
 

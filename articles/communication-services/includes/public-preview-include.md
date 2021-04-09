@@ -2,14 +2,15 @@
 author: mikben
 ms.service: azure-communication-services
 ms.topic: include
-ms.date: 9/1/2020
+ms.date: 03/10/2021
 ms.author: mikben
-ms.openlocfilehash: 8dd208c29e47baa7876795e103e563e060f3497d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: public_preview
+ms.openlocfilehash: 5f934a1c3d6f0bec7a003c15d69bad236e80ed07
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90930966"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103487830"
 ---
 > [!IMPORTANT]
 > Azure Communication Services は現在パブリック プレビュー段階です。

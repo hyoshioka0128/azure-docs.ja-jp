@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/19/2020
-ms.openlocfilehash: 78187b2cbb6603a0ae0df55465b9a5ce5e7dca7f
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: 2ecc5df9db51bb6c923b9e0f47163e492bd76cfa
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99807548"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "101695748"
 ---
 # <a name="register-and-scan-a-power-bi-tenant-preview"></a>Power BI テナントの登録とスキャン (プレビュー)
 
@@ -23,7 +23,7 @@ ms.locfileid: "99807548"
 
 ## <a name="create-a-security-group-for-permissions"></a>アクセス許可のためのセキュリティ グループの作成
 
-認証を設定するには、セキュリティ グループを作成し、カタログのマネージド ID を追加します。
+認証を設定するには、セキュリティ グループを作成し、Purview のマネージド ID を追加します。
 
 1. [Azure portal](https://portal.azure.com) で、**Azure Active Directory** を検索します。
 1. 「[Azure Active Directory を使用して基本グループを作成してメンバーを追加する](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md)」に従って、Azure Active Directory で新しいセキュリティ グループを作成します。
@@ -35,11 +35,11 @@ ms.locfileid: "99807548"
 
     :::image type="content" source="./media/setup-power-bi-scan-PowerShell/security-group.png" alt-text="セキュリティ グループの種類":::
 
-1. カタログのマネージド ID をこのセキュリティ グループに追加します。 **[メンバー]** を選択してから **[+ メンバーの追加]** を選択します。
+1. Purview のマネージド ID をこのセキュリティ グループに追加します。 **[メンバー]** を選択してから **[+ メンバーの追加]** を選択します。
 
     :::image type="content" source="./media/setup-power-bi-scan-PowerShell/add-group-member.png" alt-text="カタログのマネージド インスタンスをグループに追加します。":::
 
-1. カタログを検索して選択します。
+1. Purview のマネージド ID を検索し、それを選択します。
 
     :::image type="content" source="./media/setup-power-bi-scan-PowerShell/add-catalog-to-group-by-search.png" alt-text="カタログを検索して追加する":::
 
@@ -61,14 +61,14 @@ ms.locfileid: "99807548"
     :::image type="content" source="./media/setup-power-bi-scan-PowerShell/allow-service-principals-power-bi-admin.png" alt-text="サービス プリンシパルが読み取り専用 Power BI Admin API のアクセス許可を取得できるようにする方法を示す画像":::
 
     > [!Caution]
-    > 作成したセキュリティ グループ (データ カタログのマネージド ID をメンバーとして持つ) に読み取り専用 Power BI Admin API の使用を許可するときは、このテナント内のすべての Power BI 成果物のメタデータ (ダッシュボードやレポートの名前、所有者、説明など) へのアクセスも許可します。 メタデータが Azure Purview に取り込まれると、Purview のアクセス許可 (Power BI のアクセス許可ではない) によって、そのメタデータを表示できるユーザーが決まります。
+    > 作成したセキュリティ グループ (Purview のマネージド ID をメンバーとして持つ) に読み取り専用 Power BI Admin API の使用を許可するときは、このテナント内のすべての Power BI 成果物のメタデータ (ダッシュボードやレポートの名前、所有者、説明など) へのアクセスも許可します。 メタデータが Azure Purview に取り込まれると、Purview のアクセス許可 (Power BI のアクセス許可ではない) によって、そのメタデータを表示できるユーザーが決まります。
 
     > [!Note]
     > 開発者向け設定からセキュリティ グループを削除することはできますが、以前に抽出されたメタデータは Purview アカウントから削除されません。 これは、必要に応じて個別に削除することができます。
 
 ## <a name="register-your-power-bi-and-set-up-a-scan"></a>Power BI の登録とスキャンの設定
 
-Power BI テナントの Admin API に接続するためのカタログのアクセス許可が付与されたので、カタログ ポータルからスキャンを設定できるようになりました。
+Power BI テナントの Admin API に接続するための Purview のマネージド ID のアクセス許可が付与されたので、Azure Purview Studio からスキャンを設定できるようになりました。
 
 まず、Purview URL に特別な機能フラグを追加します 
 
@@ -98,11 +98,13 @@ Power BI テナントの Admin API に接続するためのカタログのアク
     > Power BI の場合、データ ソースの登録とスキャンは 1 つのインスタンスに対してのみ許可されています。
 
 
-4. スキャンに名前を付けます。 サポートされている認証方法は **[マネージド ID]** のみであることに留意してください。
+4. スキャンに名前を付けます。 次に、個人用ワークスペースを含める、または除外するオプションを選択します。 サポートされている認証方法は **[マネージド ID]** のみであることに留意してください。
 
     :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-scan-setup.png" alt-text="Power BI スキャンの設定を示す画像":::
 
-    スキャンの名前の長さは 3 から 63 文字で、文字、数字、アンダースコア、およびハイフンのみを使用できます。  スペースは使用できません。
+    > [!Note]
+    > * 個人用ワークスペースを含める、または除外するようにスキャンの構成を切り替えると、PowerBI ソースのフル スキャンがトリガーされます
+    > * スキャンの名前の長さは 3 から 63 文字で、文字、数字、アンダースコア、およびハイフンのみを使用できます。 スペースは使用できません。
 
 5. スキャン トリガーを設定します。 オプションとしては、 **[1 度]** 、 **[7 日ごと]** 、 **[30 日ごと]** があります。
 

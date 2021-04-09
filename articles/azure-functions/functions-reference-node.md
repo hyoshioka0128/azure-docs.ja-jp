@@ -3,14 +3,14 @@ title: Azure Functions 用 JavaScript 開発者向けリファレンス
 description: JavaScript を使用して関数を開発する方法について説明します。
 ms.assetid: 45dedd78-3ff9-411f-bb4b-16d29a11384c
 ms.topic: conceptual
-ms.date: 11/17/2020
+ms.date: 03/07/2021
 ms.custom: devx-track-js
-ms.openlocfilehash: 3e99b156d220b4c24a368886b1c0ca0813ffdc51
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 971fb2a3239614a708e14c109e567081f1ec9ff6
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98674135"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102614906"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Azure Functions の JavaScript 開発者向けガイド
 
@@ -20,7 +20,7 @@ Express.js、Node.js、または JavaScript の開発者が、Azure Functions �
 
 | 作業の開始 | 概念| ガイド付き学習 |
 | -- | -- | -- | 
-| <ul><li>[Visual Studio Code を使用した Node.js 関数](./create-first-function-vs-code-node.md)</li><li>[ターミナル/コマンド プロンプトを使用した Node.js 関数](./create-first-function-cli-node.md)</li></ul> | <ul><li>[開発者ガイド](functions-reference.md)</li><li>[ホスティング オプション](functions-scale.md)</li><li>[TypeScript 関数](#typescript)</li><li>[パフォーマンス&nbsp;に関する考慮事項](functions-best-practices.md)</li></ul> | <ul><li>[サーバーレス アプリケーションの作成](/learn/paths/create-serverless-applications/)</li><li>[Node.js と Express API をサーバーレス API にリファクタリングする](/learn/modules/shift-nodejs-express-apis-serverless/)</li></ul> |
+| <ul><li>[Visual Studio Code を使用した Node.js 関数](./create-first-function-vs-code-node.md)</li><li>[ターミナル/コマンド プロンプトを使用した Node.js 関数](./create-first-function-cli-node.md)</li><li>[Azure portal を使用した Node.js 関数](functions-create-function-app-portal.md)</li></ul> | <ul><li>[開発者ガイド](functions-reference.md)</li><li>[ホスティング オプション](functions-scale.md)</li><li>[TypeScript 関数](#typescript)</li><li>[パフォーマンス&nbsp;に関する考慮事項](functions-best-practices.md)</li></ul> | <ul><li>[サーバーレス アプリケーションの作成](/learn/paths/create-serverless-applications/)</li><li>[Node.js と Express API をサーバーレス API にリファクタリングする](/learn/modules/shift-nodejs-express-apis-serverless/)</li></ul> |
 
 ## <a name="javascript-function-basics"></a>JavaScript 関数の基本
 
@@ -426,7 +426,7 @@ HTTP、webhook トリガー、および HTTP 出力バインディングでは�
 
 `context.req` (要求) オブジェクトには、次のプロパティがあります。
 
-| プロパティ      | [説明]                                                    |
+| プロパティ      | 説明                                                    |
 | ------------- | -------------------------------------------------------------- |
 | _body_        | 要求の本文を格納するオブジェクト。               |
 | _headers_     | 要求ヘッダーを格納するオブジェクト。                   |
@@ -441,7 +441,7 @@ HTTP、webhook トリガー、および HTTP 出力バインディングでは�
 
 `context.res` (応答) オブジェクトには、次のプロパティがあります。
 
-| プロパティ  | [説明]                                               |
+| プロパティ  | 説明                                               |
 | --------- | --------------------------------------------------------- |
 | _body_    | 応答の本文を格納するオブジェクト。         |
 | _headers_ | 応答ヘッダーを格納するオブジェクト。             |
@@ -507,20 +507,20 @@ FUNCTIONS_WORKER_PROCESS_COUNT は、要求に応じてアプリケーション�
 
 | Functions バージョン | Node バージョン (Windows) | Node バージョン (Linux) |
 |---|---| --- |
+| 3.x (推奨) | `~14` (推奨)<br/>`~12`<br/>`~10` | `node|14` (推奨)<br/>`node|12`<br/>`node|10` |
+| 2.x  | `~12`<br/>`~10`<br/>`~8` | `node|10`<br/>`node|8`  |
 | 1.x | 6.11.2 (ランタイムによりロック) | 該当なし |
-| 2.x  | `~8`<br/>`~10` (推奨)<br/>`~12` | `node|8`<br/>`node|10` (推奨)  |
-| 3.x | `~10`<br/>`~12` (推奨)<br/>`~14` (プレビュー)  | `node|10`<br/>`node|12` (推奨)<br/>`node|14` (プレビュー) |
 
 ランタイムが使用している現在のバージョンを確認するには、任意の関数から `process.version` をログに記録します。
 
 ### <a name="setting-the-node-version"></a>Node のバージョンを設定する
 
-Windows 関数アプリの場合は、`WEBSITE_NODE_DEFAULT_VERSION` [アプリ設定](functions-how-to-use-azure-function-app-settings.md#settings)をサポートされている LTS バージョン (`~12` など) に設定して、Azure のバージョンをターゲットにします。
+Windows 関数アプリの場合は、`WEBSITE_NODE_DEFAULT_VERSION` [アプリ設定](functions-how-to-use-azure-function-app-settings.md#settings)をサポートされている LTS バージョン (`~14` など) に設定して、Azure のバージョンをターゲットにします。
 
 Linux 関数アプリの場合は、次の Azure CLI コマンドを実行して、Node のバージョンを更新します。
 
 ```bash
-az functionapp config set --linux-fx-version "node|12" --name "<MY_APP_NAME>" --resource-group "<MY_RESOURCE_GROUP_NAME>"
+az functionapp config set --linux-fx-version "node|14" --name "<MY_APP_NAME>" --resource-group "<MY_RESOURCE_GROUP_NAME>"
 ```
 
 ## <a name="dependency-management"></a>依存関係の管理
@@ -597,6 +597,23 @@ module.exports = async function (context, myTimer) {
 
     context.log("AzureWebJobsStorage: " + process.env["AzureWebJobsStorage"]);
     context.log("WEBSITE_SITE_NAME: " + process.env["WEBSITE_SITE_NAME"]);
+};
+```
+
+## <a name="ecmascript-modules-preview"></a><a name="ecmascript-modules"></a>ECMAScript モジュール (プレビュー)
+
+> [!NOTE]
+> 現在、ECMAScript モジュールは Node.js 14 で "*試験段階*" としてラベル付けされているため、Node.js 14 Azure Functions のプレビュー機能として利用できます。 ECMAScript モジュールへの Node.js 14 のサポートが "*安定*" するまで、API または動作が変更される可能性があります。
+
+[ECMAScript モジュール](https://nodejs.org/docs/latest-v14.x/api/esm.html#esm_modules_ecmascript_modules) (ES モジュール) は、Node.js 用の新しい公式標準モジュール システムです。 これまで、この記事のコード サンプルは、CommonJS 構文を使用しています。 Node.js 14 で Azure Functions を実行するときに、ES モジュール構文を使用して関数を記述することを選択できます。
+
+関数で ES モジュールを使用するには、`.mjs` 拡張子を使用するようにファイル名を変更します。 次の *index.mjs* ファイルの例は、ES モジュール構文を使用して `uuid` ライブラリをインポートし、値を返す、HTTP によってトリガーされる関数です。
+
+```js
+import { v4 as uuidv4 } from 'uuid';
+
+export default async function (context, req) {
+    context.res.body = uuidv4();
 };
 ```
 
@@ -745,7 +762,7 @@ JavaScript 関数を使用するときは、以下のセクションに記載さ
 
 ### <a name="choose-single-vcpu-app-service-plans"></a>シングル vCPU App Service プランを選択する
 
-App Service プランを使用する関数アプリを作成するときは、複数の vCPU を持つプランではなく、シングル vCPU プランを選択することをお勧めします。 今日では、関数を使用して、シングル vCPU VM で JavaScript 関数をより効率的に実行できるようになりました。そのため、大規模な VM を使用しても、期待以上にパフォーマンスが向上することはありません。 必要な場合は、シングル vCPU VM インスタンスを追加することで手動でスケールアウトするか、自動スケーリングを有効にすることができます。 詳細については、「[手動または自動によるインスタンス数のスケール変更](../azure-monitor/platform/autoscale-get-started.md?toc=/azure/app-service/toc.json)」を参照してください。
+App Service プランを使用する関数アプリを作成するときは、複数の vCPU を持つプランではなく、シングル vCPU プランを選択することをお勧めします。 今日では、関数を使用して、シングル vCPU VM で JavaScript 関数をより効率的に実行できるようになりました。そのため、大規模な VM を使用しても、期待以上にパフォーマンスが向上することはありません。 必要な場合は、シングル vCPU VM インスタンスを追加することで手動でスケールアウトするか、自動スケーリングを有効にすることができます。 詳細については、「[手動または自動によるインスタンス数のスケール変更](../azure-monitor/autoscale/autoscale-get-started.md?toc=/azure/app-service/toc.json)」を参照してください。
 
 ### <a name="cold-start"></a>コールド スタート
 

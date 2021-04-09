@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 09/28/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 1cc2cd1a7c5c16b1f9d1542e3f2d14dc030bb090
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 272a642f70849b85be00d2507109eb97935c0dde
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97586552"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102202503"
 ---
 # <a name="monitor-azure-file-sync"></a>Azure File Sync の監視
 
@@ -56,7 +56,7 @@ Azure Monitor では、Azure File Sync の次のメトリックを使用でき�
 
 ### <a name="alerts"></a>警告
 
-アラートは、監視データで重要な状態が見つかると事前に通知します。 Azure Monitor でのアラートの構成の詳細については、「[Microsoft Azure のアラートの概要](../../azure-monitor/platform/alerts-overview.md)」をご覧ください。
+アラートは、監視データで重要な状態が見つかると事前に通知します。 Azure Monitor でのアラートの構成の詳細については、「[Microsoft Azure のアラートの概要](../../azure-monitor/alerts/alerts-overview.md)」をご覧ください。
 
 **Azure File Sync のアラートを作成する方法**
 
@@ -111,7 +111,7 @@ Azure Monitor では、Azure File Sync の次のメトリックを使用でき�
 
 - ポータルの **サーバー エンドポイントの正常性** と **同期アクティビティ** は、サーバーのテレメトリ イベント ログに記録されている同期イベント (ID 9102 および 9302) に基づきます。 一時的なエラーが原因で同期セッションが失敗した場合 (エラーで取り消された場合など)、現在の同期セッションが進行中である (ファイルが適用される) 限り、ポータルにはサーバー エンドポイントが **正常** な状態として引き続き表示されます。 イベント ID 9302 は同期の進行状況イベントであり、同期セッションが完了するとイベント ID 9102 がログに記録されます。  詳細については、[同期の正常性](./storage-sync-files-troubleshoot.md?tabs=server%252cazure-portal#broken-sync)と[同期の進行状況](./storage-sync-files-troubleshoot.md?tabs=server%252cazure-portal#how-do-i-monitor-the-progress-of-a-current-sync-session)に関するドキュメントを参照してください。 サーバー エンドポイントの正常性に **[エラー]** または **[アクティビティなし]** が表示される場合は、ガイダンスとして [トラブルシューティング ドキュメント](./storage-sync-files-troubleshoot.md?tabs=portal1%252cazure-portal#common-sync-errors)を参照してください。
 - ポータルで **同期されていないファイル** の数は、サーバーのテレメトリ イベント ログに記録されているイベント ID 9121 に基づいています。 このイベントは、同期セッションが完了すると、アイテム単位のエラーごとにログに記録されます。 アイテム単位のエラーを解決するには、「[同期していない特定のファイルやフォルダーがあるかどうかを確認するにはどうすればよいですか](./storage-sync-files-troubleshoot.md?tabs=server%252cazure-portal#how-do-i-see-if-there-are-specific-files-or-folders-that-are-not-syncing)」を参照してください。
-- ポータルで **クラウドの階層化の効率性** を表示するには、 **[サーバー エンドポイントのプロパティ]** に移動し、 **[クラウドの階層化]** セクションに移動します。 クラウドの階層化の効率性について提供されるデータは、サーバーのテレメトリ イベント ログに記録されるイベント ID 9071 に基づいています。 詳細については、「[クラウドの階層化の概要](./storage-sync-cloud-tiering.md)」を参照してください。
+- ポータルで **クラウドの階層化の効率性** を表示するには、 **[サーバー エンドポイントのプロパティ]** に移動し、 **[クラウドの階層化]** セクションに移動します。 クラウドの階層化の効率性について提供されるデータは、サーバーのテレメトリ イベント ログに記録されるイベント ID 9071 に基づいています。 詳細については、「[クラウドの階層化を監視する](./storage-sync-monitor-cloud-tiering.md)」を参照してください。
 - ポータルで **階層化されていないファイル** および **呼び戻しエラー** を表示するには、 **[サーバー エンドポイントのプロパティ]** に移動し、 **[クラウドの階層化]** セクションに移動します。 **階層化されていないファイル** は、サーバーのテレメトリ イベント ログに記録されるイベント ID 9003 に基づいており、**呼び戻しエラー** は、イベント ID 9006 に基づいています。 階層化または呼び戻しに失敗したファイルを調査するには、「[階層に失敗したファイルのトラブルシューティングを行う方法](./storage-sync-files-troubleshoot.md?tabs=portal1%252cazure-portal#how-to-troubleshoot-files-that-fail-to-tier)」と「[呼び戻しに失敗したファイルのトラブルシューティングを行う方法](./storage-sync-files-troubleshoot.md?tabs=portal1%252cazure-portal#how-to-troubleshoot-files-that-fail-to-be-recalled)」を参照してください。
 
 ### <a name="metric-charts"></a>メトリック グラフ

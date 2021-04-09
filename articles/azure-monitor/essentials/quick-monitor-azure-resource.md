@@ -1,17 +1,16 @@
 ---
 title: Azure Monitor を使用して Azure リソースを監視する
 description: Azure Monitor で Azure リソースのデータを収集して分析する方法について説明します。
-ms. subservice: logs
 ms.topic: quickstart
 author: bwren
 ms.author: bwren
 ms.date: 12/15/2019
-ms.openlocfilehash: cab41c025f9f3e5b03f042a2bf5686cb08dbd0a9
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 0bbc08ccf02f572fefd1c676e2b1d73157e169c9
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100626438"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102033233"
 ---
 # <a name="quickstart-monitor-an-azure-resource-with-azure-monitor"></a>クイック スタート:Azure Monitor を使用して Azure リソースを監視する
 [Azure Monitor](../overview.md) は、作成された時点から Azure リソースからのデータ収集を開始します。 このクイックスタートでは、リソースについて自動的に収集されるデータを簡単に説明し、特定のリソースの Azure portal でそのデータを表示する方法について説明します。 後で、追加のデータを収集するための構成を追加して Azure Monitor メニューに移動すると、同じツールを使用して、ご利用のサブスクリプション内のすべてのリソースについて収集されたデータにアクセスできます。
@@ -67,7 +66,7 @@ Azure Portal [https://portal.azure.com](https://portal.azure.com) にサイン�
 
 
 ## <a name="next-steps"></a>次のステップ
-このクイックスタートでは、Azure Monitor によって自動的に収集される Azure リソースのアクティビティ ログとメトリックを表示しました。 [ログ クエリ](../log-query/log-query-overview.md)を利用してログを分析できる Log Analytics ワークスペースにアクティビティ ログを集める方法を紹介する次のクイックスタートに進んでください。
+このクイックスタートでは、Azure Monitor によって自動的に収集される Azure リソースのアクティビティ ログとメトリックを表示しました。 [ログ クエリ](../logs/log-query-overview.md)を利用してログを分析できる Log Analytics ワークスペースにアクティビティ ログを集める方法を紹介する次のクイックスタートに進んでください。
 
 > [!div class="nextstepaction"]
-> [Azure アクティビティ ログを Log Analytics ワークスペースに送信する](../learn/quick-collect-activity-log-portal.md)
+> [Azure アクティビティ ログを Log Analytics ワークスペースに送信する](./quick-collect-activity-log-portal.md)

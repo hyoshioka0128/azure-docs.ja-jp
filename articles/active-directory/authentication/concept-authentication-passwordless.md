@@ -1,22 +1,22 @@
 ---
-title: Azure Active Directory へのパスワードレスのサインイン (プレビュー)
+title: Azure Active Directory へのパスワードレスのサインイン
 description: FIDO2 セキュリティ キーまたは Microsoft Authenticator アプリを使用した Azure Active Directory へのパスワードレスのサインイン オプションについて説明します
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/14/2020
+ms.date: 02/22/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e1b82dbe169e01b68e7d4b8a4c243cb72d3a3e8b
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 43a0ef208a1a56416f748c69f552ec9169d21479
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98013007"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102424233"
 ---
 # <a name="passwordless-authentication-options-for-azure-active-directory"></a>Azure Active Directory のパスワードレス認証オプション
 
@@ -62,8 +62,6 @@ Windows Hello for Business の[計画ガイド](/windows/security/identity-prote
 
 Authenticator アプリは、あらゆる iOS や Android フォンを、強力なパスワードレスの資格情報に変えます。 ユーザーは、自分の電話で通知を受け取り、画面に表示される番号と電話の番号を照合してから、生体認証 (指紋または顔) あるいは PIN を使用して確認できます。 インストールの詳細については、「[Microsoft Authenticator アプリのダウンロードとインストール](../user-help/user-help-auth-app-download-install.md)」を参照してください。
 
-Microsoft Authenticator アプリを使用したパスワードなしの Azure AD へのサインインは現在プレビュー段階です。 Azure AD Multi-Factor Authentication、セルフサービス パスワード リセット (SSPR)、または OATH ソフトウェア トークンの第 2 認証向けの Microsoft Authenticator アプリの使用は一般公開されています。 詳細については、「[Microsoft Azure プレビューの追加使用条件](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)」を参照してください。
-
 Authenticator アプリを使用したパスワードレス認証では、Windows Hello for Business と同じ基本的なパターンに従います。 これは、Azure AD によって使用されている Microsoft Authenticator アプリのバージョンを見つけられるように、ユーザーを識別する必要があるため、少し複雑になります。
 
 ![Microsoft Authenticator アプリでのユーザー サインインに関連する手順の概要を示す図](./media/concept-authentication-passwordless/authenticator-app-flow.png)
@@ -92,7 +90,7 @@ FIDO2 セキュリティ キーは、フォーム ファクターとして提供
 
 FIDO2 セキュリティ キーを使用して、Azure AD またはハイブリッド Azure AD に参加済みの Windows 10 デバイスにサインインし、クラウドおよびオンプレミス リソースへのシングル サインオンを実現できます。 ユーザーは、サポートされているブラウザーにサインインすることもできます。 FIDO2 セキュリティ キーは、セキュリティに非常に敏感であるか、2 番目のファクターとしての電話の使用を望まない、あるいは使用できないシナリオまたは従業員が存在する企業向けの優れたオプションです。
 
-FIDO2 セキュリティ キーを使用した Azure AD へのサインインは、現在、プレビュー段階にあります。 詳細については、「[Microsoft Azure プレビューの追加使用条件](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)」を参照してください。
+[Azure AD による FIDO2 認証をサポートするブラウザー](fido2-compatibility.md)と、[開発するアプリケーションで FIDO2 認証をサポート](../develop/support-fido2-authentication.md)しようとしている開発者向けのベスト プラクティスについてのリファレンス ドキュメントが用意されています。
 
 ![セキュリティ キーを使用して Microsoft Edge にサインインする](./media/concept-authentication-passwordless/concept-web-sign-in-security-key.png)
 
@@ -127,7 +125,7 @@ FIDO Alliance によって FIDO2 認定されたキーが多数存在する場�
 
 | プロバイダー | Contact |
 | --- | --- |
-| Yubico | [https://www.yubico.com/support/contact/](https://www.yubico.com/support/contact/) |
+| Yubico | [https://www.yubico.com/solutions/passwordless/](https://www.yubico.com/solutions/passwordless/) |
 | Feitian | [https://ftsafe.us/pages/microsoft](https://ftsafe.us/pages/microsoft) |
 | HID | [https://www.hidglobal.com/contact-us](https://www.hidglobal.com/contact-us) |
 | Ensurity | [https://www.ensurity.com/contact](https://www.ensurity.com/contact) |
@@ -152,15 +150,15 @@ FIDO2 セキュリティ キーの使用を開始するには、方法に関す�
 > [!div class="nextstepaction"]
 > [FIDO2 セキュリティ キーを使用してパスワードなしの署名を有効にする](howto-authentication-passwordless-security-key.md)
 
-## <a name="what-scenarios-work-with-the-preview"></a>プレビューで動作するシナリオ
+## <a name="supported-scenarios"></a>サポートされるシナリオ
 
-Azure AD のパスワードなしのサインイン機能は、現在プレビュー段階にあります。 次の考慮事項が適用されます。
+次の考慮事項が適用されます。
 
 - 管理者は、テナントに対してパスワードレスの認証方法を有効にすることができます
 - 管理者は、すべてのユーザーをターゲットにすることも、方法ごとにテナント内のユーザー/グループを選ぶこともできます
 - エンド ユーザーは、アカウント ポータルでこれらのパスワードレスの認証方法を登録して管理することができます
 - エンド ユーザーは、これらのパスワードレスの認証方法でサインインすることができます
-   - Microsoft Authenticator アプリ:すべてのブラウザー間で、Windows 10 の Out Of Box (OOBE) セットアップ時に、また、オペレーティング システム上の統合されたモバイル アプリでなど、Azure AD 認証が使用されるシナリオで動作します。
+   - Microsoft Authenticator アプリ: すべてのブラウザー間で、Windows 10 のセットアップ時に、また、オペレーティング システム上の統合されたモバイル アプリでなど、Azure AD 認証が使用されるシナリオで動作します。
    - セキュリティ キー:Windows 10 のロック画面、および Microsoft Edge (従来のものと新しい Edge の両方) などのサポートされているブラウザーの Web で動作します。
 
 ## <a name="choose-a-passwordless-method"></a>パスワードレスの方法を選択する

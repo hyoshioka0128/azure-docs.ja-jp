@@ -5,25 +5,29 @@ author: chpalm
 manager: anvalent
 services: azure-communication-services
 ms.author: chpalm
-ms.date: 10/03/2020
+ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: a047761669920d6460c3d6fb6d74b970effa7846
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 933b5605cf38be90d419673a94e23e4c36f0ef36
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100572035"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103495710"
 ---
 # <a name="region-availability-and-data-residency"></a>利用可能なリージョンとデータの保存場所
 
 [!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
 
-Azure Communication Services は、お客様が自身のプライバシーおよび個人データの要件を満たせるよう支援することを約束します。 アプリケーションの使用者と直接的な関係がある、Communication Services を使用する開発者は、場合によってはデータの管理者になります。 Azure Communication Services が代理でこのデータを格納しているため、Microsoft はこのデータの処理担当になる可能性が高くなります。 このページには、このサービスがデータを保持するしくみと、このデータを識別、エクスポート、削除する方法がまとめられています。
+Azure Communication Services は、お客様が自身のプライバシーおよび個人データの要件を満たせるよう支援することを約束します。 アプリケーションの使用者と直接的な関係がある、Communication Services を使用する開発者は、場合によってはデータの管理者になります。 Azure Communication Services が代理でこの保存データを格納および暗号化しているため、Microsoft がこのデータの処理担当になる可能性が高くなります。 このページには、このサービスがデータを保持するしくみと、このデータを識別、エクスポート、削除する方法がまとめられています。
 
 ## <a name="data-residency"></a>データの保存場所
 
-Communication Services リソースを作成する際は、(Azure データ センターではなく) **地域** を指定します。 Communication Services によって格納されたすべての保存データは、Communication Services によって内部で選択されたデータ センター内のその地域で保持されます。 データは他の地域で転送または処理される可能性はありますが、これらのグローバル エンドポイントは、高パフォーマンスかつ低遅延のエクスペリエンスを場所に関係なくエンドユーザーに提供するために必要です。
+Communication Services リソースを作成する際は、(Azure データ センターではなく) **地域** を指定します。 Communication Services によって格納されたすべての保存データは、Communication Services によって内部で選択されたデータ センター内のその地域で保持されます。 データは他の地域で転送または処理される可能性はあります。 これらのグローバル エンドポイントは、高パフォーマンスかつ低遅延のエクスペリエンスを場所に関係なくエンドユーザーに提供するために必要です。
+
+## <a name="data-residency-and-events"></a>データ所在地とイベント
+
+Azure Communication Services で構成された Event Grid システムのトピックはすべて、グローバルな場所に作成されます。 信頼できる配信をサポートするために、グローバル Event Grid システムのトピックは、イベント データを任意の Microsoft データセンターに格納することができます。 Azure Communication Services を使用して Event Grid を構成すると、自分の管理下にある Azure リソースである Event Grid にイベント データが配信されます。 Azure Event Grid を使用するように Azure Communication Services を構成することはできますが、Event Grid リソースとその中に格納されているデータの管理は、ご自身で行う必要があります。
 
 ## <a name="relating-humans-to-azure-communication-services-identities"></a>Azure Communication Services の ID に人間を関連付ける
 
@@ -47,12 +51,14 @@ Communication Services と共に Azure portal または Azure Resource Manager A
 
 ### <a name="telephone-number-management"></a>電話番号の管理
 
-Azure Communication Services では、Communication Services リソースに関連付けられた電話番号のディレクトリが保持されます。 これらの API を使用して、電話番号を取得して削除します。
+Azure Communication Services では、Communication Services リソースに関連付けられた電話番号のディレクトリが保持されます。 次の[電話番号の管理 API](/rest/api/communication/phonenumberadministration) を使用して、電話番号を取得して削除します。
+
+- `Get All Phone Numbers`
 - `Release Phone Number`
 
 ### <a name="chat"></a>チャット
 
-チャットのスレッドとメッセージは、明示的に削除されるまで保持されます。 完全にアイドル状態のスレッドは 30 日後に自動的に削除されます。 [チャット API シリーズ](/rest/api/communication/chat/deletechatmessage/deletechatmessage)を使用すると、メッセージの取得、一覧表示、更新、削除を実行できます。
+チャットのスレッドとメッセージは、明示的に削除されるまで保持されます。 完全にアイドル状態のスレッドは 30 日後に自動的に削除されます。 [チャット API シリーズ](/rest/api/communication/chat/chatthread)を使用すると、メッセージの取得、一覧表示、更新、削除を実行できます。
 
 - `Get Thread`
 - `Get Message`
@@ -61,7 +67,7 @@ Azure Communication Services では、Communication Services リソースに関�
 
 ### <a name="sms"></a>SMS
 
-送受信された SMS メッセージは、サービスによって短時間で処理され、保持されません。 
+送受信された SMS メッセージは、サービスによって短時間で処理され、保持されません。
 
 ### <a name="pstn-voice-calling"></a>PSTN 音声通話
 
@@ -77,6 +83,6 @@ Azure Communication Services は、サービスの動作の正常性と使用状
 
 ## <a name="additional-resources"></a>その他のリソース
 
-- [GDPR および CCPA のための Azure データ主体要求](/microsoft-365/compliance/gdpr-dsr-azure?preserve-view=true&view=o365-worldwide)
+- [GDPR および CCPA のための Azure データ主体要求](/microsoft-365/compliance/gdpr-dsr-azure)
 - [Microsoft セキュリティ センター](https://www.microsoft.com/trust-center/privacy/data-location)
 - [Azure の対話型マップ - 顧客データの場所](https://azuredatacentermap.azurewebsites.net/)

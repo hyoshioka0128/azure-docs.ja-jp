@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 09/30/2020
 ms.author: inhenkel
-ms.openlocfilehash: b1c98bfa6b2cf45a59b70126001442ed80659668
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: a07c4a20b854e09daf3b320b8c99757ca99b2578
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98955887"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102213812"
 ---
 # <a name="how-to-scale-media-reserved-units"></a>メディア占有ユニットをスケーリングする方法
 
@@ -32,13 +32,11 @@ ms.locfileid: "98955887"
 
 [メディア占有ユニット](concept-media-reserved-units.md)について理解する。
 
-[!INCLUDE [media-services-cli-instructions](../../../includes/media-services-cli-instructions.md)]
-
 ## <a name="scale-media-reserved-units-with-cli"></a>CLI を使用してメディア占有ユニットをスケーリングする
 
 `mru` コマンドを実行します。
 
-次の [az ams account mru](/cli/azure/ams/account/mru?view=azure-cli-latest) コマンドでは、"amsaccount" アカウントのメディア占有ユニットを、**count** パラメーターと **type** パラメーターを使用して設定しています。
+次の [az ams account mru](/cli/azure/ams/account/mru) コマンドでは、"amsaccount" アカウントのメディア占有ユニットを、**count** パラメーターと **type** パラメーターを使用して設定しています。
 
 ```azurecli
 az ams account mru set -n amsaccount -g amsResourceGroup --count 10 --type S3

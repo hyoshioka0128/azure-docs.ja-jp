@@ -1,20 +1,20 @@
 ---
 title: カスタム ルールと通知を使用して Azure IoT Central を拡張する |Microsoft Docs
 description: ソリューション開発者は、デバイスがテレメトリの送信を停止したときに電子メール通知を送信するように IoT Central アプリケーションを構成します。 このソリューションでは、Azure Stream Analytics、Azure Functions、SendGrid を使用します。
-author: dominicbetts
-ms.author: dobett
-ms.date: 12/02/2019
+author: TheJasonAndrew
+ms.author: v-anjaso
+ms.date: 02/09/2021
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc, devx-track-csharp
 manager: philmea
-ms.openlocfilehash: c79367ca8cf9e4a4884c829c675d794b2e734737
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 6146676121bac0089d5f520d60a97d74567a32bc
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98220267"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102179342"
 ---
 # <a name="extend-azure-iot-central-with-custom-rules-using-stream-analytics-azure-functions-and-sendgrid"></a>Stream Analytics、Azure Functions、SendGrid を使用してカスタム ルールで Azure IoT Central を拡張する
 
@@ -78,7 +78,7 @@ Azure サブスクリプションをお持ちでない場合は、開始する�
 | Name    | ジョブ名を選択します |
 | サブスクリプション | 該当するサブスクリプション |
 | Resource group | DetectStoppedDevices |
-| Location | East US |
+| Location | 米国東部 |
 | ホスティング環境 | クラウド |
 | [ストリーミング ユニット] | 3 |
 
@@ -97,22 +97,18 @@ Azure サブスクリプションをお持ちでない場合は、開始する�
 | ランタイム スタック | .NET |
 | ストレージ | 新規作成 |
 
-### <a name="sendgrid-account"></a>SendGrid アカウント
+### <a name="sendgrid-account-and-api-keys"></a>SendGrid アカウントと API キー
 
-以下の設定を使用して、[Azure portal で SendGrid アカウントを作成](https://portal.azure.com/#create/Sendgrid.sendgrid)します。
+Sendgrid アカウントをお持ちでない場合は、開始する前に[無料アカウント](https://app.sendgrid.com/)を作成してください。
 
-| 設定 | 値 |
-| ------- | ----- |
-| Name    | SendGrid アカウント名を選択します |
-| Password | パスワードを作成します |
-| サブスクリプション | 該当するサブスクリプション |
-| Resource group | DetectStoppedDevices |
-| Pricing tier | F1 Free |
-| 連絡先情報 | 必須情報を入力します |
+1. 左側のメニューにある Sendgrid ダッシュボードの [設定] で、 **[API キー]** を選択します。
+1. **[API キーの作成]** をクリックします。
+1. 新しい API キーに **AzureFunctionAccess** という名前を指定します。
+1. **[Create & View]\(作成して表示\)** をクリックします。
 
-必要なすべてのリソースを作成すると、次のスクリーンショットのような **DetectStoppedDevices** リソース グループが表示されます。
+    :::image type="content" source="media/howto-create-custom-rules/sendgrid-api-keys.png" alt-text="SendGrid API キーの作成のスクリーン ショット。":::
 
-![停止したデータのリソース グループを検出](media/howto-create-custom-rules/resource-group.png)
+この後、API キーが付与されます。 後で使用できるようにこの文字列を保存します。
 
 ## <a name="create-an-event-hub"></a>イベント ハブの作成
 
@@ -121,21 +117,10 @@ Azure サブスクリプションをお持ちでない場合は、開始する�
 1. Azure portal で Event Hubs 名前空間に移動し、 **[+ イベント ハブ]** を選択します。
 1. イベント ハブに **centralexport** という名前を付けて、 **[作成]** を選択します。
 
-次のスクリーンショットのような Event Hubs 名前空間が作成されます。
+次のスクリーンショットのような Event Hubs 名前空間が作成されます。 
 
-![Event Hubs 名前空間](media/howto-create-custom-rules/event-hubs-namespace.png)
+:::image type="content" source="media/howto-create-custom-rules/event-hubs-namespace.png" alt-text="Event Hubs 名前空間のスクリーンショット。" border="false":::
 
-## <a name="get-sendgrid-api-key"></a>SendGrid API キーを取得する
-
-関数アプリでは、メール メッセージを送信するために SendGrid API キーが必要です。 SendGrid API キーを作成するには、次の手順に従います。
-
-1. Azure portal で、SendGrid アカウントに移動します。 次に、 **[管理]** を選択して SendGrid アカウントにアクセスします。
-1. SendGrid アカウントで **[設定]** 、 **[API キー]** の順に選択します。 **[API キーの作成]** を選択します。
-
-    ![SendGrid API キーを作成する](media/howto-create-custom-rules/sendgrid-api-keys.png)
-
-1. **[API キーの作成]** ページで、 **[フル アクセス]** のアクセス許可を持つ「**AzureFunctionAccess**」という名前のキーを作成します。
-1. API キーをメモしておいてください。これは関数アプリを構成するときに必要になります。
 
 ## <a name="define-the-function"></a>関数を定義する
 
@@ -143,37 +128,23 @@ Azure サブスクリプションをお持ちでない場合は、開始する�
 
 1. Azure portal で、**DetectStoppedDevices** リソース グループ内の **[App Service]** インスタンスに移動します。
 1. **+** を選択して、新しい関数を作成します。
-1. **[開発環境を選択する]** ページで **[ポータル内]** を選択してから、 **[続行]** を選択します。
-1. **[関数の作成]** ページで、 **[Webhook + API]** を選択してから **[作成]** を選択します。
+1. **[HTTP トリガー]** を選択します。
+1. **[追加]** を選択します。
+
+    :::image type="content" source="media/howto-create-custom-rules/add-function.png" alt-text="既定の HTTP トリガー関数の画像"::: 
+
+## <a name="edit-code-for-http-trigger"></a>HTTP トリガーのコードの編集
 
 ポータルで **HttpTrigger1** という既定の関数が作成されます。
 
-![既定の HTTP トリガー関数](media/howto-create-custom-rules/default-function.png)
+:::image type="content" source="media/howto-create-custom-rules/default-function.png" alt-text="HTTP トリガー関数の編集のスクリーンショット。":::
 
-### <a name="configure-function-bindings"></a>関数バインドを構成する
 
-SendGrid を使用してメールを送信するには、次のように関数バインドを構成する必要があります。
-
-1. **[統合]** を選択し、出力 **[HTTP ($return)]** を選択して、 **[削除]** を選択します。
-1. **[+ 新しい出力]** を選択し、 **[SendGrid]** を選択して、 **[選択]** を選択します。 **[インストール]** を選択して SendGrid 拡張機能をインストールします。
-1. インストールが完了したら、 **[関数の戻り値を使用する]** を選択します。 メール通知を受信する有効な **[宛先アドレス]** を追加します。  メール送信者として使用する有効な **[差出人アドレス]** を追加します。
-1. **[SendGrid API キーのアプリ設定]** の横の **[新規]** を選択します。 キーとして「**SendGridAPIKey**」と入力し、値として前にメモした SendGrid API キーを入力します。 **[作成]** を選択します。
-1. **[保存]** を選択して、関数の SendGrid バインドを保存します。
-
-統合設定は次のスクリーンショットのようになります。
-
-![関数アプリの統合](media/howto-create-custom-rules/function-integrate.png)
-
-### <a name="add-the-function-code"></a>関数コードを追加する
-
-関数を実装するには、次のように、受信 HTTP 要求を解析してメールを送信するための C# コードを追加します。
-
-1. 関数アプリで **HttpTrigger1** 関数を選択し、C# コードを次のコードに置き換えます。
+1. C# コードを次のコードに置き換えます。
 
     ```csharp
     #r "Newtonsoft.Json"
-    #r "..\bin\SendGrid.dll"
-
+    #r "SendGrid"
     using System;
     using SendGrid.Helpers.Mail;
     using Microsoft.Azure.WebJobs.Host;
@@ -196,7 +167,7 @@ SendGrid を使用してメールを送信するには、次のように関数�
             content += $"<tr><td>{notification.deviceid}</td><td>{notification.time}</td></tr>";
         }
         content += "</table>";
-        message.AddContent("text/html", content);
+        message.AddContent("text/html", content);  
 
         return message;
     }
@@ -209,8 +180,45 @@ SendGrid を使用してメールを送信するには、次のように関数�
     ```
 
     新しいコードを保存するまで、エラー メッセージが表示される場合があります。
-
 1. **[保存]** を選択して関数を保存します。
+
+## <a name="add-sendgrid-key"></a>SendGrid キーの追加
+
+SendGrid API キーを追加するには、次のように **関数キー** に追加する必要があります。
+
+1. **[関数キー]** を選択します。
+1. **[新しいファンクション キー]** を選択します。
+1. 以前作成した API キーの *名前* と *値* を入力します。
+1. **[OK]** をクリックします。
+
+    :::image type="content" source="media/howto-create-custom-rules/add-key.png" alt-text="Sangrid キー追加のスクリーンショット。":::
+
+
+## <a name="configure-httptrigger-function-to-use-sendgrid"></a>SendGrid を使用するように HttpTrigger 関数を構成する
+
+SendGrid を使用してメールを送信するには、次のように関数バインドを構成する必要があります。
+
+1. **[統合]** を選択します。
+1. **[HTTP ($return)]** の **[出力の追加]** を選択します。
+1. **[削除]** を選択します。
+1. **[新しい出力]** を選択します。
+1. バインドの種類として **SendGrid** を選択します。
+1. SendGrid API キー設定の種類として [新規] をクリックします。
+1. SendGrid API キーの *名前* と *値* を入力します。
+1. 以下の情報を追加します。
+
+| 設定 | 値 |
+| ------- | ----- |
+| メッセージ パラメーター名 | 名前を選択 |
+| 宛先アドレス | 宛先アドレスの名前を選択 |
+| 差出人アドレス | 差出人アドレスの名前を選択 |
+| メッセージの件名 | 件名ヘッダーを入力 |
+| [メッセージ テキスト] | 統合からメッセージを入力 |
+
+1. **[OK]** を選択します。
+
+    :::image type="content" source="media/howto-create-custom-rules/add-output.png" alt-text="SandGrid 出力の追加のスクリーンショット。":::
+
 
 ### <a name="test-the-function-works"></a>関数の動作をテストする
 
@@ -222,7 +230,7 @@ SendGrid を使用してメールを送信するには、次のように関数�
 
 **[ログ]** パネルに関数ログのメッセージが表示されます。
 
-![関数のログ出力](media/howto-create-custom-rules/function-app-logs.png)
+:::image type="content" source="media/howto-create-custom-rules/function-app-logs.png" alt-text="関数のログ出力":::
 
 数分後に、 **[宛先]** メール アドレスに次の内容のメールが届きます。
 
@@ -303,26 +311,26 @@ test-device-3    2019-05-02T14:24:28.919Z
 1. **[保存]** を選択します。
 1. Stream Analytics ジョブを開始するには、 **[概要]** 、 **[開始]** 、 **[今すぐ]** 、 **[開始]** の順に選択します。
 
-    ![Stream Analytics](media/howto-create-custom-rules/stream-analytics.png)
+    :::image type="content" source="media/howto-create-custom-rules/stream-analytics.png" alt-text="Stream Analytics のスクリーンショット。":::
 
-## <a name="configure-export-in-iot-central"></a>IoT Central でエクスポートを構成する
+## <a name="configure-export-in-iot-central"></a>IoT Central でエクスポートを構成する 
 
-[Azure IoT Central アプリケーション マネージャー](https://aka.ms/iotcentral) Web サイト上で、Contoso テンプレートから作成した IoT Central アプリケーションに移動します。 このセクションでは、シミュレートされたデバイスからイベント ハブにテレメトリをストリーム配信するようにアプリケーションを構成します。 エクスポートを構成するには、次の手順に従います。
+[Azure IoT Central アプリケーション マネージャー](https://aka.ms/iotcentral) Web サイト上で、作成した IoT Central アプリケーションに移動します。
+
+このセクションでは、シミュレートされたデバイスからイベント ハブにテレメトリをストリーム配信するようにアプリケーションを構成します。 エクスポートを構成するには、次の手順に従います。
 
 1. **[データのエクスポート]** ページに移動し、 **[+ 新規]** を選択してから、 **[Azure Event Hubs]** を選択します。
-1. 以下の設定を使用してエクスポートを構成してから、 **[保存]** を選択します。
+1. 以下の設定を使用してエクスポートを構成してから、 **[保存]** を選択します。 
 
     | 設定 | 値 |
     | ------- | ----- |
     | 表示名 | Event Hubs へのエクスポート |
     | 有効 | On |
-    | Event Hubs 名前空間 | Event Hubs 名前空間の名前 |
-    | イベント ハブ | centralexport |
-    | 測定 | On |
-    | デバイス | Off |
-    | デバイス テンプレート | Off |
+    | エクスポートするデータの種類 | 製品利用統計情報 |
+    | エンリッチメント | エクスポートされたデータの編成方法についての必要なキーと値を入力します | 
+    | 宛先 | 新規作成し、データのエクスポート先の情報を入力します |
 
-![継続的データ エクスポート構成](media/howto-create-custom-rules/cde-configuration.png)
+    :::image type="content" source="media/howto-create-custom-rules/cde-configuration.png" alt-text="データのエクスポートのスクリーンショット。":::
 
 エクスポートの状態が **[実行中]** になるまで待ってから、続行します。
 

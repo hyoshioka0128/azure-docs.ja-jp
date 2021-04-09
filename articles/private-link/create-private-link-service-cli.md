@@ -1,20 +1,20 @@
 ---
-title: Azure CLI を使用して Azure プライベート リンク サービスを作成する
-description: Azure CLI を使用して Azure プライベート リンク サービスを作成する方法について説明します
+title: クイックスタート - Azure CLI を使用して Azure Private Link サービスを作成する
+description: このクイックスタートでは、Azure CLI を使用して Azure Private Link サービスを作成する方法について説明します
 services: private-link
 author: asudbring
 ms.service: private-link
-ms.topic: how-to
+ms.topic: quickstart
 ms.date: 01/22/2021
 ms.author: allensu
-ms.openlocfilehash: 567ed736c52e8b3cbb03edeb19b3c0e2364e4112
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 76fd959c28203132be4695031d96315f258cf53f
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98757342"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102563083"
 ---
-# <a name="create-a-private-link-service-using-azure-cli"></a>Azure CLI を使用してプライベート リンク サービスを作成する
+# <a name="quickstart-create-a-private-link-service-using-azure-cli"></a>クイックスタート: Azure CLI を使用して Private Link サービスを作成する
 
 自分のサービスを参照する Private Link サービスを作成してみましょう。  Private Link には、Azure Standard Load Balancer の背後にデプロイされたサービスやリソースへのアクセス権を付与することができます。  サービスのユーザーは、各自の仮想ネットワークからプライベートにアクセスすることができます
 
@@ -186,12 +186,12 @@ az network private-link-service create \
     --location eastus2
 ```
 
-Private Link サービスが作成され、トラフィックを受信できるようになります。 トラフィック フローを確認する場合は、アプリケーションを Standard Load Balancer の背後に構成します。
+Private Link サービスが作成され、トラフィックを受信できるようになります。 トラフィック フローを確認する場合は、ご利用のアプリケーションを Standard ロード バランサーの背後に構成します。
 
 
 ## <a name="create-private-endpoint"></a>プライベート エンドポイントの作成
 
-このセクションでは、Private Link サービスをプライベート エンドポイントにマップします。 仮想ネットワークには、Private Link サービスのプライベート エンドポイントが含まれています。 この仮想ネットワークには、Private Link サービスにアクセスするリソースが含まれています。
+このセクションでは、プライベート リンク サービスをプライベート エンドポイントにマップします。 仮想ネットワークには、プライベート リンク サービス用のプライベート エンドポイントが含まれています。 この仮想ネットワークには、ご利用のプライベート リンク サービスにアクセスするリソースが含まれています。
 
 ### <a name="create-private-endpoint-virtual-network"></a>プライベート エンドポイントの仮想ネットワークを作成する
 

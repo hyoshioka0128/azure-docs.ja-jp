@@ -12,12 +12,12 @@ ms.date: 07/23/2020
 ms.author: kenwith
 ms.reviewer: japere
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 121dcdf51374f625ad7393bb181b1be215775a0b
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: edd2ec633bd78ce1a596782deab57105e9d7f1c3
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99257779"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102487748"
 ---
 # <a name="active-directory-azure-ad-application-proxy-frequently-asked-questions"></a>Active Directory (Azure AD) アプリケーション プロキシに関してよく寄せられる質問
 
@@ -37,6 +37,21 @@ Azure AD アプリケーション プロキシを使用するには、Azure AD P
 少なくとも Azure AD Premium P1 または P2 ライセンスと、Azure AD アプリケーション プロキシ コネクタがインストールされていることを確認します。 最初のコネクタを正常にインストールすると、Azure AD アプリケーション プロキシ サービスが自動的に有効になります。
 
 ## <a name="connector-configuration"></a>コネクタの構成
+
+### <a name="why-is-my-connector-still-using-an-older-version-and-not-auto-upgraded-to-latest-version"></a>コネクタでまだ古いバージョンが使用されていて、最新バージョンに自動アップグレードされていないのはなぜですか?
+
+アップデーター サービスが正常に動作していないか、このサービスでインストールできる新しい更新プログラムがないことが原因の可能性があります。
+
+アップデーター サービスが実行されていて、イベント ログにエラーが記録されていない場合は、正常です ([アプリケーションとサービス ログ] -> [Microsoft] -> [AadApplicationProxy] -> [アップデーター] -> [管理者])。 
+
+> [!IMPORTANT]
+> 自動アップグレードでは、メジャー バージョンのみがリリースされます。 定期的なスケジュールでコネクタを手動で更新することをお勧めします。 新しいリリース、リリースの種類 (ダウンロード、自動アップグレード)、バグ修正、および新機能の詳細については、「[Azure AD アプリケーション プロキシ: バージョンのリリース履歴](application-proxy-release-version-history.md)」を参照してください。
+
+コネクタを手動でアップグレードするには、次の手順を実行します。
+
+-  最新バージョンのコネクタをダウンロードします。 Azure portal の [アプリケーション プロキシ] の下に表示されます。 「[Azure AD アプリケーション プロキシ: バージョンのリリース履歴](application-proxy-release-version-history.md)」でもリンクを見つけることができます。
+-   インストーラーによって、Azure AD アプリケーション プロキシのコネクタ サービスが再起動されます。 場合によっては、インストーラーですべてのファイルを置き換えることができない場合、サーバーの再起動が必要になることがあります。 そのため、アップグレードを開始する前に、すべてのアプリケーション (つまり、イベント ビューアー) を終了することをお勧めします。
+-   インストーラーを実行します。 アップグレード プロセスは迅速であり、資格情報を提供する必要がないため、コネクタは再登録されません。
 
 ### <a name="can-application-proxy-connector-services-run-in-a-different-user-context-than-the-default"></a>アプリケーション プロキシ コネクタ サービスを、既定とは異なるユーザー コンテキストで実行することはできますか。
 
@@ -105,6 +120,15 @@ SSL 証明書のアップロード後に、ポータルに「証明書が無効�
 ### <a name="can-a-service-principal-manage-application-proxy-using-powershell-or-microsoft-graph-apis"></a>サービス プリンシパルでは、Powershell または Microsoft Graph API を使用して Application Proxy を管理できますか。
 
 いいえ。現在これはサポートされていません。
+
+### <a name="what-happens-if-i-delete-cwap_authsecret-the-client-secret-in-the-app-registration"></a>アプリの登録で CWAP_AuthSecret (クライアント シークレット) を削除するとどうなりますか。
+
+クライアント シークレット (*CWAP_AuthSecret* とも呼ばれます) は、Azure AD アプリケーション プロキシ アプリが作成されるときに、アプリケーション オブジェクトに自動的に追加されます (アプリの登録)。
+
+クライアント シークレットは 1 年間有効です。 現在有効なクライアント シークレットの有効期限が切れる前に、新しい 1 年間有効のクライアント シークレットが自動的に作成されます。 アプリケーション オブジェクトには、常に 3 つの CWAP_AuthSecret クライアント シークレットが保持されます。 
+
+> [!IMPORTANT]
+> CWAP_AuthSecret を削除すると Azure AD アプリケーション プロキシの事前認証が中断します。 CWAP_AuthSecret は削除しないでください。
 
 ### <a name="how-do-i-change-the-landing-page-my-application-loads"></a>アプリケーションで読み込むランディング ページを変更する方法を教えてください。
 
@@ -187,11 +211,11 @@ NTLM 認証は、事前認証またはシングル サインオンの方法と�
 
 ## <a name="websocket"></a>WebSocket
 
-### <a name="does-websocket-support-work-for-applications-other-than-qliksense"></a>WebSocket のサポートは、QlikSense 以外のアプリケーションでも有効ですか。
+### <a name="does-websocket-support-work-for-applications-other-than-qliksense-and-remote-desktop-web-client-html5"></a>WebSocket のサポートは、QlikSense やリモート デスクトップ Web クライアント (HTML5) 以外のアプリケーションでも有効ですか。
 
 現在、WebSocket プロトコルのサポートはパブリック プレビュー段階であり、他のアプリケーションでは機能しない可能性があります。 一部のお客様は、他のアプリケーションと WebSocket プロトコルを組み合わせることで成功した事例もあります。 このようなシナリオをテストする場合は、ぜひ結果についてご報告ください。 フィードバックについては、aadapfeedback@microsoft.comまでご連絡ください。
 
-Windows Admin Center (WAC) または Remote Desktop Web クライアント (HTML5) の機能 (イベント ログ、PowerShell、リモート デスクトップ サービス) は現在、Azure AD アプリケーション プロキシ経由では動作しません。
+Windows Admin Center (WAC) の機能 (イベント ログ、PowerShell、リモート デスクトップ サービス) は現在、Azure AD アプリケーション プロキシ経由では動作しません。
 
 ## <a name="link-translation"></a>リンク変換
 

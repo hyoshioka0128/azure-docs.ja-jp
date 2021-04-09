@@ -66,6 +66,8 @@
           href: create-profile-container-adds.md
         - name: Azure Files と AD DS を使用する
           href: create-file-share.md
+        - name: FSLogix アプリ コンテナーを使用して Office をインストールする
+          href: fslogix-office-app-rule-editor.md
     - name: ホスト プール設定を構成する
       items:
         - name: RDP のプロパティ
@@ -104,6 +106,8 @@
           href: app-attach-image-prep.md
         - name: ファイル共有を設定する
           href: app-attach-file-share.md
+        - name: MSIXMGR ツールを設定する
+          href: app-attach-msixmgr.md
     - name: Microsoft Teams の使用
       href: teams-on-wvd.md
     - name: Azure AD の Multi-Factor Authentication を設定する
@@ -211,7 +215,7 @@
     - name: 仮想マシンのサイズ指定ガイダンス
       href: /windows-server/remote/remote-desktop-services/virtual-machine-recs?context=/azure/virtual-desktop/context/context
     - name: Azure コマンド ライン インターフェイス (CLI)
-      href: /cli/azure/ext/desktopvirtualization/?view=azure-cli-latest
+      href: /cli/azure/ext/desktopvirtualization/
     - name: Azure シナリオ例
       href: /azure/architecture/example-scenario/wvd/windows-virtual-desktop
     - name: メール検出
@@ -219,7 +223,7 @@
 - name: リソース
   items:
     - name: PowerShell
-      href: /powershell/module/az.desktopvirtualization/?view=azps-4.2.0#desktopvirtualization
+      href: /powershell/module/az.desktopvirtualization/#desktopvirtualization
     - name: REST API リファレンス
       href: /rest/api/desktopvirtualization/
     - name: エクスペリエンス見積もりツール

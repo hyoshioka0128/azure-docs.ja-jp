@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 9/22/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: e8cc42500b9d8bfc507683b5cc96c7b12f95909b
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.openlocfilehash: a7fa9ece3728214fad31f0bae769e1e50206df7e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100548456"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "100594047"
 ---
 # <a name="use-an-app-service-environment"></a>App Service 環境の使用
 
@@ -71,14 +71,14 @@ ASE 内にアプリを作成するには:
     ![[分離] 価格レベル][2]
 
     > [!NOTE]
-    > Linux アプリと Windows アプリを同じ App Service プランに追加することはできませんが、同じ App Service 環境に追加することはできます。
+    > Linux アプリと Windows アプリを同じ App Service プランに追加することはできませんが、同じ App Service Environment に追加することはできます。
     >
 
 1. **[確認および作成]** を選択し、情報が正しいことを確認して、 **[作成]** を選択します。
 
 ## <a name="how-scale-works"></a>スケールのしくみ
 
-すべての App Service アプリは、App Service プランで実行されます。 App Service 環境に App Service プランが存在し、App Service プランにアプリが存在します。 アプリをスケールするときは、App Service プラン、および同じプラン内のすべてのアプリをスケールすることになります。
+すべての App Service アプリは、App Service プランで実行されます。 App Service Environment に App Service プランが存在し、App Service プランにアプリが存在します。 アプリをスケールするときは、App Service プラン、および同じプラン内のすべてのアプリをスケールすることになります。
 
 App Service プランをスケールすると、必要なインフラストラクチャが自動的に追加されます。 インフラストラクチャが追加されるまでの間、スケール操作に時間差が生じます。 複数のスケール操作を順番に実行すると、最初のインフラストラクチャ スケール要求が処理され、他のものはキューに入れられます。 最初のスケール操作が終了すると、他のインフラストラクチャ要求はすべて一緒に動作します。 インフラストラクチャを追加すると、App Service プランが適切に割り当てられます。 新しい App Service プランを作成すること自体が、追加のハードウェアが必要となるため、スケール操作になります。
 
@@ -196,7 +196,7 @@ Log Analytics と統合している場合は、ASE ポータルから **[ログ]
 
 **アラートの作成**
 
-ログに対してアラートを作成するには、「[Azure Monitor を使用したログ アラートの作成、表示、管理](../../azure-monitor/platform/alerts-log.md)」の手順に従います。 概要:
+ログに対してアラートを作成するには、「[Azure Monitor を使用したログ アラートの作成、表示、管理](../../azure-monitor/alerts/alerts-log.md)」の手順に従います。 概要:
 
 * ASE ポータルで [アラート] ページを開く
 * **[新しいアラート ルール]** を選択する
@@ -303,4 +303,4 @@ For more specific examples, use: az find "az appservice ase"
 [AppDeploy]: ../deploy-local-git.md
 [ASEWAF]: app-service-app-service-environment-web-application-firewall.md
 [AppGW]: ../../web-application-firewall/ag/ag-overview.md
-[logalerts]: ../../azure-monitor/platform/alerts-log.md
+[logalerts]: ../../azure-monitor/alerts/alerts-log.md

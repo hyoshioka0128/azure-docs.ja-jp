@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 01/05/2021
 author: lgayhardt
 ms.author: lagayhar
-ms.openlocfilehash: 11e21f376ea3b5cf580d54780509529b4536718b
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: dcfe12b30e336863c8e112d9ad675a2f57fe48f4
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98734176"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102179138"
 ---
 # <a name="azure-monitor-for-azure-data-explorer-preview"></a>Azure Monitor for Azure Data Explorer (プレビュー)
 
@@ -103,10 +103,10 @@ Azure Monitor for Azure Data Explorer では、ログとメトリックを組み
 
 **[Usage]\(使用状況\)** タブでは、クラスターのコマンドとクエリのパフォーマンスの詳細を確認できます。 このページでは次のことが可能です。
  
- - 最も多くのクエリを送信しているユーザーとアプリケーション、または最も多くの CPU とメモリを消費しているユーザーとアプリケーションを確認します (これにより、クラスターが処理する最も負荷の高いクエリを送信しているユーザーを把握できます)。
- - 失敗したクエリで上位のユーザーとアプリケーションを特定します。
- - ユーザーおよびアプリケーションごとに、過去の 1 日平均 (過去 16 日間) と比較したクエリ数の最近の変化を示します。
- - ユーザー、アプリケーション、コマンドの種類別に、クエリ数、メモリ消費量、CPU 消費量の傾向とピークを示します。
+ - 最も多くのクエリを送信している、または最も多くの CPU とメモリを消費しているワークロード グループ、ユーザー、およびアプリケーションを確認します (これにより、クラスターが処理する最も負荷の高いクエリを送信しているユーザーを把握できます)。
+ - 失敗したクエリで上位のワークロード グループ、ユーザー、およびアプリケーションを特定します。
+ - ワークロード グループ、ユーザー、およびアプリケーションごとに、過去の 1 日平均 (過去 16 日間) と比較したクエリ数の最近の変化を示します。
+ - ワークロード グループ、ユーザー、アプリケーション、コマンドの種類別に、クエリ数、メモリ消費量、CPU 消費量の傾向とピークを示します。
 
 [![コマンドおよびクエリ数で上位のアプリケーション、コマンドおよびクエリ数で上位のプリンシパル、コマンドの種類で上位のコマンドのドーナツ グラフが含まれた操作ビューのスクリーンショット](./media/data-explorer/usage.png)](./media/data-explorer/usage.png#lightbox)
 
@@ -162,4 +162,4 @@ Azure Monitor for Azure Data Explorer では、ログとメトリックを組み
 
 ## <a name="next-steps"></a>次のステップ
 
-ブックがサポートするように設計されているシナリオ、新規レポートの作成方法と既存レポートのカスタマイズ方法などについては、「[Azure Monitor ブックを使用した対話型レポートの作成](../platform/workbooks-overview.md)」で学習してください。
+ブックがサポートするように設計されているシナリオ、新規レポートの作成方法と既存レポートのカスタマイズ方法などについては、「[Azure Monitor ブックを使用した対話型レポートの作成](../visualize/workbooks-overview.md)」で学習してください。

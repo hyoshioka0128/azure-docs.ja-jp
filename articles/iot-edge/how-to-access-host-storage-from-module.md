@@ -8,14 +8,16 @@ ms.date: 08/14/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 4af63421e831318e6250825cffd1abad415b85bb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d88d35eece698c7d0079221ae3c76058d1877948
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91447826"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103200472"
 ---
 # <a name="give-modules-access-to-a-devices-local-storage"></a>モジュールにデバイスのローカル ストレージへのアクセスを許可する
+
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
 Azure Storage サービスを使用して、またはデバイスのコンテナー ストレージにデータを格納することに加えて、特にオフラインで操作しているときは、信頼性を向上させるために、ホスト IoT Edge デバイス自体のストレージを専用で使用することもできます。
 
@@ -36,7 +38,7 @@ Azure Storage サービスを使用して、またはデバイスのコンテナ
 "systemModules": {
     "edgeAgent": {
         "settings": {
-            "image": "mcr.microsoft.com/azureiotedge-agent:1.0",
+            "image": "mcr.microsoft.com/azureiotedge-agent:1.1",
             "createOptions": {
                 "HostConfig": {
                     "Binds":["<HostStoragePath>:<ModuleStoragePath>"]
@@ -52,7 +54,7 @@ Azure Storage サービスを使用して、またはデバイスのコンテナ
     },
     "edgeHub": {
         "settings": {
-            "image": "mcr.microsoft.com/azureiotedge-hub:1.0",
+            "image": "mcr.microsoft.com/azureiotedge-hub:1.1",
             "createOptions": {
                 "HostConfig": {
                     "Binds":["<HostStoragePath>:<ModuleStoragePath>"],
@@ -85,7 +87,7 @@ sudo chmod 700 <HostStoragePath>
 
 ## <a name="encrypted-data-in-module-storage"></a>モジュール ストレージのデータを暗号化する
 
-モジュールで IoT Edge デーモンのワークロード API が呼び出され、データが暗号化されるとき、その暗号化キーはモジュール ID とモジュールの生成 ID から派生されます。 生成 ID は、モジュールがデプロイから削除された後に、別のモジュールが同じモジュール ID で同じデバイスにデプロイされたとき、シークレットを保護するために使用されます。 モジュールの生成 ID は、[az iot hub module-identity show](/cli/azure/ext/azure-cli-iot-ext/iot/hub/module-identity#ext-azure-cli-iot-ext-az-iot-hub-module-identity-show) の Azure CLI コマンドで参照できます。
+モジュールで IoT Edge デーモンのワークロード API が呼び出され、データが暗号化されるとき、その暗号化キーはモジュール ID とモジュールの生成 ID から派生されます。 生成 ID は、モジュールがデプロイから削除された後に、別のモジュールが同じモジュール ID で同じデバイスにデプロイされたとき、シークレットを保護するために使用されます。 モジュールの生成 ID は、[az iot hub module-identity show](/cli/azure/ext/azure-iot/iot/hub/module-identity) の Azure CLI コマンドで参照できます。
 
 世代にわたってモジュールでファイルを共有したい場合は、暗号化の解除に失敗するので、シークレットが含まれていないようにする必要があります。
 

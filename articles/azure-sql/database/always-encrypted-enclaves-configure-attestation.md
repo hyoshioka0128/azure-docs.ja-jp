@@ -11,12 +11,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviwer: vanto
 ms.date: 01/15/2021
-ms.openlocfilehash: 51431bf0da9145e1b61da708942b675e4c3eea78
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: fb42a0428f0439053375027481d38977b068e356
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98733822"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102122580"
 ---
 # <a name="configure-azure-attestation-for-your-azure-sql-logical-server"></a>Azure SQL 論理サーバー用に Azure Attestation を構成する
 
@@ -66,10 +66,14 @@ authorizationrules
 
 上記のポリシーでは、次のことを確認します。
 
-- Azure SQL Database 内部のエンクレーブでデバッグがサポートされていない (これによりエンクレーブが提供する保護レベルが低下する)。
-- エンクレーブ内のライブラリの製品 ID が、セキュリティで保護されたエンクレーブが設定された Always Encrypted に割り当てられた製品 ID (4639) である。
-- ライブラリのバージョン ID (svn) が 0 を超えている。
+- Azure SQL Database 内のエンクレーブはデバッグに対応していません。 
+  > エンクレーブは、デバッグが無効でも有効でも読み込むことができます。 デバッグ サポートは、開発者がエンクレーブで実行されているコードの問題を解決できるように設計されています。 実稼働システムでは、エンクレーブが提供する保護レベルを下げるようなコンテンツがエンクレーブに含まれていれば、デバッグによって管理者はそれを調べることができます。 悪意のある管理者がエンクレーブ マシンを乗っ取り、デバッグ サポートをオンにしようとした場合、構成証明に失敗するよう、方針としてはデバッグを無効にすることが推奨されます。 
+- エンクレーブの製品 ID は、セキュリティで保護されたエンクレーブが設定された Always Encrypted に割り当てられた製品 ID に一致します。
+  > エンクレーブにはそれぞれ、他のエンクレーブと区別するための一意の製品 ID が与えられます。 Always Encrypted エンクレーブに割り当てられた製品 ID は 4639 です。 
+- ライブラリのセキュリティ バージョン番号 (SVN) は 0 より大きくなります。
+  > この SVN によって、Microsoft はエンクレーブ コードで特定された潜在的なセキュリティ バグに対応できます。 セキュリティの問題が見つかり、修正された場合、Microsoft は、新しい SVN が付けられた (1 つ上の番号が付けられた) 新しいバージョンのエンクレーブをデプロイします。 上で推奨されているポリシーは、新しい SVN を反映する目的で更新されます。 推奨されるポリシーに合わせて自分のポリシーを更新することで、悪意のある管理者が古くて安全ではないエンクレーブを読み込もうとしたとき、構成証明を失敗させることができます。
 - エンクレーブ内のライブラリが Microsoft 署名キーを使用して署名されている (x-ms-sgx-mrsigner 要求の値が署名キーのハッシュである)。
+  > 構成証明の主な目標の 1 つは、エンクレーブ内で実行されるバイナリが、実行されるべきバイナリであることをクライアントに認識させることにあります。 構成証明ポリシーからは、この目的のために 2 つのメカニズムが提供されます。 1 つは **mrenclave** 要求です。これは、エンクレーブで実行されることになっているバイナリのハッシュです。 **mrenclave** の問題は、コードをほんの少し変えただけでもバイナリ ハッシュが変わることにあります。エンクレーブ内で実行されているコードの改訂が難しくなります。 そのため、**mrsigner** の使用を推奨しています。これは、エンクレーブ バイナリの署名に使用されるキーのハッシュです。 Microsoft がエンクレーブを改訂するとき、署名キーが変わらない限り、**mrsigner** も同じままです。 この方法で、顧客のアプリケーションを壊すことなく、更新後のバイナリをデプロイすることが可能になります。 
 
 > [!IMPORTANT]
 > 構成証明プロバイダーは、エンクレーブ内で実行されているコードを検証しない、Intel SGX エンクレーブの既定のポリシーを使用して作成されます。 Microsoft では、セキュリティで保護されたエンクレーブが設定された Always Encrypted に既定のポリシーを使用するのではなく、前述の推奨ポリシーを設定することを強くお勧めします。
@@ -114,7 +118,7 @@ Write-Host "Your attestation URL is: " $attestationUrl
 
 ### <a name="use-azure-portal-to-assign-permission"></a>Azure portal を使用してアクセス許可を割り当てる
 
-構成証明プロバイダーの構成証明リーダー ロールに Azure SQL サーバーの ID を割り当てるには、「[Azure portal を使用して Azure ロールの割り当てを追加または削除する](../../role-based-access-control/role-assignments-portal.md)」の一般的な手順に従います。 **[ロールの割り当ての追加]** ペインで、次のようにします。
+構成証明プロバイダーの構成証明リーダー ロールに Azure SQL サーバーの ID を割り当てるには、「[Azure portal を使用して Azure ロールを割り当てる](../../role-based-access-control/role-assignments-portal.md)」の一般的な手順に従います。 **[ロールの割り当ての追加]** ペインで、次のようにします。
 
 1. **[Role]\(ロール\)** ドロップダウンで、 **[Attestation Reader]\(構成証明リーダー\)** ロールを選択します。
 1. **[選択]** フィールドに、検索する Azure SQL サーバーの名前を入力します。
@@ -143,7 +147,7 @@ $attestationResourceGroupName = "<attestation provider resource group name>"
 New-AzRoleAssignment -ObjectId $server.Identity.PrincipalId -RoleDefinitionName "Attestation Reader" -ResourceGroupName $attestationResourceGroupName
 ```
 
-詳細については、「[Azure PowerShell を使用して Azure ロールの割り当てを追加または削除する](../../role-based-access-control/role-assignments-powershell.md#add-role-assignment-examples)」を参照してください。
+詳細については、「[Azure PowerShell を使用して Azure ロールを割り当てる](../../role-based-access-control/role-assignments-powershell.md#assign-role-examples)」を参照してください。
 
 ## <a name="next-steps"></a>次の手順
 

@@ -1,30 +1,25 @@
 ---
-title: Azure Security Center の価格
-description: Azure Security Center は、Azure Defender が有効および無効の 2 つのモードで提供されます。
-services: security-center
-documentationcenter: na
+title: Azure Security Center (無料) と有効化された Azure Defender
+description: Azure Security Center でクラウド ワークロード保護のために Azure Defender を有効にする利点について説明します
 author: memildin
-manager: rkarlin
-ms.assetid: 4d1364cd-7847-425a-bb3a-722cb0779f78
-ms.service: security-center
-ms.devlang: na
-ms.topic: overview
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 01/26/2021
 ms.author: memildin
-ms.openlocfilehash: 9e537bfa782569fb8fa2a7957c6874bda69d8c06
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+manager: rkarlin
+ms.service: security-center
+ms.topic: overview
+ms.date: 03/08/2021
+ms.openlocfilehash: d45dae8b0b3725555bd83a05032339671a9595be
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98805360"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102454366"
 ---
-# <a name="pricing-of-azure-security-center"></a>Azure Security Center の価格
-Azure Security Center は、Azure、オンプレミス、他のクラウドで実行されているワークロードの統合セキュリティ管理と高度な脅威保護を実現します。 ハイブリッド クラウド ワークロードの可視化と制御、脅威にさらされる機会を減らす積極的防御、急速に進化するサイバー リスクへの対応に役立つインテリジェント検出などの機能が提供されます。
+# <a name="azure-security-center-free-vs-azure-defender-enabled"></a>Azure Security Center (無料) と有効化された Azure Defender
+Azure Defender は、最初の 30 日間は無料で利用できます。 30 日経過した時点で、サービスの利用を継続することを選択した場合、使用量に応じた課金が自動的に開始されます。
 
+「[クイックスタート: Azure Defender を有効にする](enable-azure-defender.md)」で説明されているように、**価格と設定** に関するページからアップグレードすることができます。 選択した通貨でのお住まいのリージョンに応じた価格の詳細については、「[Security Center の価格](https://azure.microsoft.com/pricing/details/security-center/)」を参照してください。
 
-## <a name="free-option-vs-azure-defender-enabled"></a>Free オプションと Azure Defender 有効
+## <a name="what-are-the-benefits-of-enabling-azure-defender"></a>Azure Defender を有効にする利点
 
 Security Center は、次の 2 つのモードで提供されます。
 
@@ -41,34 +36,9 @@ Security Center は、次の 2 つのモードで提供されます。
     - **Azure 環境に接続されているリソースに対する広範な脅威の防止** - Azure Defender には、すべてのリソースに共通の Azure サービス (Azure Resource Manager、Azure DNS、Azure ネットワーク レイヤー、Azure Key Vault) に対する Azure ネイティブの広範な脅威の防止機能が含まれています。 Azure Defender は、Azure 管理レイヤーと Azure DNS レイヤーの独自の可視性を備えているため、これらのレイヤーに接続されているクラウド リソースを保護できます。
 
 
-## <a name="try-azure-defender-free-for-30-days"></a>Azure Defender を 30 日間無料で試用する
-Azure Defender は、最初の 30 日間は無料で利用できます。 30 日経過した時点で、サービスの利用を継続することを選択した場合、使用量に応じた課金が自動的に開始されます。
-
-## <a name="enable-azure-defender"></a>Azure Defender を有効にする
-Azure Defender を使用して Azure サブスクリプション全体を保護できます。保護は、サブスクリプション内のすべてのリソースに継承されます。
-
-Azure Defender を有効にするには、次の手順に従います。
-
-1. Security Center のメイン メニューから、 **[価格と設定]** を選択します。
-1. アップグレードするサブスクリプションを選択します。
-1. **[Azure Defender on]\(Azure Defender を有効化\)** を選択してアップグレードします。
-1. **[保存]** を選択します。
-
-サンプルのサブスクリプションの価格ページを次に示します。 Azure Defender の各プランは個別に価格設定されているので、個別に有効/無効に設定できます。
-
-:::image type="content" source="./media/security-center-pricing/pricing-tier-page.png" alt-text="ポータルの Security Center の価格ページ":::
-
-> [!NOTE]
-> 脅威防止機能を含め、Security Center のすべての機能を有効にするには、適用可能なワークロードを含むサブスクリプションで Azure Defender を有効にする必要があります。 ワークスペース レベルで有効にしても、Just-In-Time VM アクセス、適応型アプリケーション制御、Azure リソースのネットワーク検出は有効になりません。 さらに、ワークスペース レベルで使用できる Azure Defender プランは、Azure Defender for servers と Azure Defender for SQL servers on machines のみです。
->
-> **Azure Defender for Storage accounts** は、サブスクリプション レベルまたはリソース レベルで有効にすることができます。
-> **Azure Defender for SQL** は、サブスクリプション レベルまたはリソース レベルで有効にすることができます。
-> **Azure Database for MariaDB/MySQL/PostgreSQL** の脅威保護は、リソース レベルでのみ有効にできます。
-
-
 ## <a name="faq---pricing-and-billing"></a>FAQ - 価格と課金 
 
-- [Azure Security Center で組織内のどのユーザーが Azure Defender の変更を有効にしたかは、どのようにして追跡できますか?](#how-can-i-track-who-in-my-organization-enabled-azure-defender-changes-in-security-center)
+- [Security Center で組織内のどのユーザーが Azure Defender の変更を有効にしたかは、どのようにして追跡できますか?](#how-can-i-track-who-in-my-organization-enabled-azure-defender-changes-in-security-center)
 - [Security Center ではどのようなプランが提供されていますか?](#what-are-the-plans-offered-by-security-center)
 - [サブスクリプションで Azure Defender を有効にするにはどうすればよいですか?](#how-do-i-enable-azure-defender-for-my-subscription)
 - [サブスクリプションのサーバーのサブセットで、サーバーに対して Azure Defender を有効にすることはできますか?](#can-i-enable-azure-defender-for-servers-on-a-subset-of-servers-in-my-subscription)
@@ -98,14 +68,14 @@ Security Center には 2 つのプランがあります。
 ### <a name="how-do-i-enable-azure-defender-for-my-subscription"></a>サブスクリプションで Azure Defender を有効にするにはどうすればよいですか? 
 以下に示すどの方法でも、ご利用のサブスクリプションに対して Azure Defender を有効にすることができます。 
 
-|Method  |Instructions  |
-|---------|---------|
-|Azure portal の Azure Security Center ページ|[Azure Defender を有効にする](#enable-azure-defender)|
-|REST API|[Pricings API](/rest/api/securitycenter/pricings)|
-|Azure CLI|[az security pricing](/cli/azure/security/pricing)|
-|PowerShell|[Set-AzSecurityPricing](/powershell/module/az.security/set-azsecuritypricing)|
-|Azure Policy|[バンドルの価格](https://github.com/Azure/Azure-Security-Center/blob/master/Pricing%20%26%20Settings/ARM%20Templates/Set-ASC-Bundle-Pricing.json)|
-|||
+| メソッド                                          | Instructions                                                                                                                                       |
+|-------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------|
+| Azure portal の Azure Security Center ページ | [Azure Defender を有効にする](enable-azure-defender.md)                                                                                                  |
+| REST API                                        | [Pricings API](/rest/api/securitycenter/pricings)                                                                                                  |
+| Azure CLI                                       | [az security pricing](/cli/azure/security/pricing)                                                                                                 |
+| PowerShell                                      | [Set-AzSecurityPricing](/powershell/module/az.security/set-azsecuritypricing)                                                                      |
+| Azure Policy                                    | [バンドルの価格](https://github.com/Azure/Azure-Security-Center/blob/master/Pricing%20%26%20Settings/ARM%20Templates/Set-ASC-Bundle-Pricing.json) |
+|                                                 |                                                                                                                                                    |
 
 ### <a name="can-i-enable-azure-defender-for-servers-on-a-subset-of-servers-in-my-subscription"></a>サブスクリプションのサーバーのサブセットで、サーバーに対して Azure Defender を有効にすることはできますか?
 いいえ。 サブスクリプションで[サーバー用 Azure Defender](defender-for-servers-introduction.md) を有効にすると、サブスクリプション内のすべてのサーバーが Azure Defender によって保護されます。 
@@ -118,10 +88,18 @@ Microsoft Defender for Endpoint のライセンスを既に取得している場
 割引を確認するには、Security Center のサポート チームに連絡し、関連するライセンスごとに、関連するワークスペース ID、リージョン、ライセンス情報を提示してください。
 
 ### <a name="my-subscription-has-azure-defender-for-servers-enabled-do-i-pay-for-not-running-servers"></a>私のサブスクリプションでは Azure Defender for servers が有効になっています。実行していないサーバーは課金されますか? 
-いいえ。 サブスクリプションで[サーバー用 Azure Defender](defender-for-servers-introduction.md) を有効にすると、動作中のサーバーについてのみ時間単位で課金されます。 オフになっているサーバーについては (オフになっている間)、料金を請求されません。 
+いいえ。 サブスクリプションで [Azure Defender for servers](defender-for-servers-introduction.md) を有効にしても、割り当て解除済みの電源状態のマシンは課金されません。 マシンは電源の状態に基づいて課金されます。次の表を参照してください。
 
-> [!TIP]
-> このことは、Security Center によって保護される他の種類のリソースにも当てはまります。 
+| State        | 説明                                                                                                                                      | 課金されたインスタンスの使用 |
+|--------------|--------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------|
+| 開始中     | VM を起動中です。                                                                                                                               | 課金されません            |
+| 実行中      | VM の通常の動作状態です                                                                                                                    | 課金されます                |
+| 停止中     | これは過渡的な状態です。 完了すると、Stopped と表示されます。                                                                           | 課金されます                |
+| 停止済み      | ゲスト OS 内から、または PowerOff API によって、VM がシャットダウンされています。 ハードウェアは引き続き VM に割り当てられ、VM はホスト上に残ります。 | 課金されます                |
+| 割り当て解除中 | 過渡的な状態です。 完了すると、VM は割り当て解除済みと表示されます。                                                                             | 課金されません            |
+| 割り当て解除済み  | VM は正常に停止され、ホストから削除されました。                                                                                  | 課金されません            |
+
+:::image type="content" source="media/security-center-pricing/deallocated-virtual-machines.png" alt-text="割り当て解除状態のマシンを示す Azure Virtual Machines":::
 
 ### <a name="will-i-be-charged-for-machines-without-the-log-analytics-agent-installed"></a>Log Analytics エージェントがインストールされていないマシンは課金されますか?
 はい。 サブスクリプションで[サーバー用 Azure Defender](defender-for-servers-introduction.md) を有効にすると、そのサブスクリプション内のマシンには、Log Analytics エージェントがインストールされていなくても一連の保護が適用されます。

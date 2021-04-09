@@ -7,15 +7,15 @@ author: mrbullwinkle
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: metrics-advisor
-ms.topic: quickstart
+ms.topic: conceptual
 ms.date: 10/14/2020
 ms.author: mbullwin
-ms.openlocfilehash: f448bc4a45a4910ed6023a5fc17a38b31baea1e2
-ms.sourcegitcommit: 7a7b6c7ac0aa9dac678c3dfd4b5bcbc45dc030ca
+ms.openlocfilehash: d257633a8218399cab1d40ab8e8fb3d819e1922d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/02/2020
-ms.locfileid: "93186923"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102051737"
 ---
 # <a name="metrics-advisor-whats-new-in-the-docs"></a>Metrics Advisor: ドキュメントの更新内容
 

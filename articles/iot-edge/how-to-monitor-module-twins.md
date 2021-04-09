@@ -9,14 +9,16 @@ ms.topic: conceptual
 ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 1a11d3a9a972188af4cf8f054349da98d69691a3
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 0b7013979199eefa873a651d99e87dc8b2c47856
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91876160"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "103201600"
 ---
 # <a name="monitor-module-twins"></a>モジュール ツインの監視
+
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
 Azure IoT Hub のモジュール ツインを利用すると、IoT Edge デプロイの接続性と正常性の監視が可能になります。 モジュール ツインでは、実行中のモジュールのパフォーマンスに関する有益な情報が、IoT ハブに格納されます。 [IoT Edge エージェント](iot-edge-runtime.md#iot-edge-agent)および [IoT Edge ハブ](iot-edge-runtime.md#iot-edge-hub)の各ランタイム モジュールでは、モジュール ツインである `$edgeAgent` と `$edgeHub` が保持されています。
 
@@ -213,7 +215,7 @@ Azure IoT Hub 上、Visual Studio Code 上で、また、Azure CLI を使用し�
 
 IoT Edge が実行中かどうかを確認するには、[az iot hub invoke-module-method](how-to-edgeagent-direct-method.md#ping) を使用して IoT Edge エージェントに ping を実行します。
 
-[az iot hub module-twin](/cli/azure/ext/azure-cli-iot-ext/iot/hub/module-twin) 構造では、以下のコマンドが提供されています。
+[az iot hub module-twin](/cli/azure/ext/azure-iot/iot/hub/module-twin) 構造では、以下のコマンドが提供されています。
 
 * **az iot hub module-twin show** - モジュール ツインの定義を表示します。
 * **az iot hub module-twin update** - モジュール ツインの定義を更新します。

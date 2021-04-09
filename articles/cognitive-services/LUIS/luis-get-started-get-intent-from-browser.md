@@ -3,14 +3,14 @@ title: ブラウザーを使用して予測を照会する方法 - LUIS
 description: この記事では、利用可能なパブリック LUIS アプリを使用して、ブラウザーで会話形式のテキストからユーザーの意図を判断します。
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: conceptual
+ms.topic: quickstart
 ms.date: 11/30/2020
-ms.openlocfilehash: 6aa681c8ea60cb57ac3e6d143c60cc46bc057719
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: a3bad4ab69f6950f83db9cf1f49cfa4cb7c7b5f0
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96436914"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102040126"
 ---
 # <a name="how-to-query-the-prediction-runtime-with-user-text"></a>ユーザー テキストを使用して予測ランタイムを照会する方法
 

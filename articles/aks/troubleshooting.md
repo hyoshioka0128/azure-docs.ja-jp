@@ -4,12 +4,12 @@ description: Azure Kubernetes Service (AKS) を使用するときに発生する
 services: container-service
 ms.topic: troubleshooting
 ms.date: 06/20/2020
-ms.openlocfilehash: 7dfb9e34daeb92d57a61c570055695867c4a8107
-ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
+ms.openlocfilehash: 1d3dff19bd75bfa4e7564eb4b188ffe68d605025
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99071869"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104952033"
 ---
 # <a name="aks-troubleshooting"></a>AKS のトラブルシューティング
 
@@ -197,7 +197,7 @@ Azure 上の kubernetes クラスター (AKS または no) でスケールアッ
 Service returned an error. Status=429 Code=\"OperationNotAllowed\" Message=\"The server rejected the request because too many requests have been received for this subscription.\" Details=[{\"code\":\"TooManyRequests\",\"message\":\"{\\\"operationGroup\\\":\\\"HighCostGetVMScaleSet30Min\\\",\\\"startTime\\\":\\\"2020-09-20T07:13:55.2177346+00:00\\\",\\\"endTime\\\":\\\"2020-09-20T07:28:55.2177346+00:00\\\",\\\"allowedRequestCount\\\":1800,\\\"measuredRequestCount\\\":2208}\",\"target\":\"HighCostGetVMScaleSet30Min\"}] InnerError={\"internalErrorCode\":\"TooManyRequestsReceived\"}"}
 ```
 
-これらの調整エラーの詳細については、[こちら](../azure-resource-manager/management/request-limits-and-throttling.md)と[こちら](../virtual-machines/troubleshooting/troubleshooting-throttling-errors.md)を参照してください。
+これらの調整エラーの詳細については、[こちら](../azure-resource-manager/management/request-limits-and-throttling.md)と[こちら](/troubleshoot/azure/virtual-machines/troubleshooting-throttling-errors)を参照してください。
 
 多くの機能強化が含まれている 1.18.x 以上のバージョンを確実に実行することを、AKS エンジニアリング チームは推奨しています。 これらの機能強化の詳細については、[こちら](https://github.com/Azure/AKS/issues/1413)と[こちら](https://github.com/kubernetes-sigs/cloud-provider-azure/issues/247)を参照してください。
 
@@ -253,7 +253,7 @@ spec:
 ```yaml
 initContainers:
 - name: volume-mount
-  image: busybox
+  image: mcr.microsoft.com/aks/fundamental/base-ubuntu:v0.0.11
   command: ["sh", "-c", "chown -R 100:100 /data"]
   volumeMounts:
   - name: <your data volume>
@@ -452,5 +452,5 @@ AKS により、この軽減策を改善するために、ノード プールで
 
 
 <!-- LINKS - internal -->
-[view-master-logs]: view-master-logs.md
+[view-master-logs]: ./view-control-plane-logs.md
 [cluster-autoscaler]: cluster-autoscaler.md

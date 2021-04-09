@@ -5,12 +5,12 @@ ms.assetid: c9da27b2-47d4-4c33-a3cb-1819955ee43b
 ms.topic: article
 ms.date: 09/17/2019
 ms.custom: devx-track-csharp, seodec18
-ms.openlocfilehash: 8f3fb0be08bb806d74c689a7656c1c55019eb105
-ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
+ms.openlocfilehash: 03ef2110af2d9e642019c2b07b53fae3e32b1ea6
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99980611"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104950180"
 ---
 # <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>Azure App Service でのアプリの診断ログの有効化
 ## <a name="overview"></a>概要
@@ -116,7 +116,7 @@ Azure では、組み込みの診断機能により、 [App Service アプリ](o
     System.Diagnostics.Trace.TraceError("If you're seeing this, something bad happened");
     ```
 
-- ASP.NET Core では、既定で、[Microsoft.Extensions.Logging.AzureAppServices](https://www.nuget.org/packages/Microsoft.Extensions.Logging.AzureAppServices) ログ プロバイダーが使用されます。 詳しくは、[Azure 内での ASP.NET Core のログ記録](/aspnet/core/fundamentals/logging/)に関するページをご覧ください。
+- ASP.NET Core では、既定で、[Microsoft.Extensions.Logging.AzureAppServices](https://www.nuget.org/packages/Microsoft.Extensions.Logging.AzureAppServices) ログ プロバイダーが使用されます。 詳しくは、[Azure 内での ASP.NET Core のログ記録](/aspnet/core/fundamentals/logging/)に関するページをご覧ください。 WebJobs SDK のログ記録については、[Azure WebJobs SDK の使用の開始](./webjobs-sdk-get-started.md#enable-console-logging)に関するページを参照してください。
 
 ## <a name="stream-logs"></a>ログのストリーミング
 
@@ -134,19 +134,17 @@ Azure では、組み込みの診断機能により、 [App Service アプリ](o
 
 [Cloud Shell](../cloud-shell/overview.md) でログをライブ ストリーミングするには、次のコマンドを使用します。
 
+> [!IMPORTANT]
+> このコマンドは、Linux App Service プランでホストされている Web アプリでは機能しない可能性があります。
+
 ```azurecli-interactive
 az webapp log tail --name appname --resource-group myResourceGroup
 ```
 
-特定のイベント (エラーなど) をフィルター処理するには、 **-Filter** パラメーターを使用します。 次に例を示します。
+HTTP といった特定のログの種類をフィルターするには、 **--Provider** パラメーターを使用します。 次に例を示します。
 
 ```azurecli-interactive
-az webapp log tail --name appname --resource-group myResourceGroup --filter Error
-```
-特定のログの種類 (HTTP など) をフィルター処理するには、 **--Path** パラメーターを使用します。 次に例を示します。
-
-```azurecli-interactive
-az webapp log tail --name appname --resource-group myResourceGroup --path http
+az webapp log tail --name appname --resource-group myResourceGroup --provider http
 ```
 
 ### <a name="in-local-terminal"></a>ローカル ターミナルの場合
@@ -200,7 +198,7 @@ Windows アプリの場合、ZIP ファイルには、App Service ファイル �
 <sup>1</sup> Java SE アプリの場合は、アプリ設定に "$WEBSITE_AZMON_PREVIEW_ENABLED" を追加し、それを 1 または true に設定します。
 
 ## <a name="next-steps"></a><a name="nextsteps"></a> 次のステップ
-* [Azure Monitor でログにクエリを実行する](../azure-monitor/log-query/log-query-overview.md)
+* [Azure Monitor でログにクエリを実行する](../azure-monitor/logs/log-query-overview.md)
 * [Azure App Service を監視する方法](web-sites-monitor.md)
 * [Visual Studio での Azure App Service のトラブルシューティング](troubleshoot-dotnet-visual-studio.md)
 * [HDInsight でのアプリ ログの分析](https://gallery.technet.microsoft.com/scriptcenter/Analyses-Windows-Azure-web-0b27d413)

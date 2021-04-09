@@ -1,25 +1,27 @@
 ---
 title: チュートリアル - Linux VM 用の Azure 仮想ネットワークの作成と管理を行う
 description: このチュートリアルでは、Azure CLI を使用して、Linux 仮想マシン用の Azure ディスクの作成と管理を行う方法について説明します
-services: virtual-machines-linux
+services: virtual-machines
 documentationcenter: virtual-machines
 author: cynthn
 manager: gwallace
+ms.collection: linux
 tags: azure-resource-manager
+ms.subservice: networking
 ms.assetid: ''
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/10/2017
 ms.author: cynthn
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: c806e5d1d9c9242b6ba57496327c672d7fed0654
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.openlocfilehash: 6356d9b587847ff2b49574b970109ada0d785660
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98704492"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102564630"
 ---
 # <a name="tutorial-create-and-manage-azure-virtual-networks-for-linux-virtual-machines-with-the-azure-cli"></a>チュートリアル:Azure CLI を使用して Linux 仮想マシン用の Azure 仮想ネットワークの作成と管理を行う
 
@@ -300,4 +302,4 @@ az network nsg rule list --resource-group myRGNetwork --nsg-name myBackendNSG --
 > * ネットワーク トラフィックのセキュリティ保護
 > * バックエンド VM の作成
 
-VM ディスクの保護の詳細については、[ディスクのバックアップとディザスター リカバリー](backup-and-disaster-recovery-for-azure-iaas-disks.md)に関するページをご覧ください。
+VM ディスクの保護の詳細については、[ディスクのバックアップとディザスター リカバリー](../backup-and-disaster-recovery-for-azure-iaas-disks.md)に関するページをご覧ください。

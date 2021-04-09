@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/31/2020
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 5cde7e677bd0121954b01cf9bb8defe45111a5b2
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: c2c2b57ebf4e2a5cd96efce49da87cf42929e96c
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94369190"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "103472056"
 ---
 # <a name="natural-language-support-for-azure-cognitive-services"></a>Azure Cognitive Services の自然言語のサポート
 
@@ -24,7 +24,7 @@ Azure Cognitive Services では、見る、聞く、話す、そして、ユー�
 次の Cognitive Services は言語に依存せず、人間の言語に基づく制限はありません。
 
 * [Anomaly Detector (プレビュー)](./anomaly-detector/index.yml)
-* [Custom Vision](./Custom-Vision-Service/index.yml)
+* [Custom Vision](./custom-vision-service/index.yml)
 * [Face](./face/index.yml)
 * [Personalizer](./personalizer/index.yml)
 
@@ -32,7 +32,7 @@ Azure Cognitive Services では、見る、聞く、話す、そして、ユー�
 
 * [Computer Vision](./computer-vision/language-support.md)
 * [Form Recognizer (プレビュー)](./form-recognizer/language-support.md)
-* [Ink Recognizer (プレビュー)](./ink-recognizer/language-support.md)
+* [Ink Recognizer (プレビュー)](/previous-versions/azure/cognitive-services/Ink-Recognizer/language-support)
 * [Video Indexer](../media-services/video-indexer/language-identification-model.md#guidelines-and-limitations)
 
 ## <a name="language"></a>Language
@@ -48,16 +48,6 @@ Azure Cognitive Services では、見る、聞く、話す、そして、ユー�
 * [Speech Service:音声テキスト変換](./speech-service/language-support.md#speech-to-text)
 * [音声サービス: Text-to-Speech](./speech-service/language-support.md#text-to-speech)
 * [Speech Service:音声翻訳](./speech-service/language-support.md#speech-translation)
-
-## <a name="search"></a>検索
-
-* [Bing Custom Search](./bing-custom-search/language-support.md)
-* [Bing Image Search](./bing-image-search/language-support.md)
-* [Bing News Search](./bing-news-search/language-support.md)
-* [Bing Autosuggest](./bing-autosuggest/language-support.md)
-* [Bing Spell Check](./bing-spell-check/language-support.md)
-* [Bing Visual Search](./bing-visual-search/language-support.md)
-* [Bing Web Search](./bing-web-search/language-support.md)
 
 ## <a name="decision"></a>決定
 

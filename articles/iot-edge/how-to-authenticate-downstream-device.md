@@ -8,14 +8,16 @@ ms.date: 10/15/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 3876b44bc6bb1ddbc5398126421fb9651003838f
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: c799e38092c5983b4ad0e3daea6aae99934c7302
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98678825"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "103200878"
 ---
 # <a name="authenticate-a-downstream-device-to-azure-iot-hub"></a>Azure IoT Hub に対するダウンストリーム デバイスの認証を行う
+
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
 透過的なゲートウェイのシナリオでは、ダウンストリーム デバイス (リーフ デバイスや子デバイスとも呼ばれます) には、他のデバイスと同じように IoT Hub での ID が必要です。 この記事では、IoT Hub にダウンストリーム デバイスを認証するためのオプションについて説明し、ゲートウェイ接続を宣言する方法を示します。
 
@@ -35,7 +37,7 @@ Azure IoT Hub Device Provisioning Service (DPS) を使用したダウンスト�
 
 X.509 認証を使用している場合は、ダウンストリーム デバイス用の証明書を生成します。 同じルート CA 証明書と、透過的なゲートウェイの記事に使用した証明書生成スクリプトを再度使用できるようにします。
 
-この記事では、いくつかの時点で *ゲートウェイ ホスト名* を参照します。 ゲートウェイ ホスト名は、IoT Edge ゲートウェイ デバイス上の config.yaml ファイルの **hostname** パラメーターで宣言されます。 これはダウンストリーム デバイスの接続文字列で参照されます。 ゲートウェイ ホスト名は、DNS またはダウンストリーム デバイス上の host ファイル エントリのどちらかを使用して IP アドレスに解決できる必要があります。
+この記事では、いくつかの時点で *ゲートウェイ ホスト名* を参照します。 ゲートウェイ ホスト名は、IoT Edge ゲートウェイ デバイス上の構成ファイルの **hostname** パラメーターで宣言されます。 これはダウンストリーム デバイスの接続文字列で参照されます。 ゲートウェイ ホスト名は、DNS またはダウンストリーム デバイス上の host ファイル エントリのどちらかを使用して IP アドレスに解決できる必要があります。
 
 ## <a name="register-device-with-iot-hub"></a>IoT Hub でデバイスを登録する
 
@@ -68,6 +70,11 @@ Azure portal、Azure CLI、Visual Studio Code の IoT 拡張機能のいずれ�
 * **[親デバイスの設定]** を選択し、このダウンストリーム デバイスが経由して接続する IoT Edge ゲートウェイ デバイスを選択します。 親は後でいつでも変更できます。
 
    ![ポータルで対称キー認証を使用したデバイス ID の作成](./media/how-to-authenticate-downstream-device/symmetric-key-portal.png)
+
+   >[!NOTE]
+   >親デバイスの設定は、以前は対称キーの認証を使用するダウンストリーム デバイス用の省略可能な手順でした。 しかし、IoT Edge バージョン 1.1.0 以降は、すべてのダウンストリーム デバイスが親デバイスに割り当てられている必要があります。
+   >
+   >環境変数 **AuthenticationMode** を値 **CloudAndScope** に設定することで、以前の動作に戻るように IoT Edge ハブを構成できます。
 
 [Azure CLI の IoT 拡張機能](https://github.com/Azure/azure-iot-cli-extension)を使用しても同じ操作を完了できます。 次の例では、[az iot hub device-identity](/cli/azure/ext/azure-iot/iot/hub/device-identity) コマンドを使用し、対称キー認証で新しい IoT デバイスが作成され、親デバイスが割り当てられます。
 
@@ -187,7 +194,7 @@ az iot hub device-identity create -n {iothub name} -d {device ID} --pd {gateway 
 * 認証方法。対称キーまたは X.509 証明書
   * 対称キー認証を使用する場合、プライマリまたはセカンダリ キー `SharedAccessKey={key}` を指定します。
   * X.509 証明書認証を使用する場合、フラグ `x509=true` を指定します。
-* デバイスが経由して接続するゲートウェイ デバイス。 IoT Edge ゲートウェイ デバイスの config.yaml ファイルからの **hostname** 値を指定します: `GatewayHostName={gateway hostname}`
+* デバイスが経由して接続するゲートウェイ デバイス。 IoT Edge ゲートウェイ デバイスの構成ファイルからの **hostname** 値を指定します: `GatewayHostName={gateway hostname}`
 
 すべてがそろった完全な接続文字列は、次のようになります。
 

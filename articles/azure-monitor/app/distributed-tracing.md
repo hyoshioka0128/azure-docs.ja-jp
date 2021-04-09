@@ -7,12 +7,12 @@ author: nikmd23
 ms.author: nimolnar
 ms.date: 09/17/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 2ee41fc9066aa4cf4775d4998b7e809e45519512
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: a47b41a8b7f4e18be58c32c97cf279b9229f26da
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96904314"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "100579515"
 ---
 # <a name="what-is-distributed-tracing"></a>分散トレースとは
 
@@ -37,7 +37,7 @@ Azure Monitor では、[アプリケーション マップ](./app-map.md) ビュ
 * [.NET](asp-net.md)
 * [.NET Core](asp-net-core.md)
 * [Java](./java-in-process-agent.md)
-* [Node.js](../learn/nodejs-quick-start.md)
+* [Node.js](../app/nodejs-quick-start.md)
 * [JavaScript](./javascript.md)
 * [Python](opencensus-python.md)
 
@@ -57,5 +57,5 @@ OpenCensus Web サイトには、[Python](https://opencensus.io/api/python/trace
 
 * [OpenCensus Python の使用ガイド](https://opencensus.io/api/python/trace/usage.html)
 * [アプリケーション マップ](./app-map.md)
-* [エンドツーエンドのパフォーマンスの監視](../learn/tutorial-performance.md)
+* [エンドツーエンドのパフォーマンスの監視](../app/tutorial-performance.md)
 

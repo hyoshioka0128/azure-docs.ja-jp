@@ -2,14 +2,14 @@
 title: Azure portal でアカウントを作成する
 description: Azure ポータルで、クラウド内で大規模な並列ワークロードを実行する Azure Batch アカウントを作成する方法について説明します
 ms.topic: how-to
-ms.date: 01/26/2021
+ms.date: 02/23/2021
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 943fd145dbd4964e0d43d91f726ea5a79fda59de
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 36759a0caef41af9307bf621a1b6b634ddf586cc
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98896006"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "101703666"
 ---
 # <a name="create-a-batch-account-with-the-azure-portal"></a>Azure Portal で Batch アカウントを作成する
 
@@ -68,6 +68,9 @@ Batch アカウントに適用される [リソース クォータ](batch-quota-
 
 ユーザー サブスクリプション モードで Batch アカウントを作成することを選択した場合は、アカウントを作成する前に別途、次の手順を実行してください。
 
+> [!IMPORTANT]
+> ユーザー サブスクリプション モードで Batch アカウントを作成するユーザーには、Batch アカウントが作成されるサブスクリプションにおいて共同作成者または所有者ロールが割り当てられている必要があります。
+
 ### <a name="allow-azure-batch-to-access-the-subscription-one-time-operation"></a>Azure Batch によるサブスクリプションへのアクセスを許可する (1 回限りの操作)
 
 ユーザー サブスクリプション モードで Batch アカウントを初めて作成する場合は、Batch にサブスクリプションを登録する必要があります (既にこれを行っている場合は、次のセクションに進んでください)。
@@ -98,7 +101,7 @@ Batch アカウントに適用される [リソース クォータ](batch-quota-
 
 ユーザー サブスクリプション モードで Batch アカウントを作成するときは、プール割り当てモードとして **[ユーザー サブスクリプション]** を指定し、作成したキー コンテナーを選択し、Azure Batch にキー コンテナーへのアクセス権を付与するチェック ボックスをオンにします。
 
-キー コンテナーへのアクセス権を手動で付与する場合は、キー コンテナーの **[アクセス ポリシー]** セクションに移動し、 **[アクセス ポリシーの追加]** を選択します。 **[プリンシパルの選択]** の横にあるリンクを選択し、**Microsoft Azure Batch** (アプリケーション ID **ddbf3205-c6bd-46ae-8127-60eb93363864**) を検索します。 そのプリンシパルを選択し、ドロップ ダウン メニューを使用して **[シークレットのアクセス許可]** を構成します。 Azure Batch には、少なくとも **[取得]** 、 **[一覧]** 、 **[設定]** 、および **[削除]** のアクセス許可を付与する必要があります。
+キー コンテナーへのアクセス権を手動で付与する場合は、キー コンテナーの **[アクセス ポリシー]** セクションに移動し、 **[アクセス ポリシーの追加]** を選択します。 **[プリンシパルの選択]** の横にあるリンクを選択し、**Microsoft Azure Batch** (アプリケーション ID **ddbf3205-c6bd-46ae-8127-60eb93363864**) を検索します。 そのプリンシパルを選択し、ドロップ ダウン メニューを使用して **[シークレットのアクセス許可]** を構成します。 Azure Batch には、少なくとも **[取得]** 、 **[一覧]** 、 **[設定]** 、および **[削除]** のアクセス許可を付与する必要があります。 [論理的な削除が有効になっているキー コンテナ―](../key-vault/general/soft-delete-overview.md)の場合は、Azure Batch にも **回復** 権限を付与する必要があります。
 
 :::image type="content" source="media/batch-account-create-portal/secret-permissions.png" alt-text="Azure Batch に対する [シークレットのアクセス許可] の選択のスクリーンショット":::
 

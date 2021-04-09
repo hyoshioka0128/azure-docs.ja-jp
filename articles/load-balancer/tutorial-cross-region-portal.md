@@ -6,13 +6,13 @@ author: asudbring
 ms.author: allensu
 ms.service: load-balancer
 ms.topic: tutorial
-ms.date: 11/24/2020
-ms.openlocfilehash: d94736656f691da9e893e4619a2299a061acd8e8
-ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
+ms.date: 02/24/2021
+ms.openlocfilehash: c16123fae63b89eff57b5c91864d9a947e01b386
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98611204"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104576919"
 ---
 # <a name="tutorial-create-a-cross-region-azure-load-balancer-using-the-azure-portal"></a>チュートリアル:Azure portal を使用してリージョン間 Azure ロード バランサーを作成する
 
@@ -41,28 +41,29 @@ Azure サブスクリプションがない場合は、開始する前に[無料�
 
 ## <a name="sign-in-to-azure-portal"></a>Azure Portal にサインインする
 
-Azure プレビュー ポータルに[サインイン](https://portal.azure.com)します。
+Azure portal に[サインイン](https://portal.azure.com)します。
 
 ## <a name="create-cross-region-load-balancer"></a>リージョン間ロード バランサーを作成する
 
 このセクションでは、リージョン間ロード バランサーとパブリック IP アドレスを作成します。
 
-1. 画面の左上で **[リソースの作成] > [ネットワーク] > [ロード バランサー]** の順に選択するか、検索ボックスで "**ロード バランサー**" を検索します。
-
-2. **[ロード バランサーの作成]** ページの **[基本]** タブで、次の情報を入力または選択します。 
+1. **[リソースの作成]** を選択します。 
+2. 検索ボックスに「**ロード バランサー**」と入力します。 検索結果で **[ロード バランサー]** を選択します。
+3. **[ロード バランサー]** ページで、 **[作成]** を選択します。
+4. **[ロード バランサーの作成]** ページの **[基本]** タブで、次の情報を入力または選択します。 
 
     | 設定                 | 値                                              |
     | ---                     | ---                                                |
     | サブスクリプション               | サブスクリプションを選択します。    |    
     | Resource group         | **[新規作成]** を選択し、テキスト ボックスに「**CreateCRLBTutorial-rg**」と入力します。|
     | Name                   | 「**myLoadBalancer-CR**」と入力します                                   |
-    | リージョン         | **[米国西部]** を選択します。                                        |
+    | リージョン         | **[(米国) 米国西部]** を選択します。                                        |
     | Type          | **[パブリック]** を選択します。                                        |
-    | SKU           | **[Standard]** を選択します。 |
+    | SKU           | 規定値である **[標準]** のままにします。 |
     | レベル           | **[グローバル]** を選択します |
     | パブリック IP アドレス | **[新規作成]** を選択します。|
     | パブリック IP アドレス名 | テキスト ボックスに「**myPublicIP-CR**」と入力します。|
-    | ルーティング設定| **[Microsoft ネットワーク]** を選択します |
+    | ルーティング設定| **[Microsoft ネットワーク]** を選択します。 </br> ルーティングの優先順位の詳細については、「[ルーティングの優先順位とは (プレビュー)](../virtual-network/routing-preference-overview.md)」を参照してください。 |
 
     > [!NOTE]
     > リージョン間ロード バランサーは、次のホーム リージョンにのみデプロイできます。**米国東部 2、米国西部、西ヨーロッパ、東南アジア、米国中部、北ヨーロッパ、東アジア**。 詳細については、**https://aka.ms/homeregionforglb** をご覧ください。
@@ -199,9 +200,6 @@ Azure プレビュー ポータルに[サインイン](https://portal.azure.com)
 * 負荷分散規則を作成しました。
 * ロード バランサーをテストしました。
 
-リージョン間ロード バランサーの詳細については、「[リージョン間ロード バランサー (プレビュー)](cross-region-overview.md)」を参照してください。
-
-
-次の記事に進み、以下の方法を学習してください。
+リージョン間ロード バランサーの詳細については、次を参照してください。
 > [!div class="nextstepaction"]
-> [可用性ゾーン間での VM の負荷分散](tutorial-load-balancer-standard-public-zone-redundant-portal.md)
+> [リージョン間ロード バランサー (プレビュー)](cross-region-overview.md)

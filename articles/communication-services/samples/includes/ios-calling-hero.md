@@ -6,16 +6,16 @@ author: mikben
 manager: mikben
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
-ms.date: 9/1/2020
+ms.date: 03/10/2021
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
-ms.openlocfilehash: 618efc8d2c3784a487c302661f35d5a284c68178
-ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
+ms.openlocfilehash: 1318c47bcded47159006977db09604bb53674973
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99475641"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103487936"
 ---
 [!INCLUDE [Private Preview Notice](../../includes/private-preview-include.md)]
 
@@ -74,8 +74,8 @@ XCode でサンプルをビルドして実行します。
 別途構成を行うことにより、このサンプルは、**Azure Active Directory** (Azure AD) で保護されたエンドポイントへの接続をサポートし、Azure Communication Services のトークンをフェッチするアプリにユーザー ログインを要求することができます。 以下の手順を参照してください。
 
 1. アプリの Azure Active Directory 認証を有効にします。  
-   - [アプリを Azure Active Directory に登録する (iOS または macOS プラットフォームの設定を使用)](https://docs.microsoft.com/azure/active-directory/develop/tutorial-v2-ios) 
-    - [Azure AD ログインを使用するように App Service または Azure Functions アプリを構成する](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-aad)
+   - [アプリを Azure Active Directory に登録する (iOS または macOS プラットフォームの設定を使用)](../../../active-directory/develop/tutorial-v2-ios.md) 
+    - [Azure AD ログインを使用するように App Service または Azure Functions アプリを構成する](../../../app-service/configure-authentication-provider-aad.md)
 2. Azure Active Directory の [アプリの登録] から、登録済みアプリの概要ページに移動します。 `Application (client) ID`、`Directory (tenant) ID`、`Application ID URI` を書き留めておきます。
 
 :::image type="content" source="../media/calling/aad-overview.png" alt-text="Azure portal における Azure Active Directory の構成。":::
@@ -101,4 +101,4 @@ Communication Services サブスクリプションをクリーンアップして
 
 ### <a name="additional-reading"></a>その他の情報
 
-- [Azure Communication GitHub](https://github.com/Azure/communication) - 他の例や情報は公式 GitHub ページで見つかります。
+- [サンプル](./../overview.md) - その他のサンプルと例については、「サンプルの概要」ページを参照してください。

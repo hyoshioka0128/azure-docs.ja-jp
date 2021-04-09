@@ -5,15 +5,15 @@ services: logic-apps
 ms.suite: integration
 author: dereklee
 ms.author: deli
-ms.reviewer: klam, estfan, logicappspm
-ms.date: 01/11/2020
+ms.reviewer: estfan, logicappspm, azla
+ms.date: 02/18/2021
 ms.topic: article
-ms.openlocfilehash: d4bff4ee7980002d911426ed46ffef6fc28c43e9
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: fbe797937021763bb97ca09e1da792d9a7010f9a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96920748"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101702506"
 ---
 # <a name="handle-errors-and-exceptions-in-azure-logic-apps"></a>Azure Logic Apps におけるエラーと例外の処理
 
@@ -263,13 +263,14 @@ ms.locfileid: "96920748"
 
 ### <a name="get-context-and-results-for-failures"></a>エラーのコンテキストと結果を取得する
 
-スコープ単位でエラーをキャッチできるのは便利ですが、失敗したアクションや返されたエラーまたは状態コードを正確に把握するためには、スコープの結果だけでなくコンテキストが必要となります。
+スコープ単位でエラーをキャッチできるのは便利ですが、失敗したアクションや返されたエラーまたは状態コードを正確に把握するためには、スコープの結果だけでなくコンテキストが必要となります。 [`result()` 関数](../logic-apps/workflow-definition-language-functions-reference.md#result)は、単一のパラメーター (スコープの名前) を受け取り、その第 1 レベルのアクションからの結果を格納した配列を返すことによって、スコープ付きアクション内の最上位レベルのアクションの結果を返します。 これらのアクションのオブジェクトには、`actions()` 関数によって返されるものと同じ属性 (アクションの開始時刻、終了時刻、状態、入力、相関 ID、出力など) が含まれます。 
 
-[`result()`](../logic-apps/workflow-definition-language-functions-reference.md#result) 関数を使用すると、スコープ内のすべてのアクションの結果に関するコンテキストが得られます。 `result()` 関数は、単一のパラメーター (スコープの名前) を受け取り、そのスコープ内のアクションの結果をすべて含む配列を返します。 これらのアクションのオブジェクトには、`actions()` オブジェクトと同じ属性 (アクションの開始時刻、終了時刻、状態、入力、相関 ID、出力など) が含まれます。 `@result()` 式と `runAfter` プロパティを組み合わせるだけで、スコープ内で失敗したすべてのアクションのコンテキストを受け取ることができます。
+> [!NOTE]
+> `result()` 関数では、第 1 レベルのアクションからの結果 *だけ* が返されます。switch アクションや condition アクションなど、より深い入れ子のアクションからは返されません。
 
-スコープ内の `Failed` となったアクションごとにアクションを実行し、失敗したアクションに到達するまで結果の配列をフィルター処理するには、`@result()` 式を [ **[配列のフィルター処理]**](logic-apps-perform-data-operations.md#filter-array-action) アクションと [**For each**](../logic-apps/logic-apps-control-flow-loops.md) ループと組み合わせて使用します。 抽出した結果の配列を `For_each` ループに渡すことで、それぞれのエラーに対してアクションを実行することができます。
+スコープ内の失敗したアクションに関するコンテキストを取得するには、スコープの名前と `runAfter` プロパティを指定した `@result()` 式を使用します。 返された配列を、ステータスが `Failed` のアクションに絞り込むには、[**配列のフィルター処理** アクション](logic-apps-perform-data-operations.md#filter-array-action)を追加します。 返された失敗アクションに対してアクションを実行するには、返されたフィルター処理済みの配列を取得し、[**For each** ループ](../logic-apps/logic-apps-control-flow-loops.md)を使用します。
 
-次の例では、"My_Scope" というスコープ内で失敗したすべてのアクションの応答本文を含む HTTP POST 要求が送信されます (詳細については例の後に記載)。
+次の例では、"My_Scope" というスコープ アクション内で失敗したすべてのアクションの応答本文を含む HTTP POST 要求が送信されます (詳細については例の後に記載)。
 
 ```json
 "Filter_array": {
@@ -362,7 +363,7 @@ ms.locfileid: "96920748"
 
 ## <a name="set-up-azure-monitor-logs"></a>Azure Monitor ログを設定する
 
-ここで取り上げたパターンは、発生したエラーや例外を実行中に処理するうえで、きわめて効果的な方法です。しかし実行そのものとは切り離して、エラーを特定し、対応することもできます。 [Azure Monitor](../azure-monitor/overview.md) を使用すると、すべての実行とアクションの状態を含む、すべてのワークフロー イベントを [Log Analytics ワークスペース](../azure-monitor/platform/data-platform-logs.md)、[Azure ストレージ アカウント](../storage/blobs/storage-blobs-overview.md)、または [Azure Event Hubs](../event-hubs/event-hubs-about.md) に簡単に送信できます。
+ここで取り上げたパターンは、発生したエラーや例外を実行中に処理するうえで、きわめて効果的な方法です。しかし実行そのものとは切り離して、エラーを特定し、対応することもできます。 [Azure Monitor](../azure-monitor/overview.md) を使用すると、すべての実行とアクションの状態を含む、すべてのワークフロー イベントを [Log Analytics ワークスペース](../azure-monitor/logs/data-platform-logs.md)、[Azure ストレージ アカウント](../storage/blobs/storage-blobs-overview.md)、または [Azure Event Hubs](../event-hubs/event-hubs-about.md) に簡単に送信できます。
 
 ログやメトリックを監視したり、それらを好きな監視ツールに発行したりすることによって、実行の状態を評価することができます。 その中の一つの方法として、すべてのイベントを Event Hubs を介して [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) にストリーミングすることが考えられます。 Stream Analytics では、診断ログから得られる異常、平均値、またはエラーに基づいて適宜必要なクエリを記述できます。 Stream Analytics を使用して、キュー、トピック、SQL、Azure Cosmos DB、Power BI などのその他のデータ ソースに情報を送信できます。
 

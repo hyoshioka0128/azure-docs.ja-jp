@@ -1,17 +1,16 @@
 ---
 title: Log Analytics のチュートリアル
 description: このチュートリアルでは、Azure portal 内で Azure Monitor の Log Analytics の機能を使用して、ログ クエリを作成して実行し、その結果を分析する方法について説明します。
-ms.subservice: logs
 ms.topic: tutorial
 author: bwren
 ms.author: bwren
 ms.date: 10/07/2020
-ms.openlocfilehash: 038663a6b8fe015f36f70b7bf13d25accb470903
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 06a73b495cefc361db88d80413f4f4be50e105d1
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100597918"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102041146"
 ---
 # <a name="log-analytics-tutorial"></a>Log Analytics のチュートリアル
 Log Analytics は、Azure Monitor ログによって収集されたデータからログ クエリを編集して実行し、その結果を対話形式で分析する Azure portal のツールです。 Log Analytics クエリを使用すると、特定の条件に一致するレコードの取得、傾向の特定、パターンの分析を行って、データに関するさまざまな分析情報を入手できます。 
@@ -33,7 +32,7 @@ Log Analytics は、Azure Monitor ログによって収集されたデータか�
 このチュートリアルでは、サンプル クエリをサポートしているサンプル データが豊富に含まれている [Log Analytics のデモ環境](https://ms.portal.azure.com/#blade/Microsoft_Azure_Monitoring_Logs/DemoLogsBlade)を使用します。 ご自分の Azure サブスクリプションを使用することもできますが、同じテーブルにデータが含まれていない場合があります。
 
 ## <a name="open-log-analytics"></a>Log Analytics を開く
-[Log Analytics のデモ環境](https://ms.portal.azure.com/#blade/Microsoft_Azure_Monitoring_Logs/DemoLogsBlade)を開くか、ご自分のサブスクリプションの Azure Monitor メニューから **[ログ]** を選択します。 これにより、初期のスコープが Log Analytics ワークスペースに設定されます。これは、クエリがそのワークスペース内のすべてのデータから選択することを意味します。 Azure リソースのメニューから **[ログ]** を選択した場合、スコープはそのリソースのレコードのみに設定されます。 スコープの詳細については、[ログ クエリのスコープ](../log-query/scope.md)に関するページを参照してください。
+[Log Analytics のデモ環境](https://ms.portal.azure.com/#blade/Microsoft_Azure_Monitoring_Logs/DemoLogsBlade)を開くか、ご自分のサブスクリプションの Azure Monitor メニューから **[ログ]** を選択します。 これにより、初期のスコープが Log Analytics ワークスペースに設定されます。これは、クエリがそのワークスペース内のすべてのデータから選択することを意味します。 Azure リソースのメニューから **[ログ]** を選択した場合、スコープはそのリソースのレコードのみに設定されます。 スコープの詳細については、[ログ クエリのスコープ](./scope.md)に関するページを参照してください。
 
 スコープは、画面の左上隅で確認できます。 ご自分の環境を使用している場合は、別のスコープを選択するオプションが表示されますが、このオプションはデモ環境では使用できません。
 

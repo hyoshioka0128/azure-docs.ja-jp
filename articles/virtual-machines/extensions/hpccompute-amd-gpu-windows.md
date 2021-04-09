@@ -2,22 +2,22 @@
 title: AMD GPU ドライバー拡張機能 - Azure Windows VM
 description: Windows を実行中の NVv4 シリーズの VM に AMD GPU ドライバーをインストールするための Microsoft Azure 拡張機能です。
 services: virtual-machines-windows
-documentationcenter: ''
 author: vikancha-MSFT
 manager: jkabat
-ms.service: virtual-machines-windows
-ms.subservice: extensions
 ms.topic: article
+ms.service: virtual-machines
+ms.subservice: hpc
+ms.collection: windows
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 05/10/2020
 ms.author: vikancha
-ms.openlocfilehash: e0a5074061b190088441ed4f6787b112fb11fe5a
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 42dac9edc91d7cb935e8c20398c4d31343b358e1
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94966005"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102559683"
 ---
 # <a name="amd-gpu-driver-extension-for-windows"></a>Windows 用の AMD GPU ドライバー拡張機能
 
@@ -151,7 +151,7 @@ az vm extension list --resource-group myResourceGroup --vm-name myVM -o table
 拡張機能の実行の出力は、次のディレクトリにログ記録されます。
 
 ```cmd
-C:\WindowsAzure\Logs\Plugins\Microsoft.HpcCompute.NvidiaGpuDriverMicrosoft\
+C:\WindowsAzure\Logs\Plugins\Microsoft.HpcCompute.AmdGpuDriverMicrosoft\
 ```
 
 ### <a name="error-codes"></a>エラー コード

@@ -3,17 +3,17 @@ title: 仮想マシン サイズの柔軟性 - Azure Reserved VM Instances
 description: 予約 VM インスタンスを購入する際に適用されるサイズ シリーズについて説明します。
 author: yashesvi
 ms.service: virtual-machines
-ms.subservice: sizes
+ms.subservice: reserved-instances
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 02/02/2021
+ms.date: 03/01/2021
 ms.author: yashar
-ms.openlocfilehash: cf8f2f794be4340de4419457872ed5ff4bb4a686
-ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
+ms.openlocfilehash: 9270b7fb135eddd78a7aeb30cf88af4d704e176e
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99980441"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102030709"
 ---
 # <a name="virtual-machine-size-flexibility-with-reserved-vm-instances"></a>Reserved VM Instances での仮想マシン サイズの柔軟性
 
@@ -48,7 +48,13 @@ ms.locfileid: "99980441"
 
 [インスタンス サイズの柔軟性の比率](https://isfratio.blob.core.windows.net/isfratio/ISFRatio.csv)
 
-このファイルをプログラムで使用できるように、ファイルの URL とスキーマを固定したままにします。 データはまもなく API からも利用可能になる予定です。
+プログラムでファイルを使用できるように、Azure によりリンクやスキーマが常に更新されます。
+
+## <a name="view-vm-size-recommendations"></a>VM 推奨サイズを表示する
+
+Azure では、購入時、VM の推奨サイズが表示されます。 最小推奨サイズを表示するには、 **[Group by smallest size]\(最小サイズでグループ化する\)** を選択します。
+
+:::image type="content" source="./media/reserved-vm-instance-size-flexibility/select-product-recommended-quantity.png" alt-text="推奨数量のスクリーンショット。" lightbox="./media/reserved-vm-instance-size-flexibility/select-product-recommended-quantity.png" :::
 
 ## <a name="next-steps"></a>次のステップ
 

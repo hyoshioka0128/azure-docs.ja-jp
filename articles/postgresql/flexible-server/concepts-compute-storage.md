@@ -5,13 +5,13 @@ author: lfittl-msft
 ms.author: lufittl
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 09/22/2020
-ms.openlocfilehash: ca60c44d1e167367e2c138af1e7bfd4ba1a69417
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 02/19/2021
+ms.openlocfilehash: b76b6ff788d3d7f44db33af96944d528282f0ac7
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91710075"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101712217"
 ---
 # <a name="compute-and-storage-options-in-azure-database-for-postgresql---flexible-server"></a>Azure Database for PostgreSQL - フレキシブル サーバーのコンピューティングとストレージのオプション
 
@@ -120,6 +120,9 @@ IOPS は VM の種類によっても制限されることに注意してくだ�
 
 \* のマークが付いている場合、IOPS は選択した VM の種類によって制限されます。 それ以外の場合、IOPS は選択したストレージ サイズによって制限されます。
 
+>[!NOTE]
+> ディスク レベルのバーストにより、メトリックに高い IOPS が示される場合があります。 詳細については、[ドキュメント](https://docs.microsoft.com/azure/virtual-machines/disk-bursting#disk-level-bursting)を参照してください。 
+
 ### <a name="maximum-io-bandwidth-mibsec-for-your-configuration"></a>構成の最大 I/O 帯域幅 (MiB/秒)
 
 |SKU 名            |ストレージ サイズ、GiB                             |32 |64 |128 |256 |512  |1,024|2,048|4,096|8,192 |16,384|
@@ -151,7 +154,10 @@ IOPS は VM の種類によっても制限されることに注意してくだ�
 
 ストレージの上限に達すると、サーバーはエラーを返し始め、それ以上の変更ができなくなります。 これにより、バックアップや WAL アーカイブなどの他の運用アクティビティにも問題が発生する可能性があります。
 
+この状況を回避するために、ストレージの使用率が 95% に達したとき、または使用可能な容量が 5 GiB 未満の場合は、サーバーが **読み取り専用モード** に自動的に切り替わります。
+
 使用中のディスク領域を積極的に監視して、ストレージが不足している場合は事前にディスク サイズを増やすことが推奨されます。 サーバーのストレージがディスク不足に近づいたときに通知するアラートを設定できるため、ディスク不足に陥る問題を回避できます。 詳細については、[アラートの設定方法](howto-alert-on-metrics.md)に関するドキュメントをご覧ください。
+
 
 ### <a name="storage-auto-grow"></a>ストレージの自動拡張
 

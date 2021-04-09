@@ -6,20 +6,19 @@ documentationcenter: ''
 author: prtyag
 manager: hrushib
 editor: ''
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 03/30/2020
 ms.author: prtyag
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a799242ecaae7b7152d79b7d341a9cb5cc18d7fe
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: e4b06cbcbef79e243116bddb33adbcf6476fac8a
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97654474"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102213370"
 ---
 # <a name="kdump-for-sap-hana-on-azure-large-instances-hli"></a>SAP HANA on Azure Large Instances (HLI) の Kdump
 
@@ -68,7 +67,7 @@ kdump の構成と有効化は、明確な原因がないシステム クラッ�
 
 ## <a name="setup-details"></a>セットアップの詳細
 
-- Kdump を有効にするスクリプトについては、[こちら](https://github.com/Azure/sap-hana/blob/master/tools/enable-kdump.sh)を参照してください。
+- Kdump を有効にするスクリプトについては、[こちら](https://github.com/Azure/sap-hana-tools/blob/master/tools/enable-kdump.sh)を参照してください。
 > [!NOTE]
 > このスクリプトは、ラボのセットアップに基づいて作成されたものです。さらにチューニングを行う場合、OS ベンダーにお問い合わせください。
 > 個別の LUN が、ダンプの保存のために新規および既存のサーバー用にプロビジョニングされ、スクリプトがその LUN からのファイル システムの構成を処理します。

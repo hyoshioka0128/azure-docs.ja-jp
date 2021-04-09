@@ -1,19 +1,18 @@
 ---
 title: NCas T4 v3 シリーズ
 description: NCas T4 v3 シリーズ VM の仕様。
-services: virtual-machines
-ms.subservice: sizes
-author: vikancha-MSFT
 ms.service: virtual-machines
+ms.subservice: vm-sizes-gpu
+author: vikancha-MSFT
 ms.topic: conceptual
 ms.date: 01/12/2021
 ms.author: vikancha
-ms.openlocfilehash: ac1147435bee60db0f3028289a83026e1f9c1c15
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: d73bd81f15263c79e16b574eb961d4ae0ac61175
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99091682"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103417809"
 ---
 # <a name="ncast4_v3-series"></a>NCasT4_v3 シリーズ 
 
@@ -29,7 +28,7 @@ NCasT4_v3 シリーズ仮想マシンは、[Nvidia Tesla T4](https://www.nvidia.
 [VM 世代サポート](generation-2.md): 第 1 世代と第 2 世代<br>
 [高速ネットワーク](../virtual-network/create-vm-accelerated-networking-cli.md):サポートされています<br>
 [エフェメラル OS ディスク](ephemeral-os-disks.md):サポートされていません <br>
-Nvidia NVLink Interconnect:サポートされていません<br>
+Nvidia NVLink Interconnect:サポートされています<br>
 <br>
 
 | サイズ | vCPU | メモリ:GiB | 一時ストレージ (SSD) GiB | GPU | GPU メモリ: GiB | 最大データ ディスク数 | 最大 NIC 数/想定ネットワーク帯域幅 (Mbps) |
@@ -47,6 +46,8 @@ Nvidia NVLink Interconnect:サポートされていません<br>
 Windows または Linux を実行している Azure NCasT4_v3 シリーズの GPU 機能を利用するには、Nvidia GPU ドライバーがインストールされている必要があります。
 
 Nvidia GPU ドライバーを手動でインストールする場合、サポートされるオペレーティング システム、ドライバー、インストール、および検証手順について、[Windows 用 N シリーズ GPU ドライバーのセットアップ](./windows/n-series-driver-setup.md)に関する記事を参照してください。
+
+Azure Nvidia GPU ドライバー拡張機能は、CUDA ドライバーを NCasT4_v3 シリーズ VM にデプロイします。 グラフィックスと視覚化のワークロードについては、Azure でサポートされている GRID ドライバーを手動でインストールしてください。
 
 ## <a name="other-sizes"></a>その他のサイズ
 

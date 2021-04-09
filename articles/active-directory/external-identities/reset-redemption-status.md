@@ -10,12 +10,12 @@ ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fc51a8af85b85db28265d1fca420a5b9b368b078
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: dea13444a6bd18bd67f05d93a38af70b3b7a2368
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99576857"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102556317"
 ---
 # <a name="reset-redemption-status-for-a-guest-user"></a>ゲスト ユーザーの引き換え状態をリセットする
 
@@ -26,7 +26,7 @@ ms.locfileid: "99576857"
 - ユーザーは別の会社に転職したが、リソースへのアクセス権は引き続き同じものが必要である
 - ユーザーの責任が別のユーザーに移った
 
-以前はこれらのシナリオを管理するために、ディレクトリからゲスト ユーザーのアカウントを手動で削除し、そのユーザーを再度招待する必要がありました。 現在は PowerShell または Microsoft Graph 招待 API を使用して、ユーザーの引き換え状態をリセットし、ユーザーのオブジェクト ID、グループ メンバーシップ、アプリの割り当てを維持したままで、そのユーザーを再度招待できます。 ユーザーが新しい招待を引き換えると、新しい電子メール アドレスがそのユーザーの UPN になります。 その後、ユーザーは新しい電子メール、またはユーザー オブジェクトの `otherMails` プロパティに追加された電子メールを使用してサインインできます。
+以前はこれらのシナリオを管理するために、ディレクトリからゲスト ユーザーのアカウントを手動で削除し、そのユーザーを再度招待する必要がありました。 現在は PowerShell または Microsoft Graph 招待 API を使用して、ユーザーの引き換え状態をリセットし、ユーザーのオブジェクト ID、グループ メンバーシップ、アプリの割り当てを維持したままで、そのユーザーを再度招待できます。 ユーザーが新しい招待を引き換えしても、ユーザーの UPN は変更されませんが、ユーザーのサインイン名は新しい電子メールに変更されます。 その後、ユーザーは新しい電子メール、またはユーザー オブジェクトの `otherMails` プロパティに追加された電子メールを使用してサインインできます。
 
 ## <a name="use-powershell-to-reset-redemption-status"></a>PowerShell を使用して引き換え状態をリセットする
 
@@ -43,7 +43,7 @@ New-AzureADMSInvitation -InvitedUserEmailAddress <<external email>> -SendInvitat
 
 ## <a name="use-microsoft-graph-api-to-reset-redemption-status"></a>Microsoft Graph API を使用して引き換え状態をリセットする
 
-[Microsoft Graph の招待 API](/graph/api/resources/invitation?view=graph-rest-1.0) を使用して、`resetRedemption` プロパティを `true` に設定し、新しい電子メール アドレスを `invitedUserEmailAddress` プロパティに指定します。
+[Microsoft Graph の招待 API](/graph/api/resources/invitation) を使用して、`resetRedemption` プロパティを `true` に設定し、新しい電子メール アドレスを `invitedUserEmailAddress` プロパティに指定します。
 
 ```json
 POST https://graph.microsoft.com/beta/invitations  

@@ -6,17 +6,17 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 09/08/2020
+ms.date: 02/10/2021
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: blobs
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: 8c963f11a34217253f02cb5d116d66cdbf8bcc19
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: a12936f8f9f84dacfab4850253df665ae7758be1
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97033959"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102613250"
 ---
 # <a name="choose-how-to-authorize-access-to-blob-data-in-the-azure-portal"></a>Azure portal で BLOB データへのアクセスの承認方法を選択する
 
@@ -37,6 +37,9 @@ Azure portal で BLOB データへのアクセスを承認する方法に応じ�
 - [Storage Account の共同作成者](../../role-based-access-control/built-in-roles.md#storage-account-contributor)ロール
 
 Azure portal で BLOB データにアクセスしようとすると、ポータルではまず **Microsoft.Storage/storageAccounts/listkeys/action** を含むロールがお客様に割り当てられているかどうかが確認されます。 このアクションを持つロールが割り当てられている場合、ポータルでは BLOB データにアクセスするためにアカウント キーが使用されます。 このアクションを持つロールが割り当てられていない場合、ポータルは、Azure AD アカウントを使用してデータへのアクセスを試みます。
+
+> [!IMPORTANT]
+> ストレージ アカウントが Azure Resource Manager の **ReadOnly** ロックでロックされている場合、そのストレージ アカウントに対して [キーの一覧表示](/rest/api/storagerp/storageaccounts/listkeys)操作は許可されません。 **キーの一覧表示** は POST 操作であり、アカウントに対して **ReadOnly** ロックが設定されている場合、すべての POST 操作が禁止されます。 このため、アカウントが **ReadOnly** ロックでロックされている場合、ユーザーは Azure AD 資格情報を使用してポータル内の BLOB データにアクセスする必要があります。 Azure AD を使用したポータル内の BLOB データへのアクセスの詳細については、「[自分の Azure AD アカウントを使用する](#use-your-azure-ad-account)」を参照してください。
 
 > [!NOTE]
 > 従来のサブスクリプション管理者ロールであるサービス管理者と共同管理者には、Azure Resource Manager の[所有者](../../role-based-access-control/built-in-roles.md#owner)ロールと同等のものが含まれています。 **所有者** ロールには、**Microsoft.Storage/storageAccounts/listkeys/action** を含むすべてのアクションが含まれているので、これらの管理者ロールのいずれかを持つユーザーは、アカウント キーを持つ BLOB データにもアクセスできます。 詳細については、「[従来のサブスクリプション管理者ロール、Azure ロール、および Azure AD 管理者ロール](../../role-based-access-control/rbac-and-directory-admin-roles.md#classic-subscription-administrator-roles)」を参照してください。
@@ -63,9 +66,9 @@ BLOB データへのアクセスをサポートする組み込みロールには
 
 ## <a name="navigate-to-blobs-in-the-azure-portal"></a>Azure portal で BLOB に移動する
 
-ポータルで BLOB データを表示するには、ストレージ アカウントの **[概要]** に移動し、 **[BLOB]** のリンクをクリックします。 または、メニューの **[Blob service]** セクションに移動することもできます。
+ポータルで BLOB データを表示するには、ストレージ アカウントの **[概要]** に移動し、 **[BLOB]** のリンクをクリックします。 または、メニューの **[コンテナー]** セクションに移動することもできます。
 
-:::image type="content" source="media/anonymous-read-access-configure/blob-public-access-portal.png" alt-text="Azure portal で BLOB データに移動する方法を示すスクリーンショット":::
+:::image type="content" source="media/authorize-data-operations-portal/blob-access-portal.png" alt-text="Azure portal で BLOB データに移動する方法を示すスクリーンショット":::
 
 ## <a name="determine-the-current-authentication-method"></a>現在の認証方法の判別
 

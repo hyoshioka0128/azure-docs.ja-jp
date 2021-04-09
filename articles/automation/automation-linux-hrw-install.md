@@ -3,14 +3,14 @@ title: Azure Automation への Linux Hybrid Runbook Worker のデプロイ
 description: この記事では、Azure Automation Hybrid Runbook Worker をインストールして、ローカル データ センターやクラウド環境にある Linux ベースのマシン上で Runbook を実行する方法について説明します。
 services: automation
 ms.subservice: process-automation
-ms.date: 11/23/2020
+ms.date: 02/26/2021
 ms.topic: conceptual
-ms.openlocfilehash: 20683808c81b32560170b175edf1c37c332f47ad
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: d4d9bcd16e36e76808f19f7fbd43dd0d3e7550c3
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96183619"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102182334"
 ---
 # <a name="deploy-a-linux-hybrid-runbook-worker"></a>Linux Hybrid Runbook Worker を展開する
 
@@ -26,13 +26,13 @@ Runbook Worker が正常にデプロイされたら、「[Hybrid Runbook Worker 
 
 ### <a name="a-log-analytics-workspace"></a>Log Analytics ワークスペース
 
-Hybrid Runbook Worker ロールでは、Azure Monitor Log Analytics ワークスペースに依存してロールがインストールおよび構成されます。 [Azure Resource Manager](../azure-monitor/samples/resource-manager-workspace.md#create-a-log-analytics-workspace)、[PowerShell](../azure-monitor/scripts/powershell-sample-create-workspace.md?toc=/powershell/module/toc.json)、[Azure portal](../azure-monitor/learn/quick-create-workspace.md) のいずれかを使用して作成できます。
+Hybrid Runbook Worker ロールでは、Azure Monitor Log Analytics ワークスペースに依存してロールがインストールおよび構成されます。 [Azure Resource Manager](../azure-monitor/logs/resource-manager-workspace.md#create-a-log-analytics-workspace)、[PowerShell](../azure-monitor/logs/powershell-sample-create-workspace.md?toc=/powershell/module/toc.json)、[Azure portal](../azure-monitor/logs/quick-create-workspace.md) のいずれかを使用して作成できます。
 
-Azure Monitor Log Analytics ワークスペースがない場合は、ワークスペースを作成する前に、[Azure Monitor ログの設計ガイダンス](../azure-monitor/platform/design-logs-deployment.md)を確認してください。
+Azure Monitor Log Analytics ワークスペースがない場合は、ワークスペースを作成する前に、[Azure Monitor ログの設計ガイダンス](../azure-monitor/logs/design-logs-deployment.md)を確認してください。
 
 ### <a name="log-analytics-agent"></a>Log Analytics エージェント
 
-Hybrid Runbook Worker ロールには、サポートされている Linux オペレーティング システム用の [Log Analytics エージェント](../azure-monitor/platform/log-analytics-agent.md)が必要です。 Azure の外部でホストされているサーバーまたはマシンの場合、[Azure Arc 対応サーバー](../azure-arc/servers/overview.md)を使用すれば Log Analytics エージェントをインストールできます。
+Hybrid Runbook Worker ロールには、サポートされている Linux オペレーティング システム用の [Log Analytics エージェント](../azure-monitor/agents/log-analytics-agent.md)が必要です。 Azure の外部でホストされているサーバーまたはマシンの場合、[Azure Arc 対応サーバー](../azure-arc/servers/overview.md)を使用すれば Log Analytics エージェントをインストールできます。
 
 >[!NOTE]
 >Linux 用 Log Analytics エージェントをインストールした後は、`sudoers.d` フォルダーまたはその所有権のアクセス許可を変更しないでください。 sudo アクセス許可は **nxautomation** アカウントに必要です。これは Hybrid Runbook Worker を実行するユーザー コンテキストです。 アクセス許可は削除しないでください。 これを特定のフォルダーまたはコマンドに制限すると、破壊的変更が発生する可能性があります。
@@ -43,12 +43,15 @@ Hybrid Runbook Worker ロールには、サポートされている Linux オペ
 Hybrid Runbook Worker 機能では、次のディストリビューションがサポートされています。 オペレーティング システムはすべて x64 と見なされます。 x86 はどのオペレーティング システムでもサポートされていません。
 
 * Amazon Linux 2012.09 から 2015.09
-* CentOS Linux 5、6、7
+* CentOS Linux 5、6、7、8
 * Oracle Linux 5、6、7
-* Red Hat Enterprise Linux Server 5、6、および 7
+* Red Hat Enterprise Linux Server 5、6、7、8
 * Debian GNU/Linux 6、7、8
 * Ubuntu 12.04 LTS、14.04 LTS、16.04 LTS、および 18.04 LTS
-* SUSE Linux Enterprise Server 12
+* SUSE Linux Enterprise Server 12 および 15 (SUSE ではバージョン 13 と 14 はなし)
+
+> [!IMPORTANT]
+> システムの Hybrid Runbook Worker ロールに依存する Update Management 機能を有効にする前に、[ここ](update-management/overview.md#supported-operating-systems)でサポート対象の配布を確認してください。
 
 ### <a name="minimum-requirements"></a>最小要件
 
@@ -63,7 +66,7 @@ Linux システムおよびユーザー Hybrid Runbook Worker の最小要件は
 |Glibc |GNU C ライブラリ| 2.5-12 |
 |Openssl| OpenSSL ライブラリ | 1.0 (TLS 1.1 と TLS 1.2 がサポートされます)|
 |Curl | cURL Web クライアント | 7.15.5|
-|Python-ctypes | Python 2.x が必要 |
+|Python-ctypes | Python 2.x または Python 3.x が必要 |
 |PAM | Pluggable Authentication Module (プラグ可能な認証モジュール)|
 | **オプション パッケージ** | **説明** | **最小バージョン**|
 | PowerShell Core | PowerShell Runbook を実行するには、PowerShell Core をインストールする必要があります。 インストール方法については、「[Linux への PowerShell Core のインストール](/powershell/scripting/install/installing-powershell-core-on-linux)」をご覧ください。 | 6.0.0 |
@@ -87,13 +90,16 @@ Linux Hybrid Runbook Worker でサポートされている Azure Automation の 
 
 |Runbook の種類 | サポートされています |
 |-------------|-----------|
-|Python 2 |はい |
-|PowerShell |可<sup>1</sup> |
+|Python 3 (プレビュー)|はい (SUSE LES 15、RHEL 8、CentOS 8 の配布でのみ必要)|
+|Python 2 |はい (Python 3<sup>1</sup> を必要としない配布用) |
+|PowerShell |はい<sup>2</sup> |
 |PowerShell ワークフロー |いいえ |
 |グラフィカル |いいえ |
 |グラフィカル PowerShell ワークフロー |いいえ |
 
-<sup>1</sup> PowerShell Runbook を使用するには、Linux マシンに PowerShell Core がインストールされている必要があります。 インストール方法については、「[Linux への PowerShell Core のインストール](/powershell/scripting/install/installing-powershell-core-on-linux)」をご覧ください。
+<sup>1</sup> [サポートされている Linux オペレーティング システム](#supported-linux-operating-systems)を参照してください。
+
+<sup>2</sup> PowerShell Runbook を使うには、Linux マシンに PowerShell Core がインストールされている必要があります。 インストール方法については、「[Linux への PowerShell Core のインストール](/powershell/scripting/install/installing-powershell-core-on-linux)」をご覧ください。
 
 ### <a name="network-configuration"></a>ネットワークの構成
 

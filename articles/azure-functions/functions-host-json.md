@@ -3,12 +3,12 @@ title: Azure Functions 2.x の host.json のリファレンス
 description: Azure Functions の v2 ランタイムの host.json ファイルのリファレンス ドキュメント。
 ms.topic: conceptual
 ms.date: 04/28/2020
-ms.openlocfilehash: 735c92720f4a3f871499ad3a0565446a02b438eb
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: cbedf2212c52d8f1996d3cce0d96d494313ea525
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97654814"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102608820"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x-and-later"></a>Azure Functions 2.x 以降の host.json のリファレンス 
 
@@ -39,6 +39,7 @@ ms.locfileid: "97654814"
         "flushTimeout": "00:00:30"
     },
     "extensions": {
+        "blobs": {},
         "cosmosDb": {},
         "durableTask": {},
         "eventHubs": {},
@@ -216,6 +217,10 @@ ms.locfileid: "97654814"
 | thresholdForSnapshotting | 1 | Application Insights により、スナップショットが要求される前に確認される必要がある例外の回数。 |
 | uploaderProxy | null | Snapshot Uploader プロセスで使用されるプロキシ サーバーをオーバーライドします。 アプリケーションがプロキシ サーバーを経由してインターネットに接続する場合、この設定を使用することが必要になる場合があります。 Snapshot Collector はアプリケーションのプロセス内で実行され、同じプロキシ設定を使用します。 しかし、Snapshot Uploader は個別のプロセスとして実行され、プロキシ サーバーを手動で構成することが必要になる場合があります。 この値が null の場合、Snapshot Collector により、System.Net.WebRequest.DefaultWebProxy が調べられ、値が Snapshot Uploader に渡されて、プロキシのアドレスの自動検出が試みられます。 この値が null 以外の場合、Snapshot Uploader では、自動検出は使用されず、ここで指定されたプロキシ サーバーが使用されます。 |
 
+## <a name="blobs"></a>BLOB
+
+構成設定は、[Storage BLOB のトリガーとバインディング](functions-bindings-storage-blob.md#hostjson-settings)に関する記事に記載されています。  
+
 ## <a name="cosmosdb"></a>cosmosDb
 
 構成設定は、[Cosmos DB のトリガーとバインディング](functions-bindings-cosmosdb-v2-output.md#host-json)に関する記事に記載されています。
@@ -248,7 +253,7 @@ ms.locfileid: "97654814"
 
 ## <a name="eventhub"></a>eventHub
 
-構成設定は、[Event Hub のトリガーとバインディング](functions-bindings-event-hubs-trigger.md#host-json)に関する記事に記載されています。 
+構成設定は、[Event Hub のトリガーとバインディング](functions-bindings-event-hubs.md#host-json)に関する記事に記載されています。 
 
 ## <a name="extensions"></a>拡張機能
 
@@ -340,7 +345,7 @@ Application Insights など、関数アプリのログの動作を制御しま�
 |プロパティ  |Default | 説明 |
 |---------|---------|---------|
 |fileLoggingMode|debugOnly|どのレベルでファイルのログ記録を有効にするかを定義します。  オプションは、`never`、`always`、`debugOnly` です。 |
-|logLevel|該当なし|アプリ内の関数に対するログ カテゴリのフィルター処理を定義するオブジェクト。 バージョン 2.x 以降のログ カテゴリのフィルター処理は、ASP.NET Core のレイアウトに従います。 この設定により、特定の関数についてログをフィルター処理できます。 詳しくは、ASP.NET Core のドキュメントの「[ログのフィルター処理](/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1&preserve-view=true#log-filtering)」をご覧ください。 |
+|logLevel|該当なし|アプリ内の関数に対するログ カテゴリのフィルター処理を定義するオブジェクト。 この設定により、特定の関数についてログをフィルター処理できます。 詳細については、「[ログ レベルを構成する](configure-monitoring.md#configure-log-levels)」を参照してください。 |
 |console|該当なし| [console](#console) ログ記録の設定。 |
 |applicationInsights|該当なし| [applicationInsights](#applicationinsights) の設定。 |
 
@@ -378,7 +383,7 @@ Application Insights など、関数アプリのログの動作を制御しま�
 
 ## <a name="queues"></a>queues
 
-構成設定は、[Storage キュー トリガーとバインディング](functions-bindings-storage-queue-output.md#host-json)に関する記事に記載されています。  
+構成設定は、[Storage キュー トリガーとバインディング](functions-bindings-storage-queue.md#host-json)に関する記事に記載されています。  
 
 ## <a name="retry"></a>retry
 

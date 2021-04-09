@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: quickstart
 ms.date: 08/13/2020
 ms.author: cshoe
-ms.openlocfilehash: eec893321dd39511e1cfc20cb5a6713377ff5167
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 98b40218d168133193410174bcc158ab8698c381
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98680622"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103225389"
 ---
 # <a name="quickstart-building-your-first-static-site-using-the-azure-cli"></a>クイックスタート: Azure CLI を使用して最初の静的サイトを構築する
 
@@ -60,7 +60,7 @@ cd my-first-static-web-app
         -g <RESOURCE_GROUP_NAME> \
         -s https://github.com/<YOUR_GITHUB_ACCOUNT_NAME>/my-first-static-web-app \
         -l <LOCATION> \
-        -b master \
+        -b main \
         --token <YOUR_GITHUB_PERSONAL_ACCESS_TOKEN>
     ```
 
@@ -72,7 +72,7 @@ cd my-first-static-web-app
         -g <RESOURCE_GROUP_NAME> \
         -s https://github.com/<YOUR_GITHUB_ACCOUNT_NAME>/my-first-static-web-app \
         -l <LOCATION> \
-        -b master \
+        -b main \
         --app-artifact-location "dist/angular-basic" \
         --token <YOUR_GITHUB_PERSONAL_ACCESS_TOKEN>
     ```
@@ -85,7 +85,7 @@ cd my-first-static-web-app
         -g <RESOURCE_GROUP_NAME> \
         -s https://github.com/<YOUR_GITHUB_ACCOUNT_NAME>/my-first-static-web-app \
         -l <LOCATION> \
-        -b master \
+        -b main \
         --app-artifact-location "build" \
         --token <YOUR_GITHUB_PERSONAL_ACCESS_TOKEN>
     ```
@@ -98,14 +98,19 @@ cd my-first-static-web-app
         -g <RESOURCE_GROUP_NAME> \
         -s https://github.com/<YOUR_GITHUB_ACCOUNT_NAME>/my-first-static-web-app \
         -l <LOCATION> \
-        -b master \
+        -b main \
         --app-artifact-location "dist" \
         --token <YOUR_GITHUB_PERSONAL_ACCESS_TOKEN>
     ```
 
     ---
+    
+    > [!IMPORTANT]
+    > `s` パラメーターに渡す URL には、`.git` サフィックスを含めることはできません。
 
-    - `<RESOURCE_GROUP_NAME>`:この値を既存の Azure リソース グループ名に置き換えます。
+    - `<RESOURCE_GROUP_NAME>`: この値を既存の [Azure リソース グループ名](../azure-resource-manager/management/manage-resources-cli.md)に置き換えます。
+
+      - リソース グループを一覧表示する方法の詳細については、[az group](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az_group_list) のドキュメントを参照してください。
 
     - `<YOUR_GITHUB_ACCOUNT_NAME>`:この値を自分の GitHub ユーザー名に置き換えてください。
 

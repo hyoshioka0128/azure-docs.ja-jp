@@ -6,15 +6,15 @@ documentationcenter: ''
 author: johndowns
 ms.service: api-management
 ms.topic: article
-ms.date: 06/12/2020
+ms.date: 02/10/2021
 ms.author: jodowns
 ms.custom: fasttrack-new
-ms.openlocfilehash: 578bb511175d88a1507af9520265a1acd068b27c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 55951f288314d92cf5057e7d5c1e988f65cb3e14
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87094662"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102040381"
 ---
 # <a name="versions-in-azure-api-management"></a>Azure API Management のバージョン
 
@@ -42,7 +42,7 @@ ms.locfileid: "87094662"
 
 たとえば、`https://apis.contoso.com/products/v1` と `https://apis.contoso.com/products/v2` は同じ `products` API ではあっても、それぞれバージョン `v1` と `v2` を参照できます。
 
-ヘッダー ベースのバージョン管理を使用している場合の API 要求 URL の形式は `https://{yourDomain}/{apiName}/{versionIdentifier}/{operationId}` です。
+パスベースのバージョン管理を使用している場合の API 要求 URL の形式は `https://{yourDomain}/{apiName}/{versionIdentifier}/{operationId}` です。
 
 ### <a name="header-based-versioning"></a>ヘッダー ベースのバージョン管理
 
@@ -64,9 +64,13 @@ ms.locfileid: "87094662"
 
 ## <a name="how-versions-are-represented"></a>バージョンを表す方法
 
-Azure API Management には、1 つの論理的な API の一連のバージョンを表す、*バージョン セット*と呼ばれるリソースが保持されています。 Azure portal を使用してバージョンを管理する場合、バージョン セットは表示されませんが、PowerShell、Resource Manager テンプレート、または Azure Resource Manager API を使用して API Management サービスを操作する場合は、バージョン セットを直接表示して管理できます。 バージョン セットには、バージョン管理された API の表示名のほか、指定されたバージョンに要求を送信するために[使用されるバージョン管理スキーム](#versioning-schemes)が含まれています。
+Azure API Management には、1 つの論理的な API の一連のバージョンを表す、*バージョン セット* と呼ばれるリソースが保持されています。 バージョン セットには、バージョン管理された API の表示名と、指定されたバージョンに要求を送信するために[使用されるバージョン管理スキーム](#versioning-schemes)が含まれています。
 
-API の各バージョンは独自の API リソースとして保持された後、バージョン セットに関連付けられます。 1 つのバージョン セットに、非常に異なる操作またはポリシーを持つ API が含まれていることがあります。これは、API のバージョン間で大幅な変更を行う可能性がある事実を反映しています。
+API の各バージョンは独自の API リソースとして保持された後、バージョン セットに関連付けられます。 バージョン セットには、操作またはポリシーが異なる API が含まれている場合があります。 セット内のバージョン間で大幅な変更を行う場合があります。
+
+Azure portal によって、バージョン セットが作成されます。 Azure portal でバージョン セットの名前と説明を変更できます。
+
+[Azure CLI](/cli/azure/apim/api/versionset)、[Azure PowerShell](/powershell/module/az.apimanagement/#api-management)、[Resource Manager テンプレート](/azure/templates/microsoft.apimanagement/service/apiversionsets)、または [Azure Resource Manager API](/rest/api/apimanagement/2020-06-01-preview/apiversionset) を使用して、バージョン セットを直接表示および管理できます。
 
 ### <a name="migrating-a-non-versioned-api-to-a-versioned-api"></a>バージョン管理されていない API からバージョン管理された API への移行
 

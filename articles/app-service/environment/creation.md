@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 11/16/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 52a43874060748479beebc994bf0a9b663cde9dc
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 021c85037ea105ff7d8ff642e3a9f28ed3ebe991
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98020181"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "100594111"
 ---
 # <a name="create-an-app-service-environment"></a>App Service Environment を作成する
 
@@ -22,7 +22,7 @@ ms.locfileid: "98020181"
 
 [App Service Environment (ASE)][Intro] は、ご使用の Azure 仮想ネットワーク (VNet) に導入される App Service のシングル テナント デプロイです。  ASEv3 でサポートされているのは、Vnet 内のプライベート アドレスでのアプリの公開のみです。 ASEv3 がプレビュー期間中に作成されると、次のリソースがサブスクリプションに追加されます。
 
-- App Service 環境
+- App Service Environment
 - プライベート エンドポイント
 
 ASE のデプロイには 2 つのサブネットを使用する必要があります。  一方のサブネットでプライベート エンドポイントを保持します。  このサブネットは、VM などの他の用途に使用できます。  もう一方のサブネットは、ASE からの送信呼び出しに使用されます。  このサブネットは、ASE 以外には使用できません。 
@@ -86,4 +86,4 @@ ASE は、通常、マルチテナント ハイパーバイザーでプロビジ
 [AppDeploy]: ../deploy-local-git.md
 [ASEWAF]: app-service-app-service-environment-web-application-firewall.md
 [AppGW]: ../../web-application-firewall/ag/ag-overview.md
-[logalerts]: ../../azure-monitor/platform/alerts-log.md
+[logalerts]: ../../azure-monitor/alerts/alerts-log.md

@@ -3,18 +3,19 @@ title: ポータルを使用して、近接通信配置グループを作成し�
 description: Azure portal を使用して、近接通信配置グループを作成する方法について説明します。
 author: cynthn
 ms.service: virtual-machines
+ms.subservice: proximity-placement-groups
 ms.topic: how-to
 ms.workload: infrastructure-services
-ms.date: 04/24/2020
+ms.date: 3/8/2021
 ms.author: cynthn
-ms.openlocfilehash: 45d7977dda4870be9a087b3277dd1db828c91178
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: daf844870670c14db5208f45fbd9c9adf46be985
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98871436"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102504628"
 ---
-# <a name="create-a-proximity-placement-group-using-the-portal"></a>ポータルを使用して、近接通信配置グループを作成します。
+# <a name="create-a-proximity-placement-group-using-the-azure-portal"></a>Azure portal を使用して、近接通信配置グループを作成します。
 
 各 VM をできるだけ近くに配置して、可能性のある最も短い待ち時間を実現するには、それらを[近接通信配置グループ](../co-location.md#proximity-placement-groups)内にデプロイするようにしてください。
 
@@ -29,26 +30,26 @@ ms.locfileid: "98871436"
 ## <a name="create-the-proximity-placement-group"></a>近接通信配置グループを作成する
 
 1. 検索に、「**近接通信配置グループ**」と入力します。
-1. 検索結果の **[サービス]** の下で、 **[近接通信配置グループ]** を選択します。
-1. **[近接通信配置グループ]** ページで、 **[追加]** を選択します。
+1. 検索結果の **[サービス]** の下で、**[近接通信配置グループ]** を選択します。
+1. **[近接通信配置グループ]** ページで、**[追加]** を選択します。
 1. **[基本]** タブの **[プロジェクトの詳細]** で、正しいサブスクリプションが選択されていることを確認します。
 1. **[リソース グループ]** で、 **[新規作成]** を選択して新しいグループを作成するか、または既に存在する空のリソース グループをドロップダウンから選択します。 
 1. **[リージョン]** で、近接通信配置グループを作成する場所を選択します。
 1. **[Proximity placement group name]\(近接通信配置グループの名前\)** に、名前を入力して **[Review + create]\(確認および作成\)** を選択します。
-1. 検証に合格したら、 **[作成]** を選択して近接通信配置グループを作成します。
+1. 検証に合格したら、**[作成]** を選択して近接通信配置グループを作成します。
 
     ![近接通信配置グループの作成のスクリーンショット](./media/ppg/ppg.png)
 
 
 ## <a name="create-a-vm"></a>VM の作成
 
-1. ポータル上で VM を作成しているときに、 **[詳細]** タブにアクセスします。 
+1. ポータル上で VM を作成しているときに、[**詳細**] タブにアクセスします。 
 1. **[近接通信配置グループ]** の選択で、適切な配置グループを選択します。 
 
     ![ポータル上で新しいVM を作成する際の、[近接通信配置グループ] セクションのスクリーンショット](./media/ppg/vm-ppg.png)
 
-1. その他の必要な選択をすべて完了したら、 **[Review + create]** \(確認および作成\) を選択します。
-1. 検証に合格したら、 **[作成]** を選択して配置グループに VM をデプロイします。
+1. その他の必要な選択をすべて完了したら、**[Review + create]** \(確認および作成\) を選択します。
+1. 検証に合格したら、**[作成]** を選択して配置グループに VM をデプロイします。
 
 
 ## <a name="add-vms-in-an-availability-set-to-a-proximity-placement-group"></a>可用性セット内の VM を近接通信配置グループに追加する
@@ -58,7 +59,7 @@ VM が可用性セットの一部である場合は、VM を追加する前に�
 1. [ポータル](https://portal.azure.com)で *可用性セット* を検索し、結果から可用性セットを選択します。
 1. 各 VM を停止または割り当てを解除するために、可用性セット内の VM を選択して VM のページで **[停止]** を選択し、 **[OK]** を選択して VM を停止します。
 1. 可用性セットのページで、すべての VM の **[状態]** が **[停止済み (割り当て解除)]** として表示されていることを確認します。
-1. 左側のメニューで **[構成]** を選択します。
+1. 左側のメニューで、**[構成]** を選択します。
 1. **[近接配置グループ]** で、ドロップダウンから配置グループを選択し、 **[保存]** を選択します。
 1. 左側のメニューから **[概要]** を選択し、VM の一覧をもう一度表示します。 
 1. 可用性セット内の各 VM を選択し、各 VM のページで **[開始]** を選択します。 

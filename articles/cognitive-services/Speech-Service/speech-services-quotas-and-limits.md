@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 12/07/2020
+ms.date: 03/15/2021
 ms.author: alexeyo
-ms.openlocfilehash: 9b923ba208dd2a5111a59f67401b1e4f080b7187
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 78e40250710c133cbed53c05137971247663b0df
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96754166"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103564424"
 ---
 # <a name="speech-services-quotas-and-limits"></a>Speech Services のクォータと制限
 
@@ -27,10 +27,13 @@ ms.locfileid: "96754166"
 次の表の "調整可能" 行のないパラメーターは、すべての価格レベルで調整可能 **ではありません**。
 
 #### <a name="online-transcription"></a>オンライン文字起こし
+[Speech SDK](speech-sdk.md) と [Speech-to-text REST API for short audio](rest-speech-to-text.md#speech-to-text-rest-api-for-short-audio) の両方または一方で使用する場合。
 
 | Quota | Free (F0)<sup>1</sup> | Standard (S0) |
 |--|--|--|
-| **同時要求の制限 (ベースとカスタム モデル)** | 1 | 20 (既定値) |
+| **同時要求の制限 - 基本モデル** | 1 | 100 (既定値) |
+| 調整可能 | いいえ<sup>2</sup> | はい<sup>2</sup> |
+| **同時要求の制限 - カスタム モデル** | 1 | 20 (既定値) |
 | 調整可能 | いいえ<sup>2</sup> | はい<sup>2</sup> |
 
 #### <a name="batch-transcription"></a>バッチ文字起こし
@@ -72,7 +75,7 @@ ms.locfileid: "96754166"
 | **Websocket 固有のクォータ** |  |  |
 |1 ターンあたりに生成されるオーディオの最大長 | 10 分 | 10 分 |
 |1 ターンあたりの最大 SSML メッセージ サイズ |64 KB |64 KB |
-| **Rest API の制限** | 1 分あたり 20 要求 | 5 秒あたり 25 要求 |
+| **Rest API の制限** | 1 分あたり 20 要求 | 1 分あたり 300 要求 |
 
 
 <sup>3</sup> **Free (F0)** 価格レベルについては、[価格ページ](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/)で月額料金に関するページを参照してください。<br/>
@@ -104,7 +107,7 @@ ms.locfileid: "96754166"
 同時要求の上限パラメーターの既存の値は、Azure portal、コマンドライン ツール、または API 要求では表示 **されません**。 既存の値を確認するには、Azure サポート リクエストを作成します。
 
 >[!NOTE]
->[Speech コンテナー](speech-container-howto.md)は、ホストされているハードウェアの CPU によってのみ制限されるため、コンテナーで同時要求の上限を上げる必要はありません。 ただし、Speech コンテナーには、考慮すべき独自の容量制限があります。 *「オンプレミスの音声テキスト変換コンテナーの容量計画とコストの見積もりはどうすればいいでしょうか。」* という質問を [Speech コンテナー FAQ](speech-container-faq.md) でご覧ください。
+>[Speech コンテナー](speech-container-howto.md)は、ホストされているハードウェアの CPU によってのみ制限されるため、コンテナーで同時要求の上限を上げる必要はありません。 ただし、Speech コンテナーには、考慮すべき独自の容量制限があります。 *「オンプレミスの音声テキスト変換コンテナーの容量計画とコストの見積もりはどうすればいいでしょうか。」* という質問を [Speech コンテナー FAQ](./speech-container-howto.md) でご覧ください。
 
 #### <a name="have-the-required-information-ready"></a>以下の必要な情報を準備します。
 - **ベース モデル** の場合:
@@ -205,4 +208,3 @@ Speech リソースの同時要求の上限が 300 に設定されていると�
   - [前に収集](#prepare-the-required-information)した Azure リソース情報 
   - 必要な情報を入力して、 *[確認と作成]* タブの *[作成]* ボタンをクリックします
   - Azure portal 通知のサポート リクエスト番号をメモしておきます。 後続の処理のための連絡が間もなくして届きます
-

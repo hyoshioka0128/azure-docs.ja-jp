@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6e2e87196f9d4d38743847ee68983216b8790e0b
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: e6d548f4d792d8980e2aa5040b09530eaf7868c4
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99257272"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "102609908"
 ---
 # <a name="protecting-microsoft-365-from-on-premises-attacks"></a>オンプレミスの攻撃から Microsoft 365 を保護する
 
@@ -69,7 +69,7 @@ Microsoft 365 クラウド環境は、広範な監視とセキュリティのイ
 
     これらの管理者アカウントは制限付きの使用アカウントです。 *Microsoft 365 では、オンプレミスのアカウントが管理者特権を持つことはできません。* 
 
-    詳細については、[Microsoft 365 の管理者ロールの概要](/microsoft-365/admin/add-users/about-admin-roles?view=o365-worldwide)に関するページを参照してください。 また、[Azure AD での Microsoft 365 用のロール](../roles/m365-workload-docs.md)に関するページも参照してください。
+    詳細については、[Microsoft 365 の管理者ロールの概要](/microsoft-365/admin/add-users/about-admin-roles)に関するページを参照してください。 また、[Azure AD での Microsoft 365 用のロール](../roles/m365-workload-docs.md)に関するページも参照してください。
 
 1. **Microsoft 365 からデバイスを管理します。** Azure AD Join とクラウドベースのモバイル デバイス管理 (MDM) を使用して、オンプレミスのデバイス管理インフラストラクチャへの依存関係を排除します。 これらの依存関係は、デバイスとセキュリティ制御を侵害するおそれがあります。
 
@@ -141,7 +141,7 @@ Azure AD では、管理者などの特権ロールを持つユーザーが、�
 
     *   Azure portal へのアクセスをブロックします。 まれに必要となる例外を作成できます。  すべてのゲストと外部ユーザーを含む条件付きアクセス ポリシーを作成します。 その後、[アクセスをブロックするポリシーを実装します](../../role-based-access-control/conditional-access-azure-management.md)。 
 
-* **切断されたフォレスト:** [Azure AD クラウド プロビジョニング](../cloud-provisioning/what-is-cloud-provisioning.md)を使用します。 この方法により、切断されたフォレストに接続できるようになり、オンプレミスの侵害の影響を広げるおそれがあるフォレスト間の接続や信頼関係を確立する必要がなくなります。 
+* **切断されたフォレスト:** [Azure AD クラウド プロビジョニング](../cloud-sync/what-is-cloud-sync.md)を使用します。 この方法により、切断されたフォレストに接続できるようになり、オンプレミスの侵害の影響を広げるおそれがあるフォレスト間の接続や信頼関係を確立する必要がなくなります。 
  
 ### <a name="limitations-and-tradeoffs"></a>制限事項とトレードオフ
 
@@ -151,7 +151,7 @@ Azure AD では、管理者などの特権ロールを持つユーザーが、�
 
 クラウド グループを使用すると、オンプレミス インフラストラクチャからのコラボレーションとアクセスを切り離すことができます。
 
-* **コラボレーション**: 最新のコラボレーションのために Microsoft 365 グループと Microsoft Teams を使用します。 オンプレミスの配布リストの使用を停止し、[Outlook の Microsoft 365 グループに配布リストをアップグレードします](/office365/admin/manage/upgrade-distribution-lists?view=o365-worldwide)。
+* **コラボレーション**: 最新のコラボレーションのために Microsoft 365 グループと Microsoft Teams を使用します。 オンプレミスの配布リストの使用を停止し、[Outlook の Microsoft 365 グループに配布リストをアップグレードします](/office365/admin/manage/upgrade-distribution-lists)。
 
 * **アクセス**:Azure AD セキュリティ グループまたは Microsoft 365 グループを使用して、Azure AD 内のアプリケーションへのアクセスを承認します。
 * **Office 365 のライセンス**: グループベースのライセンスを使用し、クラウド専用グループを使用して Office 365 にプロビジョニングします。 この方法により、グループ メンバーシップの制御がオンプレミスのインフラストラクチャから切り離されます。
@@ -203,9 +203,9 @@ Azure AD の条件付きアクセスを使用して、信号を解釈し、そ�
 
 * 可能な場合は常に、条件付きアクセスを使用して、[レガシ認証プロトコルをブロック](../conditional-access/howto-conditional-access-policy-block-legacy.md)します。 また、アプリケーション固有の構成を使用して、アプリケーション レベルでレガシ認証プロトコルを無効にします。
 
-   詳細については、[レガシ認証プロトコル](../fundamentals/auth-sync-overview.md)に関するページを参照してください。 または、[Exchange Online](/exchange/clients-and-mobile-in-exchange-online/disable-basic-authentication-in-exchange-online#how-basic-authentication-works-in-exchange-online) と [SharePoint Online](/powershell/module/sharepoint-online/set-spotenant?view=sharepoint-ps) に固有の詳細を参照してください。
+   詳細については、[レガシ認証プロトコル](../fundamentals/auth-sync-overview.md)に関するページを参照してください。 または、[Exchange Online](/exchange/clients-and-mobile-in-exchange-online/disable-basic-authentication-in-exchange-online#how-basic-authentication-works-in-exchange-online) と [SharePoint Online](/powershell/module/sharepoint-online/set-spotenant) に固有の詳細を参照してください。
 
-* 推奨される [ID とデバイスのアクセス構成](/microsoft-365/security/office-365-security/identity-access-policies?view=o365-worldwide)を実装します。
+* 推奨される [ID とデバイスのアクセス構成](/microsoft-365/security/office-365-security/identity-access-policies)を実装します。
 
 * 条件付きアクセスが含まれないバージョンの Azure AD を使用している場合は、[Azure AD のセキュリティの既定値群](../fundamentals/concept-fundamentals-security-defaults.md)を使用していることを確認します。
 

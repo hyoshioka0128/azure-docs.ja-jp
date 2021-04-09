@@ -1,17 +1,16 @@
 ---
 title: Azure リソースからリソース ログを収集し、Azure Monitor で分析する
 description: このチュートリアルでは、Azure リソースから Log Analytics ワークスペースにリソース ログが収集されるように診断設定を構成します。ワークスペースでは、ログ クエリを使用してログを分析できます。
-ms.subservice: ''
 ms.topic: tutorial
 author: bwren
 ms.author: bwren
 ms.date: 12/15/2019
-ms.openlocfilehash: 88138cc1366dcef68aeccf652af05704e72c8e15
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 43a9c88bc64b688bfd1171e331232bb254b0eebe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100597546"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102032876"
 ---
 # <a name="tutorial-collect-and-analyze-resource-logs-from-an-azure-resource"></a>チュートリアル:Azure リソースからリソース ログを収集して分析する
 
@@ -93,7 +92,7 @@ Log Analytics ワークスペースからデータを取得するには、Kusto 
 
 
 5. クエリを入力し、 **[実行]** をクリックして結果を調べます。 
-6. ログ クエリの記述に関するチュートリアルについては、「[Azure Monitor でログ クエリの使用を開始する](../log-query/get-started-queries.md)」を参照してください。
+6. ログ クエリの記述に関するチュートリアルについては、「[Azure Monitor でログ クエリの使用を開始する](../logs/get-started-queries.md)」を参照してください。
 
     ![Log query](media/tutorial-resource-logs/log-query-1.png)
 
@@ -104,4 +103,4 @@ Log Analytics ワークスペースからデータを取得するには、Kusto 
 Log Analytics ワークスペースにリソース ログを収集する方法を学習したので、このデータを分析するためのログ クエリの作成に関するチュートリアルを済ませてくさい。
 
 > [!div class="nextstepaction"]
-> [Azure Monitor でログ クエリの使用を開始する](../log-query/get-started-queries.md)
+> [Azure Monitor でログ クエリの使用を開始する](../logs/get-started-queries.md)

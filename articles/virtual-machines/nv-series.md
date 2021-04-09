@@ -3,16 +3,16 @@ title: NV シリーズ - Azure Virtual Machines
 description: NV シリーズ VM の仕様。
 author: vikancha-MSFT
 ms.service: virtual-machines
-ms.subservice: sizes
+ms.subservice: vm-sizes-gpu
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: 6c2ac4247945436f5c32d25fbae1c1fe9a9c0ceb
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 4aec4ab90e430569ae2e771e32b613ddd0dee89a
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99097726"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102551098"
 ---
 # <a name="nv-series"></a>NV シリーズ
 

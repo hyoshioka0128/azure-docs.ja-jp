@@ -1,27 +1,19 @@
 ---
 title: Azure 仮想マシンに監視と診断を追加する
 description: Azure Resource Manager テンプレートを使用して、Azure Diagnostics の拡張機能を備えた新しい Windows 仮想マシンを作成します。
-services: virtual-machines-windows
-documentationcenter: ''
-author: mimckitt
-manager: gwallace
-editor: ''
-tags: azure-resource-manager
-ms.assetid: 8cde8fe7-977b-43d2-be74-ad46dc946058
-ms.service: virtual-machines-windows
-ms.subservice: extensions
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-windows
 ms.topic: article
+ms.service: virtual-machines
+ms.subservice: extensions
+author: amjads1
+ms.author: amjads
+ms.collection: windows
 ms.date: 05/31/2017
-ms.author: mimckitt
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a91e21994dda126e14c100bcf1d2a69c36b13e1e
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 6d365c7e927c11f52b97fbb0cc01a7aa37ad5afd
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98202166"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102560057"
 ---
 # <a name="use-monitoring-and-diagnostics-with-a-windows-vm-and-azure-resource-manager-templates"></a>Windows VM と Azure Resource Manager テンプレートで監視と診断を利用する
 Azure Diagnostics の拡張機能は、Windows ベースの Azure 仮想マシンに監視および診断機能を提供します。 Azure Resource Manager テンプレートの一部として拡張機能を組み込むことにより、仮想マシンでこれらの機能を有効にすることができます。 仮想マシン テンプレートの一部として拡張機能を含める方法については、「 [VM 拡張機能を使用した Azure リソース マネージャー テンプレートの作成](../windows/template-description.md#extensions) 」を参照してください。 この記事では、Windows 仮想マシン テンプレートに Azure Diagnostics の拡張機能を追加する方法について説明します。  
@@ -80,7 +72,7 @@ Windows 仮想マシンで診断の拡張機能を有効にするには、Resour
 
 *typeHandlerVersion* は使用する拡張機能のバージョンを指定します。 *autoUpgradeMinorVersion* マイナー バージョンを **true** に設定すると、使用可能な拡張機能の最新マイナー バージョンが得られます。 新機能とバグの修正がすべて含まれる、最新の診断の拡張機能を常に使用できるように、 *autoUpgradeMinorVersion* は常に **true** に設定することを強くお勧めします。 
 
-*settings* 要素には、拡張機能 (パブリック構成とも呼ばれます) からの設定および読み取りが可能な拡張機能の構成プロパティが含まれています。 *xmlcfg* プロパティには、診断ログの xml ベースの構成や、診断エージェントによって収集されるパフォーマンス カウンターなどが含まれます。 xml スキーマ自体の詳細については、「 [診断構成スキーマ](../../azure-monitor/platform/diagnostics-extension-schema-windows.md) 」を参照してください。 一般的な方法としては、Azure リソース マネージャー テンプレートに実際の xml 構成を変数として格納してから、これを連結および base64 エンコードして *xmlcfg* の値を設定します。 xml を変数として格納する方法の詳細については、「 [診断構成の変数](#diagnostics-configuration-variables) 」のセクションを参照してください。 *storageAccount* プロパティは、診断データの転送先となるストレージ アカウントの名前を指定します。 
+*settings* 要素には、拡張機能 (パブリック構成とも呼ばれます) からの設定および読み取りが可能な拡張機能の構成プロパティが含まれています。 *xmlcfg* プロパティには、診断ログの xml ベースの構成や、診断エージェントによって収集されるパフォーマンス カウンターなどが含まれます。 xml スキーマ自体の詳細については、「 [診断構成スキーマ](../../azure-monitor/agents/diagnostics-extension-schema-windows.md) 」を参照してください。 一般的な方法としては、Azure リソース マネージャー テンプレートに実際の xml 構成を変数として格納してから、これを連結および base64 エンコードして *xmlcfg* の値を設定します。 xml を変数として格納する方法の詳細については、「 [診断構成の変数](#diagnostics-configuration-variables) 」のセクションを参照してください。 *storageAccount* プロパティは、診断データの転送先となるストレージ アカウントの名前を指定します。 
 
 *protectedSettings* (プライベート構成とも呼ばれる) のプロパティは設定できますが、設定後に読み取ることができません。 *protectedSettings* が書き込み専用であるという性質は、診断データが書き込まれるストレージ アカウント キーのような機密情報を格納する場合に役立ちます。    
 
@@ -118,7 +110,7 @@ Windows 仮想マシンで診断の拡張機能を有効にするには、Resour
 
 診断の拡張機能の *xmlcfg* プロパティは、連結された複数の変数を使用して定義されます。 これらの変数の値は xml 形式であるため、JSON 変数を設定するときに正しくエスケープする必要があります。
 
-以下の例では、Windows イベント ログおよび診断インフラストラクチャ ログと共に、標準のシステム レベルのパフォーマンス カウンターを収集する診断構成の xml について説明します。 構成をテンプレートの変数セクションに直接貼り付けることができるように、正しくエスケープされ、書式設定されています。 より人間が判読しやすい構成の xml の例については「 [診断構成スキーマ](../../azure-monitor/platform/diagnostics-extension-schema-windows.md) 」を参照してください。
+以下の例では、Windows イベント ログおよび診断インフラストラクチャ ログと共に、標準のシステム レベルのパフォーマンス カウンターを収集する診断構成の xml について説明します。 構成をテンプレートの変数セクションに直接貼り付けることができるように、正しくエスケープされ、書式設定されています。 より人間が判読しやすい構成の xml の例については「 [診断構成スキーマ](../../azure-monitor/agents/diagnostics-extension-schema-windows.md) 」を参照してください。
 
 ```json
 "wadlogs": "<WadCfg> <DiagnosticMonitorConfiguration overallQuotaInMB=\"4096\" xmlns=\"http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration\"> <DiagnosticInfrastructureLogs scheduledTransferLogLevelFilter=\"Error\"/> <WindowsEventLog scheduledTransferPeriod=\"PT1M\" > <DataSource name=\"Application!*[System[(Level = 1 or Level = 2)]]\" /> <DataSource name=\"Security!*[System[(Level = 1 or Level = 2)]]\" /> <DataSource name=\"System!*[System[(Level = 1 or Level = 2)]]\" /></WindowsEventLog>",

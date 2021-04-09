@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: eliotgra
-ms.openlocfilehash: 9a38a14033fe295c36cf8ac17239b0b8e53f75dc
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.openlocfilehash: 6f7359b2b2fb0a1ea6ce92ec52bba15fc74fc75a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99831180"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103017156"
 ---
 # <a name="continuous-patient-monitoring-architecture"></a>患者の継続的なモニタリングのアーキテクチャ
 
@@ -37,7 +37,7 @@ ms.locfileid: "99831180"
 
 ### <a name="export-to-azure-api-for-fhirreg"></a>Azure API for FHIR にエクスポートする&reg;
 
-Azure IoT Central は HIPAA に準拠し、HITRUST&reg; 認定を受けています。 [Azure API for FHIR](../../healthcare-apis/overview.md) を使用して他のサービスに患者の健康データを送信することもできます。 Azure API for FHIR は、臨床医療データを対象とした標準ベースの API です。 [Azure IoT Connector for FHIR](../../healthcare-apis/iot-fhir-portal-quickstart.md) を介すことで、IoT Central からの継続的なデータ エクスポート先として Azure API for FHIR を使用することができます。
+Azure IoT Central は HIPAA に準拠し、HITRUST&reg; 認定を受けています。 [Azure API for FHIR](../../healthcare-apis/fhir/overview.md) を使用して他のサービスに患者の健康データを送信することもできます。 Azure API for FHIR は、臨床医療データを対象とした標準ベースの API です。 [Azure IoT Connector for FHIR](../../healthcare-apis/fhir/iot-fhir-portal-quickstart.md) を介すことで、IoT Central からの継続的なデータ エクスポート先として Azure API for FHIR を使用することができます。
 
 ### <a name="machine-learning"></a>機械学習
 
@@ -45,7 +45,7 @@ Azure IoT Central は HIPAA に準拠し、HITRUST&reg; 認定を受けていま
 
 ### <a name="provider-dashboard"></a>プロバイダー ダッシュボード
 
-Azure API for FHIR データを使用して患者分析情報ダッシュボードを作成するか、医療チームが使う電子医療記録に直接データを統合します。 医療チームはダッシュボードを使用して、患者を補助したり、早い段階で悪化の徴候を発見したりすることができます。 詳細については、「[Power BI プロバイダー ダッシュボードを構築する](howto-health-data-triage.md)」のチュートリアルを参照してください。
+Azure API for FHIR データを使用して患者分析情報ダッシュボードを作成するか、医療チームが使う電子医療記録に直接データを統合します。 医療チームはダッシュボードを使用して、患者を補助したり、早い段階で悪化の徴候を発見したりすることができます。 詳細については、「[Power BI プロバイダー ダッシュボードを構築する](tutorial-health-data-triage.md)」のチュートリアルを参照してください。
 
 ## <a name="next-steps"></a>次のステップ
 

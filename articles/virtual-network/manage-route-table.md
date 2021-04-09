@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/19/2020
 ms.author: kumud
-ms.openlocfilehash: a8c38f4e84a6a653c3a4d887c82340409fc363af
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 642a9a9f798492d85ee2a9784a1fe5ad4f854d58
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98220594"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "100574125"
 ---
 # <a name="create-change-or-delete-a-route-table"></a>ルート テーブルの作成、変更、削除
 
@@ -59,7 +59,7 @@ Azure の場所とサブスクリプションごとに作成できるルート �
 
 ### <a name="create-route-table---commands"></a>ルート テーブルの作成 - コマンド
 
-| ツール | command |
+| ツール | コマンド |
 | ---- | ------- |
 | Azure CLI | [az network route-table create](/cli/azure/network/route-table#az-network-route-table-create) |
 | PowerShell | [New-AzRouteTable](/powershell/module/az.network/new-azroutetable) |
@@ -70,7 +70,7 @@ Azure の場所とサブスクリプションごとに作成できるルート �
 
 ### <a name="view-route-table---commands"></a>ルート テーブルの表示 - コマンド
 
-| ツール | command |
+| ツール | コマンド |
 | ---- | ------- |
 | Azure CLI | [az network route-table list](/cli/azure/network/route-table#az-network-route-table-list) |
 | PowerShell | [Get-AzRouteTable](/powershell/module/az.network/get-azroutetable) |
@@ -85,7 +85,7 @@ Azure の場所とサブスクリプションごとに作成できるルート �
 
 Azure の一般的な設定の詳細については、次の情報を参照してください。
 
-- [アクティビティ ログ](../azure-monitor/platform/platform-logs-overview.md)
+- [アクティビティ ログ](../azure-monitor/essentials/platform-logs-overview.md)
 - [アクセス制御 (IAM)](../role-based-access-control/overview.md)
 - [タグ](../azure-resource-manager/management/tag-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [Locks](../azure-resource-manager/management/lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
@@ -93,7 +93,7 @@ Azure の一般的な設定の詳細については、次の情報を参照し�
 
 ### <a name="view-details-of-route-table---commands"></a>ルート テーブルの詳細の表示 - コマンド
 
-| ツール | command |
+| ツール | コマンド |
 | ---- | ------- |
 | Azure CLI | [az network route-table show](/cli/azure/network/route-table#az-network-route-table-show) |
 | PowerShell | [Get-AzRouteTable](/powershell/module/az.network/get-azroutetable) |
@@ -108,7 +108,7 @@ Azure の一般的な設定の詳細については、次の情報を参照し�
 
 ### <a name="change-a-route-table---commands"></a>ルート テーブルの変更 - コマンド
 
-| ツール | command |
+| ツール | コマンド |
 | ---- | ------- |
 | Azure CLI | [az network route-table update](/cli/azure/network/route-table#az-network-route-table-update) |
 | PowerShell | [Set-AzRouteTable](/powershell/module/az.network/set-azroutetable) |
@@ -133,7 +133,7 @@ Azure の一般的な設定の詳細については、次の情報を参照し�
 
 ### <a name="associate-a-route-table---commands"></a>ルート テーブルの関連付け - コマンド
 
-| ツール | command |
+| ツール | コマンド |
 | ---- | ------- |
 | Azure CLI | [az network vnet subnet update](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-update) |
 | PowerShell | [Set-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/set-azvirtualnetworksubnetconfig) |

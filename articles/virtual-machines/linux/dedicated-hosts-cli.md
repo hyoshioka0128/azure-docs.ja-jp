@@ -3,15 +3,16 @@ title: CLI を使用して VM とスケール セット インスタンスを専
 description: Azure CLI を使用して VM とスケール セット インスタンスを専用ホストにデプロイします。
 author: cynthn
 ms.service: virtual-machines
+ms.subservice: dedicated-hosts
 ms.topic: how-to
 ms.date: 11/12/2020
 ms.author: cynthn
-ms.openlocfilehash: dcb5a3c664386e65e676f5559c47236126fefe87
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
+ms.openlocfilehash: 9d4117cafd665556fb60278aa4dc60dc14a27ada
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/20/2020
-ms.locfileid: "97704930"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "101670521"
 ---
 # <a name="deploy-to-dedicated-hosts-using-the-azure-cli"></a>Azure CLI を使用して専用ホストにデプロイする
  

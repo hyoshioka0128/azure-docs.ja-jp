@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/26/2020
 ms.author: victorh
 ms.custom: references_regions
-ms.openlocfilehash: d46c1d8efb5234d47c80ca4256c2f56d56ccf805
-ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
+ms.openlocfilehash: 83779dcd319614ae15de6b7e3e4e3abfd9599089
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/10/2021
-ms.locfileid: "98060673"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102619156"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Application Gateway に関してよく寄せられる質問
 
@@ -454,7 +454,7 @@ PowerShell コマンドレット `Get-AzApplicationGatewayBackendHealth` とポ�
 
 ### <a name="can-i-set-alerts-with-application-gateway"></a>Application Gateway でアラートを設定できますか?
 
-はい。 Application Gateway では、メトリックに基づいてアラートを構成します。 詳細については、[Application Gateway のメトリック](./application-gateway-metrics.md)に関するセクションと、[アラート通知の受信](../azure-monitor/platform/alerts-overview.md)に関するページを参照してください。
+はい。 Application Gateway では、メトリックに基づいてアラートを構成します。 詳細については、[Application Gateway のメトリック](./application-gateway-metrics.md)に関するセクションと、[アラート通知の受信](../azure-monitor/alerts/alerts-overview.md)に関するページを参照してください。
 
 ### <a name="how-do-i-analyze-traffic-statistics-for-application-gateway"></a>Application Gateway のトラフィック統計情報を分析するにはどうすればよいですか?
 
@@ -470,9 +470,9 @@ PowerShell コマンドレット `Get-AzApplicationGatewayBackendHealth` とポ�
 
 現在のプラットフォームの制限により、Application Gateway v2 (Standard_v2、WAF_v2) サブネットに NSG があり、NSG フロー ログが有効になっている場合は、非決定的な動作が発生するため、このシナリオは現在サポートされていません。
 
-### <a name="does-application-gateway-store-customer-data"></a>Application Gateway によって顧客データが保存されますか?
+### <a name="where-does-application-gateway-store-customer-data"></a>Application Gateway によって顧客データはどこに保存されますか?
 
-いいえ、Azure Application Gateway でお客様のデータが保存されることはありません。
+Application Gateway によって、顧客データがデプロイされているリージョン外に移動または格納されることはありません。
 
 ## <a name="next-steps"></a>次のステップ
 

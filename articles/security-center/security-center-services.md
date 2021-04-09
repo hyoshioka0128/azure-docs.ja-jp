@@ -1,24 +1,18 @@
 ---
 title: OS、マシンの種類、クラウドに応じた Azure Security Center の機能
 description: OS、種類、クラウドのデプロイに応じて使用できる Azure Security Center の機能について説明します。
-services: security-center
-documentationcenter: na
 author: memildin
 manager: rkarlin
-ms.assetid: 870ebc8d-1fad-435b-9bf9-c477f472ab17
 ms.service: security-center
-ms.devlang: na
 ms.topic: overview
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 02/16/2021
 ms.author: memildin
-ms.openlocfilehash: 0e1f669b6955d5c5b70f2f29ff39ba5aef0a9a56
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.openlocfilehash: 070f35dc3efea4a3f05ec36cc3860fa589aa87e3
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100544818"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102437912"
 ---
 # <a name="feature-coverage-for-machines"></a>マシンを対象とする機能
 
@@ -117,8 +111,8 @@ ms.locfileid: "100544818"
 |[Microsoft Defender for Endpoint](harden-docker-hosts.md) (1)|✔|-|
 |[AWS アカウントを接続する](quickstart-onboard-aws.md) (1)|-|-|
 |[GCP アカウントを接続する](quickstart-onboard-gcp.md) (1)|-|-|
-|[連続エクスポート](continuous-export.md)|✔|✔ (2)|
-|[ワークフローの自動化](workflow-automation.md)|✔ (2)|✔|
+|[連続エクスポート](continuous-export.md)|✔|✔|
+|[ワークフローの自動化](workflow-automation.md)|✔|✔|
 |[推奨事項の除外規則](exempt-resource.md)|-|-|
 |[アラートの抑制ルール](alerts-suppression-rules.md)|✔|✔|
 |[セキュリティ アラートのメール通知](security-center-provide-security-contact-details.md)|✔|✔|
@@ -130,7 +124,7 @@ ms.locfileid: "100544818"
 |[Azure Defender for Resource Manager](defender-for-resource-manager-introduction.md)|-|-|
 |[Azure Defender for DNS](defender-for-dns-introduction.md)|-|-|
 |[Azure Defender for container registries](defender-for-container-registries-introduction.md)|✔ (2)|✔ (2)|
-|[Azure Defender for Kubernetes](defender-for-kubernetes-introduction.md)|✔ (2)|✔|
+|[Azure Defender for Kubernetes](defender-for-kubernetes-introduction.md)|✔|✔|
 |[Kubernetes ワークロード保護](kubernetes-workload-protections.md)|✔|✔|
 |||
 

@@ -3,18 +3,19 @@ title: Azure で OKD をデプロイする
 description: Azure で OKD をデプロイします。
 author: haroldwongms
 manager: joraio
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines
+ms.subservice: openshift
+ms.collection: linux
 ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 10/15/2019
 ms.author: haroldw
-ms.openlocfilehash: d0a10c6c700f11e540dc7edaa27baee35396d814
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: dc14b10081cf175581d29524dcea60c52763b03c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98732396"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "101667219"
 ---
 # <a name="deploy-okd-in-azure"></a>Azure で OKD をデプロイする
 

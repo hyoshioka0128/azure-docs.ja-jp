@@ -1,25 +1,14 @@
 ---
 title: Windows デバイスに C# エージェントをインストールする
 description: Defender for IoT エージェントを 32 ビットまたは 64 ビットの Windows デバイスにインストールする方法について説明します。
-services: defender-for-iot
-ms.service: defender-for-iot
-documentationcenter: na
-author: mlottner
-manager: rkarlin
-editor: ''
-ms.devlang: na
-ms.custom: devx-track-csharp
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 09/09/2020
-ms.author: mlottner
-ms.openlocfilehash: 6c441c9f81477a586c3e153e23b1fc63f2f76344
-ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
+ms.openlocfilehash: b5efc9ce675fa068f378cdc2bdd5a077d3437a93
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99819929"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104778765"
 ---
 # <a name="deploy-a-defender-for-iot-c-based-security-agent-for-windows"></a>Windows 用の Defender for IoT の C# ベースのセキュリティ エージェントをデプロイする
 
@@ -27,11 +16,10 @@ ms.locfileid: "99819929"
 
 このガイドでは、以下の方法について説明します。
 
-> [!div class="checklist"]
-> * インストール
-> * デプロイの確認
-> * エージェントのアンインストール
-> * トラブルシューティング
+- インストール
+- デプロイの確認
+- エージェントのアンインストール
+- トラブルシューティング
 
 ## <a name="prerequisites"></a>前提条件
 
@@ -39,7 +27,7 @@ ms.locfileid: "99819929"
 
 1. インストール先のマシンのローカル管理者権限。
 
-1. デバイスの[セキュリティ モジュールを作成](quickstart-create-security-twin.md)します。
+1. デバイスの [Defender-IoT-micro-agent を作成します](quickstart-create-security-twin.md)。
 
 ## <a name="installation"></a>インストール
 
@@ -119,7 +107,7 @@ Get-Help の例: ```Get-Help .\InstallSecurityAgent.ps1```
 
 1. 次の PowerShell またはコマンド ラインを実行して、エージェントを再起動します。
 
-    **Powershell**
+    **PowerShell**
 
      ```
      Restart-Service "ASC IoT Agent"

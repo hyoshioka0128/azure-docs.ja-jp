@@ -2,18 +2,17 @@
 title: SAP ワークロードのための Azure Virtual Machines DBMS デプロイの考慮事項 | Microsoft Docs
 description: SAP ワークロードのための Azure Virtual Machines DBMS デプロイの考慮事項
 author: msjuergent
-ms.service: virtual-machines
-ms.subservice: workloads
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.date: 09/20/2020
 ms.author: juergent
 ms.reviewer: cynthn
-ms.openlocfilehash: 5638b60b60f3952ab40fa000e457082f4748ac35
-ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
+ms.openlocfilehash: e978baa556f1bc1cfea0ccd5abbbf92dc77b1622
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "96484347"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102504016"
 ---
 # <a name="considerations-for-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>SAP ワークロードのための Azure Virtual Machines DBMS デプロイの考慮事項
 [1114181]:https://launchpad.support.sap.com/#/notes/1114181
@@ -266,7 +265,7 @@ Microsoft Azure Storage は、ベース VHD を、OS のほか、接続されて
 
 
 ## <a name="vm-node-resiliency"></a>VM ノードの回復性
-Azure では、VM に複数の異なる SLA を提供しています。 詳細については、「[Virtual Machines の SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/)」の最新リリースを参照してください。 DBMS レイヤーは、SAP システムにおける可用性にとって非常に重要であるため、可用性セット、Availability Zones、およびメンテナンス イベントについて理解しておく必要があります。 これらの概念の詳細については、「[Azure での Windows 仮想マシンの可用性の管理](../../manage-availability.md)」および [Azure での Linux 仮想マシンの可用性の管理](../../manage-availability.md)に関するページを参照してください。
+Azure では、VM に複数の異なる SLA を提供しています。 詳細については、「[Virtual Machines の SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/)」の最新リリースを参照してください。 DBMS レイヤーは、SAP システムにおける可用性にとって非常に重要であるため、可用性セット、Availability Zones、およびメンテナンス イベントについて理解しておく必要があります。 これらの概念の詳細については、「[Azure での Windows 仮想マシンの可用性の管理](../../availability.md)」および [Azure での Linux 仮想マシンの可用性の管理](../../availability.md)に関するページを参照してください。
 
 SAP ワークロードを含む運用 DBMS シナリオの最小推奨事項は、次のとおりです。
 

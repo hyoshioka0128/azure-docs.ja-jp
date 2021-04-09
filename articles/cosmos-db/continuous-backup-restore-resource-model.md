@@ -4,15 +4,15 @@ description: この記事では、Azure Cosmos DB のポイントインタイム
 author: kanshiG
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 02/01/2021
+ms.date: 02/22/2021
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: 91421b66af441ed2c7e9c8b66c16ee83f489b03e
-ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
+ms.openlocfilehash: edf60a5c454d34a2424ef7981b02952ffbfd3bde
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99538506"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102097229"
 ---
 # <a name="resource-model-for-the-azure-cosmos-db-point-in-time-restore-feature-preview"></a>Azure Cosmos DB のポイントインタイム リストア機能 (プレビュー) のリソース モデル
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -30,14 +30,14 @@ ms.locfileid: "99538506"
 
 ### <a name="backuppolicy"></a>BackupPolicy
 
-"backuppolicy" パラメーターの下にある "Type" という名前のアカウント レベルのバックアップ ポリシーの新しいプロパティにより、継続的バックアップとポイントインタイム リストア機能が有効になります。 このモードは **継続的バックアップ** と呼ばれます。 パブリック プレビューでは、このモードはアカウントの作成時にのみ設定できます。 これを有効にすると、このアカウント内で作成されたすべてのコンテナーとデータベースで、継続的バックアップとポイントインタイム リストア機能が既定で有効になります。
+`backuppolicy` パラメーターの下にある `Type` という名前のアカウント レベルのバックアップ ポリシーの新しいプロパティにより、継続的バックアップとポイントインタイム リストア機能が有効になります。 このモードは **継続的バックアップ** と呼ばれます。 パブリック プレビューでは、このモードはアカウントの作成時にのみ設定できます。 これを有効にすると、このアカウント内で作成されたすべてのコンテナーとデータベースで、継続的バックアップとポイントインタイム リストア機能が既定で有効になります。
 
 > [!NOTE]
 > 現時点では、ポイントインタイム リストア機能はパブリック プレビュー段階であり、MongoDB および SQL アカウント用の Azure Cosmos DB API で使用できます。 継続的モードでアカウントを作成した後は、それを定期的モードに切り替えることはできません。
 
 ### <a name="createmode"></a>CreateMode
 
-このプロパティは、アカウントがどのように作成されたかを示します。 指定できる値は "Default" と "Restore" です。 復元を実行するには、この値を "Restore" に設定し、 `RestoreParameters` プロパティに適切な値を指定します。
+このプロパティは、アカウントがどのように作成されたかを示します。 指定できる値は *Default* と *Restore* です。 復元を実行するには、この値を *Restore* に設定し、`RestoreParameters` プロパティに適切な値を指定します。
 
 ### <a name="restoreparameters"></a>RestoreParameters
 
@@ -45,7 +45,7 @@ ms.locfileid: "99538506"
 
 |プロパティ名 |説明  |
 |---------|---------|
-|restoreMode  | 復元モードは "PointInTime" にする必要があります。 |
+|restoreMode  | 復元モードは *PointInTime* にする必要があります。 |
 |restoreSource   |  復元が開始されるソース アカウントの instanceId。       |
 |restoreTimestampInUtc  | アカウントの復元先となる特定の時点 (UTC)。 |
 |databasesToRestore   | 復元するデータベースとコンテナーを指定する `DatabaseRestoreSource` オブジェクトの一覧。 この値が空の場合は、アカウント全体が復元されます。   |
@@ -128,7 +128,7 @@ ms.locfileid: "99538506"
 | restorableLocations: creationTime | リージョン アカウントが作成された時刻 (UTC)。|
 | restorableLocations: deletionTime | リージョン アカウントが削除された時刻 (UTC)。 リージョン アカウントがライブ状態の場合、この値は空になります。|
 
-復元可能なすべてのアカウントの一覧を取得するには、[復元可能なデータベース アカウント - 一覧](restorable-database-accounts-list.md)または[復元可能なデータベース アカウント - 場所別の一覧](restorable-database-accounts-list-by-location.md)に関する記事を参照してください。
+復元可能なすべてのアカウントの一覧を取得するには、[復元可能なデータベース アカウント - 一覧](/rest/api/cosmos-db-resource-provider/2020-06-01-preview/restorabledatabaseaccounts/list)または[復元可能なデータベース アカウント - 場所別の一覧](/rest/api/cosmos-db-resource-provider/2020-06-01-preview/restorabledatabaseaccounts/listbylocation)に関する記事を参照してください。
 
 ### <a name="restorable-sql-database"></a>復元可能な SQL データベース
 
@@ -142,7 +142,7 @@ ms.locfileid: "99538506"
 | operationType | このデータベース イベントの操作の種類。 設定できる値は次のとおりです。<br/><ul><li>Create: データベース作成イベント</li><li>Delete: データベース削除イベント</li><li>Replace: データベース変更イベント</li><li>SystemOperation: システムによってトリガーされたデータベース変更イベント。 このイベントはユーザーによって開始されません</li></ul> |
 | database |イベント発生時の SQL データベースのプロパティ|
 
-すべてのデータベース変更の一覧を取得するには、[復元可能な SQL データベース - 一覧](restorable-sql-databases-list.md)に関する記事を参照してください。
+すべてのデータベース変更の一覧を取得するには、[復元可能な SQL データベース - 一覧](/rest/api/cosmos-db-resource-provider/2020-06-01-preview/restorablesqldatabases/list)に関する記事を参照してください。
 
 ### <a name="restorable-sql-container"></a>復元可能な SQL コンテナー
 
@@ -156,7 +156,7 @@ ms.locfileid: "99538506"
 | operationType | このコンテナー イベントの操作の種類。 設定できる値は次のとおりです。 <br/><ul><li>Create: コンテナー作成イベント</li><li>Delete: コンテナー削除イベント</li><li>Replace: コンテナー変更イベント</li><li>SystemOperation: システムによってトリガーされたコンテナー変更イベント。 このイベントはユーザーによって開始されません</li></ul> |
 | container | イベント発生時の SQL コンテナーのプロパティ。|
 
-同じデータベースにあるすべてのコンテナーの変更の一覧を取得するには、[復元可能な SQL コンテナー - 一覧](restorable-sql-containers-list.md)に関する記事を参照してください。
+同じデータベースにあるすべてのコンテナーの変更の一覧を取得するには、[復元可能な SQL コンテナー - 一覧](/rest/api/cosmos-db-resource-provider/2020-06-01-preview/restorablesqlcontainers/list)に関する記事を参照してください。
 
 ### <a name="restorable-sql-resources"></a>復元可能な SQL リソース
 
@@ -167,7 +167,7 @@ ms.locfileid: "99538506"
 | databaseName  | SQL データベースの名前。
 | collectionNames   | このデータベースにある SQL コンテナーの一覧。|
 
-指定のタイムスタンプと場所にあるアカウントに存在する SQL データベースとコンテナーの組み合わせの一覧を取得するには、[復元可能な SQL リソース - 一覧](restorable-sql-resources-list.md)に関する記事を参照してください。
+指定のタイムスタンプと場所にあるアカウントに存在する SQL データベースとコンテナーの組み合わせの一覧を取得するには、[復元可能な SQL リソース - 一覧](/rest/api/cosmos-db-resource-provider/2020-06-01-preview/restorablesqlresources/list)に関する記事を参照してください。
 
 ### <a name="restorable-mongodb-database"></a>復元可能な MongoDB データベース
 
@@ -180,7 +180,7 @@ ms.locfileid: "99538506"
 | ownerResourceId   | MongoDB データベースのリソース ID。 |
 | operationType |   このデータベース イベントの操作の種類。 設定できる値は次のとおりです。<br/><ul><li> Create: データベース作成イベント</li><li> Delete: データベース削除イベント</li><li> Replace: データベース変更イベント</li><li> SystemOperation: システムによってトリガーされたデータベース変更イベント。 このイベントはユーザーによって開始されません </li></ul> |
 
-すべてのデータベース変更の一覧を取得するには、[復元可能な Mongodb データベース - 一覧](restorable-mongodb-databases-list.md)に関する記事を参照してください。
+すべてのデータベース変更の一覧を取得するには、[復元可能な Mongodb データベース - 一覧](/rest/api/cosmos-db-resource-provider/2020-06-01-preview/restorablemongodbdatabases/list)に関する記事を参照してください。
 
 ### <a name="restorable-mongodb-collection"></a>復元可能な MongoDB コレクション
 
@@ -193,7 +193,7 @@ ms.locfileid: "99538506"
 | ownerResourceId   | MongoDB コレクションのリソース ID。 |
 | operationType |このコレクション イベントの操作の種類。 設定できる値は次のとおりです。<br/><ul><li>Create: コレクション作成イベント</li><li>Delete: コレクション削除イベント</li><li>Replace: コレクション変更イベント</li><li>SystemOperation: システムによってトリガーされたコレクション変更イベント。 このイベントはユーザーによって開始されません</li></ul> |
 
-同じデータベースにあるすべてのコンテナーの変更の一覧を取得するには、[復元可能な Mongodb コレクション - 一覧](restorable-mongodb-collections-list.md)に関する記事を参照してください。
+同じデータベースにあるすべてのコンテナーの変更の一覧を取得するには、[復元可能な Mongodb コレクション - 一覧](/rest/api/cosmos-db-resource-provider/2020-06-01-preview/restorablemongodbcollections/list)に関する記事を参照してください。
 
 ### <a name="restorable-mongodb-resources"></a>復元可能な MongoDB リソース
 
@@ -204,7 +204,7 @@ ms.locfileid: "99538506"
 | databaseName  |MongoDB データベースの名前。 |
 | collectionNames | このデータベースにある MongoDB コレクションの一覧。 |
 
-指定のタイムスタンプと場所にあるアカウントに存在するすべての MongoDB データベースとコレクションの組み合わせの一覧を取得するには、[復元可能な Mongodb リソース - 一覧](restorable-mongodb-resources-list.md)に関する記事を参照してください。
+指定のタイムスタンプと場所にあるアカウントに存在するすべての MongoDB データベースとコレクションの組み合わせの一覧を取得するには、[復元可能な Mongodb リソース - 一覧](/rest/api/cosmos-db-resource-provider/2020-06-01-preview/restorablemongodbresources/list)に関する記事を参照してください。
 
 ## <a name="next-steps"></a>次のステップ
 

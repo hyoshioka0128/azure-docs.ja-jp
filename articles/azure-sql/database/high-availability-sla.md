@@ -12,12 +12,12 @@ author: emlisa
 ms.author: emlisa
 ms.reviewer: sstein, emlisa
 ms.date: 10/28/2020
-ms.openlocfilehash: 53b6b4f5d783029cb53de71fe3c47b8cb2d26968
-ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.openlocfilehash: 1c210eab0332d01fc6514edc790d729172ed2174
+ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99593420"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104889061"
 ---
 # <a name="high-availability-for-azure-sql-database-and-sql-managed-instance"></a>Azure SQL Database と SQL Managed Instance の高可用性
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -52,7 +52,7 @@ General Purpose サービス レベルのゾーン冗長構成では、[Azure Av
 
 General Purpose レベル向けのゾーン冗長構成には、次の 2 つの層があります。  
 
-- ステートフル データ レイヤー。データベース ファイル (.mdf/.ldf) は ZRS PFS (ゾーン冗長[ストレージ Premium ファイル共有](../../storage/files/storage-how-to-create-premium-fileshare.md)) に保存されています。 [ゾーン冗長ストレージ](../../storage/common/storage-redundancy.md)を使用すると、データとログ ファイルは、物理的に分離された 3 つの Azure 可用性ゾーン間で同期的にコピーされます。
+- ステートフル データ レイヤー。データベース ファイル (.mdf/.ldf) は ZRS PFS (ゾーン冗長[ストレージ Premium ファイル共有](../../storage/files/storage-how-to-create-file-share.md)) に保存されています。 [ゾーン冗長ストレージ](../../storage/common/storage-redundancy.md)を使用すると、データとログ ファイルは、物理的に分離された 3 つの Azure 可用性ゾーン間で同期的にコピーされます。
 - ステートレス コンピューティング レイヤー。sqlservr.exe プロセスを実行しており、一時的なデータとキャッシュ データのみ (TempDB、アタッチされた SSD 上のモデル データベース、およびメモリ内のプラン キャッシュ、バッファー プール、列ストア プールなど) が含まれています。 このステートレス ノードは、sqlservr.exe の初期化、ノードの正常性の制御、および他のノードへのフェールオーバーを必要に応じて実行する Azure Service Fabric によって操作されます。 ゾーン冗長 General Purpose データベースの場合、予備の容量があるノードをフェールオーバーのために他の Availability Zones ですぐに使用できます。
 
 ゾーン冗長による General Purpose サービス レベル向けの高可用性アーキテクチャを、次の図に示します。
@@ -64,6 +64,9 @@ General Purpose レベル向けのゾーン冗長構成には、次の 2 つの�
 
 > [!NOTE]
 > 80 個の仮想コアを備えたサイズの General Purpose データベースでは、ゾーン冗長構成によるパフォーマンスの低下が発生する可能性があります。 また、バックアップ、復元、データベース コピー、Geo DR のリレーションシップの設定などの操作では、1 TB を超える単一データベースのパフォーマンスが低下する可能性があります。 
+> 
+> [!NOTE]
+> プレビューは予約インスタンスの対象になりません
 
 ## <a name="premium-and-business-critical-service-tier-locally-redundant-availability"></a>Premium および Business Critical サービス レベルのローカル冗長可用性
 
@@ -123,7 +126,7 @@ Hyperscale の高可用性の詳細については、「[ハイパースケー�
 |デプロイの種類|PowerShell|REST API| Azure CLI|
 |:---|:---|:---|:---|
 |データベース|[Invoke-AzSqlDatabaseFailover](/powershell/module/az.sql/invoke-azsqldatabasefailover)|[データベース フェールオーバー](/rest/api/sql/databases/failover)|Azure CLI から REST API 呼び出しを呼び出すために [az rest](/cli/azure/reference-index#az-rest) が使用できます|
-|エラスティック プール|[Invoke-AzSqlElasticPoolFailover](/powershell/module/az.sql/invoke-azsqlelasticpoolfailover)|[エラスティック プールのフェールオーバー](/rest/api/sql/elasticpools(failover)/failover/)|Azure CLI から REST API 呼び出しを呼び出すために [az rest](/cli/azure/reference-index#az-rest) が使用できます|
+|エラスティック プール|[Invoke-AzSqlElasticPoolFailover](/powershell/module/az.sql/invoke-azsqlelasticpoolfailover)|[エラスティック プールのフェールオーバー](/rest/api/sql/elasticpools/failover)|Azure CLI から REST API 呼び出しを呼び出すために [az rest](/cli/azure/reference-index#az-rest) が使用できます|
 |マネージド インスタンス|[Invoke-AzSqlInstanceFailover](/powershell/module/az.sql/Invoke-AzSqlInstanceFailover/)|[マネージド インスタンス - フェールオーバー](/rest/api/sql/managed%20instances%20-%20failover/failover)|[az sql mi failover](/cli/azure/sql/mi/#az-sql-mi-failover)|
 
 > [!IMPORTANT]

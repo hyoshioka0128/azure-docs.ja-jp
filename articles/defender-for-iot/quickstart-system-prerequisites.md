@@ -1,18 +1,14 @@
 ---
 title: システムの前提条件
 description: Azure Defender for IoT を実行するために必要なシステムの前提条件を確認します。
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 11/30/2020
 ms.topic: quickstart
-ms.service: azure
-ms.openlocfilehash: 8ee3afcae69ca6c082452e590eb8370bcc122af4
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: 78d5948554ae531c4b2f77d67bb916d5290db943
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97844465"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104780941"
 ---
 # <a name="system-prerequisites"></a>システムの前提条件
 この記事では、Azure Defender for IoT を実行するためのシステムの前提条件を示します。
@@ -23,7 +19,7 @@ ms.locfileid: "97844465"
 - NTA センサー用のハードウェア アプライアンス。
 - Azure サブスクリプションの共同作成者ロール。 これは、コミットされたデバイスと Azure Sentinel への接続を定義するために、オンボード時にのみ必要です。
 - Azure IoT Hub (Free または Standard レベル) の **共同作成者** ロール (クラウド接続管理用)。 **Azure Defender for IoT** 機能が有効になっていることを確認します。
-- デバイスレベルのセキュリティ モジュールのサポートについては、Defender for IoT エージェントによってサポートされるデバイスとプラットフォームの数が増えています。 [サポートされているプラットフォーム](how-to-deploy-agent.md)の一覧を参照してください。
+- デバイスレベルの Defender-IoT-micro-agent のサポートについては、Defender for IoT エージェントによってサポートされるデバイスとプラットフォームの数が増えています。 [サポートされているプラットフォーム](how-to-deploy-agent.md)の一覧を参照してください。
 
 ## <a name="supported-service-regions"></a>サポートされているサービス リージョン
 

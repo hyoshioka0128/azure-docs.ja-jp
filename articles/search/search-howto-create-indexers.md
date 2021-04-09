@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/28/2021
-ms.openlocfilehash: 5fc47599d09e5be60311dbda15868d87de4d91d2
-ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
+ms.openlocfilehash: 596eca0d73ffc4a590fae9b346658a2c31a1d68c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99509386"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "101676475"
 ---
 # <a name="creating-indexers-in-azure-cognitive-search"></a>Azure Cognitive Search のインデクサーの作成
 
@@ -143,6 +143,20 @@ Cognitive Search の場合、一般公開される機能は Azure SDK によっ�
 + [Azure Table Storage](search-howto-indexing-azure-tables.md)
 + [Azure Cosmos DB](search-howto-index-cosmosdb.md)
 
+## <a name="change-detection-and-indexer-state"></a>変更の検出とインデクサーの状態
+
+インデクサーは、基になるデータの変更を検出し、各インデクサー実行で新規ドキュメントまたは更新されたドキュメントのみを処理できます。 たとえば、インデクサーの状態によって `0/0` ドキュメントの処理が成功したことが示された場合は、インデクサーが基になるデータ ソースで新規の、または変更された行または BLOB を見つけられなかったことを意味します。
+
+インデクサーが変更の検出をサポートする方法は、データ ソースによって異なります。
+
++ Azure Blob Storage、Azure Table Storage、および Azure Data Lake Storage Gen2 は、各 BLOB または行の更新を日付と時刻でスタンプします。 さまざまなインデクサーは、この情報を使用して、インデックス内で更新するドキュメントを決定します。 組み込みの変更検出とは、インデクサーが新規ドキュメントや更新されたドキュメントを認識でき、追加の構成を行う必要がないことを意味します。
+
++ Azure SQL と Cosmos DB では、プラットフォームに変更検出機能が備わっています。 データ ソース定義で変更検出ポリシーを指定できます。
+
+大規模なインデックス作成の読み込みの場合、インデクサーは、内部の "高基準値" を使用して、最後に処理したドキュメントを追跡します。 このマーカーは API では公開されませんが、内部的には、インデクサーは停止した場所を追跡します。 スケジュールされた実行またはオンデマンド呼び出しによってインデックス作成が再開されると、インデクサーは、中断された場所を取得できるように高基準値を参照します。
+
+高基準値をクリアしてインデックスをすべて再作成する必要がある場合は、[インデクサーのリセット](/rest/api/searchservice/reset-indexer)を行います。 より選択的にインデックスを再作成する場合は、[スキルのリセット](/rest/api/searchservice/preview-api/reset-skills)または[ドキュメントのリセット](/rest/api/searchservice/preview-api/reset-documents)を行います。 リセット API を使用して内部状態をクリアできます。また、[インクリメンタル エンリッチメント](search-howto-incremental-index.md)を有効にした場合は、キャッシュもフラッシュできます。 各リセット オプションの背景情報と比較の詳細については、[インデクサー、スキル、ドキュメントの実行またはリセット](search-howto-run-reset-indexers.md)に関するページを参照してください。
+
 ## <a name="know-your-data"></a>データについて理解する
 
 インデクサーで想定されている表形式の行セットでは、各行がインデックスでの完全または部分的な検索ドキュメントになります。 多くの場合、行と結果の検索ドキュメントの間には一対一の対応があり、行セット内のすべてのフィールドが各ドキュメントに完全に設定されます。 ただし、たとえば複数のインデクサーや方法を使用してインデックスを作成する場合など、インデクサーを使用してドキュメントの一部だけを生成することもできます。 
@@ -151,7 +165,7 @@ Cognitive Search の場合、一般公開される機能は Azure SDK によっ�
 
 フラット化されたデータに加えて、検索可能なデータのみをプルすることが重要です。 検索可能なデータは英数字です。 Cognitive Search を使用すると、どのような形式でもバイナリ データを検索することはできませんが、画像ファイル内のテキスト記述を抽出して推測し ([AI エンリッチメント](cognitive-search-concept-intro.md)に関するページを参照)、検索可能なコンテンツを作成することはできます。 同様に、AI エンリッチメントを使用すると、大規模なテキストを自然言語モデルで分析して、構造や関連情報を発見し、検索ドキュメントに追加できる新しいコンテンツを生成することができます。
 
-インデクサーによってデータの問題が解決されない場合は、他の形式のデータ クレンジングや操作が必要になることがあります。 詳細については、お使いの [Azure データベース製品](/azure/?product=databases)の製品ドキュメントを参照してください。
+インデクサーによってデータの問題が解決されない場合は、他の形式のデータ クレンジングや操作が必要になることがあります。 詳細については、お使いの [Azure データベース製品](../index.yml?product=databases)の製品ドキュメントを参照してください。
 
 ## <a name="know-your-index"></a>インデックスについて理解する
 

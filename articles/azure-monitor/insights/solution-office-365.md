@@ -1,17 +1,16 @@
 ---
 title: Azure の Office 365 管理ソリューション
 description: この記事では、Azure での Office 365 ソリューションの構成と使用について詳しく説明します。  Azure Monitor で作成された Office 365 レコードの詳細な説明が含まれています。
-ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/30/2020
-ms.openlocfilehash: bde1c503d0aaaff1afcee67a26245d5021c43bb4
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: be5409f7130f0e79b77871a2657609e8ddb76e36
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99807752"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "101728639"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Azure の Office 365 管理ソリューション (プレビュー)
 
@@ -118,7 +117,7 @@ Office 365 管理ソリューションでは、Azure Monitor で Office 365 環�
 - 管理者のアクティビティを監視し、構成変更や高権限操作を追跡します。
 - 不必要なユーザーの行動を検出および調査します。これは、組織のニーズに合わせてカスタマイズできます。
 - 監査とコンプライアンスを実証します。 たとえば、機密ファイルに対するファイル アクセス操作を監視でき、これは監査とコンプライアンスのプロセスに役立ちます。
-- 組織の Office 365 アクティビティ データに対して[ログ クエリ](../log-query/log-query-overview.md)を使用し、運用上のトラブルシューティングを実行します。
+- 組織の Office 365 アクティビティ データに対して[ログ クエリ](../logs/log-query-overview.md)を使用し、運用上のトラブルシューティングを実行します。
 
 
 ## <a name="uninstall"></a>アンインストール
@@ -473,6 +472,6 @@ Azure Monitor の Log Analytics ワークスペースで Office 365 ソリュー
 
 ## <a name="next-steps"></a>次のステップ
 
-* [Azure Monitor でログ クエリ](../log-query/log-query-overview.md)を使用して、詳細な更新プログラムのデータを表示します。
-* [独自のダッシュボードを作成](../learn/tutorial-logs-dashboards.md)して、お気に入りの Office 365 検索クエリを表示します。
-* [アラートを作成](../platform/alerts-overview.md)して、重要な Office 365 アクティビティがあらかじめ通知されるようにします。  
+* [Azure Monitor でログ クエリ](../logs/log-query-overview.md)を使用して、詳細な更新プログラムのデータを表示します。
+* [独自のダッシュボードを作成](../visualize/tutorial-logs-dashboards.md)して、お気に入りの Office 365 検索クエリを表示します。
+* [アラートを作成](../alerts/alerts-overview.md)して、重要な Office 365 アクティビティがあらかじめ通知されるようにします。  

@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/26/2019
+ms.date: 03/03/2021
 ms.author: duau
-ms.openlocfilehash: 17ccfeb709c530a868a75ecd87052618aaea4846
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: 0d4f1ed6bab5775c44b2a745e1edc5fc07e0c06d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98184579"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102215461"
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Traffic Manager についてよく寄せられる質問 (FAQ)
 
@@ -306,7 +306,7 @@ Traffic View の価格は、出力の作成に使用されたデータ ポイン
 
 Azure Web Apps では、複数のサブスクリプションからのエンドポイントを使用できません。 Azure Web Apps の要件により、Web Apps で使用するカスタム ドメイン名を使用できるのは 1 つのサブスクリプション内に限定されます。 複数のサブスクリプション内で同一のドメイン名を持つ Web Apps を使用することはできません。
 
-他の種類のエンドポイントの場合は、複数のサブスクリプションのエンドポイントで Traffic Manager を使用できます。 Resource Manager では、任意のサブスクリプションのエンドポイントを Traffic Manager に追加できますが、Traffic Manager プロファイルを構成するユーザーにそのエンドポイント対する読み取りアクセス権が必要となります。 これらのアクセス許可は、[Azure ロール ベースのアクセス制御 (Azure RBAC)](../role-based-access-control/role-assignments-portal.md) を使用して付与できます。 他のサブスクリプションのエンドポイントは、[Azure PowerShell](/powershell/module/az.trafficmanager/new-aztrafficmanagerendpoint) または [Azure CLI](/cli/azure/network/traffic-manager/endpoint?view=azure-cli-latest#az-network-traffic-manager-endpoint-create) を使用して追加できます。
+他の種類のエンドポイントの場合は、複数のサブスクリプションのエンドポイントで Traffic Manager を使用できます。 Resource Manager では、任意のサブスクリプションのエンドポイントを Traffic Manager に追加できますが、Traffic Manager プロファイルを構成するユーザーにそのエンドポイント対する読み取りアクセス権が必要となります。 これらのアクセス許可は、[Azure ロール ベースのアクセス制御 (Azure RBAC)](../role-based-access-control/role-assignments-portal.md) を使用して付与できます。 他のサブスクリプションのエンドポイントは、[Azure PowerShell](/powershell/module/az.trafficmanager/new-aztrafficmanagerendpoint) または [Azure CLI](/cli/azure/network/traffic-manager/endpoint#az-network-traffic-manager-endpoint-create) を使用して追加できます。
 
 ### <a name="can-i-use-traffic-manager-with-cloud-service-staging-slots"></a>クラウド サービス 'Staging' スロットで Traffic Manager を使用できますか。
 
@@ -347,7 +347,7 @@ Azure Resource Manager では、すべてのリソース グループに対し�
 
 各エンドポイントとプロファイル全体の現在の監視状態は、Azure ポータルに表示されます。 この情報は、Traffic Manager の [REST API](/rest/api/trafficmanager/)、[PowerShell コマンドレット](/powershell/module/az.trafficmanager)、および [クロスプラットフォームの Azure CLI](/cli/azure/install-classic-cli) を使用して取得することもできます。
 
-Azure Monitor を使用すると、エンドポイントの正常性を追跡して、視覚的に表現することもできます。 Azure Monitor の使用方法について詳しくは、[Azure Monitoring のドキュメント](../azure-monitor/platform/data-platform.md)をご覧ください。
+Azure Monitor を使用すると、エンドポイントの正常性を追跡して、視覚的に表現することもできます。 Azure Monitor の使用方法について詳しくは、[Azure Monitoring のドキュメント](../azure-monitor/data-platform.md)をご覧ください。
 
 ### <a name="can-i-monitor-https-endpoints"></a>HTTPS エンドポイントを監視できますか。
 
@@ -447,7 +447,18 @@ Traffic Manager では、エンドポイントに対して開始される HTTP(S
 
 ### <a name="what-are-the-ip-addresses-from-which-the-health-checks-originate"></a>正常性チェックはどの IP アドレスから発信されますか。
 
-[ここ](https://azuretrafficmanagerdata.blob.core.windows.net/probes/azure/probe-ip-ranges.json)をクリックして表示される JSON ファイルに、Traffic Manager の正常性チェックの実行元になる IP アドレスが列挙されています。 JSON ファイルに列挙されている IP を確認し、正常性状態をチェックするためにこれらの IP アドレスからの受信接続がエンドポイントで確実に許可されるように設定してください。
+[ここ](../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api-public-preview)をクリックして、Traffic Manager の正常性チェックの実行元になる IP アドレスの一覧を取得する方法を確認します。 REST API、Azure CLI、または Azure PowerShell を使用して、最新の一覧を取得できます。 一覧に示されている IP を確認し、正常性状態をチェックするためにこれらの IP アドレスからの受信接続がエンドポイントで確実に許可されるように設定してください。
+
+Azure PowerShell の使用例:
+
+```azurepowershell-interactive
+$serviceTags = Get-AzNetworkServiceTag -Location eastus
+$result = $serviceTags.Values | Where-Object { $_.Name -eq "AzureTrafficManager" }
+$result.Properties.AddressPrefixes
+```
+
+> [!NOTE]
+> パブリック IP アドレスは、予告なしに変更される可能性があります。 必ず Service Tag Discovery API またはダウンロード可能な JSON ファイルを使用して、最新の情報を取得してください。
 
 ### <a name="how-many-health-checks-to-my-endpoint-can-i-expect-from-traffic-manager"></a>Traffic Manager では、エンドポイントに対して正常性チェックが何回実行されるのですか。
 
@@ -458,7 +469,7 @@ Traffic Manager では、エンドポイントに対して開始される HTTP(S
 
 ### <a name="how-can-i-get-notified-if-one-of-my-endpoints-goes-down"></a>いずれかのエンドポイントがダウンした場合に通知を受ける方法を教えてください。
 
-Traffic Manager が提供しているメトリックの 1 つにプロファイルのエンドポイントの正常性状態があります。 プロファイル内のすべてのエンドポイントの集計として (たとえば、お使いのエンドポイントの 75% が正常) またはエンドポイントごとに正常性を確認できます。 Traffic Manager のメトリックは Azure Monitor で公開されていて、[アラート機能](../azure-monitor/platform/alerts-metric.md)を使用して、お使いのエンドポイントの正常性状態に変化があった場合に通知を受けることができます。 詳細については、「[Traffic Manager のメトリックとアラート](traffic-manager-metrics-alerts.md)」を参照してください。  
+Traffic Manager が提供しているメトリックの 1 つにプロファイルのエンドポイントの正常性状態があります。 プロファイル内のすべてのエンドポイントの集計として (たとえば、お使いのエンドポイントの 75% が正常) またはエンドポイントごとに正常性を確認できます。 Traffic Manager のメトリックは Azure Monitor で公開されていて、[アラート機能](../azure-monitor/alerts/alerts-metric.md)を使用して、お使いのエンドポイントの正常性状態に変化があった場合に通知を受けることができます。 詳細については、「[Traffic Manager のメトリックとアラート](traffic-manager-metrics-alerts.md)」を参照してください。  
 
 ## <a name="traffic-manager-nested-profiles"></a>Traffic Manager の入れ子になったプロファイル
 

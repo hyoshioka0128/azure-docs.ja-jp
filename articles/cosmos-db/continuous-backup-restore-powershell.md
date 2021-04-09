@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 02/01/2021
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: 73652f821abfa4a092e4a61ffe2be9e7262a2f10
-ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
+ms.openlocfilehash: 5261075a82eaefd91cbedd2dd2fe08cb1e0a20b4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99538546"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "100381836"
 ---
 # <a name="configure-and-manage-continuous-backup-and-point-in-time-restore-preview---using-azure-powershell"></a>継続的バックアップとポイントインタイム リストア (プレビュー) を構成および管理する - Azure PowerShell を使用
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -22,7 +22,7 @@ ms.locfileid: "99538546"
 > このプレビュー バージョンはサービス レベル アグリーメントなしで提供されています。運用環境のワークロードに使用することはお勧めできません。 特定の機能はサポート対象ではなく、機能が制限されることがあります。
 > 詳しくは、[Microsoft Azure プレビューの追加使用条件](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)に関するページをご覧ください。
 
-Azure Cosmos DB のポイントインタイム リストア機能 (プレビュー) は、コンテナー内の誤った変更からの復旧、削除されたアカウント、データベース、またはコンテナーの復元、任意のリージョン (バックアップが存在していた場所) への復元に役立ちます。 継続的バックアップ モードにより、過去 30 日以内の任意の時点に復元できます。
+Azure Cosmos DB の特定の時点への復元機能 (プレビュー) を使用すると、コンテナー内で誤って行われた変更から回復し、削除されたアカウント、データベース、またはコンテナーの復元や、任意のリージョン (バックアップが存在していた場所) への復元が行えます。 継続的バックアップ モードにより、過去 30 日以内の任意の時点に復元できます。
 
 この記事では、Azure PowerShell を使用して、継続的バックアップとデータの復元を行うアカウントをプロビジョニングする方法について説明します。
 
@@ -50,7 +50,7 @@ Azure Cosmos DB のポイントインタイム リストア機能 (プレビュ�
 
 継続的バックアップを行うアカウントをプロビジョニングするには、通常のプロビジョニング コマンドに引数 `-BackupPolicyType Continuous` を追加します。
 
-次のコマンドレットは、"myrg" リソース グループの下で "米国西部" リージョンに継続的バックアップ ポリシーを作成している単一リージョン書き込みアカウント `pitracct2` の例です。
+次のコマンドレットは、*myrg* リソース グループで "*米国西部*" リージョンに作成された継続的バックアップ ポリシーを持つ単一リージョン書き込みアカウント `pitracct2` の例です。
 
 ```azurepowershell
 
@@ -65,7 +65,7 @@ New-AzCosmosDBAccount `
 
 ## <a name="provision-a-mongodb-api-account-with-continuous-backup"></a><a id="provision-mongodb-api"></a>継続的バックアップを行う MongoDB API アカウントをプロビジョニングする
 
-次のコマンドレットは、"myrg" リソース グループで "米国西部" リージョンに作成された継続的バックアップ アカウント "pitracct2" の例です。
+次のコマンドレットは、*myrg* リソース グループで "*米国西部*" リージョンに作成された継続的バックアップ アカウント *pitracct2* の例です。
 
 ```azurepowershell
 
@@ -162,13 +162,13 @@ Restore-AzCosmosDBAccount `
   },
 ```
 
-アカウントの "CreationTime" や "DeletionTime" と同じように、リージョンにも "CreationTime" や "DeletionTime" があります。 これらの時間によって、適切なリージョンとそのリージョンに復元するときの有効な時間範囲を選択できます。
+アカウントの `CreationTime` または `DeletionTime` と同様に、リージョンにも `CreationTime` または `DeletionTime` があります。 これらの時間によって、適切なリージョンとそのリージョンに復元するときの有効な時間範囲を選択できます。
 
 **ライブ データベース アカウント内のすべてのバージョンの SQL データベースを一覧表示する**
 
 データベースのすべてのバージョンを一覧表示すると、データベースの実際の存在時間が不明なシナリオで、正しいデータベースを選択できます。
 
-データベースのすべてのバージョンを一覧表示するには、次の PowerShell コマンドを実行します。 このコマンドは、ライブ アカウントでのみ機能します。 "DatabaseAccountInstanceId" と "LocationName" パラメーターは、`Get-AzCosmosDBRestorableDatabaseAccount` コマンドレットの応答内の "name" と "location" プロパティから取得します。 "DatabaseAccountInstanceId" 属性では、復元するソース データベース アカウントの "instanceId" プロパティが参照されます。
+データベースのすべてのバージョンを一覧表示するには、次の PowerShell コマンドを実行します。 このコマンドは、ライブ アカウントでのみ機能します。 `DatabaseAccountInstanceId` と `LocationName` パラメーターは、`Get-AzCosmosDBRestorableDatabaseAccount` コマンドレットの応答の `name` および `location` プロパティから取得されます。 `DatabaseAccountInstanceId` 属性は、復元されるソース データベース アカウントの `instanceId` プロパティを参照します。
 
 
 ```azurepowershell
@@ -181,7 +181,7 @@ Get-AzCosmosdbSqlRestorableDatabase `
 
 **ライブ データベース アカウント内のデータベースの SQL コンテナーのすべてのバージョンを一覧表示する**
 
-SQL コンテナーのすべてのバージョンを一覧表示するには、次のコマンドを使用します。 このコマンドは、ライブ アカウントでのみ機能します。 "DatabaseRid" パラメーターは、復元するデータベースの "ResourceId" です。 これは、`Get-AzCosmosdbSqlRestorableDatabase` コマンドレットの応答で検出される "ownerResourceid" 属性の値です。 この応答には、このデータベース内のすべてのコンテナーで実行された操作の一覧も含まれています。
+SQL コンテナーのすべてのバージョンを一覧表示するには、次のコマンドを使用します。 このコマンドは、ライブ アカウントでのみ機能します。 `DatabaseRid` パラメーターは復元するデータベースの `ResourceId` です。 これは、`Get-AzCosmosdbSqlRestorableDatabase` コマンドレットの応答で検出される `ownerResourceid` 属性の値です。 この応答には、このデータベース内のすべてのコンテナーで実行された操作の一覧も含まれています。
 
 ```azurepowershell
 
@@ -208,7 +208,7 @@ Get-AzCosmosdbSqlRestorableResource `
 
 ## <a name="enumerate-restorable-resources-for-mongodb"></a><a id="enumerate-mongodb-api"></a>MongoDB の復元可能なリソースを列挙する
 
-下に示す列挙コマンドは、さまざまなタイムスタンプで復元に使用できるリソースの検出に役立ちます。 また、復元可能なアカウント、データベース、コンテナー リソースでの主要イベントのフィードも示されます。 これらのコマンドは、ライブ アカウントでのみ機能し、SQL API コマンドに似ていますが、コマンド名には "sql" ではなく "MongoDB" を使用します。
+下に示す列挙コマンドは、さまざまなタイムスタンプで復元に使用できるリソースの検出に役立ちます。 また、復元可能なアカウント、データベース、コンテナー リソースでの主要イベントのフィードも示されます。 これらのコマンドは、ライブ アカウントでのみ機能し、SQL API コマンドに似ていますが、コマンド名には `sql` ではなく `MongoDB` を使用します。
 
 **ライブ データベース アカウント内の MongoDB データベースのすべてのバージョンを一覧表示する**
 
@@ -230,7 +230,7 @@ Get-AzCosmosdbMongoDBRestorableCollection `
   -LocationName "West US"
 ```
 
-**特定のタイムスタンプとリージョンで復元に使用できる MongoDB データベース アカウントのすべてのリソースを一覧表示する**
+**指定されたタイムスタンプとリージョンで復元に使用可能な mongodb データベース アカウントのすべてのリソースを一覧表示する**
 
 ```azurepowershell
 
@@ -245,4 +245,4 @@ Get-AzCosmosdbMongoDBRestorableResource `
 
 * [Azure CLI](continuous-backup-restore-command-line.md)、[Resource Manager](continuous-backup-restore-template.md)、または [Azure portal](continuous-backup-restore-portal.md) を使用して、継続的バックアップを構成および管理する
 * [継続的バックアップ モードのリソース モデル](continuous-backup-restore-resource-model.md)
-* 継続的バックアップ モードでデータを復元するために必要な[アクセス許可を管理](continuous-backup-restore-permissions.md)する
+* 継続的バックアップ モードでデータを復元するために必要な[アクセス許可を管理](continuous-backup-restore-permissions.md)します。

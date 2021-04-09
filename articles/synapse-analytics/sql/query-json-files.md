@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 8dc07a3aa954a74ba594eb99da1ea3ee59610c9b
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 5fcf688bbe8a5be2fc10b70950990b7b6ca71df8
+ms.sourcegitcommit: 94c3c1be6bc17403adbb2bab6bbaf4a717a66009
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98678323"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103225593"
 ---
 # <a name="query-json-files-using-serverless-sql-pool-in-azure-synapse-analytics"></a>Azure Synapse Analytics でサーバーレス SQL プールを使用して JSON ファイルのクエリを実行する
 
@@ -126,12 +126,13 @@ from openrowset(
 
 ### <a name="query-json-files-using-json_value"></a>JSON_VALUE を使用して JSON ファイルに対してクエリを実行する
 
-以下のクエリは、[JSON_VALUE](/sql/t-sql/functions/json-value-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) を使用して、JSON ドキュメントからスカラー値 (タイトル、発行元) を取得する方法を示しています。
+以下のクエリは、[JSON_VALUE](/sql/t-sql/functions/json-value-transact-sql?view=azure-sqldw-latest&preserve-view=true) を使用して、JSON ドキュメントからスカラー値 (`date_rep`、`countries_and_territories`、`cases`) を取得する方法を示しています。
 
 ```sql
 select
     JSON_VALUE(doc, '$.date_rep') AS date_reported,
     JSON_VALUE(doc, '$.countries_and_territories') AS country,
+    CAST(JSON_VALUE(doc, '$.deaths') AS INT) as fatal,
     JSON_VALUE(doc, '$.cases') as cases,
     doc
 from openrowset(
@@ -144,9 +145,11 @@ from openrowset(
 order by JSON_VALUE(doc, '$.geo_id') desc
 ```
 
+JSON ドキュメントから JSON プロパティを抽出したら、列の別名を定義し、必要に応じてテキスト値を何らかの型にキャストすることができます。
+
 ### <a name="query-json-files-using-openjson"></a>OPENJSON を使用して JSON ファイルに対してクエリを実行する
 
-次のクエリでは [OPENJSON](/sql/t-sql/functions/openjson-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) を使用します。 これは、セルビアで報告された COVID の統計情報を取得します。
+次のクエリでは [OPENJSON](/sql/t-sql/functions/openjson-transact-sql?view=azure-sqldw-latest&preserve-view=true) を使用します。 これは、セルビアで報告された COVID の統計情報を取得します。
 
 ```sql
 select
@@ -166,6 +169,10 @@ from openrowset(
 where country = 'Serbia'
 order by country, date_rep desc;
 ```
+結果は、`JSON_VALUE` 関数を使用して返された結果と機能的に同じです。 場合によっては、`OPENJSON` は `JSON_VALUE` に比べて利点があります。
+- `WITH` 句では、すべてのプロパティに対して列の別名と型を明示的に設定できます。 `SELECT` リスト内のすべての列に `CAST` 関数を配置する必要はありません。
+- 大量のプロパティを返す場合は、`OPENJSON` の方が処理が速い場合があります。 1 つまたは 2 つのプロパティだけを返す場合、`OPENJSON` 関数はオーバーヘッドとなる可能性があります。
+- 各ドキュメントから配列を解析し、親の行と結合する必要がある場合は、`OPENJSON` 関数を使用する必要があります。
 
 ## <a name="next-steps"></a>次のステップ
 

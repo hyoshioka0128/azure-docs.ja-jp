@@ -1,14 +1,14 @@
 ---
-title: Azure Lighthouse による大規模な Azure Migrate プロジェクトの管理
+title: 大規模な Azure Migrate プロジェクトの管理
 description: 委任された顧客リソースで Azure Migrate を効果的に使用する方法を学習します。
 ms.date: 01/29/2021
 ms.topic: how-to
-ms.openlocfilehash: 8e8ba21881ea5dad36ae640632b6307cd9a22a73
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: ed2fc8ae1a3b87a3b2501c3a390fe7a1822003e4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99093610"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "100393583"
 ---
 # <a name="manage-azure-migrate-projects-at-scale-with-azure-lighthouse"></a>Azure Lighthouse による大規模な Azure Migrate プロジェクトの管理
 

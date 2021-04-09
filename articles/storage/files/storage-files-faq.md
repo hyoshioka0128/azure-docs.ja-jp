@@ -7,12 +7,12 @@ ms.date: 02/23/2020
 ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
-ms.openlocfilehash: 266862a1691387caf1b1ffa9a47b0e60e84970d8
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 81cabe8dea178b2988039640065cb0eabc3287af
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96492133"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103470895"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Azure Files に関してよく寄せられる質問 (FAQ)
 [Azure Files](storage-files-introduction.md) では、業界標準の[サーバー メッセージ ブロック (SMB) プロトコル](/windows/win32/fileio/microsoft-smb-protocol-and-cifs-protocol-overview)および[ネットワーク ファイル システム (NFS) プロトコル](https://en.wikipedia.org/wiki/Network_File_System) (プレビュー) を介してアクセスできる、フル マネージドのファイル共有がクラウド上で提供されます。 Azure ファイル共有は、クラウドまたはオンプレミスにデプロイされた Windows、Linux、macOS で同時にマウントできます。 また、データが使用される場所に近接した Windows Server マシンに、Azure File Sync で Azure ファイル共有をキャッシュすることによって、高速なアクセスを実現することもできます。
@@ -73,7 +73,7 @@ ms.locfileid: "96492133"
 
 * <a id="tier-options"></a>
   **Azure Files では、どのストレージ層がサポートされていますか。**  
-    Azure Files は、Premium と Standard という 2 つのストレージ層をサポートしています。 Standard ファイル共有は汎用 (GPv1 または GPv2) ストレージ アカウントで作成され、Premium ファイル共有は FileStorage ストレージ アカウントで作成されます。 [Standard ファイル共有](storage-how-to-create-file-share.md)と[Premium ファイル共有](storage-how-to-create-premium-fileshare.md)の作成方法を参照してください。 
+    Azure Files は、Premium と Standard という 2 つのストレージ層をサポートしています。 Standard ファイル共有は汎用 (GPv1 または GPv2) ストレージ アカウントで作成され、Premium ファイル共有は FileStorage ストレージ アカウントで作成されます。 [Standard ファイル共有](storage-how-to-create-file-share.md)と[Premium ファイル共有](./storage-how-to-create-file-share.md)の作成方法を参照してください。 
     
     > [!NOTE]
     > BLOB ストレージ アカウントまたは *Premium* 汎用 (GPv1 または GPv2) ストレージ アカウントから Azure ファイル共有を作成することはできません。 Standard Azure ファイル共有は *Standard* 汎用アカウントでのみ作成し、Premium Azure ファイル共有は FileStorage ストレージ アカウントでのみ作成する必要があります。 *Premium* 汎用 (GPv1 および GPv2) ストレージ アカウントは、Premium ページ BLOB 専用です。 
@@ -119,26 +119,38 @@ ms.locfileid: "96492133"
 
 * <a id="sizeondisk-versus-size"></a>
   **ファイルの "*ディスク上のサイズ*" プロパティが、Azure File Sync を使用した後の "*サイズ*" プロパティと一致しないのはどうしてですか。**  
-  「[クラウドの階層化について](storage-sync-cloud-tiering.md#sizeondisk-versus-size)」を参照してください。
+  「[Azure File Sync のクラウドを使った階層化について](storage-sync-cloud-tiering-overview.md#tiered-vs-locally-cached-file-behavior)」を参照してください。
 
 * <a id="is-my-file-tiered"></a>
   **ファイルが階層化されているかどうかは、どうやって判断できますか。**  
-  「[クラウドの階層化について](storage-sync-cloud-tiering.md#is-my-file-tiered)」を参照してください。
+  [Azure File Sync の階層化ファイルの管理方法](storage-sync-how-to-manage-tiered-files.md#how-to-check-if-your-files-are-being-tiered)に関する記事を参照してください。
 
 * <a id="afs-recall-file"></a>**使用したいファイルが階層化されています。ローカルで使用するためにこのファイルをディスクに再現するには、どうすればよいですか。**  
-  「[クラウドの階層化について](storage-sync-cloud-tiering.md#afs-recall-file)」を参照してください。
+  [Azure File Sync の階層化ファイルの管理方法](storage-sync-how-to-manage-tiered-files.md#how-to-recall-a-tiered-file-to-disk)に関する記事を参照してください。
 
 * <a id="afs-force-tiering"></a>
   **ファイルまたはディレクトリを強制的に階層化するには、どうすればよいですか。**  
-  「[クラウドの階層化について](storage-sync-cloud-tiering.md#afs-force-tiering)」を参照してください。
+  [Azure File Sync の階層化ファイルの管理方法](storage-sync-how-to-manage-tiered-files.md#how-to-force-a-file-or-directory-to-be-tiered)に関する記事を参照してください。
 
 * <a id="afs-effective-vfs"></a>
   **ボリューム上に複数のサーバー エンドポイントがある場合、*ボリュームの空き領域* はどのように解釈されますか。**  
-  「[クラウドの階層化について](storage-sync-cloud-tiering.md#afs-effective-vfs)」を参照してください。
+  [Azure File Sync のクラウドを使った階層化ポリシーの選択](storage-sync-cloud-tiering-policy.md#multiple-server-endpoints-on-a-local-volume)に関するページを参照してください。
   
 * <a id="afs-tiered-files-tiering-disabled"></a>
   **クラウドを使った階層化を無効にしたのですが、サーバー エンドポイントの場所に階層化されたファイルがあるのはなぜでしょうか。**  
-  「[クラウドの階層化について](storage-sync-cloud-tiering.md#afs-tiering-disabled)」を参照してください。
+    階層化されたファイルがサーバー エンドポイントの場所に存在する理由には、次の 2 つがあります。
+
+    - 新しいサーバー エンドポイントを既存の同期グループに追加するときに、最初に名前空間を呼び戻すオプション、または初期ダウンロード モードで名前空間のみを呼び戻すオプションを選択すると、ファイルはローカルにダウンロードされるまで階層化された状態で表示されます。 これを回避するには、初期ダウンロード モードで、階層化されたファイルを回避するオプションを選択します。 手動でファイルを呼び戻すには、[Invoke-StorageSyncFileRecall](storage-sync-how-to-manage-tiered-files.md#how-to-recall-a-tiered-file-to-disk) コマンドレットを使用します。
+
+    - サーバー エンドポイントでクラウドの階層化が有効になっていて、その後無効になった場合、ファイルはアクセスされるまで階層化されたままになります。
+
+* <a id="afs-tiered-files-not-showing-thumbnails"></a>
+  **エクスプローラーで階層化されたファイルのサムネイルやプレビューが表示されないのはなぜですか。**  
+    階層化されたファイルの場合、サムネイルとプレビューはサーバー エンドポイントでは表示されません。 Windows のサムネイル キャッシュ機能は、オフライン属性が設定されたファイルの読み取りを意図的にスキップするため、これは予期される動作です。 クラウドを使った階層化が有効になっている場合、階層化されたファイルを読み取ると、それらがダウンロード (呼び戻し) されます。
+
+    この動作は Azure File Sync 固有ではありません。Windows エクスプローラーでは、オフライン属性セットが設定されているすべてのファイルに対して "グレーの X" が表示されます。 この X のアイコンは、SMB 経由でファイルにアクセスすると表示されます。 この動作の詳しい説明については、[https://blogs.msdn.microsoft.com/oldnewthing/20170503-00/?p=96105](https://blogs.msdn.microsoft.com/oldnewthing/20170503-00/?p=96105) を参照してください。
+
+    階層化されたファイルの管理方法については、[階層化されたファイルの管理方法](storage-sync-how-to-manage-tiered-files.md)に関する記事を参照してください。
 
 * <a id="afs-files-excluded"></a>
   **Azure File Sync によって自動的に除外されるのは、どのファイルまたはフォルダーですか。**  
@@ -296,6 +308,18 @@ ms.locfileid: "96492133"
 **ディレクトリまたはファイルの Windows ACL の取得、設定、コピーをサポートする REST API はありますか?**
 
     はい、[2019-07-07](/rest/api/storageservices/versioning-for-the-azure-storage-services#version-2019-07-07) (またはそれ以降) の REST API を使用する場合は、ディレクトリまたはファイルの NTFS ACL を取得、設定、またはコピーする REST API がサポートされます。 また、Microsoft では、次の REST ベースのツールでの永続的な Windows ACL をサポートしています:[AzCopy v10.4+](https://github.com/Azure/azure-storage-azcopy/releases)。
+
+* <a id="ad-support-rest-apis"></a>
+**Azure AD または AD 資格情報を使用して新しい接続を初期化する前に、ストレージ アカウント キーを使用してキャッシュされた資格情報を削除し、既存の SMB 接続を削除する方法**
+
+    次の 2 段階のプロセスに従って、ストレージ アカウント キーに関連付けられている保存済みの資格情報を削除し、SMB 接続を削除できます。 
+    1. Windows Cmd.exe で次のコマンドレットを実行して、資格情報を削除します。 資格情報が見つからない場合は、保存されていないという意味なので、この手順は省略できます。
+    
+       cmdkey /delete:Domain:target=storage-account-name.file.core.windows.net
+    
+    2. ファイル共有への既存の接続を削除します。 マウント パスは、マウントされたドライブ文字または storage-account-name.file.core.windows.net パスのいずれかとして指定できます。
+    
+       net use <drive-letter/share-path> /delete
 
 ## <a name="network-file-system"></a>ネットワーク ファイル システム
 

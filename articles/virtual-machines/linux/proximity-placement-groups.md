@@ -1,18 +1,19 @@
 ---
-title: 近接通信配置グループを使用する
+title: Azure CLI を使用して近接通信配置グループを作成する
 description: Azure で仮想マシンに対して近接通信配置グループを作成して使用する方法について説明します。
 author: cynthn
 ms.service: virtual-machines
+ms.subservice: proximity-placement-groups
 ms.topic: how-to
 ms.workload: infrastructure-services
-ms.date: 10/30/2019
+ms.date: 3/8/2021
 ms.author: cynthn
-ms.openlocfilehash: a264996c3a2d907e58746c0fcf3eb8b2aefe43ba
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: a347c9284608340811f9c2388df26129baeb8837
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98878869"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102505649"
 ---
 # <a name="deploy-vms-to-proximity-placement-groups-using-azure-cli"></a>Azure CLI を使用して近接通信配置グループに VM をデプロイする
 

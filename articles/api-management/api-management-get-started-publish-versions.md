@@ -5,14 +5,14 @@ author: vladvino
 ms.service: api-management
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 10/30/2020
+ms.date: 02/10/2021
 ms.author: apimpm
-ms.openlocfilehash: 4a107b4cc0dbf0b0845211ca64691fb0e792a47c
-ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
+ms.openlocfilehash: dc3d3b4658bd9a26363b6d41377d448059e30c0f
+ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97679088"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104889673"
 ---
 # <a name="tutorial-publish-multiple-versions-of-your-api"></a>チュートリアル:API の複数のバージョンを発行する 
 
@@ -33,7 +33,7 @@ API のすべての呼び出し元がまったく同じバージョンを使用�
 ## <a name="prerequisites"></a>前提条件
 
 + [Azure API Management の用語](api-management-terminology.md)について学習します。
-+ [Azure API Management インスタンスの作成](get-started-create-service-instance.md)に関するクイック スタートを完了します。
++ 次のクイック スタートを完了すること:[Azure API Management インスタンスを作成する](get-started-create-service-instance.md)。
 + また、「[Import and publish your first API (最初の API をインポートして発行する)](import-and-publish.md)」のチュートリアルも完了します。
 
 ## <a name="add-a-new-version"></a>新しいバージョンを追加する
@@ -87,6 +87,32 @@ Azure API Management では、"*バージョン管理スキーム*" (**パス、
 1. **[選択]** をクリックします。
 
 :::image type="content" source="media/api-management-getstarted-publish-versions/08-add-multiple-versions-03-add-version-product.png" alt-text="バージョンを製品に追加する":::
+
+## <a name="use-version-sets"></a>バージョン セットを使用する
+
+複数のバージョンを作成すると、Azure portal によって "*バージョン セット*" が作成されます。これは、1 つの論理的な API の一連のバージョンを表します。 複数のバージョンがある API の名前を選択します。 Azure portal に、その **バージョン セット** が表示されます。 バージョン セットの **名前** と **説明** はカスタマイズできます。
+
+Azure CLI を使用すると、バージョン セットを直接操作できます。
+
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+
+すべてのバージョン セットを表示するには、[az apim api versionset list](/cli/azure/apim/api/versionset#az_apim_api_versionset_list) コマンドを実行します。
+
+```azurecli
+az apim api versionset list --resource-group apim-hello-word-resource-group \
+    --service-name apim-hello-world --output table
+```
+
+Azure portal によってバージョン セットが自動的に作成されると、英数字の名前が割り当てられ、一覧の **[名前]** 列に表示されます。 他の Azure CLI コマンドでこの名前を使用します。
+
+バージョン セットの詳細を表示するには、[az apim api versionset show](/cli/azure/apim/api/versionset#az_apim_api_versionset_show) コマンドを実行します。
+
+```azurecli
+az apim api versionset show --resource-group apim-hello-word-resource-group \
+    --service-name apim-hello-world --version-set-id 00000000000000000000000
+```
+
+バージョン セットの詳細については、「[Azure API Management のバージョン](api-management-versions.md#how-versions-are-represented)」をご覧ください。
 
 ## <a name="browse-the-developer-portal-to-see-the-version"></a>開発者ポータルを参照してバージョンを確認する
 

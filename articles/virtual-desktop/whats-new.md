@@ -3,17 +3,17 @@ title: Windows Virtual Desktop の最新情報 - Azure
 description: Windows Virtual Desktop の新機能と製品の更新プログラム。
 author: Heidilohr
 ms.topic: overview
-ms.date: 01/29/2021
+ms.date: 02/23/2021
 ms.author: helohr
 ms.reviewer: thhickli; darank
 manager: lizross
 ms.custom: references_regions
-ms.openlocfilehash: f34a5b957f64558b468c456686f0f86172630135
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: c0b4ad17c5aefe29a313b9eaf75fc87ce4d88720
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99258797"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102499885"
 ---
 # <a name="whats-new-in-windows-virtual-desktop"></a>Windows Virtual Desktop の最新情報
 
@@ -38,7 +38,27 @@ Windows Virtual Desktop およびリモート デスクトップ サービスに
 
 ## <a name="fslogix-updates"></a>FSLogix の更新
 
-FSLogix に対して行われた最新の更新については、FSLogix の最新情報に関するページを参照してください。 Check out <bpt id="p1">[</bpt>What's new at FSLogix<ept id="p1">](/fslogix/whats-new)</ept>.
+FSLogix に対して行われた最新の更新については、 [FSLogix の最新情報](/fslogix/whats-new)に関するページを参照してください。
+
+## <a name="february-2021"></a>2021 年 2 月
+
+2021 年 2 月における変更点は次のとおりです。
+
+### <a name="portal-experience"></a>ポータルでの操作
+
+Azure portal のエクスペリエンスを次のように改善しました。
+
+- セッション ホスト グリッド タブにおけるホストの一括ドレイン モード。 
+- MSIX アプリ アタッチのパブリック プレビューが利用できるようになりました。
+- 固定ホスト プールの概要情報がダーク モードに対応しました。
+
+### <a name="eu-metadata-storage-now-in-public-preview"></a>EU メタデータ ストレージがパブリック プレビューに
+
+Windows Virtual Desktop におけるサービス メタデータのストレージ オプションとして、ヨーロッパ (EU) 地域のパブリック プレビューがホストされるようになりました。 ユーザーは、サービス オブジェクトを作成するときに、西ヨーロッパと北ヨーロッパのどちらかを選択できます。 ホスト プールに使用されるサービス オブジェクトとメタデータは、各リージョンに関連付けられている Azure 地域に格納されます。 詳細については、[パブリック プレビューを告知するブログ記事](https://techcommunity.microsoft.com/t5/windows-virtual-desktop/announcing-public-preview-of-windows-virtual-desktop-service/m-p/2143939)を参照してください。
+
+### <a name="teams-on-windows-virtual-desktop-plugin-updates"></a>Teams on Windows Virtual Desktop プラグインの更新
+
+Windows Virtual Desktop プラグインのビデオ通話の品質を改良しました。画面が突然暗くなるなど、ビデオとサウンドが同期されていないなど、最も多くレポートされる問題が解消されています。 これらの改良により、アクティブ スピーカーの切り替えによって単一動画ビューのパフォーマンスが向上します。 また、特殊な特性を備えたハードウェア デバイスが Teams で利用できない問題も修正済みです。
 
 ## <a name="january-2021"></a>2021 年 1 月
 
@@ -56,7 +76,7 @@ Azure Resource Manager の入れ子になったテンプレートで、networkSe
 
 FSLogix バージョン 2009 HF_01 (2.9.7654.46150) をリリースし、以前のリリース (2.9.7621.30127) にあった問題を解決しました。 以前のバージョンの使用は中止し、できるだけ早く FSLogix を更新するようお勧めします。
 
-詳細については、リリース ノートで [FSLogix の最新情報](/fslogix/whats-new.md#fslogix-apps-2009-hf_01-29765446150)を参照してください。
+詳細については、リリース ノートで [FSLogix の最新情報](/fslogix/whats-new#fslogix-apps-2009-hf_01-29765446150)を参照してください。
 
 ### <a name="azure-portal-experience-improvements"></a>Azure portal エクスペリエンスの改善
 
@@ -228,7 +248,7 @@ Windows Virtual Desktop Azure portal が更新されました。
 
 - Azure Advisor が Windows Virtual Desktop の一部になりました。 Azure portal から Windows Virtual Desktop にアクセスすると、お使いの Windows Virtual Desktop 環境を最適化するための推奨事項を確認できます。 [Azure Advisor](azure-advisor.md) の詳細情報。
 
-- Azure CLI で Windows Virtual Desktop (`az desktopvirtualization`) がサポートされ、Windows Virtual Desktop のデプロイを自動化できるようになりました。 拡張コマンドの一覧については、「[desktopvirtualization](/cli/azure/ext/desktopvirtualization/?view=azure-cli-latest&preserve-view=true)」をご覧ください。
+- Azure CLI で Windows Virtual Desktop (`az desktopvirtualization`) がサポートされ、Windows Virtual Desktop のデプロイを自動化できるようになりました。 拡張コマンドの一覧については、「[desktopvirtualization](/cli/azure/ext/desktopvirtualization/)」をご覧ください。
 
 - Windows Virtual Desktop の Azure Resource Manager インターフェイスとの完全な互換性が確保されるようにデプロイ テンプレートが更新されました。 このテンプレートは [GitHub](https://github.com/Azure/RDS-Templates/tree/master/ARM-wvd-templates) で見つけることができます。
 
@@ -299,7 +319,7 @@ Windows Virtual Desktop が Azure Resource Manager と統合されました。 �
 
 このモジュールをインストールするには、「[Windows Virtual Desktop 用 PowerShell モジュールを設定する](powershell-module.md)」の手順に従ってください。
 
-また、使用可能なコマンドの一覧は、[AzWvd PowerShell リファレンス](/powershell/module/az.desktopvirtualization/?view=azps-4.2.0#desktopvirtualization&preserve-view=true)で確認できます。
+また、使用可能なコマンドの一覧は、[AzWvd PowerShell リファレンス](/powershell/module/az.desktopvirtualization/#desktopvirtualization)で確認できます。
 
 新機能の詳細については、[こちらのブログ記事](https://techcommunity.microsoft.com/t5/itops-talk-blog/windows-virtual-desktop-spring-update-enters-public-preview/ba-p/1340245)を確認してください。
 

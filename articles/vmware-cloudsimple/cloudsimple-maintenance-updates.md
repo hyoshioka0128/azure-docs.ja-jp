@@ -4,17 +4,17 @@ titleSuffix: Azure VMware Solution by CloudSimple
 description: 計画したメンテナンスと更新のための CloudSimple サービス プロセスについて説明します
 author: sharaths-cs
 ms.author: dikamath
-ms.date: 08/20/2019
+ms.date: 03/09/2021
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 826fae1123b355a4143118b53ba649f0939acaf7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1cbd708f6c1f5159655099d5d72900ab0c608147
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77025029"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102522310"
 ---
 # <a name="cloudsimple-maintenance-and-updates"></a>CloudSimple のメンテナンスと更新
 
@@ -100,9 +100,9 @@ CloudSimple は、プライベート クラウド内の VMware ソフトウェ�
 * **[Updates]** (更新)。 VMware スタック コンポーネントのマイナー バージョン変更。
 * **アップグレード**。 VMware スタック コンポーネントのメジャー バージョン変更。
 
-CloudSimple は、VMware から重要なセキュリティ パッチが利用できるようになると、直後にそれをテストします。 SLA に基づき、CloudSimple では 1 週間以内にプライベート クラウド環境にセキュリティ パッチがロールアウトされます。
+CloudSimple は、VMware から重要なセキュリティ パッチが利用できるようになると、直後にそれをテストします。 
 
-CloudSimple は、VMware ソフトウェア コンポーネントに四半期ごとのメンテナンス更新を提供します。 新しいメジャー バージョンの VMware ソフトウェアが利用できるようになると、CloudSimple は顧客と連携し、アップグレードに適したメンテナンス期間を調整します。
+次回スケジュールされている更新プログラムがデプロイされるまでは、対応する修正プログラムをインストールする代わりに、ドキュメントに記載されている VMware の回避策が実装されます。 
 
 ## <a name="next-steps"></a>次のステップ
 

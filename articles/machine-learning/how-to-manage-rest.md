@@ -10,18 +10,18 @@ ms.subservice: core
 ms.date: 01/31/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 09a0580adbe6d51e4de811a57ee17203d65a2435
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: b61050db29ff960b7923f2211b2f09649608b37e
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93316905"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "102520321"
 ---
 # <a name="create-run-and-delete-azure-ml-resources-using-rest"></a>REST を使用して Azure ML リソースの作成、実行、削除を行う
 
 
 
-Azure ML リソースを管理するには、いくつかの方法があります。 [ポータル](https://portal.azure.com/)、[コマンド ライン インターフェイス](/cli/azure/?preserve-view=true&view=azure-cli-latest)、または [Python SDK](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py) を使用できます。 または、REST API を選択することもできます。 REST API では、標準的な方法で HTTP 動詞を使用して、リソースの作成、取得、更新、および削除を行います。 REST API は、HTTP 要求を作成できるすべての言語またはツールで使用できます。 REST は構造がわかりやすいため、多くの場合、スクリプト環境や MLOps オートメーションに適しています。 
+Azure ML リソースを管理するには、いくつかの方法があります。 [ポータル](https://portal.azure.com/)、[コマンド ライン インターフェイス](/cli/azure)、または [Python SDK](/python/api/overview/azure/ml/intro) を使用できます。 または、REST API を選択することもできます。 REST API では、標準的な方法で HTTP 動詞を使用して、リソースの作成、取得、更新、および削除を行います。 REST API は、HTTP 要求を作成できるすべての言語またはツールで使用できます。 REST は構造がわかりやすいため、多くの場合、スクリプト環境や MLOps オートメーションに適しています。 
 
 この記事では、次のことについて説明します。
 
@@ -35,10 +35,10 @@ Azure ML リソースを管理するには、いくつかの方法がありま�
 
 ## <a name="prerequisites"></a>前提条件
 
-- 管理者権限を持っている **Azure サブスクリプション** 。 そのようなサブスクリプションがない場合は、[無料または有料の個人用サブスクリプション](https://aka.ms/AMLFree)をお試しください
+- 管理者権限を持っている **Azure サブスクリプション**。 そのようなサブスクリプションがない場合は、[無料または有料の個人用サブスクリプション](https://aka.ms/AMLFree)をお試しください
 - [Azure Machine Learning ワークスペース](./how-to-manage-workspace.md)
 - 管理 REST 要求でサービス プリンシパル認証が使用されている。 ワークスペースにサービス プリンシパルを作成するには、[Azure Machine Learning のリソースとワークフローの認証を設定する方法](./how-to-setup-authentication.md#service-principal-authentication)に関する記事に記載されている手順に従ってください
-- **curl** ユーティリティ。 **curl** プログラムは、 [Linux 用 Windows サブシステム](/windows/wsl/install-win10)または任意の UNIX ディストリビューションで使用できます。 PowerShell では、 **curl** は **Invoke-WebRequest** の別名であり、`curl -d "key=val" -X POST uri` は `Invoke-WebRequest -Body "key=val" -Method POST -Uri uri` になります。 
+- **curl** ユーティリティ。 **curl** プログラムは、[Linux 用 Windows サブシステム](/windows/wsl/install-win10)または任意の UNIX ディストリビューションで使用できます。 PowerShell では、**curl** は **Invoke-WebRequest** の別名であり、`curl -d "key=val" -X POST uri` は `Invoke-WebRequest -Body "key=val" -Method POST -Uri uri` になります。 
 
 ## <a name="retrieve-a-service-principal-authentication-token"></a>サービス プリンシパルの認証トークンを取得する
 
@@ -79,7 +79,7 @@ curl -X POST https://login.microsoftonline.com/{your-tenant-id}/oauth2/token \
 このトークンは、後続のすべての管理要求を認証するために使用するので、メモしておいてください。 これを行うには、すべての要求に Authorization ヘッダーを設定します。
 
 ```bash
-curl -h "Authentication: Bearer {your-access-token}" ...more args...
+curl -h "Authorization:Bearer {your-access-token}" ...more args...
 ```
 
 この値は文字列 "Bearer " で始まり、トークンを追加する前に 1 つのスペースを入れることに注意してください。
@@ -271,7 +271,7 @@ curl -X PUT \
 
 ### <a name="create-an-experimental-run"></a>実験用の実行を作成する
 
-実験内の実行を開始するには、トレーニング スクリプトと関連ファイル、および実行の定義 JSON ファイルを含む zip フォルダーが必要です。 この zip フォルダーのルート ディレクトリには、Python エントリ ファイルを含める必要があります。 例として、次のような単純な Python プログラムを、 **train.zip** というフォルダーに zip 圧縮します。
+実験内の実行を開始するには、トレーニング スクリプトと関連ファイル、および実行の定義 JSON ファイルを含む zip フォルダーが必要です。 この zip フォルダーのルート ディレクトリには、Python エントリ ファイルを含める必要があります。 例として、次のような単純な Python プログラムを、**train.zip** というフォルダーに zip 圧縮します。
 
 ```python
 # hello.py

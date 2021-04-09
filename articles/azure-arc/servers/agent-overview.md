@@ -1,14 +1,14 @@
 ---
-title: Connected Machine Windows エージェントの概要
+title: Connected Machine エージェントの概要
 description: この記事では、ハイブリッド環境でホストされている仮想マシンの監視をサポートする、使用可能な Azure Arc 対応サーバー エージェントの詳細な概要を提供します。
-ms.date: 02/03/2021
+ms.date: 03/15/2021
 ms.topic: conceptual
-ms.openlocfilehash: ed77ee00510fedaf42226081fcf11c4753b8a63a
-ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
+ms.openlocfilehash: 1fd863ccacc7768401e35254a98c7bb494b3d358
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/06/2021
-ms.locfileid: "99626310"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103470491"
 ---
 # <a name="overview-of-azure-arc-enabled-servers-agent"></a>Azure Arc 対応サーバー エージェントの概要
 
@@ -33,6 +33,30 @@ Azure Connected Machine エージェント パッケージには、まとめて�
 
 * 拡張エージェントは VM 拡張機能 (インストール、アンインストール、アップグレードなど) を管理します。 拡張機能は Azure からダウンロードされ、Windows では `%SystemDrive%\%ProgramFiles%\AzureConnectedMachineAgent\ExtensionService\downloads` フォルダー、Linux の場合は `/opt/GC_Ext/downloads` にコピーされます。 Windows では、拡張機能はパス `%SystemDrive%\Packages\Plugins\<extension>` にインストールされます。Linux では、拡張機能は `/var/lib/waagent/<extension>` にインストールされます。
 
+## <a name="instance-metadata"></a>インスタンス メタデータ
+
+接続されたコンピューターに関するメタデータ情報は、Connected Machine エージェントが Arc 対応サーバーに登録された後に収集されます。 具体的な内容は次のとおりです。
+
+* オペレーティング システムの名前、種類、バージョン
+* コンピューター名
+* コンピューターの完全修飾ドメイン名 (FQDN)
+* Connected Machine エージェントのバージョン
+* Active Directory と DNS の完全修飾ドメイン名 (FQDN)
+* UUID (BIOS ID)
+* Connected Machine エージェントのハートビート
+* Connected Machine エージェントのバージョン
+* マネージド ID の公開キー
+* ポリシーのコンプライアンスの状態と詳細 (Azure Policy のゲスト構成ポリシーを使用している場合)
+
+次のメタデータ情報は、Azure からエージェントによって要求されます。
+
+* リソースの場所 (リージョン)
+* 仮想マシン ID
+* Tags
+* Azure Active Directory マネージド ID 証明書
+* ゲスト構成ポリシーの割り当て
+* 拡張要求 - インストール、更新、削除。
+
 ## <a name="download-agents"></a>エージェントをダウンロードする
 
 Windows および Linux 用の Azure Connected Machine エージェント パッケージは、以下の場所からダウンロードできます。
@@ -44,6 +68,10 @@ Windows および Linux 用の Azure Connected Machine エージェント パッ
 Windows および Linux 用の Azure Connected Machine エージェントは、要件に応じて、手動または自動で最新リリースにアップグレードできます。 詳細については、[このページ](manage-agent.md)を参照してください。
 
 ## <a name="prerequisites"></a>前提条件
+
+### <a name="supported-environments"></a>サポートされている環境
+
+Arc 対応サーバーでは、Azure の *外部* でホストされている任意の物理サーバーと仮想マシンに対する Connected Machine エージェントのインストールがサポートされています。 これには、VMware、Azure Stack HCI、その他のクラウド環境などのプラットフォームで実行されている仮想マシンが含まれます。 Arc 対応サーバーは Azure VM として既にモデル化されているため、Azure 内で実行されている仮想マシン、または Azure Stack Hub または Azure Stack Edge 上で実行されている仮想マシンへの、エージェントのインストールはサポートされていません。
 
 ### <a name="supported-operating-systems"></a>サポートされるオペレーティング システム
 
@@ -62,9 +90,11 @@ Azure Connected Machine エージェントでは、次のバージョンの Wind
 
 ### <a name="required-permissions"></a>必要なアクセス許可
 
-* マシンをオンボードするには、**Azure Connected Machine のオンボード** ロールのメンバーである必要があります。
+* マシンをオンボードするには、リソース グループの **Azure Connected Machine のオンボード** または[共同作成者](../../role-based-access-control/built-in-roles.md#contributor) ロールのメンバーである必要があります。
 
-* マシンの読み取り、変更、および削除を行うには、**Azure Connected Machine のリソース管理者** ロールのメンバーである必要があります。 
+* マシンの読み取り、変更、および削除を行うには、リソース グループの **Azure Connected Machine のリソース管理者** ロールのメンバーである必要があります。
+
+* **スクリプトの生成** メソッドを使用するときにドロップダウン リストからリソース グループを選択するには、少なくともそのリソース グループの[閲覧者](../../role-based-access-control/built-in-roles.md#reader)ロールのメンバーである必要があります。
 
 ### <a name="azure-subscription-and-service-limits"></a>Azure サブスクリプションとサービスの制限
 
@@ -86,7 +116,7 @@ Azure に転送中のデータのセキュリティを確保するには、ト�
 Linux と Windows 用の Connected Machine エージェントは、TCP ポート 443 を介して安全に Azure Arc へのアウトバウンド通信を行います。 インターネット経由で通信するためにマシンがファイアウォールやプロキシ サーバーを介して接続されている場合は、次を確認してネットワーク構成の要件を把握してください。
 
 > [!NOTE]
-> Arc 対応サーバーでは、Connected Machine エージェントのプロキシとして [Log Analytics ゲートウェイ](../../azure-monitor/platform/gateway.md)を使用することはサポートされていません。
+> Arc 対応サーバーでは、Connected Machine エージェントのプロキシとして [Log Analytics ゲートウェイ](../../azure-monitor/agents/gateway.md)を使用することはサポートされていません。
 >
 
 アウトバウンド接続がファイアウォールやプロキシ サーバーによって制限されている場合は、以下に示す URL がブロックされていないことを確認してください。 エージェントがサービスと通信するために必要な IP 範囲またはドメイン名のみを許可する場合は、次のサービス タグおよび URL へのアクセスを許可する必要があります。

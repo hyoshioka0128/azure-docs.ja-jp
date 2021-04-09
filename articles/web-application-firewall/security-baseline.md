@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/13/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: b50ab8cae91aab56be287f517fa6e6a0b25db8e1
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: ae6b4f38772cd6c6755ece78fb5c47834a616204
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99807871"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102211636"
 ---
 # <a name="azure-security-baseline-for-azure-web-application-firewall"></a>Azure Web Application Firewall の Azure セキュリティ ベースライン
 
@@ -81,9 +81,9 @@ Web アプリケーションの要件に合わせて Azure WAF の規則と規�
 
 適用されたタグ メタデータに基づいて、規則と規則グループを Azure Web Application Firewall (WAF) ポリシーに適用します。
 
-- [Application Gateway での WAF ポリシー](/cli/azure/network/application-gateway/waf-policy?view=azure-cli-latest) 
+- [Application Gateway での WAF ポリシー](/cli/azure/network/application-gateway/waf-policy) 
 
-- [Front Door での WAF ポリシー](/cli/azure/ext/front-door/network/front-door/waf-policy?view=azure-cli-latest)
+- [Front Door での WAF ポリシー](/cli/azure/ext/front-door/network/front-door/waf-policy)
 
 **Azure Security Center の監視**: 適用なし
 
@@ -111,9 +111,9 @@ Azure PowerShell または Azure CLI を選択して、タグに基づいたリ�
 
 **ガイダンス**:Azure アクティビティ ログを使用して、ネットワーク リソース構成を監視し、Azure Web Application Firewall (WAF) デプロイに関連するネットワーク設定とリソースの変更を検出します。 重要なネットワーク設定またはリソースへの変更が発生するとトリガーされる Azure Monitor 内のアラートを作成します。
 
-- [Azure アクティビティ ログ イベントを表示して取得する方法](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+- [Azure アクティビティ ログ イベントを表示して取得する方法](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-- [Azure Monitor でアラートを作成する方法](../azure-monitor/platform/alerts-activity-log.md)
+- [Azure Monitor でアラートを作成する方法](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Azure Security Center の監視**: 適用なし
 
@@ -153,9 +153,9 @@ Azure Sentinel には、Azure WAF のセキュリティ イベントの概要を
 
 - [ログ記録の概要](ag/ag-overview.md#logging)
 
-- [Azure Monitor ログ クエリの概要](../azure-monitor/log-query/log-query-overview.md)
+- [Azure Monitor ログ クエリの概要](../azure-monitor/logs/log-query-overview.md)
 
-- [Azure プラットフォーム ログの概要](../azure-monitor/platform/platform-logs-overview.md)
+- [Azure プラットフォーム ログの概要](../azure-monitor/essentials/platform-logs-overview.md)
 
 **Azure Security Center の監視**: 適用なし
 
@@ -164,7 +164,7 @@ Azure Sentinel には、Azure WAF のセキュリティ イベントの概要を
 ### <a name="25-configure-security-log-storage-retention"></a>2.5:セキュリティ ログのストレージ保持を構成する
 
 **ガイダンス**:Azure Web Application Firewall (WAF) のログをカスタム ストレージ アカウントに送信し、保持ポリシーを定義します。 Azure Monitor を使用して、組織のコンプライアンス要件に基づいて Log Analytics ワークスペースの保持期間を設定します。
-- [ストレージ アカウントの監視の設定](../storage/common/storage-monitor-storage-account.md#configure-logging)
+- [ストレージ アカウントの監視の設定](../storage/common/manage-storage-analytics-logs.md#configure-logging)
 
 **Azure Security Center の監視**: 適用なし
 
@@ -192,9 +192,9 @@ Azure Sentinel には、WAF のセキュリティ イベントの概要を提供
 
 **ガイダンス**:Azure アクティビティ ログの診断設定と Azure WAF の診断設定を有効にし、Log Analytics ワークスペースにログを送信します。 Log Analytics でクエリを実行して、用語の検索、傾向の特定、パターンの分析を行い、収集されたデータに基づいて他の多くの分析情報を提供します。 WAF メトリックに基づいて異常なアクティビティについてのアラートを作成します。 たとえば、ブロックされた要求の数が 'X' を超えた場合に 'Y' を実行します。
 
-- [Azure アクティビティ ログの診断設定を有効にする方法](../azure-monitor/platform/activity-log.md)
+- [Azure アクティビティ ログの診断設定を有効にする方法](../azure-monitor/essentials/activity-log.md)
 
-- [Azure 内でアラートを作成する方法](../azure-monitor/learn/tutorial-response.md)
+- [Azure 内でアラートを作成する方法](../azure-monitor/alerts/tutorial-response.md)
 
 **Azure Security Center の監視**: 適用なし
 

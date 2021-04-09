@@ -1,20 +1,20 @@
 ---
 title: 送信トラフィックをロックダウンする
-description: Azure Firewall と統合して、App Service 環境内からの送信トラフィックをセキュリティで保護する方法について説明します。
+description: Azure Firewall と統合して、App Service Environment 内からの送信トラフィックをセキュリティで保護する方法について説明します。
 author: ccompy
 ms.assetid: 955a4d84-94ca-418d-aa79-b57a5eb8cb85
 ms.topic: article
 ms.date: 09/24/2020
 ms.author: ccompy
 ms.custom: seodec18, references_regions
-ms.openlocfilehash: e5f9cd361d4f130d725f608614159d67fb7b56d1
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.openlocfilehash: ec506546b52a2d137d448f07f4b7a6827c01b4d2
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "93026362"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "100594128"
 ---
-# <a name="locking-down-an-app-service-environment"></a>App Service 環境をロックする
+# <a name="locking-down-an-app-service-environment"></a>App Service Environment をロックする
 
 App Service Environment (ASE) が適切に動作するには、アクセスする必要がある外部の依存関係が複数あります。 ASE は、お客様の Azure Virtual Network (VNet) 内にあります。 お客様は、ASE の依存トラフィックを許可する必要があります。これは、自社の VNet からのすべての送信をロックしたいお客様にとって問題です。
 
@@ -100,7 +100,7 @@ Azure Firewall は、Azure Storage、Event Hub、または Azure Monitor ログ�
 AzureDiagnostics | where msg_s contains "Deny" | where TimeGenerated >= ago(1h)
 ```
 
-Azure Firewall を Azure Monitor ログと統合すると、アプリケーションのすべての依存関係がわからないときに初めてアプリケーションを動作させる場合に役立ちます。 Azure Monitor ログの詳細については、[Azure Monitor でのログ データの分析](../../azure-monitor/log-query/log-query-overview.md)に関する記事をご覧ください。
+Azure Firewall を Azure Monitor ログと統合すると、アプリケーションのすべての依存関係がわからないときに初めてアプリケーションを動作させる場合に役立ちます。 Azure Monitor ログの詳細については、[Azure Monitor でのログ データの分析](../../azure-monitor/logs/log-query-overview.md)に関する記事をご覧ください。
  
 ## <a name="dependencies"></a>依存関係
 

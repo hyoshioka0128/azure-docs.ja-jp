@@ -6,25 +6,34 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
-ms.date: 02/09/2021
+ms.date: 03/12/2021
 ms.custom: references_regions
-ms.openlocfilehash: 13cb22c178be29af71b57d0f50fdbd0e95718069
-ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
+ms.openlocfilehash: b4dc8ab44d341b293c044843e6dff2a3b6d3102c
+ms.sourcegitcommit: ec39209c5cbef28ade0badfffe59665631611199
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100104605"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103233550"
 ---
 # <a name="whats-new-in-azure-cognitive-search"></a>Azure Cognitive Search の新機能
 
-サービス内の新機能について説明します。 このページをブックマークして、常にサービスの最新情報を確認してください。 パブリック プレビュー段階の機能については、「[プレビュー機能一覧](search-api-preview.md)」をご覧ください。
+サービス内の新機能について説明します。 このページをブックマークして、常にサービスの最新情報を確認してください。 まだ一般提供されていない機能の包括的な一覧を確認するには、[プレビュー段階の機能の一覧](search-api-preview.md)に関するページを参照してください。
+
+## <a name="march-2021"></a>2021 年 3 月
+
+|機能&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  |  説明 | 可用性  |
+|------------------------------|---------------|---------------|
+| [セマンティック検索](semantic-search-overview.md) | 手間をかけずに検索結果の関連性を大幅に向上させる、クエリ関連の機能のコレクション。 </br></br>[セマンティックの順位付け](semantic-ranking.md)は、単語と内容の裏にあるセマンティックな意味を使用して関連性スコアを計算します。 </br></br>[セマンティック キャプション](semantic-how-to-query-request.md)は、当該ドキュメントを最も的確に要約している、ドキュメントの関連する一節であり、最も重要な用語や語句が強調されています。 </br></br>[セマンティック回答](semantic-answers.md)は、検索ドキュメントから抽出された重要な一節であり、クエリ (質問のような形式) に対する直接回答の形式として作成されます。 | パブリック プレビュー ([要求による](https://aka.ms/SemanticSearchPreviewSignup))。 </br></br>Azure portal で、[Search Documents (REST)](/rest/api/searchservice/preview-api/search-documents) api-version = 2020-06-30-Preview と [Search エクスプローラー](search-explorer.md)を使用してください。 </br></br>リージョンとレベルの制限が適用されます。 |
+| [クエリ用語のスペル チェック](speller-how-to-add.md) | クエリの用語が検索エンジンに到達する前に、スペル ミスをチェックすることができます。 `speller` オプションは、任意の種類のクエリ (単純、フル、またはセマンティック) で動作します。 |  パブリック プレビュー、REST のみ、api-version=2020-06-30-Preview|
+| [SharePoint Online インデクサー](search-howto-index-sharepoint-online.md) | ドキュメント ライブラリのコンテンツにインデックスを付けることができるように、このインデクサーによって SharePoint Online サイトに接続されます。 | パブリック プレビュー、REST のみ、api-version=2020-06-30-Preview |
 
 ## <a name="february-2021"></a>2021 年 2 月
 
 |機能&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  |  説明 | 可用性  |
 |------------------------------|---------------|---------------|
 | [ドキュメントのリセット (プレビュー)](search-howto-run-reset-indexers.md) |  インデクサー ワークロードで個別に選択された検索ドキュメントを再処理します。 | [Search REST API 2020-06-30-Preview](/rest/api/searchservice/index-preview) |
-| [可用性ゾーン](search-performance-optimization.md#availability-zones)| [こちらの記事](search-performance-optimization.md#availability-zones)に記載されているように、特定のリージョンに 2 つ以上のレプリカがある Search サービスは、2 つ以上の異なる物理的な場所にレプリカを配置することで回復性が得られます。  | 検索サービスを作成したリージョンと作成日によって可用性が決まります。 詳細については、パフォーマンス チューニングに関するドキュメントをご覧ください。 |
+| [可用性ゾーン](search-performance-optimization.md#availability-zones)| 「[パフォーマンスのためのスケール](search-performance-optimization.md#availability-zones)」に記載されているように、特定のリージョンに 2 つ以上のレプリカがある Search サービスは、2 つ以上の異なる物理的な場所にレプリカを配置することで回復性が得られます。  | 検索サービスを作成したリージョンと作成日によって可用性が決まります。 詳細については、パフォーマンスのスケーリングに関する記事を参照してください。 |
+| [Azure CLI](/cli/azure/search) </br>[Azure PowerShell](/powershell/module/az.search/) | 新しいリビジョンでは、IP ファイアウォール規則とプライベート エンドポイントのサポートを含め、Management REST API 2020-08-01 のあらゆる種類の操作が利用できるようになりました。 | 一般提供されています。 |
 
 ## <a name="january-2021"></a>2021 年 1 月
 
@@ -37,7 +46,7 @@ ms.locfileid: "100104605"
 | 月 | 機能 | 説明 |
 |-------|---------|-------------|
 | November | [カスタマー マネージド キー暗号化 (拡張)](search-security-manage-encryption-keys.md) | 検索サービスによって作成および管理されるすべての資産にわたって、カスタマー マネージド暗号化が拡張されます。 一般提供されています。|
-| September | [Azure Cognitive Search 用 Visual Studio Code 拡張機能](search-get-started-vs-code.md) | ワークスペース、ナビゲーション、IntelliSense、およびインデックス、インデクサー、データ ソース、スキルセットを作成するためのテンプレートが追加されます。 | パブリック プレビュー |
+| September | [Azure Cognitive Search 用 Visual Studio Code 拡張機能](search-get-started-vs-code.md) | ワークスペース、ナビゲーション、IntelliSense、およびインデックス、インデクサー、データ ソース、スキルセットを作成するためのテンプレートが追加されます。 現在、この機能はパブリック プレビュー段階にあります。| 
 | September | [マネージド サービス ID (インデクサー)](search-howto-managed-identities-data-sources.md) | 一般提供されています。  |
 | September | [プライベート リンクを使用したアウトバウンド要求](search-indexer-howto-access-private.md) | 一般提供されています。  |
 | September | [Management REST API (2020-08-01)](/rest/api/searchmanagement/management-api-versions) | 一般提供されています。 |
@@ -77,7 +86,7 @@ ms.locfileid: "100104605"
 |November | [テキスト翻訳スキル](cognitive-search-skill-text-translation.md) | テキストを評価し、翻訳するコグニティブ スキル。インデックス作成中に使用されます。 一般提供されています。|
 |November | [Power BI テンプレート](https://github.com/Azure-Samples/cognitive-search-templates/blob/master/README.md) | ナレッジ ストアのコンテンツを視覚化するためのテンプレート。 |
 |November | [Azure Data Lake Storage Gen2 (プレビュー)](search-howto-index-azure-data-lake-storage.md)、[Cosmos DB Gremlin API (プレビュー)](search-howto-index-cosmosdb.md)、[Cosmos DB Cassandra API (プレビュー)](search-howto-index-cosmosdb.md) | パブリック プレビュー段階にある新しいインデクサー データ ソース。 |
-|7 月 | [Azure Government クラウドのサポート](../azure-government/compare-azure-government-global-azure.md#azure-cognitive-search) | 一般提供されています。|
+|7 月 | [Azure Government クラウドのサポート](https://azure.microsoft.com/global-infrastructure/services/?regions=usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-texas,usgov-virginia&products=search) | 一般提供されています。|
 
 <a name="new-service-name"></a>
 

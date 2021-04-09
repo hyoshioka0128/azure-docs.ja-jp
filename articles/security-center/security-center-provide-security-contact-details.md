@@ -1,24 +1,18 @@
 ---
 title: Azure Security Center アラートの電子メール通知を構成する
 description: Azure Security Center によって送信されるセキュリティ アラートの電子メールの種類を微調整する方法について学習します。
-services: security-center
-documentationcenter: na
 author: memildin
 manager: rkarlin
-ms.assetid: 26b5dcb4-ce3f-4f22-8d56-d2bf743cfc90
 ms.service: security-center
-ms.devlang: na
 ms.topic: quickstart
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 02/09/2021
 ms.author: memildin
-ms.openlocfilehash: 4dc9855afe7ed53db120f4dbc6c09ac4db0f58d9
-ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
+ms.openlocfilehash: 342904a3ae996fe8c2eeddf2edfbc4283a3d03eb
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99988567"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102439444"
 ---
 # <a name="configure-email-notifications-for-security-alerts"></a>セキュリティ アラートの電子メール通知を構成する 
 
@@ -61,7 +55,7 @@ ms.locfileid: "99988567"
 1. セキュリティ連絡先の情報をサブスクリプションに適用するには、 **[保存]** を選択します。
 
 ## <a name="customize-the-alerts-email-notifications-through-the-api"></a>API を通じてアラートのメール通知をカスタマイズする
-提供されている REST API を使用してメール通知を管理することもできます。 詳細については、[SecurityContacts API に関するドキュメント](https://docs.microsoft.com/rest/api/securitycenter/securitycontacts)を参照してください。
+提供されている REST API を使用してメール通知を管理することもできます。 詳細については、[SecurityContacts API に関するドキュメント](/rest/api/securitycenter/securitycontacts)を参照してください。
 
 これは、セキュリティ連絡先の構成を作成する際の PUT 要求本文の例です。
 

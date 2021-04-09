@@ -10,12 +10,12 @@ ms.subservice: core
 ms.date: 08/11/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: e451e55a9a73022f9c90ba4adae91b520840481e
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 7ed27eba66b3d18bed8017934fce85928b961392
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98880761"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102520049"
 ---
 # <a name="collect-machine-learning-pipeline-log-files-in-application-insights-for-alerts-and-debugging"></a>Application Insights でアラートとデバッグ用に機械学習パイプラインのログ ファイルを収集する
 
@@ -38,7 +38,7 @@ ms.locfileid: "98880761"
 
 このセクションでは、Azure Machine Learning パイプラインから OpenCensus を使用する方法のみを説明します。 詳細なチュートリアルについては、「[OpenCensus Azure Monitor Exporters](https://github.com/census-instrumentation/opencensus-python/tree/master/contrib/opencensus-ext-azure)」(OpenCensus の Azure Monitor エクスポーター) を参照してください
 
-PythonScriptStep を Azure ML パイプラインに追加します。 opencensus-ext-azure での依存関係を使用して [RunConfiguration](/python/api/azureml-core/azureml.core.runconfiguration?preserve-view=true&view=azure-ml-py) を構成します。 `APPLICATIONINSIGHTS_CONNECTION_STRING` 環境変数を構成します。
+PythonScriptStep を Azure ML パイプラインに追加します。 opencensus-ext-azure での依存関係を使用して [RunConfiguration](/python/api/azureml-core/azureml.core.runconfiguration) を構成します。 `APPLICATIONINSIGHTS_CONNECTION_STRING` 環境変数を構成します。
 
 ```python
 from azureml.core.conda_dependencies import CondaDependencies
@@ -164,6 +164,6 @@ Application Insights の結果には、ログ メッセージとレベル、フ�
 
 ## <a name="next-steps"></a>次の手順
 
-Application Insights インスタンスに作成されたログは、クエリ結果に基づいて [Azure Monitor アラート](../azure-monitor/platform/alerts-overview.md#what-you-can-alert-on)の設定で使用できます。
+Application Insights インスタンスに作成されたログは、クエリ結果に基づいて [Azure Monitor アラート](../azure-monitor/alerts/alerts-overview.md#what-you-can-alert-on)の設定で使用できます。
 
-また、クエリの結果を [Azure ダッシュボード](../azure-monitor/learn/tutorial-app-dashboards.md#add-logs-query)に追加して、詳細な分析情報を得ることもできます。
+また、クエリの結果を [Azure ダッシュボード](../azure-monitor/app/tutorial-app-dashboards.md#add-logs-query)に追加して、詳細な分析情報を得ることもできます。

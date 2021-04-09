@@ -1,21 +1,31 @@
 ---
 title: Azure Cosmos DB の MongoDB 用 API へのデータ移行の移行前手順
 description: このドキュメントでは、MongoDB から Cosmos DB にデータを移行する前提条件の概要について説明します。
-author: christopheranderson
+author: anfeldma-ms
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: how-to
-ms.date: 09/01/2020
-ms.author: chrande
-ms.openlocfilehash: 337341daf0e092def639a4e8f6fc8ee0a9b57c75
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.date: 03/02/2021
+ms.author: anfeldma
+ms.openlocfilehash: cdc5dc9cee3520d9a3f22ff710dfa193e6ef4fed
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96349420"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102553291"
 ---
 # <a name="pre-migration-steps-for-data-migrations-from-mongodb-to-azure-cosmos-dbs-api-for-mongodb"></a>MongoDB から Azure Cosmos DB の MongoDB 用 API へのデータ移行の移行前手順
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
+
+> [!IMPORTANT]  
+> この MongoDB の移行前ガイドは、MongoDB の Azure Cosmos DB Mongo API への大規模な移行に関するシリーズの最初のガイドです。 自己管理型インフラストラクチャで MongoDB のライセンスを取得してデプロイしているお客様は、従量課金制の価格と柔軟なスケーラビリティを備えた Azure Cosmos DB などのマネージド クラウド サービスに移行することで、データ資産のコストの削減と管理ができます。 このシリーズの目的は、移行プロセスを通じてお客様を支援することです。
+>
+> 1. [移行前](mongodb-pre-migration.md) - 既存の MongoDB データ資産のインベントリを作成し、移行を計画して、適切な移行ツールを選択します。
+> 2. 実行 - 提供されている[チュートリアル]()を使用して、MongoDB から Azure Cosmos DB に移行します。
+> 3. [移行後](mongodb-post-migration.md) - 既存のアプリケーションを更新して最適化し、新しい Azure Cosmos DB データ資産に対して実行します。
+>
+
+堅実な移行前計画は、チームの移行の適時性と成功に大きな影響を与える可能性があります。 移行前の良い例えは、新しいプロジェクトを開始することです。要件を定義することから始めて、関連するタスクの概要を作成し、最初に取り組むべき最大のタスクに優先順位を付けることもできます。 これは、プロジェクト スケジュールを予測可能にするのに役立ちますが、もちろん、予期しない要件が発生し、プロジェクト スケジュールが複雑になる可能性もあります。 移行に戻る - 移行前フェーズで包括的な実行プランを作成することで、プロセスの後半で予期しない移行タスクが見つかる可能性が最小限に抑えられ、移行中の時間が短縮され、目標を確実に達成できるようになります。
 
 (オンプレミスまたはクラウド内の) MongoDB から Azure Cosmos DB の MongoDB 用 API にデータを移行する前に、以下のことを行う必要があります。
 
@@ -71,7 +81,7 @@ Azure Cosmos DB では、スループットは事前にプロビジョニング�
 
 ```{  "_t": "GetRequestStatisticsResponse",  "ok": 1,  "CommandName": "find",  "RequestCharge": 10.1,  "RequestDurationInMilliSeconds": 7.2}```
 
-[診断設定](cosmosdb-monitor-resource-logs.md)を使用して、Azure Cosmos DB に対して実行されるクエリの頻度とパターンを理解することもできます。 診断ログの結果は、ストレージ アカウント、EventHub インスタンスまたは [Azure Log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md) に送信できます。  
+[診断設定](cosmosdb-monitor-resource-logs.md)を使用して、Azure Cosmos DB に対して実行されるクエリの頻度とパターンを理解することもできます。 診断ログの結果は、ストレージ アカウント、EventHub インスタンスまたは [Azure Log Analytics](../azure-monitor/logs/log-analytics-tutorial.md) に送信できます。  
 
 ## <a name="choose-your-partition-key"></a><a id="partitioning"></a>パーティション キーの選択
 パーティション分割 (シャーディングともいう) は、データを移行する前に考慮すべき重要な点です。 Azure Cosmos DB では、フルマネージド パーティション分割を使用して、ストレージとスループットの要件を満たすためにデータベースの容量を増やします。 この機能では、ルーティング サーバーのホストや構成は必要ありません。   
@@ -80,7 +90,7 @@ Azure Cosmos DB では、スループットは事前にプロビジョニング�
 
 ## <a name="index-your-data"></a><a id="indexing"></a>データのインデックス作成
 
-Azure Cosmos DB の MongoDB サーバー バージョン 3.6 用 API では、`_id` フィールドのみ、インデックスが自動的に作成されます。 このフィールドは削除できません。 シャード キーごとに `_id` フィールドの一意性が自動的に適用されます。 その他のフィールドのインデックスを作成するには、MongoDB インデックス管理コマンドを適用します。 この既定のインデックス作成ポリシーは Azure Cosmos DB の SQL API とは異なり、既定ですべてのフィールドのインデックスが作成されます。
+MongoDB サーバー バージョン 3.6 以降を対象とする Azure Cosmos DB の API では、`_id` フィールドのみ、インデックスが自動的に作成されます。 このフィールドは削除できません。 シャード キーごとに `_id` フィールドの一意性が自動的に適用されます。 その他のフィールドのインデックスを作成するには、[MongoDB インデックス管理コマンド](mongodb-indexing.md)を適用します。 この既定のインデックス作成ポリシーは Azure Cosmos DB の SQL API とは異なり、既定ですべてのフィールドのインデックスが作成されます。
 
 Azure Cosmos DB によって提供されるインデックス作成機能には、複合インデックス、一意のインデックス、Time-to-Live (TTL) インデックスの追加が含まれます。 インデックス管理インターフェイスは、`createIndex()` コマンドにマップされます。 詳細については、[Azure Cosmos DB の MongoDB 用 API でのインデックス作成](mongodb-indexing.md)に関する記事を参照してください。
 

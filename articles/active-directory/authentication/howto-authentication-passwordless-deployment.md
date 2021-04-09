@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 01/30/2020
+ms.date: 02/22/2021
 ms.author: baselden
 author: justinha
 manager: daveba
 ms.reviewer: baselden, librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a786907c5c954aa45de266b6d92dd47867a8445d
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 8d4ff717a49ba9c9b4d66e54e5eae1248af3fcea
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96743617"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104579367"
 ---
 # <a name="plan-a-passwordless-authentication-deployment-in-azure-active-directory"></a>Azure Active Directory でパスワードレス認証のデプロイを計画する
 
@@ -78,7 +78,7 @@ Microsoft のパスワードレス認証方法では、さまざまなシナリ�
 
 Windows Hello の前提条件は、オンプレミス、ハイブリッド、クラウドのみのどの構成にデプロイするかに大きく依存します。 詳細については、[Windows Hello for Business の前提条件の完全な一覧](/windows/security/identity-protection/hello-for-business/hello-identity-verification)を参照してください。
 
-### <a name="azure-ad-multi-factor-authentication"></a>Azure AD Multi-Factor Authentication
+### <a name="azure-ad-multi-factor-authentication"></a>Azure AD の Multi-Factor Authentication
 
 ユーザーは、Azure AD Multi-Factor Authentication 登録フローの一部として、自身のパスワードレスの方法を登録します。 ユーザー名とパスワードによる多要素認証と別の登録済み方法を、一部のシナリオで電話またはセキュリティ キーを使用できない場合の代替手段として使用できます。
 
@@ -149,8 +149,8 @@ Microsoft Authenticator アプリは Google Play または Apple App Store か�
 
 -    サポートされているブラウザーでの Azure Active Directory Web アプリ
 -    Azure Active Directory 参加済み Windows 10 デバイス
--    ハイブリッド Azure Active Directory 参加済み Windows 10 デバイス (プレビュー)
-     -    クラウドベースとオンプレミスの両方のリソースへのアクセスを提供します。 オンプレミスのリソースへのアクセスの詳細については、「[FIDO2 キーを使用したオンプレミスのリソースへの SSO](./howto-authentication-passwordless-security-key-on-premises.md)」を参照してください。
+-    Hybrid Azure Active Directory 参加済み Windows 10 デバイス
+     -    クラウドベースとオンプレミスの両方のリソースへのアクセスを提供します。 オンプレミスのリソースへのアクセスの詳細については、「[FIDO2 キーを使用したオンプレミスのリソースへの SSO](./howto-authentication-passwordless-security-key-on-premises.md)」を参照してください
 
 **互換性のある FIDO2 セキュリティ キー** を有効にする必要があります。 Microsoft は、[FIDO2 キー ベンダーとの重要なパートナーシップ](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Microsoft-passwordless-partnership-leads-to-innovation-and-great/ba-p/566493)を発表しました。
 
@@ -193,7 +193,7 @@ FIDO2 セキュリティ キーを使用して Windows 10 のサインインを�
 
 #### <a name="enable-on-premises-integration"></a>オンプレミス統合を有効にする
 
-オンプレミスのリソースへのアクセスを有効にするには、[オンプレミスのリソースへのパスワードなしのセキュリティ キー サインイン (プレビュー) を有効にする](howto-authentication-passwordless-security-key-on-premises.md)手順に従います。
+オンプレミスのリソースへのアクセスを有効にするには、[オンプレミスのリソースへのパスワードなしのセキュリティ キー サインインを有効にする](howto-authentication-passwordless-security-key-on-premises.md)手順に従います。
 
 > [!IMPORTANT]
 > この手順は、Windows 10 サインインの FIDO2 セキュリティキーを利用するために、すべてのハイブリッド Azure AD 参加済みデバイスでも実行する必要があります。
@@ -330,4 +330,4 @@ FIDO2 セキュリティ デバイスを既に登録しているユーザーに�
 
 - [Azure AD へのパスワードなしのセキュリティ キー サインインを有効にする](howto-authentication-passwordless-security-key.md)
 - [Microsoft Authenticator アプリでパスワードなしのサインインを有効にする](howto-authentication-passwordless-phone.md)
-- [認証方法の使用状況と分析情報の詳細を確認する](howto-authentication-methods-usage-insights.md)
+- [認証方法の使用状況と分析情報の詳細を確認する](./howto-authentication-methods-activity.md)

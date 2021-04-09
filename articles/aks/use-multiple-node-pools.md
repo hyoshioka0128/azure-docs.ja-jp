@@ -4,12 +4,12 @@ description: Azure Kubernetes Service (AKS) のクラスターで複数のノー
 services: container-service
 ms.topic: article
 ms.date: 04/08/2020
-ms.openlocfilehash: db153123622a59bbdde71afca4ea30e03a6fbf98
-ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
+ms.openlocfilehash: 3e029695e9dce79473ada0bae3e7f0bbfd30db89
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/19/2020
-ms.locfileid: "97694242"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102218487"
 ---
 # <a name="create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>Azure Kubernetes Service (AKS) のクラスターで複数のノード プールを作成および管理する
 
@@ -130,9 +130,11 @@ az aks nodepool list --resource-group myResourceGroup --cluster-name myAKSCluste
 #### <a name="limitations"></a>制限事項
 
 * ノード プールに割り当てられるサブネットはすべて、同じ仮想ネットワークに属している必要があります。
-* システム ポッドは、coreDNS による DNS 解決などの重要な機能を提供するために、クラスター内のすべてのノードにアクセスできる必要があります。
-* プレビュー期間中、ノード プールごとの一意なサブネットの割り当ては、Azure CNI に制限されます。
-* プレビュー期間中、ノード プールごとの一意なサブネットでのネットワーク ポリシーの使用はサポートされません。
+* DNS 解決や kubectl logs/exec/port-forward プロキシのトンネリングなど、重要な機能を提供するために、システム ポッドはクラスター内のすべてのノードとポッドにアクセスできる必要があります。
+* クラスター作成後、VNet を拡張する場合、元の cidr の外でサブネットを追加する前に、クラスターを更新する必要があります (マネージド クラスター操作があれば、それを実行しますが、ノード プール操作は数に入りません)。 元々は許可していましたが、エージェント プールを追加すると AKS でエラーが出るようになっています。 クラスターを調整する方法がわからない場合、サポート チケットを提出してください。 
+* Calico ネットワーク ポリシーはサポートされていません。 
+* Azure ネットワーク ポリシーはサポートされていません。
+* Kube-proxy からは隣接する cidr が 1 つ求められ、3 つの最適化にそれが使用されます。 詳細については、この [K.E.P](https://github.com/kubernetes/enhancements/blob/master/keps/sig-network/20191104-iptables-no-cluster-cidr.md ) と [こちら](https://kubernetes.io/docs/reference/command-line-tools-reference/kube-proxy/)の --cluster-cidr を参照してください。 azure cni では、最初のノード プールのサブネットが kube-proxy に与えられます。 
 
 専用サブネットを持つノード プールを作成するには、ノード プールを作成する際に、サブネットのリソース ID を追加パラメーターとして渡します。
 
@@ -818,13 +820,13 @@ Windows Server コンテナー ノード プールを作成して使用するに
 [aks-windows]: windows-container-cli.md
 [az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
 [az-aks-create]: /cli/azure/aks#az-aks-create
-[az-aks-get-upgrades]: /cli/azure/aks?view=azure-cli-latest#az-aks-get-upgrades
-[az-aks-nodepool-add]: /cli/azure/aks/nodepool?view=azure-cli-latest#az-aks-nodepool-add
-[az-aks-nodepool-list]: /cli/azure/aks/nodepool?view=azure-cli-latest#az-aks-nodepool-list
-[az-aks-nodepool-update]: /cli/azure/aks/nodepool?view=azure-cli-latest#az-aks-nodepool-update
-[az-aks-nodepool-upgrade]: /cli/azure/aks/nodepool?view=azure-cli-latest#az-aks-nodepool-upgrade
-[az-aks-nodepool-scale]: /cli/azure/aks/nodepool?view=azure-cli-latest#az-aks-nodepool-scale
-[az-aks-nodepool-delete]: /cli/azure/aks/nodepool?view=azure-cli-latest#az-aks-nodepool-delete
+[az-aks-get-upgrades]: /cli/azure/aks#az-aks-get-upgrades
+[az-aks-nodepool-add]: /cli/azure/aks/nodepool#az-aks-nodepool-add
+[az-aks-nodepool-list]: /cli/azure/aks/nodepool#az-aks-nodepool-list
+[az-aks-nodepool-update]: /cli/azure/aks/nodepool#az-aks-nodepool-update
+[az-aks-nodepool-upgrade]: /cli/azure/aks/nodepool#az-aks-nodepool-upgrade
+[az-aks-nodepool-scale]: /cli/azure/aks/nodepool#az-aks-nodepool-scale
+[az-aks-nodepool-delete]: /cli/azure/aks/nodepool#az-aks-nodepool-delete
 [az-extension-add]: /cli/azure/extension#az-extension-add
 [az-extension-update]: /cli/azure/extension#az-extension-update
 [az-group-create]: /cli/azure/group#az-group-create
@@ -842,5 +844,5 @@ Windows Server コンテナー ノード プールを作成して使用するに
 [ip-limitations]: ../virtual-network/virtual-network-ip-addresses-overview-arm#standard
 [node-resource-group]: faq.md#why-are-two-resource-groups-created-with-aks
 [vmss-commands]: ../virtual-machine-scale-sets/virtual-machine-scale-sets-networking.md#public-ipv4-per-virtual-machine
-[az-list-ips]: /cli/azure/vmss?view=azure-cli-latest.md#az-vmss-list-instance-public-ips
+[az-list-ips]: /cli/azure/vmss.md#az-vmss-list-instance-public-ips
 [reduce-latency-ppg]: reduce-latency-ppg.md

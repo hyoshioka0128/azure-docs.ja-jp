@@ -9,19 +9,18 @@ editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.assetid: 5e514964-c907-4324-b659-16dd825f6f87
-ms.service: virtual-machines-windows
-ms.subservice: workloads
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 08/12/2020
+ms.date: 02/18/2021
 ms.author: radeltch
-ms.openlocfilehash: 90b0ab4fdabd40e803d1f85a640e4cb387e40c44
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: a4c4631a0a1263e5a5398c44a8570f92571102e8
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94958950"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102045838"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-windows-with-azure-netapp-filessmb-for-sap-applications"></a>SAP アプリケーション用の Azure NetApp Files (SMB) を使用した Windows 上の Azure VM における SAP NetWeaver の高可用性
 
@@ -81,8 +80,11 @@ ms.locfileid: "94958950"
 * [SAP NetWeaver のための Azure Virtual Machines 高可用性のアーキテクチャとシナリオ](./sap-high-availability-architecture-scenarios.md)
 * [ASCS クラスター構成にプローブ ポートを追加する](sap-high-availability-installation-wsfc-file-share.md)
 * [フェールオーバー クラスターへの (A)SCS インスタンスのインストール](https://www.sap.com/documents/2017/07/f453332f-c97c-0010-82c7-eda71af511fa.html)
-* [Azure NetApp Files の SMB ボリュームを作成する](../../../azure-netapp-files/azure-netapp-files-create-volumes-smb.md#requirements-for-active-directory-connections)
+* [Azure NetApp Files の SMB ボリュームを作成する](../../../azure-netapp-files/create-active-directory-connections.md#requirements-for-active-directory-connections)
 * [Azure NetApp Files を使用した Microsoft Azure 上の NetApp SAP アプリケーション][anf-sap-applications-azure]
+
+> [!IMPORTANT]
+> 注意: [Azure NetApp Files][anf-azure-doc] SMB ボリュームでホストされている SMB 共有に、SWPM を使用して SAP システムをインストールすると、不十分なアクセス許可に対する "warningPerm is not defined" (warningPerm が定義されていません) のようなインストール エラーが発生して失敗するおそれがあることにご注意ください。 このエラーを回避するには、コンテキスト SWPM が実行されるユーザーに、SAP システムのインストール時に昇格された特権 "ドメイン管理者" が必要です。  
 
 ## <a name="overview"></a>概要
 
@@ -114,9 +116,9 @@ Azure NetApp Files を使用するための準備として、次のステップ�
 4. Azure NetApp Files リソースは、委任されたサブネット内に存在する必要があります。 「[サブネットを Azure NetApp Files に委任する](../../../azure-netapp-files/azure-netapp-files-delegate-subnet.md)」の指示に従って、委任されたサブネットを作成します。  
 
    > [!IMPORTANT]
-   > SMB ボリュームを作成する前に Active Directory の接続を作成する必要があります。 [Active Directory コンポーネント要件](../../../azure-netapp-files/azure-netapp-files-create-volumes-smb.md#requirements-for-active-directory-connections)を確認します。  
+   > SMB ボリュームを作成する前に Active Directory の接続を作成する必要があります。 [Active Directory コンポーネント要件](../../../azure-netapp-files/create-active-directory-connections.md#requirements-for-active-directory-connections)を確認します。  
 
-5. 「[Active Directory 接続を作成する](../../../azure-netapp-files/azure-netapp-files-create-volumes-smb.md#create-an-active-directory-connection)」の説明に従って、Active Directory 接続を作成します  
+5. 「[Active Directory 接続を作成する](../../../azure-netapp-files/create-active-directory-connections.md#create-an-active-directory-connection)」の説明に従って、Active Directory 接続を作成します  
 6. 「[SMB ボリュームを追加する](../../../azure-netapp-files/azure-netapp-files-create-volumes-smb.md#add-an-smb-volume)」の指示に従って、SMB Azure NetApp Files の SMB ボリュームを作成します  
 7. Windows 仮想マシンに SMB ボリュームをマウントします。
 
