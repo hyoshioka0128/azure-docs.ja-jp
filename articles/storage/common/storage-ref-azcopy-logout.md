@@ -8,18 +8,18 @@ ms.date: 07/24/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: 987f5de78edc4c0fe2814259a1461e58018ec270
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 20d1ee643f9864fb95ebdc9215cd0dab13a0fb5c
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98879022"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107503101"
 ---
 # <a name="azcopy-logout"></a>azcopy logout
 
 ユーザーをログアウトし、Azure Storage リソースへのアクセスを終了します。
 
-## <a name="synopsis"></a>概要
+## <a name="synopsis"></a>構文
 
 このコマンドは、現在のユーザーのキャッシュされているすべてのログイン情報を削除します。
 
@@ -32,7 +32,6 @@ azcopy logout [flags]
 - [AzCopy を使ってみる](storage-use-azcopy-v10.md)
 - [AzCopy と Blob Storage でデータを転送する](./storage-use-azcopy-v10.md#transfer-data)
 - [AzCopy とファイル ストレージでデータを転送する](storage-use-azcopy-files.md)
-- [AzCopy の構成、最適化、トラブルシューティング](storage-use-azcopy-configure.md)
 
 ## <a name="options"></a>オプション
 

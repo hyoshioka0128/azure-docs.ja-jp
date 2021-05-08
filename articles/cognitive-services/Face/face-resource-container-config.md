@@ -11,12 +11,12 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: aahi
-ms.openlocfilehash: 2f608843e27b79d02697df8e2a7f2aba6695e10a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5287fe6df4a2f0cb728bf0e705a4ce989ca38487
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80878427"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105934038"
 ---
 # <a name="configure-face-docker-containers"></a>Face Docker コンテナーの構成
 
@@ -67,7 +67,7 @@ ms.locfileid: "80878427"
 
 ### <a name="storage-scenario-settings"></a>ストレージ シナリオの設定
 
-Face コンテナーには、格納される内容に応じて、BLOB、キャッシュ、メタデータ、およびキュー データが格納されます。 たとえば、大きな人物グループのトレーニング インデックスと結果は、BLOB データとして格納されます。 Face コンテナーでは、これらの種類のデータを操作および格納する場合に、次の 2 つの異なるストレージ シナリオが提供されます。
+Face コンテナーには、格納される内容に応じて、BLOB、キャッシュ、メタデータ、およびキュー データが格納されます。 たとえば、**LargePersonGroup** のトレーニング インデックスと結果は、BLOB データとして格納されます。 Face コンテナーでは、これらの種類のデータを操作および格納する場合に、次の 2 つの異なるストレージ シナリオが提供されます。
 
 * メモリ  
   メモリには 4 つのすべての種類のデータが格納されます。 これらは分散されることはなく、永続的なものでもありません。 Face コンテナーが停止または削除された場合、そのコンテナーのストレージ内のデータはすべて破棄されます。  
@@ -125,7 +125,7 @@ Face コンテナーでは、トレーニングやサービスのデータを格
 |省略可能| 名前 | データ型 | 説明 |
 |-------|------|-----------|-------------|
 |禁止| `Input` | String | Face コンテナーでは、これは使用されません。|
-|省略可能| `Output` | String | 出力マウントのターゲット。 既定値は `/output` です。 これはログの保存先です。 これには、コンテナーのログが含まれます。 <br><br>例:<br>`--mount type=bind,src=c:\output,target=/output`|
+|オプション| `Output` | String | 出力マウントのターゲット。 既定値は `/output` です。 これはログの保存先です。 これには、コンテナーのログが含まれます。 <br><br>例:<br>`--mount type=bind,src=c:\output,target=/output`|
 
 ## <a name="example-docker-run-commands"></a>docker run コマンドの例 
 
@@ -145,7 +145,7 @@ Face コンテナーでは、トレーニングやサービスのデータを格
 
 > [!IMPORTANT]
 > コンテナーを実行するには、`Eula`、`Billing`、`ApiKey` の各オプションを指定する必要があります。そうしないと、コンテナーが起動しません。  詳細については、「[課金](face-how-to-install-containers.md#billing)」を参照してください。
-> ApiKey の値は、Azure `Cognitive Services` リソース キー ページにある**キー**です。 
+> ApiKey の値は、Azure `Cognitive Services` リソース キー ページにある **キー** です。 
 
 ## <a name="face-container-docker-examples"></a>Face コンテナーの Docker の例
 

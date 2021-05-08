@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 02/25/2021
+ms.date: 03/16/2021
 ms.author: justinha
 author: sopand
 manager: daveba
 ms.reviewer: dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fbe69967d84777091aec0bbbf1626b98f5018d0e
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 699ff88e4181dada5eacaa3f13469722cdf7ceaa
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101692951"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107530446"
 ---
 # <a name="authentication-methods-activity"></a>認証方法アクティビティ 
 
@@ -26,10 +26,17 @@ ms.locfileid: "101692951"
 
 ## <a name="permissions-and-licenses"></a>アクセス許可とライセンス
 
-使用状況と分析情報にアクセスできるロールは次のとおりです。
+以下のアクセス許可が付与されている組み込みロールとカスタム ロールを使用すると、[認証方法アクティビティ] ブレードと API にアクセスできます。
+
+- Microsoft.directory/auditLogs/allProperties/read
+- Microsoft.directory/signInReports/allProperties/read
+
+以下のロールには、この必要なアクセス許可が付与されています。
 
 - レポート閲覧者
 - セキュリティ閲覧者
+- グローバル閲覧者
+- セキュリティ オペレーター
 - セキュリティ管理者
 - グローバル管理者
 
@@ -122,14 +129,16 @@ ms.locfileid: "101692951"
 - 状態 (成功、失敗)
 - 失敗の理由 (説明)
 
-  ![[使用] ページのスクリーンショット](media/how-to-authentication-methods-usage-insights/registration-and-reset-logs.png)
+  ![登録とリセット イベントのスクリーンショット](media/how-to-authentication-methods-usage-insights/registration-and-reset-logs.png)
 
 ## <a name="limitations"></a>制限事項
 
-一時アクセス パス (TAP) の登録は、短時間のみ有効であるため、レポートの [登録] タブには反映されません。
+- レポート内のデータはリアルタイムで更新されておらず、反映されるまでに数時間の待機時間が発生する場合があります。
+- 一時アクセス パスの登録は、短時間のみ有効であるため、レポートの [登録] タブには反映されません。
+- ユーザーが構成した可能性のある **PhoneAppNotification** または **PhoneAppOTP** メソッドは、ダッシュボードに表示されません。 
 
 ## <a name="next-steps"></a>次のステップ
 
-- [認証方法の使用状況レポート API を使用する](/graph/api/resources/authenticationmethods-usage-insights-overview?view=graph-rest-beta)
+- [認証方法の使用状況レポート API を使用する](/graph/api/resources/authenticationmethods-usage-insights-overview)
 - [組織の認証方法を選択する](concept-authentication-methods.md)
 - [統合された登録エクスペリエンス](concept-registration-mfa-sspr-combined.md)

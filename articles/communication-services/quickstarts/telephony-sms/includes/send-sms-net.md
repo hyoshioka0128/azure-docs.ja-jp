@@ -2,22 +2,22 @@
 title: インクルード ファイル
 description: インクルード ファイル
 services: azure-communication-services
-author: dademath
-manager: nimag
+author: peiliu
+manager: rejooyan
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
-ms.date: 07/28/2020
+ms.date: 03/11/2021
 ms.topic: include
 ms.custom: include file
-ms.author: dademath
-ms.openlocfilehash: a084295aec2cafadd07d47e85a0116a89d37c985
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.author: peiliu
+ms.openlocfilehash: 5fd209c612f90e3912e244daf60d20edf30a08c6
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94816745"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106112894"
 ---
-Communication Services C# SMS クライアント ライブラリを使用して SMS メッセージを送信することによって、Azure Communication Services の使用を開始します。
+Communication Services C# SMS SDK を使用して SMS メッセージを送信することによって、Azure Communication Services の使用を開始します。
 
 このクイックスタートを完了すると、ご利用の Azure アカウントでわずかな (数セント未満の) コストが発生します。
 
@@ -27,14 +27,14 @@ Communication Services C# SMS クライアント ライブラリを使用して 
 
 ## <a name="prerequisites"></a>前提条件
 
-- アクティブなサブスクリプションが含まれる Azure アカウント。 [無料でアカウントを作成できます](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。 
-- お使いのオペレーティング システムに対応した最新バージョンの [.NET Core クライアント ライブラリ](https://dotnet.microsoft.com/download/dotnet-core)。
+- アクティブなサブスクリプションが含まれる Azure アカウント。 [無料でアカウントを作成できます](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
+- お使いのオペレーティング システムに対応した最新バージョンの [.NET Core SDK](https://dotnet.microsoft.com/download/dotnet-core)。
 - アクティブな Communication Services リソースと接続文字列。 [Communication Services リソースを作成します](../../create-communication-resource.md)。
 - SMS が有効になっている電話番号。 [電話番号を取得します](../get-phone-number.md)。
 
 ### <a name="prerequisite-check"></a>前提条件のチェック
 
-- ターミナルまたはコマンド ウィンドウで `dotnet` コマンドを実行して、.NET クライアント ライブラリがインストールされていることを確認します。
+- ターミナルまたはコマンド ウィンドウで `dotnet` コマンドを実行して、.NET SDK がインストールされていることを確認します。
 - Communication Services リソースに関連付けられている電話番号を表示するには、[Azure portal](https://portal.azure.com/) にサインインし、Communication Services リソースを見つけて、左側のナビゲーション ペインから **[電話番号]** タブを開きます。
 
 ## <a name="setting-up"></a>設定
@@ -47,7 +47,7 @@ Communication Services C# SMS クライアント ライブラリを使用して 
 dotnet new console -o SmsQuickstart
 ```
 
-新しく作成したアプリ フォルダーにディレクトリを変更し、`dotnet build` コマンドを使用して自分のアプリケーションをコンパイルします。
+新しく作成したアプリ フォルダーにディレクトリを変更し、`dotnet build` コマンドを使用してアプリケーションをコンパイルします。
 
 ```console
 cd SmsQuickstart
@@ -56,16 +56,20 @@ dotnet build
 
 ### <a name="install-the-package"></a>パッケージをインストールする
 
-まだアプリケーション ディレクトリにいる間に、`dotnet add package` コマンドを使用して、.NET 用の Azure Communication Services SMS クライアント ライブラリ パッケージをインストールします。
+まだアプリケーション ディレクトリにいる間に、`dotnet add package` コマンドを使用して、.NET 用の Azure Communication Services SMS SDK パッケージをインストールします。
 
 ```console
-dotnet add package Azure.Communication.Sms --version 1.0.0-beta.3
+dotnet add package Azure.Communication.Sms --version 1.0.0
 ```
 
 **Program.cs** の先頭に `using` ディレクティブを追加して、`Azure.Communication` 名前空間を含めます。
 
 ```csharp
 
+using System;
+using System.Collections.Generic;
+
+using Azure;
 using Azure.Communication;
 using Azure.Communication.Sms;
 
@@ -73,16 +77,17 @@ using Azure.Communication.Sms;
 
 ## <a name="object-model"></a>オブジェクト モデル
 
-C# 用 Azure Communication Services SMS クライアント ライブラリが備える主な機能のいくつかは、以下のクラスとインターフェイスにより処理されます。
+C# 用 Azure Communication Services SMS SDK が備える主な機能のいくつかは、以下のクラスとインターフェイスにより処理されます。
 
 | 名前                                       | 説明                                                                                                                                                       |
 | ------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | SmsClient     | このクラスは、すべての SMS 機能に必要となります。 サブスクリプション情報を使用してこれをインスタンス化し、そのインスタンスを使用して SMS を送信します。                           |
-| SendSmsOptions | このクラスには、配信レポートを構成するためのオプションが用意されています。 enable_delivery_report が True に設定されている場合、配信が成功したときにイベントが生成されます |
+| SmsSendOptions | このクラスには、配信レポートを構成するためのオプションが用意されています。 enable_delivery_report が True に設定されている場合、配信が成功したときにイベントが生成されます |
+| SmsSendResult               | このクラスには、SMS サービスからの結果が含まれます。                                          |
 
 ## <a name="authenticate-the-client"></a>クライアントを認証する
 
- テキスト エディターで **Program.cs** を開き、`Main` メソッドの本文を、接続文字列を使用して `SmsClient` を初期化するコードで置き換えます。 次のコードは、`COMMUNICATION_SERVICES_CONNECTION_STRING` という名前の環境変数からリソースの接続文字列を取得します。 [リソースの接続文字列を管理する](../../create-communication-resource.md#store-your-connection-string)方法を参照してください。
+ テキスト エディターで **Program.cs** を開き、`Main` メソッドの本文を、接続文字列を使用して `SmsClient` を初期化するコードで置き換えます。 次のコードは、`COMMUNICATION_SERVICES_CONNECTION_STRING` という名前の環境変数からリソースの接続文字列を取得します。 [リソースの接続文字列を管理する](../../create-communication-resource.md#store-your-connection-string)方法について確認してください。
 
 
 ```csharp
@@ -93,22 +98,53 @@ string connectionString = Environment.GetEnvironmentVariable("COMMUNICATION_SERV
 SmsClient smsClient = new SmsClient(connectionString);
 ```
 
-## <a name="send-an-sms-message"></a>SMS メッセージの送信
+## <a name="send-a-11-sms-message"></a>1:1 の SMS メッセージを送信する
 
-Send メソッドを呼び出して、SMS メッセージを送信します。 **Program.cs** の `Main` メソッドの末尾に次のコードを追加します。
+1 人の受信者に SMS メッセージを送信するには、SmsClient から`Send` または `SendAsync` 関数を呼び出します。 **Program.cs** の `Main` メソッドの末尾に次のコードを追加します。
 
 ```csharp
-smsClient.Send(
-    from: new PhoneNumber("<leased-phone-number>"),
-    to: new PhoneNumber("<to-phone-number>"),
-    message: "Hello World via SMS",
-    new SendSmsOptions { EnableDeliveryReport = true } // optional
+SmsSendResult sendResult = smsClient.Send(
+    from: "<from-phone-number>",
+    to: "<to-phone-number>",
+    message: "Hello World via SMS"
 );
+
+Console.WriteLine($"Sms id: {sendResult.MessageId}");
+```
+`<from-phone-number>` は Communication Services リソースに関連付けられている、SMS が有効になっている電話番号で置き換え、`<to-phone-number>` はメッセージの送信先の電話番号で置き換える必要があります。
+
+> [!WARNING]
+> 電話番号は、E.164 国際標準形式になっている必要があります (例: +14255550123)。
+
+## <a name="send-a-1n-sms-message-with-options"></a>オプションを使用して 1:N の SMS メッセージを送信する
+受信者の一覧に SMS メッセージを送信するには、受信者の電話番号の一覧を使用して SmsClient から `Send` または `SendAsync` 関数を呼び出します。 また、オプションのパラメーターを渡して、配信レポートを有効にするかどうか、およびカスタム タグを設定するかどうかを指定することもできます。
+
+```csharp
+Response<IReadOnlyList<SmsSendResult>> response = smsClient.Send(
+    from: "<from-phone-number>",
+    to: new string[] { "<to-phone-number-1>", "<to-phone-number-2>" },
+    message: "Weekly Promotion!",
+    options: new SmsSendOptions(enableDeliveryReport: true) // OPTIONAL
+    {
+        Tag = "marketing", // custom tags
+    });
+
+IEnumerable<SmsSendResult> results = response.Value;
+foreach (SmsSendResult result in results)
+{
+    Console.WriteLine($"Sms id: {result.MessageId}");
+    Console.WriteLine($"Send Result Successful: {result.Successful}");
+}
 ```
 
-`<leased-phone-number>` は Communication Services リソースに関連付けられている、SMS が有効になっている電話番号で置き換え、`<to-phone-number>` はメッセージの送信先の電話番号で置き換える必要があります。
+`<from-phone-number>` は Communication Services リソースに関連付けられている、SMS が有効になっている電話番号で置き換え、`<to-phone-number-1>` と `<to-phone-number-2>` はメッセージの送信先の電話番号で置き換える必要があります。
 
-`EnableDeliveryReport` パラメーターは、配信レポートを構成するために使用できる省略可能なパラメーターです。 これは、SMS メッセージが配信されたときにイベントを生成する場合に便利です。 SMS メッセージの配信レポートを構成するには、[SMS イベントの処理](../handle-sms-events.md)に関するクイックスタートを参照してください。
+> [!WARNING]
+> 電話番号は、E.164 国際標準形式になっている必要があります (例: +14255550123)。
+
+`enableDeliveryReport` パラメーターは、配信レポートを構成するために使用できる省略可能なパラメーターです。 これは、SMS メッセージが配信されたときにイベントを生成する場合に便利です。 SMS メッセージの配信レポートを構成するには、[SMS イベントの処理](../handle-sms-events.md)に関するクイックスタートを参照してください。
+
+`Tag` は、配信レポートにタグを適用する際に使用します。
 
 ## <a name="run-the-code"></a>コードの実行
 

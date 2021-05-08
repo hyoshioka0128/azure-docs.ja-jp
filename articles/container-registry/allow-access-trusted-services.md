@@ -3,12 +3,12 @@ title: 信頼された Azure サービスを使用してネットワーク制限
 description: 信頼された Azure サービス インスタンスが、ネットワーク制限付きコンテナー レジストリに安全にアクセスしてイメージをプルまたはプッシュできるようにする
 ms.topic: article
 ms.date: 01/29/2021
-ms.openlocfilehash: 3cc32630ea689891e7ba75163c33bc499a38becd
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 4b0d7feb223bcfcec4e8b2c786b211f4e3c3c3eb
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101716484"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107785872"
 ---
 # <a name="allow-trusted-services-to-securely-access-a-network-restricted-container-registry-preview"></a>信頼されたサービスがネットワーク制限付きコンテナー レジストリに安全にアクセスできるようにする (プレビュー)
 
@@ -41,6 +41,7 @@ Azure Container Registry には多層型セキュリティ モデルがあり、
 |信頼できるサービス  |サポートされる使用シナリオ  |
 |---------|---------|
 |ACR タスク     | [ACR タスクから別のレジストリにアクセスする](container-registry-tasks-cross-registry-authentication.md)       |
+|Machine Learning | カスタムの Docker コンテナー イメージを使用して、Machine Learning ワークスペースでモデルを[デプロイ](../machine-learning/how-to-deploy-custom-docker-image.md)または[トレーニング](../machine-learning/how-to-train-with-custom-image.md)する |
 |Azure Container Registry | [別の Azure コンテナー レジストリからイメージをインポートする](container-registry-import-images.md#import-from-an-azure-container-registry-in-the-same-ad-tenant) | 
 
 > [!NOTE]
@@ -48,7 +49,7 @@ Azure Container Registry には多層型セキュリティ モデルがあり、
 
 ## <a name="allow-trusted-services---cli"></a>信頼されたサービスを許可する - CLI
 
-既定では、信頼されたサービスを許可する設定は、新しい Azure コンテナー レジストリで有効になっています。 [az acr update](/cli/azure/acr#az-acr-update) コマンドを実行して、設定を無効または有効にします。
+既定では、信頼されたサービスを許可する設定は、新しい Azure コンテナー レジストリで有効になっています。 [az acr update](/cli/azure/acr#az_acr_update) コマンドを実行して、設定を無効または有効にします。
 
 無効にするには:
 

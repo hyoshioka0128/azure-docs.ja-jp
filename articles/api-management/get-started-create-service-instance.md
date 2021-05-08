@@ -8,13 +8,13 @@ ms.custom: mvc
 ms.date: 09/08/2020
 ms.author: apimpm
 ms.openlocfilehash: 66d0874536b358b720b43780d6ecce879ac866ee
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/16/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "90708208"
 ---
-# <a name="quickstart-create-a-new-azure-api-management-service-instance-by-using-the-azure-portal"></a>クイック スタート」を参照してください。Azure portal を使用して新しい Azure API Management サービス インスタンスを作成する
+# <a name="quickstart-create-a-new-azure-api-management-service-instance-by-using-the-azure-portal"></a>クイック スタート: Azure portal を使用して新しい Azure API Management サービス インスタンスを作成する
 
 API Management (APIM) が組織にもたらす利点は、外部、パートナー、社内の開発者に API を公開することによって、社内のデータやサービスの可能性を広げられることです。 API Management は、開発者の取り組み、ビジネス インサイト、分析、セキュリティ、保護を通じて API プログラムの価値を高め、企業にコア コンピテンシーをもたらします。 APIM を使用すると、任意の場所でホストされている既存のバックエンド サービスの最新の API ゲートウェイを作成し、管理できます。 詳細については、[概要](api-management-key-concepts.md)に関するページを参照してください。
 
@@ -41,7 +41,7 @@ API Management インスタンス
    
 1. **[API Management サービス]** ページで設定を入力します。
 
-   :::image type="content" source="media/get-started-create-service-instance/get-started-create-service-instance-create-new.png" alt-text="[リソースの作成]":::
+   :::image type="content" source="media/get-started-create-service-instance/get-started-create-service-instance-create-new.png" alt-text="新しいインスタンス":::
    
    | 設定                 | 説明   |                                                                     
    |-------------------------|-----------------------------------------------|
@@ -72,11 +72,11 @@ API Management サービス インスタンスがオンラインになったら�
 
 1. Azure portal で、「**リソース グループ**」を検索して選択します。 **[ホーム]** ページで **[リソース グループ]** を選択することもできます。 
 
-   :::image type="content" source="media/get-started-create-service-instance/00-DeleteResource-01.png" alt-text="[リソースの作成]":::
+   :::image type="content" source="media/get-started-create-service-instance/00-DeleteResource-01.png" alt-text="リソース グループのナビゲーション":::
 
 1. **[リソース グループ]** ページで、リソース グループを選択します。
 
-   :::image type="content" source="media/get-started-create-service-instance/00-DeleteResource-02.png" alt-text="[リソースの作成]":::
+   :::image type="content" source="media/get-started-create-service-instance/00-DeleteResource-02.png" alt-text="リソース グループの選択":::
 
 1. [リソース グループ] ページで、**[リソース グループの削除]** を選択します。 
    

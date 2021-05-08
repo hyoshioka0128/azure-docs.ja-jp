@@ -11,16 +11,16 @@ author: nibaccam
 ms.reviewer: nibaccam
 ms.date: 03/08/2021
 ms.custom: how-to, devx-track-python, data4ml, synapse-azureml
-ms.openlocfilehash: d1c4defc53c4af0fb481a57c0a455e987fdd480a
-ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
+ms.openlocfilehash: 511ee1aa5f5036f5ca5450def0e4481c0608db33
+ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102519998"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107227349"
 ---
 # <a name="link-azure-synapse-analytics-and-azure-machine-learning-workspaces-preview"></a>Azure Synapse Analytics と Azure Machine Learning のワークスペースをリンクする (プレビュー)
 
-この記事では、[Azure Synapse Analytics](/synapse-analytics/overview-what-is.md) ワークスペースと [Azure Machine Learning ワークスペース](concept-workspace.md)をリンクするリンク サービスを作成する方法について説明します。
+この記事では、[Azure Synapse Analytics](/azure/synapse-analytics/overview-what-is) ワークスペースと [Azure Machine Learning ワークスペース](concept-workspace.md)をリンクするリンク サービスを作成する方法について説明します。
 
 Azure Machine Learning ワークスペースを Azure Synapse ワークスペースとリンクすることで、Apache Spark プールを大規模なデータ ラングリング専用コンピューティングとしてアタッチし、同じノートブックからモデル トレーニングを実施できます。
 
@@ -35,9 +35,9 @@ ML ワークスペースと Synapse ワークスペースのリンクは、[Pyth
 
 * [Azure Machine Learning ワークスペースを作成](how-to-manage-workspace.md?tabs=python)します。
 
-* [Azure portal で Synapse ワークスペースを作成](/synapse-analytics/quickstart-create-workspace.md)します。
+* [Azure portal で Synapse ワークスペースを作成](/azure/synapse-analytics/quickstart-create-workspace)します。
 
-* [Azure portal、Web ツール、または Synapse Studio を使用して Apache Spark プールを作成](/synapse-analytics/quickstart-create-apache-spark-pool-portal.md)します。
+* [Azure portal、Web ツール、または Synapse Studio を使用して Apache Spark プールを作成](/azure/synapse-analytics/quickstart-create-apache-spark-pool-studio)します。
 
 * [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/intro) をインストールします。
 
@@ -102,12 +102,14 @@ Azure Machine Learning スタジオを使用して Machine Learning ワークス
 1. [Azure Machine Learning スタジオ](https://ml.azure.com/)にサインインします。
 1. 左ペインの **[管理]** セクションにある **[リンクされたサービス]** を選択します。
 1. **[Add integration]\(統合の追加\)** を選択します。
-1. **[Link workspace]\(ワークスペースのリンク\)** フォームの各フィールドの内容を入力します。 
-    フィールド| 説明    
-    ---|---
-    名前| リンクされたサービスの名前を入力します。 この特定のリンクされたサービスを参照する際に、この名前を使用します。
-    サブスクリプション名 | Machine Learning ワークスペースに関連付けられているサブスクリプションの名前を選択します。 
-    Synapse ワークスペース | リンク先の Synapse ワークスペースを選択します。
+1. **[Link workspace]\(ワークスペースのリンク\)** フォームの各フィールドの内容を入力します。
+
+    |フィールド| 説明    
+    |---|---
+    |名前| リンクされたサービスの名前を入力します。 この特定のリンクされたサービスを参照する際に、この名前を使用します。
+    |サブスクリプション名 | Machine Learning ワークスペースに関連付けられているサブスクリプションの名前を選択します。 
+    |Synapse ワークスペース | リンク先の Synapse ワークスペースを選択します。
+    
 1. **[次へ]** を選択して **[Select Spark pools (optional)]\(Spark プールの選択 (省略可)\)** フォームを開きます。 このフォームで、ワークスペースにアタッチする Synapse Spark プールを選択します。
 
 1. **[次へ]** を選択して **[Review]\(レビュー\)** フォームを開き、選択内容を確認します。

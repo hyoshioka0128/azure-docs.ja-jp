@@ -9,12 +9,12 @@ ms.custom:
 - mvc
 - devx-track-js
 - devx-track-azurecli
-ms.openlocfilehash: 1c327fc7fc067948b5022f989e6c86f99573bd1a
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 2027bdc4e77fefe2219b22671494b6d4f4b0ccb8
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93100186"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107763975"
 ---
 # <a name="quickstart-deploy-a-container-instance-in-azure-using-the-azure-cli"></a>クイック スタート:Azure CLI を使用してコンテナー インスタンスを Azure にデプロイする
 
@@ -34,7 +34,7 @@ ms.locfileid: "93100186"
 
 Azure のコンテナー インスタンスは、すべての Azure リソースと同様に、リソース グループにデプロイする必要があります。 リソース グループを使用すると、関連する Azure リソースを整理して管理できます。
 
-まず、次の [az group create][az-group-create] コマンドを使用して、 *myResourceGroup* という名前のリソース グループを *eastus* の場所に作成します。
+まず、次の [az group create][az-group-create] コマンドを使用して、*myResourceGroup* という名前のリソース グループを *eastus* の場所に作成します。
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
@@ -128,7 +128,7 @@ listening on port 80
 az container delete --resource-group myResourceGroup --name mycontainer
 ```
 
-コンテナーが削除されたことを確認するには、[az container list](/cli/azure/container#az-container-list) コマンドを実行します。
+コンテナーが削除されたことを確認するには、[az container list](/cli/azure/container#az_container_list) コマンドを実行します。
 
 ```azurecli-interactive
 az container list --resource-group myResourceGroup --output table
@@ -136,7 +136,7 @@ az container list --resource-group myResourceGroup --output table
 
 **mycontainer** コンテナーは、コマンドの出力に表示されません。 リソース グループに別のコンテナーがない場合、出力は表示されません。
 
-*myResourceGroup* リソース グループとそこに含まれるすべてのリソースの処理が完了したら、 [az group delete][az-group-delete] コマンドを使用してそれを削除します。
+*myResourceGroup* リソース グループとそこに含まれるすべてのリソースの処理が完了したら、[az group delete][az-group-delete] コマンドを使用してそれを削除します。
 
 ```azurecli-interactive
 az group delete --name myResourceGroup
@@ -160,13 +160,13 @@ Azure のオーケストレーション システムでコンテナーを実行�
 [node-js]: https://nodejs.org
 
 <!-- LINKS - Internal -->
-[az-container-attach]: /cli/azure/container#az-container-attach
-[az-container-create]: /cli/azure/container#az-container-create
-[az-container-delete]: /cli/azure/container#az-container-delete
-[az-container-list]: /cli/azure/container#az-container-list
-[az-container-logs]: /cli/azure/container#az-container-logs
-[az-container-show]: /cli/azure/container#az-container-show
-[az-group-create]: /cli/azure/group#az-group-create
-[az-group-delete]: /cli/azure/group#az-group-delete
+[az-container-attach]: /cli/azure/container#az_container_attach
+[az-container-create]: /cli/azure/container#az_container_create
+[az-container-delete]: /cli/azure/container#az_container_delete
+[az-container-list]: /cli/azure/container#az_container_list
+[az-container-logs]: /cli/azure/container#az_container_logs
+[az-container-show]: /cli/azure/container#az_container_show
+[az-group-create]: /cli/azure/group#az_group_create
+[az-group-delete]: /cli/azure/group#az_group_delete
 [azure-cli-install]: /cli/azure/install-azure-cli
 [container-service]: ../aks/kubernetes-walkthrough.md

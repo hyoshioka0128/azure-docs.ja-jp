@@ -4,10 +4,10 @@ description: Azure portal を使用してサービスの正常性通知を行う
 ms.topic: conceptual
 ms.date: 06/27/2019
 ms.openlocfilehash: 48126d923cb0baa33058c6fd55e48f31d793fade
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100570187"
 ---
 # <a name="create-activity-log-alerts-on-service-notifications-using-the-azure-portal"></a>Azure portal を使用してサービスの通知でアクティビティ ログ アラートを作成する

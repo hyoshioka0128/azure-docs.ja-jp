@@ -7,13 +7,13 @@ ms.service: private-link
 ms.topic: tutorial
 ms.date: 11/03/2020
 ms.author: allensu
-ms.custom: fasttrack-edit
-ms.openlocfilehash: 998b52a23894dcb7fa08b2c0fd42e4ef8e3678ae
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.custom: fasttrack-edit, devx-track-azurecli
+ms.openlocfilehash: a8fafeaaf974893c9a1a71115912f2a7b019ddd9
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102554991"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107771823"
 ---
 # <a name="tutorial-connect-to-an-azure-sql-server-using-an-azure-private-endpoint---azure-cli"></a>チュートリアル: Azure プライベート エンドポイントを使用して Azure SQL サーバーに接続する - Azure CLI
 
@@ -74,7 +74,7 @@ az network vnet create \
     --subnet-prefixes 10.0.0.0/24
 ```
 
-[az network vnet subnet update](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-update) を使用してサブネットを更新し、プライベート エンドポイントのプライベート エンドポイント ネットワーク ポリシーを無効にします。
+[az network vnet subnet update](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_update) を使用してサブネットを更新し、プライベート エンドポイントのプライベート エンドポイント ネットワーク ポリシーを無効にします。
 
 ```azurecli-interactive
 az network vnet subnet update \
@@ -84,7 +84,7 @@ az network vnet subnet update \
     --disable-private-endpoint-network-policies true
 ```
 
-[az network public-ip create](/cli/azure/network/public-ip#az-network-public-ip-create) を使用して、bastion ホストのパブリック IP アドレスを作成します。
+[az network public-ip create](/cli/azure/network/public-ip#az_network_public_ip_create) を使用して、bastion ホストのパブリック IP アドレスを作成します。
 
 * **myBastionIP** という名前の Standard ゾーン冗長パブリック IP アドレスを作成します。
 * リソース グループは **CreateSQLEndpointTutorial-rg** にします。
@@ -96,7 +96,7 @@ az network public-ip create \
     --sku Standard
 ```
 
-[az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create) を使用して、bastion サブネットを作成します。
+[az network vnet subnet create](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create) を使用して、bastion サブネットを作成します。
 
 * 名前は **AzureBastionSubnet** にします。
 * アドレス プレフィックスは **10.0.1.0/24** にします。
@@ -111,7 +111,7 @@ az network vnet subnet create \
     --address-prefixes 10.0.1.0/24
 ```
 
-[az network bastion create](/cli/azure/network/bastion#az-network-bastion-create) を使用して、bastion ホストを作成します。
+[az network bastion create](/cli/azure/network/bastion#az_network_bastion_create) を使用して、bastion ホストを作成します。
 
 * 名前: **myBastionHost**
 * リソース グループは **CreateSQLEndpointTutorial-rg** にします。
@@ -152,6 +152,8 @@ az vm create \
     --subnet myBackendSubnet \
     --admin-username azureuser
 ```
+
+[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
 
 ## <a name="create-an-azure-sql-server"></a>Azure SQL サーバーを作成する
 
@@ -218,9 +220,9 @@ az network private-endpoint create \
 
 ## <a name="configure-the-private-dns-zone"></a>プライベート DNS ゾーンを構成する
 
-このセクションでは、[az network private-dns zone create](/cli/azure/ext/privatedns/network/private-dns/zone#ext_privatedns_az_network_private_dns_zone_create) を使用してプライベート DNS ゾーンを作成し、構成します。  
+このセクションでは、[az network private-dns zone create](/cli/azure/network/private-dns/zone#ext_privatedns_az_network_private_dns_zone_create) を使用してプライベート DNS ゾーンを作成し、構成します。  
 
-[az network private-dns link vnet create](/cli/azure/ext/privatedns/network/private-dns/link/vnet#ext_privatedns_az_network_private_dns_link_vnet_create) を使用して、DNS ゾーンへの仮想ネットワーク リンクを作成します。
+[az network private-dns link vnet create](/cli/azure/network/private-dns/link/vnet#ext_privatedns_az_network_private_dns_link_vnet_create) を使用して、DNS ゾーンへの仮想ネットワーク リンクを作成します。
 
 [az network private-endpoint dns-zone-group create](/cli/azure/network/private-endpoint/dns-zone-group#az_network_private_endpoint_dns_zone_group_create) を使用して、DNS ゾーン グループを作成します。
 

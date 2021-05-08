@@ -3,12 +3,12 @@ title: コンテナー分析情報を使用して Azure Red Hat OpenShift v3.x �
 description: この記事では、Azure Red Hat OpenShift バージョン 3 以降でホストされている Azure Monitor を使用して Kubernetes クラスターの監視を構成する方法を説明します。
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: b46dfda0bdb0f3b582aa751786187a4d74524f75
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: a2910655601548f39983547e12460d949901954d
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101708375"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107784679"
 ---
 # <a name="configure-azure-red-hat-openshift-v3-with-container-insights"></a>コンテナー分析情報を使用して Azure Red Hat OpenShift v3 を構成する
 
@@ -30,7 +30,7 @@ ms.locfileid: "101708375"
 次のサポートされている方法を使用して、新規または 1 つ以上の既存の Azure Red Hat OpenShift のデプロイに対してコンテナー分析情報を有効にできます。
 
 - Azure portal または Azure Resource Manager テンプレートを使用した既存のクラスター向け。
-- Azure Resource Manager テンプレートを使用している新しいクラスター向け、または [Azure CLI](/cli/azure/openshift#az-openshift-create) を使用して新しいクラスターを作成する場合。
+- Azure Resource Manager テンプレートを使用している新しいクラスター向け、または [Azure CLI](/cli/azure/openshift#az_openshift_create) を使用して新しいクラスターを作成する場合。
 
 ## <a name="supported-and-unsupported-features"></a>サポートされている機能とサポートされていない機能
 
@@ -43,7 +43,7 @@ ms.locfileid: "101708375"
 
 - [Log Analytics ワークスペース。](../logs/design-logs-deployment.md)
 
-    コンテナー分析情報では、Azure の[リージョン別の製品](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=monitor)に関するページに一覧表示されているリージョンの Log Analytics ワークスペースがサポートされます。 ワークスペースは、[Azure Resource Manager](../logs/resource-manager-workspace.md)、[PowerShell](../logs/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json)、[Azure portal](../logs/quick-create-workspace.md) のいずれかを使用して作成できます。
+    Container insights では、Azure の[リージョン別の製品](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=monitor)に関するページに一覧表示されているリージョンの Log Analytics ワークスペースがサポートされます。 ワークスペースは、[Azure Resource Manager](../logs/resource-manager-workspace.md)、[PowerShell](../logs/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json)、[Azure portal](../logs/quick-create-workspace.md) のいずれかを使用して作成できます。
 
 - コンテナー分析情報の機能を有効にしてアクセスするには、少なくとも、Azure サブスクリプションの Azure "*共同作成者*" ロールのメンバー、およびコンテナー分析情報で構成されている Log Analytics ワークスペースの "[*Log Analytics 共同作成者*](../logs/manage-access.md#manage-access-using-azure-permissions)" ロールのメンバーである必要があります。
 

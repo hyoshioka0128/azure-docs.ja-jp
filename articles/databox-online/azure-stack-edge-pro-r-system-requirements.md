@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 02/05/2021
 ms.author: alkohli
 ms.openlocfilehash: ef81494b6c93f2941cc41b367e566332d6bc7cc9
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/08/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "99831342"
 ---
 # <a name="azure-stack-edge-pro-r-system-requirements"></a>Azure Stack Edge Pro R のシステム要件

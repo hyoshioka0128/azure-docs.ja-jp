@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/05/2020
 ms.author: abnarain
 ms.openlocfilehash: 9d1c22b9ac6912f99838733a4326cb4082f49a6c
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100369698"
 ---
 # <a name="azure-data-factory-data-redundancy"></a>**Azure Data Factory のデータの冗長性**

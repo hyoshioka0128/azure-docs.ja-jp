@@ -2,21 +2,21 @@
 title: 管理と監視 - 概要
 description: Azure Synapse Analytics の専用 SQL プールを使用した、リソース使用率、ログとクエリのアクティビティ、レコメンデーション、およびデータ保護 (バックアップと復元) の監視と管理容易性の概要。
 services: synapse-analytics
-author: kevinvngo
+author: julieMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
 ms.date: 08/27/2018
-ms.author: kevin
+ms.author: jrasnick
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 4792842eddac3e8082be2d3a67736824a02dfebd
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: dd9dc5b08de1a81b8da13aee875060fbe242baf5
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93317499"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107568218"
 ---
 # <a name="manageability-and-monitoring-with-dedicated-sql-pool-in-azure-synapse-analytics"></a>Azure Synapse Analytics の専用 SQL プールを使用した管理容易性と監視
 

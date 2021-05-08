@@ -7,13 +7,13 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 02/26/2021
 ms.author: helohr
-manager: lizross
-ms.openlocfilehash: 04a4366bfee6b1d9c5f52d649910163269962684
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+manager: femila
+ms.openlocfilehash: 32e113bf02a2cbd21b70805396c212a1f9467382
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101709259"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106448238"
 ---
 # <a name="supported-authentication-methods"></a>サポートされている認証方法
 

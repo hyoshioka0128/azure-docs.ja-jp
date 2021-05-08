@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 01/06/2021
 ms.custom: seo-nov-2020
 ms.openlocfilehash: 6bdb167990afeb5c1b6c68185f24a8f930287bed
-ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/09/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "102487901"
 ---
 # <a name="distribute-your-data-globally-with-azure-cosmos-db"></a>Azure Cosmos DB を使用してデータをグローバルに分散させる

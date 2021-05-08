@@ -8,10 +8,10 @@ ms.topic: include
 ms.date: 12/29/2020
 ms.author: aahi
 ms.openlocfilehash: c4b3e9aeaaea9e8ff3d7abc58a8e468ca8dc2c3f
-ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/30/2020
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "97820540"
 ---
 ### <a name="text-analytics-support-notes"></a>\*\*テキスト分析サポートに関するメモ

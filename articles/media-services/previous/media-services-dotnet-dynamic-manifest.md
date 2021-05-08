@@ -17,10 +17,10 @@ ms.author: inhenkel
 ms.reviewer: cenkdin
 ms.custom: devx-track-csharp
 ms.openlocfilehash: bd5435f7a2969c486042c9447a0fffbb745229f9
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/11/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103014113"
 ---
 # <a name="creating-filters-with-media-services-net-sdk"></a>Media Services .NET SDK を使用したフィルターの作成

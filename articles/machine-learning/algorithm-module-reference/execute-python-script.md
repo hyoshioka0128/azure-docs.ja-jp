@@ -11,10 +11,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 01/02/2021
 ms.openlocfilehash: 6003ca9156d8553604d7ebbf94c5c3373d077f0f
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/09/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102500701"
 ---
 # <a name="execute-python-script-module"></a>Python スクリプトの実行モジュール

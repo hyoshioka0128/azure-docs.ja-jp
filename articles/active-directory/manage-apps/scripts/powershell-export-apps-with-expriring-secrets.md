@@ -2,25 +2,25 @@
 title: PowerShell のサンプル - Azure Active Directory テナントで、間もなく期限が切れるシークレットと証明書を含むアプリをエクスポートします。
 description: Azure Active Directory テナントで指定したアプリについて、間もなく期限が切れるシークレットと証明書を含むすべてのアプリをエクスポートする PowerShell の例。
 services: active-directory
-author: kenwith
-manager: daveba
+author: iantheninja
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: sample
 ms.date: 03/09/2021
-ms.author: kenwith
+ms.author: iangithinji
 ms.reviewer: mifarca
-ms.openlocfilehash: 7123c87d8883d9ac309797255152611fb9fb81d2
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: 7f129e06904497b43eff8a3f0221fb57565ac112
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102583260"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107375408"
 ---
 # <a name="export-apps-with-expiring-secrets-and-certificates"></a>間もなく期限が切れるシークレットと証明書を含むアプリをエクスポートする
 
-この PowerShell スクリプトの例では、指定したアプリについて、間もなく期限が切れるシークレットと証明書を含むすべてのアプリをディレクトリから CSV ファイルにエクスポートします。
+この PowerShell スクリプトの例では、指定したアプリについて、間もなく期限が切れるシークレット、証明書、およびそれらの所有者を含むすべてのアプリ登録をディレクトリから CSV ファイルにエクスポートします。
 
 [!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 
@@ -32,7 +32,10 @@ ms.locfileid: "102583260"
 
 ## <a name="script-explanation"></a>スクリプトの説明
 
+このスクリプトは、変更せずに直接使用できます。 管理者には、有効期限と、既に有効期限が切れているシークレットまたは証明書を表示するかどうかを確認するメッセージが表示されます。
+
 "Add-Member" コマンドは、CSV ファイル内に列を作成する役割を担います。
+"New-Object" コマンドを使用すると、CSV ファイル エクスポートの列に使用されるオブジェクトが作成されます。
 エクスポートを非対話的に行う場合は、PowerShell で CSV ファイル パスを使用して "$Path" 変数を直接変更できます。
 
 | コマンド | Notes |

@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 01/08/2021
 ms.author: erhopf
 ms.openlocfilehash: 22127f81d871fe333750020196540db17e7544f7
-ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/08/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "98033452"
 ---
 ## <a name="authentication"></a>認証

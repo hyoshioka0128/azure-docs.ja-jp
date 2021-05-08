@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/23/2020
 ms.author: cherylmc
-ms.openlocfilehash: 2f2184507e17e3ecae40bb33be4202c183d32b77
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b55fe0bf404ecb8a81e3fe1975dfa9f5ba5dfb06
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91274235"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107103353"
 ---
 # <a name="point-to-site-vpn-session-management"></a>ポイント対サイト VPN セッションの管理
 
@@ -33,6 +33,8 @@ Azure 仮想ネットワーク ゲートウェイを使用すると、現在の�
 1. ウィンドウ ペインで現在のセッションをすべて確認できます。
 1. 切断するセッションで **[...]** を選択してから、 **[切断]** を選択します。
 
+現在、VpnGw4 SKU および VpnGw5 SKE のポータルでこの機能を使用することはできません。 これらのゲートウェイのいずれかがある場合は、次のセクションで説明する PowerShell メソッドを使用してください。
+
 ## <a name="powershell"></a>PowerShell
 
 PowerShell を使用してセッションを表示および切断するには、次の操作を行います。
@@ -44,7 +46,7 @@ PowerShell を使用してセッションを表示および切断するには、
    ```
 1. 切断するセッションの **VpnConnectionId** をコピーします。
 
-   :::image type="content" source="./media/p2s-session-management/powershell.png" alt-text="ポータルの例":::
+   :::image type="content" source="./media/p2s-session-management/powershell.png" alt-text="PowerShell の例":::
 1. セッションを切断するには、次のコマンドを実行します。
 
    ```azurepowershell-interactive

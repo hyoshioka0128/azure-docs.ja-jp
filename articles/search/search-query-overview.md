@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/03/2021
-ms.openlocfilehash: 97b0a4ca3e4fb94a21cbd30a27a3037f45fed782
-ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
+ms.openlocfilehash: 21012848ba3624df6110eaea182beccc4646d234
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102487119"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105609277"
 ---
 # <a name="querying-in-azure-cognitive-search"></a>Azure Cognitive Search のクエリ
 
@@ -71,13 +71,13 @@ Cognitive Search では、フルテキスト検索は Apache Lucene クエリ �
 
 一致する用語が見つかった場合、クエリ エンジンは、ドキュメント キーまたは ID を使用してフィールド値をアセンブルする一致を含む検索ドキュメントを再構築し、ドキュメントを関連性の順にランク付けし、応答の上位 50 (既定) を返すか、 **`top`** を指定した場合は別の番号を返します。
 
-フルテキスト検索を実装している場合は、コンテンツがトークン化される方法を理解すると、クエリの異常のデバッグに役立ちます。 ハイフンでつながれた文字列または特殊文字に対するクエリでは、既定の Standard Lucene 以外のアナライザーを使用してインデックスに正しいトークンが含まれていることを確認することが必要になります。 既定値をオーバーライドして、[言語アナライザー](index-add-language-analyzers.md#language-analyzer-list)や、字句解析を変更する[特別なアナライザー](index-add-custom-analyzers.md#AnalyzerTable)を使用できます。 たとえば、フィールドの内容全体を 1 つのトークンとして扱う [keyword](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/KeywordAnalyzer.html) です。 これは、郵便番号、ID、製品名などのデータで役立ちます。 詳細については、「[部分的な用語検索と特殊文字を含むパターン](search-query-partial-matching.md)」をご覧ください。
+フルテキスト検索を実装している場合は、コンテンツがトークン化される方法を理解すると、クエリの異常のデバッグに役立ちます。 ハイフンでつながれた文字列または特殊文字に対するクエリでは、既定の Standard Lucene 以外のアナライザーを使用してインデックスに正しいトークンが含まれていることを確認することが必要になります。 既定値をオーバーライドして、[言語アナライザー](index-add-language-analyzers.md#language-analyzer-list)や、字句解析を変更する[特別なアナライザー](index-add-custom-analyzers.md#built-in-analyzers)を使用できます。 たとえば、フィールドの内容全体を 1 つのトークンとして扱う [keyword](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/KeywordAnalyzer.html) です。 これは、郵便番号、ID、製品名などのデータで役立ちます。 詳細については、「[部分的な用語検索と特殊文字を含むパターン](search-query-partial-matching.md)」をご覧ください。
 
 大きなテキスト ブロック (コンテンツ フィールドや長い説明) が含まれているインデックスでブール演算子が頻繁な使用されることが多いですが、これが予想される場合は、 **`searchMode=Any|All`** パラメーターを使用してクエリをテストし、その設定がブール検索に与える影響を評価してください。
 
 ## <a name="autocomplete-and-suggested-queries"></a>オートコンプリートとクエリ候補
 
-[オートコンプリートや結果候補](search-autocomplete-tutorial.md)は、逐次検索エクスペリエンスでの部分文字列入力に基づいて連続するクエリ要求を実行する **`search`** に代わる代替手段です。 [このチュートリアル](tutorial-csharp-type-ahead-and-suggestions.md)で説明しているように、 **`autocomplete`** と **`suggestions`** パラメーターは一緒に使用することも、個別に使用することもできますが、 **`search`** と一緒に使用することはできません。 完成した用語とクエリ候補はどちらもインデックスの内容から派生されます。 このエンジンは、インデックスに存在しない文字列や候補を返しません。 詳細については、「[オートコンプリート (REST API)](/rest/api/searchservice/autocomplete)」と「[検索候補 (REST API)](/rest/api/searchservice/suggestions)」をご覧ください。
+[オートコンプリートや結果候補](search-add-autocomplete-suggestions.md)は、逐次検索エクスペリエンスでの部分文字列入力に基づいて連続するクエリ要求を実行する **`search`** に代わる代替手段です。 [このチュートリアル](tutorial-csharp-type-ahead-and-suggestions.md)で説明しているように、 **`autocomplete`** と **`suggestions`** パラメーターは一緒に使用することも、個別に使用することもできますが、 **`search`** と一緒に使用することはできません。 完成した用語とクエリ候補はどちらもインデックスの内容から派生されます。 このエンジンは、インデックスに存在しない文字列や候補を返しません。 詳細については、「[オートコンプリート (REST API)](/rest/api/searchservice/autocomplete)」と「[検索候補 (REST API)](/rest/api/searchservice/suggestions)」をご覧ください。
 
 ## <a name="filter-search"></a>フィルター検索
 

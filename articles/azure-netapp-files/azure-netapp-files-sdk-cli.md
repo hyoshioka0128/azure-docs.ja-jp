@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 10/21/2020
 ms.author: b-juche
 ms.openlocfilehash: 705b74fe1fe38e8f65fe24e88c5ffa9bf1ad6175
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/09/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102507791"
 ---
 # <a name="azure-netapp-files-sdks-cli-tools-and-arm-templates"></a>Azure NetApp Files SDK、CLI ツール、ARM テンプレート

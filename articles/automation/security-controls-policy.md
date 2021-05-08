@@ -1,18 +1,18 @@
 ---
 title: Azure Automation 用の Azure Policy 規制コンプライアンス コントロール
 description: Azure Automation に対して使用できる Azure Policy 規制コンプライアンス コントロールの一覧を示します。 これらの組み込みポリシー定義により、Azure リソースのコンプライアンスを管理するための一般的な方法が提供されます。
-ms.date: 03/10/2021
+ms.date: 04/14/2021
 ms.topic: sample
 author: mgoedtel
 ms.author: magoedte
 ms.service: automation
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: b3757264a22f9323507abb26f97f11e90222e830
-ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
+ms.openlocfilehash: c72408673cea08348483eb72a268abca9220df62
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "102635148"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107505151"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-automation"></a>Azure Automation 用の Azure Policy 規制コンプライアンス コントロール
 

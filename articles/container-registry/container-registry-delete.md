@@ -3,12 +3,12 @@ title: 画像リソースを削除する
 description: Azure CLI コマンドを使用してコンテナー イメージ データを削除することによって、レジストリのサイズを効果的に管理する方法について詳しく説明します。
 ms.topic: article
 ms.date: 07/31/2019
-ms.openlocfilehash: 449a1c09bf88e3e0e0aeca4d3b687371d2a6b91a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: af277d0c02960c989b4e9119f2ecbfd8f6d7ce07
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "78403350"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107783991"
 ---
 # <a name="delete-container-images-in-azure-container-registry-using-the-azure-cli"></a>Azure CLI を使用して Azure Container Registry 内のコンテナー イメージを削除する
 
@@ -117,7 +117,7 @@ az acr repository show-manifests --name <acrName> --repository <repositoryName> 
 古いマニフェスト ダイジェストを特定した後、次の Bash スクリプトを実行することで、指定のタイムスタンプより古いマニフェスト ダイジェストを削除することができます。 Azure CLI と **xargs** が必要です。 既定では、このスクリプトは削除を実行しません。 イメージの削除を有効にするには、`ENABLE_DELETE` の値を `true` に変更します。
 
 > [!WARNING]
-> 次のサンプル スクリプトを使用するときは注意してください。削除したイメージ データを元に戻すことはできません。 (イメージ名ではなく) マニフェスト ダイジェストを使用してイメージをプルするシステムの場合は、これらのスクリプトを実行しないでください。 そのようなシステムでは、マニフェスト ダイジェストを削除すると、レジストリからイメージをプルできなくなります。 マニフェストでプルするのではなく、*一意のタグ付け*スキームの[推奨されるベスト プラクティス](container-registry-image-tag-version.md)を採用することを検討してください。 
+> 次のサンプル スクリプトを使用するときは注意してください。削除したイメージ データを元に戻すことはできません。 (イメージ名ではなく) マニフェスト ダイジェストを使用してイメージをプルするシステムの場合は、これらのスクリプトを実行しないでください。 そのようなシステムでは、マニフェスト ダイジェストを削除すると、レジストリからイメージをプルできなくなります。 マニフェストでプルするのではなく、*一意のタグ付け* スキームの [推奨されるベスト プラクティス](container-registry-image-tag-version.md)を採用することを検討してください。 
 
 ```bash
 #!/bin/bash
@@ -152,7 +152,7 @@ fi
 
 ## <a name="delete-untagged-images"></a>タグの付いていないイメージを削除する
 
-「[マニフェスト ダイジェスト](container-registry-concepts.md#manifest-digest)」セクションで説明したように、既存のタグを使用して変更されたイメージをプッシュすると、以前にプッシュされたイメージの**タグが解除**されて、孤立した (または "未解決の") イメージになります。 以前にプッシュされたイメージのマニフェストとそのレイヤー データは、レジストリに残っています。 次のような一連のイベントについて考えてみます。
+「[マニフェスト ダイジェスト](container-registry-concepts.md#manifest-digest)」セクションで説明したように、既存のタグを使用して変更されたイメージをプッシュすると、以前にプッシュされたイメージの **タグが解除** されて、孤立した (または "未解決の") イメージになります。 以前にプッシュされたイメージのマニフェストとそのレイヤー データは、レジストリに残っています。 次のような一連のイベントについて考えてみます。
 
 1. **latest** というタグが付いたイメージ *acr-helloworld* をプッシュします。`docker push myregistry.azurecr.io/acr-helloworld:latest`
 1. リポジトリ *acr-helloworld* のマニフェストを確認します。
@@ -212,7 +212,7 @@ az acr repository show-manifests --name <acrName> --repository <repositoryName> 
 スクリプトでこのコマンドを使用すると、リポジトリ内のタグ付けされていないすべてのイメージを削除できます。
 
 > [!WARNING]
-> 次のサンプル スクリプトを使用するときは注意してください。削除したイメージ データを元に戻すことはできません。 (イメージ名ではなく) マニフェスト ダイジェストを使用してイメージをプルするシステムの場合は、これらのスクリプトを実行しないでください。 このようなシステムでは、タグの付いていないイメージを削除すると、レジストリからイメージをプルできなくなります。 マニフェストでプルするのではなく、*一意のタグ付け*スキームの[推奨されるベスト プラクティス](container-registry-image-tag-version.md)を採用することを検討してください。
+> 次のサンプル スクリプトを使用するときは注意してください。削除したイメージ データを元に戻すことはできません。 (イメージ名ではなく) マニフェスト ダイジェストを使用してイメージをプルするシステムの場合は、これらのスクリプトを実行しないでください。 このようなシステムでは、タグの付いていないイメージを削除すると、レジストリからイメージをプルできなくなります。 マニフェストでプルするのではなく、*一意のタグ付け* スキームの [推奨されるベスト プラクティス](container-registry-image-tag-version.md)を採用することを検討してください。
 
 **Bash での Azure CLI**
 
@@ -289,6 +289,6 @@ Azure Container Registry でのイメージ ストレージの詳細について
 [portal]: https://portal.azure.com
 
 <!-- LINKS - Internal -->
-[az-acr-repository-delete]: /cli/azure/acr/repository#az-acr-repository-delete
-[az-acr-repository-show-manifests]: /cli/azure/acr/repository#az-acr-repository-show-manifests
-[az-acr-repository-untag]: /cli/azure/acr/repository#az-acr-repository-untag
+[az-acr-repository-delete]: /cli/azure/acr/repository#az_acr_repository_delete
+[az-acr-repository-show-manifests]: /cli/azure/acr/repository#az_acr_repository_show_manifests
+[az-acr-repository-untag]: /cli/azure/acr/repository#az_acr_repository_untag

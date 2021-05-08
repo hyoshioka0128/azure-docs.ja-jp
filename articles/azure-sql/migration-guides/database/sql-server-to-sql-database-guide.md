@@ -1,5 +1,5 @@
 ---
-title: SQL Server から SQL Database へ:移行ガイド
+title: 'SQL Server から Azure SQL Database: 移行ガイド'
 description: SQL Server データベースを Azure SQL Database に移行するには、このガイドのようにします。
 ms.service: sql-database
 ms.subservice: migration-guide
@@ -9,15 +9,15 @@ ms.topic: how-to
 author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
-ms.date: 11/06/2020
-ms.openlocfilehash: 2d43eda404a5257c0ec28a884b6ebf182330ba51
-ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
+ms.date: 03/19/2021
+ms.openlocfilehash: e2de694a153276dcace1070d35af44dec1056e03
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102488417"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105564927"
 ---
-# <a name="migration-guide-sql-server-to-sql-database"></a>移行ガイド:SQL Server から SQL Database
+# <a name="migration-guide-sql-server-to-azure-sql-database"></a>移行ガイド: SQL Server から Azure SQL Database
 [!INCLUDE[appliesto--sqldb](../../includes/appliesto-sqldb.md)]
 
 このガイドでは、SQL Server インスタンスを Azure SQL Database に移行する方法について説明します。 
@@ -30,7 +30,7 @@ ms.locfileid: "102488417"
 - Compute Engine (Google Cloud Platform - GCP)  
 - Cloud SQL for SQL Server (Google Cloud Platform – GCP) 
 
-移行の詳細については、[移行の概要](sql-server-to-sql-database-overview.md)に関するページを参照してください。 その他のシナリオについては、[データベース移行ガイド](https://datamigration.microsoft.com/)を参照してください。
+移行の詳細については、[移行の概要](sql-server-to-sql-database-overview.md)に関するページを参照してください。 その他の移行ガイドについては、[データベースの移行](https://docs.microsoft.com/data-migration)に関するページを参照してください。 
 
 :::image type="content" source="media/sql-server-to-database-overview/migration-process-flow-small.png" alt-text="移行プロセス フロー":::
 
@@ -38,9 +38,11 @@ ms.locfileid: "102488417"
 
 SQL Server を Azure SQL Database に移行するには、次の前提条件が満たされていることを確認します。 
 
-- [移行方法](sql-server-to-sql-database-overview.md#compare-migration-options)および対応するツールが選択されている 
-- ソースの SQL Server に接続できるコンピューターに [Data Migration Assistant (DMA)](https://www.microsoft.com/download/details.aspx?id=53595) がインストールされている
-- ターゲットの [Azure SQL Database](../../database/single-database-create-quickstart.md)
+- [移行方法](sql-server-to-sql-database-overview.md#compare-migration-options)および対応するツールが選択されている。
+- ソースの SQL Server に接続できるマシンにインストールされている [Data Migration Assistant (DMA)](https://www.microsoft.com/download/details.aspx?id=53595)。
+- ターゲットの [Azure SQL Database](../../database/single-database-create-quickstart.md)。 
+- ソースとターゲットの両方にアクセスするための接続と、適切なアクセス許可。 
+
 
 
 ## <a name="pre-migration"></a>移行前
@@ -150,7 +152,7 @@ DMS を使用して SQL Server から Azure SQL Database にデータベース�
 ソースとターゲットの両方でデータが同じであることを確認した後、ソース環境からターゲット環境に切り替えることができます。 切り替え中の最小限の中断が業務の継続性に影響を与えないようにするために、ビジネス チームやアプリケーション チームと共に切り替えプロセスを計画することが重要です。 
 
 > [!IMPORTANT]
-> DMS を使用した移行の一環として切り替えを実行する場合、それに関連する特定の手順について詳しくは、[移行カットオーバーの実行](../../../dms/tutorial-sql-server-azure-sql-online.md#perform-migration-cutover)に関するページを参照してください。
+> DMS を使用した移行の一環として切り替えを実行する場合、それに関連する特定の手順について詳しくは、[移行カットオーバーの実行](../../../dms/tutorial-sql-server-to-azure-sql.md)に関するページを参照してください。
 
 ## <a name="migration-recommendations"></a>移行の推奨事項
 
@@ -183,9 +185,6 @@ Azure SQL Database への移行を高速化するには、次の推奨事項を�
 1. **テスト環境を設定する**: テスト環境には、ソース データベースとターゲット データベースのコピーが含まれている必要があります。 必ずテスト環境を分離してください。
 1. **検証テストを実行する**: ソースとターゲットに対して検証テストを実行してから、結果を分析します。
 1. **パフォーマンス テストを実行する**: ソースとターゲットに対してパフォーマンス テストを実行し、結果を分析して比較します。
-
-   > [!NOTE]
-   > 移行後の検証テストの開発と実行を支援するために、パートナーの [QuerySurge](https://www.querysurge.com/company/partners/microsoft) から入手できる Data Quality Solution を検討してください。 
 
 
 ## <a name="leverage-advanced-features"></a>高度な機能を活用する 

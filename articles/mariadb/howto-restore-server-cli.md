@@ -3,17 +3,17 @@ title: バックアップと復元 - Azure CLI - Azure Database for MariaDB
 description: Azure CLI を使用して Azure Database for MariaDB サーバーをバックアップおよび復元する方法について説明します。
 author: savjani
 ms.author: pariks
-ms.service: jroth
+ms.service: mariadb
 ms.devlang: azurecli
 ms.topic: how-to
 ms.date: 3/27/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: ceda6c99493818042aa281ab545465e91493a80e
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: af197f2dd144e7541f669fdd67b58c38d91b4400
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98664836"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107777133"
 ---
 # <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-mariadb-using-the-azure-cli"></a>Azure CLI を使用して Azure Database for MariaDB サーバーのバックアップと復元を行う方法
 
@@ -57,7 +57,7 @@ az mariadb server update --name mydemoserver --resource-group myresourcegroup --
 
 サーバーを以前の状態に復元できます。 復元されたデータは新しいサーバーにコピーされ、既存のサーバーはそのまま残されます。 たとえば、今日の正午にテーブルが誤って削除された場合、正午の直前に復元できます。 その後、不足しているテーブルとデータを、サーバーの復元されたコピーから取得できます。
 
-サーバーを復元するには、Azure CLI コマンド [az mariadb server restore](/cli/azure/mariadb/server#az-mariadb-server-restore) を使用します。
+サーバーを復元するには、Azure CLI コマンド [az mariadb server restore](/cli/azure/mariadb/server#az_mariadb_server_restore) を使用します。
 
 ### <a name="run-the-restore-command"></a>復元コマンドを実行する
 

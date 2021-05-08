@@ -2,7 +2,6 @@
 title: Azure RBAC のトラブルシューティング
 description: Azure ロールベースのアクセス制御 (Azure RBAC) に関する問題を解決します。
 services: azure-portal
-documentationcenter: na
 author: rolyon
 manager: mtillman
 ms.assetid: df42cca2-02d6-4f3c-9d56-260e1eb7dc44
@@ -11,16 +10,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 11/10/2020
+ms.date: 04/06/2021
 ms.author: rolyon
-ms.reviewer: bagovind
 ms.custom: seohack1, devx-track-azurecli
-ms.openlocfilehash: d77468619fcd67887273b2fbd452b37add1e19b0
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.openlocfilehash: b4a3f7f613f75f2f285437b7ae6f816adf56d999
+ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100555883"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106580098"
 ---
 # <a name="troubleshoot-azure-rbac"></a>Azure RBAC のトラブルシューティング
 
@@ -51,7 +49,7 @@ $ras.Count
 
 ## <a name="problems-with-azure-role-assignments"></a>Azure のロールの割り当てに関する問題
 
-- **[追加]**  >  **[ロール割り当ての追加]** オプションが無効になっているため、または "オブジェクト ID のクライアントは、アクションの実行を承認されていません" というアクセス許可エラーが発生するために、Azure portal の **[アクセス制御 (IAM)]** でロールを割り当てることができない場合は、ロールを割り当てようとしているスコープで `Microsoft.Authorization/roleAssignments/write` のアクセス許可を持っている[所有者](built-in-roles.md#owner)や[ユーザー アクセス管理者](built-in-roles.md#user-access-administrator)などのロールを割り当てられているユーザーで、現在サインインしていることを確認してください。
+- **[追加]**  >  **[ロール割り当ての追加]** オプションが無効になっているため、または "オブジェクト ID のクライアントは、アクションの実行を承認されていません" というアクセス許可エラーが発生するために、Azure portal の **[アクセス制御 (IAM)]** でロールを割り当てることができない場合は、ロールを割り当てようとしているスコープで `Microsoft.Authorization/roleAssignments/write` のアクセス許可を持っている [所有者](built-in-roles.md#owner)や [ユーザー アクセス管理者](built-in-roles.md#user-access-administrator)などのロールを割り当てられているユーザーで、現在サインインしていることを確認してください。
 - サービス プリンシパルを使用してロールを割り当てると、"この操作を完了するのに十分な特権がありません" というエラーが表示されることがあります。 たとえば、所有者ロールが割り当てられたサービス プリンシパルがあり、Azure CLI を使用して、次のロールの割り当てをサービスプリンシパルとして作成しようとするとします。
 
     ```azurecli
@@ -68,11 +66,16 @@ $ras.Count
     ```azurecli
     az role assignment create --assignee-object-id 11111111-1111-1111-1111-111111111111  --role "Contributor" --scope "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}"
     ```
+
+- 新しいサービス プリンシパルを作成し、そのサービス プリンシパルにロールをすぐに割り当てようとすると、場合によってはそのロールの割り当てが失敗することがあります。
+
+    このシナリオに対処するには、ロールの割り当てを作成するときに、`principalType` プロパティを `ServicePrincipal` に設定する必要があります。 また、ロールの割り当ての `apiVersion` を `2018-09-01-preview` 以降に設定する必要もあります。 詳細については、「[REST API を使用して新しいサービス プリンシパルに Azure ロールを割り当てる](role-assignments-rest.md#new-service-principal)」または「[Azure Resource Manager テンプレートを使用して新しいサービス プリンシパルに Azure ロールを割り当てる](role-assignments-template.md#new-service-principal)」を参照してください。
+
 - サブスクリプションの最後の所有者ロール割り当てを削除しようとすると、"最後の RBAC 管理者割り当てを削除できません" エラーが表示されることがあります。 サブスクリプションの最後の所有者ロールの割り当ては、サブスクリプションの孤立化を回避するため、削除できません。 サブスクリプションを取り消す場合、「[Azure サブスクリプションの取り消し](../cost-management-billing/manage/cancel-azure-subscription.md)」を参照してください。
 
 ## <a name="problems-with-custom-roles"></a>カスタム ロールに関する問題
 
-- カスタム ロールを作成する手順が必要な場合は、[Azure portal](custom-roles-portal.md) (現在はプレビュー段階)、[Azure PowerShell](tutorial-custom-role-powershell.md)、[Azure CLI](tutorial-custom-role-cli.md) を使用して、カスタム ロールのチュートリアルを参照してください。
+- カスタム ロールを作成する方法の手順が必要な場合は、[Azure portal](custom-roles-portal.md)、[Azure PowerShell](tutorial-custom-role-powershell.md)、[Azure CLI](tutorial-custom-role-cli.md) を使用するカスタム ロールのチュートリアルをご覧ください。
 - 既存のカスタム ロールを更新できない場合は、現在サインインしているユーザーに `Microsoft.Authorization/roleDefinition/write` アクセス許可を持つロール ([所有者](built-in-roles.md#owner)や[ユーザー アクセス管理者](built-in-roles.md#user-access-administrator)など) が割り当てられていることを確認します。
 - カスタム ロールを削除することができず、エラー メッセージ "ロールを参照している既存のロールの割り当てがあります (コード: RoleDefinitionHasAssignments)" が表示される場合は、カスタム ロールを使用しているロールの割り当てがまだ存在します。 それらのロール割り当てを削除してから、もう一度カスタム ロールを削除してみてください。
 - エラー メッセージ "ロールの定義の制限を超えました。 ロールの定義をこれ以上作成することはできません (コード: RoleDefinitionLimitExceeded)" が、新しいカスタム ロールを作成しようとすると表示される場合は、使用されていないすべてのカスタム ロールを削除します。 Azure では、ディレクトリあたり最大 **5,000** 個のカスタム ロールがサポートされます。 (Azure Germany と Azure China 21Vianet の場合、制限は 2,000 カスタム ロールです)。

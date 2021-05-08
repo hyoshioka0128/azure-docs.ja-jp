@@ -8,12 +8,12 @@ ms.date: 03/11/2020
 ms.service: storage
 ms.reviewer: rukmani-msft
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: 875c046406b7989a39f09dde82640ed5567b6b3e
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 9d160738208bcef7b066567137a3c3a9738c26a5
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101714869"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105727010"
 ---
 # <a name="migrate-azure-data-lake-storage-from-gen1-to-gen2"></a>Azure Data Lake Storage を Gen1 から Gen2 に移行する
 
@@ -111,7 +111,7 @@ Gen2 でアプリケーションとワークロードが安定していること
 
 移行パターンを選択し、必要に応じてそのパターンを変更します。
 
-|||
+|移行パターン | 詳細 |
 |---|---|
 |**リフト アンド シフト**|最も簡単なパターンです。 データ パイプラインがダウンタイムを許容できる場合に最適です。|
 |**増分コピー**|"*リフト アンド シフト*" に似ていますが、ダウンタイムは少なくなります。 コピーに時間がかかる大量のデータに適しています。|

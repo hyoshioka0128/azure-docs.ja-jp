@@ -4,30 +4,27 @@ description: Azure IoT Edge を使って、複数のダウンストリーム デ
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 11/10/2020
+ms.date: 03/23/2021
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: ec0bf6330b7b2268db84d86dc5a0d141fc24ce74
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: aa8b7372af91fc7cb194dfc3a6212cb4ce1fa0a2
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102040653"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105027348"
 ---
 # <a name="how-an-iot-edge-device-can-be-used-as-a-gateway"></a>IoT Edge デバイスをゲートウェイとして使用する方法
 
+[!INCLUDE [iot-edge-version-201806-or-202011](../../includes/iot-edge-version-201806-or-202011.md)]
+
 IoT Edge デバイスはゲートウェイとして動作し、ネットワーク上の他のデバイスと IoT Hub 間の接続を提供できます。
 
-IoT Edge ハブ モジュールは、IoT Hub のように動作するため、他の IoT Edge デバイスなど、IoT Hub による ID を持つ任意のデバイスからの接続を処理できます。 この種類のゲートウェイ パターンは *透過的* と呼ばれます。ダウンストリーム デバイスから IoT Hub に、それらの間にゲートウェイが存在しないかのように、メッセージを渡すことができるためです。
-
-<!-- 1.2.0 -->
-::: moniker range=">=iotedge-2020-11"
-IoT Edge のバージョン 1.2 以降、透過的ゲートウェイでは他の IoT Edge デバイスからのダウンストリーム接続を処理できます。
-::: moniker-end
+IoT Edge ハブ モジュールは、IoT Hub のように動作するため、同じ IoT Hub による ID を持つ他のデバイスからの接続を処理できます。 この種類のゲートウェイ パターンは *透過的* と呼ばれます。ダウンストリーム デバイスから IoT Hub に、それらの間にゲートウェイが存在しないかのように、メッセージを渡すことができるためです。
 
 独自に IoT Hub に接続していない、または接続できないデバイスの場合、IoT Edge ゲートウェイによってその接続を提供できます。 この種類のゲートウェイ パターンは *変換* と呼ばれます。IoT Edge デバイスで、受信ダウンストリーム デバイス メッセージを IoT Hub に転送する前に、それらの処理を実行する必要があるためです。 これらのシナリオでは、処理手順を処理するために、IoT Edge ゲートウェイに追加のモジュールが必要です。
 
@@ -49,17 +46,19 @@ IoT Edge のバージョン 1.2 以降、透過的ゲートウェイでは他の
 
 <!-- 1.1 -->
 ::: moniker range="iotedge-2018-06"
-
-IoT Edge デバイスを IoT Edge ゲートウェイのダウンストリームにすることはできません。
-
 ![図 - 透過的ゲートウェイ パターン](./media/iot-edge-as-gateway/edge-as-gateway-transparent.png)
+
+>[!NOTE]
+>IoT Edge バージョン 1.1 以前では、IoT Edge デバイスを IoT Edge ゲートウェイのダウンストリームにすることはできません。
+>
+>IoT Edge のバージョン 1.2 以降、透過的ゲートウェイではダウンストリームの IoT Edge デバイスからの接続を処理できます。 詳細については、この記事の [IoT Edge 1.2](?view=iotedge-2020-11&preserve-view=true) バージョンに切り替えてください。
 
 ::: moniker-end
 
-<!-- 1.2.0 -->
+<!-- 1.2 -->
 ::: moniker range=">=iotedge-2020-11"
 
-IoT Edge デバイスでは、バージョン 1.2.0 から、透過的ゲートウェイを介して接続できます。
+IoT Edge のバージョン 1.2 以降、透過的ゲートウェイではダウンストリームの IoT Edge デバイスからの接続を処理できます。
 
 <!-- TODO add a downstream IoT Edge device to graphic -->
 

@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: previous-author=fboylu, previous-ms.author=fboylu
-ms.openlocfilehash: 1e939b86eeadfee276378488cfcb40c07f28684d
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 9b6cf2abfa797965d75bacd0b9c5e2eaf02b57a4
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98880660"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107308576"
 ---
 # <a name="azure-ai-guide-for-predictive-maintenance-solutions"></a>予測メンテナンス ソリューションのための Azure AI ガイド
 
@@ -233,12 +233,12 @@ PdM のもう 1 つの便利な手法は、データ内の異常を検出する�
 
 | 資産 ID | Time | \<Feature Columns> | Label |
 | ---- | ---- | --- | --- |
-| A123 |Day 1 | 。 。 。 | 。 |
-| A123 |Day 2 | 。 。 。 | 。 |
-| ...  |...   | 。 。 。 | 。 |
-| B234 |Day 1 | 。 。 。 | 。 |
-| B234 |Day 2 | 。 。 。 | 。 |
-| ...  |...   | 。 。 。 | 。 |
+| A123 |Day 1 | . . . | . |
+| A123 |Day 2 | . . . | . |
+| ...  |...   | . . . | . |
+| B234 |Day 1 | . . . | . |
+| B234 |Day 2 | . . . | . |
+| ...  |...   | . . . | . |
 
 特徴エンジニア リングの最後の手順は、ターゲット変数の "**ラベル付け**" です。 このプロセスは、モデリング手法に依存します。 さらに、モデリング手法はビジネス上の問題と、使用可能なデータの特性に依存します。 ラベル付けについては次のセクションで説明します。
 
@@ -439,15 +439,16 @@ Microsoft Azure では、一般的な AI の概念や実践に関するコンテ
 
 | トレーニング用のリソース  | 可用性 |
 |:-------------------|--------------|
-| [ツリーおよびランダム フォレストを使用した PdM のラーニング パス](https://aischool.microsoft.com/learning-paths/1H5vH5wAYcAy88CoQWQcA8) | パブリック | 
-| [ディープ ラーニングを使用した PdM のラーニング パス](https://aischool.microsoft.com/learning-paths/FSIXxYkOGcauo0eUO8qAS) | パブリック |
-| [Azure の AI 開発者](https://azure.microsoft.com/training/learning-paths/azure-ai-developer) | パブリック |
-| [Microsoft AI スクール](https://aischool.microsoft.com/learning-paths) | パブリック |
-| [GitHub からの Azure AI ラーニング](https://github.com/Azure/connectthedots/blob/master/readme.md) | パブリック |
+| [Microsoft Docs: データ科学者ロール](https://docs.microsoft.com/learn/roles/data-scientist) | パブリック |
+| [Microsoft Docs: AI エンジニア ロール](https://docs.microsoft.com/learn/roles/ai-engineer) | パブリック |
+| [Microsoft Docs: データ エンジニア ロール](https://docs.microsoft.com/learn/roles/data-engineer) | パブリック |
+| [Microsoft AI スクール](https://www.microsoft.com/ai/ai-school) | パブリック |
 | [LinkedIn Learning](https://www.linkedin.com/learning) | パブリック |
-| [Microsoft AI YouTube ウェビナー](https://www.youtube.com/watch?v=NvrH7_KKzoM&t=4s) | パブリック |
+| [Microsoft: 人工知能および分析に関する YouTube のプレイリスト](https://www.youtube.com/c/MicrosoftAzure/playlists?view=50&sort=dd&shelf_id=7) | パブリック |
 | [Microsoft AI Show](https://channel9.msdn.com/Shows/AI-Show) | パブリック |
-| [LearnAI@MS](https://learnanalytics.microsoft.com) | パートナー |
+| [AI プラットフォームの概要](https://azure.microsoft.com/overview/ai-platform/) | パブリック |
+| [AI ラボ](https://www.microsoft.com/ai/ai-lab) | パブリック |
+| [Microsoft AI](https://www.microsoft.com/AI) | パブリック |
 | [Microsoft Partner Network](https://partner.microsoft.com/training/training-center) | パートナー |
 
 さらに、MIT などの教育機関やその他の教育的企業によって、AI に関する無料の MOOCS (Massive Open Online Courses) がオンラインで提供されています。

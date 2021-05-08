@@ -1,24 +1,14 @@
 ---
 title: IoT Hub のセキュリティに関する推奨事項
 description: セキュリティに関する推奨事項の概念と Defender for IoT Hub での使用方法について説明します。
-services: defender-for-iot
-ms.service: defender-for-iot
-documentationcenter: na
-author: shhazam-ms
-manager: rkarlin
-editor: ''
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 02/16/2021
-ms.author: shhazam
-ms.openlocfilehash: 4ae479fcff0514b42d46aef455d8a32d6ebfaf23
-ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
+ms.openlocfilehash: a9e33248354aab659694e39df605cc070fdaaf73
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100636545"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104779343"
 ---
 # <a name="security-recommendations-for-iot-hub"></a>IoT Hub のセキュリティに関する推奨事項
 

@@ -2,21 +2,21 @@
 title: チュートリアル:ニューヨークのタクシー データを読み込む
 description: このチュートリアルでは、Azure portal と SQL Server Management Studio を使用して、Synapse SQL 用の Azure BLOB からニューヨークのタクシー データを読み込みます。
 services: synapse-analytics
-author: kevinvngo
+author: julieMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
 ms.date: 11/23/2020
-ms.author: kevin
+ms.author: jrasnick
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 35d985ee31fba52a57614cf62668d5355caf5ffa
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 7ede40aba8e2d36e4262b4bc89a35f5d67079e0e
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99097625"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107567509"
 ---
 # <a name="tutorial-load-the-new-york-taxicab-dataset"></a>チュートリアル:ニューヨークのタクシー データセットを読み込む
 

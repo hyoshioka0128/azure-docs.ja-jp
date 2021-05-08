@@ -5,13 +5,13 @@ author: Heidilohr
 ms.topic: how-to
 ms.date: 12/15/2020
 ms.author: helohr
-manager: lizross
-ms.openlocfilehash: 9bdba36e2ff4721bd024369788c7dc04f066e9a5
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+manager: femila
+ms.openlocfilehash: ed010b3eed875c8b14892a588be13a32fbbd95ac
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102565582"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106445093"
 ---
 # <a name="deploy-the-windows-virtual-desktop-classic-diagnostics-tool"></a>Windows Virtual Desktop (クラシック) の診断ツールをデプロイする
 

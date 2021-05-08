@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 01/27/2021
 ms.author: kgremban
 ms.openlocfilehash: f9dff1b4c6b2489edd3cd685e3546618961d9757
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/16/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103487719"
 ---
 # <a name="confidential-computing-at-the-edge"></a>エッジでのコンフィデンシャル コンピューティング

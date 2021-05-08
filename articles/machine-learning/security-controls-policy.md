@@ -1,18 +1,18 @@
 ---
 title: Azure Machine Learning 用の Azure Policy 規制コンプライアンス コントロール
 description: Azure Machine Learning に対して使用できる Azure Policy 規制コンプライアンス コントロールの一覧を示します。 これらの組み込みポリシー定義により、Azure リソースのコンプライアンスを管理するための一般的な方法が提供されます。
-ms.date: 03/10/2021
+ms.date: 04/14/2021
 ms.topic: sample
 author: BlackMist
 ms.author: larryfr
 ms.service: machine-learning
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: b9dbef6d0370b6fde07d7253c333d8b25fa08e2c
-ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
+ms.openlocfilehash: 0a4b301c34d15eb02f2822828bd2a16bb50c3225
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "102632708"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107500833"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-machine-learning"></a>Azure Machine Learning 用の Azure Policy 規制コンプライアンス コントロール
 

@@ -7,10 +7,10 @@ ms.date: 04/30/2020
 ms.reviewer: yutlin
 ms.custom: seodec18
 ms.openlocfilehash: a713d869a754f17f4030c531999c822a2cbb76ee
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102039803"
 ---
 # <a name="secure-a-custom-dns-name-with-a-tlsssl-binding-in-azure-app-service"></a>Azure App Service で TLS/SSL バインドを使用してカスタム DNS 名をセキュリティで保護する
@@ -149,9 +149,9 @@ ms.locfileid: "102039803"
 
 操作が完了すると、アプリは下位の TLS バージョンでの接続をすべて拒否します。
 
-## <a name="handle-tls-termination"></a>TLS 終了の処理
+## <a name="handle-tls-termination"></a>TLS 終端の処理
 
-App Service では、[TLS 終了](https://wikipedia.org/wiki/TLS_termination_proxy)がネットワーク ロード バランサーで発生するため、すべての HTTPS 要求は暗号化されていない HTTP 要求としてアプリに到達します。 ユーザー要求が暗号化されているかどうかをアプリ ロジックが確認する必要がある場合は、`X-Forwarded-Proto` ヘッダーを調べます。
+App Service では、[TLS 終端](https://wikipedia.org/wiki/TLS_termination_proxy)がネットワーク ロード バランサーで発生するため、すべての HTTPS 要求は暗号化されていない HTTP 要求としてアプリに到達します。 ユーザー要求が暗号化されているかどうかをアプリ ロジックが確認する必要がある場合は、`X-Forwarded-Proto` ヘッダーを調べます。
 
 [Linux Node.js 構成](configure-language-nodejs.md#detect-https-session)ガイドなどの言語固有の構成ガイドでは、アプリケーション コード内の HTTPS セッションを検出する方法について説明しています。
 

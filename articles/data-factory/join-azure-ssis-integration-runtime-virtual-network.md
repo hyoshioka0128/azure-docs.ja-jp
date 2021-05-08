@@ -7,10 +7,10 @@ ms.date: 11/02/2020
 author: swinarko
 ms.author: sawinark
 ms.openlocfilehash: 9a82b305adec1385bf659987ea39df6bb953cd70
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100370973"
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Azure-SSIS 統合ランタイムを仮想ネットワークに参加させる
@@ -156,7 +156,7 @@ Azure-SSIS IR によって使用されるサブネットに NSG を実装する�
 
 -   **Azure-SSIS IR の受信要件**
 
-| Direction | トランスポート プロトコル | source | 発信元ポート範囲 | 宛先 | Destination port range | 説明 |
+| Direction | トランスポート プロトコル | source | 発信元ポート範囲 | 到着地 | Destination port range | 説明 |
 |---|---|---|---|---|---|---|
 | 受信 | TCP | BatchNodeManagement | * | VirtualNetwork | 29876、29877 (IR を Resource Manager 仮想ネットワークに参加させる場合) <br/><br/>10100、20100、30100 (IR をクラシック仮想ネットワークに参加させる場合)| Data Factory サービスはこれらのポートを使って、仮想ネットワークの Azure-SSIS IR のノードと通信します。 <br/><br/> サブネットレベルの NSG を作成するかどうかにかかわらず、Azure-SSIS IR をホストする仮想マシンにアタッチされているネットワーク インターフェイス カード (NIC) のレベルで、Data Factory は NSG を常に構成します。 Data Factory の IP アドレスから指定したポートで受信したトラフィックのみが、その NIC レベルの NSG によって許可されます。 サブネット レベルでインターネット トラフィックに対してこれらのポートを開いている場合でも、Data Factory の IP アドレスではない IP アドレスからのトラフィックは NIC レベルでブロックされます。 |
 | 受信 | TCP | CorpNetSaw | * | VirtualNetwork | 3389 | (省略可能) この規則は、Microsoft サポーターがお客様に対して、高度なトラブルシューティングのために開くように依頼した場合にのみ必要になり、トラブルシューティングの直後に閉じることができます。 **CorpNetSaw** サービス タグでは、Microsoft 企業ネットワーク上のセキュリティで保護されたアクセス ワークステーションでのみ、リモート デスクトップの使用が許可されます。 このサービス タグはポータルから選択することはできず、Azure PowerShell または Azure CLI 経由でのみ使用できます。 <br/><br/> NIC レベルの NSG では、ポート 3389 が既定で開かれ、サブネット レベルの NSG ではポート 3389 を制御できます。一方、保護のために各 IR ノードの Windows ファイアウォール規則では既定で、Azure-SSIS IR によってポート 3389 の送信が禁止されています。 |
@@ -164,7 +164,7 @@ Azure-SSIS IR によって使用されるサブネットに NSG を実装する�
 
 -   **Azure-SSIS IR の送信要件**
 
-| Direction | トランスポート プロトコル | source | 発信元ポート範囲 | 宛先 | Destination port range | 説明 |
+| Direction | トランスポート プロトコル | source | 発信元ポート範囲 | 到着地 | Destination port range | 説明 |
 |---|---|---|---|---|---|---|
 | 送信 | TCP | VirtualNetwork | * | AzureCloud | 443 | 仮想ネットワークの Azure-SSIS IR のノードはこのポートを使って、Azure Storage や Azure Event Hubs などの Azure サービスにアクセスします。 |
 | 送信 | TCP | VirtualNetwork | * | インターネット | 80 | (省略可能) 仮想ネットワーク内の Azure-SSIS IR のノードでは、このポートを使用して、インターネットから証明書失効リストをダウンロードします。 このトラフィックをブロックすると、IR の開始時にパフォーマンスが低下し、証明書の使用状況について証明書失効リストを確認する機能が失われる可能性があります。 送信先を特定の FQDN にさらに絞り込む場合は、「**Azure ExpressRoute または UDR を使用する**」のセクションを参照してください|
@@ -262,7 +262,7 @@ else
 
 -   送信先が Azure Storage であるポート 445 (Azure Files に格納されている SSIS パッケージを実行する場合にのみ必要)。
 
-    Azure Firewall を使用する場合は、Storage サービス タグでネットワーク規則を指定できます。それ以外の場合は、ファイアウォール アプライアンスの特定の azure ファイル ストレージとして送信先を許可することができます。
+    Azure Firewall を使用する場合は、Storage サービス タグでネットワーク規則を指定できます。それ以外の場合は、ファイアウォール アプライアンスの特定の Azure File Storage として送信先を許可することができます。
 
 > [!NOTE]
 > Azure SQL と Storage の場合、サブネット上で仮想ネットワーク サービス エンドポイントを構成すると、Azure-SSIS IR と、同じリージョン内の Azure SQL、または同じリージョンあるいはペアのリージョン内の Azure Storage との間のトラフィックが、ファイアウォール アプライアンスではなく、Microsoft Azure バックボーン ネットワークに直接ルーティングされます。

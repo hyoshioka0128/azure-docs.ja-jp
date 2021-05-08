@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 02/10/2021
 ms.author: yelevin
 ms.openlocfilehash: cb91d269f6b166510db54637d17d776e71137408
-ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/08/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "102456180"
 ---
 # <a name="map-data-fields-to-entities-in-azure-sentinel"></a>データ フィールドを Azure Sentinel のエンティティにマップする 
@@ -41,7 +41,7 @@ ms.locfileid: "102456180"
 
 1. Azure Sentinel のナビゲーション メニューから **[分析]** を選択します。
 
-1. スケジュールされたクエリ ルールを選択し、 **[編集]** をクリックします。 または、画面の上部にある **[スケジュールされたクエリ ルールの作成]** をクリックして新しいルールを作成します。
+1. スケジュールされたクエリ ルールを選択し、 **[編集]** をクリックします。 または、画面の上部にある **[作成] &#10132; [スケジュール済みクエリ ルール]** をクリックして新しいルールを作成します。
 
 1. **[ルール ロジックの設定]** タブをクリックします。
 

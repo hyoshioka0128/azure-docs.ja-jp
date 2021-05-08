@@ -3,14 +3,14 @@ title: テンプレート デプロイの what-if
 description: Azure Resource Manager テンプレートをデプロイする前に、リソースがどのような変更されるかを確認します。
 author: tfitzmac
 ms.topic: conceptual
-ms.date: 02/05/2021
+ms.date: 03/09/2021
 ms.author: tomfitz
-ms.openlocfilehash: 8122fa5c00a61017b5f358a112c94a5299539cee
-ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.openlocfilehash: 7e300f896bb11ed7c77738836f894cff41cc8bf3
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99591626"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107781831"
 ---
 # <a name="arm-template-deployment-what-if-operation"></a>ARM テンプレート デプロイの What-If 操作
 
@@ -32,7 +32,7 @@ Install-Module -Name Az -Force
 
 ## <a name="install-azure-cli-module"></a>Azure CLI モジュールのインストール
 
-Azure CLI で what-if を使用するには、Azure CLI 2.5.0 以降である必要があります。 必要であれば、[Azure CLI の最新バージョンをインストールします](/cli/azure/install-azure-cli)。
+Azure CLI で what-if を使用するには、Azure CLI 2.14.0 以降である必要があります。 必要であれば、[Azure CLI の最新バージョンをインストールします](/cli/azure/install-azure-cli)。
 
 ## <a name="see-results"></a>結果を表示する
 
@@ -95,17 +95,17 @@ Resource changes: 1 to modify.
 
 テンプレートをデプロイする前に変更のプレビューを表示するには、次のコマンドを使用します。
 
-* [az deployment group what-if](/cli/azure/deployment/group#az-deployment-group-what-if) (リソース グループのデプロイの場合)
-* [az deployment sub what-if](/cli/azure/deployment/sub#az-deployment-sub-what-if) (サブスクリプション レベルのデプロイの場合)
-* [az deployment mg what-if](/cli/azure/deployment/mg#az-deployment-mg-what-if) (管理グループのデプロイの場合)
-* [az deployment tenant what-if](/cli/azure/deployment/tenant#az-deployment-tenant-what-if) (テナントのデプロイの場合)
+* [az deployment group what-if](/cli/azure/deployment/group#az_deployment_group_what_if) (リソース グループのデプロイの場合)
+* [az deployment sub what-if](/cli/azure/deployment/sub#az_deployment_sub_what_if) (サブスクリプション レベルのデプロイの場合)
+* [az deployment mg what-if](/cli/azure/deployment/mg#az_deployment_mg_what_if) (管理グループのデプロイの場合)
+* [az deployment tenant what-if](/cli/azure/deployment/tenant#az_deployment_tenant_what_if) (テナントのデプロイの場合)
 
 `--confirm-with-what-if` (または短縮形式 `-c`) を使用して、変更をプレビューし、デプロイを続行するかどうかを確認するプロンプトを表示することもできます。 このスイッチを次のコマンドに追加します。
 
-* [az deployment group create](/cli/azure/deployment/group#az-deployment-group-create)
-* [az deployment sub create](/cli/azure/deployment/sub#az-deployment-sub-create)
-* [az deployment mg create](/cli/azure/deployment/mg#az-deployment-mg-create)
-* [az deployment tenant create](/cli/azure/deployment/tenant#az-deployment-tenant-create)
+* [az deployment group create](/cli/azure/deployment/group#az_deployment_group_create)
+* [az deployment sub create](/cli/azure/deployment/sub#az_deployment_sub_create)
+* [az deployment mg create](/cli/azure/deployment/mg#az_deployment_mg_create)
+* [az deployment tenant create](/cli/azure/deployment/tenant#az_deployment_tenant_create)
 
 たとえば、リソース グループのデプロイの場合は `az deployment group create --confirm-with-what-if` または `-c` を使用します。
 
@@ -364,17 +364,17 @@ Scope: /subscriptions/./resourceGroups/ExampleGroup
 
       id:
 "/subscriptions/./resourceGroups/ExampleGroup/providers/Microsoft.Network/virtualNet
-works/vnet-001"
-      location:        "centralus"
-      name:            "vnet-001"
-      tags.CostCenter: "12345"
-      tags.Owner:      "Team A"
-      type:            "Microsoft.Network/virtualNetworks"
+works/vnet-001&quot;
+      location:        &quot;centralus&quot;
+      name:            &quot;vnet-001&quot;
+      tags.CostCenter: &quot;12345&quot;
+      tags.Owner:      &quot;Team A&quot;
+      type:            &quot;Microsoft.Network/virtualNetworks&quot;
 
 Resource changes: 1 to delete.
 
 Are you sure you want to execute the deployment?
-[Y] Yes  [A] Yes to All  [N] No  [L] No to All  [S] Suspend  [?] Help (default is "Y"):
+[Y] Yes  [A] Yes to All  [N] No  [L] No to All  [S] Suspend  [?] Help (default is &quot;Y"):
 ```
 
 期待通りの変更が表示され、デプロイを実行することを確認できます。
@@ -391,8 +391,6 @@ what-if 操作は、Azure SDK を介して使用できます。
 
 ## <a name="next-steps"></a>次のステップ
 
+- パイプラインで What-If 操作を使用するには、「[Test ARM templates with What-If in a pipeline](https://4bes.nl/2021/03/06/test-arm-templates-with-what-if/)」 (パイプラインで What-If を使用して ARM テンプレートをテストする) を参照してください。
 - what-if 操作から正しくない結果が表示された場合は、[https://aka.ms/whatifissues](https://aka.ms/whatifissues) で問題を報告してください。
 - what if の使用に関して説明している Microsoft Learn モジュールについては、「[what-if と ARM テンプレート テスト ツールキットを使用して変更をプレビューし、Azure リソースを検証する](/learn/modules/arm-template-test/)」を参照してください。
-- Azure PowerShell を使用してテンプレートをデプロイするには、「[ARM テンプレートと Azure PowerShell を使用したリソースのデプロイ](deploy-powershell.md)」を参照してください。
-- Azure CLI を使用してテンプレートをデプロイするには、「[ARM テンプレートと Azure CLI を使用したリソースのデプロイ](deploy-cli.md)」を参照してください。
-- REST を使用してテンプレートをデプロイするには、「[ARM テンプレートと Resource Manager REST API を使用したリソースのデプロイ](deploy-rest.md)」を参照してください。

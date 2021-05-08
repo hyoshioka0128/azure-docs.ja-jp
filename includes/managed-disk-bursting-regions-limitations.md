@@ -9,10 +9,10 @@ ms.date: 01/04/2021
 ms.author: albecker1
 ms.custom: include file
 ms.openlocfilehash: 5658b68081fae8dab528030f7fc1cd6fe4935730
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102178361"
 ---
 - 512 GiB 未満の Premium SSD でオンデマンド バーストを有効にすることはできません。 512 GiB 未満の Premium SSD では、常にクレジットベースのバーストが使用されます。

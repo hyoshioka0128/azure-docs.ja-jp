@@ -5,14 +5,14 @@ author: jlian
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 10/19/2020
+ms.date: 03/22/2021
 ms.author: jlian
-ms.openlocfilehash: 6f83421d4ee56d56875e13ffbdd8ac9dbbf4b6bb
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: bf9d58926c5a0fdc7c305e1d9daebfa1c8c9cf63
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101656365"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105023607"
 ---
 # <a name="use-ip-filters"></a>IP フィルターの使用
 
@@ -32,11 +32,11 @@ IP フィルターを使用して、指定された範囲の IP アドレスか�
 
 ## <a name="add-or-edit-an-ip-filter-rule"></a>IP フィルター規則の追加または編集
 
-IP フィルター規則を追加するには、 **[+ IP フィルター規則の追加]** を選択します。
+IP フィルター規則を追加するには、 **[+ IP フィルター規則の追加]** を選択します。 コンピューターの IP アドレスを簡単に追加するには、 **[クライアント IP アドレスを追加する]** をクリックします。 
 
 :::image type="content" source="./media/iot-hub-ip-filtering/ip-filter-add-rule.png" alt-text="IoT Hub への IP フィルター規則の追加":::
 
-**[IP フィルター規則の追加]** を選択したら、フィールドに入力します。
+**[IP フィルター規則の追加]** を選択したら、フィールドに入力します。 クライアント IP アドレスを追加することを選択した場合、これらのフィールドは事前に入力されます。
 
 :::image type="content" source="./media/iot-hub-ip-filtering/ip-filter-after-selecting-add.png" alt-text="[IP フィルター規則の追加] を選択した後":::
 
@@ -85,6 +85,10 @@ IP フィルター規則は、IoT Hub サービス レベルで適用されま�
 IP フィルター規則は "*許可*" 規則であり、順序付けなしで適用されます。 追加された IP アドレスだけが IoT Hub への接続を許可されます。 
 
 たとえば、範囲 `192.168.100.0/22` 内のアドレスを許可し、それ以外をすべて拒否する場合、必要なのは、アドレス範囲 `192.168.100.0/22` を使用してグリッドに 1 つの規則を追加することだけです。
+
+### <a name="azure-portal"></a>Azure portal 
+
+IP フィルター規則は、Azure portal を通じて IoT Hub を使用する場合にも適用されます。 IoT Hub サービスへの API 呼び出しは、ブラウザーを使用して、他の Azure サービスと一貫性のある資格情報で直接行われるためです。 IP フィルターが有効になっているときに Azure portal を使用して IoT Hub にアクセスするには、お使いのコンピューターの IP アドレスを許可リストに追加します。 
 
 ## <a name="retrieve-and-update-ip-filters-using-azure-cli"></a>Azure CLI を使用した IP フィルターの取得および更新
 

@@ -4,12 +4,12 @@ description: System Center 2012 R2 DPM を使用して Exchange サーバーを 
 ms.reviewer: kasinh
 ms.topic: conceptual
 ms.date: 01/31/2019
-ms.openlocfilehash: ee89af311619922fa6ca585381d70ca66955f36a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a89c37b8447b318c44faf0d4e0b1921d305e7f59
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91271649"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107519393"
 ---
 # <a name="back-up-an-exchange-server-to-azure-backup-with-system-center-2012-r2-dpm"></a>System Center 2012 R2 DPM を使用して Exchange サーバーを Azure Backup にバックアップする
 
@@ -108,7 +108,7 @@ Exchange サーバーに DPM 保護エージェントをインストールする
 1. Exchange データベースを回復するには、DPM 管理者コンソールで **[回復]** を選択します。
 2. 回復する Exchange データベースを特定します。
 3. *[回復時刻]* ドロップダウン リストからオンライン回復ポイントを選択します。
-4. **[回復]** を選択して、**回復ウィザード**を開始します。
+4. **[回復]** を選択して、**回復ウィザード** を開始します。
 
 オンライン回復ポイントでは、5 種類の回復があります。
 
@@ -122,4 +122,4 @@ Exchange サーバーに DPM 保護エージェントをインストールする
 
 ## <a name="next-steps"></a>次のステップ
 
-* [Azure Backup FAQ](backup-azure-backup-faq.md)
+* [Azure Backup FAQ](backup-azure-backup-faq.yml)

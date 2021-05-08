@@ -6,12 +6,12 @@ ms.topic: quickstart
 ms.date: 03/18/2020
 ms.author: azfuncdf
 zone_pivot_groups: code-editors-set-one
-ms.openlocfilehash: d5b6ecc12cee983cee0772da8b6f8f26a3b5a8ae
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 36566baac2885c449e1eae762924357bf571b39f
+ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96008202"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106490218"
 ---
 # <a name="create-your-first-durable-function-in-c"></a>C\# で最初の Durable Functions を作成する
 
@@ -53,7 +53,7 @@ ms.locfileid: "96008202"
 
 1. プロンプトに従って、次の情報を入力します。
 
-    | Prompt | Value | 説明 |
+    | Prompt | 値 | 説明 |
     | ------ | ----- | ----------- |
     | Select a language for your function app project (関数アプリ プロジェクトの言語を選択してください) | C# | ローカル C# 関数プロジェクトを作成します。 |
     | Select a version (バージョンを選択してください) | Azure Functions v3 | このオプションが表示されるのは、Core Tools がまだインストールされていない場合だけです。 その場合、アプリの初回実行時に Core Tools がインストールされます。 |
@@ -70,7 +70,7 @@ Azure Functions Core Tools は、必要に応じて Visual Studio Code により
 
 1. プロンプトに従って、次の情報を入力します。
 
-    | Prompt | Value | 説明 |
+    | Prompt | 値 | 説明 |
     | ------ | ----- | ----------- |
     | Select a template for your function (関数のテンプレートを選択してください) | DurableFunctionsOrchestration | Durable Functions オーケストレーションを作成します |
     | Provide a function name (関数名を指定してください) | HelloOrchestration | 関数が作成されるクラスの名前 |
@@ -78,7 +78,7 @@ Azure Functions Core Tools は、必要に応じて Visual Studio Code により
 
 1. VS Code でストレージ アカウント選択のプロンプトが表示されたら、 **[ストレージ アカウントの選択]** を選択します。 プロンプトに従って次の情報を入力し、Azure で新しいストレージ アカウントを作成します。
 
-    | Prompt | Value | 説明 |
+    | Prompt | 値 | 説明 |
     | ------ | ----- | ----------- |
     | サブスクリプションの選択 | *<お使いのサブスクリプションの名前>* | Azure サブスクリプションを選択します。 |
     | Select a storage account (ストレージ アカウントを選択する) | 新しいストレージ アカウントの作成 |  |
@@ -163,7 +163,7 @@ Visual Studio Code を使用して、C# の永続関数アプリを作成して�
 
 ::: zone pivot="code-editor-visualstudio"
 
-この記事では、Visual Studio 2019 を使用して、"hello world" 永続関数をローカルで作成してテストする方法を学習します。  この関数は、他の関数の呼び出しを調整し、連結します。 その後、関数コードを Azure に発行します。 これらのツールは、Visual Studio 2019 の Azure の開発ワークロードの一部として使用できます。
+この記事では、Visual Studio 2019 を使用して、"hello world" 持続的関数をローカルで作成してテストする方法を学習します。  この関数は、他の関数の呼び出しを調整し、連結します。 その後、関数コードを Azure に発行します。 これらのツールは、Visual Studio 2019 の Azure の開発ワークロードの一部として使用できます。
 
 ![持続的関数が表示されている Visual Studio 2019 ウィンドを示すスクリーンショット。](./media/durable-functions-create-first-csharp/functions-vs-complete.png)
 

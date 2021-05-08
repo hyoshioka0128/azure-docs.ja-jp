@@ -3,7 +3,7 @@ title: Azure DDoS Protection の基本的なベスト プラクティス
 description: DDOS Protection を使用した、セキュリティ上のベスト プラクティスについて説明します。
 services: ddos-protection
 documentationcenter: na
-author: yitoh
+author: aletheatoh
 ms.service: ddos-protection
 ms.devlang: na
 ms.topic: article
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/08/2020
 ms.author: yitoh
-ms.openlocfilehash: 66c1ab1cb5ed478aa34825fb6903e4d06f834097
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: ea5e9e9883c8c1da17cf99dabc72f2339c8dbe1a
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94989475"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107102979"
 ---
 # <a name="fundamental-best-practices"></a>基本的なベスト プラクティス
 
@@ -50,4 +50,4 @@ Azure 内のリソースと供に、お客様のオンプレミスのリソー�
 
 ## <a name="next-steps"></a>次のステップ
 
-- [DDoS Protection プランの作成](manage-ddos-protection.md)方法について学習する。
+- [DDoS 保護プランの作成](manage-ddos-protection.md)方法について説明します。

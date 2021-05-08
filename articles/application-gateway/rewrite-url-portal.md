@@ -2,24 +2,24 @@
 title: Azure Application Gateway を使用して URL とクエリ文字列を書き換える - Azure portal
 description: Azure portal を使用して、URL とクエリ文字列を書き換えるように Azure Application Gateway を構成する方法について説明します
 services: application-gateway
-author: surajmb
+author: azhar2005
 ms.service: application-gateway
 ms.topic: how-to
-ms.date: 7/16/2020
-ms.author: surmb
-ms.openlocfilehash: ec58c6f97efdbcb91071bcea98bbbc614833246d
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.date: 4/05/2021
+ms.author: azhussai
+ms.openlocfilehash: b8ddc5e57b9ce56d6bce7e220bc840ba0fa43ae2
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92215775"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106384759"
 ---
-# <a name="rewrite-url-with-azure-application-gateway---azure-portal-preview"></a>Azure Application Gateway を使用して URL を書き換える - Azure portal (プレビュー)
+# <a name="rewrite-url-with-azure-application-gateway---azure-portal"></a>Azure Application Gateway を使用して URL を書き換える - Azure portal
 
 この記事では、Azure portal を使用して、URL を書き換えるように [Application Gateway v2 SKU](application-gateway-autoscaling-zone-redundant.md) インスタンスを構成する方法を説明します。
 
 >[!NOTE]
-> URL 書き換え機能はプレビュー段階であり、Application Gateway の Standard_v2 および WAF_v2 SKU でのみ使用できます。 運用環境での使用はお勧めしません。 プレビューの詳細については、[使用条件](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)に関するページを参照してください。
+> URL 書き換え機能は、Application Gateway の Standard_v2 および WAF_v2 SKU でのみ使用できます。 WAF が有効なゲートウェイで URL 書き換えが構成されている場合、書き換え済みの要求ヘッダーと URL で WAF 評価が実行されます。 [詳細情報](rewrite-http-headers-url.md#using-url-rewrite-or-host-header-rewrite-with-web-application-firewall-waf_v2-sku)
 
 Azure サブスクリプションをお持ちでない場合は、開始する前に [無料アカウント](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) を作成してください。
 
@@ -53,13 +53,13 @@ Azure アカウントで [Azure Portal](https://portal.azure.com/) にサイン�
     
     c. **[次へ]** を選択します。
     
-    :::image type="content" source="./media/rewrite-url-portal/rewrite-url-portal-2.png" alt-text="書き換えセットを追加する":::
+    :::image type="content" source="./media/rewrite-url-portal/rewrite-url-portal-2.png" alt-text="ルールに関連付ける":::
 
 5. 書き換えルールを作成します。
 
     a. **[書き換え規則の追加]** を選択します。
     
-    :::image type="content" source="./media/rewrite-url-portal/rewrite-url-portal-3.png" alt-text="書き換えセットを追加する":::
+    :::image type="content" source="./media/rewrite-url-portal/rewrite-url-portal-3.png" alt-text="[書き換え規則の追加] が強調表示されたスクリーンショット。":::
     
     b. 書き換え規則の名前を **[書き換えルール名]** ボックスに入力します。 **[規則のシーケンス]** ボックスに値を入力します。
 
@@ -81,7 +81,7 @@ Azure アカウントで [Azure Portal](https://portal.azure.com/) にサイン�
 
     g. **[OK]** を選択します。
 
-    :::image type="content" source="./media/rewrite-url-portal/rewrite-url-portal-4.png" alt-text="書き換えセットを追加する":::
+    :::image type="content" source="./media/rewrite-url-portal/rewrite-url-portal-4.png" alt-text="Condition":::
 
  
 
@@ -95,26 +95,26 @@ Azure アカウントで [Azure Portal](https://portal.azure.com/) にサイン�
 
    d. **[URL パスの値]** に、パスの新しい値を入力します。 この例では、 **/article.aspx** を使用します 
 
-   e. **[URL クエリ文字列の値]** に、URL クエリ文字列の新しい値を入力します。 この例では、 **id={var_uri_path_1}&title={var_uri_path_2}** を使用します
+   e. **[URL クエリ文字列の値]** に、URL クエリ文字列の新しい値を入力します。 この例では、**id={var_uri_path_1}&title={var_uri_path_2}** を使用します
     
     `{var_uri_path_1}` と `{var_uri_path_1}` は、この式 `.*article/(.*)/(.*)` で条件を評価しているときに取得された部分文字列を取り込むために使用されます
     
    f. **[OK]** を選択します。
 
-    :::image type="content" source="./media/rewrite-url-portal/rewrite-url-portal-5.png" alt-text="書き換えセットを追加する":::
+    :::image type="content" source="./media/rewrite-url-portal/rewrite-url-portal-5.png" alt-text="操作":::
 
 8. **[作成]** をクリックして、書き換えセットを作成します。
 
 9. 新しい書き換えセットが、書き換えセットの一覧に表示されていることを確認します
 
-    :::image type="content" source="./media/rewrite-url-portal/rewrite-url-portal-6.png" alt-text="書き換えセットを追加する":::
+    :::image type="content" source="./media/rewrite-url-portal/rewrite-url-portal-6.png" alt-text="書き換え規則の追加":::
 
 ## <a name="verify-url-rewrite-through-access-logs"></a>アクセス ログを使用して URL の書き換えを確認する
 
 アクセス ログの以下のフィールドを確認し、想定どおりに URL の書き換えが行われたかどうか確かめます。
 
-* **originalRequestUriWithArgs** :このフィールドには元の要求 URL が含まれています
-* **requestUri** :このフィールドには、Application Gateway での書き換え操作後の URL が含まれています
+* **originalRequestUriWithArgs**:このフィールドには元の要求 URL が含まれています
+* **requestUri**:このフィールドには、Application Gateway での書き換え操作後の URL が含まれています
 
 アクセス ログのすべてのフィールドの詳細については、[こちら](application-gateway-diagnostics.md#for-application-gateway-and-waf-v2-sku)を参照してください。
 

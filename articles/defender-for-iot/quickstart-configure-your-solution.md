@@ -1,24 +1,14 @@
 ---
 title: 'クイックスタート: Azure リソースを IoT ソリューションに追加する'
 description: このクイックスタートでは、Azure Defender for IoT を使用してエンド ツー エンドの IoT ソリューションを構成する方法について説明します。
-services: defender-for-iot
-ms.service: defender-for-iot
-documentationcenter: na
-author: Shhazam-ms
-manager: rkarlin
-editor: ''
-ms.devlang: na
 ms.topic: quickstart
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 01/25/2021
-ms.author: shhazam
-ms.openlocfilehash: afe62e5cf255df28ea395405fc894ec5c15bb18c
-ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
+ms.openlocfilehash: 6a90e8c3007f7b3448fd3f1b6e4fa46ba861081b
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102449715"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106384582"
 ---
 # <a name="quickstart-configure-your-azure-defender-for-iot-solution"></a>クイック スタート:Azure Defender for IoT ソリューションを構成する
 
@@ -26,7 +16,7 @@ ms.locfileid: "102449715"
 
 ## <a name="prerequisites"></a>前提条件
 
-なし
+- なし
 
 ## <a name="what-is-defender-for-iot"></a>Defender for IoT とは
 
@@ -60,7 +50,7 @@ IoT ソリューションに新しいリソースを追加するには、次の�
 
 ## <a name="next-steps"></a>次のステップ
 
-次の記事に進んで、セキュリティ モジュールの作成方法を学習してください。
+次の記事に進んで、Defender-IoT-micro-agent の作成方法を学習してください。
 
 > [!div class="nextstepaction"]
-> [セキュリティ モジュールを作成する](quickstart-create-security-twin.md)
+> [Defender-IoT-micro-agent の作成](quickstart-create-security-twin.md)

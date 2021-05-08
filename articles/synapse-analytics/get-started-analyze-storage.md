@@ -10,12 +10,12 @@ ms.service: synapse-analytics
 ms.subservice: workspace
 ms.topic: tutorial
 ms.date: 12/31/2020
-ms.openlocfilehash: 71ba3d99ceee89464dafdf5bf4c16e70df146bef
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: 6b88a7e6a9851018fce255fac0e39a30563b9bf4
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102426078"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107363837"
 ---
 # <a name="analyze-data-in-a-storage-account"></a>ストレージ アカウント内のデータを分析する
 
@@ -52,12 +52,13 @@ df.write.mode("overwrite").parquet("/NYCTaxi/PassengerCountStats_parquetformat")
 
     ```py
     %%pyspark
-    df = spark.read.load('abfss://users@contosolake.dfs.core.windows.net/NYCTaxi/PassengerCountStats.parquet/part-00000-1f251a58-d8ac-4972-9215-8d528d490690-c000.snappy.parquet', format='parquet')
+    abspath = 'abfss://users@contosolake.dfs.core.windows.net/NYCTaxi/PassengerCountStats.parquet/part-00000-1f251a58-d8ac-4972-9215-8d528d490690-c000.snappy.parquet'
+    df = spark.read.load(abspath, format='parquet')
     display(df.limit(10))
     ```
 
 1. **Spark1** という名前の Spark プールにアタッチします。 セルを実行します。
-1. **users** フォルダーをクリックします。 **parquet** ファイルをもう一度右クリックし、 **[New SQL script]\(新しい SQL スクリプト\)**  >  **[SELECT TOP 100 rows]\(上位 100 行の選択\)** の順に選択します。 次のような SQL スクリプトが作成されます。
+1. **users** フォルダーを選択します。 **parquet** ファイルをもう一度右クリックし、 **[New SQL script]\(新しい SQL スクリプト\)**  >  **[SELECT TOP 100 rows]\(上位 100 行の選択\)** の順に選択します。 次のような SQL スクリプトが作成されます。
 
     ```sql
     SELECT 

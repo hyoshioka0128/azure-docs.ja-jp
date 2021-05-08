@@ -7,12 +7,12 @@ ms.author: allensu
 ms.service: load-balancer
 ms.topic: tutorial
 ms.date: 02/24/2021
-ms.openlocfilehash: 9107ef6100a3c362eae982412d54a981851bcb42
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: 16320021ede4a4e285c4e1973c166d2cdf643c4a
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102561400"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107529529"
 ---
 # <a name="tutorial-create-a-cross-region-azure-load-balancer-using-the-azure-portal"></a>チュートリアル:Azure portal を使用してリージョン間 Azure ロード バランサーを作成する
 
@@ -41,7 +41,7 @@ Azure サブスクリプションがない場合は、開始する前に[無料�
 
 ## <a name="sign-in-to-azure-portal"></a>Azure Portal にサインインする
 
-Azure プレビュー ポータルに[サインイン](https://preview.portal.azure.com)します。
+Azure portal に[サインイン](https://portal.azure.com)します。
 
 ## <a name="create-cross-region-load-balancer"></a>リージョン間ロード バランサーを作成する
 
@@ -52,7 +52,7 @@ Azure プレビュー ポータルに[サインイン](https://preview.portal.az
 3. **[ロード バランサー]** ページで、 **[作成]** を選択します。
 4. **[ロード バランサーの作成]** ページの **[基本]** タブで、次の情報を入力または選択します。 
 
-    | 設定                 | [値]                                              |
+    | 設定                 | 値                                              |
     | ---                     | ---                                                |
     | サブスクリプション               | サブスクリプションを選択します。    |    
     | Resource group         | **[新規作成]** を選択し、テキスト ボックスに「**CreateCRLBTutorial-rg**」と入力します。|
@@ -106,34 +106,6 @@ Azure プレビュー ポータルに[サインイン](https://preview.portal.az
 
     :::image type="content" source="./media/tutorial-cross-region-portal/add-to-backendpool.png" alt-text="バックエンド プールにリージョン ロード バランサーを追加する" border="true":::
 
-## <a name="create-a-health-probe"></a>正常性プローブの作成
-
-このセクションでは、負荷分散規則を作成するために正常性プローブを作成します。
-
-* 名前は **myHealthProbe** にします。
-* プロトコルは **TCP** にします。
-* 間隔は **5** 秒にします。
-* 異常のしきい値は **2** つのエラーにします。
-
-1. 左側のメニューで **[すべてのサービス]** 、 **[すべてのリソース]** の順に選択し、リソースの一覧で **[myLoadBalancer-CR]** を選択します。
-
-2. **[設定]** の下で **[正常性プローブ]** を選択します。
-
-3. これらの値を使用して、正常性プローブを構成します。
-
-    | 設定 | [値] |
-    | ------- | ----- |
-    | 名前 | 「**myHealthProbe**」と入力します。 |
-    | Protocol | **[TCP]** を選択します。 |
-    | Port | 「**80**」と入力します。 |
-    | Interval | 「**5**」と入力します。 |
-    | 異常のしきい値 | 「**2**」と入力します。 |
-
-4. **[OK]** を選択します。
-
-    > [!NOTE]
-    > リージョン間ロード バランサーには、組み込みの正常性プローブがあります。 このプローブは、負荷分散規則の作成を機能させるためのプレースホルダーです。  詳細については、 **[リージョン間ロード バランサーの制限](cross-region-overview.md#limitations)** に関するセクションを参照してください。
-
 ## <a name="create-a-load-balancer-rule"></a>ロード バランサー規則の作成
 
 このセクションでは、ロード バランサー規則を作成します。
@@ -152,7 +124,7 @@ Azure プレビュー ポータルに[サインイン](https://preview.portal.az
 
 3. 負荷分散規則の構成には、以下の値を使用します。
     
-    | 設定 | [値] |
+    | 設定 | 値 |
     | ------- | ----- |
     | 名前 | 「**myHTTPRule**」と入力します。 |
     | IP バージョン | **[IPv4]** を選択します |
@@ -161,7 +133,6 @@ Azure プレビュー ポータルに[サインイン](https://preview.portal.az
     | Port | 「**80**」と入力します。|
     | バックエンド ポート | 「**80**」と入力します。 |
     | バックエンド プール | **[myBackendPool]** を選択します。|
-    | 正常性プローブ | **[myHealthProbe]** を選択します。 |
     | アイドル タイムアウト (分) | スライダーを **15** に移動します。 |
     | TCP リセット | **[Enabled]** を選択します。 |
 

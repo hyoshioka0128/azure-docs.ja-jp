@@ -1,18 +1,15 @@
 ---
 title: Azure Site Recovery を使用し、セカンダリ サイトへの Hyper-V ディザスター リカバリーを設計する
 description: この記事では、Azure Site Recovery を使用してオンプレミスの Hyper-V VM をセカンダリの System Center VMM サイトへとフェールオーバーする、ディザスター リカバリーのアーキテクチャについて概説します。
-author: rayne-wiselman
-manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/12/2019
-ms.author: raynew
-ms.openlocfilehash: 703a6afdc12c8a9863ff0f480ec7a577ec31ef77
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b33e60036108eb92b7b64b4b3ec3bcc47ad1ade1
+ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87496000"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106580218"
 ---
 # <a name="architecture---hyper-v-replication-to-a-secondary-site"></a>アーキテクチャ - セカンダリ サイトへの Hyper-V のレプリケーション
 

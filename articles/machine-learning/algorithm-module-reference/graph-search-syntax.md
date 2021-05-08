@@ -6,28 +6,31 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
-author: xiaoharper
-ms.author: zhanxia
-ms.date: 8/24/2020
-ms.openlocfilehash: 762581ea5b3183d62913e9ea6935bf7e4c4ae67f
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+author: likebupt
+ms.author: keli19
+ms.date: 03/24/2021
+ms.openlocfilehash: 74cf0b897529e8bb198b6f82a57e187662a4a285
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93420769"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107259228"
 ---
 # <a name="graph-search-query-syntax"></a>グラフ検索のクエリ構文
 
-この記事では、Azure Machine Learning でのグラフ検索のクエリ構文について説明します。 グラフ検索機能を使用すると、ノードを名前とプロパティで検索できます。 
+この記事では、Azure Machine Learning でのグラフ検索機能について説明します。 
 
- ![グラフ検索エクスペリエンスの例を示すアニメーション化されたスクリーンショット](media/search/graph-search.gif)
+グラフ検索を使用すると、デバッグやパイプラインの構築中にノードにすばやく移動できます。 ツールバーの入力ボックスまたは左パネルの検索タブに、キーワードまたはクエリのいずれかを入力して、検索をトリガーできます。 一致した結果はすべてキャンバスで黄色で強調表示され、左パネルで結果を選択すると、キャンバスでノードが赤色で強調表示されます。
+
+![グラフ検索エクスペリエンスの例を示すスクリーンショット](media/search/graph-search-0322.png)
 
 グラフ検索では、ノード名とコメントに対するフルテキストのキーワード検索がサポートされています。 runStatus、duration、computeTarget などのノード プロパティでフィルター処理を行うこともできます。 キーワード検索は Lucene クエリに基づいています。 完全な検索クエリは次のようになります。  
 
-**[Lucene クエリ |[フィルター クエリ]** 
+**[[lucene クエリ] | [フィルター クエリ]]** 
 
 Lucene クエリとフィルター クエリのどちらも使用できます。 両方を使用するには、区切り記号 **|** を使用します。 フィルター クエリの構文は、Lucene クエリよりも厳密です。 したがって、顧客の入力が両方に解析できる場合、フィルター クエリが適用されます。
 
+たとえば、`data OR model | compute in {cpucluster}` を指定すると、これにより、`data` または `model` を含む名前またはコメントを持ち、compute が cpucluster であるノードが検索されます。
  
 
 ## <a name="lucene-query"></a>Lucene クエリ
@@ -36,7 +39,7 @@ Lucene クエリとフィルター クエリのどちらも使用できます。
 
  
 - AND/OR
-- **?** および * *\** _ 演算子を使用したワイルドカードでの照合。
+- **?** および **\*** 演算子を使用したワイルドカードでの照合。
 
 ### <a name="examples"></a>例
 
@@ -49,7 +52,7 @@ Lucene クエリとフィルター クエリのどちらも使用できます。
  
 - ワイルドカードでの照合: 
     - `machi?e learning`
-    - `mach_ing`
+    - `mach*ing`
  
 >[!NOTE]
 > Lucene クエリを "*" 文字で開始することはできません。
@@ -68,6 +71,8 @@ Lucene クエリとフィルター クエリのどちらも使用できます。
 - compute
 - duration
 - reuse
+- [発行]
+- tags
 
 使用できる演算子は次のとおりです。
 

@@ -3,22 +3,22 @@ title: Apache Kafka 用 Azure Event Hubs に関する問題をトラブルシュ
 description: この記事では、Apache Kafka 用 Azure Event Hubs に関する問題をトラブルシューティングする方法を示します
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: e32e02947b9f004755381d562fd3f3c897b70674
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a9d4a93f0074f206cd4627913505c66eb6480cbd
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90061429"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107314084"
 ---
 # <a name="apache-kafka-troubleshooting-guide-for-event-hubs"></a>Event Hubs 用 Apache Kafka トラブルシューティング ガイド
 この記事では、Apache Kafka 用 Event Hubs を使用するときに発生する可能性がある問題のトラブルシューティングのヒントを示します。 
 
 ## <a name="server-busy-exception"></a>サーバー ビジー例外
-Kafka の調整により、サーバー ビジー例外が発生する可能性があります。 AMQP クライアントでは、サービスの調整時に Event Hubs から直ちに**サーバー ビジー**例外が返されます。 これは、"後でもう一度お試しください" というメッセージと同じです。 Kafka では、完了前にメッセージが遅延します。 遅延の長さは、生成およびフェッチ応答の `throttle_time_ms` として、ミリ秒単位で返されます。 ほとんどの場合、これらの遅延要求は、Event Hubs ダッシュボードでサーバー ビジー例外としてログに記録されません。 代わりに、スループットがプロビジョニングされたクォータを超えたことを示すインジケーターとして、応答の `throttle_time_ms` 値を使用する必要があります。
+Kafka の調整により、サーバー ビジー例外が発生する可能性があります。 AMQP クライアントでは、サービスの調整時に Event Hubs から直ちに **サーバー ビジー** 例外が返されます。 これは、"後でもう一度お試しください" というメッセージと同じです。 Kafka では、完了前にメッセージが遅延します。 遅延の長さは、生成およびフェッチ応答の `throttle_time_ms` として、ミリ秒単位で返されます。 ほとんどの場合、これらの遅延要求は、Event Hubs ダッシュボードでサーバー ビジー例外としてログに記録されません。 代わりに、スループットがプロビジョニングされたクォータを超えたことを示すインジケーターとして、応答の `throttle_time_ms` 値を使用する必要があります。
 
 トラフィックが過剰な場合、サービスの動作は次のようになります。
 
-- 生成要求の遅延が要求タイムアウトを超えた場合、Event Hubs から**ポリシー違反**エラー コードが返されます。
+- 生成要求の遅延が要求タイムアウトを超えた場合、Event Hubs から **ポリシー違反** エラー コードが返されます。
 - フェッチ要求の遅延が要求タイムアウトを超えた場合、Event Hubs では、要求を調整済みとしてログに記録し、エラー コードのない空のレコード セットで応答します。
 
 [専用クラスター](event-hubs-dedicated-overview.md)には調整メカニズムがありません。 すべてのクラスター リソースを自由に使用できます。
@@ -67,5 +67,5 @@ Event Hubs と Kafka 用 Event Hubs の詳細については、次の記事を�
 
 - [Event Hubs 用 Apache Kafka 開発者ガイド](apache-kafka-developer-guide.md)
 - [Event Hubs 用 Apache Kafka 移行ガイド](apache-kafka-migration-guide.md)
-- [よく寄せられる質問 - Apache Kafka 用 Event Hubs](apache-kafka-frequently-asked-questions.md)
+- [よく寄せられる質問 - Apache Kafka 用 Event Hubs](apache-kafka-frequently-asked-questions.yml)
 - [推奨される構成](apache-kafka-configurations.md)

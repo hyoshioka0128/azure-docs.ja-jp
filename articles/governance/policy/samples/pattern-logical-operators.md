@@ -1,22 +1,22 @@
 ---
 title: パターン:ポリシー定義の論理演算子
 description: この Azure Policy のパターンでは、ポリシー定義の論理演算子を使用する方法の例を示します。
-ms.date: 08/17/2020
+ms.date: 03/31/2021
 ms.topic: sample
-ms.openlocfilehash: 3f644cdbfc45b06d1ad5db8e7727c0fa69742f00
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: feb9e50b0c73c19027b747cf0f95fa1cb6fbd47c
+ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88545592"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106093352"
 ---
 # <a name="azure-policy-pattern-logical-operators"></a>Azure Policy パターン: 論理演算子
 
-ポリシー定義には、条件付きステートメントをいくつか含めることができます。 各ステートメントが true である必要がある場合や、一部のステートメントのみが true である必要がある場合があります。 これらのニーズに対応するために、言語には、**not**、**allOf**、**anyOf** の[論理演算子](../concepts/definition-structure.md#logical-operators)があります。 これらは省略可能であり、入れ子にして複雑なシナリオを作成することもできます。
+ポリシー定義には、条件付きステートメントをいくつか含めることができます。 各ステートメントが true である必要がある場合や、一部のステートメントのみが true である必要がある場合があります。 これらのニーズに対応するために、言語には、**not**、**allOf**、**anyOf** の [論理演算子](../concepts/definition-structure.md#logical-operators)があります。 これらは省略可能であり、入れ子にして複雑なシナリオを作成することもできます。
 
 ## <a name="sample-1-one-logical-operator"></a>サンプル 1:1 つの論理演算子
 
-このポリシー定義は、CosmosDB アカウントを評価して、自動フェールオーバーと複数の書き込み場所が構成されているかどうかを確認します。 そうでない場合は、[audit](../concepts/effects.md#audit) がトリガーされ、非対応のリソースが作成または更新されるときにログ エントリが作成されます。
+このポリシー定義は、[Azure Cosmos DB](../../../cosmos-db/introduction.md) アカウントを評価して、自動フェールオーバーと複数の書き込み場所が構成されているかどうかを確認します。 そうでない場合は、[audit](../concepts/effects.md#audit) がトリガーされ、非対応のリソースが作成または更新されるときにログ エントリが作成されます。
 
 :::code language="json" source="~/policy-templates/patterns/pattern-logical-operators-1.json":::
 
@@ -41,7 +41,7 @@ ms.locfileid: "88545592"
 
 ## <a name="sample-3-combining-logical-operators"></a>サンプル 3: 論理演算子の組み合わせ
 
-このポリシー定義は、Java Spring アカウントを評価して、トレースが有効でない、またはトレースが成功状態ではないかどうかを調べるものです。
+このポリシー定義は、[Spring on Azure](/azure/developer/java/spring-framework) アカウントを評価して、トレースが有効でない、またはトレースが成功状態ではないかどうかを調べるものです。
 
 :::code language="json" source="~/policy-templates/patterns/pattern-logical-operators-3.json":::
 

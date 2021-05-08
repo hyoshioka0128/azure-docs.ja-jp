@@ -2,20 +2,20 @@
 title: ワークロードを監視する - Azure portal
 description: Azure portal を使用して Synapse SQL を監視する
 services: synapse-analytics
-author: kevinvngo
+author: julieMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
 ms.date: 02/04/2020
-ms.author: kevin
+ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: 2a2161fd24ccde596630549163a631626a961773
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 4f4c50588a67e2e69d0975c9f4414242ecf23617
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100596662"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107568269"
 ---
 # <a name="monitor-workload---azure-portal"></a>ワークロードを監視する - Azure portal
 

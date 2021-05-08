@@ -1,18 +1,14 @@
 ---
 title: センサーをアクティブ化してセットアップする
 description: この記事では、センサー コンソールにサインインしてアクティブ化する方法について説明します。
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 1/12/2021
 ms.topic: how-to
-ms.service: azure
-ms.openlocfilehash: 98d59ec4b37238005e89051064a60fa6a4407394
-ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
+ms.openlocfilehash: b040a87c2eae36e6049b4e1d0cf51ecb2cfde108
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102449834"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106385120"
 ---
 # <a name="activate-and-set-up-your-sensor"></a>センサーをアクティブ化してセットアップする
 
@@ -60,7 +56,7 @@ ms.locfileid: "102449834"
 次の 2 つのレベルのセキュリティを使用できます。
 
 - CA 署名証明書をアップロードして、組織で要求されている特定の証明書と暗号化の要件を満たします。
-- 管理コンソールと接続されたセンサー間で検証を行えるようにします。 検証は、証明書失効リストと証明書の有効期限に照らして評価されます。 "*検証が失敗すると、管理コンソールとセンサー間の通信が停止され、検証エラーがコンソールに表示されます。* " このオプションは、インストール後に既定で有効になります。  
+- 管理コンソールと接続されたセンサー間で検証を行えるようにします。 検証は、証明書失効リストと証明書の有効期限に対して評価されます。 "*検証が失敗すると、管理コンソールとセンサー間の通信が停止され、検証エラーがコンソールに表示されます。* " このオプションは、インストール後に既定で有効になります。  
 
 コンソールでは、次の証明書の種類がサポートされています。
 

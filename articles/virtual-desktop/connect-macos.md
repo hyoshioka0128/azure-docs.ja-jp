@@ -5,13 +5,13 @@ author: Heidilohr
 ms.topic: how-to
 ms.date: 04/08/2020
 ms.author: helohr
-manager: lizross
-ms.openlocfilehash: f437c43c1e9ad960910e7576db4b3ddf3f6623ec
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+manager: femila
+ms.openlocfilehash: 5ee73625963143bb12d0784d52316c65a41e61d8
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89230876"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106448034"
 ---
 # <a name="connect-to-windows-virtual-desktop-with-the-macos-client"></a>macOS クライアントを使用して Windows Virtual Desktop に接続する
 
@@ -34,7 +34,7 @@ ms.locfileid: "89230876"
 
 1. サービスに接続して自分のリソースを取得するには、メイン ページで **[ワークスペースの追加]** を選択します。
 2. フィード URL を入力します。 URL またはメール アドレスを指定できます。
-   - URL を使用する場合は、管理者から提供されたものを使用します。 通常、URL は <https://rdweb.wvd.microsoft.com/api/arm/feeddiscovery> です。
+   - URL を使用する場合は、管理者によって付与されたものを使用します。 通常、URL は <https://rdweb.wvd.microsoft.com/api/arm/feeddiscovery> です。
    - 電子メールを使用するには、電子メール アドレスを入力します。 これにより、メール アドレスに関連付けられている URL を検索するようにクライアントに指示されます (管理者がそのようにサーバーを構成した場合)。
    - US Gov ポータルから接続するには、<https://rdweb.wvd.azure.us/api/arm/feeddiscovery> を使用します。
 3. **[追加]** を選択します。

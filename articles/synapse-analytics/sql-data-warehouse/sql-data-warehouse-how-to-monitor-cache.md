@@ -2,21 +2,21 @@
 title: Gen2 キャッシュの最適化
 description: Azure portal を使用して Gen2 キャッシュを監視する方法について説明します。
 services: synapse-analytics
-author: kevinvngo
+author: julieMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.subservice: sql-dw
 ms.topic: conceptual
 ms.date: 11/20/2020
-ms.author: kevin
+ms.author: jrasnick
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 041751b5b23dbb3153f1ae638303579a860c0e5b
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 9de795c54f55295fa69ed7fcb5dd894e2963385b
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95020165"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107566632"
 ---
 # <a name="how-to-monitor-the-adaptive-cache"></a>アダプティブ キャッシュを監視する方法
 

@@ -2,18 +2,15 @@
 title: Azure Site Recovery を使用してセカンダリ Hyper-V サイトへのフェールオーバー/フェールバックを設定する
 description: Azure Site Recovery を使用したディザスター リカバリー時に Hyper-V VM をセカンダリ オンプレミス サイトにフェールオーバーし、プライマリ サイトにフェールバックする方法を説明します。
 services: site-recovery
-author: rayne-wiselman
-manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/14/2019
-ms.author: raynew
-ms.openlocfilehash: d31355bcb0ce42874c19988738ba06138c7a0b7c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 72b23e37a365287cc8a850f960137fdb7ec08497
+ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "74082596"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106581119"
 ---
 # <a name="fail-over-and-fail-back-hyper-v-vms-replicated-to-your-secondary-on-premises-site"></a>セカンダリ オンプレミス サイトにレプリケートされた Hyper-V VM のフェールオーバーとフェールバック
 
@@ -55,7 +52,7 @@ Hyper-V VM の通常のフェールオーバーまたは計画されたフェー
 1. **[設定]**  >  **[レプリケートされたアイテム]** で、[VM] > **[フェールオーバー]** をクリックします。
 1. Site Recovery でフェールオーバーをトリガーする前にそのソース VM をシャットダウンする場合は、 **[フェールオーバーを開始する前にマシンをシャットダウンします]** を選択します。 Site Recovery はフェールオーバーをトリガーする前に、セカンダリ サイトに送信されていないオンプレミス データの同期を試行します。 シャットダウンが失敗した場合でも、フェールオーバーは続行されることに注意してください。 フェールオーバーの進行状況は **[ジョブ]** ページで確認できます。
 2. ここで、セカンダリ VMM クラウド内の VM を確認できます。
-3. VM を確認したら、フェールオーバーを**コミット**します。 これにより、利用可能なすべての復旧ポイントが削除されます。
+3. VM を確認したら、フェールオーバーを **コミット** します。 これにより、利用可能なすべての復旧ポイントが削除されます。
 
 > [!WARNING]
 > **進行中のフェールオーバーを取り消さないでください**: フェールオーバーが開始される前に、VM のレプリケーションが停止されます。 進行中のフェールオーバーをキャンセルすると、フェールオーバーは停止しますが、VM が再びレプリケートされることはありません。  

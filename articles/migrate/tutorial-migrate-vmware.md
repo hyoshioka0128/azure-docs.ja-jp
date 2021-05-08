@@ -7,12 +7,12 @@ ms.manager: bsiva
 ms.topic: tutorial
 ms.date: 06/09/2020
 ms.custom: mvc
-ms.openlocfilehash: 17d9d3bf787b67716fb2270cd055e30a4fefbe0f
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: a1d745c95b89efefabbd0b83061f9dcd9fe13911
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101702200"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105567120"
 ---
 # <a name="migrate-vmware-vms-to-azure-agentless"></a>VMware VM を Azure に移行する (エージェントレス)
 
@@ -91,7 +91,7 @@ Azure Migrate Server Migration は、VMware VM の検出、評価、エージェ
     - プラットフォーム マネージド キーとカスタマー マネージド キーを使用した二重暗号化
 
    > [!NOTE]
-   > CMK を使用して VM をレプリケートするには、ターゲット リソース グループに[ディスク暗号化セットを作成する](https://go.microsoft.com/fwlink/?linkid=2151800)必要があります。 ディスク暗号化セット オブジェクトによって、SSE に使用する CMK を含む Key Vault にマネージド ディスクがマップされます。
+   > CMK を使用して VM をレプリケートするには、ターゲット リソース グループに[ディスク暗号化セットを作成する](../virtual-machines/disks-enable-customer-managed-keys-portal.md#set-up-your-disk-encryption-set)必要があります。 ディスク暗号化セット オブジェクトによって、SSE に使用する CMK を含む Key Vault にマネージド ディスクがマップされます。
   
 10. **[Azure ハイブリッド特典]** で、
 
@@ -111,7 +111,7 @@ Azure Migrate Server Migration は、VMware VM の検出、評価、エージェ
     > 仮想マシンのセットごとに別の可用性オプションを選択する場合は、手順 1 に進み、仮想マシンの 1 つのセットのレプリケーションを開始した後に別の可用性オプションを選択して各手順を繰り返します。
 
 
- ![VM コンピューティングの設定](./media/tutorial-migrate-vmware/compute-settings.png)
+
 
 12. **[ディスク]** で、VM ディスクを Azure にレプリケートするかどうかを指定し、Azure でのディスクの種類 (Standard SSD か HDD、または Premium マネージド ディスク) を選択します。 続けて、 **[次へ]** をクリックします。
    
@@ -189,7 +189,7 @@ Azure Migrate Server Migration は、VMware VM の検出、評価、エージェ
 ## <a name="complete-the-migration"></a>移行を完了する
 
 1. 移行が完了したら、VM を右クリックして、 **[レプリケーションの停止]** を選択します。 これで、オンプレミスのマシンのレプリケーションが停止し、VM のレプリケーション状態情報がクリーンアップされます。
-2. マシンの OS が Linux の場合は、移行されたマシンに Azure VM [Linux](../virtual-machines/extensions/agent-linux.md) エージェントをインストールします。 Windows VM の VM エージェントは、移行中に自動的にインストールされます。
+2. Windows VM および Linux の VM エージェントは、移行中に自動的にインストールされます。 マシンに Linux OS がある場合は、Linux VM エージェントのインストールが適切に行われるように、移行マシンで Azure VM Linux エージェントの[要件](../virtual-machines/extensions/agent-linux.md#requirements)を確認します。 
 3. データベース接続文字列、および Web サーバー構成の更新など、移行後のアプリの微調整を実行します。
 4. Azure で現在実行されている移行後のアプリケーション上で、最終的なアプリケーションと移行の受け入れのテストを実行します。
 5. 移行された Azure VM インスタンスにトラフィックを切り替えます。
@@ -202,6 +202,8 @@ Azure Migrate Server Migration は、VMware VM の検出、評価、エージェ
 - 復元性の向上:
     - Azure Backup サービスを使用して、Azure VM をバックアップすることで、データの安全性を保持します。 [詳細については、こちらを参照してください](../backup/quick-backup-vm-portal.md)。
     - Azure VM を Site Recovery のセカンダリ リージョンにレプリケートし、継続的にワークロードを実行して利用可能にします。 [詳細については、こちらを参照してください](../site-recovery/azure-to-azure-tutorial-enable-replication.md)。
+- パフォーマンスの向上:
+    - 既定では、データ ディスクは、ホスト キャッシュが "なし" に設定された状態で作成されます。 データ ディスクのキャッシュを確認し、ご自身のワークロードのニーズに合わせて調整します。 [詳細については、こちらを参照してください](../virtual-machines/premium-storage-performance.md#disk-caching)。  
 - セキュリティの強化：
     - [Azure Security Center のジャスト イン タイム管理](../security-center/security-center-just-in-time.md)を利用して、インバウンド トラフィック アクセスをロックダウンして制限します。
     - [ネットワーク セキュリティ グループ](../virtual-network/network-security-groups-overview.md)を使って、ネットワーク トラフィックを管理エンドポイントに制限します。

@@ -10,16 +10,23 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: wellsi
-ms.openlocfilehash: af66f2ec56551a5177cd9323d216e9bf4b0c41be
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: f9215469b1436ce9dc95c140e6969366d80d1ced
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95021849"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105607135"
 ---
 # <a name="release-notes-speech-devices-sdk"></a>リリース ノート:Speech Devices SDK
 
 以下のセクションでは、最新リリースでの変更点の一覧を示します。
+
+## <a name="speech-devices-sdk-1150"></a>Speech Devices SDK 1.15.0:
+
+- 新しい Microsoft Audio Stack (MAS) にアップグレードされており、音声のためのビームフォーミングとノイズリダクションが改善されています。
+- ターゲットによっては、バイナリ サイズが 70% も縮小されました。
+- [Azure Percept Audio](../../azure-percept/overview-azure-percept-audio.md) と[バイナリ リリース](https://aka.ms/sdsdk-download-APAudio)のサポート。
+- [Speech SDK](./speech-sdk.md) コンポーネントがバージョン 1.15.0 に更新されました。 詳しくは、[リリース ノート](./releasenotes.md)をご覧ください。
 
 ## <a name="speech-devices-sdk-1110"></a>Speech Devices SDK 1.11.0:
 
@@ -100,7 +107,7 @@ ms.locfileid: "95021849"
 **重大な変更**
 
 - このリリースでは、重大な変更がいくつか行われています。 API に関して詳しくは、[こちらのページ](https://aka.ms/csspeech/breakingchanges_1_0_0)をご覧ください。
-- KWS モデル ファイルは、Speech Devices SDK 1.0.1 と互換性がありません。 既存のキーワード ファイルは、新しいキーワード ファイルがデバイスに書き込まれると削除されます。
+- キーワード認識モデル ファイルは、Speech Devices SDK 1.0.1 と互換性がありません。 既存のキーワード ファイルは、新しいキーワード ファイルがデバイスに書き込まれると削除されます。
 
 ## <a name="speech-devices-sdk-050-2018-aug-release"></a>Speech Devices SDK 0.5.0:2018-Aug リリース
 

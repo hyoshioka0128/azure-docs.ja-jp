@@ -12,12 +12,12 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 07/31/2020
-ms.openlocfilehash: a8f1ca1da54c816199a0504eb17fa0a7bbfc441b
-ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
+ms.openlocfilehash: 592c128a05b66b268c954ccd32b06863df5b25d1
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102522191"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107029116"
 ---
 # <a name="create-azure-machine-learning-datasets"></a>Azure Machine Learning データセットを作成する
 
@@ -52,7 +52,7 @@ Azure Machine Learning データセットを使用すると、次のことを実
     * ご自分の Jupyter Notebook で作業し、 [こちらの手順](/python/api/overview/azure/ml/install)に従って SDK をご自身でインストールします。
 
 > [!NOTE]
-> 一部の Dataset クラスは、[azureml-dataprep](/python/api/azureml-dataprep/) パッケージに依存しています。これは、64 ビットの Python とのみ互換性があります。 Linux ユーザーの場合、これらのクラスは次のディストリビューションでのみサポートされています。Red Hat Enterprise Linux (7、8)、Ubuntu (14.04、16.04、18.04)、Fedora (27、28)、Debian (8、9)、および CentOS (7) サポートされていないディストリビューションを使用している場合は、[こちらのガイド](/dotnet/core/install/linux)に従って、.NET Core 2.1 をインストールして続行してください。 
+> 一部の Dataset クラスは、[azureml-dataprep](https://pypi.org/project/azureml-dataprep/) パッケージに依存しています。これは、64 ビットの Python とのみ互換性があります。 Linux ユーザーの場合、これらのクラスは次のディストリビューションでのみサポートされています。Red Hat Enterprise Linux (7、8)、Ubuntu (14.04、16.04、18.04)、Fedora (27、28)、Debian (8、9)、および CentOS (7) サポートされていないディストリビューションを使用している場合は、[こちらのガイド](/dotnet/core/install/linux)に従って、.NET Core 2.1 をインストールして続行してください。 
 
 ## <a name="compute-size-guidance"></a>コンピューティング サイズのガイダンス
 
@@ -75,7 +75,7 @@ Azure Machine Learning データセットを使用すると、次のことを実
 FileDataset を作成するには、[Python SDK](#create-a-filedataset) または [Azure Machine Learning Studio](how-to-connect-data-ui.md#create-datasets) を使用します。
 ### <a name="tabulardataset"></a>TabularDataset
 
-[TabularDataset](/python/api/azureml-core/azureml.data.tabulardataset) は、指定されたファイルまたはファイルのリストを解析して、データを表形式で表します。 これにより、データを Pandas または Spark DataFrame に具体化できるため、ノートブックを離れることなく、使い慣れたデータ準備とトレーニングのライブラリを使用することができます。 `TabularDataset` オブジェクトは、.csv ファイル、.tsv ファイル、.parquet ファイル、.jsonl ファイル、[SQL クエリ結果](/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory#from-sql-query-query--validate-true--set-column-types-none--query-timeout-30-)から作成できます。
+[TabularDataset](/python/api/azureml-core/azureml.data.tabulardataset) は、指定されたファイルまたはファイルのリストを解析して、データを表形式で表します。 これにより、データを Pandas または Spark DataFrame に具体化できるため、ノートブックを離れることなく、使い慣れたデータ準備とトレーニングのライブラリを使用することができます。 `TabularDataset` オブジェクトは、.csv、.tsv、[.parquet](/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory#from-parquet-files-path--validate-true--include-path-false--set-column-types-none--partition-format-none-)、[.jsonl](/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory#from-json-lines-files-path--validate-true--include-path-false--set-column-types-none--partition-format-none--invalid-lines--error---encoding--utf8--) の各ファイル、および [SQL クエリ結果](/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory#from-sql-query-query--validate-true--set-column-types-none--query-timeout-30-)から作成できます。
 
 TabularDataset を使用すると、データの列から、またはデータが格納されている任意のパス パターンからタイム スタンプを指定して、時系列特性を有効にすることができます。 この指定により、時間による簡単かつ効率的なフィルター処理が可能になります。 例については、「[NOAA 気象データを使用した表形式の時系列関連の API のデモ](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datasets-tutorial/timeseries-datasets/tabular-timeseries-dataset-filtering.ipynb)」を参照してください。
 
@@ -133,7 +133,9 @@ mnist_ds = Dataset.File.from_files(path=web_paths)
 
 ### <a name="create-a-tabulardataset"></a>TabularDataset を作成する
 
-.csv 形式または .tsv 形式のファイルを読み取り、登録されていない TabularDataset を作成するには、`TabularDatasetFactory` クラスの [`from_delimited_files()`](/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory) メソッドを使用します。 複数のファイルから読み取る場合、結果は 1 つの表形式に集計されます。 
+.csv 形式または .tsv 形式のファイルを読み取り、登録されていない TabularDataset を作成するには、`TabularDatasetFactory` クラスの [`from_delimited_files()`](/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory) メソッドを使用します。 .parquet 形式のファイルを読み込むには、[`from_parquet_files()`](/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory#from-parquet-files-path--validate-true--include-path-false--set-column-types-none--partition-format-none-) メソッドを使用します。 複数のファイルから読み取る場合、結果は 1 つの表形式に集計されます。 
+
+サポートされているファイル形式、構文、設計パターンの詳細については、[TabularDatasetFactory のリファレンス ドキュメント](/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory)を参照してください。 
 
 ストレージが仮想ネットワークまたはファイアウォールの内側にある場合は、`from_delimited_files()` メソッドでパラメーター `validate=False` を設定します。 これにより、最初の検証手順がバイパスされ、セキュリティで保護されたこれらのファイルからデータセットを作成できるようになります。 [仮想ネットワークでデータストアとデータセット](how-to-secure-workspace-vnet.md#secure-datastores-and-datasets)を使用する方法に関する詳細を確認してください。
 
@@ -182,9 +184,55 @@ titanic_ds.take(3).to_pandas_dataframe()
 
 ワークスペースの実験間でデータセットを再利用および共有するには、[データセットを登録](#register-datasets)します。
 
+## <a name="wrangle-data"></a>データのラングリング
+データセットを作成して[登録](#register-datasets)したら、モデルのトレーニングの前に、ノートブックにそれを読み込んで、データ ラングリングと[探索](#explore-data)を行うことができます。 
+
+データ ラングリングや探索を実行する必要がない場合は、[データセットを使用したトレーニング](how-to-train-with-datasets.md)に関する記事に記載されている、ML 実験の送信用のトレーニング スクリプトでデータセットを使用する方法について参照してください。
+
+### <a name="filter-datasets-preview"></a>データセットのフィルター処理 (プレビュー)
+フィルター処理機能は、使用しているデータセットの種類によって異なります。 
+> [!IMPORTANT]
+> パブリック プレビュー メソッド [`filter()`](/python/api/azureml-core/azureml.data.tabulardataset#filter-expression-) を使用したデータセットのフィルター処理は、[試験段階](/python/api/overview/azure/ml/#stable-vs-experimental)のプレビュー機能であり、いつでも変更される可能性があります。 
+> 
+**TabularDatasets** の場合は、[keep_columns()](/python/api/azureml-core/azureml.data.tabulardataset#keep-columns-columns--validate-false-) と [drop_columns()](/python/api/azureml-core/azureml.data.tabulardataset#drop-columns-columns-) メソッドを使用して、列を保持または削除できます。
+
+TabularDataset 内の特定の列の値によって行を除外するには、[filter()](/python/api/azureml-core/azureml.data.tabulardataset#filter-expression-) メソッド (プレビュー) を使用します。 
+
+次の例では、指定された式に基づいて、登録されていないデータセットが返されます。
+
+```python
+# TabularDataset that only contains records where the age column value is greater than 15
+tabular_dataset = tabular_dataset.filter(tabular_dataset['age'] > 15)
+
+# TabularDataset that contains records where the name column value contains 'Bri' and the age column value is greater than 15
+tabular_dataset = tabular_dataset.filter((tabular_dataset['name'].contains('Bri')) & (tabular_dataset['age'] > 15))
+```
+
+**FileDatasets** では、各行がファイルのパスに対応しているため、列の値によるフィルター処理は役に立ちません。 ただし、CreationTime や Size などのメタデータにより、[filter()](/python/api/azureml-core/azureml.data.filedataset#filter-expression-) を使用して行を除外できます。
+
+次の例では、指定された式に基づいて、登録されていないデータセットが返されます。
+
+```python
+# FileDataset that only contains files where Size is less than 100000
+file_dataset = file_dataset.filter(file_dataset.file_metadata['Size'] < 100000)
+
+# FileDataset that only contains files that were either created prior to Jan 1, 2020 or where 
+file_dataset = file_dataset.filter((file_dataset.file_metadata['CreatedTime'] < datetime(2020,1,1)) | (file_dataset.file_metadata['CanSeek'] == False))
+```
+
+[データのラベル付けプロジェクト](how-to-create-labeling-projects.md)から作成された **ラベル付きデータセット** は特殊なケースです。 これらのデータセットは、イメージ ファイルで構成される TabularDataset の一種です。 これらのデータセットの種類には、メタデータ、および `label` や `image_details` などの列の値によって、イメージを [filter()](/python/api/azureml-core/azureml.data.tabulardataset#filter-expression-) でフィルター処理できます。
+
+```python
+# Dataset that only contains records where the label column value is dog
+labeled_dataset = labeled_dataset.filter(labeled_dataset['label'] == 'dog')
+
+# Dataset that only contains records where the label and isCrowd columns are True and where the file size is larger than 100000
+labeled_dataset = labeled_dataset.filter((labeled_dataset['label']['isCrowd'] == True) & (labeled_dataset.file_metadata['Size'] > 100000))
+```
+
 ## <a name="explore-data"></a>データの探索
 
-データセットを作成して[登録](#register-datasets)したら、モデルのトレーニングの前に、データ探索用のノートブックにそれを読み込むことができます。 データ探索を実行する必要がない場合は、[データセットを使用したトレーニング](how-to-train-with-datasets.md)に関する記事に記載されている、ML 実験の送信用のトレーニング スクリプトでデータセットを使用する方法について参照してください。
+データのラングリングが完了したら、データセットを[登録](#register-datasets)し、それをノートブックに読み込んで、モデルのトレーニングの前にデータ探索を行うことができます。
 
 FileDatasets の場合は、データセットを **マウント** または **ダウンロード** して、データ探索に通常使用する python ライブラリを適用します。 [マウントとダウンロードの詳細情報](how-to-train-with-datasets.md#mount-vs-download)。
 

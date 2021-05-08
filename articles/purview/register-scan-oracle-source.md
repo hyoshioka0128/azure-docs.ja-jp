@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: overview
 ms.date: 2/25/2021
-ms.openlocfilehash: 3ae81a9c05f0c88a52db6409bf870ee0427f09db
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 76aadd667691e12c61e0e5e13c13ca0241a9f0ce
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101696071"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105045503"
 ---
 # <a name="register-and-scan-oracle-source-preview"></a>Oracle ソースを登録してスキャンする (プレビュー)
 
@@ -25,13 +25,13 @@ Oracle ソースでは Oracle データベースからメタデータを抽出�
 ## <a name="prerequisites"></a>前提条件
 
 1.  最新の[セルフホステッド統合ランタイム](https://www.microsoft.com/download/details.aspx?id=39717)を設定します。
-    詳細については、「[セルフホステッド統合ランタイムを作成して共有する](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime)」を参照してください。
+    詳細については、「[セルフホステッド統合ランタイムを作成して共有する](../data-factory/create-self-hosted-integration-runtime.md)」を参照してください。
 
 2.  セルフホステッド統合ランタイムがインストールされている仮想マシンに [JDK 11](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html) がインストールされていることを確認します。
 
 3.  セルフホステッド統合ランタイム コンピューターに \"Visual C++ 再頒布可能パッケージ 2012 Update 4\" がインストールされていることを確認します。 まだインストールしていない場合は、[こちら](https://www.microsoft.com/download/details.aspx?id=30679)からダウンロードしてください。
 
-4.  セルフホステッド統合ランタイムが実行されている仮想マシンに、'oracle.jdbc.driver.OracleDriver\' という名前の Oracle JDBC ドライバーを手動でダウンロードする必要があります。
+4.  セルフホステッド統合ランタイムが実行されている仮想マシンに、[こちら](https://www.oracle.com/database/technologies/appdev/jdbc-downloads.html)から Oracle JDBC ドライバーを手動でダウンロードする必要があります。
 
     > [!Note] 
     > このドライバーは、VM 内のすべてのアカウントからアクセスできる必要があります。 それをユーザー アカウントにインストールしないでください。
@@ -105,7 +105,7 @@ Oracle ソースでサポートされている認証は **基本認証** のみ�
 
 新しいスキャンを作成して実行するには、次の操作を行います。
 
-1.  管理センターで、 [統合ランタイム] をクリックします。 セルフホステッド統合ランタイムが設定されていることを確認してください。 設定されていない場合は、[こちら](https://docs.microsoft.com/azure/purview/manage-integration-runtimes)に記載されている手順を使用して、セルフホステッド統合ランタイムを作成します。
+1.  管理センターで、 [統合ランタイム] をクリックします。 セルフホステッド統合ランタイムが設定されていることを確認してください。 設定されていない場合は、[こちら](./manage-integration-runtimes.md)に記載されている手順を使用して、セルフホステッド統合ランタイムを作成します。
 
 2.  **[ソース]** に移動します。
 

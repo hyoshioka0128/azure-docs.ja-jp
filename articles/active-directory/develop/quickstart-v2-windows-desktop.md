@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 12/12/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 02dc2b4e86c9d0bad0c8274967aa4da77440ec01
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.openlocfilehash: eb5bf0bc6e211d83d2de2eb8d327ee6b2d577721
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102498763"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106075017"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-windows-desktop-app"></a>クイック スタート:Windows デスクトップ アプリからトークンを取得し、Microsoft Graph API を呼び出す
 
@@ -76,6 +76,8 @@ ms.locfileid: "102498763"
 > [!div renderon="portal" id="autoupdate" class="sxs-lookup nextstepaction"]
 > [コード サンプルをダウンロードします](https://github.com/Azure-Samples/active-directory-dotnet-desktop-msgraph-v2/archive/msal3x.zip)
 
+[!INCLUDE [active-directory-develop-path-length-tip](../../../includes/active-directory-develop-path-length-tip.md)]
+
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-3-your-app-is-configured-and-ready-to-run"></a>手順 3:アプリが構成され、実行準備ができる
 > アプリのプロパティの値を使用してプロジェクトを構成したら、実行する準備は完了です。
@@ -97,13 +99,15 @@ ms.locfileid: "102498763"
 >
 > 各値の説明:
 > - `Enter_the_Application_Id_here` - 登録したアプリケーションの **アプリケーション (クライアント) ID**。
+>    
+>    **[アプリケーション (クライアント) ID]** の値を見つけるには、Azure portal でアプリの **[概要]** ページに移動します。
 > - `Enter_the_Tenant_Info_Here` - 次のいずれかのオプションに設定します。
 >   - アプリケーションで **この組織のディレクトリ内のアカウント** をサポートする場合は、この値を **テナント ID** または **テナント名** に置き換えます (たとえば、contoso.microsoft.com)
 >   - アプリケーションで **[任意の組織のディレクトリ内のアカウント]** がサポートされる場合は、この値を `organizations` に置き換えます。
->   - アプリケーションで **任意の組織のディレクトリ内のアカウントと個人用の Microsoft アカウント** をサポートする場合は、この値を `common` に置き換えます
+>   - アプリケーションにおいて **任意の組織のディレクトリ内のアカウントと個人用の Microsoft アカウント** をサポートする場合は、この値を `common` に置き換えます。
 >
-> > [!TIP]
-> > **[アプリケーション (クライアント) ID]** 、 **[ディレクトリ (テナント) ID]** 、 **[サポートされているアカウントの種類]** の値を見つけるには、Azure portal でアプリの **[概要]** ページに移動します。
+>     **[ディレクトリ (テナント) ID]** と **[サポートされているアカウントの種類]** の値を見つけるには、Azure portal でアプリの **[概要]** ページに移動します。
+>
 
 ## <a name="more-information"></a>詳細情報
 
@@ -135,9 +139,9 @@ PublicClientApplicationBuilder.Create(ClientId)
                 .Build();
 ```
 
-> |各値の説明: | 説明 |
-> |---------|---------|
-> | `ClientId` | Azure portal に登録されているアプリケーションの "**アプリケーション (クライアント) ID**"。 この値は、Azure portal のアプリの **[概要]** ページで確認できます。 |
+|各値の説明: | 説明 |
+|---------|---------|
+| `ClientId` | Azure portal に登録されているアプリケーションの "**アプリケーション (クライアント) ID**"。 この値は、Azure portal のアプリの **[概要]** ページで確認できます。 |
 
 ### <a name="requesting-tokens"></a>トークンの要求
 
@@ -157,9 +161,9 @@ authResult = await App.PublicClientApp.AcquireTokenInteractive(_scopes)
                                       .ExecuteAsync();
 ```
 
-> |各値の説明:| 説明 |
-> |---------|---------|
-> | `_scopes` | 要求するスコープを含む (Microsoft Graph 用の `{ "user.read" }` またはカスタム Web API 用の `{ "api://<Application ID>/access_as_user" }` など) |
+|各値の説明:| 説明 |
+|---------|---------|
+| `_scopes` | 要求するスコープを含む (Microsoft Graph 用の `{ "user.read" }` またはカスタム Web API 用の `{ "api://<Application ID>/access_as_user" }` など) |
 
 #### <a name="get-a-user-token-silently"></a>ユーザー トークンを自動で取得する
 
@@ -172,10 +176,10 @@ authResult = await App.PublicClientApp.AcquireTokenSilent(scopes, firstAccount)
                                       .ExecuteAsync();
 ```
 
-> |各値の説明: | 説明 |
-> |---------|---------|
-> | `scopes` | 要求するスコープを含む (Microsoft Graph 用の `{ "user.read" }` またはカスタム Web API 用の `{ "api://<Application ID>/access_as_user" }` など) |
-> | `firstAccount` | キャッシュ内の最初のユーザーを指定する (MSAL は、1 つのアプリで複数のユーザーをサポート)。 |
+|各値の説明: | 説明 |
+|---------|---------|
+| `scopes` | 要求するスコープを含む (Microsoft Graph 用の `{ "user.read" }` またはカスタム Web API 用の `{ "api://<Application ID>/access_as_user" }` など) |
+| `firstAccount` | キャッシュ内の最初のユーザーを指定する (MSAL は、1 つのアプリで複数のユーザーをサポート)。 |
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
 

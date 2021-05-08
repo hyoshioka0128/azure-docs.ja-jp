@@ -10,10 +10,10 @@ ms.author: mbaldwin
 ms.date: 06/05/2019
 ms.custom: seodec18
 ms.openlocfilehash: 6a85af1a5e0603d78dc9bc233fef56417e19c50e
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102553087"
 ---
 # <a name="azure-disk-encryption-for-linux-virtual-machines-faq"></a>Linux VM に対する Azure Disk Encryption に関する FAQ

@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 02/1/2021
 ms.author: miwithro
-ms.openlocfilehash: ca8b9a511de1b71e5d03b8aac7631fc8f524500f
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 3db9f8d895b4c13b5f969859f422e7b566722ffc
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102177938"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107783073"
 ---
 # <a name="aks-managed-azure-active-directory-integration"></a>AKS マネージド Azure Active Directory 統合
 
@@ -20,7 +20,7 @@ AKS マネージド Azure AD 統合は、Azure AD の統合エクスペリエン
 
 クラスター管理者は、ユーザーの ID またはディレクトリ グループのメンバーシップに基づいて、Kubernetes のロールベースのアクセス制御 (Kubernetes RBAC) を構成できます。 Azure AD 認証は、OpenID Connect によって AKS クラスターに提供されます。 OpenID Connect は、OAuth 2.0 プロトコル上に構築された ID レイヤーです。 OpenID Connect の詳細については、[OpenID Connect のドキュメント][open-id-connect]を参照してください。
 
-[Azure Active Directory 統合の概念に関するドキュメント](concepts-identity.md#azure-active-directory-integration)で、Azure AD 統合フローの詳細を確認してください。
+[Azure Active Directory 統合の概念に関するドキュメント](concepts-identity.md#azure-ad-integration)で、Azure AD 統合フローの詳細を確認してください。
 
 ## <a name="limitations"></a>制限事項 
 
@@ -36,7 +36,7 @@ AKS マネージド Azure AD 統合は、Azure AD の統合エクスペリエン
 * [helm](https://github.com/helm/helm) を使用している場合は、helm 3.3 以降
 
 > [!Important]
-> バージョン 1.18.1 以降の kubectl、または kubelogin を使用する必要があります。 適切なバージョンを使用しない場合は、認証の問題が発生します。
+> バージョン 1.18.1 以降の kubectl、または kubelogin を使用する必要があります。 Kubernetes と kubectl のマイナー バージョンの差は、1 バージョンを超えることはできません。 適切なバージョンを使用しない場合は、認証の問題が発生します。
 
 kubectl および kubelogin をインストールするには、次のコマンドを使用します。
 
@@ -308,18 +308,18 @@ Error from server (Forbidden): nodes is forbidden: User "aaaa11111-11aa-aa11-a1a
 [kubernetes-webhook]:https://kubernetes.io/docs/reference/access-authn-authz/authentication/#webhook-token-authentication
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [aks-arm-template]: /azure/templates/microsoft.containerservice/managedclusters
-[aad-pricing]: /azure/pricing/details/active-directory
+[aad-pricing]: https://azure.microsoft.com/pricing/details/active-directory/
 
 <!-- LINKS - Internal -->
 [aad-conditional-access]: ../active-directory/conditional-access/overview.md
 [azure-rbac-integration]: manage-azure-rbac.md
 [aks-concepts-identity]: concepts-identity.md
 [azure-ad-rbac]: azure-ad-rbac.md
-[az-aks-create]: /cli/azure/aks#az-aks-create
-[az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
-[az-group-create]: /cli/azure/group#az-group-create
+[az-aks-create]: /cli/azure/aks#az_aks_create
+[az-aks-get-credentials]: /cli/azure/aks#az_aks_get_credentials
+[az-group-create]: /cli/azure/group#az_group_create
 [open-id-connect]:../active-directory/develop/v2-protocols-oidc.md
-[az-ad-user-show]: /cli/azure/ad/user#az-ad-user-show
+[az-ad-user-show]: /cli/azure/ad/user#az_ad_user_show
 [rbac-authorization]: concepts-identity.md#role-based-access-controls-rbac
 [operator-best-practices-identity]: operator-best-practices-identity.md
 [azure-ad-rbac]: azure-ad-rbac.md

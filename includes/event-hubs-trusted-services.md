@@ -9,10 +9,10 @@ ms.date: 03/08/2021
 ms.author: spelluru
 ms.custom: include file
 ms.openlocfilehash: 0e487b3ab3663c765c052f2064201865508ef57f
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/09/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "102510829"
 ---
 ## <a name="trusted-microsoft-services"></a>信頼できる Microsoft サービス

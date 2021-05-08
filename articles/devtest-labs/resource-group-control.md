@@ -3,12 +3,12 @@ title: Azure DevTest Labs で VM のリソース グループを指定する | M
 description: Azure DevTest Labs でラボの VM に対するリソース グループを指定する方法について説明します。
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 7b72048405d3025ca21b324b6ad3168dd0c9ac95
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c6f576a20fc8fada9dd515e8ba2a266761a3e586
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85483365"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107377490"
 ---
 # <a name="specify-a-resource-group-for-lab-virtual-machines-in-azure-devtest-labs"></a>Azure DevTest Labs でラボの仮想マシンのリソース グループを指定する
 
@@ -27,14 +27,14 @@ ms.locfileid: "85483365"
 ## <a name="use-azure-portal"></a>Azure Portal の使用
 次の手順に従って、ラボで作成されたすべての VM のリソース グループを指定します。 
 
-1. [Azure portal](https://portal.azure.com) にサインインする
+1. [Azure portal](https://portal.azure.com) にサインインします。
 2. 左側のナビゲーション メニューで、 **[すべてのサービス]** を選択します。 
 3. 一覧で **[DevTest Labs]** を選択します。
-4. ラボの一覧で、目的の**ラボ**を選択します。  
+4. ラボの一覧で、目的の **ラボ** を選択します。  
 5. 左側のメニューの **[設定]** セクションで、 **[構成とポリシー]** を選択します。 
 6. 左側のメニューで **[ラボの設定]** を選択します。 
 7. **[1 つのリソース グループ内のすべての仮想マシン]** を選択します。 
-8. ドロップダウン リストで既存のリソース グループを選択するか、 **[新規作成]** を選択し、リソース グループの**名前**を入力して、 **[OK]** をクリックします。 
+8. ドロップダウン リストで既存のリソース グループを選択するか、**[新規作成]** を選択し、リソース グループの **名前** を入力して、**[OK]** をクリックします。 
 
     ![すべてのラボ VM のリソース グループの選択](./media/resource-group-control/select-resource-group.png)
 
@@ -76,7 +76,7 @@ Azure Resource Manager テンプレートを使用してラボを作成する場
         {
             "type": "microsoft.devtestlab/labs",
             "name": "[parameters('lab_name')]",
-            "apiVersion": "2018_10_15_preview",
+            "apiVersion": "2018-10-15-preview",
             "location": "eastus",
             "tags": {},
             "scale": null,
@@ -95,17 +95,17 @@ Azure Resource Manager テンプレートを使用してラボを作成する場
 ## <a name="api-to-configure-a-resource-group-for-lab-vms"></a>ラボ VM 用のリソース グループを構成するための API
 ラボ所有者がこの API を使用するときには、次のオプションがあります。
 
-- すべての仮想マシンに対して、**ラボのリソース グループ**を選択する。
-- すべての仮想マシンに対して、ラボのリソース グループ以外の**既存のリソース グループ**を選択する。
-- すべての仮想マシンの**新しいリソース グループ**の名前を入力する。
+- すべての仮想マシンに対して、**ラボのリソース グループ** を選択する。
+- すべての仮想マシンに対して、ラボのリソース グループ以外の **既存のリソース グループ** を選択する。
+- すべての仮想マシンの **新しいリソース グループ** の名前を入力する。
 - 引き続き既存の動作を使用する (ラボの VM ごとにリソース グループが作成されます)。
  
 この設定は、ラボで作成される新しい仮想マシンに適用されます。 独自のリソース グループに作成されたラボの古い VM には影響しません。 ラボで作成された環境は、独自のリソース グループに引き続き維持されます。
 
 この API の使用方法:
-- API バージョン **2018_10_15_preview** を使用します。
-- 新しいリソース グループを指定する場合は、サブスクリプション内の**リソース グループに対する書き込みアクセス許可**があることを確認します。 書き込みアクセス許可がない場合、指定したリソース グループでの新しい仮想マシンの作成は失敗します。
-- API を使用するときは、**完全なリソース グループ ID** を渡します。 (例: `/subscriptions/<SubscriptionID>/resourceGroups/<ResourceGroupName>`)。 リソース グループがラボと同じサブスクリプションに含まれていることを確認します。 
+- API バージョン **2018-10-15-preview** を使用します。
+- 新しいリソース グループを指定する場合は、サブスクリプション内の **リソース グループに対する書き込みアクセス許可** があることを確認します。 書き込みアクセス許可がない場合、指定したリソース グループでの新しい仮想マシンの作成は失敗します。
+- API を使用するときは、**完全なリソース グループ ID** を渡します。 たとえば、`/subscriptions/<SubscriptionID>/resourceGroups/<ResourceGroupName>` です。 リソース グループがラボと同じサブスクリプションに含まれていることを確認します。 
 
 
 ## <a name="next-steps"></a>次のステップ

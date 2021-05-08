@@ -3,12 +3,12 @@ title: webhook のイベント配信
 description: この記事では、WebHook を使用する場合の WebHook イベント配信とエンドポイント検証について説明します。
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: e9a52d0cb3e4e880d91e1b748d97ef3041298930
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 42ba36a21d307ca85d9cdae850c0c9a991e4f30e
+ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87461240"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105968001"
 ---
 # <a name="webhook-event-delivery"></a>Webhook のイベント配信
 Webhook は、Azure Event Grid からイベントを受信する多数ある方法の 1 つです。 新しいイベントの準備ができるたびに、Event Grid サービスは、本文にイベントが含まれる HTTP 要求を構成済み HTTP エンドポイントに POST します。
@@ -28,7 +28,7 @@ Webhook をサポートする他の多くのサービスと同様に、Event Gri
 
    2018-05-01-preview バージョン以降では、手動の検証ハンドシェイクが Event Grid によってサポートされるようになりました。 API バージョン 2018-05-01-preview 以降を使用する SDK またはツールでイベント サブスクリプションを作成すると、Event Grid によって、サブスクリプション検証イベントのデータ部分で `validationUrl` プロパティが送信されます。 ハンドシェイクを完了するには、イベント データ内でその URL を探し、そこへ GET 要求を実行します。 REST クライアントと Web ブラウザーのどちらでも使用できます。
 
-   指定された URL は **5 分間**有効です。 この期間、イベント サブスクリプションのプロビジョニング状態は `AwaitingManualAction` になります。 手動の検証を 5 分以内に完了しなかった場合、プロビジョニング状態は `Failed` に設定されます。 手動による検証を始める前に、もう一度イベント サブスクリプションを作成する必要があります。
+   指定された URL は **5 分間** 有効です。 この期間、イベント サブスクリプションのプロビジョニング状態は `AwaitingManualAction` になります。 手動の検証を 5 分以内に完了しなかった場合、プロビジョニング状態は `Failed` に設定されます。 手動による検証を始める前に、もう一度イベント サブスクリプションを作成する必要があります。
 
    この認証メカニズムではまた、webhook エンドポイントが 200 の HTTP 状態コードを返すことも必要です。それにより、手動検証モードに設定される前に、検証イベントの POST が受け付けられたことを認識できるようになります。 つまり、エンドポイントが 200 を返しても、同期的に検証の応答を戻さないと、モードは手動検証モードに移行されます。 5 分以内に検証 URL に GET が存在した場合、検証ハンドシェイクは成功したと見なされます。
 

@@ -11,10 +11,10 @@ ms.topic: reference
 ms.date: 07/17/2020
 ms.custom: contperf-fy20q4
 ms.openlocfilehash: 7e0eabf0f16fa609adb62a7d798f6cb844389afa
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102184170"
 ---
 # <a name="what-tools-are-included-on-the-azure-data-science-virtual-machine"></a>Azure Data Science Virtual Machine に含まれるツール

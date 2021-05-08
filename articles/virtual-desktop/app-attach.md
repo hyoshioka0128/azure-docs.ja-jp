@@ -3,27 +3,19 @@ title: Windows Virtual Desktop の MSIX アプリのアタッチ PowerShell ス�
 description: Windows Virtual Desktop の MSIX アプリのアタッチ用の PowerShell スクリプトを作成する方法。
 author: Heidilohr
 ms.topic: how-to
-ms.date: 12/14/2020
+ms.date: 04/13/2021
 ms.author: helohr
-manager: lizross
-ms.openlocfilehash: 5e45c51735e0b7ab4b263d3f3047b5848c82439d
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+manager: femila
+ms.openlocfilehash: d1ca4a843c6731cde7ed70d65fc230a21ef6e7c4
+ms.sourcegitcommit: aa00fecfa3ad1c26ab6f5502163a3246cfb99ec3
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98185769"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107389436"
 ---
-# <a name="create-powershell-scripts-for-msix-app-attach-preview"></a>MSIX アプリのアタッチ用の PowerShell スクリプトを作成する (プレビュー)
-
-> [!IMPORTANT]
-> 現在、MSIX アプリのアタッチはパブリック プレビュー段階にあります。
-> このプレビュー バージョンはサービス レベル アグリーメントなしで提供されており、運用環境のワークロードに使用することはお勧めできません。 特定の機能はサポート対象ではなく、機能が制限されることがあります。
-> 詳しくは、[Microsoft Azure プレビューの追加使用条件](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)に関するページをご覧ください。
+# <a name="create-powershell-scripts-for-msix-app-attach"></a>MSIX アプリのアタッチ用の PowerShell スクリプトを作成する
 
 このトピックでは、MSIX アプリのアタッチ用の PowerShell スクリプトを設定する方法について説明します。
-
->[!IMPORTANT]
->作業を開始する前に、必ず[こちらのフォーム](https://aka.ms/enablemsixappattach)に記入して送信し、サブスクリプションで MSIX アプリのアタッチを有効にしてください。 承認された要求がない場合、MSIX アプリのアタッチは機能しません。 要求の承認には、営業日に最大で 24 時間かかる可能性があります。 要求が受諾されて完了すると、電子メールが届きます。
 
 ## <a name="install-certificates"></a>証明書をインストールする
 
@@ -87,7 +79,7 @@ PowerShell スクリプトを更新する前に、VHD にボリュームのボ�
     Possible values for VolumeName along with current mount points are:
 
     \\?\Volume{a12b3456-0000-0000-0000-10000000000}\
-    **_ NO MOUNT POINTS _*_
+    *** NO MOUNT POINTS ***
 
     \\?\Volume{c78d9012-0000-0000-0000-20000000000}\
         E:\
@@ -98,7 +90,7 @@ PowerShell スクリプトを更新する前に、VHD にボリュームのボ�
     ```
 
 
-6.  *$volumeGuid* 変数を、今コピーしたボリューム GUID に更新します。
+6.  **$volumeGuid** 変数を、今コピーしたボリューム GUID に更新します。
 
 7. 管理者の PowerShell プロンプトを開き、環境に適用される変数を使用して、次の PowerShell スクリプトを更新します。
 

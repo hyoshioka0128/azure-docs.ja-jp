@@ -4,21 +4,23 @@ description: この記事では、IoT Edge ソリューションをデプロイ�
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 11/10/2020
+ms.date: 03/01/2021
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: e1605f45dc8a7a1c03b5481ea17478064414df59
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 0d36a51865f3ed4a093998b16aaa174432c5308a
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100382210"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106275653"
 ---
 # <a name="common-issues-and-resolutions-for-azure-iot-edge"></a>Azure IoT Edge での一般的な問題と解決
+
+[!INCLUDE [iot-edge-version-201806-or-202011](../../includes/iot-edge-version-201806-or-202011.md)]
 
 この記事では、IoT Edge ソリューションのデプロイ時に遭遇する可能性のある一般的な問題の解決手順を紹介しています。 IoT Edge デバイスからログやエラーを見つける方法については、[IoT Edge デバイスのトラブルシューティング](troubleshoot.md)に関するページを参照してください。
 
@@ -85,6 +87,8 @@ IoT Edge エージェントには、モジュールのイメージにアクセ�
 
 上の例では、パブリックにアクセスできる DNS サービスに DNS サーバーが設定されます。 Edge デバイスがその環境からこの IP アドレスにアクセスできない場合は、アクセス可能な DNS サーバーのアドレスに置き換えます。
 
+<!-- 1.1 -->
+:::moniker range="iotedge-2018-06"
 プラットフォームの適切な場所に `daemon.json` を置きます。
 
 | プラットフォーム | 場所 |
@@ -96,10 +100,28 @@ IoT Edge エージェントには、モジュールのイメージにアクセ�
 
 コンテナー エンジンを再起動して更新を有効にします。
 
-| プラットフォーム | コマンド |
+| プラットフォーム | command |
 | --------- | -------- |
 | Linux | `sudo systemctl restart docker` |
 | Windows (管理者用 PowerShell) | `Restart-Service iotedge-moby -Force` |
+
+:::moniker-end
+<!-- end 1.1 -->
+
+<!-- 1.2 -->
+:::moniker range=">=iotedge-2020-11"
+デバイスの `/etc/docker` ディレクトリに `daemon.json` を配置します。
+
+その場所に `daemon.json` ファイルが既にある場合は、それに対する **dns** キーを追加してファイルを保存します。
+
+コンテナー エンジンを再起動して更新を有効にします。
+
+```bash
+sudo systemctl restart docker
+```
+
+:::moniker-end
+<!-- end 1.2 -->
 
 **オプション 2: モジュールごとに IoT Edge のデプロイで DNS サーバーを設定します**
 
@@ -216,6 +238,9 @@ IoT Edge ランタイムは、64 文字未満のホスト名のみをサポー�
 
 このエラーが発生したときは、仮想マシンの DNS 名を構成し、setup コマンドでその DNS 名をホスト名として設定することで、エラーを解決できます。
 
+<!-- 1.1 -->
+:::moniker range="iotedge-2018-06"
+
 1. Azure Portal で、目的の仮想マシンの概要ページに移動します。
 2. DNS 名の下の **[構成]** を選択します。 仮想マシンに既に構成済みの DNS 名がある場合は、新しいものを構成する必要はありません。
 
@@ -236,6 +261,42 @@ IoT Edge ランタイムは、64 文字未満のホスト名のみをサポー�
       ```cmd
       notepad C:\ProgramData\iotedge\config.yaml
       ```
+
+:::moniker-end
+<!-- end 1.1 -->
+
+<!-- 1.2 -->
+:::moniker range=">=iotedge-2020-11"
+
+1. Azure Portal で、目的の仮想マシンの概要ページに移動します。
+
+2. DNS 名の下の **[構成]** を選択します。 仮想マシンに既に構成済みの DNS 名がある場合は、新しいものを構成する必要はありません。
+
+   ![仮想マシンの DNS 名を構成する](./media/troubleshoot/configure-dns.png)
+
+3. **[DNS 名ラベル]** に値を指定し、 **[保存]** を選択します。
+
+4. 新しい DNS 名をコピーします。これは、 **\<DNSnamelabel\>.\<vmlocation\>.cloudapp.azure.com** の形式である必要があります。
+
+5. IoT Edge デバイスで構成ファイルを開きます。
+
+   ```bash
+   sudo nano /etc/aziot/config.toml
+   ```
+
+6. `hostname` の値を DNS 名に置き換えます。
+
+7. ファイルを保存して閉じ、IoT Edge に変更を適用します。
+
+   ```bash
+   sudo iotedge config apply
+   ```
+
+:::moniker-end
+<!-- end 1.2 -->
+
+<!-- 1.1 -->
+:::moniker range="iotedge-2018-06"
 
 ## <a name="cant-get-the-iot-edge-daemon-logs-on-windows"></a>Windows で IoT Edge デーモン ログを取得できません
 
@@ -259,6 +320,9 @@ Windows Registry Editor Version 5.00
 "EventMessageFile"="C:\\ProgramData\\iotedge\\iotedged.exe"
 "TypesSupported"=dword:00000007
 ```
+
+:::moniker-end
+<!-- end 1.1 -->
 
 ## <a name="stability-issues-on-smaller-devices"></a>小型のデバイスでの安定性の問題
 
@@ -343,13 +407,14 @@ IoT Edge デーモンが、有効な構成ファイルでアクティブにな�
 
 **根本原因:**
 
-ゲートウェイの背後にある IoT Edge デバイスは、config.yaml ファイルの `parent_hostname` フィールドに指定されている親 IoT Edge デバイスからモジュール イメージを取得します。 `Could not perform HTTP request` エラーは、子デバイスが HTTP 経由で親デバイスに到達できないことを意味します。
+ゲートウェイの背後にある IoT Edge デバイスは、構成ファイルの `parent_hostname` フィールドに指定されている親 IoT Edge デバイスからモジュール イメージを取得します。 `Could not perform HTTP request` エラーは、子デバイスが HTTP 経由で親デバイスに到達できないことを意味します。
 
 **解決方法:**
 
 親 IoT Edge デバイスが子 IoT Edge デバイスからの受信要求を受信できることを確認します。 子デバイスから送信される要求のために、ポート 443 および 6617 のネットワーク トラフィックを開きます。
 
 :::moniker-end
+<!-- end 1.2 -->
 
 ## <a name="next-steps"></a>次のステップ
 

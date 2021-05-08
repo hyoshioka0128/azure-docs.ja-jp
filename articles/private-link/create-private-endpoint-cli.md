@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: quickstart
 ms.date: 11/07/2020
 ms.author: allensu
-ms.openlocfilehash: bba912930a9dff0a79e0b0d81025b7524c238db0
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 5088b4e50899a2643488103ba29a7e36a7f256ea
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94368680"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107778357"
 ---
 # <a name="quickstart-create-a-private-endpoint-using-azure-cli"></a>クイックスタート: Azure CLI を使用してプライベート エンドポイントを作成する
 
@@ -72,7 +72,7 @@ az network vnet create \
     --subnet-prefixes 10.0.0.0/24
 ```
 
-[az network vnet subnet update](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-update) を使用してサブネットを更新し、プライベート エンドポイントのプライベート エンドポイント ネットワーク ポリシーを無効にします。
+[az network vnet subnet update](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_update) を使用してサブネットを更新し、プライベート エンドポイントのプライベート エンドポイント ネットワーク ポリシーを無効にします。
 
 ```azurecli-interactive
 az network vnet subnet update \
@@ -82,7 +82,7 @@ az network vnet subnet update \
     --disable-private-endpoint-network-policies true
 ```
 
-[az network public-ip create](/cli/azure/network/public-ip#az-network-public-ip-create) を使用して、bastion ホストのパブリック IP アドレスを作成します。
+[az network public-ip create](/cli/azure/network/public-ip#az_network_public_ip_create) を使用して、bastion ホストのパブリック IP アドレスを作成します。
 
 * **myBastionIP** という名前の Standard ゾーン冗長パブリック IP アドレスを作成します。
 * リソース グループは **CreatePrivateEndpointQS-rg** にします。
@@ -94,7 +94,7 @@ az network public-ip create \
     --sku Standard
 ```
 
-[az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create) を使用して、bastion サブネットを作成します。
+[az network vnet subnet create](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create) を使用して、bastion サブネットを作成します。
 
 * 名前は **AzureBastionSubnet** にします。
 * アドレス プレフィックスは **10.0.1.0/24** にします。
@@ -109,7 +109,7 @@ az network vnet subnet create \
     --address-prefixes 10.0.1.0/24
 ```
 
-[az network bastion create](/cli/azure/network/bastion#az-network-bastion-create) を使用して、bastion ホストを作成します。
+[az network bastion create](/cli/azure/network/bastion#az_network_bastion_create) を使用して、bastion ホストを作成します。
 
 * 名前: **myBastionHost**
 * リソース グループは **CreatePrivateEndpointQS-rg** にします。
@@ -151,6 +151,8 @@ az vm create \
     --admin-username azureuser
 ```
 
+[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
+
 ## <a name="create-private-endpoint"></a>プライベート エンドポイントの作成
 
 このセクションでは、プライベート エンドポイントを作成します。
@@ -183,9 +185,9 @@ az network private-endpoint create \
 
 ## <a name="configure-the-private-dns-zone"></a>プライベート DNS ゾーンを構成する
 
-このセクションでは、[az network private-dns zone create](/cli/azure/ext/privatedns/network/private-dns/zone#ext_privatedns_az_network_private_dns_zone_create) を使用してプライベート DNS ゾーンを作成し、構成します。  
+このセクションでは、[az network private-dns zone create](/cli/azure/network/private-dns/zone#ext_privatedns_az_network_private_dns_zone_create) を使用してプライベート DNS ゾーンを作成し、構成します。  
 
-[az network private-dns link vnet create](/cli/azure/ext/privatedns/network/private-dns/link/vnet#ext_privatedns_az_network_private_dns_link_vnet_create) を使用して、DNS ゾーンへの仮想ネットワーク リンクを作成します。
+[az network private-dns link vnet create](/cli/azure/network/private-dns/link/vnet#ext_privatedns_az_network_private_dns_link_vnet_create) を使用して、DNS ゾーンへの仮想ネットワーク リンクを作成します。
 
 [az network private-endpoint dns-zone-group create](/cli/azure/network/private-endpoint/dns-zone-group#az_network_private_endpoint_dns_zone_group_create) を使用して、DNS ゾーン グループを作成します。
 

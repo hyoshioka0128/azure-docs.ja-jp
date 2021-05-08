@@ -5,13 +5,13 @@ author: Heidilohr
 ms.topic: how-to
 ms.date: 06/05/2020
 ms.author: helohr
-manager: lizross
-ms.openlocfilehash: 8f8086aced26fc46fb1430df074082e8c3365baa
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+manager: femila
+ms.openlocfilehash: e859da6b3ac38ddb89c998d172c39f2549455aaa
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92746814"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106447932"
 ---
 # <a name="create-a-profile-container-with-azure-files-and-ad-ds"></a>Azure Files および AD DS を使用してプロファイル コンテナーを作成する
 
@@ -31,7 +31,7 @@ ms.locfileid: "92746814"
 
 1. Azure portal にサインインします。
 
-2. 検索バーで「 **ストレージ アカウント** 」を検索します。
+2. 検索バーで「**ストレージ アカウント**」を検索します。
 
 3. **[+追加]** を選択します。
 
@@ -58,7 +58,7 @@ ms.locfileid: "92746814"
 
 2. [概要] ページで **[ファイル共有]** を選択します。
 
-3. **[+ ファイル共有]** を選択し、 **profiles** という名前の新しいファイル共有を作成したら、適切なクォータを入力するか、フィールドを空のまま (クォータなし) にしておきます。
+3. **[+ ファイル共有]** を選択し、**profiles** という名前の新しいファイル共有を作成したら、適切なクォータを入力するか、フィールドを空のまま (クォータなし) にしておきます。
 
 4. **［作成］** を選択します
 
@@ -208,7 +208,7 @@ NTFS のアクセス許可を構成するには:
 
     - **[VHDLocations]** (MULTI_SZ) を作成します。
 
-    - **[VHDLocations]** の値は、「 [UNC パスを取得する](#get-the-unc-path)」で生成した UNC パスに設定します。
+    - **[VHDLocations]** の値は、「[UNC パスを取得する](#get-the-unc-path)」で生成した UNC パスに設定します。
 
 6. VM を再起動します。
 

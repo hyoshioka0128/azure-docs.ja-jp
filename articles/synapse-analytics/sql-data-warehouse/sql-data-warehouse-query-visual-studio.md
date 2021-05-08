@@ -2,21 +2,21 @@
 title: VSTS を使用して専用 SQL プール (旧称 SQL DW) に接続する
 description: Visual Studio を使用して Azure Synapse Analytics の専用 SQL プール (旧称 SQL DW) にクエリを実行する
 services: synapse-analytics
-author: kevinvngo
+author: julieMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
 ms.date: 08/15/2019
-ms.author: kevin
+ms.author: jrasnick
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 2b81ddedbcb254a840e85d41cf9d69c78b149bbd
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: 926e95887f8d6aa164908a4107656074142a969e
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98121398"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107566462"
 ---
 # <a name="connect-to-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics-with-visual-studio-and-ssdt"></a>Visual Studio および SSDT を使用して Azure Synapse Analytics の専用 SQL プール (旧称 SQL DW) に接続する
 

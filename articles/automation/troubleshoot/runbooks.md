@@ -5,12 +5,12 @@ services: automation
 ms.date: 02/11/2021
 ms.topic: troubleshooting
 ms.custom: has-adal-ref
-ms.openlocfilehash: 1ff5adf3ec974cc922d73cf5993a78722ca1b591
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: ea9d8a4899b0d725c9791192d68373b44acee11f
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101723811"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106168741"
 ---
 # <a name="troubleshoot-runbook-issues"></a>Runbook の問題のトラブルシューティング
 
@@ -80,7 +80,7 @@ No certificate was found in the certificate store with thumbprint
 
 これらのエラーは、資格情報資産名が有効でない場合に発生します。 Automation 資格情報資産の設定に使用したユーザー名とパスワードが有効でない場合にも発生する可能性があります。
 
-### <a name="resolution"></a>解決策
+### <a name="resolution"></a>解像度
 
 問題を特定するには、次の手順に従います。
 
@@ -90,9 +90,9 @@ No certificate was found in the certificate store with thumbprint
    ```powershell
    $Cred = Get-Credential
    #Using Azure Service Management
-   Add-AzureAccount –Credential $Cred
+   Add-AzureAccount -Credential $Cred
    #Using Azure Resource Manager
-   Connect-AzAccount –Credential $Cred
+   Connect-AzAccount -Credential $Cred
    ```
 
 1. ローカルで認証に失敗した場合、Azure Active Directory (Azure AD) 資格情報が適切に設定されていません。 Azure AD アカウントを正しく設定するには、[Azure Active Directory を使用した Azure の認証](../automation-use-azure-ad.md)に関する記事を参照してください。
@@ -140,7 +140,7 @@ Run Login-AzureRMAccount to login.
 * さまざまなバージョンの AzureRM または Az モジュールがあります。
 * 別のサブスクリプションのリソースにアクセスしようとしています。
 
-### <a name="resolution"></a>解決策
+### <a name="resolution"></a>解像度
 
 1 つの AzureRM または Az モジュールを更新した後でこのエラーが発生する場合は、すべてのモジュールを同じバージョンに更新します。
 
@@ -195,17 +195,17 @@ The subscription named <subscription name> cannot be found.
 * サブスクリプションの詳細を取得しようとしている Azure AD ユーザーが、サブスクリプションの管理者として構成されていない。
 * そのコマンドレットが使用できない。
 
-### <a name="resolution"></a>解決策
+### <a name="resolution"></a>解像度
 
 次の手順に従って、Azure に対して認証されているかと、選択しようとしているサブスクリプションにアクセスできるかを確認します。
 
 1. スクリプトがスタンドアロンで動作することを確認するには、Azure Automation の外部でテストします。
 1. スクリプトで、`Select-*` コマンドレットを実行する前に [Connect-AzAccount](/powershell/module/Az.Accounts/Connect-AzAccount) コマンドレットが実行されていることを確認します。
-1. Runbook の先頭に `Disable-AzContextAutosave –Scope Process` を追加します。 このコマンドレットにより、すべての資格情報が現在の Runbook の実行にのみ適用されるようになります。
+1. Runbook の先頭に `Disable-AzContextAutosave -Scope Process` を追加します。 このコマンドレットにより、すべての資格情報が現在の Runbook の実行にのみ適用されるようになります。
 1. それでもエラー メッセージが表示される場合は、`Connect-AzAccount` に `AzContext` パラメーターを追加するようにコードを変更してから、コードを実行します。
 
    ```powershell
-   Disable-AzContextAutosave –Scope Process
+   Disable-AzContextAutosave -Scope Process
 
    $Conn = Get-AutomationConnection -Name AzureRunAsConnection
    Connect-AzAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
@@ -242,7 +242,7 @@ Get-AzVM : The client '<automation-runas-account-guid>' with object id '<automat
 * 間違ったサブスクリプションが参照されないようにするには、各 Runbook の開始時に次のコードを使用して、Automation Runbook でコンテキストの保存を無効にします。
 
    ```azurepowershell-interactive
-   Disable-AzContextAutosave –Scope Process
+   Disable-AzContextAutosave -Scope Process
    ```
 
 * Azure PowerShell コマンドレットでは、`-DefaultProfile` パラメーターがサポートされています。 この機能は、すべての Az および AzureRm コマンドレットに追加され、同じプロセスで複数の PowerShell スクリプトを実行できるようになりました。コンテキストと、各コマンドレットに使用するサブスクリプションを指定できます。 Runbook を使用する場合、Runbook の作成時 (つまり、あるアカウントでサインインしたとき) と、変更のたびに、Runbook にコンテキスト オブジェクトを保存してください。また、Az コマンドレットを指定するとき、コンテキストを参照してください。
@@ -277,7 +277,7 @@ Add-AzureAccount: AADSTS50079: Strong authentication enrollment (proof-up) is re
 
 Azure アカウントに多要素認証を設定している場合、Azure に対する認証に Azure Active Directory ユーザーを使うことはできません。 代わりに、証明書またはサービス プリンシパルを使用して認証する必要があります。
 
-### <a name="resolution"></a>解決策
+### <a name="resolution"></a>解像度
 
 クラシック実行アカウントを Azure クラシック デプロイ モデルのコマンドレットと共に使用するには、[クラシック実行アカウントを作成して Azure サービスを管理する](../automation-create-standalone-account.md#create-a-classic-run-as-account)方法に関する記事を参照してください。 Azure Resource Manager コマンドレットでサービス プリンシパルを使用する場合は、[Azure portal を使用するサービス プリンシパルの作成](../../active-directory/develop/howto-create-service-principal-portal.md)および [Azure Resource Manager でのサービス プリンシパルの認証](../../active-directory/develop/howto-authenticate-service-principal-powershell.md)に関するページを参照してください。
 
@@ -295,7 +295,7 @@ Exception: A task was canceled.
 
 以前のバージョンの Azure モジュールを使用すると、このエラーが発生する可能性があります。
 
-### <a name="resolution"></a>解決策
+### <a name="resolution"></a>解像度
 
 このエラーは、Azure モジュールを最新バージョンに更新することで解決できます。
 
@@ -321,7 +321,7 @@ The term 'Connect-AzAccount' is not recognized as the name of a cmdlet, function
 * コマンドレットを含むモジュールが、Automation アカウントにインポートされていない。
 * コマンドレットを含むモジュールはインポートされているが、最新ではない。
 
-### <a name="resolution"></a>解決策
+### <a name="resolution"></a>解像度
 
 このエラーを解決するには、次のいずれかのタスクを実行します。
 
@@ -338,7 +338,7 @@ PnP PowerShell で生成されたオブジェクトが Runbook から Azure Auto
 
 この問題は、戻りオブジェクトをキャッチせずに、`add-pnplistitem` などの PnP PowerShell コマンドレットを呼び出す Runbook を Azure Automation で処理する場合に最もよく発生します。
 
-### <a name="resolution"></a>解決策
+### <a name="resolution"></a>解像度
 
 スクリプトを編集して戻り値を変数に割り当て、コマンドレットでオブジェクト全部が標準出力に書き出されないようにします。 次に示すように、スクリプトを使って出力ストリームをコマンドレットにリダイレクトできます。
 
@@ -367,7 +367,7 @@ Runbook ジョブがエラーで失敗します。
 
 このエラーは、Runbook で使用しているコマンドレットを PowerShell エンジンが見つけられないときに発生します。 コマンドレットを含むモジュールがアカウントにないか、Runbook 名に名前の競合があるか、あるいはコマンドレットが別のモジュールにも存在していて Automation で名前を解決できない可能性があります。
 
-### <a name="resolution"></a>解決策
+### <a name="resolution"></a>解像度
 
 問題を解決するには、次のいずれかの解決策を使用します。
 
@@ -404,7 +404,7 @@ Object reference not set to an instance of an object
 
 ストリームにオブジェクトが含まれている場合、`Start-AzAutomationRunbook` で出力ストリームが正しく処理されません。
 
-### <a name="resolution"></a>解決策
+### <a name="resolution"></a>解像度
 
 ポーリング ロジックを実装し、[Get-AzAutomationJobOutput](/powershell/module/Az.Automation/Get-AzAutomationJobOutput) コマンドレットを使用して出力を取得します。 このロジックのサンプルは次のように定義されます。
 
@@ -446,7 +446,7 @@ Cannot convert the <ParameterType> value of type Deserialized <ParameterType> to
 
 Runbook が PowerShell ワークフローの場合、ワークフローが中断された場合に Runbook の状態を維持できるように、複雑なオブジェクトが逆シリアル化形式で保存されます。
 
-### <a name="resolution"></a>解決策
+### <a name="resolution"></a>解像度
 
 この問題を解決するには、次のいずれかの解決策を使用します。
 
@@ -468,7 +468,7 @@ Azure Automation Runbook の Webhook を呼び出そうとすると、次のエ�
 
 呼び出そうとしている Webhook が、無効または期限切れです。 
 
-### <a name="resolution"></a>解決策
+### <a name="resolution"></a>解像度
 
 Webhook が無効な場合は、Azure portal から再度有効にすることができます。 Webhook の有効期限が切れている場合は、削除してから再作成する必要があります。 Webhook がまだ期限切れでない場合にのみ、[Webhook を更新](../automation-webhooks.md#renew-a-webhook)できます。 
 
@@ -486,7 +486,7 @@ Webhook が無効な場合は、Azure portal から再度有効にすること�
 
 このエラーは、多数の[詳細ストリーム](../automation-runbook-output-and-messages.md#write-output-to-verbose-stream)がある Runbook からジョブ出力を取得するときに発生する可能性があります。
 
-### <a name="resolution"></a>解決策
+### <a name="resolution"></a>解像度
 
 このエラーを解決するには、次のいずれかの操作を行います。
 
@@ -507,7 +507,7 @@ The quota for the monthly total job run time has been reached for this subscript
 
 ジョブの実行がアカウントの 500 分の無料クォータを超えるとこのエラーが発生します。 このクォータは、すべての種類のジョブ実行タスクに適用されます。 これらのタスクには、ジョブのテスト、ポータルからのジョブの開始、Webhook を使用したジョブの実行、Azure portal またはデータセンターを使用して実行するジョブのスケジュール設定などがあります。 Automation の料金については、「[Automation の料金](https://azure.microsoft.com/pricing/details/automation/)」を参照してください。
 
-### <a name="resolution"></a>解決策
+### <a name="resolution"></a>解像度
 
 毎月 500 分を超える処理を使用する場合は、サブスクリプションを Free レベルから Basic レベルに変更します。
 
@@ -673,7 +673,7 @@ Operation returned an invalid status code 'Forbidden'
 * 実行アカウントを使用していない。
 * 権限が不足しています。
 
-### <a name="resolution"></a>解決策
+### <a name="resolution"></a>解像度
 
 #### <a name="not-using-a-run-as-account"></a>実行アカウントを使用していない
 

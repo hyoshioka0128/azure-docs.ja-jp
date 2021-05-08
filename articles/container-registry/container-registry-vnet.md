@@ -3,12 +3,12 @@ title: サービス エンドポイントを使用してアクセスを制限す
 description: Azure 仮想ネットワークのサービス エンドポイントを使用して Azure コンテナー レジストリへのアクセスを制限します。 サービス エンドポイント アクセスは、Premium サービス レベルの機能です。
 ms.topic: article
 ms.date: 05/04/2020
-ms.openlocfilehash: 5f9bc7c9a6c8f2061765510a6396611502fd4a2a
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.openlocfilehash: 8a67a011c75a192df9ad3460458fd766b5ec1ec1
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "93026226"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107773471"
 ---
 # <a name="restrict-access-to-a-container-registry-using-a-service-endpoint-in-an-azure-virtual-network"></a>Azure 仮想ネットワークのサービス エンドポイントを使用してコンテナー レジストリへのアクセスを制限する
 
@@ -19,14 +19,13 @@ ms.locfileid: "93026226"
 > [!IMPORTANT]
 > Azure Container Registry で [Azure Private Link](container-registry-private-link.md) がサポートされ、仮想ネットワークからプライベート エンドポイントをレジストリにデプロイできるようになりました。 プライベート エンドポイントには、プライベート IP アドレスを使用して仮想ネットワーク内からアクセスできます。 ほとんどのネットワーク シナリオでは、サービス エンドポイントの代わりにプライベート エンドポイントを使用することをお勧めします。
 
-レジストリ サービス エンドポイントの構成は、 **Premium** コンテナー レジストリ サービス レベルで利用できます。 レジストリ サービスのレベルと制限については、「[Azure Container Registry のサービス レベル](container-registry-skus.md)」を参照してください。
+レジストリ サービス エンドポイントの構成は、**Premium** コンテナー レジストリ サービス レベルで利用できます。 レジストリ サービスのレベルと制限については、「[Azure Container Registry のサービス レベル](container-registry-skus.md)」を参照してください。
 
 ## <a name="preview-limitations"></a>プレビューの制限事項
 
 * 現在、Azure Container Registry のサービス エンドポイントの今後の開発は計画されていません。 代わりに、[プライベート エンドポイント](container-registry-private-link.md)を使用することをお勧めします。
 * Azure portal を使用してレジストリにサービス エンドポイントを構成することはできません。
-* サービス エンドポイントを使用してコンテナー レジストリにアクセスするためのホストとして使用できるのは、[Azure Kubernetes Service](../aks/intro-kubernetes.md) クラスターまたは Azure [仮想マシン](../virtual-machines/linux/overview.md)だけです。 " *Azure Container Instances を含むその他の Azure サービスはサポートされていません。* "
-* 各レジストリでは、最大 100 個のネットワーク アクセス規則がサポートされます。
+* サービス エンドポイントを使用してコンテナー レジストリにアクセスするためのホストとして使用できるのは、[Azure Kubernetes Service](../aks/intro-kubernetes.md) クラスターまたは Azure [仮想マシン](../virtual-machines/linux/overview.md)だけです。 "*Azure Container Instances を含むその他の Azure サービスはサポートされていません。* "
 * Azure Container Registry のサービス エンドポイントは、Azure US Government Cloud または Azure China Cloud ではサポートされていません。
 
 [!INCLUDE [container-registry-scanning-limitation](../../includes/container-registry-scanning-limitation.md)]
@@ -72,7 +71,7 @@ az network vnet list \
 ]
 ```
 
-[az network vnet subnet update][az-network-vnet-subnet-update] コマンドを使用して、 **Microsoft.ContainerRegistry** サービス エンドポイントをサブネットに追加します。 次のコマンドでは、自分の仮想ネットワークとサブネットの名前に置き換えます。
+[az network vnet subnet update][az-network-vnet-subnet-update] コマンドを使用して、**Microsoft.ContainerRegistry** サービス エンドポイントをサブネットに追加します。 次のコマンドでは、自分の仮想ネットワークとサブネットの名前に置き換えます。
 
 ```azurecli
 az network vnet subnet update \
@@ -200,24 +199,24 @@ az group delete --name myResourceGroup
 
 <!-- LINKS - Internal -->
 [azure-cli]: /cli/azure/install-azure-cli
-[az-acr-create]: /cli/azure/acr#az-acr-create
-[az-acr-show]: /cli/azure/acr#az-acr-show
-[az-acr-repository-show]: /cli/azure/acr/repository#az-acr-repository-show
-[az-acr-repository-list]: /cli/azure/acr/repository#az-acr-repository-list
-[az-acr-login]: /cli/azure/acr#az-acr-login
-[az-acr-network-rule-add]: /cli/azure/acr/network-rule/#az-acr-network-rule-add
-[az-acr-network-rule-remove]: /cli/azure/acr/network-rule/#az-acr-network-rule-remove
-[az-acr-network-rule-list]: /cli/azure/acr/network-rule/#az-acr-network-rule-list
-[az-acr-run]: /cli/azure/acr#az-acr-run
-[az-acr-update]: /cli/azure/acr#az-acr-update
-[az-ad-sp-create-for-rbac]: /cli/azure/ad/sp#az-ad-sp-create-for-rbac
+[az-acr-create]: /cli/azure/acr#az_acr_create
+[az-acr-show]: /cli/azure/acr#az_acr_show
+[az-acr-repository-show]: /cli/azure/acr/repository#az_acr_repository_show
+[az-acr-repository-list]: /cli/azure/acr/repository#az_acr_repository_list
+[az-acr-login]: /cli/azure/acr#az_acr_login
+[az-acr-network-rule-add]: /cli/azure/acr/network-rule/#az_acr_network_rule_add
+[az-acr-network-rule-remove]: /cli/azure/acr/network-rule/#az_acr_network_rule_remove
+[az-acr-network-rule-list]: /cli/azure/acr/network-rule/#az_acr_network_rule_list
+[az-acr-run]: /cli/azure/acr#az_acr_run
+[az-acr-update]: /cli/azure/acr#az_acr_update
+[az-ad-sp-create-for-rbac]: /cli/azure/ad/sp#az_ad_sp_create_for_rbac
 [az-group-create]: /cli/azure/group
-[az-role-assignment-create]: /cli/azure/role/assignment#az-role-assignment-create
-[az-vm-create]: /cli/azure/vm#az-vm-create
-[az-network-vnet-subnet-show]: /cli/azure/network/vnet/subnet/#az-network-vnet-subnet-show
-[az-network-vnet-subnet-update]: /cli/azure/network/vnet/subnet/#az-network-vnet-subnet-update
-[az-network-vnet-subnet-show]: /cli/azure/network/vnet/subnet/#az-network-vnet-subnet-show
-[az-network-vnet-list]: /cli/azure/network/vnet/#az-network-vnet-list
+[az-role-assignment-create]: /cli/azure/role/assignment#az_role_assignment_create
+[az-vm-create]: /cli/azure/vm#az_vm_create
+[az-network-vnet-subnet-show]: /cli/azure/network/vnet/subnet/#az_network_vnet_subnet_show
+[az-network-vnet-subnet-update]: /cli/azure/network/vnet/subnet/#az_network_vnet_subnet_update
+[az-network-vnet-subnet-show]: /cli/azure/network/vnet/subnet/#az_network_vnet_subnet_show
+[az-network-vnet-list]: /cli/azure/network/vnet/#az_network_vnet_list
 [quickstart-portal]: container-registry-get-started-portal.md
 [quickstart-cli]: container-registry-get-started-azure-cli.md
 [azure-portal]: https://portal.azure.com

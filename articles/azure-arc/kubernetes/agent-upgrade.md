@@ -8,12 +8,12 @@ author: shashankbarsin
 ms.author: shasb
 description: Azure Arc 対応 Kubernetes エージェントのアップグレードを制御する
 keywords: Kubernetes、Arc、Azure、K8、コンテナー、エージェント、アップグレード
-ms.openlocfilehash: 172654f655e594c295a8807b417c32d7849bd4b1
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.openlocfilehash: 29df9973ead167e7774924cc3a0c685606092d28
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102121917"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106442526"
 ---
 # <a name="upgrading-azure-arc-enabled-kubernetes-agents"></a>Azure Arc 対応 Kubernetes エージェントをアップグレードする
 
@@ -53,7 +53,7 @@ az connectedk8s update --name AzureArcTest1 --resource-group AzureArcTest --auto
 エージェントの自動アップグレードを無効にしている場合は、次に示すように `az connectedk8s upgrade` コマンドを使用して、これらのエージェントを手動でアップグレードできます。
 
 ```console
-az connectedk8s upgrade -g AzureArcTest1 -n AzureArcTest --agent-version 1.0.1
+az connectedk8s upgrade -g AzureArcTest1 -n AzureArcTest --agent-version 1.1.0
 ```
 
 Azure Arc 対応 Kubernetes エージェントは、`MAJOR.MINOR.PATCH` の標準の[セマンティック バージョン管理スキーム](https://semver.org/)に従ってバージョン管理されています。 
@@ -84,6 +84,6 @@ Azure Arc 対応 Kubernetes エージェントの 1 つのマイナー バージ
 
 ## <a name="next-steps"></a>次のステップ
 
-* クイックスタートを利用して、[Kubernetes クラスターを Azure Arc に接続](./connect-cluster.md)します。
-* Kubernetes クラスターが既に Azure Arc に接続されていますか? [Arc 対応 Kubernetes クラスターの構成を作成する](./use-gitops-connected-cluster.md)。
+* クイックスタートを利用して、[Kubernetes クラスターを Azure Arc に接続](./quickstart-connect-cluster.md)します。
+* Kubernetes クラスターが既に Azure Arc に接続されていますか? [Arc 対応 Kubernetes クラスターの構成を作成する](./tutorial-use-gitops-connected-cluster.md)。
 * [Azure Policy を使用して構成を大規模に適用する](./use-azure-policy.md)方法について学ぶ。

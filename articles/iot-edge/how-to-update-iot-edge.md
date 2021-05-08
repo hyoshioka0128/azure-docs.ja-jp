@@ -5,18 +5,20 @@ keywords: ''
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 01/20/2021
+ms.date: 04/07/2021
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 0adcbf49ff2128fdbe623121838058c5ed89dce2
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: e5034c228a354c98b5792492d484da9eb10b8cf2
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100378028"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107310854"
 ---
 # <a name="update-the-iot-edge-security-daemon-and-runtime"></a>IoT Edge セキュリティ デーモンおよびランタイムの更新
+
+[!INCLUDE [iot-edge-version-201806-or-202011](../../includes/iot-edge-version-201806-or-202011.md)]
 
 IoT Edge サービスの新しいバージョンがリリースされたら、最新の機能およびセキュリティの強化のために、IoT Edge デバイスを更新する必要があります。 この記事では、新しいバージョンが使用可能になったときに、IoT Edge デバイスを更新する方法について説明します。
 
@@ -29,6 +31,9 @@ Azure IoT Edge の最新バージョンを見つけるには、[Azure IoT Edge �
 IoT Edge セキュリティ デーモンは、IoT Edge デバイス上のパッケージ マネージャーを使用して更新する必要があるネイティブ コンポーネントです。
 
 デバイスで実行されているセキュリティ デーモンのバージョンを確認するには、コマンド `iotedge version` を使用します。
+
+>[!IMPORTANT]
+>デバイスをバージョン 1.0 または 1.1 からバージョン 1.2 に更新する場合、インストールと構成のプロセスに違いがあるため、追加の手順が必要です。 詳細については、この記事で後述する手順「[特殊なケース: 1.0 または 1.1 から 1.2 に更新する](#special-case-update-from-10-or-11-to-12)」を参照してください。
 
 # <a name="linux"></a>[Linux](#tab/linux)
 
@@ -67,6 +72,9 @@ apt を更新します。
    sudo apt-get update
    ```
 
+<!-- 1.1 -->
+:::moniker range="iotedge-2018-06"
+
 使用できる IoT Edge のバージョンを確認します。
 
    ```bash
@@ -79,35 +87,60 @@ apt を更新します。
    sudo apt-get install iotedge
    ```
 
-特定のバージョンのセキュリティデーモンに更新する場合は、apt リスト出力からバージョンを指定します。 **iotedge** が更新されるたびに、**libiothsm std** パッケージの最新バージョンへの更新が自動的に試行されます。これにより、依存関係の競合が発生する可能性があります。 最新バージョンに移行しない場合は、必ず同じバージョンの両方のパッケージをターゲットにしてください。 たとえば、次のコマンドでは、1.0.9 リリースの特定のバージョンがインストールされます。
+特定のバージョンのセキュリティデーモンに更新する場合は、apt リスト出力からバージョンを指定します。 **iotedge** が更新されるたびに、**libiothsm std** パッケージの最新バージョンへの更新が自動的に試行されます。これにより、依存関係の競合が発生する可能性があります。 最新バージョンに移行しない場合は、必ず同じバージョンの両方のパッケージをターゲットにしてください。 たとえば、次のコマンドでは、1.1 リリースの特定のバージョンがインストールされます。
 
    ```bash
-   sudo apt-get install iotedge=1.0.9-1 libiothsm-std=1.0.9-1
+   sudo apt-get install iotedge=1.1.1 libiothsm-std=1.1.1
    ```
 
 インストールするバージョンが apt によって使用できない場合は、curl を使用することで、[IoT Edge リリース](https://github.com/Azure/azure-iotedge/releases) リポジトリからの任意のバージョンをターゲットにすることができます。 インストールするバージョンに応じて、ご利用のデバイスに適した **libiothsm-std** および **iotedge** ファイルを見つけます。 ファイルごとに、ファイル リンクを右クリックして、リンクのアドレスをコピーします。 リンクのアドレスを使用して、それらのコンポーネントの特定のバージョンをインストールします。
 
 ```bash
-curl -L <libiothsm-std link> -o libiothsm-std.deb && sudo dpkg -i ./libiothsm-std.deb
-curl -L <iotedge link> -o iotedge.deb && sudo dpkg -i ./iotedge.deb
+curl -L <libiothsm-std link> -o libiothsm-std.deb && sudo apt-get install ./libiothsm-std.deb
+curl -L <iotedge link> -o iotedge.deb && sudo apt-get install ./iotedge.deb
 ```
+<!-- end 1.1 -->
+:::moniker-end
+
+<!-- 1.2 -->
+:::moniker range=">=iotedge-2020-11"
+
+使用できる IoT Edge のバージョンを確認します。
+
+   ```bash
+   apt list -a aziot-edge
+   ```
+
+IoT Edge の最新バージョンに更新する場合は、次のコマンドを使用すると、ID サービスも最新バージョンに更新されます。
+
+   ```bash
+   sudo apt-get install aziot-edge
+   ```
+<!-- end 1.2 -->
+:::moniker-end
 
 # <a name="windows"></a>[Windows](#tab/windows)
 
 <!-- 1.1 -->
 ::: moniker range="iotedge-2018-06"
 
-IoT Edge for Linux on Windows では、IoT Edge は Windows デバイスでホストされている Linux 仮想マシンで実行されます。 この仮想マシンは IoT Edge と共にプレインストールされ、コンポーネントを最新の状態に保つために Microsoft Update で管理されます。 現在、利用できる更新プログラムはありません。
-
-::: moniker-end
+IoT Edge for Linux on Windows では、IoT Edge は Windows デバイスでホストされている Linux 仮想マシンで実行されます。 この仮想マシンは IoT Edge と共にプレインストールされ、コンポーネントを最新の状態に保つために Microsoft Update で管理されます。 自動更新が有効になっている場合は、新しい更新プログラムが利用可能になるたびに、ダウンロードとインストールが行われます。
 
 Windows の IoT Edge では、IoT Edge は Windows デバイスで直接実行されます。 PowerShell スクリプトを使用した更新手順については、「[Azure IoT Edge for Windows をインストールおよび管理する](how-to-install-iot-edge-windows-on-windows.md)」を参照してください。
+:::moniker-end
+
+<!-- 1.2 -->
+:::moniker range=">=iotedge-2020-11"
+
+現在、Windows デバイス上で実行されている IoT Edge バージョン 1.2 はサポートされていません。
+
+:::moniker-end
 
 ---
 
 ## <a name="update-the-runtime-containers"></a>ランタイム コンテナーの更新
 
-IoT Edge エージェントおよび IoT Edge ハブ コンテナーを更新する方法は、デプロイにローリング タグ (1.0 など) を使用しているか、または特定のタグ (1.0.7 など) を使用しているかによって異なります。
+IoT Edge エージェントおよび IoT Edge ハブ コンテナーを更新する方法は、デプロイにローリング タグ (1.1 など) を使用しているか、または特定のタグ (1.1.1 など) を使用しているかによって異なります。
 
 デバイス上の IoT Edge エージェントおよび IoT Edge ハブ モジュールの現在のバージョンを確認するには、コマンド `iotedge logs edgeAgent` または `iotedge logs edgeHub` を使用します。
 
@@ -117,19 +150,19 @@ IoT Edge エージェントおよび IoT Edge ハブ コンテナーを更新す
 
 IoT Edge エージェントおよび IoT Edge ハブ イメージには、関連付けられている IoT Edge のバージョンでタグ付けされます。 ランタイム イメージでタグを使用する方法は 2 つあります。
 
-* **ローリング タグ** - バージョン番号の先頭の 2 つの値のみを使用して、これらの数字に一致する最新のイメージを取得します。 たとえば、最新の 1.0.x バージョンを指す新しいリリースが存在するたびに、1.0 が更新されます。 IoT Edge デバイス上のコンテナー ランタイムによって、再度イメージが取得されると、ランタイム モジュールが最新バージョンに更新されます。 開発目的では、このアプローチが推奨されます。 Azure portal からのデプロイでは、既定でローリング タグに設定されます。
+* **ローリング タグ** - バージョン番号の先頭の 2 つの値のみを使用して、これらの数字に一致する最新のイメージを取得します。 たとえば、最新の 1.1.x バージョンを指す新しいリリースが存在するたびに、1.1 が更新されます。 IoT Edge デバイス上のコンテナー ランタイムによって、再度イメージが取得されると、ランタイム モジュールが最新バージョンに更新されます。 Azure portal からのデプロイでは、既定でローリング タグに設定されます。 *開発目的では、このアプローチが推奨されます。*
 
-* **特定のタグ** - バージョン番号の 3 つすべての値を使用して、イメージのバージョンを明示的に設定します。 たとえば、1.0.7 はその最初のリリース後に変更されることはありません。 更新する準備ができたら、配置マニフェストに新しいバージョン番号を宣言できます。 運用環境目的では、このアプローチが推奨されます。
+* **特定のタグ** - バージョン番号の 3 つすべての値を使用して、イメージのバージョンを明示的に設定します。 たとえば、1.1.0 はその最初のリリース後に変更されることはありません。 更新する準備ができたら、配置マニフェストに新しいバージョン番号を宣言できます。 *運用環境目的では、このアプローチが推奨されます。*
 
 ### <a name="update-a-rolling-tag-image"></a>ローリング タグ イメージの更新
 
-デプロイでローリング タグを使用している (mcr.microsoft.com/azureiotedge-hub:**1.0** など) 場合、デバイス上のコンテナー ランタイムに強制的にイメージの最新バージョンを取得させる必要があります。
+デプロイでローリング タグを使用している (mcr.microsoft.com/azureiotedge-hub:**1.1** など) 場合、デバイス上のコンテナー ランタイムに強制的にイメージの最新バージョンを取得させる必要があります。
 
 IoT Edge デバイスからイメージのローカル バージョンを削除します。 Windows マシンでは、セキュリティ デーモンをアンインストールするとランタイム イメージも削除されるため、この手順をもう一度実行する必要はありません。
 
 ```bash
-docker rmi mcr.microsoft.com/azureiotedge-hub:1.0
-docker rmi mcr.microsoft.com/azureiotedge-agent:1.0
+docker rmi mcr.microsoft.com/azureiotedge-hub:1.1
+docker rmi mcr.microsoft.com/azureiotedge-agent:1.1
 ```
 
 強制の `-f` フラグを使用して、イメージを削除する必要がある場合があります。
@@ -138,7 +171,7 @@ IoT Edge サービスによって、ランタイム イメージの最新バー�
 
 ### <a name="update-a-specific-tag-image"></a>特定のタグ イメージの更新
 
-デプロイで特定のタグを使用している (mcr.microsoft.com/azureiotedge-hub:**1.0.8** など) 場合、行う必要がある作業は、配置マニフェスト内のタグを更新し、デバイスに変更を適用することだけです。
+デプロイで特定のタグを使用している (mcr.microsoft.com/azureiotedge-hub:**1.1.1** など) 場合、行う必要がある作業は、配置マニフェスト内のタグを更新し、デバイスに変更を適用することだけです。
 
 1. Azure portal の IoT Hub で、IoT Edge デバイスを選択し、 **[Set Modules]\(モジュールの設定\)** を選択します。
 
@@ -158,13 +191,86 @@ IoT Edge サービスによって、ランタイム イメージの最新バー�
 
 1. **[Review + create]\(確認と作成\)** を選択し、デプロイを確認して、 **[作成]** を選択します。
 
-## <a name="update-to-a-release-candidate-version"></a>リリース候補バージョンに更新する
+## <a name="special-case-update-from-10-or-11-to-12"></a>特殊なケース: 1.0 または 1.1 から 1.2 に更新する
+
+バージョン 1.2 以降、IoT Edge サービスには新しいパッケージ名が使用されるようになりました。また、インストールと構成のプロセスにいくつかの違いがあります。 バージョン 1.0 または 1.1 を実行している IoT Edge デバイスがある場合、1.2 に更新する方法については、以下の手順を参照してください。
+
+>[!NOTE]
+>現在、Windows デバイス上で実行されている IoT Edge バージョン 1.2 はサポートされていません。
+
+1\.2 とそれより前のバージョンの主な違いは次のとおりです。
+
+* パッケージ名は **iotedge** から **aziot-edge** に変更されました。
+* **libiothsm-std** パッケージは使用されなくなりました。 IoT Edge リリースの一部として提供されている標準パッケージを使用した場合は、構成を新しいバージョンに移行できます。 libiothsm-std の別の実装を使用していた場合は、デバイス ID 証明書、デバイス CA、信頼バンドルなどのユーザー指定の証明書を再構成する必要があります。
+* 新しい ID サービス **aziot-identity-service** は、1.2 リリースの一部として導入されました。 このサービスにより、IoT Edge と、[IoT Hub 用デバイスの更新](../iot-hub-device-update/understand-device-update.md)などの IoT Hub と通信する必要があるその他のデバイス コンポーネントの ID のプロビジョニングと管理が処理されます。
+* 既定の構成ファイルは、名前と場所が新しくなっています。 以前は `/etc/iotedge/config.yaml` でしたが、デバイス構成情報は既定で `/etc/aziot/config.toml` 内にあることが想定されています。 `iotedge config import` コマンドを使用すると、構成情報を以前の場所と構文から新しいものへと移行できます。
+  * Import コマンドでは、デバイスのトラステッド プラットフォーム モジュール (TPM) に対するアクセス規則を検出または変更することはできません。 デバイスで TPM 構成証明を使用している場合は、/etc/udev/rules.d/tpmaccess.rules ファイルを手動で更新して、aziottpm サービスにアクセスできるようにする必要があります。 詳細については、「[IoT Edge に TPM へのアクセス権を付与する](how-to-auto-provision-simulated-device-linux.md?view=iotedge-2020-11&preserve-view=true#give-iot-edge-access-to-the-tpm)」を参照してください。
+* バージョン 1.2 のワークロード API は、暗号化されたシークレットを新しい形式で保存します。 以前のバージョンからバージョン 1.2 にアップグレードすると、既存のマスター暗号化キーがインポートされます。 ワークロード API は、インポートした暗号化キーを使用して、以前の形式で保存されたシークレットを読み取ることができます。 ただし、ワークロード API では、暗号化されたシークレットを以前の形式で書き込むことはできません。 モジュールによって再暗号化されると、シークレットは新しい形式で保存されます。 バージョン 1.2 で暗号化されたシークレットは、バージョン 1.1 の同じモジュールでは読み取ることができません。 暗号化されたデータをホストによってマウントされたフォルダーまたはボリュームに保持する場合は、必要に応じてダウングレードする機能を保持するために、アップグレードする *前に* 必ずデータのバックアップ コピーを作成してください。
+
+更新プロセスを自動化する前に、テスト マシンで機能することを確認してください。
+
+準備ができたら、次の手順に従ってデバイスの IoT Edge を更新します。
+
+1. Microsoft から最新のリポジトリ構成を取得します。
+
+   * **Ubuntu Server 18.04**:
+
+     ```bash
+     curl https://packages.microsoft.com/config/ubuntu/18.04/multiarch/prod.list > ./microsoft-prod.list
+     ```
+
+   * **Raspberry Pi OS Stretch**:
+
+     ```bash
+     curl https://packages.microsoft.com/config/debian/stretch/multiarch/prod.list > ./microsoft-prod.list
+     ```
+
+2. 生成された一覧をコピーします。
+
+   ```bash
+   sudo cp ./microsoft-prod.list /etc/apt/sources.list.d/
+   ```
+
+3. Microsoft GPG 公開キーをインストールします。
+
+   ```bash
+   curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
+   sudo cp ./microsoft.gpg /etc/apt/trusted.gpg.d/
+   ```
+
+4. apt を更新します。
+
+   ```bash
+   sudo apt-get update
+   ```
+
+5. 構成ファイルをそのままにして、以前のバージョンの IoT Edge をアンインストールします。
+
+   ```bash
+   sudo apt-get remove iotedge
+   ```
+
+6. IoT ID サービスと共に最新バージョンの IoT Edge をインストールします。
+
+   ```bash
+   sudo apt-get install aziot-edge
+   ```
+
+7. 以前の config.yaml ファイルを新しい形式にインポートし、構成情報を適用します。
+
+   ```bash
+   sudo iotedge config import
+   ```
+
+これで、デバイス上で実行されている IoT Edge サービスが更新されました。次は、この記事の手順に従って、[ランタイム コンテナーを更新](#update-the-runtime-containers)してください。
+
+## <a name="special-case-update-to-a-release-candidate-version"></a>特殊なケース: リリース候補バージョンに更新する
 
 Azure IoT Edge では、定期的に新しいバージョンの IoT Edge サービスをリリースしています。 個々の安定版リリースの前に、1 つ以上のリリース候補 (RC) バージョンがあります。 RC バージョンには、そのリリースで予定されているすべての機能が含まれていますが、テストおよび検証プロセスはまだ進行中です。 早い段階で新しい機能をテストする場合は、GitHub を介して RC バージョンをインストールし、フィードバックを提供できます。
 
-リリース候補バージョンは、リリースの同じ番号付け規則に従いますが、 **-rc** と末尾に増分の番号が追加されます。 [Azure IoT Edge リリース](https://github.com/Azure/azure-iotedge/releases)の一覧には、安定版と同じリリース候補があります。 たとえば、**1.0.9** より前に存在するリリース候補の 2 つ (**1.0.9-rc5** と **1.0.9-rc6**) を見つけます。 また、RC バージョンには **プレリリース** のラベルが付いていることもわかります。
+リリース候補バージョンは、リリースの同じ番号付け規則に従いますが、 **-rc** と末尾に増分の番号が追加されます。 [Azure IoT Edge リリース](https://github.com/Azure/azure-iotedge/releases)の一覧には、安定版と同じリリース候補があります。 たとえば、 **1.2.0** の前にリリースされたリリース候補の 1 つである **1.2.0-rc4** を見つけます。 また、RC バージョンには **プレリリース** のラベルが付いていることもわかります。
 
-IoT Edge エージェント モジュールおよびハブ モジュールには、同じ規則でタグ付けされた RC バージョンがあります。 たとえば、**mcr.microsoft.com/azureiotedge-hub:1.0.9-rc6** があります。
+IoT Edge エージェント モジュールおよびハブ モジュールには、同じ規則でタグ付けされた RC バージョンがあります。 たとえば、**mcr.microsoft.com/azureiotedge-hub:1.2.0-rc4** があります。
 
 プレビューの場合、リリース候補バージョンは、通常のインストーラーがターゲットとする最新版として含まれていません。 代わりに、テストする RC バージョンの資産を手動でターゲットにする必要があります。 ほとんどの場合、RC バージョンのインストールや RC バージョンへの更新は、IoT Edge の他の特定のバージョンをターゲットとする場合と同じです。
 

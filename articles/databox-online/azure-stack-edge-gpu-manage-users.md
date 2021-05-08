@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 02/21/2021
 ms.author: alkohli
 ms.openlocfilehash: 5aeb4f2d7152120ea92a8df76f980eb3baed6e50
-ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/11/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102637263"
 ---
 # <a name="use-the-azure-portal-to-manage-users-on-your-azure-stack-edge-pro"></a>Azure portal を使用して Azure Stack Edge Pro のユーザーを管理する

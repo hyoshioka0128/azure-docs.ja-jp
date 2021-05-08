@@ -2,20 +2,20 @@
 title: 専用 SQL プール用の PolyBase データ読み込み戦略を設計する
 description: ETL の代わりに、専用 SQL を使用したデータの読み込み用に抽出、読み込み、変換 (ELT) プロセスを設計します。
 services: synapse-analytics
-author: kevinvngo
+author: julieMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql
 ms.date: 04/15/2020
-ms.author: kevin
+ms.author: jrasnick
 ms.reviewer: igorstan
-ms.openlocfilehash: 18a2cf0de94641c955ed72a48f28352d13115ef0
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 518843e688da7f940b36e77aee2667b4984ea5a3
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101667568"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107567354"
 ---
 # <a name="design-a-polybase-data-loading-strategy-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Azure Synapse Analytics で専用 SQL プール用の PolyBase データ読み込み戦略を設計する
 

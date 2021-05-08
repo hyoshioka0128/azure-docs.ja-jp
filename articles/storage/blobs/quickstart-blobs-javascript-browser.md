@@ -1,19 +1,19 @@
 ---
 title: クイック スタート:Azure Blob Storage ライブラリ v12 - ブラウザーでの JavaScript
 description: このクイックスタートでは、ブラウザーで JavaScript 用の Azure Blob Storage クライアント ライブラリ バージョン 12 を使用する方法について説明します。 Blob Storage にコンテナーとオブジェクトを作成します。 そのうえで、コンテナー内のすべての BLOB を一覧表示する方法について説明します。 最後に、BLOB とコンテナーを削除する方法について説明します。
-author: mhopkins-msft
-ms.author: mhopkins
+author: twooley
+ms.author: twooley
 ms.date: 07/24/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
 ms.custom: devx-track-js
-ms.openlocfilehash: 998d49e91d38a1f2fdc2503165ee99635e153027
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: bc02f9c526ec9b0826bbe640efc4b474794f30ae
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96001900"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106278492"
 ---
 <!-- Customer intent: As a web application developer I want to interface with Azure Blob storage entirely on the client so that I can build a SPA application that is able to upload and delete files on blob storage. -->
 
@@ -70,7 +70,7 @@ Web アプリケーションでクライアントから BLOB ストレージに�
 
 Azure portal で、自分のストレージ アカウントを選択します。 新しい CORS ルールを定義するために、 **[設定]** セクションに移動し、 **[CORS]** を選択します。 このクイック スタートでは、オープン CORS ルールを作成します。
 
-![Azure Blob Storage アカウントの CORS 設定](media/quickstart-blobs-javascript-browser/azure-blob-storage-cors-settings.png)
+![Azure BLOB ストレージ アカウントの CORS 設定](media/quickstart-blobs-javascript-browser/azure-blob-storage-cors-settings.png)
 
 次の表は、各 CORS 設定の説明と、ルールを定義するために使用する値を示しています。
 

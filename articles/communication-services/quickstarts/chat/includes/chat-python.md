@@ -6,21 +6,23 @@ author: mikben
 manager: mikben
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
-ms.date: 9/1/2020
+ms.date: 03/10/2021
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
-ms.openlocfilehash: 0225c948fddf65b9312c689144ecc567a70aa27e
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 31704e705b828cc0070e3b79f5d527cfa9deb0c3
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101750288"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107386925"
 ---
+[!INCLUDE [Public Preview Notice](../../../includes/public-preview-include-chat.md)]
+
 ## <a name="prerequisites"></a>前提条件
 開始する前に、必ず次のことを行ってください。
 
-- アクティブなサブスクリプションがある Azure アカウントを作成します。 詳細については、[アカウントの無料作成](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)に関するページを参照してください。 
+- アクティブなサブスクリプションがある Azure アカウントを作成します。 詳細については、[アカウントの無料作成](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)に関するページを参照してください。
 - [Python](https://www.python.org/downloads/) のインストール
 - Azure Communication Services リソースを作成します。 詳細については、[Azure Communication リソースの作成](../../create-communication-resource.md)に関するページを参照してください。 このクイックスタート用に、自分のリソースの **エンドポイント** を記録する必要があります
 - [ユーザー アクセス トークン](../../access-tokens.md)。 スコープは必ず "chat" に設定し、トークン文字列と userId 文字列をメモしてください。
@@ -39,7 +41,7 @@ mkdir chat-quickstart && cd chat-quickstart
 
 ```python
 import os
-# Add required client library components from quickstart here
+# Add required SDK components from quickstart here
 
 try:
     print('Azure Communication Services - Chat Quickstart')
@@ -49,7 +51,7 @@ except Exception as ex:
     print(ex)
 ```
 
-### <a name="install-client-library"></a>クライアント ライブラリをインストールする
+### <a name="install-sdk"></a>SDK をインストールする
 
 ```console
 
@@ -59,7 +61,7 @@ pip install azure-communication-chat
 
 ## <a name="object-model"></a>オブジェクト モデル
 
-Python 用 Azure Communication Services チャット クライアント ライブラリが備える主な機能のいくつかは、以下のクラスとインターフェイスにより処理されます。
+Python 用 Azure Communication Services Chat SDK が備える主な機能のいくつかは、以下のクラスとインターフェイスにより処理されます。
 
 | 名前                                  | 説明                                                  |
 | ------------------------------------- | ------------------------------------------------------------ |
@@ -73,15 +75,14 @@ Python 用 Azure Communication Services チャット クライアント ライ�
 このクイックスタートでは、チャット アプリケーションのトークンを管理するためのサービス レベルの作成については説明しませんが、サービス レベルの使用をお勧めします。 詳細については、[チャットのアーキテクチャ](../../../concepts/chat/concepts.md)に関するドキュメントを参照してください
 
 ```console
-pip install azure-communication-administration
+pip install azure-communication-identity
 ```
 
 ```python
-from azure.communication.chat import ChatClient, CommunicationTokenCredential, CommunicationTokenRefreshOptions
+from azure.communication.chat import ChatClient, CommunicationTokenCredential
 
 endpoint = "https://<RESOURCE_NAME>.communication.azure.com"
-refresh_options = CommunicationTokenRefreshOptions(<Access Token>)
-chat_client = ChatClient(endpoint, CommunicationTokenCredential(refresh_options))
+chat_client = ChatClient(endpoint, CommunicationTokenCredential("<Access Token>"))
 ```
 
 ## <a name="start-a-chat-thread"></a>チャット スレッドを開始する
@@ -89,79 +90,48 @@ chat_client = ChatClient(endpoint, CommunicationTokenCredential(refresh_options)
 チャット スレッドは、`create_chat_thread` メソッドを使用して作成します。
 
 - スレッドにトピックを指定するには、`topic` を使用します。チャット スレッドの作成後に、`update_thread` 関数を使用してトピックを更新することができます。
-- チャット スレッドに追加する `ChatThreadParticipant` をリストアップするには、`thread_participants` を使用します。`ChatThreadParticipant` は、[ユーザーを作成](../../access-tokens.md#create-an-identity)することによって得られる `CommunicationUserIdentifier` 型を `user` として受け取ります。
-- 要求が反復可能であることを指示するには、`repeatability_request_id` を使用します。 クライアントは、同じ Repeatability-Request-ID を使用して要求を複数回行い、サーバーで要求が複数回実行されなくても、適切な応答を取得できます。
+- チャット スレッドに追加する `ChatParticipant` をリストアップするには、`thread_participants` を使用します。`ChatParticipant` は、[ユーザーを作成](../../access-tokens.md#create-an-identity)することによって得られる `CommunicationUserIdentifier` 型を `user` として受け取ります。
 
-新しく作成したチャット スレッドに対して操作 (チャット スレッドへの参加者の追加、メッセージの送信、メッセージの削除など) を実行するには、応答 `chat_thread_client` を使用します。これには、チャット スレッドの一意の ID である `thread_id` プロパティが含まれています。
+`CreateChatThreadResult` は、スレッドの作成から返された結果であり、作成されたチャット スレッドの `id` を取得するために使用できます。 その後、この `id` は、`get_chat_thread_client` メソッドを使用して `ChatThreadClient` オブジェクトをフェッチするために使用できます。 `ChatThreadClient` は、このチャット スレッドに対して他のチャット操作を実行するために使用できます。
 
-#### <a name="without-repeatability-request-id"></a>Repeatability-Request-ID を使用しない
 ```python
-from datetime import datetime
-from azure.communication.chat import ChatThreadParticipant
-
 topic="test topic"
-participants = [ChatThreadParticipant(
-    user=user,
-    display_name='name',
-    share_history_time=datetime.utcnow()
-)]
 
-chat_thread_client = chat_client.create_chat_thread(topic, participants)
-```
-
-#### <a name="with-repeatability-request-id"></a>Repeatability-Request-ID を使用する
-```python
-from datetime import datetime
-from azure.communication.chat import ChatThreadParticipant
-
-topic="test topic"
-participants = [ChatThreadParticipant(
-    user=user,
-    display_name='name',
-    share_history_time=datetime.utcnow()
-)]
-
-repeatability_request_id = 'b66d6031-fdcc-41df-8306-e524c9f226b8' # some unique identifier
-chat_thread_client = chat_client.create_chat_thread(topic, participants, repeatability_request_id)
+create_chat_thread_result = chat_client.create_chat_thread(topic)
+chat_thread_client = chat_client.get_chat_thread_client(create_chat_thread_result.chat_thread.id)
 ```
 
 ## <a name="get-a-chat-thread-client"></a>チャット スレッド クライアントを取得する
 `get_chat_thread_client` メソッドは、既に存在するスレッドのスレッド クライアントを返します。 これは、作成したスレッドに対して操作 (参加者の追加、メッセージの送信など) を実行するために使用できます。thread_id は、既存のチャット スレッドの一意の ID です。
 
+`ChatThreadClient` は、このチャット スレッドに対して他のチャット操作を実行するために使用できます。
+
 ```python
-thread_id = chat_thread_client.thread_id
+thread_id = create_chat_thread_result.chat_thread.id
 chat_thread_client = chat_client.get_chat_thread_client(thread_id)
 ```
 
+
 ## <a name="list-all-chat-threads"></a>すべてのチャット スレッドを一覧表示する
-`list_chat_threads` メソッドは、`ChatThreadInfo` タイプの反復子を返します。 これを使用すると、すべてのチャット スレッドを一覧表示できます。
+`list_chat_threads` メソッドは、`ChatThreadItem` タイプの反復子を返します。 これを使用すると、すべてのチャット スレッドを一覧表示できます。
 
 - チャット スレッドを取得する最も早い時点を指定するには、`start_time` を使用します。
 - ページごとに返されるチャット スレッドの最大数を指定するには、`results_per_page` を使用します。
 
+`[ChatThreadItem]` の反復子は、スレッドの一覧表示から返される応答です
+
 ```python
 from datetime import datetime, timedelta
-import pytz
 
 start_time = datetime.utcnow() - timedelta(days=2)
-start_time = start_time.replace(tzinfo=pytz.utc)
-chat_thread_infos = chat_client.list_chat_threads(results_per_page=5, start_time=start_time)
 
-for chat_thread_info_page in chat_thread_infos.by_page():
-    for chat_thread_info in chat_thread_info_page:
-        # Iterate over all chat threads
-        print("thread id:", chat_thread_info.id)
+chat_threads = chat_client.list_chat_threads(results_per_page=5, start_time=start_time)
+for chat_thread_item_page in chat_threads.by_page():
+    for chat_thread_item in chat_thread_item_page:
+        print(chat_thread_item)
+        print('Chat Thread Id: ', chat_thread_item.id)
 ```
 
-## <a name="delete-a-chat-thread"></a>チャット スレッドを削除する
-`delete_chat_thread` は、チャット スレッドを削除するために使用されます。
-
-- 削除する必要がある既存のチャット スレッドの thread_id を指定するには、`thread_id` を使用します
-
-```python
-thread_id = chat_thread_client.thread_id
-chat_client.delete_chat_thread(thread_id)
-```
 
 ## <a name="send-a-message-to-a-chat-thread"></a>チャット スレッドにメッセージを送信する
 
@@ -171,43 +141,25 @@ chat_client.delete_chat_thread(thread_id)
 - メッセージのコンテンツの種類を指定するには、`chat_message_type` を使用します。 指定できる値は、"text" と "html" です。指定しない場合は、既定値の "text" が割り当てられます。
 - 送信者の表示名を指定するには、`sender_display_name` を使用します。
 
-応答は、`str` 型の "id" (そのメッセージの一意の ID) です。
+`SendChatMessageResult` は、メッセージの送信から返された応答です。ここには ID (メッセージの一意の ID) が含まれています。
 
-#### <a name="message-type-not-specified"></a>メッセージの種類が指定されていない
-```python
-chat_thread_client = chat_client.create_chat_thread(topic, participants)
-
-content='hello world'
-sender_display_name='sender name'
-
-send_message_result_id = chat_thread_client.send_message(content=content, sender_display_name=sender_display_name)
-```
-
-#### <a name="message-type-specified"></a>メッセージの種類が指定されている
 ```python
 from azure.communication.chat import ChatMessageType
+
+topic = "test topic"
+create_chat_thread_result = chat_client.create_chat_thread(topic)
+thread_id = create_chat_thread_result.chat_thread.id
+chat_thread_client = chat_client.get_chat_thread_client(create_chat_thread_result.chat_thread.id)
+
 
 content='hello world'
 sender_display_name='sender name'
 
 # specify chat message type with pre-built enumerations
-send_message_result_id_w_enum = chat_thread_client.send_message(content=content, sender_display_name=sender_display_name, chat_message_type=ChatMessageType.TEXT)
-
-# specify chat message type as string
-send_message_result_id_w_str = chat_thread_client.send_message(content=content, sender_display_name=sender_display_name, chat_message_type='text')
+send_message_result_w_enum = chat_thread_client.send_message(content=content, sender_display_name=sender_display_name, chat_message_type=ChatMessageType.TEXT)
+print("Message sent: id: ", send_message_result_w_enum.id)
 ```
 
-## <a name="get-a-specific-chat-message-from-a-chat-thread"></a>チャット スレッドから特定のチャット メッセージを取得する
-`get_message` 関数を使用すると、message_id で識別される特定のメッセージを取得できます
-
-- メッセージ ID を指定するには、`message_id` を使用します。
-
-`ChatMessage` タイプの応答には、1 つのメッセージに関連するすべての情報が含まれています。
-
-```python
-message_id = send_message_result_id
-chat_message = chat_thread_client.get_message(message_id)
-```
 
 ## <a name="receive-chat-messages-from-a-chat-thread"></a>チャット スレッドからチャット メッセージを受信する
 
@@ -216,147 +168,106 @@ chat_message = chat_thread_client.get_message(message_id)
 - ページごとに返されるメッセージの最大数を指定するには、`results_per_page` を使用します。
 - メッセージを取得する最も早い時点を指定するには、`start_time` を使用します。
 
+`[ChatMessage]` の反復子は、メッセージの一覧表示から返される応答です
+
 ```python
+from datetime import datetime, timedelta
+
+start_time = datetime.utcnow() - timedelta(days=1)
+
 chat_messages = chat_thread_client.list_messages(results_per_page=1, start_time=start_time)
 for chat_message_page in chat_messages.by_page():
     for chat_message in chat_message_page:
-        print('ChatMessage: ', chat_message)
-        print('ChatMessage: ', chat_message.content.message)
+        print("ChatMessage: Id=", chat_message.id, "; Content=", chat_message.content.message)
 ```
 
 `list_messages` は、メッセージに対して `update_message` や `delete_message` を使用して行われた編集や削除を含む、最新バージョンのメッセージを返します。 削除されたメッセージについては、そのメッセージがいつ削除されたかを示す datetime 値が `ChatMessage.deleted_on` から返されます。 編集されたメッセージについては、メッセージがいつ編集されたかを示す datetime が `ChatMessage.edited_on` から返されます。 メッセージの最初の作成日時には、`ChatMessage.created_on` を使用してアクセスできます。これをメッセージの並べ替えに使用することができます。
 
-`list_messages` は、`ChatMessage.type` で識別できるさまざまな種類のメッセージを返します。 次の種類があります。
+`list_messages` は、`ChatMessage.type` で識別できるさまざまな種類のメッセージを返します。 
 
-- `ChatMessageType.TEXT`:スレッド参加者によって送信された通常のチャット メッセージ。
+メッセージの種類の詳細については、「[メッセージの種類](../../../concepts/chat/concepts.md#message-types)」をご覧ください。
 
-- `ChatMessageType.HTML`: スレッド参加者によって送信された HTML チャット メッセージ。
-
-- `ChatMessageType.TOPIC_UPDATED`:トピックが更新されたことを示すシステム メッセージ。
-
-- `ChatMessageType.PARTICIPANT_ADDED`:1 人以上の参加者がチャット スレッドに追加されたことを示すシステム メッセージ。
-
-- `ChatMessageType.PARTICIPANT_REMOVED`:参加者がチャット スレッドから削除されたことを示すシステム メッセージ。
-
-詳細については、「[メッセージの種類](../../../concepts/chat/concepts.md#message-types)」を参照してください。
-
-## <a name="update-topic-of-a-chat-thread"></a>チャット スレッドのトピックを更新する
-`update_topic` メソッドを使用してチャット スレッドのトピックを更新できます
-
-```python
-topic = "updated thread topic"
-chat_thread_client.update_topic(topic=topic)
-updated_topic = chat_client.get_chat_thread(chat_thread_client.thread_id).topic
-print('Updated topic: ', updated_topic)
-```
-
-## <a name="update-a-message"></a>メッセージを更新する
-`update_message` メソッドを使用して、message_id で識別される既存のメッセージのコンテンツを更新できます
-
-- message_id を指定するには、`message_id` を使用します
-- メッセージの新しいコンテンツを設定するには、`content` を使用します
-
-```python
-content = 'Hello world!'
-send_message_result_id = chat_thread_client.send_message(content=content, sender_display_name=sender_display_name)
-
-content = 'Hello! I am updated content'
-chat_thread_client.update_message(message_id=send_message_result_id, content=content)
-
-chat_message = chat_thread_client.get_message(send_message_result_id)
-print('Updated message content: ', chat_message.content.message)
-```
-
-## <a name="send-read-receipt-for-a-message"></a>メッセージの開封確認メッセージを送信する
+## <a name="send-read-receipt"></a>開封確認メッセージを送信する
 `send_read_receipt` メソッドを使用すると、ユーザーに代わって開封確認イベントをスレッドに送信できます。
 
 - 現在のユーザーに読まれた最新のメッセージの ID を指定するには、`message_id` を使用します。
 
 ```python
-message_id=send_message_result_id
-chat_thread_client.send_read_receipt(message_id=message_id)
+content='hello world'
+
+send_message_result = chat_thread_client.send_message(content)
+chat_thread_client.send_read_receipt(message_id=send_message_result.id)
 ```
 
-## <a name="list-read-receipts-for-a-chat-thread"></a>チャット スレッドの開封確認メッセージを一覧表示する
-`list_read_receipts` メソッドを使用すると、スレッドの開封確認メッセージを取得できます。
 
-- ページごとに返されるチャット メッセージの開封確認メッセージの最大数を指定するには、`results_per_page` を使用します。
-- 応答内の指定された位置までチャット メッセージの開封確認メッセージをスキップするように指定するには、`skip` を使用します。
+## <a name="add-a-user-as-a-participant-to-the-chat-thread"></a>チャット スレッドに参加者としてユーザーを追加する
 
-```python
-read_receipts = chat_thread_client.list_read_receipts(results_per_page=2, skip=0)
+チャット スレッドの作成後、ユーザーを追加したり削除したりすることができます。 追加したユーザーには、チャット スレッドにメッセージを送信したり、他の参加者を追加または削除したりできるアクセス権が与えられます。 `add_participants` メソッドを呼び出す前に必ず、そのユーザーの新しいアクセス トークンと ID を取得しておいてください。 チャット クライアントを初期化するためには、ユーザーにアクセス トークンが必要となります。
 
-for read_receipt_page in read_receipts.by_page():
-    for read_receipt in read_receipt_page:
-        print('ChatMessageReadReceipt: ', read_receipt)
-```
+`add_participants` メソッドを使用して、チャット スレッドに 1 人以上のユーザーを追加することができます (すべてのユーザーが新しいアクセス トークンと ID を使用できる場合)。
 
-## <a name="send-typing-notification"></a>入力通知を送信する
-`send_typing_notification` メソッドを使用すると、ユーザーに代わって入力イベントをスレッドに送信できます。
+`list(tuple(ChatParticipant, CommunicationError))` が返される。 参加者が正常に追加されると、空の一覧が予期されます。 参加者の追加中にエラーが発生した場合は、失敗した参加者と、発生したエラーが一覧に設定されます。
 
 ```python
-chat_thread_client.send_typing_notification()
-```
-
-## <a name="delete-message"></a>メッセージを削除する
-`delete_message` メソッドを使用すると、message_id で識別されるメッセージを削除できます
-
-- message_id を指定するには、`message_id` を使用します
-
-```python
-message_id=send_message_result_id
-chat_thread_client.delete_message(message_id=message_id)
-```
-
-## <a name="add-a-user-as-participant-to-the-chat-thread"></a>チャット スレッドに参加者としてユーザーを追加する
-
-チャット スレッドの作成後、ユーザーを追加したり削除したりすることができます。 追加したユーザーには、チャット スレッドにメッセージを送信したり、他の参加者を追加または削除したりできるアクセス権が与えられます。 `add_participant` メソッドを呼び出す前に必ず、そのユーザーの新しいアクセス トークンと ID を取得しておいてください。 チャット クライアントを初期化するためには、ユーザーにアクセス トークンが必要となります。
-
-thread_id で識別されるスレッドにスレッド参加者を追加するには、`add_participant` メソッドを使用します。
-
-- チャット スレッドに追加する参加者を指定するには、`thread_participant` を使用します。
-- `user` (必須) は、[ユーザーの作成](../../access-tokens.md#create-an-identity)時に `CommunicationIdentityClient` で作成した `CommunicationUserIdentifier` です。
-- `display_name` (省略可) は、スレッド参加者の表示名です。
-- `share_history_time` (省略可) は、参加者との間でチャット履歴が共有される際の起点となる時刻です。 チャット スレッドの始めから履歴を共有する場合は、スレッドの作成日時と同じかそれ以前の任意の日付にこのプロパティを設定してください。 参加者が追加された時点よりも前の履歴は共有しない場合は、現在の日付に設定します。 履歴を部分的に共有するには、中間の日付に設定します。
-
-```python
-new_user = identity_client.create_user()
-
-from azure.communication.chat import ChatThreadParticipant
+from azure.communication.identity import CommunicationIdentityClient
+from azure.communication.chat import ChatParticipant
 from datetime import datetime
 
-new_chat_thread_participant = ChatThreadParticipant(
-    user=new_user,
-    display_name='name',
-    share_history_time=datetime.utcnow())
+# create 2 users
+identity_client = CommunicationIdentityClient.from_connection_string('<connection_string>')
+new_users = [identity_client.create_user() for i in range(2)]
 
-chat_thread_client.add_participant(new_chat_thread_participant)
+# # conversely, you can also add an existing user to a chat thread; provided the user_id is known
+# from azure.communication.identity import CommunicationUserIdentifier
+#
+# user_id = 'some user id'
+# user_display_name = "Wilma Flinstone"
+# new_user = CommunicationUserIdentifier(user_id)
+# participant = ChatParticipant(
+#     user=new_user,
+#     display_name=user_display_name,
+#     share_history_time=datetime.utcnow())
+
+participants = []
+for _user in new_users:
+  chat_thread_participant = ChatParticipant(
+    user=_user,
+    display_name='Fred Flinstone',
+    share_history_time=datetime.utcnow()
+  ) 
+  participants.append(chat_thread_participant) 
+
+response = chat_thread_client.add_participants(participants)
+
+def decide_to_retry(error, **kwargs):
+    """
+    Insert some custom logic to decide if retry is applicable based on error
+    """
+    return True
+
+# verify if all users has been successfully added or not
+# in case of partial failures, you can retry to add all the failed participants 
+retry = [p for p, e in response if decide_to_retry(e)]
+if retry:
+    chat_thread_client.add_participants(retry)
 ```
 
-`add_participants` メソッドを使用してチャット スレッドに複数のユーザーを追加することもでき ます (すべてのユーザーが新しいアクセス トークンと ID を使用できる場合)。
+
+## <a name="list-thread-participants-in-a-chat-thread"></a>チャット スレッドのスレッド参加者の一覧を取得する
+
+参加者の追加と同様、スレッドから参加者の一覧を取得することもできます。
+
+スレッドの参加者を取得するには、`list_participants` を使用します。
+- `results_per_page` (省略可能) を使用します。これは、ページごとに返される参加者の最大数です。
+- 応答内の指定した位置まで参加者をスキップするには、`skip` (省略可能) を使用します。
+
+`[ChatParticipant]` の反復子は、参加者の一覧表示から返される応答です
 
 ```python
-from azure.communication.chat import ChatThreadParticipant
-from datetime import datetime
-
-new_chat_thread_participant = ChatThreadParticipant(
-        user=self.new_user,
-        display_name='name',
-        share_history_time=datetime.utcnow())
-thread_participants = [new_chat_thread_participant] # instead of passing a single participant, you can pass a list of participants
-chat_thread_client.add_participants(thread_participants)
-```
-
-
-## <a name="remove-user-from-a-chat-thread"></a>チャット スレッドからユーザーを削除する
-
-参加者の追加と同様、スレッドから参加者を削除することもできます。 削除するには、追加した参加者の ID を追跡する必要があります。
-
-threadId で識別されるスレッドからスレッド参加者を削除するには、`remove_participant` メソッドを使用します。
-- `user` は、スレッドから削除される `CommunicationUserIdentifier` です。
-
-```python
-chat_thread_client.remove_participant(new_user)
+chat_thread_participants = chat_thread_client.list_participants()
+for chat_thread_participant_page in chat_thread_participants.by_page():
+    for chat_thread_participant in chat_thread_participant_page:
+        print("ChatParticipant: ", chat_thread_participant)
 ```
 
 ## <a name="run-the-code"></a>コードの実行

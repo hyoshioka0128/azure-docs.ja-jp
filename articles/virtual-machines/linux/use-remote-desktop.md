@@ -9,12 +9,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 03/03/2021
 ms.author: cynthn
-ms.openlocfilehash: 1f7eb3b38b4ae04e81839fce2b14c1a84f3f0204
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: 309b106d2141c8257c5163efe7ff45a7bae5d5c3
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102564596"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107759653"
 ---
 # <a name="install-and-configure-xrdp-to-use-remote-desktop-with-ubuntu"></a>xrdp をインストールして、Ubuntu でリモート デスクトップを使用するように構成する
 
@@ -86,7 +86,7 @@ sudo passwd azureuser
 ## <a name="create-a-network-security-group-rule-for-remote-desktop-traffic"></a>リモート デスクトップ トラフィックにネットワーク セキュリティ グループ ルールを作成する
 リモート デスクトップのトラフィックを Linux VM に接続できるようにするには、ポート 3389 で VM への TCP の接続を許可するネットワーク セキュリティ グループ ルールを作成する必要があります。 ネットワーク セキュリティ グループ ルールの詳細については、「[ネットワーク セキュリティ グループ (NSG) について](../../virtual-network/network-security-groups-overview.md)」をご覧ください。 また、[Azure Portal を使用してネットワーク セキュリティ グループ ルールを作成することもできます](../windows/nsg-quickstart-portal.md)。
 
-次の例では、[az vm open-port](/cli/azure/vm#az-vm-open-port) で、ネットワーク セキュリティ グループの規則をポート *3389* に作成しています。 Azure CLI から、VM への SSH セッションではなく、次のネットワーク セキュリティ グループ ルールを開きます。
+次の例では、[az vm open-port](/cli/azure/vm#az_vm_open_port) で、ネットワーク セキュリティ グループの規則をポート *3389* に作成しています。 Azure CLI から、VM への SSH セッションではなく、次のネットワーク セキュリティ グループ ルールを開きます。
 
 ```azurecli
 az vm open-port --resource-group myResourceGroup --name myVM --port 3389
@@ -138,7 +138,7 @@ tail -f /var/log/syslog
 
 Red Hat Enterprise Linux SUSE など他の Linux ディストリビューションでは、サービスの再開方法や確認するログ ファイルの場所が異なる場合があります。
 
-リモート デスクトップ クライアントから応答がなく、システム ログにもイベントが表示されない場合は、リモート デスクトップ トラフィックが VM に到達できないことを示しています。 ネットワーク セキュリティ グループ ルールを確認し、ポート 3389 で TCP を許可するルールが設定されていることをご確認ください。 詳細については、[アプリケーションの接続の問題のトラブルシューティング](../troubleshooting/troubleshoot-app-connection.md)に関するページをご覧ください。
+リモート デスクトップ クライアントから応答がなく、システム ログにもイベントが表示されない場合は、リモート デスクトップ トラフィックが VM に到達できないことを示しています。 ネットワーク セキュリティ グループ ルールを確認し、ポート 3389 で TCP を許可するルールが設定されていることをご確認ください。 詳細については、[アプリケーションの接続の問題のトラブルシューティング](/troubleshoot/azure/virtual-machines/troubleshoot-app-connection)に関するページをご覧ください。
 
 
 ## <a name="next-steps"></a>次のステップ

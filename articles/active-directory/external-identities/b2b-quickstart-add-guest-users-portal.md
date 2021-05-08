@@ -2,22 +2,25 @@
 title: クイック スタート:Azure portal でゲスト ユーザーを追加する - Azure AD
 description: このクイックスタートでは、Azure AD 管理者が Azure portal で B2B ゲスト ユーザーを追加する方法と B2B 招待ワークフローについて説明します。
 services: active-directory
-ms.service: active-directory
-ms.subservice: B2B
-ms.topic: quickstart
-ms.date: 08/05/2020
-ms.author: mimart
 author: msmimart
+ms.author: mimart
 manager: celestedg
 ms.reviewer: mal
-ms.custom: it-pro, seo-update-azuread-jan
+ms.date: 08/05/2020
+ms.topic: quickstart
+ms.service: active-directory
+ms.subservice: B2B
+ms.custom:
+- it-pro
+- seo-update-azuread-jan
+- mode-portal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 12f134a11b6d0a561a8b53156c927906afe2874a
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 7326a35d07715eae75f70f2f33763f82946c589c
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87910609"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107529847"
 ---
 # <a name="quickstart-add-guest-users-to-your-directory-in-the-azure-portal"></a>クイック スタート:Azure portal でディレクトリにゲスト ユーザーを追加する
 
@@ -54,7 +57,7 @@ Azure サブスクリプションがない場合は、開始する前に[無料�
    - **グループ**: 1 つまたは複数の既存のグループにゲスト ユーザーを追加するか、後で追加することができます。
    - **ディレクトリ ロール**: ユーザーに Azure AD 管理アクセス許可が必要な場合は、Azure AD ロールに追加することができます。 
 
-6. **[招待]** を選択して、招待をゲスト ユーザーに自動的に送信します。 右上隅に**ユーザーが正常に招待された**ことを示す通知が表示します。 
+6. **[招待]** を選択して、招待をゲスト ユーザーに自動的に送信します。 右上隅に **ユーザーが正常に招待された** ことを示す通知が表示します。 
 7.  招待を送信すると、ユーザー アカウントがディレクトリにゲストとして自動的に追加されます。
 
 ## <a name="assign-an-app-to-the-guest-user"></a>ゲスト ユーザーにアプリを割り当てる

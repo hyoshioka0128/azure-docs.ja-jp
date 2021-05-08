@@ -1,19 +1,19 @@
 ---
 title: ローカルでの Azure Storage の開発に Azurite エミュレーターを使用する
 description: Azurite オープンソース エミュレーターでは、Azure Storage アプリケーションをテストするための無料のローカル環境が提供されます。
-author: mhopkins-msft
-ms.author: mhopkins
+author: twooley
+ms.author: twooley
 ms.date: 07/15/2020
 ms.service: storage
 ms.subservice: common
 ms.topic: how-to
 ms.custom: devx-track-csharp
-ms.openlocfilehash: b5051a5e29f9e34c43963a9a264ee47e2ad7b04a
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: a921de0d976b9c92ca7978feb7caf69484ba9379
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92490783"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106277127"
 ---
 # <a name="use-the-azurite-emulator-for-local-azure-storage-development"></a>ローカルでの Azure Storage の開発に Azurite エミュレーターを使用する
 
@@ -328,7 +328,7 @@ Azure SDK を使用している場合は、`--oauth basic and --cert --key/--pwd
 
 ### <a name="well-known-storage-account-and-key"></a>既知のストレージ アカウントとキー
 
-Azurite は、従来の Azure ストレージ エミュレーターで使用されるものと同じ既知のアカウントとキーを受け入れます。
+Azurite は、従来の Azure Storage Emulator で使用されるものと同じ既知のアカウントとキーを受け入れます。
 
 - アカウント名: `devstoreaccount1`
 - アカウント キー: `Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==`
@@ -568,5 +568,5 @@ Azurite への参加や提案をお待ちしています。 近日公開され�
 
 ## <a name="next-steps"></a>次のステップ
 
-- 「[開発とテストに Azure Storage Emulator を使用する](storage-use-emulator.md)」には、Azurite によって置き換えられつつある従来の  Azure Storage Emulator についての記述があります。
+- 「[開発とテストに Azure Storage Emulator を使用する](storage-use-emulator.md)」には、Azurite によって置き換えられつつある従来の Azure Storage Emulator についての記述があります。
 - 「[Azure Storage の接続文字列を構成する](storage-configure-connection-string.md)」では、有効な Azure Storage の接続文字列をアセンブルする方法が説明されています。

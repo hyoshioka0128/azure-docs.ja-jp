@@ -2,27 +2,25 @@
 title: ホーム領域検出ポリシーを使用して Azure AD でのサインインの自動高速化を防ぐ
 description: フェデレーション IDP への domain_hint の自動高速化を防ぐ方法について説明します。
 services: active-directory
-documentationcenter: ''
-author: kenwith
-manager: daveba
+author: iantheninja
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
 ms.date: 02/12/2021
-ms.author: hirsin
-ms.openlocfilehash: 67cb1003e139a085d45d01617cd44647bad420f5
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.author: iangithinji
+ms.reviewer: hirsin
+ms.openlocfilehash: b89e0e1c8bd8109fac8b4b7c05a845a3e234b617
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101692924"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107375552"
 ---
 # <a name="disable-auto-acceleration-to-a-federated-idp-during-user-sign-in-with-home-realm-discovery-policy"></a>ホーム領域検出ポリシーを使用してユーザー サインイン時のフェデレーション IDP への自動高速化を無効にする
 
-[ホーム領域検出ポリシー](https://docs.microsoft.com/graph/api/resources/homeRealmDiscoveryPolicy) (HRD) により、管理者がユーザー認証の方法と場所を制御するための複数の方法が提供されます。 HRD ポリシーの `domainHintPolicy` セクションを使用すると、フェデレーション ユーザーを常に Azure AD のサインイン ページにアクセスさせ、ドメイン ヒントによってフェデレーション IDP に自動高速化されないようにすることで、[FIDO](../authentication/howto-authentication-passwordless-security-key.md) などのクラウドで管理されている資格情報に移行させるのに役立ちます。
+[ホーム領域検出ポリシー](/graph/api/resources/homeRealmDiscoveryPolicy) (HRD) により、管理者がユーザー認証の方法と場所を制御するための複数の方法が提供されます。 HRD ポリシーの `domainHintPolicy` セクションを使用すると、フェデレーション ユーザーを常に Azure AD のサインイン ページにアクセスさせ、ドメイン ヒントによってフェデレーション IDP に自動高速化されないようにすることで、[FIDO](../authentication/howto-authentication-passwordless-security-key.md) などのクラウドで管理されている資格情報に移行させるのに役立ちます。
 
 このポリシーは、管理者が制御または更新できないアプリケーションによってサインイン中にドメイン ヒントが追加される場合に必要です。  たとえば、`outlook.com/contoso.com` の場合、ユーザーは `&domain_hint=contoso.com` パラメーターが追加されたログイン ページに移動します。これは、ユーザーを `contoso.com` ドメインのフェデレーション IDP に直接高速化することが目的です。 管理されている資格情報を持つユーザーをフェデレーション IDP に移動させた場合、管理されている資格情報を使用したサインインはできません。その結果、サインイン エクスペリエンスのランダム化によるセキュリティの低下とユーザーの不満が発生します。 管理されている資格情報をロールアウトする管理者は、管理されている資格情報をユーザーが常に使用できるように、[このポリシーも設定する必要があります](#suggested-use-within-a-tenant)。
 
@@ -101,7 +99,7 @@ DomainHintPolicy ロジックは、ドメイン ヒントを含む受信要求�
 
 ## <a name="configuring-policy-through-graph-explorer"></a>Graph エクスプローラーを使用したポリシーの構成
 
-Microsoft Graph を使用して、[HRD ポリシー](https://docs.microsoft.com/graph/api/resources/homeRealmDiscoveryPolicy)を通常どおりに設定します。  
+Microsoft Graph を使用して、[HRD ポリシー](/graph/api/resources/homeRealmDiscoveryPolicy)を通常どおりに設定します。  
 
 1. [Graph エクスプローラー](https://developer.microsoft.com/graph/graph-explorer)で、Policy.ReadWrite.ApplicationConfiguration 権限を付与します。  
 1. URL は `https://graph.microsoft.com/v1.0/policies/homeRealmDiscoveryPolicies` を使用します。

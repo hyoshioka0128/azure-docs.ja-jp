@@ -5,23 +5,23 @@ description: このクイックスタートでは、Azure PowerShell を使用�
 services: load-balancer
 documentationcenter: na
 author: asudbring
-manager: KumudD
-Customer intent: I want to create a load balancer so that I can load balance internet traffic to VMs.
-ms.assetid: ''
-ms.service: load-balancer
-ms.devlang: na
-ms.topic: quickstart
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 11/22/2020
 ms.author: allensu
-ms:custom: seodec18
-ms.openlocfilehash: 27a2b764ebf420c91c57c6f5f762f656b1040a91
-ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+manager: KumudD
+ms.date: 11/22/2020
+ms.assetid: ''
+ms.topic: quickstart
+ms.service: load-balancer
+ms.workload: infrastructure-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.custom:
+- mode-api
+ms.openlocfilehash: 0ddaf0eede59053cd8022fef24d37a37c6d7db5a
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99594554"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107529573"
 ---
 # <a name="quickstart-create-a-public-load-balancer-to-load-balance-vms-using-azure-powershell"></a>クイック スタート:Azure PowerShell を使用して VM の負荷を分散するパブリック ロード バランサーを作成する
 
@@ -327,6 +327,8 @@ Id     Name            PSJobTypeName   State         HasMoreData     Location   
 4      Long Running O… AzureLongRunni… Completed     True            localhost            New-AzVM
 ```
 
+[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
+
 ## <a name="create-outbound-rule-configuration"></a>アウトバウンド規則構成の作成
 ロード バランサーのアウトバウンド規則では、バックエンド プール内の VM 用にアウトバウンド送信元ネットワーク アドレス変換 (SNAT) を構成します。 
 
@@ -368,7 +370,7 @@ New-AzPublicIpAddress @publicipout
 
 * [Add-AzLoadBalancerFrontendIpConfig](/powershell/module/az.network/add-azloadbalancerfrontendipconfig) を使用して、次のように新しいフロントエンド IP 構成を作成します。
 
-* [Add-AzLoadBalancerBackendAddressPoolConfig](/powershell/module/az.network/add-azloadbalancerbackendaddresspoolconfig) を使用して、新しいアウトバウンド プールを作成します。 
+* [Add-AzLoadBalancerBackendAddressPoolConfig](/powershell/module/az.network/add-azloadbalancerbackendaddresspoolconfig) を使用して、新しい送信バックエンド アドレス プールを作成します。 
 
 * [Set-AzLoadBalancer](/powershell/module/az.network/set-azloadbalancer) を使用して、次のようにプールおよびフロントエンド IP アドレスをロード バランサーに適用します。
 *  [Add-AzLoadBalancerOutboundRuleConfig](/powershell/module/az.network/new-azloadbalanceroutboundruleconfig) を使用して、次のようにアウトバウンド バックエンド プールの新しいアウトバウンド規則を作成します。 
@@ -721,6 +723,8 @@ Id     Name            PSJobTypeName   State         HasMoreData     Location   
 3      Long Running O… AzureLongRunni… Completed     True            localhost            New-AzVM
 4      Long Running O… AzureLongRunni… Completed     True            localhost            New-AzVM
 ```
+
+[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
 
 ---
 

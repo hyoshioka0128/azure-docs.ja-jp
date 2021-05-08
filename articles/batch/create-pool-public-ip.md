@@ -3,12 +3,12 @@ title: 特定のパブリック IP アドレスのプールを作成する
 description: 独自のパブリック IP アドレスを使用する Batch プールを作成する方法について説明します。
 ms.topic: how-to
 ms.date: 10/08/2020
-ms.openlocfilehash: e822311718847e173763847d503335f71457308b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 82a37f96a91bdad37c1a7828ef0cf71b3581ca82
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91849330"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107768397"
 ---
 # <a name="create-an-azure-batch-pool-with-specified-public-ip-addresses"></a>特定のパブリック IP アドレスの Azure Batch プールを作成する
 
@@ -24,7 +24,7 @@ Azure Batch プールを作成すると、指定した [Azure 仮想ネットワ
 
 - **Azure VNet**。 プールと IP アドレスを作成するのと同じ Azure サブスクリプションからの[仮想ネットワーク](batch-virtual-network.md)を使用する必要があります。 Azure Resource Manager ベースの VNet のみが使用できます。 VNet が[一般的な要件](batch-virtual-network.md#vnet-requirements)をすべて満たしていることを確認してください。
 
-- **少なくとも 1 つの Azure パブリック IP アドレス**。 1 つ以上のパブリック IP アドレスを作成するには、[Azure portal](../virtual-network/virtual-network-public-ip-address.md#create-a-public-ip-address)、[Azure コマンド ライン インターフェイス (CLI)](/cli/azure/network/public-ip#az-network-public-ip-create)、[Azure PowerShell](/powershell/module/az.network/new-azpublicipaddress) のいずれかを使用することができます。 以下に示す要件に従ってください。
+- **少なくとも 1 つの Azure パブリック IP アドレス**。 1 つ以上のパブリック IP アドレスを作成するには、[Azure portal](../virtual-network/virtual-network-public-ip-address.md#create-a-public-ip-address)、[Azure コマンド ライン インターフェイス (CLI)](/cli/azure/network/public-ip#az_network_public_ip_create)、[Azure PowerShell](/powershell/module/az.network/new-azpublicipaddress) のいずれかを使用することができます。 以下に示す要件に従ってください。
 
 > [!NOTE]
 > パブリック IP アドレスを含んでいるリソース グループには、Batch によって自動的に追加のネットワーク リソースが割り当てられます。 通常、専用のノード 100 台ごとに、1 つのネットワーク セキュリティ グループ (NSG) と 1 つのロード バランサーが Batch によって割り当てられます。 これらのリソースは、サブスクリプションのリソース クォータによって制限されます。 大規模なプールを使用する場合、これらの 1 つ以上のリソースについて、[クォータの引き上げの要求](batch-quota-limit.md#increase-a-quota)が必要になる場合があります。
@@ -34,7 +34,7 @@ Azure Batch プールを作成すると、指定した [Azure 仮想ネットワ
 パブリック IP アドレスを作成する場合は、次の要件に注意してください。
 
 - パブリック IP アドレスが存在するサブスクリプションとリージョンは、プールの作成に使用する Batch アカウントと同じである必要があります。
-- **IP アドレスの割り当て**は、**静的**に設定する必要があります。
+- **IP アドレスの割り当て** は、**静的** に設定する必要があります。
 - **SKU** は **Standard** に設定する必要があります。
 - DNS 名を指定する必要があります。
 - パブリック IP アドレスは、仮想マシン構成プールにのみ使用する必要があります。 他のリソースがこれらの IP アドレスを使用することはできません。使用した場合、プールに割り当てエラーが発生する可能性があります。
@@ -100,4 +100,3 @@ client-request-id: 00000000-0000-0000-0000-000000000000
 - [Batch サービスのワークフローと主要なリソース](batch-service-workflow-features.md) (プール、ノード、ジョブ、タスクなど) について学習します。
 - [Azure 仮想ネットワークのサブネットでのプールの作成](batch-virtual-network.md)について学習します。
 - [パブリック IP アドレスのない Azure Batch プールの作成](./batch-pool-no-public-ip-address.md)について学習します。
-

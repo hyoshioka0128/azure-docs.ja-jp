@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 10/02/2019
 ms.author: TomSh
 ms.openlocfilehash: 4793216a12b17c4e4ea03f62d5a0ba512febc232
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101735728"
 ---
 # <a name="azure-best-practices-for-network-security"></a>Azure のネットワーク セキュリティのベスト プラクティス
@@ -153,7 +153,7 @@ ExpressRoute 接続の場所は、ファイアウォールの容量、スケー�
 - セキュリティで保護された接続のみが受け入れられるため、サーバーへの暗号化されていない通信は受け入れられない。
 - 実行時間の長い同じ TCP 接続で複数の HTTP 要求を、異なるバックエンド サーバーにルーティングまたは負荷分散する必要がある。
 
-**負荷分散オプション**:HTTP Web トラフィック ロード バランサーである、[Azure Application Gateway](../../application-gateway/overview.md) を使用します。 Application Gateway では、ゲートウェイでのエンド ツー エンド TLS 暗号化と [TLS 終了](../../application-gateway/overview.md)がサポートされています。 そのため、Web サーバーを、暗号化と暗号化解除のオーバーヘッドと、バックエンド サーバーへの暗号化されていないトラフィック フローから解放することができます。
+**負荷分散オプション**:HTTP Web トラフィック ロード バランサーである、[Azure Application Gateway](../../application-gateway/overview.md) を使用します。 Application Gateway では、ゲートウェイでのエンド ツー エンド TLS 暗号化と [TLS 終端](../../application-gateway/overview.md)がサポートされています。 そのため、Web サーバーを、暗号化と暗号化解除のオーバーヘッドと、バックエンド サーバーへの暗号化されていないトラフィック フローから解放することができます。
 
 **シナリオ**:Azure 仮想ネットワークに配置されたサーバー間で、インターネットからの着信接続の負荷分散を行う必要があります。 これは次のような場合のシナリオです。
 

@@ -7,16 +7,17 @@ ms.topic: conceptual
 ms.date: 07/29/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 64bd9e4a4cf78d2628e946af30c2d290ff002cf7
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 43e5b64d06a6ec145876798b2e0da6499ab94bfc
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93081146"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107769231"
 ---
 # <a name="install-and-configure-an-on-premises-data-gateway"></a>オンプレミスのデータ ゲートウェイをインストールして構成する
 
-同じリージョン内の 1 つまたは複数の Azure Analysis Services サーバーがオンプレミスのデータ ソースに接続する場合は、オンプレミスのデータ ゲートウェイが必要です。  インストールするゲートウェイは、Power BI、Power Apps、Logic Apps などの他のサービスで使用されているものと同じですが、Azure Analysis Services にインストールするときは、いくつかの追加手順を実行する必要があります。 このインストール記事は、 **Azure Analysis Services** に固有のものです。 
+同じリージョン内の 1 つまたは複数の Azure Analysis Services サーバーがオンプレミスのデータ ソースに接続する場合は、オンプレミスのデータ ゲートウェイが必要です。  インストールするゲートウェイは、Power BI、Power Apps、Logic Apps などの他のサービスで使用されているものと同じですが、Azure Analysis Services にインストールするときは、いくつかの追加手順を実行する必要があります。 このインストール記事は、**Azure Analysis Services** に固有のものです。 
 
 Azure Analysis Services とゲートウェイの連動に関する詳細については、[オンプレミス データ ソースに接続する](analysis-services-gateway.md)方法に関するページを参照してください。 高度なインストール シナリオとゲートウェイ全般に関する詳細については、[オンプレミス データ ゲートウェイ](/data-integration/gateway/service-gateway-onprem)に関するドキュメントを参照してください。
 
@@ -93,9 +94,9 @@ Azure 内にゲートウェイ リソースを作成するためには、ゲー�
 
 2. **[接続ゲートウェイの作成]** で、次の設定を入力します。
 
-   * **Name** :お客様のゲートウェイ リソースの名前を入力します。 
+   * **Name**:お客様のゲートウェイ リソースの名前を入力します。 
 
-   * **サブスクリプション** :お客様のゲートウェイ リソースに関連付ける Azure サブスクリプションを選択します。 
+   * **サブスクリプション**:お客様のゲートウェイ リソースに関連付ける Azure サブスクリプションを選択します。 
    
      既定のサブスクリプションは、サインインするために使用した Azure アカウントに基づきます。
 
@@ -103,7 +104,7 @@ Azure 内にゲートウェイ リソースを作成するためには、ゲー�
 
    * **[場所]** :お客様がゲートウェイを登録したリージョンを選択します。
 
-   * **インストール名** : ゲートウェイのインストールをまだ選択していない場合は、お使いのコンピューターにインストールして登録したゲートウェイを選択します。 
+   * **インストール名**: ゲートウェイのインストールをまだ選択していない場合は、お使いのコンピューターにインストールして登録したゲートウェイを選択します。 
 
      完了したら、 **[作成]** をクリックします。
 

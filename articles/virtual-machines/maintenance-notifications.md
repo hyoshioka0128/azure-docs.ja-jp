@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 8/12/2020
 ms.author: shants
 ms.openlocfilehash: 92cb780a80f1010fd1c2f5d19fe616e0285de73b
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102564528"
 ---
 # <a name="handling-planned-maintenance-notifications"></a>計画メンテナンスの通知の処理

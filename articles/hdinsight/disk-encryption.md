@@ -5,12 +5,12 @@ description: この記事では、Azure HDInsight クラスターの保存デー
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 08/10/2020
-ms.openlocfilehash: 58b3d892ea24430a9d951a5a0230282f6c4fd584
-ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
+ms.openlocfilehash: 226516b1178f14789570b45b68cfdbf56f63bbd7
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99988611"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107775153"
 ---
 # <a name="azure-hdinsight-double-encryption-for-data-at-rest"></a>Azure HDInsight の保存データの二重暗号化
 
@@ -76,25 +76,25 @@ HDInsight では、Azure Key Vault にのみ対応しています。 自分の�
 
 1. 新しいキー コンテナーから、 **設定** > **キー** >  **+ 生成/インポート** に移動します。
 
-    ![Azure Key Vault で新しいキーを生成する](./media/disk-encryption/create-new-key.png "Azure Key Vault で新しいキーを生成する")
+    :::image type="content" source="./media/disk-encryption/create-new-key.png" alt-text="Azure Key Vault で新しいキーを生成する":::
 
 1. 名前を入力し、 **作成** を選択します。 **RSA** のデフォルトの **キー タイプ** を維持します。
 
-    ![キー名を生成する](./media/disk-encryption/create-key.png "キー名の生成")
+    :::image type="content" source="./media/disk-encryption/create-key.png" alt-text="キー名を生成する":::
 
 1. **キー** ページに戻り、作成したキーを選択します。
 
-    ![キー コンテナーのキーの一覧](./media/disk-encryption/key-vault-key-list.png)
+    :::image type="content" source="./media/disk-encryption/key-vault-key-list.png" alt-text="キー コンテナーのキーの一覧":::
 
 1. バージョンを選択すると、 **キー バージョン** ページが開きます。 HDInsight クラスターの暗号化に独自のキーを使用する場合は、キーの URI を指定する必要があります。 **キー識別子** をコピーし、クラスターを作成する準備ができるまでどこかに保存します。
 
-    ![キー識別子を取得する](./media/disk-encryption/get-key-identifier.png)
+    :::image type="content" source="./media/disk-encryption/get-key-identifier.png" alt-text="キー識別子を取得する":::
 
 ### <a name="create-access-policy"></a>アクセス ポリシーの作成
 
 1. 新しいキー コンテナーから、 **設定** > **アクセス ポリシー** >  **+ アクセス ポリシーの追加** に移動します。
 
-    ![新しい Azure Key Vault アクセス ポリシーを作成する](./media/disk-encryption/key-vault-access-policy.png)
+    :::image type="content" source="./media/disk-encryption/key-vault-access-policy.png" alt-text="新しい Azure Key Vault アクセス ポリシーを作成する":::
 
 1. **アクセス ポリシーの追加** ページで、次の情報を指定します。
 
@@ -104,13 +104,13 @@ HDInsight では、Azure Key Vault にのみ対応しています。 自分の�
     |シークレットのアクセス許可|**取得**、 **設定**、 **削除** を選択します。|
     |プリンシパルの選択|以前に作成したユーザー割り当てマネージド ID を選択します。|
 
-    ![Azure Key Vault アクセス ポリシーの [プリンシパルの選択] を設定する](./media/disk-encryption/azure-portal-add-access-policy.png)
+    :::image type="content" source="./media/disk-encryption/azure-portal-add-access-policy.png" alt-text="Azure Key Vault アクセス ポリシーの [プリンシパルの選択] を設定する":::
 
 1. **[追加]** を選択します。
 
 1. **[保存]** を選択します。
 
-    ![Azure Key Vault アクセス ポリシーを保存する](./media/disk-encryption/add-key-vault-access-policy-save.png)
+    :::image type="content" source="./media/disk-encryption/add-key-vault-access-policy-save.png" alt-text="Azure Key Vault アクセス ポリシーを保存する":::
 
 ### <a name="create-cluster-with-customer-managed-key-disk-encryption"></a>カスタマー マネージド キー ディスク暗号化を使用してクラスターを作成する
 
@@ -129,11 +129,11 @@ HDInsight では、Azure Key Vault にのみ対応しています。 自分の�
 
 また、クラスターにマネージド ID を割り当てる必要もあります。
 
-![新しいクラスターを作成する](./media/disk-encryption/create-cluster-portal.png)
+:::image type="content" source="./media/disk-encryption/create-cluster-portal.png" alt-text="新しいクラスターを作成する":::
 
 #### <a name="using-azure-cli"></a>Azure CLI の使用
 
-次の例では、Azure CLI を使用して、ディスク暗号化が有効になった新しい Apache Spark クラスターを作成する方法を示します。 詳細については、「 [Azure CLI az hdinsight の作成](/cli/azure/hdinsight#az-hdinsight-create)」をご参照ください。 パラメーター `encryption-key-version` は省略可能です。
+次の例では、Azure CLI を使用して、ディスク暗号化が有効になった新しい Apache Spark クラスターを作成する方法を示します。 詳細については、「 [Azure CLI az hdinsight の作成](/cli/azure/hdinsight#az_hdinsight_create)」をご参照ください。 パラメーター `encryption-key-version` は省略可能です。
 
 ```azurecli
 az hdinsight create -t spark -g MyResourceGroup -n MyCluster \
@@ -367,11 +367,11 @@ Azure portal または Azure CLI を使用して、実行中のクラスター�
 
 キーを回転させるには、ベース キー コンテナー URI が必要です。 これが完了したら、ポータルで HDInsight クラスターのプロパティ セクションに移動し、 **[ディスクの暗号化キーの URL]** で **[キーの変更]** をクリックします。 新しいキーの URL を入力し、キーの交換を実行します。
 
-![ディスク暗号化キーのローテーション](./media/disk-encryption/change-key.png)
+:::image type="content" source="./media/disk-encryption/change-key.png" alt-text="ディスク暗号化キーのローテーション":::
 
 #### <a name="using-azure-cli"></a>Azure CLI の使用
 
-次の例では、既存の HDInsight クラスターでディスク暗号化キーをローテーションする方法を示します。 詳細については、「 [Azure CLI az hdinsight rotate-disk-encryption-key](/cli/azure/hdinsight#az-hdinsight-rotate-disk-encryption-key)」をご参照ください。
+次の例では、既存の HDInsight クラスターでディスク暗号化キーをローテーションする方法を示します。 詳細については、「 [Azure CLI az hdinsight rotate-disk-encryption-key](/cli/azure/hdinsight#az_hdinsight_rotate_disk_encryption_key)」をご参照ください。
 
 ```azurecli
 az hdinsight rotate-disk-encryption-key \
@@ -400,11 +400,11 @@ Hdinsight は、HDInsight クラスターに関連するマネージド ID を�
 
 クラスターがキーへのアクセスを失うと、Apache Ambari ポータルに警告が表示されます。 この状態では、**キーの変更** 操作は失敗します。 キー アクセスが復元されると、Ambari の警告が消え、キーの交換などの操作を正常に実行できます。
 
-![キー アクセス Ambari アラート](./media/disk-encryption/ambari-alert.png)
+:::image type="content" source="./media/disk-encryption/ambari-alert.png" alt-text="キー アクセス Ambari アラート":::
 
 **キーを削除した場合、どのようにしてクラスターを復元しますか?**
 
-「論理的な削除」対応のキーのみがサポートされているため、キーがキー コンテナー内で回復された場合、クラスターはキーへ再びアクセスできるようになります。 Azure Key Vault キーを回復するには、「[Undo-AzKeyVaultKeyRemoval](/powershell/module/az.keyvault/Undo-AzKeyVaultKeyRemoval)」または「[az-keyvault-key-recover](/cli/azure/keyvault/key#az-keyvault-key-recover)」に関するページを参照してください。
+「論理的な削除」対応のキーのみがサポートされているため、キーがキー コンテナー内で回復された場合、クラスターはキーへ再びアクセスできるようになります。 Azure Key Vault キーを回復するには、「[Undo-AzKeyVaultKeyRemoval](/powershell/module/az.keyvault/Undo-AzKeyVaultKeyRemoval)」または「[az-keyvault-key-recover](/cli/azure/keyvault/key#az_keyvault_key_recover)」に関するページを参照してください。
 
 
 **クラスターがスケールアップされた場合、新しいノードでは、カスタマー マネージド キーはシームレスにサポートされますか?**

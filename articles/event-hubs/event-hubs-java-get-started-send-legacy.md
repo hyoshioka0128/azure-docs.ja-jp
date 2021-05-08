@@ -4,12 +4,12 @@ description: この記事では、以前の azure-eventhubs パッケージを�
 ms.topic: quickstart
 ms.date: 06/23/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: e86ca76f3eb661e1407a02b58e60b62b391f5702
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.openlocfilehash: b9bbd5d4290261ec96755f02a6179a7cde267d82
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97607985"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107309409"
 ---
 # <a name="use-java-to-send-events-to-or-receive-events-from-azure-event-hubs-azure-eventhubs"></a>Java を使用して Azure Event Hubs との間でイベントを送受信する (azure-eventhubs)
 
@@ -421,4 +421,4 @@ com.microsoft.azure.eventprocessorhost.EventProcessorHost クラスには、Even
 
 - [EventProcessorHost](event-hubs-event-processor-host.md)
 - [Azure Event Hubs の機能と用語](event-hubs-features.md)
-- [Event Hubs の FAQ](event-hubs-faq.md)
+- [Event Hubs の FAQ](event-hubs-faq.yml)

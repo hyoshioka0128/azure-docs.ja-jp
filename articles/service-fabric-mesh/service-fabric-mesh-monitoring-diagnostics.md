@@ -6,19 +6,19 @@ ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: srrengar
 ms.custom: mvc, devcenter, devx-track-azurecli
-ms.openlocfilehash: 02de8ea5dd5c53192d2b8c7beba8bc36143beac6
-ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
+ms.openlocfilehash: d8859293b4853cbfa8c3b3dd0e7d1bfe4f75fc40
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/06/2021
-ms.locfileid: "99626996"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107766171"
 ---
 # <a name="monitoring-and-diagnostics"></a>監視と診断
 
 > [!IMPORTANT]
-> Azure Service Fabric Mesh のプレビューは廃止されました。 Service Fabric Mesh API による新しいデプロイは許可されなくなります。 既存のデプロイのサポートは、2021 年 4 月 28 日まで継続されます。
+> Azure Service Fabric Mesh のプレビューは廃止されました。 Service Fabric Mesh API を介した新しいデプロイは許可されなくなります。 既存のデプロイのサポートは、2021 年 4 月 28 日まで継続されます。
 > 
-> 詳細については、「[Azure Service Fabric Mesh のプレビューの廃止](https://azure.microsoft.com/updates/azure-service-fabric-mesh-preview-retirement/)」を参照してください。
+> 詳細については、[Azure Service Fabric Mesh のプレビューの廃止](https://azure.microsoft.com/updates/azure-service-fabric-mesh-preview-retirement/)に関する記事を参照してください。
 
 Azure Service Fabric Mesh は、仮想マシン、ストレージ、ネットワークを管理することなく開発者がマイクロサービス アプリケーションをデプロイできるフル マネージド サービスです。 Service Fabric Mesh の監視と診断は、主に次の 3 種類の診断データに分類されます。
 
@@ -80,7 +80,7 @@ Mesh 環境は、コンテナーのパフォーマンスを示す、いくつか
 
 ### <a name="azure-monitor-cli"></a>Azure Monitor の CLI
 
-コマンドの完全な一覧が [Azure Monitor CLI のドキュメント](/cli/azure/monitor/metrics#az-monitor-metrics-list)にありますが、いくつかの役立つ例を以下に示します 
+コマンドの完全な一覧が [Azure Monitor CLI のドキュメント](/cli/azure/monitor/metrics#az_monitor_metrics_list)にありますが、いくつかの役立つ例を以下に示します 
 
 それぞれの例で、リソース ID は次のパターンに従います
 
@@ -124,4 +124,4 @@ In addition to the metrics explorer, we also have a dashboard available out of t
 
 ## <a name="next-steps"></a>次のステップ
 * Service Fabric Mesh の詳細については、[Service Fabric Mesh の概要](service-fabric-mesh-overview.md)に関するページを参照してください。
-* Azure Monitor メトリック コマンドの詳細については、[Azure Monitor CLI のドキュメント](/cli/azure/monitor/metrics#az-monitor-metrics-list)をご確認ください。
+* Azure Monitor メトリック コマンドの詳細については、[Azure Monitor CLI のドキュメント](/cli/azure/monitor/metrics#az_monitor_metrics_list)をご確認ください。

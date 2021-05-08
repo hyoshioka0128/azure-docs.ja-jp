@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/08/2017
 ms.author: robinsh
-ms.openlocfilehash: 4dbda13ffe04e0a4214b24ccaca2b8103a39b9f2
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: ea6ec30ad5f3b1cdbc906cc94cb211295b84e802
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92536064"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107761729"
 ---
 # <a name="configure-iot-hub-file-uploads-using-azure-cli"></a>Azure CLI を使用して IoT Hub ファイルのアップロードを構成する
 
@@ -27,7 +27,7 @@ ms.locfileid: "92536064"
 
 * [Azure CLI](/cli/azure/install-azure-cli)。
 
-* Azure IoT Hub。 IoT Hub がない場合は、[`az iot hub create` コマンド](/cli/azure/iot/hub#az-iot-hub-create)を使用して作成するか、[ポータルを使用して IoT Hub を作成](iot-hub-create-through-portal.md)できます。
+* Azure IoT Hub。 IoT Hub がない場合は、[`az iot hub create` コマンド](/cli/azure/iot/hub#az_iot_hub_create)を使用して作成するか、[ポータルを使用して IoT Hub を作成](iot-hub-create-through-portal.md)できます。
 
 * Azure Storage のアカウント Azure Storage アカウントを持っていない場合は、Azure CLI を使用して作成できます。 詳しくは、「[ストレージ アカウントの作成](../storage/common/storage-account-create.md)」をご覧ください。
 
@@ -57,7 +57,7 @@ Azure アカウントにサインインしてサブスクリプションを選�
 
 ## <a name="retrieve-your-storage-account-details"></a>ストレージ アカウントの詳細を取得する
 
-次の手順は、ストレージ アカウントが、 **クラシック** デプロイ モデルではなく **Resource Manager** デプロイ モデルを使用して作成されていることを前提としています。
+次の手順は、ストレージ アカウントが、**クラシック** デプロイ モデルではなく **Resource Manager** デプロイ モデルを使用して作成されていることを前提としています。
 
 デバイスからファイル アップロードを構成するには、Azure Storage アカウント用の接続文字列が必要です。 Azure Storage アカウントは、IoT Hub と同じサブスクリプション内にある必要があります。 また、ストレージ アカウントには BLOB コンテナーの名前も必要です。 ストレージ アカウント キーを取得するには、次のコマンドを使用します。
 
@@ -89,11 +89,11 @@ az storage account show-connection-string --name {your storage account name} \
 
 構成するには次の値が必要です。
 
-* **ストレージ コンテナー** : IoT Hub に関連付ける、現在の Azure サブスクリプションの Azure ストレージ アカウントの BLOB コンテナー。 必要なストレージ アカウント情報は、前のセクションで取得しました。 IoT Hub により、ファイルをアップロードするときにデバイスで使用する、この BLOB コンテナーへの書き込みアクセス許可を含む SAS URI が自動的に生成します。
+* **ストレージ コンテナー**: IoT Hub に関連付ける、現在の Azure サブスクリプションの Azure ストレージ アカウントの BLOB コンテナー。 必要なストレージ アカウント情報は、前のセクションで取得しました。 IoT Hub により、ファイルをアップロードするときにデバイスで使用する、この BLOB コンテナーへの書き込みアクセス許可を含む SAS URI が自動的に生成します。
 
 * **Receive notifications for uploaded files (アップロードされたファイルに関する通知を受け取る)** : ファイルのアップロードに関する通知を有効または無効にします。
 
-* **SAS TTL** : IoT Hub によりデバイスに返される SAS URI の有効期間を設定します。 既定では 1 時間に設定されています。
+* **SAS TTL**: IoT Hub によりデバイスに返される SAS URI の有効期間を設定します。 既定では 1 時間に設定されています。
 
 * **File notification settings default TTL (ファイルの通知設定 既定の TTL)** : 有効期限が切れるまでのファイルのアップロード通知の有効期間です。 既定では 1 日に設定されています。
 

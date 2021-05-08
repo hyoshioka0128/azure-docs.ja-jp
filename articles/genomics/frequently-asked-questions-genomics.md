@@ -9,12 +9,12 @@ ms.author: grhuynh
 ms.service: genomics
 ms.topic: troubleshooting
 ms.date: 12/07/2017
-ms.openlocfilehash: e8806bc4f761214e6740a22093b7e18030fdf881
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 40fff49aa3ed46417cdd9a6190f928707e41accb
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96018326"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105608614"
 ---
 # <a name="microsoft-genomics-common-questions"></a>Microsoft Genomics: よく寄せられる質問
 
@@ -44,8 +44,8 @@ Microsoft Genomics は、ワークフローあたりの処理ギガベースに�
  |:--------------------|:-------------         |
  |`list`               |送信済みジョブの一覧を返します。 引数については、`msgen help list` を参照してください。  |
  |`submit`             |ワークフロー要求をサービスに送信します。 引数については、`msgen help submit` を参照してください。|
- |`status`             |`--workflow-id` で指定されたワークフローの状態を返します。 `msgen help status` も参照してください。 |
- |`cancel`             |`--workflow-id` で指定されたワークフローの処理をキャンセルする要求を送信します。 `msgen help cancel` も参照してください。 |
+ |`status`             |`--workflow-id` で指定されたワークフローの状態を返します。 参照 `msgen help status`. |
+ |`cancel`             |`--workflow-id` で指定されたワークフローの処理をキャンセルする要求を送信します。 参照 `msgen help cancel`. |
 
 ## <a name="where-do-i-get-the-value-for---api-url-base"></a>`--api-url-base` の値はどこで取得できますか。
 Azure Portal に移動して、Genomics アカウント ページを開きます。 **[管理]** 見出しの下の **[アクセス キー]** を選択します。 ここに、API URL とアクセス キーの両方が表示されます。
@@ -58,6 +58,10 @@ Azure Portal に移動して、Genomics アカウント ページを開きます
 
 ## <a name="do-you-save-my-storage-account-keys"></a>ストレージ アカウント キーはマイクロソフトで保存されますか。
 ストレージ アカウント キーは、入力ファイルの読み取りと出力ファイルの書き込みを行うための Microsoft Genomics サービスの短期的なアクセス トークンの作成に使用されます。 トークンの既定の有効期間は 48 時間です。 トークンの有効期間は、送信コマンドの `-sas/--sas-duration` オプション (値は時間単位) を使用して変更できます。
+
+## <a name="does-microsoft-genomics-store-customer-data"></a>顧客データは Microsoft Genomics に格納されますか。
+
+いいえ。 Microsoft Genomics に顧客データは一切格納されません。
 
 ## <a name="what-genome-references-can-i-use"></a>どのようなゲノム リファレンスを使用できますか。
 
@@ -80,7 +84,7 @@ msgen は、次の形式の構成ファイルを認識します。
 
   |コマンドライン引数            | 構成ファイルの行 |
   |:-------------                   |:-------------                 |
-  |`-u/--api-url-base https://url`  | *api_url_base: https://url*    |
+  |`-u/--api-url-base https://url`  | *api_url_base:https://url*    |
   |`-k/--access-key KEY`            | *access_key:KEY*              |      
   |`-pa/--process-args R=B37m1`     | *process_args:R-b37m1*        |  
 

@@ -1,24 +1,14 @@
 ---
 title: 'クイックスタート: 概要'
 description: このクイックスタートでは、Defender for IoT のデプロイに関する基本的なワークフローを理解して作業を開始する方法について学習します。
-services: defender-for-iot
-ms.service: defender-for-iot
-documentationcenter: na
-author: shhazam-ms
-manager: rkarlin
-editor: ''
-ms.devlang: na
 ms.topic: quickstart
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 2/18/2021
-ms.author: shhazam
-ms.openlocfilehash: 487f9be432c908bf8ee1da858a9e45a18adffb8c
-ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
+ms.openlocfilehash: aa26ea26a3fb0a08d931657cb7ad236c68972e2f
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102447709"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106384955"
 ---
 # <a name="quickstart-get-started-with-defender-for-iot"></a>クイックスタート: Defender for IoT での作業を開始する
 
@@ -30,7 +20,7 @@ ms.locfileid: "102447709"
 
 ## <a name="prerequisites"></a>前提条件
 
-なし
+- なし
 
 ## <a name="permission-requirements"></a>権限の要件
 
@@ -70,11 +60,14 @@ Azure Defender for IoT では、物理的な配置と仮想デプロイの両方
 登録するには、次の手順を実行します。
 
 1. Azure Defender for IoT ポータルに移動します。
+
 1. **[Onboard subscription]\(サブスクリプションのオンボード\)** を選択します。
+
 1. **[価格]** ページでサブスクリプションを選択するか、新しいサブスクリプションを作成してコミット済みデバイスの数を追加します。
+
 1. **[Download the on-premises management console]\(オンプレミス管理コンソールのダウンロード\)** タブを選択し、ダウンロードしたアクティブ化ファイルを保存します。 このファイルには、定義したコミット済みデバイスがまとめられています。 このファイルは、最初のサインイン後に管理コンソールにアップロードされます。
 
-サブスクリプションをオフボードする方法について詳しくは、「[サブスクリプションをオフボードする](how-to-manage-sensors-on-the-cloud.md#offboard-a-subscription)」を参照してください。
+サブスクリプションをオフボードする方法について詳しくは、「[サブスクリプションをオフボードする](how-to-manage-subscriptions.md#offboard-a-subscription)」を参照してください。
 
 ## <a name="install-and-set-up-the-on-premises-management-console"></a>オンプレミス管理コンソールをインストールして設定する
 
@@ -97,6 +90,7 @@ Azure Defender for IoT では、物理的な配置と仮想デプロイの両方
 センサーを Azure Defender for IoT に登録してセンサー アクティブ化ファイルをダウンロードし、センサーをオンボードします。
 
 1. センサー名を定義し、サブスクリプションに関連付けます。
+
 1. センサーの管理モードを定義します。
 
    - **クラウド接続センサー**:センサーによって検出された情報は、センサー コンソールに表示されます。 さらに、アラート情報は、IoT ハブを通じて配信され、Azure Sentinel などの他の Azure サービスと共有できます。
@@ -112,9 +106,13 @@ Azure Defender for IoT では、物理的な配置と仮想デプロイの両方
 Azure Defender for IoT ポータルから ISO パッケージをダウンロードし、ソフトウェアをインストールして、センサーを設定します。
 
 1. Defender for IoT ポータルから **[作業の開始]** を選択します。
+
 1. **[Set up sensor]\(センサーの設定\)** を選択します。
+
 1. バージョンを選択し、 **[ダウンロード]** を選択します。
+
 1. センサー ソフトウェアをインストールします。 詳細については、[Defender for IoT のインストール](how-to-install-software.md)に関する記事を参照してください。
+
 1. センサーをアクティブにして設定します。 詳細については、[センサーのサインインとアクティブ化](how-to-activate-and-set-up-your-sensor.md)に関する記事を参照してください。
 
 ## <a name="connect-sensors-to-an-on-premises-management-console"></a>センサーをオンプレミス管理コンソールに接続します。

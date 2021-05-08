@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: tutorial
 ms.custom: hdinsightactive, devx-track-azurecli
 ms.date: 04/15/2020
-ms.openlocfilehash: 7d026d93ebe6f6a0bd9afbd277294d58d7a2a69b
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 140709a0ddb548c126ceca208fdeef2db77616bf
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98932050"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107761801"
 ---
 # <a name="tutorial-create-an-end-to-end-data-pipeline-to-derive-sales-insights-in-azure-hdinsight"></a>チュートリアル:Azure HDInsight でエンドツーエンドのデータ パイプラインを作成して売上の分析情報を導き出す
 
@@ -18,7 +18,7 @@ ms.locfileid: "98932050"
 
 このデータ パイプラインでは、さまざまな店舗のデータを結合し、不要なデータがあれば削除して新しいデータを追加し、これをすべてストレージに再度読み込んで、ビジネスの分析情報を視覚化します。 ETL パイプラインの詳細については、「[大規模な抽出、変換、および読み込み (ETL)](./hadoop/apache-hadoop-etl-at-scale.md)」を参照してください。
 
-![ETL アーキテクチャ](./media/hdinsight-sales-insights-etl/architecture.png)
+:::image type="content" source="./media/hdinsight-sales-insights-etl/architecture.png" alt-text="ETL アーキテクチャ" border="false":::
 
 Azure サブスクリプションをお持ちでない場合は、開始する前に [無料アカウント](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) を作成してください。
 
@@ -90,7 +90,7 @@ Azure サブスクリプションをお持ちでない場合は、開始する�
     ./scripts/resources.sh $resourceGroup LOCATION
     ```
 
-    指定するリージョンがわからない場合は、[az account list-locations](/cli/azure/account#az-account-list-locations) コマンドで、サブスクリプションに対してサポートされているリージョンの一覧を取得できます。
+    指定するリージョンがわからない場合は、[az account list-locations](/cli/azure/account#az_account_list_locations) コマンドで、サブスクリプションに対してサポートされているリージョンの一覧を取得できます。
 
     このコマンドによって次のリソースがデプロイされます。
 

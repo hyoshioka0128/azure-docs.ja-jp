@@ -1,18 +1,18 @@
 ---
 title: Azure Files のリファレンス
 description: Azure Files API リファレンス、readme ファイル、クライアント ライブラリ パッケージが見つかります。
-author: mhopkins-msft
-ms.author: mhopkins
+author: twooley
+ms.author: twooley
 ms.date: 07/14/2020
 ms.service: storage
 ms.topic: conceptual
 ms.reviewer: ripohane
-ms.openlocfilehash: 828bb909aeb5d34f087a3173f792b325dc7cfd55
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.openlocfilehash: be50c60893b9767e7db2c5af0e43ed380a51ecab
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102504816"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106280005"
 ---
 # <a name="azure-files-reference"></a>Azure Files のリファレンス
 

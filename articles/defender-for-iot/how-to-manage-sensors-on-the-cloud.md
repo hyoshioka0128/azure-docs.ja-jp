@@ -1,20 +1,16 @@
 ---
-title: Defender for IoT ポータルでセンサーとサブスクリプションをオンボードして管理する
+title: Defender for IoT ポータルでセンサーとサブスクリプションを管理する
 description: Defender for IoT ポータルでセンサーのオンボード、表示、管理を行う方法について説明します。
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 2/18/2021
 ms.topic: how-to
-ms.service: azure
-ms.openlocfilehash: 63b3b450e289b40aa9acbfb0d5170e8eb57f9e58
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 5b4c8b3d10fe88816e07eb775b2bf3827d578b17
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101733263"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106383050"
 ---
-# <a name="onboard-and-manage-sensors-and-subscriptions-in-the-defender-for-iot-portal"></a>Defender for IoT ポータルでセンサーとサブスクリプションをオンボードして管理する
+# <a name="manage-sensors-and-subscriptions-in-the-defender-for-iot-portal"></a>Defender for IoT ポータルでセンサーとサブスクリプションを管理する
 
 この記事では、[Defender for IoT ポータル](https://portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started)でセンサーのオンボード、表示、管理を行う方法について説明します。
 
@@ -141,6 +137,6 @@ ms.locfileid: "101733263"
 
 オンプレミスの環境は影響を受けませんが、オンプレミスの環境からセンサーをアンインストールするか、センサーを別のサブスクリプションに割り当て直して、関連するデータがオンプレミスの管理コンソールに流れないようにする必要があります。 
 
-## <a name="see-also"></a>関連項目
+## <a name="next-steps"></a>次の手順
 
 [センサーをアクティブにしてセットアップする](how-to-activate-and-set-up-your-sensor.md)

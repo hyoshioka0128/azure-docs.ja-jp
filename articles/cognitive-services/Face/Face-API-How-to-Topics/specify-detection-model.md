@@ -12,10 +12,10 @@ ms.date: 03/05/2021
 ms.author: yluiu
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 72fd005ce44d116f86d9a0b4c0d1932e2e4facfb
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/07/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102425772"
 ---
 # <a name="specify-a-face-detection-model"></a>顔検出モデルを指定する

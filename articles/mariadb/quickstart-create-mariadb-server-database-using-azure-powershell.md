@@ -3,17 +3,20 @@ title: クイック スタート:サーバーを作成する - Azure PowerShell 
 description: このクイックスタートでは、PowerShell を使用して、Azure Database for MariaDB サーバーを Azure リソース グループに作成する方法を説明します。
 author: savjani
 ms.author: pariks
-ms.service: jroth
-ms.devlang: azurepowershell
-ms.topic: quickstart
 ms.date: 05/26/2020
-ms.custom: mvc, devx-track-azurepowershell
-ms.openlocfilehash: 91472d3f3cb39d34f560715f511f666079b1d1c0
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.topic: quickstart
+ms.service: mariadb
+ms.devlang: azurepowershell
+ms.custom:
+- mvc
+- devx-track-azurepowershell
+- mode-api
+ms.openlocfilehash: 7bfbd223cb337ff7d908032c769afbbf5cafa38f
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98664666"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107531397"
 ---
 # <a name="quickstart-create-an-azure-database-for-mariadb-server-using-powershell"></a>クイック スタート:PowerShell を使用した Azure Database for MariaDB サーバーの作成
 
@@ -139,7 +142,7 @@ mydemoserver.mariadb.database.azure.com       myadmin
 
 ## <a name="connect-to-the-server-using-the-mysql-command-line-tool"></a>mysql コマンドライン ツールを使用してサーバーに接続する
 
-`mysql` コマンドライン ツールを使用してサーバーに接続します。 コマンドライン ツールをダウンロードしてインストールするには、「[MySQL コミュニティ ダウンロード](https://dev.mysql.com/downloads/shell/)」を参照してください。 また、この記事のコード サンプルにある **[試してみる]** ボタンを選択することにより、Azure Cloud Shell の `mysql` コマンドライン ツールのプレインストール バージョンにアクセスすることもできます。 Azure Cloud Shell にアクセスするその他の方法として、Azure portal の右上のツール バーにある **[>_]** を選択するか、[shell.azure.com](https://shell.azure.com/) にアクセスします。
+`mysql` コマンドライン ツールを使用してサーバーに接続します。 コマンドライン ツールをダウンロードしてインストールするには、「[MySQL コミュニティ ダウンロード](https://dev.mysql.com/downloads/shell/)」を参照してください。 また、この記事のコード サンプルにある **[使ってみる]** ボタンを選択することにより、Azure Cloud Shell の `mysql` コマンドライン ツールのプレインストール バージョンにアクセスすることもできます。 Azure Cloud Shell にアクセスするその他の方法として、Azure portal の右上のツール バーにある **[>_]** を選択するか、[shell.azure.com](https://shell.azure.com/) にアクセスします。
 
 1. `mysql` コマンドライン ツールを使用してサーバーに接続します。
 

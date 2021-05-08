@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 09/09/2019
-ms.openlocfilehash: 3b2925a532d722598ccf16c001c9e2591aed1f2b
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: cc2afb2b29c69e9687dbd3b194b6a1626d4131b3
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99584992"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105625196"
 ---
 # <a name="apply-math-operation"></a>算術演算の適用
 
@@ -254,6 +254,7 @@ y = x * 2<sup>t</sup> の値を求め、2 を底とする引数の指数を返�
 - Divide(Arg1_Arg2) =  Arg1 / Arg 2
 
 いくつかの例を次の表に示します
+
 操作|Num1|Num2|結果列|結果の値|
 ----|----|----|----|----
 |加算|1|5|Add(Num2_Num1)| 6|
@@ -303,7 +304,7 @@ Azure Machine Learning デザイナーでは、さまざまな丸めの演算が
 
 ### <a name="mod"></a>Mod
 
-指定された精度に合わせて、 **[Column set]\(列セット\)** 内の値の小数部を返します。  
+指定された有効桁数に対して、[**列セット**] の値の端数部分を返します。  
 
 ### <a name="quotient"></a>商
 

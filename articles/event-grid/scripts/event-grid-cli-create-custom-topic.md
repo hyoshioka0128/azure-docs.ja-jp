@@ -5,12 +5,12 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.date: 07/08/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: d61dac0e76fc7b7006fa36f1cb96965ccee3d863
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4e381310db5a21e532b262063ee33de3a23edeb2
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87494130"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107766747"
 ---
 # <a name="create-event-grid-custom-topic-with-azure-cli"></a>Azure CLI を使用した Event Grid のカスタム トピックの作成
 
@@ -28,9 +28,9 @@ ms.locfileid: "87494130"
 
 このスクリプトは、次のコマンドを使用してカスタム トピックを作成します。 表内の各コマンドは、それぞれのドキュメントにリンクされています。
 
-| command | メモ |
+| コマンド | Notes |
 |---|---|
-| [az eventgrid topic create](/cli/azure/eventgrid/topic#az-eventgrid-topic-create) | Event Grid のカスタム トピックを作成します。 |
+| [az eventgrid topic create](/cli/azure/eventgrid/topic#az_eventgrid_topic_create) | Event Grid のカスタム トピックを作成します。 |
 
 
 ## <a name="next-steps"></a>次のステップ

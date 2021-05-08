@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 01/24/2017
 ms.author: mimckitt
 ms.openlocfilehash: 124ab121186ff7c9047515f2ee1ff51cee1114b8
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102557490"
 ---
 # <a name="set-up-key-vault-for-virtual-machines-using-azure-powershell"></a>Azure PowerShell を使用して仮想マシンの Key Vault を設定する

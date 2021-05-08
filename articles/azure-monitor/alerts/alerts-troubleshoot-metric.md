@@ -4,13 +4,13 @@ description: Azure Monitor のメトリック警告に関する一般的な問�
 author: harelbr
 ms.author: harelbr
 ms.topic: troubleshooting
-ms.date: 01/21/2021
-ms.openlocfilehash: 2bd82d18d6647e47d9838702af45cff68f2bc6cd
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.date: 04/12/2021
+ms.openlocfilehash: 85be4100d62971ef7f69840ae3e9b117fbc3c047
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102037865"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107305227"
 ---
 # <a name="troubleshooting-problems-in-azure-monitor-metric-alerts"></a>Azure Monitor のメトリック警告に関する問題のトラブルシューティング 
 
@@ -91,9 +91,10 @@ Azure Monitor のアラートは、監視データで重要な状態が見つか
 [メトリックの特定のディメンション値](./alerts-metric-overview.md#using-dimensions)についてアラートを作成しようとしているが、これらの値が見つからない場合は、次の点に注意してください。
 
 1. ディメンション値が **ディメンション値** 一覧に表示されるまでに数分かかる場合があります。
-1. 表示されるディメンション値は、過去 1 日間に収集されたメトリック データに基づいています
-1. ディメンション値がまだ生成されていない場合、または表示されない場合は、[カスタム値を追加] オプションを使用してカスタム ディメンション値を追加できます
-1. ディメンションのすべての可能な値 (将来の値を含む) について警告を生成する場合は、[現在および将来の値をすべて選択する] オプションを選択します
+2. 表示されるディメンション値は、過去 1 日間に収集されたメトリック データに基づいています
+3. ディメンション値がまだ生成されていない場合、または表示されない場合は、[カスタム値を追加] オプションを使用してカスタム ディメンション値を追加できます
+4. ディメンションのすべての可能な値 (将来の値を含む) について警告を生成する場合は、[現在および将来の値をすべて選択する] オプションを選択します
+5. Application Insights リソースのカスタム メトリック ディメンションは、既定ではオフになっています。 これらのカスタム メトリックのディメンションのコレクションをオンにするには、[こちら](../app/pre-aggregated-metrics-log-metrics.md#custom-metrics-dimensions-and-pre-aggregation)を参照してください。
 
 ## <a name="metric-alert-rules-still-defined-on-a-deleted-resource"></a>削除されたリソースに対してメトリック警告ルールがまだ定義されている 
 
@@ -138,11 +139,9 @@ Azure リソースを削除しても、関連付けられているメトリッ�
 ## <a name="export-the-azure-resource-manager-template-of-a-metric-alert-rule-via-the-azure-portal"></a>Azure portal を使用してメトリック アラート ルールの Azure Resource Manager テンプレートをエクスポートする
 
 メトリック アラート ルールの Resource Manager テンプレートのエクスポートは、その JSON 構文やプロパティを理解するために役立ち、将来のデプロイを自動化するために使用できます。
-1. ポータルの **[リソース グループ]** セクションに移動し、ルールが含まれているリソース グループを選択します。
-2. [概要] セクションで、 **[非表示の型の表示]** チェックボックスをオンにします。
-3. **[種類]** フィルターで、 *[microsoft.insights/metricalerts]* を選択します。
-4. 関連するアラート ルールを選択して、その詳細を表示します。
-5. **[設定]** で、 **[テンプレートのエクスポート]** を選択します。
+1. Azure portal で、警告ルールを開いて詳細を表示します。
+2. **[プロパティ]** をクリックします。
+3. **[オートメーション]** で、 **[テンプレートのエクスポート]** を選択します。
 
 ## <a name="metric-alert-rules-quota-too-small"></a>メトリック警告ルールのクォータが小さすぎる
 

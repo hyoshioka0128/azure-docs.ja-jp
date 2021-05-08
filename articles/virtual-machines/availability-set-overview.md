@@ -7,10 +7,10 @@ ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 02/18/2021
 ms.openlocfilehash: c0bbc218723ea75064d9eb6f9c5f8f8c0d18a10b
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/09/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102510409"
 ---
 # <a name="availability-sets-overview"></a>可用性セットの概要

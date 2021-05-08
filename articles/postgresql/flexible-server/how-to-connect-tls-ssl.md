@@ -1,17 +1,17 @@
 ---
 title: Azure Database for PostgreSQL - フレキシブル サーバーでの TLS/SSL を使用した暗号化された接続
 description: Azure Database for PostgreSQL - フレキシブル サーバーで TLS/SSL を使用して接続する方法に関する手順および情報。
-author: ambhatna
-ms.author: ambhatna
+author: sunilagarwal
+ms.author: sunila
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: 0ba04ff14e62cd411515a765dc95ef7a3e72b709
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cd9a74e9a05dad68a5d05fd8b9c92ed566c21766
+ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90931219"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107227434"
 ---
 # <a name="encrypted-connectivity-using-transport-layer-security-in-azure-database-for-postgresql---flexible-server"></a>Azure Database for PostgreSQL - フレキシブル サーバーでのトランスポート層セキュリティを使用した暗号化された接続
 

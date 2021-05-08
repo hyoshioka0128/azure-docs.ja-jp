@@ -5,14 +5,14 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: quickstart
-ms.date: 02/09/2021
+ms.date: 04/07/2021
 ms.author: memildin
-ms.openlocfilehash: 342904a3ae996fe8c2eeddf2edfbc4283a3d03eb
-ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
+ms.openlocfilehash: 96a389a581a9ecaddfc418824b3ebe9c780e6bd1
+ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102439444"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107011589"
 ---
 # <a name="configure-email-notifications-for-security-alerts"></a>セキュリティ アラートの電子メール通知を構成する 
 
@@ -59,6 +59,8 @@ ms.locfileid: "102439444"
 
 これは、セキュリティ連絡先の構成を作成する際の PUT 要求本文の例です。
 
+URI: https://management.azure.com/subscriptions/<SubscriptionId> /providers/Microsoft.Security/securityContacts/default?api-version=2020-01-01-preview
+
 ```json
 {
     "properties": {
@@ -69,7 +71,7 @@ ms.locfileid: "102439444"
         },
         "alertNotifications": {
             "state": "On",
-            "minimalSeverity": "High"
+            "minimalSeverity": "Medium"
         },
         "phone": ""
     }

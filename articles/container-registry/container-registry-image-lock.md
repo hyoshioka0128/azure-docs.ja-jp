@@ -3,12 +3,12 @@ title: イメージのロック
 description: コンテナー イメージまたはリポジトリの属性を設定して、Azure コンテナー レジストリで削除や上書きができないようにします。
 ms.topic: article
 ms.date: 09/30/2019
-ms.openlocfilehash: da84767523bb6d948b71b1c1ad2ddaffb628354a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 340beb1bb6666ddf0de7de38adee6be71f5f52bd
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77659698"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107772345"
 ---
 # <a name="lock-a-container-image-in-an-azure-container-registry"></a>Azure コンテナー レジストリのコンテナー イメージをロックする
 
@@ -21,9 +21,9 @@ Azure コンテナー レジストリでは、イメージ バージョンまた
 
 ## <a name="scenarios"></a>シナリオ
 
-既定では、Azure Container Registry のタグ付けされたイメージは*変更可能*であるため、適切なアクセス許可で、同じタグのイメージを定期的に更新し、レジストリにプッシュすることができます。 必要に応じて、コンテナー イメージを[削除する](container-registry-delete.md)こともできます。 この動作は、イメージを開発し、レジストリのサイズを維持する必要がある場合に役立ちます。
+既定では、Azure Container Registry のタグ付けされたイメージは *変更可能* であるため、適切なアクセス許可で、同じタグのイメージを定期的に更新し、レジストリにプッシュすることができます。 必要に応じて、コンテナー イメージを[削除する](container-registry-delete.md)こともできます。 この動作は、イメージを開発し、レジストリのサイズを維持する必要がある場合に役立ちます。
 
-しかし、コンテナー イメージを運用環境にデプロイするときに、*不変の*コンテナー イメージが必要になる場合があります。 不変のイメージとは、誤って削除や上書きできないものです。
+しかし、コンテナー イメージを運用環境にデプロイするときに、*不変の* コンテナー イメージが必要になる場合があります。 不変のイメージとは、誤って削除や上書きできないものです。
 
 レジストリでのタグ付けとイメージ作成の方法については、「[コンテナー イメージのタグ付けとバージョン管理に関する推奨事項](container-registry-image-tag-version.md)」を参照してください。
 
@@ -154,9 +154,8 @@ az acr repository update \
 削除操作の詳細については、「[Azure Container Registry のコンテナー イメージを削除する][container-registry-delete]」を参照してください。
 
 <!-- LINKS - Internal -->
-[az-acr-repository-update]: /cli/azure/acr/repository#az-acr-repository-update
-[az-acr-repository-show]: /cli/azure/acr/repository#az-acr-repository-show
-[az-acr-repository-show-manifests]: /cli/azure/acr/repository#az-acr-repository-show-manifests
+[az-acr-repository-update]: /cli/azure/acr/repository#az_acr_repository_update
+[az-acr-repository-show]: /cli/azure/acr/repository#az_acr_repository_show
+[az-acr-repository-show-manifests]: /cli/azure/acr/repository#az_acr_repository_show_manifests
 [azure-cli]: /cli/azure/install-azure-cli
 [container-registry-delete]: container-registry-delete.md
-

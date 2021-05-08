@@ -3,19 +3,21 @@ title: Azure Resource Manager テンプレートを使用して Azure 通知ハ�
 description: Azure Resource Manager テンプレート (ARM テンプレート) を使用して Azure 通知ハブを作成する方法を説明します。
 services: notification-hubs
 author: sethmanheim
-ms.service: notification-hubs
-ms.topic: quickstart
-ms.custom: subject-armqs
 ms.author: sethm
-ms.date: 08/04/2020
 ms.reviewer: thsomasu
+ms.date: 08/04/2020
 ms.lastreviewed: 05/15/2020
-ms.openlocfilehash: 2165351bee4ee260e768c10b23e26bf095779cad
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.topic: quickstart
+ms.service: notification-hubs
+ms.custom:
+- subject-armqs
+- mode-arm
+ms.openlocfilehash: a328d6b8942c3209e13dc91a2fb892e98e3016f6
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88684645"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107533473"
 ---
 # <a name="quickstart-create-a-notification-hub-using-an-arm-template"></a>クイック スタート:ARM テンプレートを使用して通知ハブを作成する
 

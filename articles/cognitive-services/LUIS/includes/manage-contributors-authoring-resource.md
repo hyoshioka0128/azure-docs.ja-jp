@@ -9,10 +9,10 @@ ms.date: 02/14/2020
 ms.subservice: language-understanding
 ms.topic: include
 ms.openlocfilehash: 147a7868d99e8ba479ea490b5467fed3386fc161
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/18/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "101102973"
 ---
 他のユーザーによるアプリの作成が必要な場合は、関連付けられているメール アドレスを Azure portal の作成リソースに追加する必要があります。

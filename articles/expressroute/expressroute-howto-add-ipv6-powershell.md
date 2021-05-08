@@ -5,21 +5,21 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: how-to
-ms.date: 2/9/2021
+ms.date: 03/02/2021
 ms.author: duau
-ms.openlocfilehash: 402714b55d7513e41458503b12c68768d0c6ad5e
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 7a9ac98a9566986767016720fda245712197b27f
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101743969"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105566542"
 ---
 # <a name="add-ipv6-support-for-private-peering-using-azure-powershell-preview"></a>Azure PowerShell を使用してプライベート ピアリングに対する IPv6 サポートを追加する (プレビュー)
 
 この記事では、Azure PowerShell を使用して Azure 内のリソースに ExpressRoute 経由で接続するための IPv6 サポートを追加する方法について説明します。
 
 > [!Note]
-> この機能は現在、[Availability Zones がある Azure リージョン](https://docs.microsoft.com/azure/availability-zones/az-region#azure-regions-with-availability-zones)のプレビューで使用できます。 したがって、ExpressRoute 回線は任意のピアリングの場所を使用して作成できますが、接続先である IPv6 ベースのデプロイは、Availability Zones があるリージョン内に存在している必要があります。
+> この機能は現在、[Availability Zones がある Azure リージョン](../availability-zones/az-region.md#azure-regions-with-availability-zones)のプレビューで使用できます。 したがって、ExpressRoute 回線は任意のピアリングの場所を使用して作成できますが、接続先である IPv6 ベースのデプロイは、Availability Zones があるリージョン内に存在している必要があります。
 
 ## <a name="working-with-azure-powershell"></a>Azure PowerShell を使用する
 
@@ -46,7 +46,7 @@ IPv6 サポートを追加する前に、まずサブスクリプションを登
 
 ## <a name="add-ipv6-private-peering-to-your-expressroute-circuit"></a>ExpressRoute 回線に IPv6 プライベート ピアリングを追加する
 
-1. [ExpressRoute 回線を作成](https://docs.microsoft.com/azure/expressroute/expressroute-howto-circuit-arm)するか、既存の回線を使用します。 **Get-AzExpressRouteCircuit** コマンドを実行して、回線を取得します。
+1. [ExpressRoute 回線を作成](./expressroute-howto-circuit-arm.md)するか、既存の回線を使用します。 **Get-AzExpressRouteCircuit** コマンドを実行して、回線を取得します。
 
     ```azurepowershell-interactive
     $ckt = Get-AzExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
@@ -60,8 +60,8 @@ IPv6 サポートを追加する前に、まずサブスクリプションを登
 
 3. 既存の IPv4 プライベート ピアリング構成に IPv6 プライベート ピアリングを追加します。 プライマリ リンクとセカンダリ リンク用に所有している /126 IPv6 サブネットのペアを指定します。 これらの各サブネットから、ユーザーは 1 番目に使用可能な IP アドレスを自分のルーターに割り当て、Microsoft は 2 番目に使用可能な IP アドレスをそのルーターに割り当てます。
 
-> [!Note]
-> ピアの ASN と VlanId は、IPv4 プライベート ピアリング構成内のものと一致している必要があります。
+    > [!Note]
+    > ピアの ASN と VlanId は、IPv4 プライベート ピアリング構成内のものと一致している必要があります。
 
     ```azurepowershell-interactive
     Set-AzExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -ExpressRouteCircuit $ckt -PeeringType AzurePrivatePeering -PeerASN 100 -PrimaryPeerAddressPrefix "3FFE:FFFF:0:CD30::/126" -SecondaryPeerAddressPrefix "3FFE:FFFF:0:CD30::4/126" -VlanId 200 -PeerAddressType IPv6
@@ -150,7 +150,7 @@ IPv6 プライベート ピアリングを使用する Availability Zones があ
     Set-AzVirtualNetwork -VirtualNetwork $vnet
     ```
 
-4. 既存のゾーン冗長ゲートウェイがある場合は、次を実行して IPv6 接続を有効にします。 それ以外の場合は、ゾーン冗長 SKU (ErGw1AZ、ErGw2AZ、ErGw3AZ) を使用して[仮想ネットワーク ゲートウェイを作成](https://docs.microsoft.com/azure/expressroute/expressroute-howto-add-gateway-resource-manager)します。
+4. 既存のゾーン冗長ゲートウェイがある場合は、次を実行して IPv6 接続を有効にします。 それ以外の場合は、ゾーン冗長 SKU (ErGw1AZ、ErGw2AZ、ErGw3AZ) を使用して[仮想ネットワーク ゲートウェイを作成](./expressroute-howto-add-gateway-resource-manager.md)します。
 
     ```azurepowershell-interactive
     $gw = Get-AzVirtualNetworkGateway -Name "GatewayName" -ResourceGroupName "ExpressRouteResourceGroup"
@@ -161,13 +161,13 @@ IPv6 プライベート ピアリングを使用する Availability Zones があ
 
 IPv6 プライベート ピアリングを使用して Availability Zones があるリージョン内の新しい Azure リソース セットに接続する場合は、下の手順に従います。
 
-1. IPv4 と IPv6 の両方のアドレス空間を使用して、デュアルスタック仮想ネットワークを作成します。 詳細については、「[仮想ネットワークの作成](https://docs.microsoft.com/azure/virtual-network/quick-create-portal#create-a-virtual-network)」をご覧ください。
+1. IPv4 と IPv6 の両方のアドレス空間を使用して、デュアルスタック仮想ネットワークを作成します。 詳細については、「[仮想ネットワークの作成](../virtual-network/quick-create-portal.md#create-a-virtual-network)」をご覧ください。
 
-2. [デュアルスタック ゲートウェイ サブネットを作成します](https://docs.microsoft.com/azure/expressroute/expressroute-howto-add-gateway-resource-manager#add-a-gateway)。
+2. [デュアルスタック ゲートウェイ サブネットを作成します](./expressroute-howto-add-gateway-resource-manager.md#add-a-gateway)。
 
-3. ゾーン冗長 SKU (ErGw1AZ、ErGw2AZ、ErGw3AZ) を使用して[仮想ネットワーク ゲートウェイを作成](https://docs.microsoft.com/azure/expressroute/expressroute-howto-add-gateway-resource-manager#add-a-gateway)します。 FastPath の使用を計画している場合は、ErGw3AZ を使用します。
+3. ゾーン冗長 SKU (ErGw1AZ、ErGw2AZ、ErGw3AZ) を使用して[仮想ネットワーク ゲートウェイを作成](./expressroute-howto-add-gateway-resource-manager.md#add-a-gateway)します。 FastPath を使用する予定であれば、ErGw3AZ を使用してください (これは ExpressRoute Direct を利用する回線でのみ利用できます)。
 
-4. [仮想ネットワークを ExpressRoute 回線にリンクします](https://docs.microsoft.com/azure/expressroute/expressroute-howto-linkvnet-arm)。
+4. [仮想ネットワークを ExpressRoute 回線にリンクします](./expressroute-howto-linkvnet-arm.md)。
 
 ## <a name="limitations"></a>制限事項
 IPv6 サポートは、Availability Zones があるリージョン内のデプロイへの接続に使用できますが、次のユース ケースはサポートされていません。
@@ -175,6 +175,10 @@ IPv6 サポートは、Availability Zones があるリージョン内のデプ�
 * Azure 内のデプロイへの接続に AZ ExpressRoute ゲートウェイ SKU 以外を使用
 * AZ リージョン内以外のデプロイへの接続
 * ExpressRoute 回線間の Global Reach 接続
+* ExpressRoute と仮想 WAN の使用
+* ExpressRoute Direct 以外の回線の FastPath
+* ピアリングの場所 (ドバイ) に回線がある FastPath
+* VPN Gateway との共存
 
 ## <a name="next-steps"></a>次のステップ
 

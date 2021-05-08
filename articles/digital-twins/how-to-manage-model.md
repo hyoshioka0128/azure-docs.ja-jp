@@ -4,19 +4,19 @@ titleSuffix: Azure Digital Twins
 description: Azure Digital Twins 内でモデルを作成、編集、および削除する方法を説明します。
 author: baanders
 ms.author: baanders
-ms.date: 3/12/2020
+ms.date: 4/07/2021
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 86efd7781c7353b4846c77eba01ed34fb63067ff
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: 3c896e2aad7dae8d03b26e2a16ecb96224ab547b
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102433252"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107303782"
 ---
 # <a name="manage-azure-digital-twins-models"></a>Azure Digital Twins のモデルを管理する
 
-[**DigitalTwinsModels API**](/rest/api/digital-twins/dataplane/models)、[.NET (C#) SDK](/dotnet/api/overview/azure/digitaltwins/client)、または [Azure Digital Twins CLI](how-to-use-cli.md) の使用について、Azure Digital Twins インスタンスで認識されている [モデル](concepts-models.md)を管理できます。 
+[**DigitalTwinsModels API**](/rest/api/digital-twins/dataplane/models)、[.NET (C#) SDK](/dotnet/api/overview/azure/digitaltwins/client)、または [Azure Digital Twins CLI](how-to-use-cli.md) を使用して、Azure Digital Twins インスタンスの[モデル](concepts-models.md)を管理できます。 
 
 管理操作には、モデルのアップロード、検証、取得、および削除が含まれます。 
 
@@ -179,7 +179,7 @@ Azure Digital Twins インスタンスに格納されているモデルを一覧
 * プロパティの読み取り
 * 外部に対するリレーションシップの読み取り
 * 外部からの関係の追加および削除 (つまり、他のツインはこのツイン *に対して* リレーションシップを形成できます)。
-  - リレーションシップ定義内の `target` には、削除されたモデルの DTMI が引き続き反映されます。 ここでは、ターゲットが定義されていないリレーションシップを使用することもできます。
+  - リレーションシップ定義内の `target` には、削除されたモデルの DTMI が引き続き反映されます。 ここでは、ターゲットが定義されていないリレーションシップを使用することもできます。      
 * リレーションシップの削除
 * ツインを削除する
 

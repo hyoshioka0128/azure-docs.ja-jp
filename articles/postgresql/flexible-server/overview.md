@@ -6,13 +6,13 @@ ms.author: sunila
 ms.custom: mvc
 ms.service: postgresql
 ms.topic: overview
-ms.date: 03/03/2021
-ms.openlocfilehash: a080a3b536cb6e11a254f15d745334fbf17531e8
-ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
+ms.date: 04/05/2021
+ms.openlocfilehash: 090d38a92da126cd4fd8423231f856d22ea9a64c
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102439563"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107106838"
 ---
 # <a name="azure-database-for-postgresql---flexible-server"></a>Azure Database for PostgreSQL - フレキシブル サーバー
 
@@ -101,6 +101,9 @@ Azure でワークロードを実行する利点の 1 つは、グローバル�
 | 米国東部 | :heavy_check_mark: | :heavy_check_mark: | 
 | Southeast Asia | :heavy_check_mark: | :heavy_check_mark: |
 | Japan East | :heavy_check_mark: | :heavy_check_mark: | 
+| オーストラリア東部 | :heavy_check_mark: | :heavy_check_mark: | 
+| カナダ中部 | :heavy_check_mark: | :heavy_check_mark: | 
+| フランス中部 | :heavy_check_mark: | :heavy_check_mark: | 
 
 フレキシブル サーバー対応リージョンは今後さらに増える予定です。
 

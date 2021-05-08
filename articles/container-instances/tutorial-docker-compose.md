@@ -4,12 +4,12 @@ description: Docker Compose を使用して、複数コンテナーのアプリ�
 ms.topic: tutorial
 ms.date: 10/28/2020
 ms.custom: ''
-ms.openlocfilehash: a71ff438feaef555a85c33d818c287c64621d40d
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: ef08b9f9e0f596f1d94c0e6edfd46f735fe78053
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92913842"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107786921"
 ---
 # <a name="tutorial-deploy-a-multi-container-group-using-docker-compose"></a>チュートリアル:Docker Compose を使用して複数コンテナー グループをデプロイする 
 
@@ -166,7 +166,7 @@ docker-compose push
 
 レジストリにプッシュされるまでに数分かかる場合があります。
 
-イメージがレジストリに格納されたことを確認するには、[az acr repository show](/cli/azure/acr/repository#az-acr-repository-show) コマンドを実行します。
+イメージがレジストリに格納されたことを確認するには、[az acr repository show](/cli/azure/acr/repository#az_acr_repository_show) コマンドを実行します。
 
 ```azurecli
 az acr repository show --name <acrName> --repository azure-vote-front
@@ -216,7 +216,7 @@ azurevotingappredis_azure-vote-front   myregistry.azurecr.io/azure-vote-front   
 
 クラウドで実行中のアプリケーションを表示するには、表示されている IP アドレスをローカル Web ブラウザーに入力します。 この例では、「`52.179.23.131`」と入力します。 次の例で示すように、サンプル アプリケーションが読み込まれます。
 
-:::image type="content" source="media/tutorial-docker-compose/azure-vote-aci.png" alt-text="投票アプリの画像":::
+:::image type="content" source="media/tutorial-docker-compose/azure-vote-aci.png" alt-text="ACI での投票アプリの画像":::
 
 フロントエンド コンテナーのログを表示するには、[docker logs](https://docs.docker.com/engine/reference/commandline/logs) コマンドを実行します。 次に例を示します。
 

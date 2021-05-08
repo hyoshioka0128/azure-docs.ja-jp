@@ -4,10 +4,10 @@ description: Azure Event Grid とその概念について説明します。 Even
 ms.topic: conceptual
 ms.date: 01/21/2021
 ms.openlocfilehash: 6edc8a3980bfea15f28cfb7114bb9f8350a47a3f
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/22/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98685705"
 ---
 # <a name="concepts-in-azure-event-grid"></a>Azure Event Grid の概念

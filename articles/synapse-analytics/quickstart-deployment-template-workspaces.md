@@ -3,17 +3,18 @@ title: クイック スタート:Azure Resource Manager テンプレートを使
 description: Azure Resource Manager テンプレート (ARM テンプレート) を使用して Synapse ワークスペースを作成する方法を学習します。
 services: azure-resource-manager
 author: julieMSFT
-ms.service: azure-resource-manager
+ms.service: synapse-analytics
+ms.subservice: workspace
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: jrasnick
 ms.date: 08/07/2020
-ms.openlocfilehash: 2b05220081dde4db6f07f21fb9978d9e466235ca
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 7317b7f51c6d0f9d72e3aad81794a569276d2145
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92740371"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107566122"
 ---
 # <a name="quickstart-create-an-azure-synapse-workspace-using-an-arm-template"></a>クイックスタート: ARM テンプレートを使用して Azure Synapse ワークスペースを作成する
 
@@ -48,15 +49,15 @@ Azure サブスクリプションをお持ちでない場合は、開始する�
 
 1. 次の値を入力または更新します。
 
-   - **サブスクリプション** :Azure サブスクリプションを選択します。
+   - **サブスクリプション**:Azure サブスクリプションを選択します。
    - **[リソース グループ]** : **[新規作成]** を選択して、リソース グループの一意の名前を入力し、 **[OK]** を選択します。 新しいリソース グループを作成すると、リソースのクリーンアップが容易になります。
    - **[リージョン]** :リージョンを選択します。  たとえば **[米国中部]** です。
-   - **Name** :ワークスペースの名前を入力します。
+   - **Name**:ワークスペースの名前を入力します。
    - **[SQL Administrator login]\(SQL 管理者のログイン\)** : SQL Server の管理者のユーザー名を入力します。
    - **[SQL Administrator password]\(SQL 管理者のパスワード\)** : SQL Server の管理者のパスワードを入力します。
    - **[タグ値]** : 既定値のままにします。
    - **[確認と作成]** : 選択。
-   - **作成** :選択。
+   - **作成**:選択。
 
 ## <a name="next-steps"></a>次のステップ
 

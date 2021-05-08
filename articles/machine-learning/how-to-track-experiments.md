@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 07/30/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 3d970193bd8d73baeac89fb45da4c8a3d81cbde4
-ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
+ms.openlocfilehash: d91c88da1416071b5eee2a8eb10e3029086839e9
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102518401"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105561782"
 ---
 # <a name="enable-logging-in-ml-training-runs"></a>ML のトレーニングの実行でログ記録を有効にする
 
@@ -41,7 +41,7 @@ Azure Machine Learning Python SDK を使用すると、既定の Python ログ �
 
 ### <a name="logging-run-metrics"></a>実行メトリックのログ 
 
-ログ API で次のメソッドを使用して、メトリックの視覚化に影響を与えます。 これらのログに記録されたメトリックの[サービスの制限](https://docs.microsoft.com/azure/machine-learning/resource-limits-quotas-capacity#metrics)に注意してください。 
+ログ API で次のメソッドを使用して、メトリックの視覚化に影響を与えます。 これらのログに記録されたメトリックの[サービスの制限](./resource-limits-quotas-capacity.md#metrics)に注意してください。 
 
 |ログに記録される値|コード例| ポータルでの形式|
 |----|----|----|

@@ -4,12 +4,12 @@ description: トラブルシューティングやメンテナンスのタスク�
 services: container-service
 ms.topic: article
 ms.date: 07/31/2019
-ms.openlocfilehash: 7455b98348f2b8c40f2ffc125abe1297af88fbd8
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 8df3e8be14e258aac34881014057dd7ee7ec3239
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102034457"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107769537"
 ---
 # <a name="connect-with-ssh-to-azure-kubernetes-service-aks-cluster-nodes-for-maintenance-or-troubleshooting"></a>メンテナンスまたはトラブルシューティングのために SSH を使用して Azure Kubernetes Service (AKS) クラスター ノードに接続する
 
@@ -141,14 +141,14 @@ AKS ノードへの SSH 接続を作成するには、AKS クラスターでヘ�
 1. `debian` コンテナー イメージを実行し、ターミナル セッションをそれにアタッチします。 このコンテナーを使用して、AKS クラスター内の任意のノードとの SSH セッションを作成できます。
 
     ```console
-    kubectl run -it --rm aks-ssh --image=debian
+    kubectl run -it --rm aks-ssh --image=mcr.microsoft.com/aks/fundamental/base-ubuntu:v0.0.11
     ```
 
     > [!TIP]
     > Windows Server ノードを使用する場合は、ノード セレクターをコマンドに追加して、Linux ノードで Debian コンテナーのスケジュールを設定します。
     >
     > ```console
-    > kubectl run -it --rm aks-ssh --image=debian --overrides='{"apiVersion":"v1","spec":{"nodeSelector":{"beta.kubernetes.io/os":"linux"}}}'
+    > kubectl run -it --rm aks-ssh --image=mcr.microsoft.com/aks/fundamental/base-ubuntu:v0.0.11 --overrides='{"apiVersion":"v1","spec":{"nodeSelector":{"beta.kubernetes.io/os":"linux"}}}'
     > ```
 
 1. ターミナル セッションがコンテナーに接続された後、`apt-get` を使用して SSH クライアントをインストールします。
@@ -206,10 +206,10 @@ AKS ノードへの SSH 接続を作成するには、AKS クラスターでヘ�
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 
 <!-- INTERNAL LINKS -->
-[az-aks-show]: /cli/azure/aks#az-aks-show
-[az-vm-list]: /cli/azure/vm#az-vm-list
-[az-vm-user-update]: /cli/azure/vm/user#az-vm-user-update
-[az-vm-list-ip-addresses]: /cli/azure/vm#az-vm-list-ip-addresses
+[az-aks-show]: /cli/azure/aks#az_aks_show
+[az-vm-list]: /cli/azure/vm#az_vm_list
+[az-vm-user-update]: /cli/azure/vm/user#az_vm_user_update
+[az-vm-list-ip-addresses]: /cli/azure/vm#az_vm_list_ip_addresses
 [view-kubelet-logs]: kubelet-logs.md
 [view-master-logs]: ./view-control-plane-logs.md
 [aks-quickstart-cli]: kubernetes-walkthrough.md
@@ -218,6 +218,6 @@ AKS ノードへの SSH 接続を作成するには、AKS クラスターでヘ�
 [aks-windows-rdp]: rdp.md
 [ssh-nix]: ../virtual-machines/linux/mac-create-ssh-keys.md
 [ssh-windows]: ../virtual-machines/linux/ssh-from-windows.md
-[az-vmss-list]: /cli/azure/vmss#az-vmss-list
-[az-vmss-extension-set]: /cli/azure/vmss/extension#az-vmss-extension-set
-[az-vmss-update-instances]: /cli/azure/vmss#az-vmss-update-instances
+[az-vmss-list]: /cli/azure/vmss#az_vmss_list
+[az-vmss-extension-set]: /cli/azure/vmss/extension#az_vmss_extension_set
+[az-vmss-update-instances]: /cli/azure/vmss#az_vmss_update_instances

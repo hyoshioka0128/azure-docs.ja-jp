@@ -10,12 +10,12 @@ services: iot-central
 ms.custom:
 - device-developer
 - iot-edge
-ms.openlocfilehash: 91869614aef03b819a5f7fbb355004f6e802d673
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: e0f3464420c5cb429f780999bf5983b2ab142567
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101733017"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "102608633"
 ---
 # <a name="connect-azure-iot-edge-devices-to-an-azure-iot-central-application"></a>Azure IoT Edge デバイスを Azure IoT Central アプリケーションに接続する
 
@@ -75,8 +75,6 @@ IoT Edge のゲートウェイ パターンの詳細については、「[IoT Ed
 
 :::image type="content" source="media/concepts-iot-edge/gateway-two-modules-transparent.png" alt-text="複数のカスタム モジュールを使用した接続の図" border="false":::
 
-<!-- To do: add link to how to configure gateway article? -->
-
 ## <a name="iot-edge-devices-and-iot-central"></a>IoT Edge デバイスと IoT Central
 
 IoT Edge デバイスで IoT Central による認証を行うには、*Shared Access Signature* トークンまたは X.509 証明書を使用できます。 初めて接続する前に IoT Edge デバイスを IoT Central に手動で登録するか、Device Provisioning Service を使用して登録を処理することができます。 詳細については、「[Azure IoT Central に接続する](concepts-get-connected.md)」を参照してください。
@@ -87,6 +85,20 @@ IoT Central とデバイスの対話方法は、[デバイス テンプレート
 * IoT Central でオペレーターがコマンドの呼び出しに使用する UI を表示できるように、デバイスが応答するコマンド。
 
 標準デバイスと同じように、IoT Edge デバイスで、テレメトリの送信、プロパティ値の同期、コマンドへの応答を行うことができます。 そのため、IoT Edge デバイスには IoT Central のデバイス テンプレートが必要です。
+
+### <a name="iot-edge-device-templates"></a>IoT Edge デバイス テンプレート
+
+IoT Central デバイス テンプレートでは、モデルを利用してデバイスの機能を表します。 次の図は、IoT Edge デバイスのモデル構造を示しています。
+
+:::image type="content" source="media/concepts-iot-edge/iot-edge-model.png" alt-text="IoT Central に接続されている IoT Edge デバイスのモデル構造" border="false":::
+
+IoT Central は、IoT Edge デバイスを次のようにモデル化します。
+
+* すべての IoT Edge デバイス テンプレートに機能モデルがあります。
+* 配置マニフェストに一覧表示されているすべてのカスタム モジュールに対して、モジュール機能モデルが生成されます。
+* 各モジュール機能モデルとデバイス モデルの間にリレーションシップが確立されます。
+* モジュール機能モデルは、1 つまたは複数のモジュール インターフェイスを実装します。
+* 各モジュール インターフェイスには、テレメトリ、プロパティ、およびコマンドが含まれます。
 
 ### <a name="iot-edge-deployment-manifests-and-iot-central-device-templates"></a>IoT Edge の配置マニフェストと IoT Central のデバイス テンプレート
 
@@ -272,7 +284,7 @@ IoT Edge ランタイムを実行できる場所については、「[Azure IoT 
 
 IoT Edge デバイスをゲートウェイ デバイスにするよう選択した場合は、ゲートウェイ デバイスに接続するデバイスのデバイス モデルにダウンストリーム リレーションシップを追加できます。
 
-<!-- TODO - add link to Edge Gateway how-to -->
+詳細については、[IoT Edge の透過的なゲートウェイを使用してデバイスを接続する方法](how-to-connect-iot-edge-transparent-gateway.md)に関するページを参照してください。
 
 ## <a name="next-steps"></a>次のステップ
 

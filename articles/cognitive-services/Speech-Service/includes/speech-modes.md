@@ -6,10 +6,10 @@ ms.topic: include
 ms.date: 01/22/2020
 ms.author: trbye
 ms.openlocfilehash: dc569050b78a5797808f2e2e000019ba516ba22e
-ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/23/2020
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "97739240"
 ---
 **対話**

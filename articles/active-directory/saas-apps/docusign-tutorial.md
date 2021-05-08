@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/09/2020
+ms.date: 03/26/2021
 ms.author: jeedes
-ms.openlocfilehash: 00d4381c7af7fdf82ee1e895072d92d1e641f8c4
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: d8c94bfaeb3438ef54e745505e51442d6d391929
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92454696"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105643132"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-docusign"></a>チュートリアル:Azure Active Directory シングル サインオン (SSO) と DocuSign の統合
 
@@ -40,13 +40,11 @@ ms.locfileid: "92454696"
 
 このチュートリアルでは、テスト環境で Azure AD の SSO を構成、テストして、次のことを確認します。
 
-* DocuSign では、 **SP** (Service Provider) Initiated SSO がサポートされます。
+* DocuSign では、**SP** (Service Provider) Initiated SSO がサポートされます。
 
-* DocuSign では、 **Just-In-Time** ユーザー プロビジョニングがサポートされます。
+* DocuSign では、**Just-In-Time** ユーザー プロビジョニングがサポートされます。
 
 * DocuSign では、[自動ユーザー プロビジョニング](./docusign-provisioning-tutorial.md)がサポートされます。
-
-* DocuSign を構成したら、組織の機密データを流出と侵入からリアルタイムで保護するセッション制御を適用することができます。 セッション制御は、条件付きアクセスを拡張したものです。 [Microsoft Cloud App Security でセッション制御を適用する方法](/cloud-app-security/proxy-deployment-aad)をご覧ください。
 
 ## <a name="adding-docusign-from-the-gallery"></a>ギャラリーからの DocuSign の追加
 
@@ -56,7 +54,7 @@ Azure AD への DocuSign の統合を構成するには、ギャラリーから�
 1. 左側のナビゲーション ウィンドウで **[Azure Active Directory]** サービスを選択します。
 1. **[エンタープライズ アプリケーション]** に移動し、 **[すべてのアプリケーション]** を選択します。
 1. 新しいアプリケーションを追加するには、 **[新しいアプリケーション]** を選択します。
-1. **[ギャラリーから追加する]** セクションで、検索ボックスに「 **DocuSign** 」と入力します。
+1. **[ギャラリーから追加する]** セクションで、検索ボックスに「**DocuSign**」と入力します。
 1. 結果のパネルから **[DocuSign]** を選択し、アプリを追加します。 お使いのテナントにアプリが追加されるのを数秒待機します。
 
 
@@ -79,7 +77,7 @@ Azure portal で Azure AD SSO を有効にするには、これらの手順を�
 
 1. Azure portal の **DocuSign** アプリケーション統合ページで、 **[管理]** セクションを探して、 **[シングル サインオン]** を選択します。
 1. **[シングル サインオン方式の選択]** ページで、 **[SAML]** を選択します。
-1. **[SAML でシングル サインオンをセットアップします]** ページで、 **[基本的な SAML 構成]** のペン アイコンを選択して設定を編集します。
+1. **[SAML でシングル サインオンをセットアップします]** ページで、 **[基本的な SAML 構成]** の鉛筆アイコンを選択して設定を編集します。
 
    ![基本的な SAML 構成を編集する](common/edit-urls.png)
 
@@ -97,8 +95,11 @@ Azure portal で Azure AD SSO を有効にするには、これらの手順を�
     
     | [応答 URL] |
     |-------------|
-    |`https://<subdomain>.docusign.com/organizations/<OrganizationID>/saml2/login/<IDPID>`|
-    |`https://<subdomain>.docusign.net/SAML/`|
+    | 運用: |
+    | `https://<subdomain>.docusign.com/organizations/<OrganizationID>/saml2/login/<IDPID>` |
+    | `https://<subdomain>.docusign.net/SAML/` |
+    | QA インスタンス:|
+    | `https://<SUBDOMAIN>.docusign.com/organizations/saml2` |
 
     > [!NOTE]
     > かっこで囲まれたこれらの値はプレースホルダーです。 これらを実際のサインオン URL、識別子、および返信 URL の値に置き換えてください。 これらの詳細は、このチュートリアルの後ろにある [View SAML 2.0 Endpoints]\(SAML 2.0 エンドポイントの表示\) に関するセクションで説明されています。
@@ -118,7 +119,7 @@ Azure portal で Azure AD SSO を有効にするには、これらの手順を�
 1. Azure portal の左側のウィンドウで、 **[Azure Active Directory]** 、 **[ユーザー]** 、 **[すべてのユーザー]** の順に選択します。
 1. 画面の上部にある **[新しいユーザー]** を選択します。
 1. **[ユーザー]** プロパティで、以下の手順を実行します。
-   1. **[名前]** フィールドに「 **B.Simon** 」と入力します。  
+   1. **[名前]** フィールドに「**B.Simon**」と入力します。  
    1. **[ユーザー名]** フィールドに「`<username>@<companydomain>.<extension>`」と入力します。 (例: `B.Simon@contoso.com`)。
    1. **[パスワードを表示]** チェック ボックスをオンにし、 **[パスワード]** ボックスに表示された値を書き留めます。
    1. **［作成］** を選択します
@@ -193,7 +194,7 @@ Azure portal で Azure AD SSO を有効にするには、これらの手順を�
 
        ![[Custom Attribute Mapping]\(カスタム属性のマッピング\) UI][62]
 
-    i. Azure AD の要求にマッピングするフィールドを選択します。 この例では、 **emailaddress** 要求は `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress` の値とマップされます。 これは、Azure AD の電子メール要求の既定の要求名です。 **[SAVE]\(保存\)** を選択します。
+    i. Azure AD の要求にマッピングするフィールドを選択します。 この例では、**emailaddress** 要求は `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress` の値とマップされます。 これは、Azure AD の電子メール要求の既定の要求名です。 **[SAVE]\(保存\)** を選択します。
 
        ![[Custom Attribute Mapping]\(カスタム属性のマッピング\) のフィールド][57]
 
@@ -235,7 +236,7 @@ Azure portal で Azure AD SSO を有効にするには、これらの手順を�
 
 2. DocuSign のサインオン URL に直接移動し、そこからログイン フローを開始します。
 
-3. Microsoft アクセス パネルを使用することができます。 アクセス パネル上で [DocuSign] タイルをクリックすると、SSO を設定した DocuSign に自動的にサインインします。 アクセス パネルの詳細については、[アクセス パネルの概要](../user-help/my-apps-portal-end-user-access.md)に関する記事を参照してください。
+3. Microsoft マイ アプリを使用することができます。 マイ アプリで [DocuSign] タイルをクリックすると、SSO を設定した DocuSign に自動的にサインインします。 マイ アプリの詳細については、[マイ アプリの概要](../user-help/my-apps-portal-end-user-access.md)に関するページを参照してください。
 
 
 ## <a name="next-steps"></a>次の手順
@@ -244,16 +245,16 @@ DocuSign を構成したら、組織の機密データを流出と侵入から�
 
 <!--Image references-->
 
-[50]: ./media/docusign-tutorial/tutorial_docusign_18.png
-[51]: ./media/docusign-tutorial/tutorial_docusign_21.png
-[52]: ./media/docusign-tutorial/tutorial_docusign_22.png
-[53]: ./media/docusign-tutorial/tutorial_docusign_23.png
-[54]: ./media/docusign-tutorial/tutorial_docusign_19.png
-[55]: ./media/docusign-tutorial/tutorial_docusign_20.png
-[56]: ./media/docusign-tutorial/tutorial_docusign_24.png
-[57]: ./media/docusign-tutorial/tutorial_docusign_25.png
-[58]: ./media/docusign-tutorial/tutorial_docusign_26.png
-[59]: ./media/docusign-tutorial/tutorial_docusign_27.png
-[60]: ./media/docusign-tutorial/tutorial_docusign_28.png
-[61]: ./media/docusign-tutorial/tutorial_docusign_29.png
-[62]: ./media/docusign-tutorial/tutorial_docusign_30.png
+[50]: ./media/docusign-tutorial/tutorial-docusign-18.png
+[51]: ./media/docusign-tutorial/tutorial-docusign-21.png
+[52]: ./media/docusign-tutorial/tutorial-docusign-22.png
+[53]: ./media/docusign-tutorial/tutorial-docusign-23.png
+[54]: ./media/docusign-tutorial/tutorial-docusign-19.png
+[55]: ./media/docusign-tutorial/tutorial-docusign-20.png
+[56]: ./media/docusign-tutorial/tutorial-docusign-24.png
+[57]: ./media/docusign-tutorial/tutorial-docusign-25.png
+[58]: ./media/docusign-tutorial/tutorial-docusign-26.png
+[59]: ./media/docusign-tutorial/tutorial-docusign-27.png
+[60]: ./media/docusign-tutorial/tutorial-docusign-28.png
+[61]: ./media/docusign-tutorial/tutorial-docusign-29.png
+[62]: ./media/docusign-tutorial/tutorial-docusign-30.png

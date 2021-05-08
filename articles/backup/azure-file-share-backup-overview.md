@@ -3,12 +3,12 @@ title: Azure ファイル共有のバックアップについて
 description: Recovery Services コンテナーに Azure ファイル共有をバックアップする方法について説明します
 ms.topic: conceptual
 ms.date: 03/05/2020
-ms.openlocfilehash: e955df7662bd18ed1d1d4ec1f0aa6c9474c5386f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c4f9dd816ace2c9aec8f48207fbce88acf34e24a
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89378085"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107516817"
 ---
 # <a name="about-azure-file-share-backup"></a>Azure ファイル共有のバックアップについて
 
@@ -21,7 +21,7 @@ Azure ファイル共有のバックアップは、クラウド内のデータ�
 * **組み込みの管理機能**:データ プルーニングのための追加のオーバーヘッドなしに、バックアップのスケジュールを設定し、必要な保有期間を指定することができます。
 * **即時の復元**:Azure ファイル共有のバックアップではファイル共有スナップショットが使用されるため、すぐに復元するファイルだけを選択できます。
 * **アラートとレポート**:バックアップと復元の失敗に関するアラートを構成し、Azure Backup で提供されているレポート ソリューションを使用して、ファイル共有全体のバックアップに関する分析情報を得ることができます。
-* **ファイル共有の誤削除に対する保護**:Azure Backup では、ストレージ アカウント レベルで[論理的な削除機能](../storage/files/storage-files-prevent-file-share-deletion.md)を有効にできます (保有期間は 14 日)。 悪意のあるアクターによってファイル共有が削除された場合でも、ファイル共有のコンテンツと復旧ポイント (スナップショット) は構成可能な保有期間中は保持されます。これにより、データをまったく失わずに、ソース コンテンツとスナップショットを正常に復旧できます。
+* **ファイル共有の誤削除に対する保護**:Azure Backup では、ストレージ アカウント レベルで [論理的な削除機能](../storage/files/storage-files-prevent-file-share-deletion.md)を有効にできます (保有期間は 14 日)。 悪意のあるアクターによってファイル共有が削除された場合でも、ファイル共有のコンテンツと復旧ポイント (スナップショット) は構成可能な保有期間中は保持されます。これにより、データをまったく失わずに、ソース コンテンツとスナップショットを正常に復旧できます。
 
 ## <a name="architecture"></a>Architecture
 
@@ -61,4 +61,4 @@ Azure ファイル共有のバックアップに関する詳細な見積もり�
 ## <a name="next-steps"></a>次のステップ
 
 * [Azure ファイル共有のバックアップ](backup-afs.md)方法について学習する
-* [Azure Files のバックアップに関する質問](backup-azure-files-faq.md)への回答を見つける
+* [Azure Files のバックアップに関する質問](backup-azure-files-faq.yml)への回答を見つける

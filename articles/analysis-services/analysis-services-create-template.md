@@ -3,17 +3,18 @@ title: クイックスタート - Azure Resource Manager テンプレートを�
 description: Azure Resource Manager テンプレートを使用して Azure Analysis Services サーバー リソースを作成する方法についてのクイックスタート。
 author: minewiskan
 ms.author: owend
-tags: azure-resource-manager
-ms.service: azure-analysis-services
-ms.topic: quickstart
 ms.date: 08/31/2020
-ms.custom: subject-armqs, references_regions
-ms.openlocfilehash: 3e776bf41420d38a1b208ce11a6a34e97fa92a15
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.topic: quickstart
+ms.service: azure-analysis-services
+tags:
+- azure-resource-manager
+ms.custom: devx-track-azurepowershell - subject-armqs - references_regions - mode-arm
+ms.openlocfilehash: e7203f4b5890ab81cbf337c5f3201d85a3aef0c0
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89230791"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107769371"
 ---
 # <a name="quickstart-create-a-server---arm-template"></a>クイック スタート:サーバーの作成 - ARM テンプレート
 
@@ -27,8 +28,8 @@ ms.locfileid: "89230791"
 
 ## <a name="prerequisites"></a>前提条件
 
-* **Azure サブスクリプション**:[Azure 無料試用版](https://azure.microsoft.com/offers/ms-azr-0044p/)にアクセスしてアカウントを作成します。
-* **Azure Active Directory**: お使いのサブスクリプションは、Azure Active Directory テナントに関連付けられている必要があります。 また、その Azure Active Directory でアカウントを使用して Azure にサインインしている必要があります。 詳細については、「[認証とユーザーのアクセス許可](analysis-services-manage-users.md)」を参照してください。
+* **Azure サブスクリプション**: [Azure 無料試用版](https://azure.microsoft.com/offers/ms-azr-0044p/)でアカウントを作成します。
+* **Azure Active Directory**: サブスクリプションは、Azure Active Directory テナントに関連付けられている必要があります。 また、その Azure Active Directory でアカウントを使用して Azure にサインインしている必要があります。 詳細については、「[認証とユーザーのアクセス許可](analysis-services-manage-users.md)」を参照してください。
 
 ## <a name="review-the-template"></a>テンプレートを確認する
 

@@ -6,29 +6,26 @@ author: chriswhilar
 manager: mariusu-msft
 services: azure-communication-services
 ms.author: mariusu
-ms.date: 10/15/2020
+ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: aadecd3c57f5a145efd43058a5113205d7517c0b
-ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
+ms.openlocfilehash: 35c3bd0213b6d895a81605f5858f924182e1e307
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102486405"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106168860"
 ---
 # <a name="get-started-with-the-web-calling-sample"></a>Web 通話サンプルの概要
 
-Web 通話サンプルは、Communication Services の Web 通話クライアント ライブラリが提供するさまざまな機能の詳細なチュートリアルとして機能する Web アプリケーションです。
+Web 通話サンプルは、Communication Services Web Calling SDK が提供するさまざまな機能の詳細なチュートリアルとして機能する Web アプリケーションです。
 
 このサンプルは開発者向けに構築されたもので、これにより Communication Services を簡単に使い始めることができます。 そのユーザー インターフェイスは複数のセクションに分かれており、それぞれに [Show code]\(コードの表示\) ボタンが用意されています。これを使用すると、ブラウザーから自分の Communication Services アプリケーションに直接コードをコピーすることができます。
 
 ## <a name="get-started-with-the-web-calling-sample"></a>Web 通話サンプルの概要
 
-[!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
-
-
 > [!IMPORTANT]
-> [このサンプルは GitHub で入手できます](https://github.com/Azure-Samples/communication-services-web-calling-tutorial/)。
+> [このサンプルは **GitHub** で入手できます。](https://github.com/Azure-Samples/communication-services-web-calling-tutorial/)
 
 /Project/readme.md に従ってプロジェクトを設定し、お使いのマシンでローカルに実行します。
 [Web 通話サンプル](https://github.com/Azure-Samples/communication-services-web-calling-tutorial)をマシンで実行すると、次のランディング ページが表示されます。
@@ -51,7 +48,7 @@ SDK が初期化されると、次のように表示されます。
 
 ## <a name="placing-and-receiving-calls"></a>通話の発信と受信
 
-Communication Services の Web 通話 SDK により、**1 対 1**、**1 対 N**、および **グループ** 通話が可能になります。
+Communication Services の Web Calling SDK により、**1 対 1**、**1 対 N**、および **グループ** 通話が可能になります。
 
 1 対 1 または 1 対 N の発信通話では、コンマ区切り値を使用して、通話先となる Communication Services のユーザー ID を複数指定できます。 また、コンマ区切り値を使用して、通話先となる従来の (PSTN) 電話番号を指定することもできます。
 
@@ -86,14 +83,14 @@ PSTN 電話番号に電話をかける際は、代替の発信者番号を指定
 
 詳細については、次の記事を参照してください。
 
-- [Calling クライアント ライブラリ](../quickstarts/voice-video-calling/calling-client-samples.md)について理解する
+- [Calling SDK の使用法](../quickstarts/voice-video-calling/calling-client-samples.md)について理解する
 - [通話のしくみ](../concepts/voice-video-calling/about-call-types.md)の詳細について確認する
-- [API リファレンス ドキュメント](/javascript/api/azure-communication-services/@azure/communication-calling/?view=azure-communication-services-js)を確認する
+- [API リファレンス ドキュメント](/javascript/api/azure-communication-services/@azure/communication-calling/)を確認する
 - [Contoso Med App](https://github.com/Azure-Samples/communication-services-contoso-med-app) サンプルを確認する
 
 ## <a name="additional-reading"></a>その他の情報
 
-- [Azure Communication GitHub](https://github.com/Azure/communication) - 他の例や情報は公式 GitHub ページで見つかります。
+- [サンプル](./overview.md) - その他のサンプルと例については、「サンプルの概要」ページを参照してください。
 - [Redux](https://redux.js.org/) - クライアント側の状態管理
 - [FluentUI](https://aka.ms/fluent-ui) - Microsoft が提供する UI ライブラリ
 - [React](https://reactjs.org/) - ユーザー インターフェイスを構築するためのライブラリ

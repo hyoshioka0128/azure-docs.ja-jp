@@ -4,15 +4,15 @@ description: Azure portal を使用して復元ポイントを特定し、継続
 author: kanshiG
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 02/01/2021
+ms.date: 04/05/2021
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: ee6eedbc078e1b9c07ed00922ce1c37b38410128
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 707ef9f60891c1da7c13638e233ee74e78fc20dd
+ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100381870"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106283939"
 ---
 # <a name="configure-and-manage-continuous-backup-and-point-in-time-restore-preview---using-azure-portal"></a>継続的バックアップとポイントインタイム リストア (プレビュー) を構成および管理する - Azure portal を使用
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -22,7 +22,7 @@ ms.locfileid: "100381870"
 > このプレビュー バージョンはサービス レベル アグリーメントなしで提供されています。運用環境のワークロードに使用することはお勧めできません。 特定の機能はサポート対象ではなく、機能が制限されることがあります。
 > 詳しくは、[Microsoft Azure プレビューの追加使用条件](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)に関するページをご覧ください。
 
-Azure Cosmos DB のポイントインタイム リストア機能 (プレビュー) を使用すると、コンテナー内で誤って行われた変更から回復し、削除されたアカウント、データベース、またはコンテナーの復元や、任意のリージョン (バックアップが存在していた場所) への復元ができます。 継続的バックアップ モードを使用すると、過去 30 日以内の任意の時点に復元できます。
+Azure Cosmos DB の特定の時点への復元機能 (プレビュー) を使用すると、コンテナー内で誤って行われた変更から回復し、削除されたアカウント、データベース、またはコンテナーの復元や、任意のリージョン (バックアップが存在していた場所) への復元が行えます。 継続的バックアップ モードを使用すると、過去 30 日以内の任意の時点に復元できます。
 
 この記事では、Azure portal を使用して復元ポイントを特定し、継続的バックアップを構成する方法について説明します。
 
@@ -31,6 +31,10 @@ Azure Cosmos DB のポイントインタイム リストア機能 (プレビュ�
 新しい Azure Cosmos DB アカウントを作成するときは、 **[バックアップ ポリシー]** オプションで **[継続的]** モードを選択し、新しいアカウントでポイントインタイム リストア機能を有効にします。 アカウントでこの機能が有効になると、すべてのデータベースとコンテナーで継続的バックアップを利用できるようになります。 ポイントインタイム リストアでは、データは常に新しいアカウントに復元されます。現在、既存のアカウントに復元することはできません。
 
 :::image type="content" source="./media/continuous-backup-restore-portal/configure-continuous-backup-portal.png" alt-text="継続的バックアップ構成を使用して Azure Cosmos DB アカウントをプロビジョニングします。" border="true":::
+
+## <a name="backup-storage-redundancy"></a>バックアップ ストレージの冗長性
+
+既定では、Azure Cosmos DB は、連続モードのバックアップ データをローカル冗長ストレージ BLOB に格納します。 ゾーン冗長が構成されているリージョンでは、バックアップはゾーン冗長ストレージ BLOB に格納されます。 このモードでは、バックアップ ストレージの冗長性を更新することはできません。
 
 ## <a name="restore-a-live-account-from-accidental-modification"></a><a id="restore-live-account"></a>誤った変更からライブ アカウントを復元する
 
@@ -46,7 +50,7 @@ Azure portal を使用して、ライブ アカウント、またはその下に
 
    * **復元ポイント (UTC)** – 過去 30 日以内のタイムスタンプ。 アカウントは、そのタイムスタンプの時点で存在している必要があります。 復元ポイントは UTC で指定できます。 復元する時刻の秒数にできるだけ近づけることができます。 [復元ポイントの特定](#event-feed)に関するヘルプについては、**こちらをクリック** リンクを選択してください。
 
-   * **場所** – アカウントが復元される宛先リージョン。 アカウントは、指定されたタイムスタンプの時点でこのリージョンに存在している必要があります (例: 米国西部または米国東部)。 アカウントは、ソース アカウントが存在していたリージョンにのみ復元できます。
+   * **場所** – アカウントが復元される宛先リージョン。 アカウントは、指定されたタイムスタンプ (たとえば、米国西部または米国東部) でこのリージョンに存在する必要があります。 アカウントは、ソース アカウントが存在していたリージョンにのみ復元できます。
 
    * **Restore Resource (復元リソース)** – **アカウント全体** か、**選択したデータベースまたはコンテナー** を復元するかを選択できます。 データベースとコンテナーは、指定されたタイムスタンプの時点で存在している必要があります。 選択された復元ポイントと場所に基づいて、復元リソースが設定されます。これによりユーザーは、復元する必要がある特定のデータベースまたはコンテナーを選択できるようになります。
 

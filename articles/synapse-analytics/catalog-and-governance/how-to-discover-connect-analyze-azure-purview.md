@@ -1,19 +1,19 @@
 ---
 title: Azure Purview を使用した Synapse でのデータの検出、接続、探索
 description: Synapse でデータを検出、接続、探索する方法に関するガイド
-services: synapse-analytics
-author: ArnoMicrosoft
+author: Rodrigossz
 ms.service: synapse-analytics
+ms.subservice: ''
 ms.topic: how-to
 ms.date: 12/16/2020
-ms.author: acomet
+ms.author: rosouz
 ms.reviewer: jrasnick
-ms.openlocfilehash: a3ed7979584787627c97cfec3bb2e19c147f7152
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: f98507fa72f4503700bf39393063dd1ecc650e91
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98872666"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107567895"
 ---
 # <a name="discover-connect-and-explore-data-in-synapse-using-azure-purview"></a>Azure Purview を使用した Synapse でのデータの検出、接続、探索 
 

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 02/24/2021
+ms.date: 03/27/2021
 ms.author: alexeyo
-ms.openlocfilehash: f6c7ec3f66d0ab9186645654adf3c062c241e5d0
-ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
+ms.openlocfilehash: 7ef6ed5293ec9ecf49c16f8dfb0b6604942408f0
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102449851"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105937058"
 ---
 # <a name="speech-services-quotas-and-limits"></a>Speech Services のクォータと制限
 
@@ -27,6 +27,7 @@ ms.locfileid: "102449851"
 次の表の "調整可能" 行のないパラメーターは、すべての価格レベルで調整可能 **ではありません**。
 
 #### <a name="online-transcription"></a>オンライン文字起こし
+[Speech SDK](speech-sdk.md) と [Speech-to-text REST API for short audio](rest-speech-to-text.md#speech-to-text-rest-api-for-short-audio) の両方または一方で使用する場合。
 
 | Quota | Free (F0)<sup>1</sup> | Standard (S0) |
 |--|--|--|
@@ -38,7 +39,7 @@ ms.locfileid: "102449851"
 #### <a name="batch-transcription"></a>バッチ文字起こし
 | Quota | Free (F0)<sup>1</sup> | Standard (S0) |
 |--|--|--|
-| Rest API の制限 | バッチ文字起こしは、F0 では使用できません | 1 分あたり 300 要求 |
+| [Speech-to-text REST API v2.0 と v3.0](rest-speech-to-text.md#speech-to-text-rest-api-v30) の制限事項 | バッチ文字起こしは、F0 では使用できません | 1 分あたり 300 要求 |
 | オーディオ入力ファイルの最大サイズ | 該当なし | 1 GB |
 | 入力 BLOB の最大サイズ (zip アーカイブなどに複数のファイルを含めることができます。上記のファイル サイズの制限に注意してください) | 該当なし | 2.5 GB |
 | BLOB コンテナーの最大サイズ | 該当なし | 5 GB |
@@ -62,19 +63,19 @@ ms.locfileid: "102449851"
 ### <a name="text-to-speech-quotas-and-limits-per-speech-resource"></a>Speech リソースごとのテキスト読み上げのクォータと制限
 次の表の "調整可能" 行のないパラメーターは、すべての価格レベルで調整可能 **ではありません**。
 
-| Quota | Free (F0)<sup>3</sup> | Standard (S0) |
-|--|--|--|
-| **標準およびニューラル音声の 1 秒あたりのトランザクションの最大数 (TPS)** | 200<sup>4</sup> | 200<sup>4</sup> |  |
-| **Custom Voice の同時要求の上限** |  |  |
-| 既定値 | 10 | 10 |
-| 調整可能 | いいえ<sup>5</sup> | ○<sup>5</sup> |
-| **HTTP 固有のクォータ** |  |
-| 要求ごとに生成されるオーディオの最大長 | 10 分 | 10 分 |
-| SSML 内の個別の `<voice>` タグの最大数 | 50 | 50 |
-| **Websocket 固有のクォータ** |  |  |
-|1 ターンあたりに生成されるオーディオの最大長 | 10 分 | 10 分 |
-|1 ターンあたりの最大 SSML メッセージ サイズ |64 KB |64 KB |
-| **Rest API の制限** | 1 分あたり 20 要求 | 5 秒あたり 25 要求 |
+| Quota                                                                          | Free (F0)<sup>3</sup>  | Standard (S0)   |
+|--------------------------------------------------------------------------------|------------------------|-----------------|
+| **標準およびニューラル音声の 1 秒あたりのトランザクションの最大数 (TPS)** | 200<sup>4</sup>        | 200<sup>4</sup> |
+| **Custom Voice の同時要求の上限**                                  |                        |                 |
+| 既定値                                                                  | 10                     | 10              |
+| 調整可能                                                                     | いいえ<sup>5</sup>         | ○<sup>5</sup> |
+| **HTTP 固有のクォータ**                                                       |                        |                 |
+| 要求ごとに生成されるオーディオの最大長                                          | 10 分                 | 10 分          |
+| SSML 内の個別の `<voice>` タグの最大数                                  | 50                     | 50              |
+| **Websocket 固有のクォータ**                                                  |                        |                 |
+| 1 ターンあたりに生成されるオーディオの最大長                                             | 10 分                 | 10 分          |
+| 1 ターンあたりの最大 SSML メッセージ サイズ                                                 | 64 KB                  | 64 KB           |
+| **Rest API の制限**                                                             | 1 分あたり 20 要求 | 1 分あたり 300 要求 |
 
 
 <sup>3</sup> **Free (F0)** 価格レベルについては、[価格ページ](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/)で月額料金に関するページを参照してください。<br/>

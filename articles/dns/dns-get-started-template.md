@@ -4,17 +4,19 @@ titleSuffix: Azure DNS
 description: Azure DNS で、DNS ゾーンとレコードを作成する方法について説明します。 これは、Azure Resource Manager テンプレート (ARM テンプレート) を使用して最初の DNS ゾーンとレコードを作成して管理するための詳細なクイックスタートです。
 services: dns
 author: duongau
-ms.service: dns
-ms.topic: quickstart
-ms.date: 09/8/2020
 ms.author: duau
-ms.custom: subject-armqs
-ms.openlocfilehash: 24460167e2279e7d3001d0bc16d050beb5b55289
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.date: 09/8/2020
+ms.topic: quickstart
+ms.service: dns
+ms.custom:
+- subject-armqs
+- mode-arm
+ms.openlocfilehash: 34e810fa8244cf3ff00e57f193624a2c1fa4d755
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791003"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107539009"
 ---
 # <a name="quickstart-create-an-azure-dns-zone-and-record-using-an-arm-template"></a>ARM テンプレートを使用して Azure DNS ゾーンとレコードを作成する
 
@@ -22,7 +24,7 @@ ms.locfileid: "92791003"
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-環境が前提条件を満たしていて、ARM テンプレートの使用に慣れている場合は、 **[Azure へのデプロイ]** ボタンを選択します。 Azure portal でテンプレートが開きます。
+環境が前提条件を満たしていて、ARM テンプレートの使用に慣れている場合は、**[Azure へのデプロイ]** ボタンを選択します。 Azure portal でテンプレートが開きます。
 
 [![Azure へのデプロイ](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-azure-dns-new-zone%2Fazuredeploy.json)
 
@@ -47,7 +49,7 @@ Azure Traffic Manager に関連するテンプレートをさらに探すには�
 
 ## <a name="deploy-the-template"></a>テンプレートのデプロイ
 
-1. 次のコード ブロックの **[試してみる]** を選択して Azure Cloud Shell を開き、指示に従って Azure にサインインします。
+1. 次のコード ブロックの **[使ってみる]** を選択して Azure Cloud Shell を開き、指示に従って Azure にサインインします。
 
     ```azurepowershell-interactive
     $projectName = Read-Host -Prompt "Enter a project name that is used for generating resource names"
@@ -70,7 +72,7 @@ Azure Traffic Manager に関連するテンプレートをさらに探すには�
 
 1. 値を入力します。
 
-    テンプレートのデプロイでは、2 つの IP アドレスを指す 1 つの `A` レコードを含むゾーンが作成されます。 リソース グループの名前は、 **rg** が付加されたプロジェクト名です。
+    テンプレートのデプロイでは、2 つの IP アドレスを指す 1 つの `A` レコードを含むゾーンが作成されます。 リソース グループの名前は、**rg** が付加されたプロジェクト名です。
 
     テンプレートのデプロイには数秒かかります。 完了すると、次のように出力されます。
 
@@ -88,11 +90,11 @@ Azure Traffic Manager に関連するテンプレートをさらに探すには�
 
 1. リソース グループには、次の画面に示したリソースが含まれている必要があります。
 
-    :::image type="content" source="./media/dns-getstarted-template/resource-group-dns-zone.png" alt-text="Azure DNS ゾーンの Resource Manager テンプレートの PowerShell デプロイ出力":::
+    :::image type="content" source="./media/dns-getstarted-template/resource-group-dns-zone.png" alt-text="DNS ゾーンのデプロイ リソース グループ":::
 
 1. `azurequickstart.org` というサフィックスの DNS ゾーンを選択し、値 `1.2.3.4` と `1.2.3.5` を参照する `A` レコードがあるゾーンが正しく作成されていることを確認します。
 
-    :::image type="content" source="./media/dns-getstarted-template/dns-zone-overview.png" alt-text="Azure DNS ゾーンの Resource Manager テンプレートの PowerShell デプロイ出力":::
+    :::image type="content" source="./media/dns-getstarted-template/dns-zone-overview.png" alt-text="DNS ゾーンのデプロイ":::
 
 1. 前のステップから、ネーム サーバーの名前の 1 つをコピーします。
 
@@ -110,7 +112,7 @@ Azure Traffic Manager に関連するテンプレートをさらに探すには�
 
    次のような画面が表示されます。
 
-    :::image type="content" source="./media/dns-getstarted-template/dns-zone-validation.png" alt-text="Azure DNS ゾーンの Resource Manager テンプレートの PowerShell デプロイ出力":::
+    :::image type="content" source="./media/dns-getstarted-template/dns-zone-validation.png" alt-text="DNS ゾーンの nslookup":::
 
 ホスト名 `www.2lwynbseszpam.azurequickstart.org` は、構成したとおり、`1.2.3.4` と `1.2.3.5` に解決されています。 この結果で、名前解決が正常に機能していることを確認できます。
 

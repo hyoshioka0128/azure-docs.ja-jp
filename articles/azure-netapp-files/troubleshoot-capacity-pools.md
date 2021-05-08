@@ -15,10 +15,10 @@ ms.topic: troubleshooting
 ms.date: 01/14/2021
 ms.author: b-juche
 ms.openlocfilehash: 759759b67582b241d0bab1e043dd15e54a804faf
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/16/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98251541"
 ---
 # <a name="troubleshoot-capacity-pool-issues"></a>容量プールに関する問題のトラブルシューティング

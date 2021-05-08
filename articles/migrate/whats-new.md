@@ -7,12 +7,12 @@ ms.author: anvar
 ms.manager: bsiva
 ms.date: 04/19/2020
 ms.custom: mvc
-ms.openlocfilehash: f50737bdefc9065c9b16633ba3360bda1d028cd6
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: cca4612d3b22296209b4adfc6be97cbe95477aa3
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102043050"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104786670"
 ---
 # <a name="whats-new-in-azure-migrate"></a>Azure Migrate の新着情報
 
@@ -20,7 +20,9 @@ ms.locfileid: "102043050"
 
 ## <a name="update-march-2021"></a>更新 (2021 年 3 月)
 - Azure Migrate アプライアンスでの複数のサーバー資格情報の指定によるインストールされているアプリケーション (ソフトウェア インベントリ) の検出、エージェントレスの依存関係分析、および VMware 環境の SQL Server インスタンスおよびデータベースの検出のサポート。 [詳細情報](tutorial-discover-vmware.md#provide-server-credentials)
-- VMware 環境で実行されている SQL Server インスタンスおよびデータベースの検出と評価は、現在プレビュー段階にあります。 [詳細情報](concepts-azure-sql-assessment-calculation.md)<br/>この機能を試すには、[このリンク](https://aka.ms/AzureMigrate/SQL)を使用して、**オーストラリア東部** リージョンにプロジェクトを作成します。 始めるには、[検出](tutorial-discover-vmware.md)と[評価](tutorial-assess-sql.md)に関するチュートリアルを参照してください。
+- VMware 環境で実行されている SQL Server インスタンスおよびデータベースの検出と評価は、現在プレビュー段階にあります。 詳細は[こちら](concepts-azure-sql-assessment-calculation.md)をご覧ください。始めるには、[検出](tutorial-discover-vmware.md)と[評価](tutorial-assess-sql.md)に関するチュートリアルを参照してください。
+- エージェントレスの VMware 移行では、vCenter あたり 500 台の VM を同時にレプリケートできるようになりました。
+- Azure Migrate で、エージェントレスの移行手法を使用して VMware VM を Azure に移行する間、VMware VM に Azure VM エージェントが自動的にインストールされるようになりました。
 
 ## <a name="update-january-2021"></a>更新 (2021 年 1 月)
 -  Azure Migrate: カスタマー マネージド キー (CMK) によるサーバー側暗号化でディスクが暗号化された Azure 仮想マシンに、Server Migration ツールを使用して、VMware 仮想マシンや物理サーバー、さらに他のクラウドの仮想マシンを移行できるようになりました。

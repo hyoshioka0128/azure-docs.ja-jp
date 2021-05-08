@@ -6,10 +6,10 @@ ms.topic: include
 ms.date: 08/17/2019
 ms.author: lajanuar
 ms.openlocfilehash: 5e856b7cf6404a30bf983c4014bd6aa55c4a9cbc
-ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/15/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103466994"
 ---
 * サポートされているファイル形式: JPEG、PNG、PDF、TIFF 

@@ -4,12 +4,12 @@ description: Service Fabric についてよく寄せられる質問 (機能、�
 ms.topic: troubleshooting
 ms.date: 08/18/2017
 ms.author: pepogors
-ms.openlocfilehash: 4e03ccf432852a5fc9ee700ba0e39dfe2e64fcc9
-ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
+ms.openlocfilehash: 95463865c52ee501ceca22cae60d19a089236fd1
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102456098"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105048682"
 ---
 # <a name="commonly-asked-service-fabric-questions"></a>Service Fabric に関してよく寄せられる質問
 
@@ -189,4 +189,4 @@ Service Fabric ラインタイムをオープン ソース化する予定であ�
 
 ## <a name="next-steps"></a>次のステップ
 
-[Service Fabric の中心概念](service-fabric-technical-overview.md)と[ベスト プラクティス](service-fabric-best-practices-overview.md)を学習する
+[Service Fabric の中心概念](service-fabric-technical-overview.md)と[ベスト プラクティス](./service-fabric-best-practices-security.md)を学習する

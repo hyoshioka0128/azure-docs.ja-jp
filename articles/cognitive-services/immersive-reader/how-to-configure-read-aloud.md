@@ -10,10 +10,10 @@ ms.topic: how-to
 ms.date: 06/29/2020
 ms.author: metang
 ms.openlocfilehash: 8b45fe07b4bd42059199197bc5b99f20f6b2a8cf
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102608718"
 ---
 # <a name="how-to-configure-read-aloud"></a>音声読み上げを構成する方法

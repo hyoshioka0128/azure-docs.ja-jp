@@ -6,14 +6,14 @@ ms.service: virtual-machines
 ms.subservice: reserved-instances
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 02/02/2021
+ms.date: 04/06/2021
 ms.author: yashar
-ms.openlocfilehash: 6b04caec380a481569de4a33ea0159fd641c000f
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: a6ddcef1493f15442a723bcc93850e6197db84d8
+ms.sourcegitcommit: c6a2d9a44a5a2c13abddab932d16c295a7207d6a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101673968"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107285600"
 ---
 # <a name="virtual-machine-size-flexibility-with-reserved-vm-instances"></a>Reserved VM Instances での仮想マシン サイズの柔軟性
 
@@ -39,6 +39,7 @@ ms.locfileid: "101673968"
 - シナリオ 1: Standard_DS1_v2 サイズの VM を、比率 1 で 8 つ実行します。 これらの 8 つの VM すべてに、予約割引が適用されます。
 - シナリオ 2: Standard_DS2_v2 サイズの VM を、各比率 2 で2 つ実行します。 また、Standard_DS3_v2 サイズの VM を、比率 4 で実行します。 フットプリントの合計は 2 + 2 + 4 = 8 です。 したがって、これらの 3 つの VM すべてに、予約割引が適用されます。
 - シナリオ 3: Standard_DS5_v2 を、比率 16 で 1 つ実行します。 その VM のコンピューティング コストの半分に、予約割引が適用されます。
+- シナリオ 4: Standard_DS5_v2 を比率 16 で実行し、追加の Standard_DS4_v2 予約を比率 8 で購入します。 両方の予約が組み合わされ、VM 全体に割引が適用されます。
 
 次のセクションでは、インスタンス サイズの柔軟性に向けて最適化された予約 VM インスタンスを購入する際に、同じサイズ シリーズのグループ内にあるサイズを示します。
 
@@ -48,7 +49,13 @@ ms.locfileid: "101673968"
 
 [インスタンス サイズの柔軟性の比率](https://isfratio.blob.core.windows.net/isfratio/ISFRatio.csv)
 
-このファイルをプログラムで使用できるように、ファイルの URL とスキーマを固定したままにします。 データはまもなく API からも利用可能になる予定です。
+プログラムでファイルを使用できるように、Azure によりリンクやスキーマが常に更新されます。
+
+## <a name="view-vm-size-recommendations"></a>VM 推奨サイズを表示する
+
+Azure では、購入時、VM の推奨サイズが表示されます。 最小推奨サイズを表示するには、 **[Group by smallest size]\(最小サイズでグループ化する\)** を選択します。
+
+:::image type="content" source="./media/reserved-vm-instance-size-flexibility/select-product-recommended-quantity.png" alt-text="推奨数量のスクリーンショット。" lightbox="./media/reserved-vm-instance-size-flexibility/select-product-recommended-quantity.png" :::
 
 ## <a name="next-steps"></a>次のステップ
 

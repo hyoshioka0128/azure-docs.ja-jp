@@ -6,12 +6,12 @@ ms.author: tyfox
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/20/2020
-ms.openlocfilehash: a30768f4904c9e5be2edc020f12260cf3a54c889
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: afb30f4648f1649bf6cc6cc6a3bf02f433f49d45
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102425891"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107774933"
 ---
 # <a name="migrate-to-granular-role-based-access-for-cluster-configurations"></a>クラスター構成できめ細かなロールベースのアクセスに移行する
 
@@ -27,8 +27,8 @@ ms.locfileid: "102425891"
 
 | Role                                  | 以前                                                                                       | 今後の予定       |
 |---------------------------------------|--------------------------------------------------------------------------------------------------|-----------|
-| Reader                                | - シークレットを含む読み取りアクセス。                                                                   | - シークレットを **除く** 読み取りアクセス |           |   |   |
-| HDInsight クラスター オペレーター<br>(新しいロール) | 該当なし                                                                                              | - シークレットを含む読み取り/書き込みアクセス         |   |   |
+| Reader                                | - シークレットを含む読み取りアクセス。                                                                   | - シークレットを **除く** 読み取りアクセス | 
+| HDInsight クラスター オペレーター<br>(新しいロール) | 該当なし                                                                                              | - シークレットを含む読み取り/書き込みアクセス         | 
 | Contributor                           | - シークレットを含む読み取り/書き込みアクセス。<br>- すべての種類の Azure リソースを作成および管理します。<br>- スクリプト アクションの実行。     | 変更なし |
 | 所有者                                 | - シークレットを含む読み取り/書き込みアクセス。<br>- すべてのリソースへのフル アクセス<br>- アクセスを他のユーザーに委任する。<br>- スクリプト アクションの実行。 | 変更なし |
 
@@ -192,7 +192,7 @@ Azure portal を使用して、HDInsight クラスター オペレーター ロ�
 
 ### <a name="why-do-i-see-insufficient-privileges-to-complete-the-operation-when-running-the-azure-cli-command-to-assign-the-hdinsight-cluster-operator-role-to-another-user-or-service-principal"></a>Azure CLI コマンドを実行して HDInsight クラスター オペレーター ロールを別のユーザーまたはサービス プリンシパルに割り当てると、"操作を完了するための十分な特権がありません" と表示されるのはなぜですか?
 
-所有者ロールだけでなく、コマンドを実行しているユーザーまたはサービス プリンシパルは、担当者のオブジェクト ID を検索するために、十分な Azure AD アクセス許可を持っている必要があります。 このメッセージは、Azure AD のアクセス許可が不十分であることを示します。 `-–assignee` 引数を `–assignee-object-id` に置き換えて、名前の代わりにパラメーターとして担当者のオブジェクト ID (またはマネージド ID の場合は、プリンシパル ID) を指定します。 詳細については、[az role assignment create ドキュメント](/cli/azure/role/assignment#az-role-assignment-create)の「省略可能なパラメーター」セクションを参照してください。
+所有者ロールだけでなく、コマンドを実行しているユーザーまたはサービス プリンシパルは、担当者のオブジェクト ID を検索するために、十分な Azure AD アクセス許可を持っている必要があります。 このメッセージは、Azure AD のアクセス許可が不十分であることを示します。 `-–assignee` 引数を `–assignee-object-id` に置き換えて、名前の代わりにパラメーターとして担当者のオブジェクト ID (またはマネージド ID の場合は、プリンシパル ID) を指定します。 詳細については、[az role assignment create ドキュメント](/cli/azure/role/assignment#az_role_assignment_create)の「省略可能なパラメーター」セクションを参照してください。
 
 それでもうまくいかない場合は、Azure AD 管理者に連絡して、適切なアクセス許可を取得してください。
 

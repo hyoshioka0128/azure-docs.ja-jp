@@ -10,10 +10,10 @@ ms.topic: how-to
 ms.date: 01/13/2019
 ms.author: cynthn
 ms.openlocfilehash: a33b248c18bcbf322a1e2d911453a1c4c087e625
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102550520"
 ---
 # <a name="download-a-windows-vhd-from-azure"></a>Azure から Windows VHD をダウンロードする

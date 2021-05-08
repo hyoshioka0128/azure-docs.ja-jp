@@ -4,15 +4,16 @@ description: AKS のコンフィデンシャル コンピューティング ノ�
 services: virtual-machines
 author: agowdamsft
 ms.service: container-service
+ms.subservice: confidential-computing
 ms.topic: overview
 ms.date: 2/08/2021
 ms.author: amgowda
-ms.openlocfilehash: 9205513c4eb7e377fee0c5d18577d76a82476cf2
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: 203185d9f6def2204906b8722f1969b14eee8787
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102553393"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105933153"
 ---
 # <a name="confidential-computing-nodes-on-azure-kubernetes-service"></a>Azure Kubernetes Service 上のコンフィデンシャル コンピューティング ノード
 

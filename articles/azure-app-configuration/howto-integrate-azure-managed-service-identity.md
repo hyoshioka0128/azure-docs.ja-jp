@@ -7,13 +7,13 @@ ms.author: alkemper
 ms.service: azure-app-configuration
 ms.custom: devx-track-csharp, fasttrack-edit
 ms.topic: conceptual
-ms.date: 2/25/2020
-ms.openlocfilehash: 2f446df95c795eaac378340ed0d5de7b31dfcfee
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.date: 04/08/2021
+ms.openlocfilehash: 591f767fe0ef2150f7fe180108f207b56f7c915f
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102219041"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107764310"
 ---
 # <a name="use-managed-identities-to-access-app-configuration"></a>マネージド ID を使用して App Configuration にアクセスする
 
@@ -140,12 +140,12 @@ Azure App Configuration とその .NET Core、.NET Framework、および Java Sp
     ---
 
     > [!NOTE]
-    > **ユーザー割り当てのマネージド ID** を使用する場合、[ManagedIdentityCredential](https://docs.microsoft.com/dotnet/api/azure.identity.managedidentitycredential) の作成時、必ず clientId を指定してください。
+    > **ユーザー割り当てのマネージド ID** を使用する場合、[ManagedIdentityCredential](/dotnet/api/azure.identity.managedidentitycredential) の作成時、必ず clientId を指定してください。
     >```
     >config.AddAzureAppConfiguration(options =>
     >   options.Connect(new Uri(settings["AppConfig:Endpoint"]), new ManagedIdentityCredential(<your_clientId>)));
     >```
-    >[Azure リソースのマネージド ID に関する FAQ](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/known-issues#what-identity-will-imds-default-to-if-dont-specify-the-identity-in-the-request) で説明したように、使用されるマネージド ID を解決する既定の方法があります。 この場合、将来的にありえるランタイム問題 (たとえば、新しいユーザー割り当てマネージド ID が追加された場合やシステム割り当てマネージド ID が有効になった場合) を回避する目的で、望ましい ID を指定するように Azure ID ライブラリから強制されます。 そのため、ユーザー割り当てマネージド ID が 1 つだけ定義されており、システム割り当てマネージド ID がない場合であっても、clientId を指定する必要があります。
+    >[Azure リソースのマネージド ID に関する FAQ](../active-directory/managed-identities-azure-resources/managed-identities-faq.md#what-identity-will-imds-default-to-if-dont-specify-the-identity-in-the-request) で説明したように、使用されるマネージド ID を解決する既定の方法があります。 この場合、将来的にありえるランタイム問題 (たとえば、新しいユーザー割り当てマネージド ID が追加された場合やシステム割り当てマネージド ID が有効になった場合) を回避する目的で、望ましい ID を指定するように Azure ID ライブラリから強制されます。 そのため、ユーザー割り当てマネージド ID が 1 つだけ定義されており、システム割り当てマネージド ID がない場合であっても、clientId を指定する必要があります。
 
 
 1. App Configuration と Key Vault 参照の両方を使用するには、以下に示すように、*Program.cs* を更新します。 このコードは `ConfigureKeyVault` の一部として `SetCredential` を呼び出し、Key Vault に対する認証時に使用する資格情報を構成プロバイダーに伝えます。
@@ -203,7 +203,7 @@ Azure App Configuration とその .NET Core、.NET Framework、および Java Sp
     > [!NOTE]
     > `ManagedIdentityCredential` が機能するのは、マネージド ID 認証をサポートするサービスの Azure 環境内のみです。 ローカル環境では機能しません。 コードをローカルと Azure の両方の環境で動作させるには、[`DefaultAzureCredential`](/dotnet/api/azure.identity.defaultazurecredential) を使用します。これは、マネージド ID を含むいくつかの認証オプションにフォールバックするからです。
     > 
-    > Azure にデプロイするとき、**ユーザー割り当てマネージド ID** を `DefaultAzureCredential` と共に使用する場合、[clientId を指定してください](https://docs.microsoft.com/dotnet/api/overview/azure/identity-readme#specifying-a-user-assigned-managed-identity-with-the-defaultazurecredential)。
+    > Azure にデプロイするとき、**ユーザー割り当てマネージド ID** を `DefaultAzureCredential` と共に使用する場合、[clientId を指定してください](/dotnet/api/overview/azure/identity-readme#specifying-a-user-assigned-managed-identity-with-the-defaultazurecredential)。
 
 [!INCLUDE [Prepare repository](../../includes/app-service-deploy-prepare-repo.md)]
 
@@ -224,7 +224,7 @@ git add .
 git commit -m "Initial version"
 ```
 
-Kudu ビルド サーバーを使用したアプリへのローカル Git のデプロイを有効にするには、Cloud Shell で [`az webapp deployment source config-local-git`](/cli/azure/webapp/deployment/#az-webapp-deployment-source-config-local-git) を実行します。
+Kudu ビルド サーバーを使用したアプリへのローカル Git のデプロイを有効にするには、Cloud Shell で [`az webapp deployment source config-local-git`](/cli/azure/webapp/deployment/#az_webapp_deployment_source_config_local_git) を実行します。
 
 ```azurecli-interactive
 az webapp deployment source config-local-git --name <app_name> --resource-group <group_name>

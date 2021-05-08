@@ -6,10 +6,10 @@ ms.topic: include
 ms.date: 03/21/2019
 ms.author: pafarley
 ms.openlocfilehash: 179e283b1640b49487c38f900de7651226794c65
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/16/2020
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "97582574"
 ---
 独自の物体検出プロジェクトを実装したい (または[画像分類](../quickstarts/image-classification.md)プロジェクトを試したい) 場合、この例のフォーク/ハサミの検出プロジェクトは削除してかまいません。 無料サブスクリプションでは、2 つの Custom Vision プロジェクトを利用できます。

@@ -1,17 +1,17 @@
 ---
 title: サーバー - Azure Database for PostgreSQL - Single Server
 description: この記事では、Azure Database for PostgreSQL - Single Server を構成および管理するための考慮事項とガイドラインを示します。
-author: lfittl-msft
-ms.author: lufittl
+author: sunilagarwal
+ms.author: sunila
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.openlocfilehash: c8ae129cbad56e3bb63e055f9d843cac1da22fb1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1d1751ed56f63105ce7775ceaed9ea2dcca1f8bf
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91710466"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105628137"
 ---
 # <a name="azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL - Single Server
 この記事では、Azure Database for PostgreSQL - Single Server を操作するための考慮事項とガイドラインを示します。
@@ -36,12 +36,12 @@ Azure Database for PostgreSQL サーバー内では、1 つ以上のデータベ
 ## <a name="how-do-i-connect-and-authenticate-to-an-azure-database-for-postgresql-server"></a>Azure Database for PostgreSQL サーバーへの接続および認証方法
 次の要素が、データベースへの安全なアクセスを確保するうえで役に立ちます。
 
-|||
+|セキュリティの概念|説明|
 |:--|:--|
 | **認証と権限承認** | Azure Database for PostgreSQL サーバーは、ネイティブ PostgreSQL 認証をサポートしています。 サーバーにはサーバーの管理者ログインで接続し、認証できます。 |
 | **プロトコル** | サービスは、PostgreSQL で使用されるメッセージ ベースのプロトコルをサポートしています。 |
 | **TCP/IP** | プロトコルは、TCP/IP および UNIX ドメイン ソケット経由でサポートされます。 |
-| **ファイアウォール** | データを保護するため、ファイアウォール規則は、どのコンピューターに権限を持たせるかを指定するまで、使用中のサーバーおよびそのデータベースへのすべてのアクセスを遮断します。 「 [Azure Database for PostgreSQL サーバーのファイアウォール規則](concepts-firewall-rules.md)」を参照してください。 |
+| **ファイアウォール** | データを保護するため、ファイアウォール規則は、どのコンピューターに権限を持たせるかを指定するまで、使用中のサーバーおよびそのデータベースへのすべてのアクセスを遮断します。 「[Azure Database for PostgreSQL サーバーのファイアウォール規則](concepts-firewall-rules.md)」を参照してください。 |
 
 ## <a name="managing-your-server"></a>サーバーの管理
 Azure Database for PostgreSQL サーバーを管理するには、[Azure Portal](https://portal.azure.com) または [Azure CLI](/cli/azure/postgres) を使用します。
@@ -63,7 +63,7 @@ Postgres の管理対象サービスとして、Azure Database for PostgreSQL �
 
 
 ## <a name="next-steps"></a>次のステップ
-- サービスの概要については、 [Azure Database for PostgreSQL の概要](overview.md)に関するページをご覧ください。
-- **サービス レベル**に基づく特定のリソース クォータと制限については、 [サービス レベル](concepts-pricing-tiers.md)に関するページをご覧ください。
-- サービスへの接続については、「 [Azure Database for PostgreSQL の接続ライブラリ](concepts-connection-libraries.md)」を参照してください。
+- サービスの概要については、[Azure Database for PostgreSQL の概要](overview.md)に関するページをご覧ください。
+- **サービス レベル** に基づく特定のリソース クォータと制限については、[サービス レベル](concepts-pricing-tiers.md)に関するページをご覧ください。
+- サービスへの接続については、「[Azure Database for PostgreSQL の接続ライブラリ](concepts-connection-libraries.md)」を参照してください。
 - [Azure Portal](howto-configure-server-parameters-using-portal.md) または [Azure CLI](howto-configure-server-parameters-using-cli.md) でサーバー パラメーターを表示および編集します。

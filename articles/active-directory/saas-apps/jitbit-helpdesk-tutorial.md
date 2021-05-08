@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/02/2021
 ms.author: jeedes
-ms.openlocfilehash: 26d9321f028bc8b9293e9d7d46616fff2f3b60ce
-ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
+ms.openlocfilehash: b3fbf73ab51092f614a416355477fc552a404fd3
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102486832"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104581808"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jitbit-helpdesk"></a>チュートリアル:Azure Active Directory と Jitbit Helpdesk の統合
 
@@ -98,7 +98,7 @@ Jitbit Helpdesk に対して Azure AD SSO を構成してテストするには�
 
     ![構成 URL のコピー](common/copy-configuration-urls.png)
 
-### <a name="create-an-azure-ad-test-user"></a>Azure AD のテスト ユーザーの作成
+### <a name="create-an-azure-ad-test-user&quot;></a>Azure AD のテスト ユーザーの作成
 
 このセクションでは、Azure portal 内で B.Simon というテスト ユーザーを作成します。
 
@@ -110,7 +110,7 @@ Jitbit Helpdesk に対して Azure AD SSO を構成してテストするには�
    1. **[パスワードを表示]** チェック ボックスをオンにし、 **[パスワード]** ボックスに表示された値を書き留めます。
    1. **Create** をクリックしてください。
 
-### <a name="assign-the-azure-ad-test-user"></a>Azure AD テスト ユーザーの割り当て
+### <a name=&quot;assign-the-azure-ad-test-user&quot;></a>Azure AD テスト ユーザーの割り当て
 
 このセクションでは、B.Simon に Jitbit Helpdesk へのアクセスを許可することで、このユーザーが Azure シングル サインオンを使用できるようにします。
 
@@ -122,13 +122,13 @@ Jitbit Helpdesk に対して Azure AD SSO を構成してテストするには�
 1. ユーザーにロールが割り当てられることが想定される場合は、 **[ロールの選択]** ドロップダウンからそれを選択できます。 このアプリに対してロールが設定されていない場合は、[既定のアクセス] ロールが選択されていることを確認します。
 1. **[割り当ての追加]** ダイアログで、 **[割り当て]** をクリックします。
 
-## <a name="configure-jitbit-helpdesk-sso"></a>Jitbit Helpdesk SSO の構成
+## <a name=&quot;configure-jitbit-helpdesk-sso&quot;></a>Jitbit Helpdesk SSO の構成
 
 1. 別の Web ブラウザーのウィンドウで、Jitbit Helpdesk の企業サイトに管理者としてサインインします。
 
 1. 上部のツールバーで **[管理]** をクリックします。
 
-    ![管理](./media/jitbit-helpdesk-tutorial/settings.png "管理")
+    ![管理](./media/jitbit-helpdesk-tutorial/settings.png &quot;管理")
 
 1. **[全般設定]** をクリックします。
 
@@ -191,8 +191,8 @@ Azure AD ユーザーが Jitbit Helpdesk にサインインできるようにす
 
 * Jitbit Helpdesk のサインオン URL に直接移動し、そこからログイン フローを開始します。
 
-* Microsoft マイ アプリを使用することができます。 マイ アプリで [Jitbit Helpdesk] タイルをクリックすると、Jitbit Helpdesk のサインオン URL にリダイレクトされます。 マイ アプリの詳細については、[マイ アプリの概要](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)に関するページを参照してください。
+* Microsoft マイ アプリを使用することができます。 マイ アプリで [Jitbit Helpdesk] タイルをクリックすると、Jitbit Helpdesk のサインオン URL にリダイレクトされます。 マイ アプリの詳細については、[マイ アプリの概要](../user-help/my-apps-portal-end-user-access.md)に関するページを参照してください。
 
 ## <a name="next-steps"></a>次のステップ
 
-Jitbit Helpdesk を構成したら、組織の機密データを流出と侵入からリアルタイムで保護するセッション制御を適用することができます。 セッション制御は、条件付きアクセスを拡張したものです。 [Microsoft Cloud App Security でセッション制御を強制する方法](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app)をご覧ください。
+Jitbit Helpdesk を構成したら、組織の機密データを流出と侵入からリアルタイムで保護するセッション制御を適用することができます。 セッション制御は、条件付きアクセスを拡張したものです。 [Microsoft Cloud App Security でセッション制御を強制する方法](/cloud-app-security/proxy-deployment-any-app)をご覧ください。

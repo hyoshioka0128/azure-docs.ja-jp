@@ -5,13 +5,13 @@ author: Heidilohr
 ms.topic: how-to
 ms.date: 12/03/2020
 ms.author: helohr
-manager: lizross
-ms.openlocfilehash: dfedec85208ef9afaa58db2b200dc9f9988a845b
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+manager: femila
+ms.openlocfilehash: eaf6fc789020553b80967341cc9219a30ffce749
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101709242"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106446113"
 ---
 # <a name="add-language-packs-to-a-windows-10-multi-session-image"></a>Windows 10 マルチセッション イメージへの言語パックの追加
 
@@ -54,6 +54,7 @@ Windows 10 Enterprise マルチセッション イメージをカスタマイズ
           - [Windows 10 バージョン 2004 または 20H2 **10C** LXP ISO](https://software-download.microsoft.com/download/pr/LanguageExperiencePack.2010C.iso)
           - [Windows 10 バージョン 2004 または 20H2 **11C** LXP ISO](https://software-download.microsoft.com/download/pr/LanguageExperiencePack.2011C.iso)
           - [Windows 10 バージョン 2004 または 20H2 **1C** LXP ISO](https://software-download.microsoft.com/download/pr/LanguageExperiencePack.2101C.iso)
+          - [Windows 10 バージョン 2004 または 20H2 **2C** LXP ISO](https://software-download.microsoft.com/download/pr/LanguageExperiencePack.2102C.iso)
 
 - Azure ファイル共有または Windows ファイル サーバー仮想マシン上のファイル共有
 
@@ -264,4 +265,4 @@ Set-WinUserLanguageList $LanguageList -force
 
 言語パックの既知の問題については、「[Windows 10 バージョン 1803 以降のバージョンでの言語パックの追加: 既知の問題](/windows-hardware/manufacture/desktop/language-packs-known-issue)」を参照してください。
 
-Windows 10 Enterprise マルチセッションについて他に質問がある場合は、[FAQ](windows-10-multisession-faq.md) をご確認ください。
+Windows 10 Enterprise マルチセッションについて他に質問がある場合は、[FAQ](windows-10-multisession-faq.yml) をご確認ください。

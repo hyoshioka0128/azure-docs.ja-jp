@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 04/24/2020
 ms.author: tamram
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: e5ea94fea00771b64634d6c28a7879fabb195f09
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 82d272f22295a5b68d1e8de3fb5a70c45d4c14a3
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89069661"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107791213"
 ---
 # <a name="manage-storage-account-access-keys"></a>ストレージ アカウント アクセス キーを管理する
 
@@ -54,7 +54,7 @@ $storageAccountKey = `
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-Azure CLI でアカウント アクセス キーを一覧表示するには、次の例のように [az storage account keys list](/cli/azure/storage/account/keys#az-storage-account-keys-list) コマンドを呼び出します。 角かっこ内のプレースホルダー値を独自の値で置き換えてください。 
+Azure CLI でアカウント アクセス キーを一覧表示するには、次の例のように [az storage account keys list](/cli/azure/storage/account/keys#az_storage_account_keys_list) コマンドを呼び出します。 角かっこ内のプレースホルダー値を独自の値で置き換えてください。 
 
 ```azurecli-interactive
 az storage account keys list \
@@ -66,7 +66,7 @@ az storage account keys list \
 
 2 つのキーのいずれかを使用して Azure Storage にアクセスすることもできますが、一般的には、最初のキーを使用し、キーのローテーション時に 2 番目のキーの使用を予約することをお勧めします。
 
-アカウントのアクセス キーを表示または読み込むには、ユーザーがサービス管理者であるか、**Microsoft.Storage/storageAccounts/listkeys/action** を含む Azure ロールが割り当てられている必要があります。 このアクションが含まれる Azure 組み込みロールには、**所有者**、**共同作成者**、および**ストレージ アカウント キー オペレーターのサービス ロール**があります。 サービス管理者ロールの詳細については、[従来のサブスクリプション管理者ロール、Azure ロール、および Azure AD ロール](../../role-based-access-control/rbac-and-directory-admin-roles.md)に関する記事を参照してください。 Azure Storage 用の組み込み RBAC ロールの詳細については、「[Azure RBAC の Azure 組み込みロール](../../role-based-access-control/built-in-roles.md#storage)」の「**ストレージ**」セクションを参照してください。
+アカウントのアクセス キーを表示または読み込むには、ユーザーがサービス管理者であるか、**Microsoft.Storage/storageAccounts/listkeys/action** を含む Azure ロールが割り当てられている必要があります。 このアクションが含まれる Azure 組み込みロールには、**所有者**、**共同作成者**、および **ストレージ アカウント キー オペレーターのサービス ロール** があります。 サービス管理者ロールの詳細については、[従来のサブスクリプション管理者ロール、Azure ロール、および Azure AD ロール](../../role-based-access-control/rbac-and-directory-admin-roles.md)に関する記事を参照してください。 Azure Storage 用の組み込み RBAC ロールの詳細については、「[Azure RBAC の Azure 組み込みロール](../../role-based-access-control/built-in-roles.md#storage)」の「**ストレージ**」セクションを参照してください。
 
 ## <a name="use-azure-key-vault-to-manage-your-access-keys"></a>Azure Key Vault を使用してアクセスキーを管理する
 
@@ -116,7 +116,7 @@ PowerShell を使用してストレージ アカウントのアクセス キー�
 Azure CLI を使用してストレージ アカウントのアクセス キーをローテーションするには:
 
 1. ストレージ アカウントのセカンダリ アクセス キーを参照するようにアプリケーション コードの接続文字列を更新します。
-1. 次の例に示すように、[az storage account keys renew](/cli/azure/storage/account/keys#az-storage-account-keys-renew) コマンドを呼び出し、プライマリ アクセス キーを再生成します。
+1. 次の例に示すように、[az storage account keys renew](/cli/azure/storage/account/keys#az_storage_account_keys_renew) コマンドを呼び出し、プライマリ アクセス キーを再生成します。
 
     ```azurecli-interactive
     az storage account keys renew \
@@ -133,7 +133,7 @@ Azure CLI を使用してストレージ アカウントのアクセス キー�
 > [!NOTE]
 > Microsoft では、すべてのアプリケーションで、同時にいずれかのキーのみを使用することをお勧めします。 キー 1 を使用する場所とキー 2 を使用する場所がある場合、キーを循環させるときに、一部のアプリケーションがアクセス権を失います。
 
-アカウントのアクセス キーをローテーションさせるには、ユーザーがサービス管理者であるか、**Microsoft.Storage/storageAccounts/regeneratekey/action** を含む Azure ロールが割り当てられている必要があります。 このアクションが含まれる Azure 組み込みロールには、**所有者**、**共同作成者**、および**ストレージ アカウント キー オペレーターのサービス ロール**があります。 サービス管理者ロールの詳細については、[従来のサブスクリプション管理者ロール、Azure ロール、および Azure AD ロール](../../role-based-access-control/rbac-and-directory-admin-roles.md)に関する記事を参照してください。 Azure Storage 用の Azure 組み込みロールの詳細については、[Azure RBAC の Azure 組み込みロール](../../role-based-access-control/built-in-roles.md#storage)に関するページの「**ストレージ**」セクションを参照してください。
+アカウントのアクセス キーをローテーションさせるには、ユーザーがサービス管理者であるか、**Microsoft.Storage/storageAccounts/regeneratekey/action** を含む Azure ロールが割り当てられている必要があります。 このアクションが含まれる Azure 組み込みロールには、**所有者**、**共同作成者**、および **ストレージ アカウント キー オペレーターのサービス ロール** があります。 サービス管理者ロールの詳細については、[従来のサブスクリプション管理者ロール、Azure ロール、および Azure AD ロール](../../role-based-access-control/rbac-and-directory-admin-roles.md)に関する記事を参照してください。 Azure Storage 用の Azure 組み込みロールの詳細については、[Azure RBAC の Azure 組み込みロール](../../role-based-access-control/built-in-roles.md#storage)に関するページの「**ストレージ**」セクションを参照してください。
 
 ## <a name="next-steps"></a>次のステップ
 

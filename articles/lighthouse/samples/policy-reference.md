@@ -1,15 +1,15 @@
 ---
 title: Azure Lighthouse 用の組み込みポリシー定義
 description: Azure Lighthouse 用の Azure Policy 組み込みポリシー定義を一覧表示します。 これらの組み込みポリシー定義は、Azure リソースを管理するための一般的な方法を示します。
-ms.date: 03/10/2021
+ms.date: 04/14/2021
 ms.topic: reference
 ms.custom: subject-policy-reference
-ms.openlocfilehash: cd62888f51b874161c3bafccaaa49b48d1d092cb
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.openlocfilehash: ab3596c8c14e7d82e2c90117dff6d9f2e676f66e
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102617024"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107505678"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-lighthouse"></a>Azure Lighthouse 用の Azure Policy 組み込み定義
 

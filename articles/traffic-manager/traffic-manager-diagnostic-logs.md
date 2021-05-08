@@ -11,10 +11,10 @@ ms.workload: infrastructure-services
 ms.date: 01/25/2019
 ms.author: duau
 ms.openlocfilehash: 4cf3709574e2055f40759fd2d7026c93ac9db098
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102608021"
 ---
 # <a name="enable-resource-logging-in-azure-traffic-manager"></a>Azure Traffic Manager でリソースログを有効にする

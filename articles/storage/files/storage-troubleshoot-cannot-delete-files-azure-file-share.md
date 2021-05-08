@@ -10,12 +10,12 @@ ms.service: storage
 ms.subservice: files
 services: storage
 tags: ''
-ms.openlocfilehash: 3d4f10745d90ccd83e7251af40d3e92a230f2fcd
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: d8cc0cb7df4bb7bfff5a6b9d2f159cb674532927
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94629684"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107789755"
 ---
 # <a name="azure-file-share--failed-to-delete-files-from-azure-file-share"></a>Azure ファイル共有 - Azure ファイル共有からファイルを削除できない
 
@@ -36,7 +36,7 @@ Azure ファイル共有からのファイルの削除に失敗すると、次�
 
 エラー 1816 は、ファイル共有がマウントされているコンピューター上のファイルに対して許可されている、同時に開くことのできるハンドルの上限に達したときに発生します。 詳しくは、[Azure Storage のパフォーマンスとスケーラビリティのチェック リスト](../blobs/storage-performance-checklist.md)に関するページをご覧ください。
 
-## <a name="resolution"></a>解決策
+## <a name="resolution"></a>解決方法
 
 ハンドルをいくつか閉じて、同時に開いているハンドルの数を減らします。
 
@@ -92,4 +92,4 @@ $Context = New-AzStorageContext -StorageAccountName "StorageAccountName" -Storag
 
 * [Windows での Azure Files に関する問題のトラブルシューティング](storage-troubleshoot-windows-file-connection-problems.md)
 * [Linux での Azure Files に関する問題のトラブルシューティング](storage-troubleshoot-linux-file-connection-problems.md)
-* [Azure File Sync のトラブルシューティング](storage-sync-files-troubleshoot.md)
+* [Azure File Sync のトラブルシューティング](../file-sync/file-sync-troubleshoot.md)

@@ -8,16 +8,14 @@ ms.topic: quickstart
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: 90fc1385afb2ef921828465ba030674281e96ebf
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.openlocfilehash: f65614de97e8ff6eed732e624ae30c3f2b70bd60
+ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99833849"
+ms.lasthandoff: 04/17/2021
+ms.locfileid: "107589008"
 ---
 # <a name="quickstart-configure-rules-and-actions-for-your-device-in-azure-iot-central"></a>クイック スタート:Azure IoT Central でデバイスのルールとアクションを構成する
-
-*この記事は、オペレーター、ビルダー、および管理者に適用されます。*
 
 このクイックスタートでは、デバイスのセンサーによってレポートされる湿度が 55% を超えたときにメールを送信するルールを作成します。
 
@@ -51,7 +49,7 @@ ms.locfileid: "99833849"
 
 1. 次の表の情報を使用してアクションを定義してから、 **[完了]** を選択します。
 
-    | 設定   | Value                                             |
+    | 設定   | 値                                             |
     | --------- | ------------------------------------------------- |
     | Display name | オペレーターの電子メール アクション                          |
     | ターゲット        | メール アドレス                                |
@@ -70,10 +68,6 @@ ms.locfileid: "99833849"
 
 > [!NOTE]
 > テストの完了後は、ルールを無効にして、受信トレイに届くアラートを停止してください。
-
-## <a name="clean-up-resources"></a>リソースをクリーンアップする
-
-[!INCLUDE [iot-central-clean-up-resources](../../../includes/iot-central-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>次のステップ
 

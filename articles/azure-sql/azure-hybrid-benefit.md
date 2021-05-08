@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake
 ms.date: 02/16/2021
-ms.openlocfilehash: f1761851f91e6d0c0aadb3315dbb7980a00bba5b
-ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
+ms.openlocfilehash: b5f85e0dcb8ca70d5773b8f1c3b53e0b449ef013
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100633820"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107779203"
 ---
 # <a name="azure-hybrid-benefit---azure-sql-database--sql-managed-instance"></a>Azure ハイブリッド特典 - Azure SQL Database と SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
@@ -51,10 +51,9 @@ PowerShell を使用してライセンスの種類を設定または更新する
 
 Azure CLI を使用してライセンスの種類を設定または更新するには:
 
-- [az sql db create](/cli/azure/sql/db#az-sql-db-create)
-- [az sql db update](/cli/azure/sql/db#az-sql-db-update)
-- [az sql mi create](/cli/azure/sql/mi#az-sql-mi-create)
-- [az sql mi update](/cli/azure/sql/mi#az-sql-mi-update)
+- [az sql db create](/cli/azure/sql/db#az_sql_db_create)
+- [az sql mi create](/cli/azure/sql/mi#az_sql_mi_create)
+- [az sql mi update](/cli/azure/sql/mi#az_sql_mi_update)
 
 # <a name="rest-api"></a>[REST API](#tab/rest)
 

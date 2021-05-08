@@ -9,10 +9,10 @@ ms.author: robreed
 ms.collection: windows
 ms.date: 05/02/2018
 ms.openlocfilehash: 6817dd6baacd835b7d433177ff18af1238ee44a6
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102560080"
 ---
 # <a name="pass-credentials-to-the-azure-dscextension-handler"></a>資格情報を Azure DSC 拡張機能ハンドラーに渡す

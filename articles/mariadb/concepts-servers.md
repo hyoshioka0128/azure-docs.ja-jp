@@ -3,15 +3,15 @@ title: サーバー - Azure Database for MariaDB
 description: このトピックでは、Azure Database for MariaDB サーバーを操作するための考慮事項とガイドラインを示します。
 author: savjani
 ms.author: pariks
-ms.service: jroth
+ms.service: mariadb
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: abe17556d9ff62c44a33bfe4c4546a284785522e
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: 9a5cd55576d505114c15028cf637114f3baf7668
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98664131"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105627984"
 ---
 # <a name="server-concepts-in-azure-database-for-mariadb"></a>Azure Database for MariaDB のサーバーの概念
 この記事では、Azure Database for MariaDB サーバーを操作するための考慮事項とガイドラインを示します。
@@ -37,8 +37,8 @@ Azure Database for MariaDB サーバー内には 1 つまたは複数のデー�
 
 次の要素が、データベースへの安全なアクセスを確保するうえで役に立ちます。
 
-|||
-| :--| :--|
+| セキュリティの概念 | 説明 |
+| :-- | :-- |
 | **認証と権限承認** | Azure Database for MariaDB サーバーは、ネイティブ MySQL 認証をサポートしています。 サーバーにはサーバーの管理者ログインで接続し、認証できます。 |
 | **プロトコル** | サービスは、MySQL で使用されるメッセージ ベースのプロトコルをサポートしています。 |
 | **TCP/IP** | プロトコルは、TCP/IP および UNIX ドメイン ソケット経由でサポートされます。 |

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/08/2021
 ms.author: trbye
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 24cc7773d281d98b6a0943f5e0a61b6f547991ee
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 0c041d64b3dbd0c38979f4d8d0fa563a72f6a4b1
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102032825"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106168197"
 ---
 # <a name="speech-to-text-rest-api"></a>Speech to Text REST API
 
@@ -24,11 +24,11 @@ Speech to Text には、2 つの異なる REST API があります。 各 API �
 
 以下に、Speech to Text REST API を示します。
 - [Speech to Text REST API v 3.0](#speech-to-text-rest-api-v30): [バッチ文字起こし](batch-transcription.md)および [Custom Speech](custom-speech-overview.md) に使用されます。 v3.0 は、[v2.0 の後継](./migrate-v2-to-v3.md)です。
-- [Speech to Text REST API for short audio](#speech-to-text-rest-api-for-short-audio): [Speech SDK](speech-sdk.md) の代替手段として、OnLine 文字起こしに使用されます。 この API を使用する要求では、要求ごとに最大 60 秒の音声を送信できます。 
+- [Speech to Text REST API for short audio](#speech-to-text-rest-api-for-short-audio): [Speech SDK](speech-sdk.md) の代替手段として、オンライン文字起こしに使用されます。 この API を使用する要求では、要求ごとに最大 60 秒の音声を送信できます。 
 
 ## <a name="speech-to-text-rest-api-v30"></a>Speech to Text REST API v3.0
 
-Speech to Text REST API v3.0 は、[バッチ文字起こし](batch-transcription.md)および [Custom Speech](custom-speech-overview.md) に使用されます。 REST を介して OnLine 文字起こしと通信する必要がある場合は、[Speech to Text REST API for short audio](#speech-to-text-rest-api-for-short-audio) を使用します。
+Speech to Text REST API v3.0 は、[バッチ文字起こし](batch-transcription.md)および [Custom Speech](custom-speech-overview.md) に使用されます。 REST を介してオンライン文字起こしと通信する必要がある場合は、[Speech to Text REST API for short audio](#speech-to-text-rest-api-for-short-audio) を使用します。
 
 REST API v3.0 を使用して、次の操作を行うことができます。
 - 作成したモデルに同僚がアクセスできるようにする場合や、複数のリージョンにモデルをデプロイする場合に、モデルを他のサブスクリプションにコピーする
@@ -51,7 +51,8 @@ Speech to Text REST API v3.0 の全リファレンスについては、[こち�
 
 ## <a name="speech-to-text-rest-api-for-short-audio"></a>Speech to Text REST API for short audio
 
-[Speech SDK](speech-sdk.md) の代替手段となる Speech Services では、REST API を使用して音声テキスト変換を実行できます。 アクセス可能な各エンドポイントは、リージョンに関連付けられています。 アプリケーションには、使用を検討しているエンドポイントのサブスクリプション キーが必要となります。 REST API for short audio は非常に制限されており、[Speech SDK](speech-sdk.md) を使用できない場合にのみ使用する必要があります。
+[Speech SDK](speech-sdk.md) の代替手段となる Speech Services では、REST API を使用して音声テキスト変換を実行できます。
+REST API for short audio は非常に制限されており、[Speech SDK](speech-sdk.md) を使用できない場合にのみ使用する必要があります。
 
 Speech to Text REST API for short audio を使用する前に、次のことを考慮してください。
 
@@ -152,7 +153,7 @@ var pronAssessmentHeader = Convert.ToBase64String(pronAssessmentParamsBytes);
 オーディオ データを投稿するときにストリーミング (チャンク) アップロードを行うことを強くお勧めします。これにより、待機時間が大幅に短縮されます。 ストリーミングを有効にする方法については、[さまざまなプログラミング言語のサンプル コード](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/PronunciationAssessment)を参照してください。
 
 >[!NOTE]
->現在、発音評価機能は、`en-US` 言語でのみ利用できます。
+> 発音評価機能では現在、すべての[音声テキスト変換のリージョン](regions.md#speech-to-text)で使用できる `en-US` 言語がサポートされています。 `en-GB` および `zh-CN` 言語のサポートはプレビュー段階です。これは `westus`、`eastasia`、`centralindia` のリージョンで利用できます。
 
 ### <a name="sample-request"></a>要求のサンプル
 
@@ -341,3 +342,4 @@ using (var fs = new FileStream(audioFile, FileMode.Open, FileAccess.Read))
 - [音響モデルをカスタマイズする](./how-to-custom-speech-train-model.md)
 - [言語モデルをカスタマイズする](./how-to-custom-speech-train-model.md)
 - [バッチ文字起こしについての理解を深める](batch-transcription.md)
+

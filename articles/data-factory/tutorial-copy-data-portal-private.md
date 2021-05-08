@@ -5,14 +5,14 @@ author: linda33wj
 ms.service: data-factory
 ms.topic: tutorial
 ms.custom: seo-lt-2019
-ms.date: 02/18/2021
+ms.date: 04/14/2021
 ms.author: jingwang
-ms.openlocfilehash: a3cc3686d4b256fc7b8702f34cdf393dc1b0e25f
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 191ad61990e10fdb718eebf1a8f57d8edaadcf35
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101740394"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107515458"
 ---
 # <a name="copy-data-securely-from-azure-blob-storage-to-a-sql-database-by-using-private-endpoints"></a>プライベート エンドポイントを使用して Azure Blob Storage から SQL データベースに安全にデータをコピーする
 
@@ -132,7 +132,7 @@ CREATE CLUSTERED INDEX IX_emp_ID ON dbo.emp (ID);
 ### <a name="configure-a-source"></a>ソースを構成する
 
 >[!TIP]
->このチュートリアルでは、ソース データ ストアの認証の種類として "**アカウント キー**" を使用します。 また、必要に応じて、**SAS URI**、**サービス プリンシパル**、**マネージド ID** など、サポートされている他の認証方法を選ぶこともできます。 詳細については、「[Azure Data Factory を使用して Azure Blob Storage のデータをコピーおよび変換する](./connector-azure-blob-storage.md#linked-service-properties)」の対応するセクションを参照してください。
+>このチュートリアルでは、ソース データ ストアの認証の種類として "**アカウント キー**" を使用します。 また、必要に応じて、**SAS URI**、**サービス プリンシパル**、**マネージド ID** など、サポートされている他の認証方法を選ぶこともできます。 詳細については、「[Azure Data Factory を使用して Azure BLOB ストレージのデータをコピーおよび変換する](./connector-azure-blob-storage.md#linked-service-properties)」の対応するセクションを参照してください。
 >
 >さらに、データ ストアのシークレットを安全に格納するために、Azure Key Vault の使用をお勧めします。 詳細な説明と図解については、「[Azure Key Vault への資格情報の格納](./store-credentials-in-key-vault.md)」を参照してください。
 

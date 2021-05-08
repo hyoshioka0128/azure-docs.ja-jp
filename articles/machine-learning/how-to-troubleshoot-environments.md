@@ -11,10 +11,10 @@ ms.date: 12/3/2020
 ms.topic: troubleshooting
 ms.custom: devx-track-python
 ms.openlocfilehash: ec0c7d64f2145cdaf594cb903c072984f4d376a9
-ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/09/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102519131"
 ---
 # <a name="troubleshoot-environment-image-builds"></a>環境イメージのビルドのトラブルシューティング

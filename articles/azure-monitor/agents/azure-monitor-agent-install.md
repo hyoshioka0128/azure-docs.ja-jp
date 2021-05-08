@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/17/2020
-ms.openlocfilehash: 6bf0e8b90ca50a90f84c18981ab6accae8477b46
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: db9ad08f9a939a22e1e0e1cfba0537e6356394ed
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102034313"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105731537"
 ---
 # <a name="install-the-azure-monitor-agent-preview"></a>Azure Monitor エージェントをインストールする (プレビュー)
 この記事では、Azure 仮想マシンと Azure Arc 対応サーバーの両方に [Azure Monitor エージェント](azure-monitor-agent-overview.md) をインストールするために現在使用できるさまざまなオプションについて説明し、エージェントが収集するデータを定義する[データ収集ルールとの関連付け](data-collection-rule-azure-monitor-agent.md)を作成するオプションについても説明します。
@@ -20,6 +20,9 @@ Azure Monitor エージェントをインストールする前に、次の前提
 
 - [マネージド システム ID](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md) が Azure 仮想マシンで有効になっている必要があります。 これは、Azure Arc 対応サーバーでは必要ありません。 [Azure portal でデータ収集ルールを作成して割り当てる](#install-with-azure-portal)プロセスの一部としてエージェントがインストールされている場合は、システム ID が自動的に有効になります。
 - 仮想マシンの仮想ネットワークで [AzureResourceManager サービス タグ](../../virtual-network/service-tags-overview.md)を有効にする必要があります。
+
+> [!IMPORTANT]
+> Azure Monitor エージェントでは、ネットワーク プロキシは現在サポートされていません。
 
 ## <a name="virtual-machine-extension-details"></a>仮想マシン拡張機能の詳細
 Azure Monitor エージェントは、次の表に示す詳細で [Azure VM 拡張機能](../../virtual-machines/extensions/overview.md)として実装されます。 この記事で説明されているものを含め、仮想マシン拡張機能をインストールする、どの方法でもインストールできます。
@@ -62,11 +65,11 @@ New-AzResourceGroupDeployment -ResourceGroupName "<resource-group-name>" -Templa
 次の PowerShell コマンドを使用して、Azure の仮想マシンに Azure Monitor エージェントをインストールします。
 # <a name="windows"></a>[Windows](#tab/PowerShellWindows)
 ```powershell
-Set-AzVMExtension -Name AMAWindows -ExtensionType AzureMonitorWindowsAgent -Publisher Microsoft.Azure.Monitor -ResourceGroupName <resource-group-name> -VMName <virtual-machine-name> -Location <location>
+Set-AzVMExtension -Name AMAWindows -ExtensionType AzureMonitorWindowsAgent -Publisher Microsoft.Azure.Monitor -ResourceGroupName <resource-group-name> -VMName <virtual-machine-name> -Location <location> -TypeHandlerVersion 1.0
 ```
 # <a name="linux"></a>[Linux](#tab/PowerShellLinux)
 ```powershell
-Set-AzVMExtension -Name AMALinux -ExtensionType AzureMonitorLinuxAgent -Publisher Microsoft.Azure.Monitor -ResourceGroupName <resource-group-name> -VMName <virtual-machine-name> -Location <location>
+Set-AzVMExtension -Name AMALinux -ExtensionType AzureMonitorLinuxAgent -Publisher Microsoft.Azure.Monitor -ResourceGroupName <resource-group-name> -VMName <virtual-machine-name> -Location <location> -TypeHandlerVersion 1.0
 ```
 ---
 

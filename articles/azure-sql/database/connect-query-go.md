@@ -5,19 +5,19 @@ titleSuffix: Azure SQL Database & SQL Managed Instance
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
-ms.custom: sqldbrb=2 
+ms.custom: sqldbrb=2
 ms.devlang: go
 ms.topic: quickstart
 author: David-Engel
 ms.author: sstein
 ms.reviewer: MightyPen
-ms.date: 02/12/2019
-ms.openlocfilehash: b4a22c734d2afb90d5ea7bc1bda17d3f8fcf585a
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.date: 04/14/2021
+ms.openlocfilehash: 1a479572ba8dbd68ccc072fce32446abcc9b873c
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91327546"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107517782"
 ---
 # <a name="quickstart-use-golang-to-query-a-database-in-azure-sql-database-or-azure-sql-managed-instance"></a>クイック スタート:Golang を使用して Azure SQL Database または Azure SQL Managed Instance 内のデータベースに対してクエリを実行する
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -76,7 +76,6 @@ ms.locfileid: "91327546"
    ```bash
    cd SqlServerSample
    go get github.com/denisenkom/go-mssqldb
-   go install github.com/denisenkom/go-mssqldb
    ```
 
 ## <a name="create-sample-data"></a>サンプル データの作成
@@ -112,7 +111,7 @@ ms.locfileid: "91327546"
 
 ## <a name="insert-code-to-query-the-database"></a>データベースに対してクエリを実行するコードを挿入する
 
-1. **sample.go**という名前のファイルを **SqlServerSample** フォルダーに作成します。
+1. **sample.go** という名前のファイルを **SqlServerSample** フォルダーに作成します。
 
 2. そのファイルに、以下のコードを貼り付けます。 サーバー、データベース、ユーザー名、およびパスワードの値を追加します。 この例では、Golang [コンテキスト メソッド](https://golang.org/pkg/context/)を使用して、アクティブな接続があることを確認します。
 

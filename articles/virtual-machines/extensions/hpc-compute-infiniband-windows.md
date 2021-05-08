@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 02/01/2021
 ms.author: amverma
 ms.openlocfilehash: 81720c18ce858cd5667413a9d39afdadc95acb23
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102559700"
 ---
 # <a name="infiniband-driver-extension-for-windows"></a>Windows 用の InfiniBand ドライバー拡張機能

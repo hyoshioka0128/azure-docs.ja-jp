@@ -6,10 +6,10 @@ ms.date: 08/09/2020
 ms.topic: quickstart
 ms.author: nepeters
 ms.openlocfilehash: 3e41d4f6f8b8aeb2be376ae1385189fe02e9b897
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/09/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102504659"
 ---
 # <a name="quickstart-create-arm-templates-with-visual-studio-code"></a>クイックスタート: Visual Studio Code を使用して ARM テンプレートを作成する

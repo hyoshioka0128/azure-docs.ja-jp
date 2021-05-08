@@ -2,21 +2,21 @@
 title: 列ストア インデックスのパフォーマンスの向上
 description: メモリ要件を減らすか、使用可能なメモリを増やして列ストア インデックスが各行グループに圧縮する行の数を最大限にします。
 services: synapse-analytics
-author: kevinvngo
+author: julieMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql
 ms.date: 04/15/2020
-ms.author: kevin
+ms.author: jrasnick
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 18350dc39fceaf6f4c50f8e1053a2972bbce7f44
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: a452808b1c349e2aec91759675e269e3680f0598
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101676637"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107567963"
 ---
 # <a name="maximize-rowgroup-quality-for-columnstore-index-performance"></a>列ストア インデックスのパフォーマンスのために行グループの品質を最大化する
 

@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/27/2020
 ms.author: trbye
-ms.openlocfilehash: 0a9ca21cc14bb87797c962a89cf87ac184e73735
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: 31634abe2768ec47ee2aa66051a7a363f83c6009
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102434565"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105043223"
 ---
 :::row:::
     :::column span="3":::
@@ -58,7 +58,7 @@ end
 
 :::row:::
     :::column span="3":::
-        Xamarin iOS は、.NET 開発者向けの完全な iOS SDK を公開しています。 Visual Studio でC#またはF#を使用して、完全にネイティブな iOS アプリをビルドします。 詳細は、<a href="https://docs.microsoft.com/xamarin/ios/" target="_blank">Xamarin.iOS </a>を参照してください。
+        Xamarin iOS は、.NET 開発者向けの完全な iOS SDK を公開しています。 Visual Studio でC#またはF#を使用して、完全にネイティブな iOS アプリをビルドします。 詳細は、<a href="/xamarin/ios/" target="_blank">Xamarin.iOS </a>を参照してください。
     :::column-end:::
     :::column:::
         <br>

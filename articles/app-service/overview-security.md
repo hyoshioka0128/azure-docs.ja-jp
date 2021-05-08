@@ -1,15 +1,15 @@
 ---
-title: セキュリティ
+title: Security
 description: App Service でアプリをセキュリティで保護する方法と、アプリを脅威からさらに保護する方法について説明します。
 keywords: azure app service, web アプリ, モバイル アプリ, api アプリ, 関数アプリ, セキュリティ, セキュア, セキュリティ保護, コンプライアンス, 準拠, 証明書, https, ftps, tls, 信頼, 暗号化, 暗号化する, 暗号化済み, ip の制限, 認証, 認可, authn, autho, msi, マネージド サービス ID, マネージド ID, シークレット, 秘密, パッチ処理, パッチ, バージョン, 分離, ネットワークの分離, ddos, mitm
 ms.topic: article
 ms.date: 08/24/2018
 ms.custom: seodec18
 ms.openlocfilehash: 61bffcfa8b98ed666e450c344023258b752e4880
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98736107"
 ---
 # <a name="security-in-azure-app-service"></a>Azure App Service のセキュリティ
@@ -72,13 +72,13 @@ App Service の認証および承認は、Azure Active Directory、Microsoft ア
 
 アプリが [SQL Database](https://azure.microsoft.com/services/sql-database/) や [Azure Storage](../storage/index.yml) などの Azure リソースに接続しても、接続は Azure 内にとどまり、ネットワーク境界を越えません。 ただし、接続は Azure の共有ネットワークを経由するので、接続は常に暗号化してください。 
 
-アプリが [App Service Environment](environment/intro.md)でホストされている場合、[仮想ネットワーク サービス エンドポイントを使用して、サポートされている Azure サービスに接続する](../virtual-network/virtual-network-service-endpoints-overview.md)必要があります。
+アプリが [App Service Environment](environment/intro.md) でホストされている場合、[仮想ネットワーク サービス エンドポイントを使用して、サポートされている Azure サービスに接続する](../virtual-network/virtual-network-service-endpoints-overview.md)必要があります。
 
 ### <a name="resources-inside-an-azure-virtual-network"></a>Azure Virtual Network 内のリソース
 
 アプリは、[Azure Virtual Network](../virtual-network/index.yml) 内のリソースに [Virtual Network 統合](web-sites-integrate-with-vnet.md)を介してアクセスできます。 Virtual Network との統合は、ポイント対サイトの VPN を使用して確立されます。 アプリは、プライベート IP アドレスを使用して Virtual Network 内のリソースにアクセスできるようになります。 ただし、ポイント対サイト接続は Azure の共有ネットワークを経由します。 
 
-リソース接続を Azure の共有ネットワークから完全に分離するには、[App Service Environment](environment/intro.md)でアプリを作成します。 App Service Environment は常に専用の Virtual Network に展開されるので、アプリと Virtual Network 内のリソースとの接続は完全に分離されます。 App Service Environment におけるネットワーク セキュリティのその他の側面については、「[ネットワークの分離](#network-isolation)」を参照してください。
+リソース接続を Azure の共有ネットワークから完全に分離するには、[App Service Environment](environment/intro.md) でアプリを作成します。 App Service Environment は常に専用の Virtual Network に展開されるので、アプリと Virtual Network 内のリソースとの接続は完全に分離されます。 App Service Environment におけるネットワーク セキュリティのその他の側面については、「[ネットワークの分離](#network-isolation)」を参照してください。
 
 ### <a name="on-premises-resources"></a>オンプレミスのリソース
 
@@ -96,7 +96,7 @@ App Service の認証および承認は、Azure Active Directory、Microsoft ア
 
 ## <a name="network-isolation"></a>ネットワークの分離
 
-**Isolated** 価格レベルを除くすべての価格レベルでは、App Service の共有ネットワーク インフラストラクチャ上でアプリが実行されます。 たとえば、パブリック IP アドレスとフロントエンド ロード バランサーは他のテナントと共有されます。 **Isolated** 価格レベルでは、専用の [App Service Environment](environment/intro.md)内でアプリを実行することで完全なネットワークの分離を実現しています。 App Service Environment は、[Azure Virtual Network](../virtual-network/index.yml) の独自のインスタンスで実行されます。 以下を実行できます。 
+**Isolated** 価格レベルを除くすべての価格レベルでは、App Service の共有ネットワーク インフラストラクチャ上でアプリが実行されます。 たとえば、パブリック IP アドレスとフロントエンド ロード バランサーは他のテナントと共有されます。 **Isolated** 価格レベルでは、専用の [App Service Environment](environment/intro.md) 内でアプリを実行することで完全なネットワークの分離を実現しています。 App Service Environment は、[Azure Virtual Network](../virtual-network/index.yml) の独自のインスタンスで実行されます。 以下を実行できます。 
 
 - 専用のフロント エンドを使用し、専用のパブリック エンドポイントを介してアプリを提供する。
 - 内部ロードバランサー (ILB) を使用して内部アプリケーションを提供する。これによって、Azure Virtual Network 内からのアクセスのみが許可されます。 ILB にはプライベート サブネットの IP アドレスがあり、アプリはインターネットから完全に分離されます。

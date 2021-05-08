@@ -4,10 +4,10 @@ description: Azure Event Grid で Azure Key Vault のイベント用に提供さ
 ms.topic: conceptual
 ms.date: 02/11/2021
 ms.openlocfilehash: ea8821b15000b74a10f28730ccf82b538e7819e5
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100363408"
 ---
 # <a name="azure-key-vault-as-event-grid-source"></a>Event Grid ソースとして Azure Key Vault
@@ -94,7 +94,7 @@ Azure Key Vault アカウントでは、以下の種類のイベントが生成�
 # <a name="event-grid-event-schema"></a>[Event Grid イベント スキーマ](#tab/event-grid-event-schema)
 イベントのトップレベルのデータを次に示します。
 
-| プロパティ | 種類 | [説明] |
+| プロパティ | Type | 説明 |
 | -------- | ---- | ----------- |
 | `topic` | string | イベント ソースの完全なリソース パス。 このフィールドは書き込み可能ではありません。 この値は Event Grid によって指定されます。 |
 | `subject` | string | 発行元が定義したイベントの対象のパス。 |
@@ -110,7 +110,7 @@ Azure Key Vault アカウントでは、以下の種類のイベントが生成�
 
 イベントのトップレベルのデータを次に示します。
 
-| プロパティ | 種類 | [説明] |
+| プロパティ | Type | 説明 |
 | -------- | ---- | ----------- |
 | `source` | string | イベント ソースの完全なリソース パス。 このフィールドは書き込み可能ではありません。 この値は Event Grid によって指定されます。 |
 | `subject` | string | 発行元が定義したイベントの対象のパス。 |
@@ -125,7 +125,7 @@ Azure Key Vault アカウントでは、以下の種類のイベントが生成�
 
 データ オブジェクトには、次のプロパティがあります。
 
-| プロパティ | 種類 | [説明] |
+| プロパティ | Type | 説明 |
 | ---------- | ----------- |---|
 | `id` | string | このイベントをトリガーしたオブジェクトの ID |
 | `vaultName` | string | このイベントをトリガーしたオブジェクトのキー コンテナー名 |

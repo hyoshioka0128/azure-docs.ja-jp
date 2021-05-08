@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 07/30/2020
 ms.author: victorh
 ms.openlocfilehash: 54faa0bc7d414eb15a866b8e1e6d09e15b22b071
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/09/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "102500854"
 ---
 # <a name="ip-groups-in-azure-firewall-policy"></a>Azure Firewall ポリシーでの IP グループ

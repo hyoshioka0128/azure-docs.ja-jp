@@ -5,12 +5,12 @@ ms.assetid: 0e221db6-ee2d-4e16-9bf6-a456cd05b6e7
 ms.topic: sample
 ms.date: 07/03/2018
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 020bd064628554703bb375c06c72e68d4536a2a3
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: ea368714ded56d77a10e24b853144bdf1dd42dfe
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97934443"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107786321"
 ---
 # <a name="create-a-function-app-in-an-app-service-plan"></a>App Service プランで Function App を作成する
 
@@ -34,12 +34,12 @@ ms.locfileid: "97934443"
 
 表内の各コマンドは、それぞれのドキュメントにリンクされています。 このスクリプトでは以下のコマンドを使用します。
 
-| command | Notes |
+| コマンド | Notes |
 |---|---|
-| [az group create](/cli/azure/group#az-group-create) | すべてのリソースを格納するリソース グループを作成します。 |
-| [az storage account create](/cli/azure/storage/account#az-storage-account-create) | Azure Storage アカウントを作成します。 |
-| [az functionapp plan create](/cli/azure/functionapp/plan#az-functionapp-plan-create) | Premium プランを作成します。 |
-| [az functionapp create](/cli/azure/functionapp#az-functionapp-create) | App Service プランで関数アプリを作成します。 |
+| [az group create](/cli/azure/group#az_group_create) | すべてのリソースを格納するリソース グループを作成します。 |
+| [az storage account create](/cli/azure/storage/account#az_storage_account_create) | Azure Storage アカウントを作成します。 |
+| [az functionapp plan create](/cli/azure/functionapp/plan#az_functionapp_plan_create) | Premium プランを作成します。 |
+| [az functionapp create](/cli/azure/functionapp#az_functionapp_create) | App Service プランで関数アプリを作成します。 |
 
 ## <a name="next-steps"></a>次のステップ
 

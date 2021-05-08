@@ -11,11 +11,11 @@ ms.topic: reference
 ms.date: 02/17/2021
 ms.author: sbowles
 ms.openlocfilehash: 712b18b471b7595f5278c77ead9f845048d4783e
-ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100643888"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105566100"
 ---
 # <a name="face-api-reference-list"></a>Face API リファレンス リスト
 

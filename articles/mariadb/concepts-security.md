@@ -3,14 +3,14 @@ title: セキュリティ - Azure Database for MariaDB
 description: Azure Database for MariaDB のセキュリティ機能の概要。
 author: savjani
 ms.author: pariks
-ms.service: jroth
+ms.service: mariadb
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: 9e6ca797b1e982e1ef632ba99e9210e3c347a2f1
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: 8a46f70e3089a8610fa8ca6362bcba6f624e2b1a
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/21/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98664182"
 ---
 # <a name="security-in-azure-database-for-mariadb"></a>Azure Database for MariaDB のセキュリティ

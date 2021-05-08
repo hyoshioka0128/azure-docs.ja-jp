@@ -2,25 +2,22 @@
 title: クイックスタート - 音声通話をアプリに追加する
 titleSuffix: An Azure Communication Services quickstart
 description: このクイックスタートでは、Azure Communication Services を使用して、アプリに通話機能を追加する方法について説明します。
-author: GrantMeStrength
-ms.author: jken
-ms.date: 07/24/2020
+author: mikben
+ms.author: mikben
+ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
 zone_pivot_groups: acs-plat-web-ios-android
-ms.openlocfilehash: 48745662b8fbed2d4b72187bcf5c055643e222e8
-ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
+ms.openlocfilehash: 5a506d84f338b2eab1c32caa4d94bd03a33e637d
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102489206"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105728336"
 ---
 # <a name="quickstart-add-voice-calling-to-your-app"></a>クイック スタート:音声通話をアプリに追加する
 
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
-
-
-Communication Services 通話クライアント ライブラリを使用して音声と動画の通話をアプリに追加することによって、Azure Communication Services の使用を開始します。
+Communication Services 通話 SDK を使用して音声およびビデオ通話をアプリに追加することによって、Azure Communication Services の使用を開始します。
 
 [!INCLUDE [Emergency Calling Notice](../../includes/emergency-calling-notice-include.md)]
 
@@ -45,5 +42,5 @@ Communication Services サブスクリプションをクリーンアップして
 詳細については、次の記事を参照してください。
 
 - [通話のヒーロー サンプル](../../samples/calling-hero-sample.md)を確認する
-- [通話クライアント ライブラリ機能](./calling-client-samples.md)について学習する
+- [通話 SDK](./calling-client-samples.md) について確認する
 - [通話のしくみ](../../concepts/voice-video-calling/about-call-types.md)の詳細について確認する

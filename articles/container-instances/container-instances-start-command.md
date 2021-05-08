@@ -3,12 +3,12 @@ title: コンテナー インスタンスのエントリポイントをオーバ
 description: Azure コンテナー インスタンスのデプロイ時にコンテナー イメージのエントリポイントをオーバーライドするためのコマンド ラインを設定する
 ms.topic: article
 ms.date: 04/15/2019
-ms.openlocfilehash: 23221de3dc91c37c2e6fb96489539d3954efcd87
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5898decbf4108d48bb9e84019d659075b18fd043
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86169631"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107771085"
 ---
 # <a name="set-the-command-line-in-a-container-instance-to-override-the-default-command-line-operation"></a>コンテナー インスタンスにコマンド ラインを設定して既定のコマンド ライン操作をオーバーライドする
 
@@ -18,7 +18,7 @@ ms.locfileid: "86169631"
 
 ## <a name="command-line-guidelines"></a>コマンドラインのガイドライン
 
-* 既定では、このコマンド ラインでは、コンテナーで*シェルを使用せずに開始する単一のプロセス*を指定します。 たとえば、コマンド ラインにより Python スクリプトまたは実行ファイルを実行できます。 このプロセスでは、追加のパラメーターまたは引数を指定できます。
+* 既定では、このコマンド ラインでは、コンテナーで *シェルを使用せずに開始する単一のプロセス* を指定します。 たとえば、コマンド ラインにより Python スクリプトまたは実行ファイルを実行できます。 このプロセスでは、追加のパラメーターまたは引数を指定できます。
 
 * 複数のコマンドを実行するには、コンテナーのオペレーティング システムでサポートされるシェル環境を設定することで、コマンド ラインを開始します。 例 :
 
@@ -72,7 +72,7 @@ az container create \
     --restart-policy OnFailure
 ```
 
-コンテナーの状態が*終了*と表示されたら ([az container show][az-container-show] を使用して状態を確認)、[az container logs][az-container-logs] を使用してログを表示し、出力を確認します。
+コンテナーの状態が *終了* と表示されたら ([az container show][az-container-show] を使用して状態を確認)、[az container logs][az-container-logs] を使用してログを表示し、出力を確認します。
 
 ```azurecli-interactive
 az container logs --resource-group myResourceGroup --name mycontainer1
@@ -98,7 +98,7 @@ az container create \
     --command-line "python wordcount.py http://shakespeare.mit.edu/romeo_juliet/full.html"
 ```
 
-再び、コンテナーが*終了*になったら、コンテナー ログを表示することにより出力を表示します。
+再び、コンテナーが *終了* になったら、コンテナー ログを表示することにより出力を表示します。
 
 ```azurecli-interactive
 az container logs --resource-group myResourceGroup --name mycontainer2
@@ -118,8 +118,8 @@ az container logs --resource-group myResourceGroup --name mycontainer2
 [aci-wordcount]: https://hub.docker.com/_/microsoft-azuredocs-aci-wordcount
 
 <!-- LINKS Internal -->
-[az-container-create]: /cli/azure/container#az-container-create
-[az-container-logs]: /cli/azure/container#az-container-logs
-[az-container-show]: /cli/azure/container#az-container-show
+[az-container-create]: /cli/azure/container#az_container_create
+[az-container-logs]: /cli/azure/container#az_container_logs
+[az-container-show]: /cli/azure/container#az_container_show
 [new-azurermcontainergroup]: /powershell/module/azurerm.containerinstance/new-azurermcontainergroup
 [portal]: https://portal.azure.com

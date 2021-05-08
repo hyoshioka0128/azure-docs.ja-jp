@@ -3,19 +3,19 @@ title: コンテナー インスタンスのログとイベントの取得
 description: コンテナーの問題のトラブルシューティングに役立つように、Azure Container Instances でコンテナーのログとイベントを取得する方法について説明します
 ms.topic: article
 ms.date: 12/30/2019
-ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 20b6e1cfe6bb8f6ac721a401c3d0831d4f447edb
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.custom: mvc
+ms.openlocfilehash: f5eb8c878164846ed2f1daf1cb7e5014e0c62c55
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92746959"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107764047"
 ---
 # <a name="retrieve-container-logs-and-events-in-azure-container-instances"></a>Azure Container Instances でコンテナーのログとイベントを取得する
 
 Azure Container Instances でコンテナーが正常に動作しない場合、[az container logs][az-container-logs] でそのログを確認し、[az container attach][az-container-attach] でその標準出力と標準エラーをストリーム配信することから始めます。 Azure portal でコンテナー インスタンスのログとイベントを表示したり、コンテナー グループのログとイベント データを [Azure Monitor ログ](container-instances-log-analytics.md)に送信したりすることもできます。
 
-## <a name="view-logs"></a>ログを表示する。
+## <a name="view-logs"></a>ログを表示する
 
 アプリケーション コードからコンテナー内のログを表示するには、[az container logs][az-container-logs] コマンドを使用できます。
 
@@ -154,6 +154,6 @@ Azure Container Instances の[コンテナーとデプロイに関する一般�
 コンテナー グループのログおよびイベント データを [Azure Monitor ログ](container-instances-log-analytics.md)に送信する方法を学習します。
 
 <!-- LINKS - Internal -->
-[az-container-attach]: /cli/azure/container#az-container-attach
-[az-container-logs]: /cli/azure/container#az-container-logs
-[az-container-show]: /cli/azure/container#az-container-show
+[az-container-attach]: /cli/azure/container#az_container_attach
+[az-container-logs]: /cli/azure/container#az_container_logs
+[az-container-show]: /cli/azure/container#az_container_show

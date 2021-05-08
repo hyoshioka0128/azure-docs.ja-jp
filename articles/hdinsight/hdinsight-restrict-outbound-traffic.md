@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/17/2020
-ms.openlocfilehash: 4761c1fb6d245071a02fc69677fc9cd50a972fdd
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 06990a5bd1d6619f07952e84870a01f5cd5068df
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100574600"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106384427"
 ---
 # <a name="configure-outbound-network-traffic-for-azure-hdinsight-clusters-using-firewall"></a>ファイアウォールを使用して Azure HDInsight クラスターのアウトバウンド ネットワーク トラフィックを構成する
 
@@ -32,7 +32,7 @@ Azure Firewall を使用して既存の HDInsight からのエグレスをロッ
 
 1. サブネットを作成します。
 1. ファイアウォールを作成します。
-1. ファイアウォールにアプリケーション ルールを追加します
+1. ファイアウォールにアプリケーション ルールを追加します。
 1. ファイアウォールにネットワーク ルールを追加します。
 1. ルーティング テーブルを作成します。
 
@@ -52,7 +52,7 @@ Azure Firewall を使用して既存の HDInsight からのエグレスをロッ
 
 1. **[設定]**  >  **[ルール]**  >  **[アプリケーション ルール コレクション]**  >  **[+ アプリケーション ルール コレクションの追加]** の順に移動します。
 
-    ![タイトル:アプリケーション ルール コレクションを追加する](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-app-rule-collection.png)
+    :::image type="content" source="./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-app-rule-collection.png" alt-text="タイトル:アプリケーション ルール コレクションを追加する":::
 
 1. **[アプリケーション ルール コレクションの追加]** 画面で、次の情報を入力します。
 
@@ -76,15 +76,15 @@ Azure Firewall を使用して既存の HDInsight からのエグレスをロッ
     | --- | --- | --- | --- | --- |
     | Rule_2 | * | https:443 | login.windows.net | Windows ログイン アクティビティを許可する |
     | Rule_3 | * | https:443 | login.microsoftonline.com | Windows ログイン アクティビティを許可する |
-    | Rule_4 | * | https:443、http:80 | storage_account_name.blob.core.windows.net | `storage_account_name` を実際のストレージ アカウント名に置き換えます。 https 接続のみを使用するには、[[安全な転送が必須]](../storage/common/storage-require-secure-transfer.md) がストレージ アカウントで有効になっていることを確認します。 プライベート エンドポイントを使用してストレージ アカウントにアクセスする場合、この手順は必要ありません。また、ストレージ トラフィックはファイアウォールに転送されません。|
+    | Rule_4 | * | https:443 | storage_account_name.blob.core.windows.net | `storage_account_name` を実際のストレージ アカウント名に置き換えます。 [[安全な転送が必須]](../storage/common/storage-require-secure-transfer.md) がストレージ アカウントで有効になっていることを確認します。 プライベート エンドポイントを使用してストレージ アカウントにアクセスする場合、この手順は必要ありません。また、ストレージ トラフィックはファイアウォールに転送されません。|
 
-   ![タイトル:アプリケーション ルール コレクションの詳細を入力する](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-app-rule-collection-details.png)
+   :::image type="content" source="./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-app-rule-collection-details.png" alt-text="タイトル:アプリケーション ルール コレクションの詳細を入力する":::
 
 1. **[追加]** を選択します。
 
 ### <a name="configure-the-firewall-with-network-rules"></a>ネットワーク ルールを使用してファイアウォールを構成する
 
-HDInsight クラスターを正しく構成するネットワーク ルールを作成します。
+HDInsight クラスターを正しく構成するネットワーク ルールを作成します。 
 
 1. 前の手順に続けて、 **[ネットワーク ルール コレクション]**  >  **[+ ネットワーク ルール コレクションの追加]** の順に移動します。
 
@@ -102,14 +102,14 @@ HDInsight クラスターを正しく構成するネットワーク ルールを
 
     | 名前 | Protocol | ソース アドレス | サービス タグ | ターゲット ポート | Notes |
     | --- | --- | --- | --- | --- | --- |
-    | Rule_5 | TCP | * | SQL | 1433 | HDInsight によって提供される既定の SQL Server を使用している場合は、SQL の [サービス タグ] セクションで、SQL トラフィックのログを記録して監査するためのネットワーク ルールを構成します。 HDInsight サブネットで SQL Server 用にサービス エンドポイントを構成していない限り、ファイアウォールはバイパスされます。 Ambari、Oozie、Ranger、および Hive のメタストアにカスタム SQL サーバーを使用している場合は、独自のカスタム SQL サーバーへのトラフィックの許可のみが必要になります。|
+    | Rule_5 | TCP | * | SQL | 1433、11000-11999 | HDInsight によって提供される既定の SQL Server を使用している場合は、SQL の [サービス タグ] セクションで、SQL トラフィックのログを記録して監査するためのネットワーク ルールを構成します。 HDInsight サブネットで SQL Server 用にサービス エンドポイントを構成していない限り、ファイアウォールはバイパスされます。 Ambari、Oozie、Ranger、および Hive のメタストアにカスタム SQL サーバーを使用している場合は、独自のカスタム SQL サーバーへのトラフィックの許可のみが必要になります。 1433 に加えて 11000-11999 のポート範囲も必要である理由を確認するには、「[Azure SQL Database と Azure Synapse Analytics の接続アーキテクチャ](../azure-sql/database/connectivity-architecture.md)」を参照してください。 |
     | Rule_6 | TCP | * | Azure Monitor | * | (省略可能) 自動スケール機能を使用する予定のお客様は、このルールを追加する必要があります。 |
     
-   ![タイトル:アプリケーション ルール コレクションを入力する](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-network-rule-collection.png)
+   :::image type="content" source="./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-network-rule-collection.png" alt-text="タイトル:アプリケーション ルール コレクションを入力する":::
 
 1. **[追加]** を選択します。
 
-### <a name="create-and-configure-a-route-table"></a>ルート テーブルを作成して構成する
+### <a name="create-and-configure-a-route-table"></a>ルート テーブルを作成して構成する 
 
 次のエントリを使用してルート テーブルを作成します。
 

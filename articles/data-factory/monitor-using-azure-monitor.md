@@ -3,16 +3,16 @@ title: Azure Monitor を使用して、データ ファクトリを監視する
 description: Azure Data Factory からの情報を使用して診断ログを有効にし、Azure Monitor を使用して Data Factory パイプラインを監視する方法を説明します。
 author: dcstwh
 ms.author: weetok
-ms.reviewer: maghan
+ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 07/13/2020
-ms.openlocfilehash: 09456c06f2a171ec32c1b885dc2b4e475fea5371
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: bceacf0a22b7add0533b72b4ebf06d503366baa4
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102550299"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105932490"
 ---
 # <a name="monitor-and-alert-data-factory-by-using-azure-monitor"></a>Azure Monitor を使用してデータ ファクトリの監視とアラート送信を行う
 
@@ -76,7 +76,7 @@ Data Factory では、パイプライン実行データを 45 日間だけ格納
    ![設定に名前を付けてログ分析ワークスペースを選択する](media/data-factory-monitor-oms/monitor-oms-image2.png)
 
     > [!NOTE]
-    > Azure ログ テーブルには 500 個を超える列を含めることができないため、"_リソース固有モード_" を選択することを **強くお勧めします**。 詳細については、[Azure Diagnostics のログ リファレンス](/azure-monitor/reference/tables/azurediagnostics#additionalfields-column)に関するページを参照してください。
+    > Azure ログ テーブルには 500 個を超える列を含めることができないため、"_リソース固有モード_" を選択することを **強くお勧めします**。 詳細については、[Azure Diagnostics のログ リファレンス](/azure/azure-monitor/reference/tables/azurediagnostics)に関するページを参照してください。
 
 1. **[保存]** を選択します。
 
@@ -265,11 +265,11 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 }
 ```
 
-| プロパティ | 種類 | 説明 |
+| プロパティ | Type | 説明 |
 | --- | --- | --- |
 | **storageAccountId** |String | 診断ログを送信するストレージ アカウントのリソース ID。 |
 | **serviceBusRuleId** |String | 診断ログのストリーミングのために Event Hubs を作成するサービス バス名前空間のサービス バス ルール ID。 ルール ID の形式は、`{service bus resource ID}/authorizationrules/{key name}` です。|
-| **workspaceId** | 複合型 | メトリックの時間グレインと、その保持ポリシーの配列。 このプロパティの値は空です。 |
+| **workspaceId** | String | ログが保存されるワークスペースのワークスペース ID。 |
 |**メトリック**| 呼び出されたパイプラインに渡されるパイプライン実行のパラメーター値| パラメーター名を引数値にマップする JSON オブジェクト。 |
 | **logs**| 複合型| リソースの種類に対応する診断ログ カテゴリの名前。 リソースの診断ログ カテゴリの一覧を取得するには、診断設定の取得操作を実行します。 |
 | **category**| String| ログ カテゴリとその保持ポリシーの配列。 |
@@ -438,7 +438,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 }
 ```
 
-| プロパティ | 種類 | 説明 | 例 |
+| プロパティ | Type | 説明 | 例 |
 | --- | --- | --- | --- |
 | **Level** |String | 診断ログのレベル。 アクティビティ実行ログの場合は、プロパティ値を 4 に設定します。 | `4` |
 | **correlationId** |String | 特定の要求を追跡するための一意の ID。 | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
@@ -484,7 +484,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 }
 ```
 
-| プロパティ | 種類 | 説明 | 例 |
+| プロパティ | Type | 説明 | 例 |
 | --- | --- | --- | --- |
 | **Level** |String | 診断ログのレベル。 アクティビティ実行ログの場合は、プロパティ値を 4 に設定します。 | `4` |
 | **correlationId** |String | 特定の要求を追跡するための一意の ID。 | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
@@ -527,7 +527,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 }
 ```
 
-| プロパティ | 種類 | 説明 | 例 |
+| プロパティ | Type | 説明 | 例 |
 | --- | --- | --- | --- |
 | **Level** |String | 診断ログのレベル。 アクティビティ実行ログの場合は、プロパティ値を 4 に設定します。 | `4` |
 | **correlationId** |String | 特定の要求を追跡するための一意の ID。 | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
@@ -564,7 +564,7 @@ SSIS IR の開始/停止/メンテナンス操作のログの属性を次に示�
 }
 ```
 
-| プロパティ                   | 種類   | 説明                                                   | 例                        |
+| プロパティ                   | Type   | 説明                                                   | 例                        |
 | -------------------------- | ------ | ------------------------------------------------------------- | ------------------------------ |
 | **time**                   | String | イベントの時刻 (UTC 形式): `YYYY-MM-DDTHH:MM:SS.00000Z` | `2017-06-28T21:00:27.3534352Z` |
 | **operationName**          | String | SSIS IR 操作の名前                            | `Start/Stop/Maintenance` |
@@ -604,7 +604,7 @@ SSIS IR での SSIS パッケージ実行により生成されるイベント �
 }
 ```
 
-| プロパティ                   | 種類   | 説明                                                          | 例                        |
+| プロパティ                   | Type   | 説明                                                          | 例                        |
 | -------------------------- | ------ | -------------------------------------------------------------------- | ------------------------------ |
 | **time**                   | String | イベントの時刻 (UTC 形式): `YYYY-MM-DDTHH:MM:SS.00000Z`        | `2017-06-28T21:00:27.3534352Z` |
 | **operationName**          | String | これは `YourSSISIRName-SSISPackageEventMessageContext` に設定されています       | `mysqlmissisir-SSISPackageEventMessageContext` |
@@ -654,7 +654,7 @@ SSIS IR での SSIS パッケージ実行により生成されるイベント �
 }
 ```
 
-| プロパティ                   | 種類   | 説明                                                        | 例                        |
+| プロパティ                   | Type   | 説明                                                        | 例                        |
 | -------------------------- | ------ | ------------------------------------------------------------------ | ------------------------------ |
 | **time**                   | String | イベントの時刻 (UTC 形式): `YYYY-MM-DDTHH:MM:SS.00000Z`      | `2017-06-28T21:00:27.3534352Z` |
 | **operationName**          | String | これは `YourSSISIRName-SSISPackageEventMessages` に設定されています           | `mysqlmissisir-SSISPackageEventMessages` |
@@ -703,7 +703,7 @@ SSIS IR での SSIS パッケージ実行により生成される実行可能フ
 }
 ```
 
-| プロパティ                   | 種類   | 説明                                                      | 例                        |
+| プロパティ                   | Type   | 説明                                                      | 例                        |
 | -------------------------- | ------ | ---------------------------------------------------------------- | ------------------------------ |
 | **time**                   | String | イベントの時刻 (UTC 形式): `YYYY-MM-DDTHH:MM:SS.00000Z`    | `2017-06-28T21:00:27.3534352Z` |
 | **operationName**          | String | これは `YourSSISIRName-SSISPackageExecutableStatistics` に設定されています  | `mysqlmissisir-SSISPackageExecutableStatistics` |
@@ -748,7 +748,7 @@ SSIS IR での SSIS パッケージ実行により生成されるデータ フ�
 }
 ```
 
-| プロパティ                   | 種類   | 説明                                                         | 例                        |
+| プロパティ                   | Type   | 説明                                                         | 例                        |
 | -------------------------- | ------ | ------------------------------------------------------------------- | ------------------------------ |
 | **time**                   | String | イベントの時刻 (UTC 形式): `YYYY-MM-DDTHH:MM:SS.00000Z`       | `2017-06-28T21:00:27.3534352Z` |
 | **operationName**          | String | これは `YourSSISIRName-SSISPackageExecutionComponentPhases` に設定されています | `mysqlmissisir-SSISPackageExecutionComponentPhases` |
@@ -796,7 +796,7 @@ SSIS IR での SSIS パッケージ実行により生成されるデータ フ�
 }
 ```
 
-| プロパティ                     | 種類   | 説明                                                        | 例                        |
+| プロパティ                     | Type   | 説明                                                        | 例                        |
 | ---------------------------- | ------ | ------------------------------------------------------------------ | ------------------------------ |
 | **time**                     | String | イベントの時刻 (UTC 形式): `YYYY-MM-DDTHH:MM:SS.00000Z`      | `2017-06-28T21:00:27.3534352Z` |
 | **operationName**            | String | これは `YourSSISIRName-SSISPackageExecutionDataStatistics` に設定されています | `mysqlmissisir-SSISPackageExecutionDataStatistics` |

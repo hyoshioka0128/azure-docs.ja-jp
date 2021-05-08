@@ -4,12 +4,12 @@ description: Azure Backup Server を使用して Exchange サーバーを Azure 
 ms.reviewer: kasinh
 ms.topic: conceptual
 ms.date: 03/24/2017
-ms.openlocfilehash: 86389ef89ced74905db0fc8bfeaabcea6140762a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f3a7fae5a1f5ec933c015546ddf2bdb2898e3904
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91262996"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107515500"
 ---
 # <a name="back-up-an-exchange-server-to-azure-with-azure-backup-server"></a>Azure Backup Server を使用して Exchange サーバーを Azure にバックアップする
 
@@ -30,7 +30,7 @@ Exchange サーバーに MABS 保護エージェントをインストールす�
 
 1. MABS 管理コンソールで **[保護]** を選択し、次にツール リボンの **[新規]** を選択して、 **[新しい保護グループの作成]** ウィザードを開きます。
 2. ウィザードの **[ようこそ]** 画面で **[次へ]** を選択します。
-3. **[保護グループの種類の選択]** 画面で、 **[サーバー]** を選択し、 **[次へ]** を選択します。
+3. [**保護グループの種類の選択]** 画面で、 **[サーバー]** を選択し、 **[次へ]** を選択します。
 4. 保護する Exchange サーバー データベースを選択し、 **[次へ]** を選択します。
 
    > [!NOTE]
@@ -79,7 +79,7 @@ Exchange サーバーに MABS 保護エージェントをインストールす�
     > オンライン回復ポイントは高速完全回復ポイントに基づいています。 そのため、オンライン回復ポイントは、高速完全回復ポイントに指定した時刻より後にスケジュールする必要があります。
     >
     >
-16. **Azure Backup** のアイテム保持ポリシーを構成し、 **[次へ]** を選択します。
+16. **Azure Backup** のアイテム保持ポリシーを構成して、 **[次へ]** を選択します。
 17. オンライン レプリケーション オプションを選択し、 **[次へ]** を選択します。
 
     データベースの規模が大きい場合は、ネットワーク経由で最初のバックアップを作成するのに時間がかかる可能性があります。 この問題を回避するには、オフライン バックアップを作成します。  
@@ -93,7 +93,7 @@ Exchange サーバーに MABS 保護エージェントをインストールす�
 1. Exchange データベースを回復するには、MABS 管理コンソールで **[回復]** を選択します。
 2. 回復する Exchange データベースを特定します。
 3. *[回復時刻]* ドロップダウン リストからオンライン回復ポイントを選択します。
-4. **[回復]** を選択して、**回復ウィザード**を開始します。
+4. **[回復]** を選択して、**回復ウィザード** を開始します。
 
 オンライン回復ポイントでは、5 種類の回復があります。
 
@@ -107,4 +107,4 @@ Exchange サーバーに MABS 保護エージェントをインストールす�
 
 ## <a name="next-steps"></a>次のステップ
 
-* [Azure Backup FAQ](backup-azure-backup-faq.md)
+* [Azure Backup FAQ](backup-azure-backup-faq.yml)

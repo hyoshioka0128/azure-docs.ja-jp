@@ -1,18 +1,15 @@
 ---
 title: Azure Site Recovery を使用したセカンダリ サイトへの VMware VM または物理的なディザスター リカバリーのアーキテクチャ
 description: この記事では、Azure Site Recovery を使用して、オンプレミスの VMware VM または Windows/Linux 物理サーバーをセカンダリ VMware サイトでのディザスター リカバリーの際に使用されるコンポーネントとアーキテクチャの概要を説明します。
-author: rayne-wiselman
-manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/12/2019
-ms.author: raynew
-ms.openlocfilehash: d400e6bcda0a2114d798a3289f01f52b677a6f94
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 032f8619a1f8d4299af1eb069fdccba1307542d4
+ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97656497"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106579512"
 ---
 # <a name="architecture-for-vmwarephysical-server-replication-to-a-secondary-on-premises-site"></a>セカンダリ オンプレミス サイトへの VMware または物理サーバーのレプリケーションのためのアーキテクチャ
 
@@ -33,7 +30,7 @@ ms.locfileid: "97656497"
 
 ## <a name="set-up-outbound-network-connectivity"></a>発信ネットワーク接続を設定する
 
-Site Recovery を期待どおりに動作させるためには、環境でレプリケートが可能になるように、発信ネットワーク接続を変更する必要があります。
+Site Recovery を期待どおりに動作させるためには、環境でレプリケートが可能になるように、送信ネットワーク接続を変更する必要があります。
 
 > [!NOTE]
 > Site Recovery では、ネットワーク接続を制御するための認証プロキシの使用をサポートしていません。

@@ -2,6 +2,8 @@
 title: Azure でサポートされているメインフレーム ワークロード | Microsoft Docs
 description: メインフレーム エミュレーターや Microsoft パートナーの他のサービスを使用して、Microsoft Azure を使用する IBM Z ベースのシステムなどのメインフレーム ワークロードをリホストします。
 services: virtual-machines
+ms.service: virtual-machines
+ms.subservice: mainframe-rehosting
 documentationcenter: ''
 author: njray
 manager: edprice
@@ -9,13 +11,12 @@ editor: edprice
 ms.author: larryme
 ms.date: 05/09/2020
 ms.topic: article
-ms.service: multiple
-ms.openlocfilehash: 679cc68a0f43d6bff74fef85d705544db2f2585b
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: 0b3dd754e226436cb26cbb808bf37e4262efa344
+ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102558255"
+ms.lasthandoff: 04/18/2021
+ms.locfileid: "107599555"
 ---
 # <a name="mainframe-workloads-supported-on-azure"></a>Azure でサポートされているメインフレーム ワークロード
 
@@ -51,7 +52,7 @@ ms.locfileid: "102558255"
 
 ## <a name="code-conversion"></a>コード変換
 
-- ソースコード、データ、バッチ、スケジュール、TP モニター、インターフェイス、セキュリティ、管理などを対象とする [Asysco](https://www.asysco.com/azure-cloud/) システム変換テクノロジ。
+- ソースコード、データ、バッチ、スケジュール、TP モニター、インターフェイス、セキュリティ、管理などを対象とする [Asysco](https://asysco.com/) システム変換テクノロジ。
 - インベントリと分析、設計トレーニング、最終リハーサル、移行後のサポートなど、移行プロジェクト用の [Asysco AMT Services](https://www.asysco.com/migration-services/) エンドツーエンド サービス。
 - [Blu Age](https://www.bluage.com/) ツール。レガシ ビジネス アプリケーションおよびデータベースをデジタル化します。
 - [Heirloom Computing](https://www.heirloomcomputing.com/tag/convert-cobol-to-java/) サービス。メインフレームの COBOL、CICS、VSAM を Java に変換します。

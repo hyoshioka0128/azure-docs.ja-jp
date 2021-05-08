@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 03/12/2019
-ms.openlocfilehash: e22d28215c06de96d31faec71f4fb595bb74a4a6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 88032183825443aa3a3945530e2203e5500248a6
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87495269"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107791321"
 ---
 # <a name="use-cli-to-copy-a-database-in-azure-sql-database-to-a-new-server"></a>CLI を使用して Azure SQL Database のデータベースを新しいサーバーにコピーする
 
@@ -42,7 +42,7 @@ az account set -s $subscription # ...or use 'az login'
 
 ### <a name="clean-up-deployment"></a>デプロイのクリーンアップ
 
-リソース グループと、それに関連付けられているすべてのリソースを削除するには、次のコマンドを使用します。
+次のコマンドを使用して、リソース グループと、それに関連付けられているすべてのリソースを削除します。
 
 ```azurecli-interactive
 az group delete --name $resource
@@ -53,9 +53,9 @@ az group delete --name $targetResource
 
 このスクリプトでは、次のコマンドを使用します。 表内の各コマンドは、それぞれのドキュメントにリンクされています。
 
-| command | 説明 |
+| コマンド | 説明 |
 |---|---|
-| [az sql db copy](/cli/azure/sql/db#az-sql-db-copy) | 現在の時刻でのスナップショットを使用するデータベースのコピーを作成します。 |
+| [az sql db copy](/cli/azure/sql/db#az_sql_db_copy) | 現在の時刻でのスナップショットを使用するデータベースのコピーを作成します。 |
 
 ## <a name="next-steps"></a>次のステップ
 

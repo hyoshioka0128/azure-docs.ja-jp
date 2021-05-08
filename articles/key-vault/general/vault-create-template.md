@@ -3,19 +3,18 @@ title: ARM テンプレートを使用した Azure キー コンテナーとコ�
 description: この記事では、Azure Resource Manager テンプレートを使用して、Azure キー コンテナーとコンテナーのアクセス ポリシーを作成する方法について説明します。
 services: key-vault
 author: msmbaldwin
-manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.date: 10/5/2020
+ms.date: 3/14/2021
 ms.author: mbaldwin
-ms.openlocfilehash: 24fef1680c5660a70a20ae727833b045f6c5aa88
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: e70906cbf26c899744bfbe137da4ce9cfa651b20
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98664352"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107753148"
 ---
 # <a name="how-to-create-an-azure-key-vault-and-vault-access-policy-by-using-a-resource-manager-template"></a>Resource Manager テンプレートを使用して Azure キー コンテナーとコンテナーのアクセス ポリシーを作成する方法
 
@@ -150,7 +149,7 @@ Key Vault テンプレート設定の詳細については、[Key Vault ARM テ�
             "permissions": {
               "keys": "[parameters('keysPermissions')]",
               "secrets": "[parameters('secretsPermissions')]",
-              "certificates": "[parameters('certificatesPermissions')]"
+              "certificates": "[parameters('certificatePermissions')]"
             }
           }
         ]
@@ -218,6 +217,6 @@ Write-Host "Press [ENTER] to continue..."
 
 ## <a name="next-steps"></a>次の手順
 
-- [キー コンテナーへのアクセスをセキュリティで保護する](secure-your-key-vault.md)
+- [キー コンテナーへのアクセスをセキュリティで保護する](security-overview.md)
 - [キー コンテナーに対する認証](authentication.md)
 - [Azure Key Vault 開発者ガイド](developers-guide.md)

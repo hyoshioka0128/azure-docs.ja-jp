@@ -3,17 +3,17 @@ title: CLI スクリプト - サーバーを復元する - Azure Database for Ma
 description: この Azure CLI サンプル スクリプトでは、Azure Database for MariaDB サーバーとそのデータベースを過去の特定の時点に復元する方法を示します。
 author: savjani
 ms.author: pariks
-ms.service: jroth
+ms.service: mariadb
 ms.devlang: azurecli
 ms.topic: sample
 ms.custom: mvc, devx-track-azurecli
 ms.date: 12/02/2019
-ms.openlocfilehash: eb861a18f25e1413c9ae8ad12f6ca7c9720abbe0
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: 3c56c7d933f840e4418bd481cce0db1bc2216e3f
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98664585"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107785615"
 ---
 # <a name="restore-an-azure-database-for-mariadb-server-using-azure-cli"></a>Azure CLI を使用して Azure Database for MariaDB サーバーを復元する
 この CLI サンプル スクリプトでは、単一の Azure Database for MariaDB サーバーを過去の特定の時点に復元します。
@@ -37,10 +37,10 @@ ms.locfileid: "98664585"
 
 | **コマンド** | **注** |
 |---|---|
-| [az group create](/cli/azure/group#az-group-create) | すべてのリソースを格納するリソース グループを作成します。 |
-| [az mariadb server create](/cli/azure/mariadb/server#az-mariadb-server-create) | データベースのホストとなる MariaDB サーバーを作成します。 |
-| [az mariadb server restore](/cli/azure/mariadb/server#az-mariadb-server-restore) | バックアップからサーバーを復元します。 |
-| [az group delete](/cli/azure/group#az-group-delete) | 入れ子になったリソースすべてを含むリソース グループを削除します。 |
+| [az group create](/cli/azure/group#az_group_create) | すべてのリソースを格納するリソース グループを作成します。 |
+| [az mariadb server create](/cli/azure/mariadb/server#az_mariadb_server_create) | データベースのホストとなる MariaDB サーバーを作成します。 |
+| [az mariadb server restore](/cli/azure/mariadb/server#az_mariadb_server_restore) | バックアップからサーバーを復元します。 |
+| [az group delete](/cli/azure/group#az_group_delete) | 入れ子になったリソースすべてを含むリソース グループを削除します。 |
 
 ## <a name="next-steps"></a>次のステップ
 - Azure CLI に関する詳細を読む: [Azure CLI ドキュメント](/cli/azure)

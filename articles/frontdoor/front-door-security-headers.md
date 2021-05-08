@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/14/2020
 ms.author: duau
-ms.openlocfilehash: 1727193faa028a1d681f2a74df950afeb9570ec9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e8462b98aee1d34b6c7a2ed671667223eca45a25
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91270051"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106551919"
 ---
 # <a name="tutorial-add-security-headers-with-rules-engine"></a>チュートリアル:ルール エンジンを使用してセキュリティ ヘッダーを追加する
 
@@ -42,12 +42,15 @@ ms.locfileid: "91270051"
 
 1. ヘッダー名として「**Content-Security-Policy**」を追加し、このヘッダーで受け入れる値を定義します。 このシナリオでは、 *"script-src 'self' https://apiphany.portal.azure-api.net"* を選択します。
 
+   > [!NOTE]
+   > ヘッダー値は 128 文字までに制限されています。
+
 1. 構成に追加するルールをすべて追加したら、必ず優先ルートに移動し、ルール エンジン構成をルート ルールに関連付けてください。 この手順は、ルールを機能させるために必須です。 
 
 ![ポータル サンプル](./media/front-door-rules-engine/rules-engine-security-header-example.png)
 
 > [!NOTE]
-> このシナリオでは、ルールに[一致条件](front-door-rules-engine-match-conditions.md)を追加しませんでした。 ルート ルールに定義されているパスに一致する受信要求にはすべて、このルールが適用されます。 これらの要求の一部にのみ適用する場合、必ず特定の**一致条件**をこのルールに追加してください。
+> このシナリオでは、ルールに[一致条件](front-door-rules-engine-match-conditions.md)を追加しませんでした。 ルート ルールに定義されているパスに一致する受信要求にはすべて、このルールが適用されます。 これらの要求の一部にのみ適用する場合、必ず特定の **一致条件** をこのルールに追加してください。
 
 ## <a name="clean-up-resources"></a>リソースをクリーンアップする
 

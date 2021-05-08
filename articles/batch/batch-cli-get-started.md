@@ -4,12 +4,12 @@ description: Azure Batch サービスのリソースを管理するために使�
 ms.topic: how-to
 ms.date: 07/24/2018
 ms.custom: H1Hack27Feb2017, devx-track-azurecli
-ms.openlocfilehash: bee25d9b8985f1627a5cfc05bfb336b83be60f74
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: befe2f6fe67ce7c2c4bb61153344103ee2aa70cb
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92144756"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107768435"
 ---
 # <a name="manage-batch-resources-with-azure-cli"></a>Azure CLI で Batch リソースを管理する
 
@@ -54,7 +54,7 @@ Azure にログインするには、いくつかの方法があります。詳�
 1. [対話形式でログインします](/cli/azure/authenticate-azure-cli)。 コマンド ラインから Azure CLI コマンドを実行しているときに、対話形式でログインします。
 2. [サービス プリンシパルでログインします](/cli/azure/authenticate-azure-cli)。 スクリプトまたはアプリケーションから Azure CLI コマンドを実行しているときに、サービス プリンシパルでログインします。
 
-この記事の目的上、対話形式で Azure にログインする方法を示します。 コマンド ラインで「[az login](/cli/azure/reference-index#az-login)」と入力します。
+この記事の目的上、対話形式で Azure にログインする方法を示します。 コマンド ラインで「[az login](/cli/azure/reference-index#az_login)」と入力します。
 
 ```azurecli
 # Log in to Azure and authenticate interactively.
@@ -69,7 +69,7 @@ az login
 
 ### <a name="log-in-to-your-batch-account"></a>Batch アカウントへのログイン
 
-Azure CLI を使用してプール、ジョブ、タスクなどの Batch リソースを管理するには、Batch アカウントにログインし、認証を行う必要があります。 Batch サービスにログインするには、[az batch account login](/cli/azure/batch/account#az-batch-account-login) コマンドを使用します。 
+Azure CLI を使用してプール、ジョブ、タスクなどの Batch リソースを管理するには、Batch アカウントにログインし、認証を行う必要があります。 Batch サービスにログインするには、[az batch account login](/cli/azure/batch/account#az_batch_account_login) コマンドを使用します。 
 
 Batch アカウントでの認証には、次の 2 つの選択肢があります。
 
@@ -81,7 +81,7 @@ Batch アカウントでの認証には、次の 2 つの選択肢がありま�
 
     Azure AD の利点は、Azure ロールベースのアクセス制御 (Azure RBAC) を利用できることです。 Azure RBAC でのユーザーのアクセスは、アカウント キーを所有しているかどうかではなく、割り当てられているロールに依存します。 アカウント キーを管理する代わりに、Azure ロールを管理して、Azure AD にアクセスと認証を処理させることができます。  
 
-     Azure AD を使用して Batch アカウントにログインするには、[az batch account login](/cli/azure/batch/account#az-batch-account-login) コマンドを呼び出します。 
+     Azure AD を使用して Batch アカウントにログインするには、[az batch account login](/cli/azure/batch/account#az_batch_account_login) コマンドを呼び出します。 
 
     ```azurecli
     az batch account login -g myresource group -n mybatchaccount
@@ -119,7 +119,7 @@ az batch pool create my_batch_pool.json
 
 ほとんどの Batch リソースはコマンド ライン オプションのみを使用して作成できますが、一部の機能では、リソースの詳細が含まれている JSON 形式のファイルを指定する必要があります。 たとえば、開始タスクのリソース ファイルを指定する場合は、JSON ファイルを使用する必要があります。
 
-リソースの作成に必要な JSON 構文を確認するには、[Batch の REST API リファレンス][rest_api]のドキュメントを参照してください。 REST API リファレンスの " *リソースの種類* " の追加に関する各トピックには、そのリソースを作成するためのサンプル JSON スクリプトが含まれています。 これらのサンプル JSON スクリプトは、Azure CLI で使用する JSON ファイルのテンプレートとして使用できます。 たとえば、プールを作成する JSON 構文を確認するには、[アカウントにプールを追加する][rest_add_pool]方法に関するページを参照してください。
+リソースの作成に必要な JSON 構文を確認するには、[Batch の REST API リファレンス][rest_api]のドキュメントを参照してください。 REST API リファレンスの "*リソースの種類*" の追加に関する各トピックには、そのリソースを作成するためのサンプル JSON スクリプトが含まれています。 これらのサンプル JSON スクリプトは、Azure CLI で使用する JSON ファイルのテンプレートとして使用できます。 たとえば、プールを作成する JSON 構文を確認するには、[アカウントにプールを追加する][rest_add_pool]方法に関するページを参照してください。
 
 JSON ファイルを指定するサンプル スクリプトについては、[Batch でのジョブとタスクの実行](./scripts/batch-cli-sample-run-job.md)に関するページを参照してください。
 
@@ -156,8 +156,8 @@ OData 句で効率的なリスト クエリを実行する方法の詳細につ�
 Azure CLI の問題をトラブルシューティングするときに、以下のヒントが役に立ちます。
 
 * `-h` を使用して、任意の CLI コマンドの **ヘルプ テキスト** を取得します。
-* `-v` と `-vv` を使用して、 **詳細** なコマンド出力を表示します。 `-vv` フラグを指定すると、Azure CLI は実際の REST 要求および応答を表示します。 これらのスイッチは、完全なエラー出力を表示する場合に便利です。
-* `--json` オプションを使用すると、 **コマンド出力を JSON として** 表示できます。 たとえば、 `az batch pool show pool001 --json` を実行すると、pool001 のプロパティが JSON 形式で表示されます。 この出力をコピーして変更し、`--json-file` で使用できます (この記事の前半で説明した JSON ファイルの項目を参照してください)。
+* `-v` と `-vv` を使用して、**詳細** なコマンド出力を表示します。 `-vv` フラグを指定すると、Azure CLI は実際の REST 要求および応答を表示します。 これらのスイッチは、完全なエラー出力を表示する場合に便利です。
+* `--json` オプションを使用すると、**コマンド出力を JSON として** 表示できます。 たとえば、 `az batch pool show pool001 --json` を実行すると、pool001 のプロパティが JSON 形式で表示されます。 この出力をコピーして変更し、`--json-file` で使用できます (この記事の前半で説明した JSON ファイルの項目を参照してください)。
 <!---Loc Comment: Please, check link [JSON files] since it's not redirecting to any location.--->
 
 ## <a name="next-steps"></a>次のステップ

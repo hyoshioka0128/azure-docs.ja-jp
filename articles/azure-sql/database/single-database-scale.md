@@ -11,12 +11,12 @@ author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: sstein
 ms.date: 02/22/2021
-ms.openlocfilehash: 2aba44f6c2f10ead1827e1b1411f3824a0ec2d6c
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: c5b6509cabd743a01a085639a7b76d764555a9f8
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101658556"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106106655"
 ---
 # <a name="scale-single-database-resources-in-azure-sql-database"></a>Azure SQL Database で単一データベースのリソースをスケーリングする
 
@@ -61,7 +61,7 @@ ms.locfileid: "101658556"
 > さらに、Standard (S2-S12) データベースと General Purpose データベースでは、データベースで Premium ファイル共有 ([PFS](../../storage/files/storage-files-introduction.md)) ストレージが使用されている場合、エラスティック プールとの間、またはエラスティック プール間でデータベースを移動するための待ち時間は、データベース サイズに比例します。
 >
 > データベースで PFS ストレージが使用されているかどうかを確認するには、データベースのコンテキストで次のクエリを実行します。 AccountType 列の値が `PremiumFileStorage` または `PremiumFileStorage-ZRS` の場合、データベースでは PFS ストレージが使用されています。
- 
+
 ```sql
 SELECT s.file_id,
        s.type_desc,
@@ -70,6 +70,9 @@ SELECT s.file_id,
 FROM sys.database_files AS s
 WHERE s.type_desc IN ('ROWS', 'LOG');
 ```
+
+> [!NOTE]
+> Business Critical から General Purpose サービス レベルにスケーリングする場合、ゾーン冗長プロパティは既定で同じままになります。 ゾーン冗長性が有効になっている場合のこのダウングレードの待機時間と、General Purpose サービス レベルのゾーン冗長性に切り替えるための待機時間は、データベースのサイズに比例します。
 
 > [!TIP]
 > 実行中の操作の監視については、[SQL REST API を使った操作の管理](/rest/api/sql/operations/list)、[CLI を使った操作の管理](/cli/azure/sql/db/op)、[T-SQL を使った操作の管理](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database)に関する各ページと、2 つの PowerShell コマンド [Get-AzSqlDatabaseActivity](/powershell/module/az.sql/get-azsqldatabaseactivity) と [Stop-AzSqlDatabaseActivity](/powershell/module/az.sql/stop-azsqldatabaseactivity)。
@@ -112,7 +115,7 @@ else {
 - [geo レプリケーション](active-geo-replication-configure-portal.md)が有効な状態でデータベースをダウングレードする場合、そのプライマリ データベースを目的のサービス レベルとコンピューティング サイズにダウングレードしてから、セカンダリ データベースをダウングレードします (パフォーマンスを最大にするための一般的なガイダンス)。 別のエディションにダウングレードするには、プライマリ データベースを先にダウングレードする必要があります。
 - サービス階層によって、提供されている復元サービスは異なります。 **Basic** レベルにダウングレードする場合は、バックアップのリテンション期間が短くなります。 [Azure SQL Database のバックアップ](automated-backups-overview.md)に関する記事をご覧ください。
 - データベースに対する新しいプロパティは、変更が完了するまで適用されません。
-- サービス レベルを変更するときにデータベースをスケーリングする ( 「[待機時間](#latency)」を参照) 必要がある場合は、スケール操作と並列のリソース使用率が高いと、スケーリング時間が長くなる可能性があります。 [高速データベース復旧 (ADR)](/sql/relational-databases/accelerated-database-recovery-concepts.md) では、長期にわたるトランザクションのロールバックが遅延の主な原因になることはありませんが、並列のリソース使用率が高いと、特に、コンピューティングのサイズが小さい場合に、スケーリングのために残されるコンピューティング、ストレージ、ネットワーク帯域幅のリソースが減ってしまうことがあります。
+- サービス レベルを変更するときにデータベースをスケーリングする ( 「[待機時間](#latency)」を参照) 必要がある場合は、スケール操作と並列のリソース使用率が高いと、スケーリング時間が長くなる可能性があります。 [高速データベース復旧 (ADR)](/sql/relational-databases/accelerated-database-recovery-concepts) では、長期にわたるトランザクションのロールバックが遅延の主な原因になることはありませんが、並列のリソース使用率が高いと、特に、コンピューティングのサイズが小さい場合に、スケーリングのために残されるコンピューティング、ストレージ、ネットワーク帯域幅のリソースが減ってしまうことがあります。
 
 ## <a name="billing"></a>課金
 

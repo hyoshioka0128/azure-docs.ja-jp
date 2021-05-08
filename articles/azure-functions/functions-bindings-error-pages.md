@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 10/01/2020
 ms.author: cshoe
 ms.openlocfilehash: e52babd5b0612b4590f1422a941b25ba30c3f169
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/03/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "93284457"
 ---
 # <a name="azure-functions-error-handling-and-retries"></a>Azure Functions のエラー処理と再試行
@@ -24,7 +24,7 @@ Azure Functions でエラーを処理することは、データの喪失やイ�
 
 ## <a name="binding-error-codes"></a>エラー コードのバインド
 
-Azure サービスと統合すると、基盤となるサービスの API からのエラーが発生する場合があります。 バインド固有のエラーに関する情報は、以下の記事の「 **例外とリターン コード** 」セクションにあります。
+Azure サービスと統合すると、基盤となるサービスの API からのエラーが発生する場合があります。 バインド固有のエラーに関する情報は、以下の記事の「**例外とリターン コード**」セクションにあります。
 
 + [Azure Cosmos DB](functions-bindings-cosmosdb.md#exceptions-and-return-codes)
 
